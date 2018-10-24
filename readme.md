@@ -1,5 +1,10 @@
 # Ulos Zone
 
+## Prerequisite
+- PHP 7.2
+- Composer
+- Maria DB
+
 ## Installation
 - Clone this project
 - Run `composer install` to download all dependencies
