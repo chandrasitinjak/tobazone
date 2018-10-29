@@ -16,6 +16,11 @@
 
                     You are logged in!
                 </div>
+
+                <div class="card-body">
+                    <a href="{{ url('/product') }}">Product</a>
+                    <a href="{{ url('/product/create')}}">Create Product</a>
+                </div>
             </div>
         </div>
     </div>

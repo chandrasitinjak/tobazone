@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/product', 'ProductController@index')->name('product')->middleware('role:costumer|admin');
+Route::get('/product/create', 'ProductController@create')->name('product.create')->middleware('role:merchant|admin');
+
