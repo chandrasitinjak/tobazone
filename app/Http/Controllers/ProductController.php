@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('Product.index');
+        return view('products.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('Product.create');
+        return view('products.create');
     }
 
     /**
@@ -35,19 +35,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-            $product = new Product();
+            dd($request->all());
+         /*   $product = new Product();
+            $product->user_id = 1;
             $product->name = $request->name;
             $product->price = $request->price;
-            $product->stock = $request->stock
+            $product->stock = $request->stock;
             $product->sold = $request->sold;
             $product->specification = $request->specification;
+            $product->description = $request->description;
             $product->color = $request->color;
-            $product->image = $request->image;
-
+            $product->images = $request->image;
             $product->save();  
 
            /* Product::create($request->all());*/
-            return redirect()->route('/products')->with('success', 'Product created successfully.');
+            // return redirect()->route('/products')->with('success', 'Product created successfully.');
     }
 
     /**
@@ -55,7 +57,7 @@ class ProductController extends Controller
      *
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
-     */
+     
     public function show(Product $product)
     {
         //

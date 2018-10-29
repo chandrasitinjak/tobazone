@@ -1,4 +1,4 @@
-@extends ('Product.layout')
+@extends ('products.layout')
 
 @section('content')
 	<h1 class="text-center">Product View </h1>

@@ -1,10 +1,9 @@
-@extends ('Product.layout')
+@extends ('products.layout')
 
 @section('content')
 	<h1 class="text-center"> CRUD Product</h1>
 
 	<div class="row">
-		<a href="{{url('/products/store')}}" class="btn btn-primary pull-right"> Create </a>
 		<div class="col-md-6 col-md-offset-9">
 			<form method="post" action="{{url('/products/store')}}">
 				@csrf
