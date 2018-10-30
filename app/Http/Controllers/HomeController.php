@@ -27,6 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $user->assignRole('admin');
         $roles = $user->getRoleNames();
         foreach($roles as $role){
             if( $role == 'admin'){
