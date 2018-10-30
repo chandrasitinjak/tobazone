@@ -41,7 +41,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->price = $request->price;
         $product->stock = $request->stock;
-        $product->sold = $request->sold;
+        $product->sold = 0;
         $product->specification = $request->specification;
         $product->description = $request->description;
         $product->color = $request->color;
@@ -56,10 +56,11 @@ class ProductController extends Controller
      *
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
-     
-    public function show(Product $product)
+    */ 
+    public function show($id)
     {
-        //
+        $product = Product::find($id);
+        return view('products.show')->with('product', $product);
     }
 
     /**
@@ -68,9 +69,10 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('products.edit')->with('product', $product);
     }
 
     /**
@@ -80,9 +82,19 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->stock = $request->stock;
+        $product->description = $request->description;
+        $product->specification = $request->specification;
+        $product->color = $request->color;
+        $product->images = $request->image;
+        $product->update();
+
+        return redirect('products/'. $id);
     }
 
     /**
@@ -91,8 +103,9 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $product = Product::find($id)->delete();
+        return redirect('/products');
     }
 }
