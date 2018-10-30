@@ -25,8 +25,8 @@ class RoleController extends Controller
     $role->update();
   }
 
-  public function destroy(Payment $payment)
+  public function destroy($id)
   {
-        //
+    
   }
 }

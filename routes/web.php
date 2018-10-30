@@ -26,6 +26,10 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
         Route::post('/roles/update/{id}', 'RoleController@update');
+
+        Route::get('/permissions', 'PermissionController@index');
+        Route::post('/permissions/store', 'PermissionController@store');
+        Route::post('/permissions/update/{id}', 'PermissionController@update');
     });
     Route::middleware('role:merchant')->group(function(){
        //
