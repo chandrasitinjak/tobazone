@@ -20,10 +20,6 @@
 					<input type="text" name="stock" class="form-control">
 				</div>
 				<div>
-					<label> Sold </label>
-					<input type="text" name="sold" class="form-control">
-				</div>
-				<div>
 					<label> Description </label>
 					<input type="text" name="description" class="form-control">
 				</div>

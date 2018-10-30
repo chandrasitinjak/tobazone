@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('products.index');
+        $products = Product::all();
+        return view('products.index')->with('products', $products);
     }
 
     /**
@@ -35,21 +36,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-            dd($request->all());
-         /*   $product = new Product();
-            $product->user_id = 1;
-            $product->name = $request->name;
-            $product->price = $request->price;
-            $product->stock = $request->stock;
-            $product->sold = $request->sold;
-            $product->specification = $request->specification;
-            $product->description = $request->description;
-            $product->color = $request->color;
-            $product->images = $request->image;
-            $product->save();  
+        $product = new Product();
+        $product->user_id = 1;
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->stock = $request->stock;
+        $product->sold = $request->sold;
+        $product->specification = $request->specification;
+        $product->description = $request->description;
+        $product->color = $request->color;
+        $product->images = $request->image;
+        $product->save();  
 
-           /* Product::create($request->all());*/
-            // return redirect()->route('/products')->with('success', 'Product created successfully.');
+        return redirect('/products')->with('success', 'Product created successfully.');
     }
 
     /**

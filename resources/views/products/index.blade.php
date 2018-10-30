@@ -16,9 +16,20 @@
 				<td> Image </td>
 				<td> Color </td>
 			</thead>
-
+	
 			<tbody>
-				
+				@foreach($products as $product)
+					<tr>
+						<td> {{ $product->name }} </td>
+						<td> {{ $product->price }} </td>
+						<td> {{ $product->stock }} </td>
+						<td> {{ $product->sold }} </td>
+						<td> {{ $product->description }} </td>
+						<td> {{ $product->spesification }} </td>
+						<td> {{ $product->image }} </td>
+						<td> {{ $product->color }} </td>
+					</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

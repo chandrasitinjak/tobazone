@@ -10,6 +10,6 @@ class Product extends Model
         return $this->belongsTo('App\User');
     }
 
-    protected $fillable =['name', 'price', 'stock', 'solde', 'description', 'specification', 'image', 'color'];
+    protected $fillable = ['name', 'price', 'stock', 'description', 'specification', 'image', 'color'];
 }
 	

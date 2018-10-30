@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('specification');
             $table->string('color');
-            $table->string('deleted_at');
+            $table->string('deleted_at')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
