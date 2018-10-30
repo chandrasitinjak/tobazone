@@ -16,8 +16,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/product', 'ProductController@index')->name('product')->middleware('role:costumer|admin');
-Route::get('/product/create', 'ProductController@create')->name('product.create')->middleware('role:merchant|admin');
+Route::get('/products', 'ProductController@index');
+Route::get('/products/create', 'ProductController@create');
+Route::post('/products/store', 'ProductController@store');
+Route::get('/products/{id}', 'ProductController@show');
+Route::get('/products/edit/{id}', 'ProductController@edit');
+Route::post('/products/update/{id}', 'ProductController@update');
+Route::post('/products/delete/{id}', 'ProductController@destroy');
 
