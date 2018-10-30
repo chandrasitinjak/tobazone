@@ -96,7 +96,10 @@
 
                     <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                    <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: block;">
+                        {{ csrf_field() }}
+                        <button class="btn btn-sm" style="border: none;"><i class="fa fa-power -off"></i> Logout </button>
+                    </form>
                 </div>
             </div>
 
