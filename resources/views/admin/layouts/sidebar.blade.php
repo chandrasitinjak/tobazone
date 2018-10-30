@@ -67,15 +67,14 @@
                         <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html">Vector Maps</a></li>
                     </ul>
                 </li>
-                <li class="menu-title">Extras</li>
+
+                <li class="menu-title">Role and Permission</li>
                 <!-- /.menu-title -->
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
-                        <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>
-                    </ul>
+                <li>
+                    <a href="{{ url('/roles')}}"> <i class="menu-icon fa fa-key"></i>Role </a>
+                </li>
+                <li>
+                    <a href="{{ url('/permissions')}}"> <i class="menu-icon fa fa-lock"></i>Permission </a>
                 </li>
             </ul>
         </div>
