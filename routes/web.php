@@ -16,12 +16,41 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/products', 'ProductController@index');
-Route::get('/products/create', 'ProductController@create');
-Route::post('/products/store', 'ProductController@store');
-Route::get('/products/{id}', 'ProductController@show');
-Route::get('/products/edit/{id}', 'ProductController@edit');
-Route::post('/products/update/{id}', 'ProductController@update');
-Route::post('/products/delete/{id}', 'ProductController@destroy');
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/home', 'HomeController@index')->name('home');
+    
+    Route::middleware('role:admin')->group(function(){
+        Route::get('/admin', 'AdminController@index');
+    });
+    Route::middleware('role:merchant')->group(function(){
+       //
+    });
+    Route::middleware('role:costumer')->group(function(){
+       //
+    });
+
+    Route::middleware('role:costumer|admin')->group(function(){
+        Route::get('/products', 'ProductController@index');
+    });
+
+    Route::middleware('role:merchant|admin')->group(function(){
+        Route::get('/products/create', 'ProductController@index');
+        Route::post('/products/store', 'ProductController@store');
+        Route::get('/products/edit/{id}', 'ProductController@edit');
+        Route::post('/products/update/{id}', 'ProductController@update');
+        Route::post('/products/delete/{id}', 'ProductController@destroy');
+    });
+
+    Route::middleware('role:merchant|costumer')->group(function(){
+        
+    });
+
+    Route::middleware('role:admin|merchant|costumer')->group(function(){
+        Route::get('/products/{id}', 'ProductController@show');
+    });
+});
+
+
+
 
