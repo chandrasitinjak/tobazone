@@ -18,8 +18,8 @@
         <!-- Nav Start -->
         <div class="classynav">
           <ul>
-            <li><a href="{{url('/merchant/products')}}">My Product</a></li>
-            <li><a href="{{url('/merchant/orders')}}">My Order</a></li>
+            <li><a href="{{url('/products')}}">My Product</a></li>
+            <li><a href="{{url('/orders')}}">My Order</a></li>
           </ul>
         </div>
         <!-- Nav End -->

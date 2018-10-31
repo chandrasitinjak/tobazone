@@ -6,7 +6,7 @@
       <!-- Widget Title -->
       <h6 class="widget-title mb-30">Menu</h6>
 
-      <a href="{{url('/merchant/products/create')}}">
+      <a href="{{url('/products/create')}}">
         <h5> Add Product </h5>
       </a>
 

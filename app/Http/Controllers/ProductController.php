@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -14,8 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('products.index')->with('products', $products);
+        $products = Product::where('user_id', Auth::user()->id)->get();
+        return view('users.merchants.products.index')->with('products', $products);
     }
 
     /**
@@ -37,7 +38,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product();
-        $product->user_id = 1;
+        $product->user_id = Auth::user()->id;
         $product->name = $request->name;
         $product->price = $request->price;
         $product->stock = $request->stock;
@@ -45,7 +46,7 @@ class ProductController extends Controller
         $product->specification = $request->specification;
         $product->description = $request->description;
         $product->color = $request->color;
-        $product->images = $request->image;
+        $product->images = json_encode($request->images);
         $product->save();  
 
         return redirect('/products')->with('success', 'Product created successfully.');
