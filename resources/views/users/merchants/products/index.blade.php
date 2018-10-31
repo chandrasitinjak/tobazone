@@ -18,8 +18,7 @@
 <section class="shop_grid_area section-padding-80">
   <div class="container">
     <div class="row">
-
-      @include('users.merchants.sidebar')
+  @include('users.merchants.sidebar')
 
       <div class="col-12 col-md-8 col-lg-9">
         <div class="shop_grid_product_area">
@@ -49,43 +48,20 @@
 
           <div class="row">
             @foreach ($products as $product)
-              <div class="col-12 col-sm-6 col-lg-4">
-                <div class="single-product-wrapper">
-                  <!-- Product Image -->
-                  <div class="product-img">
-                    {{ $product->images }}
-                    <img src="/user-assets/img/product-img/product-1.jpg" alt="">
-                    <!-- Hover Thumb -->
-                    <img class="hover-img" src="/user-assets/img/product-img/product-2.jpg" alt="">
-  
-                    <!-- Product Badge -->
-                    <div class="product-badge offer-badge">
-                      <span>-30%</span>
-                    </div>
-                    <!-- Favourite -->
-                    <div class="product-favourite">
-                      <a href="#" class="favme fa fa-heart"></a>
-                    </div>
-                  </div>
-  
-                  <!-- Product Description -->
-                  <div class="product-description">
-                    <span>topshop</span>
-                    <a href="single-product-details.html">
-                      <h6>Knot Front Mini Dress</h6>
-                    </a>
-                    <p class="product-price"><span class="old-price">$75.00</span> $55.00</p>
-  
-                    <!-- Hover Content -->
-                    <div class="hover-content">
-                      <!-- Add to Cart -->
-                      <div class="add-to-cart-btn">
-                        <a href="#" class="btn essence-btn">Add to Cart</a>
-                      </div>
-                    </div>
-                  </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="single-product-wrapper">
+                <div class="product-img">
+                  <img src="{{ "/images/" . json_decode($product->images)[0]}}" alt="">
+                </div>
+
+                <div class="product-description">
+                  <a href="single-product-details.html">
+                    <h6>{{ $product->name }}</h6>
+                  </a>
+                  <p class="product-price"> IDR {{ $product->price }}</p>
                 </div>
               </div>
+            </div>
             @endforeach
           </div>
         </div>

@@ -21,7 +21,7 @@
   @include('users.merchants.sidebar')
 
       <div class="col-12 col-md-8 col-lg-9">
-        <form class="form-group" method="POST" action="{{ url('/products/store') }}">
+        <form class="form-group" method="POST" action="{{ url('/products/store') }}" enctype="multipart/form-data">
           {{ csrf_field() }}
 
           <div>
