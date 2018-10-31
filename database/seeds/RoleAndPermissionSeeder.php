@@ -22,10 +22,15 @@ class RoleAndPermissionSeeder extends Seeder
         $role = Role::create(['name' => 'admin']);
         $role->givePermissionTo(Permission::all());
 
-        Role::create(['name' => 'merchant']);
-        Role::create(['name' => 'customer']);
-
         $user = User::find(1);
         $user->assignRole('admin');
+
+        Role::create(['name' => 'merchant']);
+        $user = User::find(2);
+        $user->assignRole('merchant');
+
+        Role::create(['name' => 'customer']);
+        $user = User::find(3);
+        $user->assignRole('customer');
     }
 }
