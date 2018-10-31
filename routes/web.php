@@ -1,5 +1,7 @@
 <?php
 
+use function foo\func;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +35,13 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/permissions/update/{id}', 'PermissionController@update');
     });
     Route::middleware('role:merchant')->group(function(){
-       //
+        Route::get('/merchant', 'MerchantController@index');
+
+        Route::prefix('/merchant/products')->group(function() {
+            Route::get('/', 'MerchantController@products');
+            Route::get('/create', 'ProductController@create');
+        });
+        Route::get('/merchant/orders', 'MerchantController@orders');
     });
     Route::middleware('role:costumer')->group(function(){
        //
