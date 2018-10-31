@@ -72,7 +72,7 @@
       var filesInput = document.getElementById("files");
       
       filesInput.addEventListener("change", function(event){
-        var files = event.target.files; //FileList object
+        var files = event.target.files; 
         var output = document.getElementById("result");
                 
         for(var i = 0; i< files.length; i++) {
@@ -90,8 +90,7 @@
 
             output.insertBefore(div,null);            
           });
-                    
-          //Read the image
+
           picReader.readAsDataURL(file);
         }                               
                

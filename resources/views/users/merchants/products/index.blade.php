@@ -50,16 +50,18 @@
             @foreach ($products as $product)
             <div class="col-12 col-sm-6 col-lg-4">
               <div class="single-product-wrapper">
-                <div class="product-img">
-                  <img src="{{ "/images/" . json_decode($product->images)[0]}}" alt="">
-                </div>
+                <a href="{{ url('/products', $product->id)}}">
+                  <div class="product-img">
+                    <img src="{{ '/images/' . json_decode($product->images)[0]}}" alt="">
+                  </div>
 
-                <div class="product-description">
-                  <a href="single-product-details.html">
-                    <h6>{{ $product->name }}</h6>
-                  </a>
-                  <p class="product-price"> IDR {{ $product->price }}</p>
-                </div>
+                  <div class="product-description">
+                    <a href="single-product-details.html">
+                      <h6>{{ $product->name }}</h6>
+                    </a>
+                    <p class="product-price"> IDR {{ $product->price }}</p>
+                  </div>
+                </a>
               </div>
             </div>
             @endforeach
