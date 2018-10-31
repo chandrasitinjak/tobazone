@@ -17,5 +17,17 @@ class UsersTableSeeder extends Seeder
             'email' => 'uloszone@gmail.com',
             'password' => bcrypt('admin123'),
         ]);
+
+        DB::table('users')->insert([
+            'username' => 'customer',
+            'email' => 'customer@uloszone.com',
+            'password' => bcrypt('customer123'),
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'merchant',
+            'email' => 'merchant@uloszone.com',
+            'password' => bcrypt('merchant123'),
+        ]);
     }
 }
