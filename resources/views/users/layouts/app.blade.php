@@ -9,20 +9,20 @@
   <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
   <!-- Title  -->
-  <title>Essence - Fashion Ecommerce Template</title>
+  <title> @yield('title')</title>
 
   <!-- Favicon  -->
-  <link rel="icon" href="user-assets/img/core-img/favicon.ico">
+  <link rel="icon" href="/user-assets/img/core-img/favicon.ico">
 
   <!-- Core Style CSS -->
-  <link rel="stylesheet" href="user-assets/css/core-style.css">
-  <link rel="stylesheet" href="user-assets/style.css">
+  <link rel="stylesheet" href="/user-assets/css/core-style.css">
+  <link rel="stylesheet" href="/user-assets/style.css">
 </head>
 
 <body>
   @include('users.layouts.header')
   @include('users.layouts.cart')
-  @include('users.layouts.content')
+  @yield('content')
   @include('users.layouts.footer')
   @include('users.layouts.script')
 </body>

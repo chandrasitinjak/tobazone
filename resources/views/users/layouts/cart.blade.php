@@ -4,7 +4,7 @@
 
   <!-- Cart Button -->
   <div class="cart-button">
-    <a href="#" id="rightSideCart"><img src="user-assets/img/core-img/bag.svg" alt=""> <span>3</span></a>
+    <a href="#" id="rightSideCart"><img src="/user-assets/img/core-img/bag.svg" alt=""> <span>3</span></a>
   </div>
 
   <div class="cart-content d-flex">
@@ -14,7 +14,7 @@
       <!-- Single Cart Item -->
       <div class="single-cart-item">
         <a href="#" class="product-image">
-          <img src="user-assets/img/product-img/product-1.jpg" class="cart-thumb" alt="">
+          <img src="/user-assets/img/product-img/product-1.jpg" class="cart-thumb" alt="">
               <!-- Cart Item Desc -->
           <div class="cart-item-desc">
             <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
@@ -31,7 +31,7 @@
       <div class="single-cart-item">
         <div class="single-cart-item">
           <a href="#" class="product-image">
-            <img src="user-assets/img/product-img/product-2.jpg" class="cart-thumb" alt="">
+            <img src="/user-assets/img/product-img/product-2.jpg" class="cart-thumb" alt="">
                 <!-- Cart Item Desc -->
             <div class="cart-item-desc">
               <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
@@ -49,7 +49,7 @@
       <div class="single-cart-item">
         <div class="single-cart-item">
           <a href="#" class="product-image">
-            <img src="user-assets/img/product-img/product-3.jpg" class="cart-thumb" alt="">
+            <img src="/user-assets/img/product-img/product-3.jpg" class="cart-thumb" alt="">
                 <!-- Cart Item Desc -->
             <div class="cart-item-desc">
               <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
