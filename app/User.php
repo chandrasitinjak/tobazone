@@ -32,8 +32,5 @@ class User extends Authenticatable implements MustVerifyEmailContract
         'password', 'remember_token',
     ];
 
-    public function verifyUser()
-    {
-        return $this->hasOne('App\VerifyUser');
-    }
+
 }

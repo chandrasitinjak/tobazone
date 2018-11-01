@@ -95,26 +95,13 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $verifyUser = VerifyUser::create([
-            'user_id' => $user->id,
-            'token' => str_random(40)
-        ]);
-
         if($data['role'] === 'merchant'){
             $user->assignRole('merchant');
         } else {
             $user->assignRole('customer');
         }
-
-        Mail::to($user->email)->send(new VerifyMail($user));
-
         return $user;
     }
 
-    protected function registered(Request $request, $user)
-    {
-        $this->guard()->logout();
-        return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
-    }
 
 }
