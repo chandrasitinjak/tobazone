@@ -27,13 +27,20 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        // $user->assignRole('admin');
         $roles = $user->getRoleNames();
+
         foreach($roles as $role){
-            if( $role == 'admin'){
+            if($role === 'admin'){
                 return redirect('/admin');
-            }   
+            } else if($role === 'merchant'){
+                return redirect('/merchant');
+            }
         }
         return view('home');
+    }
+
+    public function test()
+    {
+        return view('users.example');
     }
 }

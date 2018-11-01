@@ -1,5 +1,7 @@
 <?php
 
+use function foo\func;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,7 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/test', 'HomeController@test');
     
     Route::middleware('role:admin')->group(function(){
         Route::get('/admin', 'AdminController@index');
@@ -31,23 +34,34 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/permissions/store', 'PermissionController@store');
         Route::post('/permissions/update/{id}', 'PermissionController@update');
     });
+
     Route::middleware('role:merchant')->group(function(){
-       //
+        Route::get('/merchant', 'MerchantController@index');
+
+        Route::prefix('/merchant/products')->group(function() {
+            Route::get('/', 'MerchantController@products');
+        });
+        Route::get('/merchant/orders', 'MerchantController@orders');
     });
+
     Route::middleware('role:costumer')->group(function(){
        //
     });
 
     Route::middleware('role:costumer|admin')->group(function(){
-        Route::get('/products', 'ProductController@index');
+        
     });
 
     Route::middleware('role:merchant|admin')->group(function(){
-        Route::get('/products/create', 'ProductController@index');
-        Route::post('/products/store', 'ProductController@store');
-        Route::get('/products/edit/{id}', 'ProductController@edit');
-        Route::post('/products/update/{id}', 'ProductController@update');
-        Route::post('/products/delete/{id}', 'ProductController@destroy');
+        Route::prefix('/products')->group(function() {
+            Route::get('/', 'ProductController@index');
+            Route::get('/create', 'ProductController@create');
+            Route::post('/store', 'ProductController@store');
+        });
+
+        Route::prefix('/orders')->group(function() {
+            Route::get('/', 'OrderController@index');
+        });
     });
 
     Route::middleware('role:merchant|costumer')->group(function(){
