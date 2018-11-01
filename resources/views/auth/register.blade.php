@@ -8,7 +8,22 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                   
+
+                         <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                 
+                            
+                                <button name="data" type="button" onclick="myFunction()">Merchant</button>
+                            
+
+                                 <button name="data" type="button" onclick="myFunctionCustomer()">Customer</button>
+                            
+                            </div>
+                        </div>
+
+                        <div id="registerMerchant">
+                        <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -70,10 +85,43 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                        </form>
+                        </div>
+
+                        <div id="registerCustomer">
+                            This is register Customer!!
+
+                        </div>
+
+
+                       
+                    
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("registerMerchant");
+    var y = document.getElementById("registerCustomer");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    }
+    else{
+    y.style.display = "block"
+    }
+}
+
+function myFunctionCustomer() {
+    var x = document.getElementById("registerCustomer");
+    var y = document.getElementById("registerMerchant");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
 @endsection
