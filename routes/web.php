@@ -56,7 +56,9 @@ Route::middleware(['auth'])->group(function(){
         Route::prefix('/products')->group(function() {
             Route::get('/', 'ProductController@index');
             Route::get('/create', 'ProductController@create');
+            Route::get('/edit/{id}', 'ProductController@edit');
             Route::post('/store', 'ProductController@store');
+            Route::post('/update/{id}', 'ProductController@update');
         });
 
         Route::prefix('/orders')->group(function() {

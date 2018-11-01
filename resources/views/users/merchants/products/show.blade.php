@@ -22,6 +22,7 @@
     <p class="product-price"> IDR {{ $product->price}}</p>
     <p class="product-desc"> {{ $product->description }} </p>
 
+    @role('customer')
     <!-- Form -->
     <form class="cart-form clearfix" method="post">
       <!-- Select Box -->
@@ -39,7 +40,7 @@
                     <option value="value">Color: Purple</option>
                 </select>
       </div>
-      <!-- Cart & Favourite Box -->
+      
       <div class="cart-fav-box d-flex align-items-center">
         <!-- Cart -->
         <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>
@@ -49,6 +50,7 @@
         </div>
       </div>
     </form>
+    @endrole
   </div>
 </section>
 @endsection

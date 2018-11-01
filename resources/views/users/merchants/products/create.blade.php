@@ -86,7 +86,7 @@
             var div = document.createElement("div");
             div.className = "col-3"
             div.innerHTML =  "<div class='single-product-wrapper'> <div class='product-img'> <img src='" 
-            + picFile.result + "'> </div> </div> ";
+            + picFile.result + "'> </div> </div>";
 
             output.insertBefore(div,null);            
           });
