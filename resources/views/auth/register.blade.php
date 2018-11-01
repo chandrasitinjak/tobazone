@@ -26,6 +26,8 @@
                         <form method="POST" action="{{ route('register') }}">
                         @csrf
 
+                        <input type="hidden" value="merchant" name="role"/>
+
                         <div class="form-group row">
                             <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
@@ -110,7 +112,7 @@ function myFunction() {
         x.style.display = "block";
     }
     else{
-    y.style.display = "block"
+    x.style.display = "none"
     }
 }
 
