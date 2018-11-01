@@ -11,7 +11,7 @@ use function foo\func;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,11 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/test', 'HomeController@test');
-    
-    Route::middleware('role:admin')->group(function(){
+
+    Route::middleware('role:admin')->group(function () {
         Route::get('/admin', 'AdminController@index');
 
         Route::get('/roles', 'RoleController@index');
@@ -35,42 +35,41 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/permissions/update/{id}', 'PermissionController@update');
     });
 
-    Route::middleware('role:merchant')->group(function(){
+    Route::middleware('role:merchant')->group(function () {
         Route::get('/merchant', 'MerchantController@index');
 
-        Route::prefix('/merchant/products')->group(function() {
+        Route::prefix('/merchant/products')->group(function () {
             Route::get('/', 'MerchantController@products');
         });
         Route::get('/merchant/orders', 'MerchantController@orders');
     });
 
-    Route::middleware('role:costumer')->group(function(){
+    Route::middleware('role:costumer')->group(function () {
        //
     });
 
-    Route::middleware('role:costumer|admin')->group(function(){
-        
+    Route::middleware('role:costumer|admin')->group(function () {
+
     });
 
-    Route::middleware('role:merchant|admin')->group(function(){
-        Route::prefix('/products')->group(function() {
-            Route::get('/', 'ProductController@index');
-            Route::get('/create', 'ProductController@create');
-            Route::get('/edit/{id}', 'ProductController@edit');
-            Route::post('/store', 'ProductController@store');
-            Route::post('/update/{id}', 'ProductController@update');
-        });
+    Route::middleware('role:merchant|admin')->group(function () {
+        Route::get('/products', 'ProductController@index');
+        Route::get('/products/create', 'ProductController@create');
+        Route::get('/products/edit/{id}', 'ProductController@edit');
+        Route::post('/products/store', 'ProductController@store');
+        Route::post('/products/update/{id}', 'ProductController@update');
+        Route::post('/products/delete/{id}', 'ProductController@destroy');
 
-        Route::prefix('/orders')->group(function() {
+        Route::prefix('/orders')->group(function () {
             Route::get('/', 'OrderController@index');
         });
     });
 
-    Route::middleware('role:merchant|costumer')->group(function(){
-        
+    Route::middleware('role:merchant|costumer')->group(function () {
+
     });
 
-    Route::middleware('role:admin|merchant|costumer')->group(function(){
+    Route::middleware('role:admin|merchant|costumer')->group(function () {
         Route::get('/products/{id}', 'ProductController@show');
     });
 });
