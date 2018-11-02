@@ -1,29 +1,50 @@
-@extends('layouts.app')
+@extends('users.layouts.app')
 
 @section('content')
+<style>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button1:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header justify-contenct-center">{{ __('Register') }}</div>
+                <div class="card-header"><h4><center>You will register as </center></h4></div>
 
                 <div class="card-body">
                    
 
                          <div class="form-group row mb-0">
 
-                            <h4><center>Choose wanna register with :</center></h4>
+                            
                             <div class="col-md-6 offset-md-4">
                                  
-                                <button name="data" type="button" onclick="myFunction()">Merchant</button>
+                                <button class="btn btn-info" name="data" type="button" onclick="myFunction()">Merchant</button>
                             
 
-                                 <button name="data" type="button" onclick="myFunctionCustomer()">Customer</button>
+                                 <button class="btn btn-info" name="data" type="button" onclick="myFunctionCustomer()">Customer</button>
                             
                             </div>
                         </div>
 
                         <div id="registerMerchant" style="display:none;" class="answer_list">
+                            <br>
                             This is Register Merchant
                             <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -94,6 +115,7 @@
                         </div>
 
                         <div id="registerCustomer" style="display:none;" class="answer_list">
+                        <br>
                         <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -153,7 +175,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-info">
                                     {{ __('Register') }}
                                 </button>
                             </div>
