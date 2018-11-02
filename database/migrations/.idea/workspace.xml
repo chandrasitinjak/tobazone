@@ -68,7 +68,7 @@
           <entry key="model_has_permissions" value="2" />
           <entry key="model_has_roles" value="3" />
           <entry key="password_resets" value="1" />
-          <entry key="permissions" value="2" />
+          <entry key="permissions" value="3" />
           <entry key="products" value="1" />
           <entry key="role_has_permissions" value="3" />
           <entry key="roles" value="4" />
@@ -80,7 +80,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="22" />
+          <entry key="Database Element" value="23" />
           <entry key="Scratch" value="3" />
         </counts>
       </usages-collector>
@@ -93,7 +93,7 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="das://2f45a10b-86db-4e98-9c75-8f88c5930b79/schema/uloszone/table/users">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -121,7 +121,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://2f45a10b-86db-4e98-9c75-8f88c5930b79/schema/uloszone/table/model_has_roles">
+        <entry file="das://2f45a10b-86db-4e98-9c75-8f88c5930b79/schema/uloszone/table/permissions">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -130,6 +130,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="das://2f45a10b-86db-4e98-9c75-8f88c5930b79/schema/uloszone/table/model_has_roles">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="das://2f45a10b-86db-4e98-9c75-8f88c5930b79/schema/uloszone/table/role_has_permissions">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -220,14 +229,7 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2f45a10b-86db-4e98-9c75-8f88c5930b79/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="das://2f45a10b-86db-4e98-9c75-8f88c5930b79/schema/uloszone/table/role_has_permissions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://2f45a10b-86db-4e98-9c75-8f88c5930b79/schema/uloszone/table/roles">
+    <entry file="das://2f45a10b-86db-4e98-9c75-8f88c5930b79/schema/uloszone/table/users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -241,6 +243,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://2f45a10b-86db-4e98-9c75-8f88c5930b79/schema/uloszone/table/permissions">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="das://2f45a10b-86db-4e98-9c75-8f88c5930b79/schema/uloszone/table/model_has_roles">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -248,7 +257,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://2f45a10b-86db-4e98-9c75-8f88c5930b79/schema/uloszone/table/users">
+    <entry file="das://2f45a10b-86db-4e98-9c75-8f88c5930b79/schema/uloszone/table/roles">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://2f45a10b-86db-4e98-9c75-8f88c5930b79/schema/uloszone/table/role_has_permissions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
