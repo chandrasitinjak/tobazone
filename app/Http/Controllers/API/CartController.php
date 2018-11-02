@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use App\Cart;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -14,17 +15,6 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $carts = Cart::with('product')->where('user_id', Auth::user()->id)->get();
-        return view('users.carts.index')->with('carts', $carts);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
     {
         //
     }
@@ -37,7 +27,13 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cart = new Cart();
+        $cart->user_id = $request->userId;
+        $cart->product_id = $request->productId;
+        $cart->total = $request->total;
+        $cart->save();
+
+        return response()->json($cart);
     }
 
     /**
@@ -47,17 +43,6 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Cart $cart)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cart $cart)
     {
         //
     }
@@ -83,5 +68,10 @@ class CartController extends Controller
     public function destroy(Cart $cart)
     {
         //
+    }
+
+    public function getTotalProduct($id) {
+        $result['total'] = Cart::where('user_id', $id)->count();
+        return response()->json($result);
     }
 }

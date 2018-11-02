@@ -32,7 +32,7 @@
     </div>
 
     <div id="new-product">
-        <new-products />
+        <new-products :user-id="{{Auth::user()->id}}" />
     </div>
 
     <div id="banner">
@@ -42,9 +42,7 @@
     <div id="card-swiper">
         <card-swiper />
     </div>
-
     @include('users.layouts.footer')
-
     @include('users.layouts.script')
 </body>
 

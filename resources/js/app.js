@@ -15,14 +15,11 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
-// Vue.component('new-products', require('./components/NewProducts.vue'));
-// Vue.component('carousel', require('./components/Carousel.vue'));
-
-const CarouselAsd = require('./components/Carousel')
-const NewProducts = require('./components/NewProducts')
-const Banner = require('./components/Banner')
-const CardSwiper = require('./components/CardSwiper')
+const CarouselAsd = require('./components/homes/Carousel')
+const NewProducts = require('./components/homes/NewProducts')
+const Banner = require('./components/homes/Banner')
+const CardSwiper = require('./components/homes/CardSwiper')
+const CartIcon = require('./components/CartIcon')
 
 const app = new Vue({
     el: '#app',
@@ -42,4 +39,9 @@ const cardSwiper = new Vue({
 const banner = new Vue({
     el: '#banner',
     components: { Banner }
+})
+
+const cartIcon = new Vue({
+    el: '#cart-icon',
+    components: { CartIcon }
 })
