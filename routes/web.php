@@ -1,6 +1,6 @@
 <?php
 
-use function foo\func;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,9 @@ use function foo\func;
 */
 
 Route::get('/', function () {
+    if(Auth::user()) {
+       return redirect('/home');
+    }
     return view('welcome');
 });
 
@@ -26,8 +29,7 @@ Route::get('/profile', function(){
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
 Route::middleware(['auth'])->group(function(){
-    Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/test', 'HomeController@test');
+    Route::get('/home', 'HomeController@index');
     
     Route::middleware('role:admin')->group(function(){
         Route::get('/admin', 'AdminController@index');
