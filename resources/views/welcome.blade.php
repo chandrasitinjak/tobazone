@@ -25,7 +25,6 @@
 
 <body>
     @include('users.layouts.header')
-    @include('users.auth.login_modal')
 
     <!--carousel-->
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

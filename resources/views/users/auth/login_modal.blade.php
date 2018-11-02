@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="modal-footer align-self-center">
-        <button type="button" class="btn btn-info" data-dismiss="modal">Register New Account</button>
+        <a href="{{ url('/register')}}" class="btn btn-block btn-link"> Register New Account </a>
       </div>
     </div>
   </div>
