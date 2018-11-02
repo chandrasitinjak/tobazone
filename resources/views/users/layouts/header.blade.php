@@ -144,11 +144,11 @@
             <a href="#" class="dropdown-toggle active mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
               </a>
-  
+
             <div class="user-menu dropdown-menu">
               <ul class="dropdown">
                 <a class="nav-link" href="#"><i class="fa fa-user mr-2"></i>My Profile</a>
-  
+
                 <form method="POST" action="{{ url('/logout')}}">
                   {{ csrf_field() }}
                   <button type="submit" class="btn nav-link" style="background-color: transparent"><i class="fa fa-power-off mr-2"></i>Logout</a>

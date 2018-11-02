@@ -17,7 +17,7 @@ Route::get('/', function () {
     if(Auth::user()) {
        return redirect('/home');
     }
-    return view('welcome');
+    return view('users.homes.index');
 });
 
 Auth::routes(['verify' => true]);
