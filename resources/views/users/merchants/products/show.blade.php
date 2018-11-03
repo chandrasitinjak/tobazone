@@ -3,44 +3,74 @@
 @endsection
  
 @section('content')
-<section class="single_product_details_area d-flex align-items-center">
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="card globalcard">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="detailproduct">
+                <div id="myCarousel" class="carousel slide " data-ride="carousel">
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                    @foreach (json_decode($product->images) as $image) @if ($loop->first)
+                    <div class="carousel-item active">
+                      <img class="align-self-center" src="{{ '/images/' . $image }}" alt="">
+                    </div>
+                    @else
+                    <div class="carousel-item">
+                      <img src="{{ '/images/' . $image }}">
+                    </div>
+                    @endif @endforeach
+                  </div>
 
-  <!-- Single Product Thumb -->
-  <div class="single_product_thumb clearfix">
-    <div class="product_thumbnail_slides owl-carousel">
-      @foreach(json_decode($product->images) as $image)
-        <img src="{{ url('/images/' . $image)}}" alt=""> 
-      @endforeach
-    </div>
-  </div>
+                  <ul class="nav nav-pills nav-justified smallimage mt-15">
+                    @foreach (json_decode($product->images) as $idx => $image) @if ($loop->first)
+                    <li data-target="#myCarousel" data-slide-to="{{ $idx }}" class="active">
+                      <img src="{{ '/images/' . $image }}" alt="">
+                    </li>
+                    @else
+                    <li data-target="#myCarousel" data-slide-to="{{ $idx }}">
+                      <img src="{{ '/images/' . $image }}" alt="">
+                    </li>
+                    @endif @endforeach
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-  <!-- Single Product Description -->
-  <div class="single_product_desc clearfix">
-    <a href="cart.html">
-      <h2> {{ $product->name }}</h2>
-    </a>
-    <p class="product-price"> IDR {{ $product->price}}</p>
-    <p class="product-desc"> {{ $product->description }} </p>
+            <div class="col-md-4">
+              <a href="cart.html">
+                <h2>{{ $product->name }}</h2>
+              </a>
+              <p class="product-price">Rp {{ $product->price }}</p>
+              <p class="product-desc">{{$product->description}}</p>
 
-    <!-- Form -->
-    <form class="cart-form clearfix" method="post">
-      <!-- Select Box -->
-      <div class="select-box d-flex mt-50 mb-30 col-3">
-        <label class="label mr-4"> Total </label>
-        <input type="number" id="total" min="1" value="1" class="form-control"/>
-      </div>
-      <!-- Cart & Favourite Box -->
-      <div class="cart-fav-box d-flex align-items-center">
-        <!-- Cart -->
-        <button type="button" onclick="addToCart({{$product->id}})" class="btn essence-btn">Add to cart</button>
-        <!-- Favourite -->
-        <div class="product-favourite ml-4">
-          <a href="#" class="favme fa fa-heart"></a>
+              {{-- <div>
+                <input class="form-control" id="total" type="number" min="1" value="1" max="{{ $product->stock }}" />
+              </div> --}}
+              
+              <div id="add-to-cart-button">
+                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}"/>
+              </div>
+              {{-- <div class="cart-fav-box d-flex align-items-center mt-4">
+                <button type="submit" onclick="addToCart({{ $product->id }})" class="btn essence-btn">Add to cart</button>
+              </div> --}}
+            </div>
+          </div>
         </div>
       </div>
-    </form>
+    </div>
+    <div class="col-md-2">
+      <div class="card globalcard">
+        <div class="card-body">
+          asd
+        </div>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 @endsection
 
 <script>
@@ -62,4 +92,5 @@
       }       
     })
   }
+
 </script>

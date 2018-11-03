@@ -1,25 +1,31 @@
 <template>
   <div class="cart-area">
-    <a href="/carts" id="essenceCartBtn"><img src="/user-assets/img/core-img/bag.svg" alt=""> <span> {{total}}</span></a>
+    <a href="/carts"><img src="/user-assets/img/core-img/bag.svg" alt=""> <span> {{total}}</span></a>
   </div>
 </template>
 
 <script>
+
+import EventBus from '../eventBus';
+
 export default {
   props: ['userId'],
   data() {
     return {
-      total: 0,
+      total: null,
     };
   },
   methods: {
     getTotalProductInCart() {
       window.axios.get('/api/carts/user/' + this.userId).then(res => {
-        this.total = res.data.total
+        if(res.data.total !== 0) {
+          this.total = res.data.total
+        }
       })
     }
   },
   mounted() {
+    EventBus.$on('CART_ADDED', this.getTotalProductInCart);
     this.getTotalProductInCart()
   }
 };

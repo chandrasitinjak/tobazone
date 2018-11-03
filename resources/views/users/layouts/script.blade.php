@@ -6,7 +6,7 @@
 <!-- Bootstrap js -->
 {{-- <script src="/user-assets/js/bootstrap.min.js"></script> --}}
 <!-- Plugins js -->
-<script src="/user-assets/js/plugins.js"></script>
+{{-- <script src="/user-assets/js/plugins.js"></script> --}}
 <!-- Classy Nav js -->
 <script src="/user-assets/js/classy-nav.min.js"></script>
 <!-- Active js -->

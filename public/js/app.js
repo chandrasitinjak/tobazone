@@ -14017,6 +14017,7 @@ var NewProducts = __webpack_require__(43);
 var Banner = __webpack_require__(49);
 var CardSwiper = __webpack_require__(51);
 var CartIcon = __webpack_require__(54);
+var AddToCartButton = __webpack_require__(63);
 
 var app = new Vue({
     el: '#app',
@@ -14041,6 +14042,11 @@ var banner = new Vue({
 var cartIcon = new Vue({
     el: '#cart-icon',
     components: { CartIcon: CartIcon }
+});
+
+var addToCartButton = new Vue({
+    el: '#add-to-cart-button',
+    components: { AddToCartButton: AddToCartButton }
 });
 
 /***/ }),
@@ -47579,6 +47585,7 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(62);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -47625,6 +47632,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['userId'],
   data: function data() {
@@ -47648,7 +47658,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 });
 
               case 2:
-              case "end":
+              case 'end':
                 return _context.stop();
             }
           }
@@ -47677,11 +47687,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 };
                 _context2.next = 3;
                 return window.axios.post("/api/carts", payload).then(function (res) {
-                  console.log(_this2.products);
+                  _this2.emitEvent(res.data);
                 });
 
               case 3:
-              case "end":
+              case 'end':
                 return _context2.stop();
             }
           }
@@ -47693,12 +47703,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       }
 
       return addToCart;
-    }()
+    }(),
+    emitEvent: function emitEvent(data) {
+      __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit('CART_ADDED', data);
+    }
   },
   mounted: function mounted() {
     this.getAllProducts();
-
-    console.log(this.userId);
   }
 });
 
@@ -48503,7 +48514,19 @@ var render = function() {
             return _c("div", { staticClass: "col-md-2" }, [
               _c("div", { staticClass: "card product" }, [
                 _c("a", { attrs: { href: "/products/" + product.id } }, [
-                  _vm._m(1, true)
+                  _c("div", { staticClass: "imgwrapper" }, [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/" + JSON.parse(product.images)[0],
+                        alt: "Card image cap"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass: "update",
+                      attrs: { type: "button", value: "Update" }
+                    })
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "card-body" }, [
@@ -48515,7 +48538,7 @@ var render = function() {
                     _vm._v(" Rp " + _vm._s(product.price) + " ")
                   ]),
                   _vm._v(" "),
-                  _vm._m(2, true),
+                  _vm._m(1, true),
                   _vm._v(" "),
                   _c("div", { staticClass: "hover-content" }, [
                     _c("div", { staticClass: "add-to-cart-btn" }, [
@@ -48560,24 +48583,6 @@ var staticRenderFns = [
           [_vm._v("see more")]
         )
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "imgwrapper" }, [
-      _c("img", {
-        attrs: {
-          src: "/user-assets/img/product-img/product-22.jpg",
-          alt: "Card image cap"
-        }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "update",
-        attrs: { type: "button", value: "Update" }
-      })
     ])
   },
   function() {
@@ -49368,6 +49373,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(62);
 //
 //
 //
@@ -49375,11 +49381,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['userId'],
   data: function data() {
     return {
-      total: 0
+      total: null
     };
   },
 
@@ -49388,11 +49397,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       window.axios.get('/api/carts/user/' + this.userId).then(function (res) {
-        _this.total = res.data.total;
+        if (res.data.total !== 0) {
+          _this.total = res.data.total;
+        }
       });
     }
   },
   mounted: function mounted() {
+    __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on('CART_ADDED', this.getTotalProductInCart);
     this.getTotalProductInCart();
   }
 });
@@ -49406,7 +49418,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "cart-area" }, [
-    _c("a", { attrs: { href: "/carts", id: "essenceCartBtn" } }, [
+    _c("a", { attrs: { href: "/carts" } }, [
       _c("img", {
         attrs: { src: "/user-assets/img/core-img/bag.svg", alt: "" }
       }),
@@ -49430,6 +49442,206 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+
+var EventBus = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a();
+/* harmony default export */ __webpack_exports__["a"] = (EventBus);
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(64)
+/* template */
+var __vue_template__ = __webpack_require__(65)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/AddToCartButton.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-600e081a", Component.options)
+  } else {
+    hotAPI.reload("data-v-600e081a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(62);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["userId", "productId", "maxUnit"],
+  data: function data() {
+    return {
+      total: 1
+    };
+  },
+
+  methods: {
+    addToCart: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var _this = this;
+
+        var payload;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                payload = {
+                  productId: this.productId,
+                  total: 1,
+                  userId: this.userId
+                };
+
+                console.log(payload);
+                _context.next = 4;
+                return window.axios.post("/api/carts", payload).then(function (res) {
+                  _this.emitEvent(res.data);
+                });
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function addToCart() {
+        return _ref.apply(this, arguments);
+      }
+
+      return addToCart;
+    }(),
+    emitEvent: function emitEvent(data) {
+      __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("CART_ADDED", data);
+    }
+  },
+  mounted: function mounted() {}
+});
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.total,
+            expression: "total"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: { type: "number", min: "1", value: "1", max: _vm.maxUnit },
+        domProps: { value: _vm.total },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.total = $event.target.value
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "cart-fav-box d-flex align-items-center mt-4" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn essence-btn",
+          on: {
+            click: function($event) {
+              _vm.addToCart()
+            }
+          }
+        },
+        [_vm._v("Add to cart")]
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-600e081a", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

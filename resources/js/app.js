@@ -20,6 +20,7 @@ const NewProducts = require('./components/homes/NewProducts')
 const Banner = require('./components/homes/Banner')
 const CardSwiper = require('./components/homes/CardSwiper')
 const CartIcon = require('./components/CartIcon')
+const AddToCartButton = require('./components/AddToCartButton')
 
 const app = new Vue({
     el: '#app',
@@ -44,4 +45,9 @@ const banner = new Vue({
 const cartIcon = new Vue({
     el: '#cart-icon',
     components: { CartIcon }
+})
+
+const addToCartButton = new Vue({
+    el: '#add-to-cart-button',
+    components: { AddToCartButton}
 })

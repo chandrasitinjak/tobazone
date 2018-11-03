@@ -27,7 +27,6 @@ Route::get('/profile', function () {
 })->middleware('verified');
 
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
-Route::get('/products/{id}', 'ProductController@show');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -80,6 +79,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index');
 });
 
-
-
+Route::get('/products/{id}', 'ProductController@show');
 

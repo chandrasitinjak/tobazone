@@ -14,7 +14,7 @@
           <div class="card product">
             <a :href="'/products/' + product.id">
             <div class="imgwrapper">
-              <img src="/user-assets/img/product-img/product-22.jpg" alt="Card image cap">
+              <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap">
               <input class="update" type="button" value="Update" />
             </div>
             </a>
@@ -40,6 +40,9 @@
 </template>
 
 <script>
+
+import EventBus from '../../eventBus';
+
 export default {
   props: ['userId'],
   data() {
@@ -50,7 +53,7 @@ export default {
   methods: {
     async getAllProducts() {
       await window.axios.get("/api/products").then(res => {
-        this.products = res.data;
+        this.products = res.data
       });
     },
     async addToCart(id) {
@@ -60,14 +63,15 @@ export default {
         userId: this.userId
       } 
       await window.axios.post("/api/carts", payload).then(res => {
-        console.log(this.products);
+        this.emitEvent(res.data)
       });
+    },
+    emitEvent(data) {
+      EventBus.$emit('CART_ADDED', data)
     }
   },
   mounted() {
-    this.getAllProducts();
-
-    console.log(this.userId)
+    this.getAllProducts()
   }
 };
 </script>
