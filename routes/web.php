@@ -27,10 +27,9 @@ Route::get('/profile', function () {
 })->middleware('verified');
 
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+Route::get('/products/{id}', 'ProductController@show');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', 'HomeController@index');
-    Route::get('/products/{id}', 'ProductController@show');
 
     Route::middleware('role:admin')->group(function () {
         Route::get('/admin', 'AdminController@index');
@@ -55,6 +54,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware('role:customer')->group(function () {
         Route::get('/carts', 'CartController@index');
+        Route::post('/carts/delete/{id}', 'CartController@destroy');
+
         Route::get('/shipping', 'ShippingController@index');
     });
 
@@ -76,6 +77,7 @@ Route::middleware(['auth'])->group(function () {
 
     });
 
+    Route::get('/home', 'HomeController@index');
 });
 
 

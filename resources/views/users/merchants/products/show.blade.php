@@ -25,24 +25,14 @@
     <!-- Form -->
     <form class="cart-form clearfix" method="post">
       <!-- Select Box -->
-      <div class="select-box d-flex mt-50 mb-30">
-        <select name="select" id="productSize" class="mr-5">
-                    <option value="value">Size: XL</option>
-                    <option value="value">Size: X</option>
-                    <option value="value">Size: M</option>
-                    <option value="value">Size: S</option>
-                </select>
-        <select name="select" id="productColor">
-                    <option value="value">Color: Black</option>
-                    <option value="value">Color: White</option>
-                    <option value="value">Color: Red</option>
-                    <option value="value">Color: Purple</option>
-                </select>
+      <div class="select-box d-flex mt-50 mb-30 col-3">
+        <label class="label mr-4"> Total </label>
+        <input type="number" id="total" min="1" value="1" class="form-control"/>
       </div>
       <!-- Cart & Favourite Box -->
       <div class="cart-fav-box d-flex align-items-center">
         <!-- Cart -->
-        <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>
+        <button type="button" onclick="addToCart({{$product->id}})" class="btn essence-btn">Add to cart</button>
         <!-- Favourite -->
         <div class="product-favourite ml-4">
           <a href="#" class="favme fa fa-heart"></a>
@@ -52,3 +42,24 @@
   </div>
 </section>
 @endsection
+
+<script>
+  function addToCart(id) {
+    const total = document.getElementById('total').value
+  
+    jQuery.ajax({
+      url: '/api/carts',
+      type: 'POST',
+      data: {
+        productId: id,
+        userId: '{{ Auth::user()->id }}',
+        total: total,
+        _token: "{{ csrf_token() }}"
+      },
+      dataType: 'json',
+      success: function( data ) {
+        console.log(data);
+      }       
+    })
+  }
+</script>

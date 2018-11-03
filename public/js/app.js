@@ -13988,7 +13988,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(51);
+module.exports = __webpack_require__(57);
 
 
 /***/ }),
@@ -14014,9 +14014,9 @@ window.Vue = __webpack_require__(37);
 
 var CarouselAsd = __webpack_require__(40);
 var NewProducts = __webpack_require__(43);
-var Banner = __webpack_require__(46);
-var CardSwiper = __webpack_require__(48);
-var CartIcon = __webpack_require__(59);
+var Banner = __webpack_require__(49);
+var CardSwiper = __webpack_require__(51);
+var CartIcon = __webpack_require__(54);
 
 var app = new Vue({
     el: '#app',
@@ -47533,7 +47533,7 @@ var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(44)
 /* template */
-var __vue_template__ = __webpack_require__(45)
+var __vue_template__ = __webpack_require__(48)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47577,7 +47577,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 
 
@@ -47706,853 +47706,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-md-12 mt-4" }, [
-    _c("div", { staticClass: "card globalcard" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body globalcardbody" }, [
-        _c(
-          "div",
-          { staticClass: "row" },
-          _vm._l(_vm.products, function(product) {
-            return _c("div", { staticClass: "col-md-2" }, [
-              _c("div", { staticClass: "card product" }, [
-                _c("a", { attrs: { href: "/products/" + product.id } }, [
-                  _vm._m(1, true)
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("p", { staticClass: "card-title productname" }, [
-                    _vm._v(" " + _vm._s(product.name))
-                  ]),
-                  _vm._v(" "),
-                  _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                    _vm._v(" Rp " + _vm._s(product.price) + " ")
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(2, true),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "hover-content" }, [
-                    _c("div", { staticClass: "add-to-cart-btn" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn  product-btn",
-                          on: {
-                            click: function($event) {
-                              _vm.addToCart(product.id)
-                            }
-                          }
-                        },
-                        [_vm._v("Add to Cart")]
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          })
-        )
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h5", { staticStyle: { float: "left" } }, [_vm._v("Produk Terbaru")]),
-      _vm._v(" "),
-      _c("h6", { staticStyle: { float: "right" } }, [
-        _c(
-          "a",
-          {
-            staticStyle: { color: "-webkit-link" },
-            attrs: { href: "shop.html" }
-          },
-          [_vm._v("see more")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "imgwrapper" }, [
-      _c("img", {
-        attrs: {
-          src: "/user-assets/img/product-img/product-22.jpg",
-          alt: "Card image cap"
-        }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "update",
-        attrs: { type: "button", value: "Update" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "card-text float-right" }, [
-      _c("small", { staticClass: "text-muted" }, [_vm._v("Balige")])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6cb63dae", module.exports)
-  }
-}
+module.exports = __webpack_require__(46);
+
 
 /***/ }),
 /* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(47)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/homes/Banner.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7faace92", Component.options)
-  } else {
-    hotAPI.reload("data-v-7faace92", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 mt-4" }, [
-      _c("div", { staticClass: "card globalcard" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-8" }, [
-                  _c("div", { staticClass: "card cto" }, [
-                    _c("img", {
-                      staticStyle: { "object-fit": "cover" },
-                      attrs: {
-                        src: "/user-assets/img/bg-img/banner2.png",
-                        alt: ""
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-4" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-12" }, [
-                      _c("div", { staticClass: "card cto " }, [
-                        _c("img", {
-                          staticStyle: { "object-fit": "cover" },
-                          attrs: {
-                            src: "/user-assets/img/bg-img/banner2.png",
-                            alt: ""
-                          }
-                        })
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-12" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "card cto ",
-                          staticStyle: { "margin-top": "1em" }
-                        },
-                        [
-                          _c("img", {
-                            staticStyle: { "object-fit": "cover" },
-                            attrs: {
-                              src: "/user-assets/img/bg-img/banner2.png",
-                              alt: ""
-                            }
-                          })
-                        ]
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7faace92", module.exports)
-  }
-}
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(49)
-/* template */
-var __vue_template__ = __webpack_require__(50)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/homes/CardSwiper.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7a7f1e0e", Component.options)
-  } else {
-    hotAPI.reload("data-v-7a7f1e0e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 49 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log("CardSwiper mounted.");
-  }
-});
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 mt-4" }, [
-      _c("div", { staticClass: "card globalcard" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c(
-            "div",
-            {
-              staticClass: "carousel slide",
-              attrs: {
-                id: "carouselExampleIndicators",
-                "data-ride": "carousel"
-              }
-            },
-            [
-              _c("ol", { staticClass: "carousel-indicators" }, [
-                _c("li", {
-                  staticClass: "active",
-                  attrs: {
-                    "data-target": "#carouselExampleIndicators",
-                    "data-slide-to": "0"
-                  }
-                }),
-                _vm._v(" "),
-                _c("li", {
-                  attrs: {
-                    "data-target": "#carouselExampleIndicators",
-                    "data-slide-to": "1"
-                  }
-                }),
-                _vm._v(" "),
-                _c("li", {
-                  attrs: {
-                    "data-target": "#carouselExampleIndicators",
-                    "data-slide-to": "2"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "carousel-inner" }, [
-                _c("div", { staticClass: "carousel-item active" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-33.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-44.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-22.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-44.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "carousel-item" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-33.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-44.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-22.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-44.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "carousel-control-prev",
-                  staticStyle: { "margin-left": "-20px" },
-                  attrs: {
-                    href: "#carouselExampleIndicators",
-                    role: "button",
-                    "data-slide": "prev"
-                  }
-                },
-                [
-                  _c("span", {
-                    staticClass: "carousel-control-prev-icon",
-                    staticStyle: {
-                      "background-color": "black",
-                      padding: "10px",
-                      height: "50px",
-                      width: "30px"
-                    },
-                    attrs: { "aria-hidden": "true" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "carousel-control-next",
-                  attrs: {
-                    href: "#carouselExampleIndicators",
-                    role: "button",
-                    "data-slide": "next"
-                  }
-                },
-                [
-                  _c("span", {
-                    staticClass: "carousel-control-next-icon",
-                    staticStyle: {
-                      "background-color": "black",
-                      padding: "10px",
-                      height: "50px",
-                      width: "30px"
-                    },
-                    attrs: { "aria-hidden": "true" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-                ]
-              )
-            ]
-          )
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7a7f1e0e", module.exports)
-  }
-}
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(57);
-
-
-/***/ }),
-/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -48577,7 +47735,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(58);
+module.exports = __webpack_require__(47);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -48593,7 +47751,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 58 */
+/* 47 */
 /***/ (function(module, exports) {
 
 /**
@@ -49326,15 +48484,847 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 59 */
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-md-12 mt-4" }, [
+    _c("div", { staticClass: "card globalcard" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body globalcardbody" }, [
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.products, function(product) {
+            return _c("div", { staticClass: "col-md-2" }, [
+              _c("div", { staticClass: "card product" }, [
+                _c("a", { attrs: { href: "/products/" + product.id } }, [
+                  _vm._m(1, true)
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("p", { staticClass: "card-title productname" }, [
+                    _vm._v(" " + _vm._s(product.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                    _vm._v(" Rp " + _vm._s(product.price) + " ")
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(2, true),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "hover-content" }, [
+                    _c("div", { staticClass: "add-to-cart-btn" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn  product-btn",
+                          on: {
+                            click: function($event) {
+                              _vm.addToCart(product.id)
+                            }
+                          }
+                        },
+                        [_vm._v("Add to Cart")]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          })
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h5", { staticStyle: { float: "left" } }, [_vm._v("Produk Terbaru")]),
+      _vm._v(" "),
+      _c("h6", { staticStyle: { float: "right" } }, [
+        _c(
+          "a",
+          {
+            staticStyle: { color: "-webkit-link" },
+            attrs: { href: "shop.html" }
+          },
+          [_vm._v("see more")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "imgwrapper" }, [
+      _c("img", {
+        attrs: {
+          src: "/user-assets/img/product-img/product-22.jpg",
+          alt: "Card image cap"
+        }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "update",
+        attrs: { type: "button", value: "Update" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "card-text float-right" }, [
+      _c("small", { staticClass: "text-muted" }, [_vm._v("Balige")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6cb63dae", module.exports)
+  }
+}
+
+/***/ }),
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(60)
+var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(61)
+var __vue_template__ = __webpack_require__(50)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/homes/Banner.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7faace92", Component.options)
+  } else {
+    hotAPI.reload("data-v-7faace92", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12 mt-4" }, [
+      _c("div", { staticClass: "card globalcard" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-8" }, [
+                  _c("div", { staticClass: "card cto" }, [
+                    _c("img", {
+                      staticStyle: { "object-fit": "cover" },
+                      attrs: {
+                        src: "/user-assets/img/bg-img/banner2.png",
+                        alt: ""
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c("div", { staticClass: "card cto " }, [
+                        _c("img", {
+                          staticStyle: { "object-fit": "cover" },
+                          attrs: {
+                            src: "/user-assets/img/bg-img/banner2.png",
+                            alt: ""
+                          }
+                        })
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "card cto ",
+                          staticStyle: { "margin-top": "1em" }
+                        },
+                        [
+                          _c("img", {
+                            staticStyle: { "object-fit": "cover" },
+                            attrs: {
+                              src: "/user-assets/img/bg-img/banner2.png",
+                              alt: ""
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7faace92", module.exports)
+  }
+}
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(52)
+/* template */
+var __vue_template__ = __webpack_require__(53)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/homes/CardSwiper.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7a7f1e0e", Component.options)
+  } else {
+    hotAPI.reload("data-v-7a7f1e0e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log("CardSwiper mounted.");
+  }
+});
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12 mt-4" }, [
+      _c("div", { staticClass: "card globalcard" }, [
+        _c("div", { staticClass: "card-header" }, [
+          _c(
+            "div",
+            {
+              staticClass: "carousel slide",
+              attrs: {
+                id: "carouselExampleIndicators",
+                "data-ride": "carousel"
+              }
+            },
+            [
+              _c("ol", { staticClass: "carousel-indicators" }, [
+                _c("li", {
+                  staticClass: "active",
+                  attrs: {
+                    "data-target": "#carouselExampleIndicators",
+                    "data-slide-to": "0"
+                  }
+                }),
+                _vm._v(" "),
+                _c("li", {
+                  attrs: {
+                    "data-target": "#carouselExampleIndicators",
+                    "data-slide-to": "1"
+                  }
+                }),
+                _vm._v(" "),
+                _c("li", {
+                  attrs: {
+                    "data-target": "#carouselExampleIndicators",
+                    "data-slide-to": "2"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "carousel-inner" }, [
+                _c("div", { staticClass: "carousel-item active" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-3" }, [
+                      _c("div", { staticClass: "card product" }, [
+                        _c("div", { staticClass: "imgwrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "/user-assets/img/product-img/product-33.jpg",
+                              alt: "Card image cap"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", { staticClass: "card-title productname" }, [
+                            _vm._v("Ulos Ragihotang asdjahslkd")
+                          ]),
+                          _vm._v(" "),
+                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                            _vm._v(" Rp 2.400.000")
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text float-right" }, [
+                            _c("small", { staticClass: "text-muted" }, [
+                              _vm._v("Balige")
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-3" }, [
+                      _c("div", { staticClass: "card product" }, [
+                        _c("div", { staticClass: "imgwrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "/user-assets/img/product-img/product-44.jpg",
+                              alt: "Card image cap"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", { staticClass: "card-title productname" }, [
+                            _vm._v("Ulos Ragihotang asdjahslkd")
+                          ]),
+                          _vm._v(" "),
+                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                            _vm._v(" Rp 2.400.000")
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text float-right" }, [
+                            _c("small", { staticClass: "text-muted" }, [
+                              _vm._v("Balige")
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-3" }, [
+                      _c("div", { staticClass: "card product" }, [
+                        _c("div", { staticClass: "imgwrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "/user-assets/img/product-img/product-22.jpg",
+                              alt: "Card image cap"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", { staticClass: "card-title productname" }, [
+                            _vm._v("Ulos Ragihotang asdjahslkd")
+                          ]),
+                          _vm._v(" "),
+                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                            _vm._v(" Rp 2.400.000")
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text float-right" }, [
+                            _c("small", { staticClass: "text-muted" }, [
+                              _vm._v("Balige")
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-3" }, [
+                      _c("div", { staticClass: "card product" }, [
+                        _c("div", { staticClass: "imgwrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "/user-assets/img/product-img/product-44.jpg",
+                              alt: "Card image cap"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", { staticClass: "card-title productname" }, [
+                            _vm._v("Ulos Ragihotang asdjahslkd")
+                          ]),
+                          _vm._v(" "),
+                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                            _vm._v(" Rp 2.400.000")
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text float-right" }, [
+                            _c("small", { staticClass: "text-muted" }, [
+                              _vm._v("Balige")
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "carousel-item" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-3" }, [
+                      _c("div", { staticClass: "card product" }, [
+                        _c("div", { staticClass: "imgwrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "/user-assets/img/product-img/product-33.jpg",
+                              alt: "Card image cap"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", { staticClass: "card-title productname" }, [
+                            _vm._v("Ulos Ragihotang asdjahslkd")
+                          ]),
+                          _vm._v(" "),
+                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                            _vm._v(" Rp 2.400.000")
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text float-right" }, [
+                            _c("small", { staticClass: "text-muted" }, [
+                              _vm._v("Balige")
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-3" }, [
+                      _c("div", { staticClass: "card product" }, [
+                        _c("div", { staticClass: "imgwrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "/user-assets/img/product-img/product-44.jpg",
+                              alt: "Card image cap"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", { staticClass: "card-title productname" }, [
+                            _vm._v("Ulos Ragihotang asdjahslkd")
+                          ]),
+                          _vm._v(" "),
+                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                            _vm._v(" Rp 2.400.000")
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text float-right" }, [
+                            _c("small", { staticClass: "text-muted" }, [
+                              _vm._v("Balige")
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-3" }, [
+                      _c("div", { staticClass: "card product" }, [
+                        _c("div", { staticClass: "imgwrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "/user-assets/img/product-img/product-22.jpg",
+                              alt: "Card image cap"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", { staticClass: "card-title productname" }, [
+                            _vm._v("Ulos Ragihotang asdjahslkd")
+                          ]),
+                          _vm._v(" "),
+                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                            _vm._v(" Rp 2.400.000")
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text float-right" }, [
+                            _c("small", { staticClass: "text-muted" }, [
+                              _vm._v("Balige")
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-3" }, [
+                      _c("div", { staticClass: "card product" }, [
+                        _c("div", { staticClass: "imgwrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "/user-assets/img/product-img/product-44.jpg",
+                              alt: "Card image cap"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", { staticClass: "card-title productname" }, [
+                            _vm._v("Ulos Ragihotang asdjahslkd")
+                          ]),
+                          _vm._v(" "),
+                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                            _vm._v(" Rp 2.400.000")
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text float-right" }, [
+                            _c("small", { staticClass: "text-muted" }, [
+                              _vm._v("Balige")
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "carousel-control-prev",
+                  staticStyle: { "margin-left": "-20px" },
+                  attrs: {
+                    href: "#carouselExampleIndicators",
+                    role: "button",
+                    "data-slide": "prev"
+                  }
+                },
+                [
+                  _c("span", {
+                    staticClass: "carousel-control-prev-icon",
+                    staticStyle: {
+                      "background-color": "black",
+                      padding: "10px",
+                      height: "50px",
+                      width: "30px"
+                    },
+                    attrs: { "aria-hidden": "true" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "carousel-control-next",
+                  attrs: {
+                    href: "#carouselExampleIndicators",
+                    role: "button",
+                    "data-slide": "next"
+                  }
+                },
+                [
+                  _c("span", {
+                    staticClass: "carousel-control-next-icon",
+                    staticStyle: {
+                      "background-color": "black",
+                      padding: "10px",
+                      height: "50px",
+                      width: "30px"
+                    },
+                    attrs: { "aria-hidden": "true" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+                ]
+              )
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7a7f1e0e", module.exports)
+  }
+}
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(55)
+/* template */
+var __vue_template__ = __webpack_require__(56)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -49373,7 +49363,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 60 */
+/* 55 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49408,7 +49398,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 61 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -49434,6 +49424,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-4e1f2ca4", module.exports)
   }
 }
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

@@ -32,7 +32,11 @@
     </div>
 
     <div id="new-product">
-        <new-products :user-id="{{Auth::user()->id}}" />
+        @if(Auth::check())
+            <new-products :user-id="{{Auth::user()->id}}" />
+        @else
+            <new-products />
+        @endif
     </div>
 
     <div id="banner">

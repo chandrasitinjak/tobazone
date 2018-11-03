@@ -27,11 +27,20 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $cart = new Cart();
-        $cart->user_id = $request->userId;
-        $cart->product_id = $request->productId;
-        $cart->total = $request->total;
-        $cart->save();
+        $cart = Cart::where('product_id', $request->productId)
+                    ->where('user_id', $request->userId)
+                    ->first();
+        
+        if($cart !== null) {
+            $cart->total += $request->total;
+            $cart->update();
+        } else {
+            $cart = new Cart();
+            $cart->user_id = $request->userId;
+            $cart->product_id = $request->productId;
+            $cart->total = $request->total;
+            $cart->save();
+        }
 
         return response()->json($cart);
     }

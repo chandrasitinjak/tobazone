@@ -132,7 +132,11 @@
         <a href="#" id="essenceCartBtn"><img src="/user-assets/img/core-img/bag.svg" alt=""> <span>10</span></a>
       </div> --}}
       <div id="cart-icon">
-        <cart-icon :user-id="{{Auth::user()->id}}"/>
+        @if(Auth::check())
+          <cart-icon :user-id="{{Auth::user()->id}}"/>
+        @else
+          <cart-icon/>
+        @endif
       </div>
 
       @guest

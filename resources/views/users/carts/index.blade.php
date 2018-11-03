@@ -27,7 +27,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="imgwrapper">
-                  <img src="{{ url('/images/' . json_decode($cart->product->images)[0]) }}" alt="Card image cap">
+                  <img src="{{ url('/images/' . json_decode($cart->product->images)[0]) }}">
                 </div>
               </div>
               <div class="col-md-3">
@@ -41,7 +41,8 @@
             Rp. {{ $cart->product->price }}
           </div>
           <div class="col-md-4 col-4">
-            {{ $cart->total }}
+            {{ $cart->total }} 
+            <button type="button" onclick="deleteCart('{{ $cart->id }}')" class=" ml-5 btn btn-sm btn-danger"> Hapus </button>
           </div>
         @endforeach
       </div>
@@ -61,9 +62,32 @@
         </div>
       </div>
     </div>
-    <div class="card-footer ">
-      <a href="{{ url('/shipping') }}" class="btn btn-primary float-right">Lanjut Pembayaran</a>
-    </div>
+
+    @if(count($carts) !== 0)
+      <div class="card-footer ">
+        <a href="{{ url('/shipping') }}" class="btn btn-primary float-right">Lanjut Pembayaran</a>
+      </div>
+    @else
+      <div class="card-footer ">
+        <a href="{{ url('/') }}" class="btn btn-primary float-right">Lanjut Berbelanja</a>
+      </div>
+    @endif
   </div>
 </div>
 @endsection
+
+<script> 
+  function deleteCart(id) {
+    jQuery.ajax({
+      url: 'carts/delete/' + id,
+      type: 'POST',
+      data: {
+        _token: "{{ csrf_token() }}"
+      },
+      dataType: 'json',
+      success: function( data ) {
+        console.log(data);
+      }       
+    })
+  }
+</script>
