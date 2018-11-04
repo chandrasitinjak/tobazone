@@ -35,12 +35,12 @@
           <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
       </div>
-      
+
       <div class="classynav">
         <div class=" dropdown float-right">
           <a href="#" class="dropdown-toggle active mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
-            </a>
+            <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
+          </a>
 
           <div class="user-menu dropdown-menu">
             <ul class="dropdown">
@@ -124,41 +124,37 @@
         <form action="#" method="post">
           <input type="search" name="search" id="headerSearch" placeholder="Cari produk">
           <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </form>
-      </div>
+              </form>
+          </div>
+ 
+          <div id="cart-icon">
+            @if(Auth::check())
+              <cart-icon :user-id="{{Auth::user()->id}}"/> 
+            @else
+              <cart-icon/> 
+            @endif
+          </div>
 
-      <!-- Cart Area -->
-      {{-- <div class="cart-area">
-        <a href="#" id="essenceCartBtn"><img src="/user-assets/img/core-img/bag.svg" alt=""> <span>10</span></a>
-      </div> --}}
-      <div id="cart-icon">
-        @if(Auth::check())
-          <cart-icon :user-id="{{Auth::user()->id}}"/>
-        @else
-          <cart-icon/>
-        @endif
-      </div>
-
-      @guest
-        <div class="user-login-info align-content-end">
-          <a href="#">
+          @guest
+          <div class="user-login-info align-content-end">
+            <a href="#">
             <button class="btn btn-link" type="button" data-toggle="modal" data-target="#loginModal"> Masuk </button>
           </a>
-        </div>
-      @else
-        <div class="classynav">
-          <div class=" dropdown float-right">
-            <a href="#" class="dropdown-toggle active mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          </div>
+          @else
+          <div class="classynav">
+            <div class=" dropdown float-right">
+              <a href="#" class="dropdown-toggle active mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
               </a>
 
-            <div class="user-menu dropdown-menu">
-              <ul class="dropdown">
-                <a class="nav-link" href="#"><i class="fa fa-user mr-2"></i>My Profile</a>
+              <div class="user-menu dropdown-menu">
+                <ul class="dropdown">
+                  <a class="nav-link" href="#"><i class="fa fa-user mr-2"></i>My Profile</a>
 
-                <form method="POST" action="{{ url('/logout')}}">
-                  {{ csrf_field() }}
-                  <button type="submit" class="btn nav-link" style="background-color: transparent"><i class="fa fa-power-off mr-2"></i>Logout</a>
+                  <form method="POST" action="{{ url('/logout')}}">
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn nav-link" style="background-color: transparent"><i class="fa fa-power-off mr-2"></i>Logout</a>
                 </form>
               </ul>
             </div>
@@ -169,5 +165,5 @@
   </div>
 </header>
 @endrole
-
+  
 @include('users.auth.login_modal')

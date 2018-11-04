@@ -63,9 +63,12 @@ class CartController extends Controller
      * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cart $cart)
+    public function update(Request $request, $id)
     {
-        //
+        $cart = Cart::find($id);
+        $cart->total = $request->total;
+        $cart->update();
+        return response()->json($cart);
     }
 
     /**
@@ -76,11 +79,15 @@ class CartController extends Controller
      */
     public function destroy(Cart $cart)
     {
-        //
+        $cart->delete();
     }
 
-    public function getTotalProduct($id) {
-        $result['total'] = Cart::where('user_id', $id)->count();
-        return response()->json($result);
+    public function getUserCart($id) {
+        if(Auth::check()) {
+            $result = Cart::with('product')->where('user_id', $id)->get();
+            return response()->json($result);
+        } else {
+            return null;
+        }
     }
 }

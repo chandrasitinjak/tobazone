@@ -9,6 +9,7 @@
   <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
   <!-- Title  -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title> @yield('title')</title>
 
   <!-- Favicon  -->
