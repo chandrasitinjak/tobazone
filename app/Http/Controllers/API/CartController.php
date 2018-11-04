@@ -83,7 +83,11 @@ class CartController extends Controller
     }
 
     public function getUserCart($id) {
-        $result = Cart::with('product')->where('user_id', $id)->get();
-        return response()->json($result);
+        if(Auth::check()) {
+            $result = Cart::with('product')->where('user_id', $id)->get();
+            return response()->json($result);
+        } else {
+            return null;
+        }
     }
 }

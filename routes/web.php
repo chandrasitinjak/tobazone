@@ -27,6 +27,7 @@ Route::get('/profile', function () {
 })->middleware('verified');
 
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+Route::get('/carts', 'CartController@index');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -52,7 +53,6 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::middleware('role:customer')->group(function () {
-        Route::get('/carts', 'CartController@index');
         Route::post('/carts/delete/{id}', 'CartController@destroy');
 
         Route::get('/shipping', 'ShippingController@index');
