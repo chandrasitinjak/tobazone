@@ -6,7 +6,7 @@
 
 <script>
 
-import EventBus from '../eventBus';
+import EventBus from '../../eventBus';
 
 export default {
   props: ['userId'],
@@ -19,13 +19,13 @@ export default {
     getTotalProductInCart() {
       window.axios.get('/api/carts/user/' + this.userId).then(res => {
         if(res.data.total !== 0) {
-          this.total = res.data.total
+          this.total = res.data.length
         }
       })
     }
   },
   mounted() {
-    EventBus.$on('CART_ADDED', this.getTotalProductInCart);
+    EventBus.$on('CART_UPDATED', this.getTotalProductInCart);
     this.getTotalProductInCart()
   }
 };

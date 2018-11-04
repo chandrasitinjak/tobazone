@@ -19,8 +19,9 @@ const CarouselAsd = require('./components/homes/Carousel')
 const NewProducts = require('./components/homes/NewProducts')
 const Banner = require('./components/homes/Banner')
 const CardSwiper = require('./components/homes/CardSwiper')
-const CartIcon = require('./components/CartIcon')
+const CartIcon = require('./components/carts/CartIcon')
 const AddToCartButton = require('./components/AddToCartButton')
+const Cart = require('./components/carts/Cart')
 
 const app = new Vue({
     el: '#app',
@@ -33,7 +34,7 @@ const newProduct = new Vue({
 })
 
 const cardSwiper = new Vue({
-    el: 'card-swiper',
+    el: '#card-swiper',
     components: { CardSwiper }
 })
 
@@ -49,5 +50,10 @@ const cartIcon = new Vue({
 
 const addToCartButton = new Vue({
     el: '#add-to-cart-button',
-    components: { AddToCartButton}
+    components: { AddToCartButton }
+})
+
+const cart = new Vue({
+    el: '#cart',
+    components: { Cart }
 })

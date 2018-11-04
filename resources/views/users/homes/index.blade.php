@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>Essence - Fashion Ecommerce Template</title>
+    <title> {{"Uloszone"}}</title>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon  -->
@@ -27,7 +27,7 @@
 <body>
     @include('users.layouts.header')
 
-    <div id="app">
+    <div id="app" class="mt-100">
         <carousel-asd />
     </div>
 
