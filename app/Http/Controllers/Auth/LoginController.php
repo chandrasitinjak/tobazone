@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Mail\VerifyMail;
+use App\User;
 use App\Http\Controllers\Controller;
+use App\VerifyUser;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -36,4 +43,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    
+
 }

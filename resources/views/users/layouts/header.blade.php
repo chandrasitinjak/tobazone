@@ -35,17 +35,24 @@
           <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
       </div>
-      <!-- Favourite Area -->
-      <div class="favourite-area">
-        <a href="#"><img src="/user-assets/img/core-img/heart.svg" alt=""></a>
-      </div>
-      <!-- User Login Info -->
-      <div class="user-login-info">
-        <a href="#"><img src="/user-assets/img/core-img/user.svg" alt=""></a>
-      </div>
-      <!-- Cart Area -->
-      <div class="cart-area">
-        <a href="#" id="essenceCartBtn"><img src="/user-assets/img/core-img/bag.svg" alt=""> <span>3</span></a>
+
+      <div class="classynav">
+        <div class=" dropdown float-right">
+          <a href="#" class="dropdown-toggle active mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
+          </a>
+
+          <div class="user-menu dropdown-menu">
+            <ul class="dropdown">
+              <a class="nav-link" href="#"><i class="fa fa-user mr-2"></i>My Profile</a>
+
+              <form method="POST" action="{{ url('/logout')}}">
+                {{ csrf_field() }}
+                <button type="submit" class="btn nav-link" style="background-color: transparent"><i class="fa fa-power-off mr-2"></i>Logout</a>
+              </form>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -57,7 +64,7 @@
     <!-- Classy Menu -->
     <nav class="classy-navbar" id="essenceNav">
       <!-- Logo -->
-      <a class="nav-brand" href="index.html"><img src="/user-assets/img/core-img/logo.png" alt=""></a>
+      <a class="nav-brand" href="{{url('/')}}"><img src="/user-assets/img/core-img/logo.png" alt=""></a>
       <!-- Navbar Toggler -->
       <div class="classy-navbar-toggler">
         <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -71,7 +78,7 @@
         <!-- Nav Start -->
         <div class="classynav">
           <ul>
-            <li><a href="#">Shop</a>
+            <li><a href="#">Kategori</a>
               <div class="megamenu">
                 <ul class="single-mega cn-col-4">
                   <li class="title">Women's Collection</li>
@@ -98,24 +105,12 @@
                   <li><a href="shop.html">Trench</a></li>
                 </ul>
                 <div class="single-mega cn-col-4">
-                  <img src="/user-assets/img/bg-img/bg-6.jpg" alt="">
+                  <img src="img/bg-img/bg-6.jpg" alt="">
                 </div>
               </div>
             </li>
-            <li><a href="#">Pages</a>
-              <ul class="dropdown">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="single-product-details.html">Product Details</a></li>
-                <li><a href="checkout.html">Checkout</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="single-blog.html">Single Blog</a></li>
-                <li><a href="regular-page.html">Regular Page</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </li>
+
             <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <!-- Nav End -->
@@ -127,24 +122,48 @@
       <!-- Search Area -->
       <div class="search-area">
         <form action="#" method="post">
-          <input type="search" name="search" id="headerSearch" placeholder="Type for search">
+          <input type="search" name="search" id="headerSearch" placeholder="Cari produk">
           <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </form>
-      </div>
-      <!-- Favourite Area -->
-      <div class="favourite-area">
-        <a href="#"><img src="/user-assets/img/core-img/heart.svg" alt=""></a>
-      </div>
-      <!-- User Login Info -->
-      <div class="user-login-info">
-        <a href="#"><img src="/user-assets/img/core-img/user.svg" alt=""></a>
-      </div>
-      <!-- Cart Area -->
-      <div class="cart-area">
-        <a href="#" id="essenceCartBtn"><img src="/user-assets/img/core-img/bag.svg" alt=""> <span>3</span></a>
-      </div>
-    </div>
+              </form>
+          </div>
+ 
+          <div id="cart-icon">
+            @if(Auth::check())
+              <cart-icon :user-id="{{Auth::user()->id}}"/> 
+            @else
+              <cart-icon/> 
+            @endif
+          </div>
 
+          @guest
+          <div class="user-login-info align-content-end">
+            <a href="#">
+            <button class="btn btn-link" type="button" data-toggle="modal" data-target="#loginModal"> Masuk </button>
+          </a>
+          </div>
+          @else
+          <div class="classynav">
+            <div class=" dropdown float-right">
+              <a href="#" class="dropdown-toggle active mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
+              </a>
+
+              <div class="user-menu dropdown-menu">
+                <ul class="dropdown">
+                  <a class="nav-link" href="#"><i class="fa fa-user mr-2"></i>My Profile</a>
+
+                  <form method="POST" action="{{ url('/logout')}}">
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn nav-link" style="background-color: transparent"><i class="fa fa-power-off mr-2"></i>Logout</a>
+                </form>
+              </ul>
+            </div>
+          </div>
+        </div>
+      @endguest
+    </div>
   </div>
 </header>
 @endrole
+  
+@include('users.auth.login_modal')

@@ -3,63 +3,88 @@
 @endsection
  
 @section('content')
-<section class="single_product_details_area d-flex align-items-center">
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="card globalcard">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="detailproduct">
+                <div id="myCarousel" class="carousel slide " data-ride="carousel">
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                    @foreach (json_decode($product->images) as $image) @if ($loop->first)
+                    <div class="carousel-item active">
+                      <img class="align-self-center" src="{{ '/images/' . $image }}" alt="">
+                    </div>
+                    @else
+                    <div class="carousel-item">
+                      <img src="{{ '/images/' . $image }}">
+                    </div>
+                    @endif @endforeach
+                  </div>
 
-  <!-- Single Product Thumb -->
-  <div class="single_product_thumb clearfix">
-    <div class="product_thumbnail_slides owl-carousel">
-      @foreach(json_decode($product->images) as $image)
-        <img src="{{ url('/images/' . $image)}}" alt=""> 
-      @endforeach
-    </div>
-  </div>
+                  <ul class="nav nav-pills nav-justified smallimage mt-15">
+                    @foreach (json_decode($product->images) as $idx => $image) @if ($loop->first)
+                    <li data-target="#myCarousel" data-slide-to="{{ $idx }}" class="active">
+                      <img src="{{ '/images/' . $image }}" alt="">
+                    </li>
+                    @else
+                    <li data-target="#myCarousel" data-slide-to="{{ $idx }}">
+                      <img src="{{ '/images/' . $image }}" alt="">
+                    </li>
+                    @endif @endforeach
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-  <!-- Single Product Description -->
-  <div class="single_product_desc clearfix">
-    <a href="cart.html">
-      <h2> {{ $product->name }}</h2>
-    </a>
-    <p class="product-price"> IDR {{ $product->price}}</p>
-    <p class="product-desc"> {{ $product->description }} </p>
+            <div class="col-md-4">
+              <a href="cart.html">
+                <h2>{{ $product->name }}</h2>
+              </a>
+              <p class="product-price">Rp {{ $product->price }}</p>
+              <p class="product-desc">{{$product->description}}</p>
 
-    @role('customer')
-      <!-- Form -->
-      <form class="cart-form clearfix" method="post">
-        <!-- Select Box -->
-        <div class="select-box d-flex mt-50 mb-30">
-          <select name="select" id="productSize" class="mr-5">
-                      <option value="value">Size: XL</option>
-                      <option value="value">Size: X</option>
-                      <option value="value">Size: M</option>
-                      <option value="value">Size: S</option>
-                  </select>
-          <select name="select" id="productColor">
-                      <option value="value">Color: Black</option>
-                      <option value="value">Color: White</option>
-                      <option value="value">Color: Red</option>
-                      <option value="value">Color: Purple</option>
-                  </select>
-        </div>
-        
-        <div class="cart-fav-box d-flex align-items-center">
-          <!-- Cart -->
-          <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>
-          <!-- Favourite -->
-          <div class="product-favourite ml-4">
-            <a href="#" class="favme fa fa-heart"></a>
+              <div id="add-to-cart-button">
+                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}"/>
+              </div>
+              
+            </div>
           </div>
         </div>
-      </form>
-    @else
-    <div class="cart-fav-box d-flex align-items-center">
-      <a href="{{ url('/products/edit', $product->id)}}" class="btn essence-btn">Edit</a>
-      
-      <form method="POST" action="{{ url('/products/delete', $product->id)}}">
-        {{ csrf_field() }}
-        <button class="btn essence-btn ml-4">Delete</button>
-      </form>
+      </div>
     </div>
-    @endrole
+    <div class="col-md-2">
+      <div class="card globalcard">
+        <div class="card-body">
+          asd
+        </div>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 @endsection
+
+<script>
+  function addToCart(id) {
+    const total = document.getElementById('total').value
+  
+    jQuery.ajax({
+      url: '/api/carts',
+      type: 'POST',
+      data: {
+        productId: id,
+        userId: '{{ Auth::user()->id }}',
+        total: total,
+        _token: "{{ csrf_token() }}"
+      },
+      dataType: 'json',
+      success: function( data ) {
+        console.log(data);
+      }       
+    })
+  }
+
+</script>

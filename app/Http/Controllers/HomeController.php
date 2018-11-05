@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'verified']);
     }
 
     /**
@@ -29,18 +29,14 @@ class HomeController extends Controller
         $user = Auth::user();
         $roles = $user->getRoleNames();
 
-        foreach($roles as $role){
-            if($role === 'admin'){
+        foreach ($roles as $role) {
+            if ($role === 'admin') {
                 return redirect('/admin');
-            } else if($role === 'merchant'){
+            } else if ($role === 'merchant') {
                 return redirect('/merchant');
             }
         }
-        return view('home');
-    }
-
-    public function test()
-    {
-        return view('users.example');
+        
+        return view('users.homes.index');
     }
 }
