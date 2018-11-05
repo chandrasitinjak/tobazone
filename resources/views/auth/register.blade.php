@@ -47,6 +47,7 @@
                             <br>
                             This is Register Merchant
                             <form method="POST" action="{{ route('register') }}">
+                            
                         @csrf
 
                         <input type="hidden" value="merchant" name="role"/>
@@ -117,9 +118,10 @@
                         <div id="registerCustomer" style="display:none;" class="answer_list">
                         <br>
                         <form method="POST" action="{{ route('register') }}">
+                        
                         @csrf
 
-                        <input type="hidden" value="merchant" name="role"/>
+                        <input type="hidden" value="customer" name="role"/>
 
                         <div class="form-group row">
                             <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>

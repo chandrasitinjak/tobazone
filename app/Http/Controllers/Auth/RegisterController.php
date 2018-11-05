@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use App\roles;
 use App\VerifyUser;
 
@@ -68,31 +70,13 @@ class RegisterController extends Controller
      * @return \App\User
      */
 
-    public function verifyUser($token)
-    {
-        $verifyUser = VerifyUser::where('token', $token)->first();
-        if(isset($verifyUser) ){
-            $user = $verifyUser->user;
-            if(!$user->verified) {
-                $verifyUser->user->verified = 1;
-                $verifyUser->user->save();
-                $status = "Your e-mail is verified. You can now login.";
-            }else{
-                $status = "Your e-mail is already verified. You can now login.";
-            }
-        }else{
-            return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
-        }
-
-        return redirect('/login')->with('status', $status);
-    }
-
     protected function create(array $data)
     {
         $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            
         ]);
 
         if($data['role'] === 'merchant'){
