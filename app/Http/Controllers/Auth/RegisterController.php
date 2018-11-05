@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Profile;
 use App\roles;
 use App\VerifyUser;
 
@@ -72,11 +73,23 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
+
         $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             
+        ]);
+
+        $profile = Profile::create([
+            'user_id' => $user_id,
+            'name' => $data['name'],
+            'address' => $data['address'],
+            'phone' => $data['phone'],
+            'photo' => $data['photo'],
+            'gender' => $data['gender'],
+            'birthday' => $data['birthday'],
+
         ]);
 
         if($data['role'] === 'merchant'){
