@@ -22,11 +22,6 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-<<<<<<< HEAD
-Route::middleware(['auth'])->group(function () {
-    Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/test', 'HomeController@test');
-=======
 Route::get('/profile', function () {
     return 'This is Profile';
 })->middleware('verified');
@@ -35,7 +30,6 @@ Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 Route::get('/carts', 'CartController@index');
 
 Route::middleware(['auth'])->group(function () {
->>>>>>> master
 
     Route::middleware('role:admin')->group(function () {
         Route::get('/admin', 'AdminController@index');
@@ -58,15 +52,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/merchant/orders', 'MerchantController@orders');
     });
 
-<<<<<<< HEAD
-    Route::middleware('role:costumer')->group(function () {
-       //
-=======
     Route::middleware('role:customer')->group(function () {
         Route::post('/carts/delete/{id}', 'CartController@destroy');
 
         Route::get('/shipping', 'ShippingController@index');
->>>>>>> master
     });
 
     Route::middleware('role:costumer|admin')->group(function () {
@@ -76,24 +65,6 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware('role:merchant|admin')->group(function () {
         Route::get('/products', 'ProductController@index');
         Route::get('/products/create', 'ProductController@create');
-<<<<<<< HEAD
-        Route::get('/products/edit/{id}', 'ProductController@edit');
-        Route::post('/products/store', 'ProductController@store');
-        Route::post('/products/update/{id}', 'ProductController@update');
-        Route::post('/products/delete/{id}', 'ProductController@destroy');
-
-        Route::prefix('/orders')->group(function () {
-            Route::get('/', 'OrderController@index');
-        });
-    });
-
-    Route::middleware('role:merchant|costumer')->group(function () {
-
-    });
-
-    Route::middleware('role:admin|merchant|costumer')->group(function () {
-        Route::get('/products/{id}', 'ProductController@show');
-=======
         Route::post('/products/store', 'ProductController@store');
 
         Route::prefix('/orders')->group(function () {
@@ -103,7 +74,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware('role:merchant|customer')->group(function () {
 
->>>>>>> master
     });
 
     Route::get('/home', 'HomeController@index');
