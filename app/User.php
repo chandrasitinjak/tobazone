@@ -32,5 +32,7 @@ class User extends Authenticatable implements MustVerifyEmailContract
         'password', 'remember_token',
     ];
 
-
+    public function profile() {
+        return $this->hasOne('App\Profile');
+    }
 }
