@@ -53,6 +53,8 @@ export default {
     async getAllProducts() {
       await window.axios.get("/api/products").then(res => {
         this.products = res.data
+      }).catch(err => {
+        console.log(err)
       });
     },
     async addToCart(id) {
@@ -61,8 +63,11 @@ export default {
         total: 1,
         userId: this.userId
       } 
+      console.log(payload)
       await window.axios.post("/api/carts", payload).then(res => {
         this.emitEvent(res.data)
+      }).catch(err => {
+        console.log(err)
       });
     },
     emitEvent(data) {
