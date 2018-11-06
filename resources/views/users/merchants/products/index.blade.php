@@ -61,9 +61,7 @@
                   </div>
 
                   <div class="product-description">
-                    <a href="single-product-details.html">
-                      <h6>{{ $product->name }}</h6>
-                    </a>
+                    <a href="{{ url('/products', $product->id)}}"> <h6>{{ $product->name }}</h6> </a>
                     <p class="product-price"> IDR {{ $product->price }}</p>
                     <!-- Hover Content -->
                     <div class="hover-content">

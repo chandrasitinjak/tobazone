@@ -56,8 +56,9 @@
               @else
               <div class="cart-fav-box d-flex align-items-center mt-4">
                 <a href="{{ url('/products/edit', $product->id) }}" class="btn essence-btn">Edit</a>
-                <form action="{{ url('/product/delete/{id}')}}">
-                  <button type="button" class="btn essence-btn ml-4">Delete</button>
+                <form action="{{ url('/products/delete', $product->id)}}" method="POST">
+                  {{ csrf_field() }}
+                  <button type="submit" class="btn essence-btn ml-4">Delete</button>
                 </form>
               </div>
               @endrole
@@ -76,8 +77,6 @@
   </div>
 </div>
 @endsection
-
-
 
 <script>
   function addToCart(id) {
