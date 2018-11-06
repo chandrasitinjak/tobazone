@@ -48057,6 +48057,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 _context.next = 2;
                 return window.axios.get("/api/products").then(function (res) {
                   _this.products = res.data;
+                }).catch(function (err) {
+                  console.log(err);
                 });
 
               case 2:
@@ -48087,12 +48089,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                   total: 1,
                   userId: this.userId
                 };
-                _context2.next = 3;
+
+                console.log(payload);
+                _context2.next = 4;
                 return window.axios.post("/api/carts", payload).then(function (res) {
                   _this2.emitEvent(res.data);
+                }).catch(function (err) {
+                  console.log(err);
                 });
 
-              case 3:
+              case 4:
               case 'end':
                 return _context2.stop();
             }
