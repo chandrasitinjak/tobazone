@@ -18,7 +18,8 @@
 <section class="shop_grid_area section-padding-80">
   <div class="container">
     <div class="row">
-  @include('users.merchants.sidebar')
+      
+      @include('users.merchants.sidebar')
 
       <div class="col-12 col-md-8 col-lg-9">
         <div class="shop_grid_product_area">
@@ -27,7 +28,7 @@
               <div class="product-topbar d-flex align-items-center justify-content-between">
                 <!-- Total Products -->
                 <div class="total-products">
-                  <p><span>186</span> products found</p>
+                  <p>You have <span>{{ count($products) }} </span> Products </p>
                 </div>
                 <!-- Sorting -->
                 <div class="product-sorting d-flex">
@@ -52,14 +53,23 @@
               <div class="single-product-wrapper">
                 <a href="{{ url('/products', $product->id)}}">
                   <div class="product-img">
-                    <img src="{{ '/images/' . json_decode($product->images)[0]}}" alt="">
+                    @if(json_decode($product->images))
+                      <img src="{{ '/images/' . json_decode($product->images)[0] }}" alt="">    
+                    @else
+                      <img src="{{ '/images/no-image.jpg'}}" alt="">   
+                    @endif
                   </div>
 
                   <div class="product-description">
-                    <a href="single-product-details.html">
-                      <h6>{{ $product->name }}</h6>
-                    </a>
+                    <a href="{{ url('/products', $product->id)}}"> <h6>{{ $product->name }}</h6> </a>
                     <p class="product-price"> IDR {{ $product->price }}</p>
+                    <!-- Hover Content -->
+                    <div class="hover-content">
+                      <!-- Add to Cart -->
+                      <div class="add-to-cart-btn">
+                        <a href="{{ url('products/edit', $product->id)}}" class="btn essence-btn">Edit</a>
+                      </div>
+                    </div>
                   </div>
                 </a>
               </div>

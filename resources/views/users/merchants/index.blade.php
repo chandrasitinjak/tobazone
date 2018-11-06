@@ -3,7 +3,7 @@
     {{ "Dashboard" }}
 @endsection
 @section('content')
-  <div>
+  <div style="height: 400px;" class="center">
     Merchant Statisticalsfal;fghioasdgh
   </div>
 @endsection

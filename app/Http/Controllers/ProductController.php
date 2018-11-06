@@ -56,7 +56,10 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->sold = 0;
-        $product->specification = $request->specification;
+        $product->specification = json_encode([
+            'dimention' => $request->dimention,
+            'weight' => $request->weight
+        ]);
         $product->description = $request->description;
         $product->color = $request->color;
         $product->images = json_encode($imageNames);
@@ -86,7 +89,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('products.edit')->with('product', $product);
+        return view('users.merchants.products.edit')->with('product', $product);
     }
 
     /**
@@ -98,14 +101,44 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $newImageNames = [];
+
+        if ($request->file('images')) {
+            $uploadedImages = $request->file('images');
+
+            foreach ($uploadedImages as $image) {
+                $imageName = time() . $image->getClientOriginalName();
+
+                array_push($newImageNames, $imageName);
+
+                $destinationPath = public_path('/images');
+                $image->move($destinationPath, $imageName);
+            }
+        }
+
         $product = Product::find($id);
         $product->name = $request->name;
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->description = $request->description;
-        $product->specification = $request->specification;
+        $product->specification = json_encode([
+            'dimention' => $request->dimention,
+            'weight' => $request->weight
+        ]);
         $product->color = $request->color;
-        $product->images = $request->image;
+
+        $imageNames = json_decode($product->images);
+        $deletedImages = explode(",", $request->deletedImages);
+
+        foreach ($deletedImages as $image) {
+            if (false !== $key = array_search($image, $imageNames)) {
+                unset($imageNames[$key]);
+            }
+        }
+
+        $finalImageNames = array_merge($newImageNames, $imageNames);
+
+        $product->images = json_encode($finalImageNames);
         $product->update();
 
         return redirect('products/' . $id);

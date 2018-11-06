@@ -37,16 +37,29 @@
             <input class="form-control" type="number" min="1" name="stock" />
           </div>
           <div class="mt-4">
-            <label class="label"> Color </label>
-            <input class="form-control" type="text" name="color" />
-          </div>
-          <div class="mt-4">
             <label class="label"> Description </label>
             <textarea class="form-control" type="text" name="description" rows="5"> </textarea>
           </div>
           <div class="mt-4">
             <label class="label"> Specification </label>
-            <textarea class="form-control" type="text" name="specification" rows="5"> </textarea>
+            <div class="row">
+              <div class="col-4">
+                <label class="label"> Ukuran </label>
+                <input class="form-control" type="text" name="dimention" placeholder="Cth: 2m x 90cm" />
+              </div>
+              <div class="col-4">
+                <label class="label"> Berat </label>
+                <input class="form-control" type="number" min="1" max="3" name="weight" />
+              </div>
+              <div class="col-4">
+                <label class="label"> Warna </label>
+                <select class="form-control" name="color">
+                  <option value="black"> Hitam </option>
+                  <option value="red"> Merah </option>
+                  <option valie="blue"> Biru </option>
+                </select>
+              </div>
+            </div>
           </div>
           <div class="col-12 mt-4">
             <div>
@@ -86,7 +99,7 @@
             var div = document.createElement("div");
             div.className = "col-3"
             div.innerHTML =  "<div class='single-product-wrapper'> <div class='product-img'> <img src='" 
-            + picFile.result + "'> </div> </div> ";
+            + picFile.result + "'> </div> </div>";
 
             output.insertBefore(div,null);            
           });
@@ -97,7 +110,5 @@
       });
     } else {
       console.log("Your browser does not support File API");
-    }
-  }
-
+    }  
 </script>
