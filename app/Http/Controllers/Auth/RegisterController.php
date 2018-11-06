@@ -81,16 +81,20 @@ class RegisterController extends Controller
             
         ]);
 
-        $profile = Profile::create([
-            'user_id' => $user_id,
-            'name' => $data['name'],
-            'address' => $data['address'],
-            'phone' => $data['phone'],
-            'photo' => $data['photo'],
-            'gender' => $data['gender'],
-            'birthday' => $data['birthday'],
+        // $user->profile()->save(new Profile);
 
-        ]);
+        User::created(function(User $user){
+            $user->profile()->save(Profile::create([ 
+           
+                'name' => $data['name'],
+                'address' => $data['address'],
+                'phone' => $data['phone'],
+                'photo' => $data['photo'],
+                'gender' => $data['gender'],
+                'birthday' => $data['birthday'],
+            ]));
+        });
+        
 
         if($data['role'] === 'merchant'){
             $user->assignRole('merchant');
