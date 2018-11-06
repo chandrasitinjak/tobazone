@@ -37,16 +37,29 @@
             <input class="form-control" type="number" min="1" name="stock" value="{{ $product->stock }}" />
           </div>
           <div class="mt-4">
-            <label class="label"> Color </label>
-            <input class="form-control" type="text" name="color" value="{{ $product->color }}" />
-          </div>
-          <div class="mt-4">
             <label class="label"> Description </label>
             <textarea class="form-control" type="text" name="description" rows="5">{{ $product->description }}</textarea>
           </div>
           <div class="mt-4">
             <label class="label"> Specification </label>
-            <textarea class="form-control" type="text" name="specification" rows="5">{{ $product->specification }}</textarea>
+            <div class="row">
+              <div class="col-4">
+                <label class="label"> Ukuran </label>
+                <input class="form-control" type="text" name="dimention" placeholder="Cth: 2m x 90cm" value="{{ json_decode($product->specification)->dimention}}" />
+              </div>
+              <div class="col-4">
+                <label class="label"> Berat </label>
+                <input class="form-control" type="number" min="1" max="3" name="weight" value="{{ json_decode($product->specification)->weight}}" />
+              </div>
+              <div class="col-4">
+                <label class="label"> Warna </label>
+                <select class="form-control" name="color" value="{{ $product->color }}">
+                    <option value="black"> Hitam </option>
+                    <option value="red"> Merah </option>
+                    <option valie="blue"> Biru </option>
+                  </select>
+              </div>
+            </div>
           </div>
           <div class="col-12 mt-4">
             <div>
@@ -56,7 +69,7 @@
             <div id="result" class="row mt-4">
             </div>
 
-            <input type="hidden" id="deleted-images" name="deletedImages"/>
+            <input type="hidden" id="deleted-images" name="deletedImages" />
           </div>
           <div class="mt-4">
             <button class="btn btn-block btn-info"> Update </button>
@@ -67,6 +80,7 @@
   </div>
 </section>
 @endsection
+
 
 <script>
   window.onload = function(){
