@@ -46,17 +46,22 @@
               </a>
               <p class="product-price">Rp {{ $product->price }}</p>
               <p class="product-desc">{{$product->description}}</p>
+              <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} kg</h6>
+              <h6 class="product-desc"> Ukuran {{ json_decode($product->specification)->dimention }}</h6>
 
-              {{-- <div>
-                <input class="form-control" id="total" type="number" min="1" value="1" max="{{ $product->stock }}" />
-              </div> --}}
-              
+              @role('customer')
               <div id="add-to-cart-button">
-                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}"/>
+                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />
               </div>
-              {{-- <div class="cart-fav-box d-flex align-items-center mt-4">
-                <button type="submit" onclick="addToCart({{ $product->id }})" class="btn essence-btn">Add to cart</button>
-              </div> --}}
+              @else
+              <div class="cart-fav-box d-flex align-items-center mt-4">
+                <a href="{{ url('/products/edit', $product->id) }}" class="btn essence-btn">Edit</a>
+                <form action="{{ url('/products/delete', $product->id)}}" method="POST">
+                  {{ csrf_field() }}
+                  <button type="submit" class="btn essence-btn ml-4">Delete</button>
+                </form>
+              </div>
+              @endrole
             </div>
           </div>
         </div>
