@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use App\Profile;
 use Carbon\Carbon;
 
 class UsersTableSeeder extends Seeder
@@ -13,25 +14,34 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        User::create([
             'username' => 'admin',
             'email' => 'uloszone@gmail.com',
             'password' => bcrypt('admin123'),
             'email_verified_at' => Carbon::now(),
         ]);
 
-        DB::table('users')->insert([
+        User::create([
             'username' => 'merchant',
             'email' => 'merchant@uloszone.com',
             'password' => bcrypt('merchant123'),
             'email_verified_at' => Carbon::now(),
         ]);
 
-        DB::table('users')->insert([
+        $customer = User::create([
             'username' => 'customer',
             'email' => 'customer@uloszone.com',
             'password' => bcrypt('customer123'),
             'email_verified_at' => Carbon::now(),
+        ]);
+
+        Profile::create([
+            'user_id' => $customer->id,
+            'name' => 'Customer',
+            'address' => '[]',
+            'phone' => '08123',
+            'gender' => 'male',
+            'birthday' => '123',
         ]);
     }
 }
