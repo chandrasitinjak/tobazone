@@ -9,8 +9,8 @@ class Product extends Model
 {
     use SoftDeletes;
     
-    public function user() {
-        return $this->belongsTo('App\User');
+    public function merchant() {
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     protected $fillable = ['name', 'price', 'stock', 'description', 'category', 'specification', 'image', 'color'];
