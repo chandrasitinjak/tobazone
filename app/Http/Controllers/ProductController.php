@@ -56,6 +56,7 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->sold = 0;
+        $product->category = $request->category;
         $product->specification = json_encode([
             'dimention' => $request->dimention,
             'weight' => $request->weight
@@ -121,6 +122,7 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->description = $request->description;
+        $product->category = $request->category;
         $product->specification = json_encode([
             'dimention' => $request->dimention,
             'weight' => $request->weight

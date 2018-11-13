@@ -13,7 +13,7 @@ class Product extends Model
         return $this->belongsTo('App\User');
     }
 
-    protected $fillable = ['name', 'price', 'stock', 'description', 'specification', 'image', 'color'];
+    protected $fillable = ['name', 'price', 'stock', 'description', 'category', 'specification', 'image', 'color'];
     protected $dates = ['deleted_at'];
 }
 	

@@ -59,6 +59,15 @@
                   <option valie="blue"> Biru </option>
                 </select>
               </div>
+              <div class="col-4 mt-4">
+                <label class="label"> Metode Pembuatan </label>
+                <select class="form-control" name="category">
+                  <option value="-"> - </option>
+                  <option value="Alat Tenun Bukan Mesin"> Alat Tenun Bukan Mesin </option>
+                  <option value="Tradisional"> Tradisional </option>
+                  <option value="Mesin"> Mesin </option>
+                </select>
+              </div>
             </div>
           </div>
           <div class="col-12 mt-4">
