@@ -81,7 +81,6 @@ class RegisterController extends Controller
             
         ]);
 
-        // $user->profile()->save(new Profile);
         $userId = $user->id;
 
         $user->profile()->save(Profile::create([
@@ -94,16 +93,41 @@ class RegisterController extends Controller
             'birthday' => $data['birthday'],
         ]));
 
-
-        
-
         if($data['role'] === 'merchant'){
             $user->assignRole('merchant');
         } else {
             $user->assignRole('customer');
         }
+
         return $user;
+        
     }
+
+    public function confirm($confirmation_code)
+    {
+        if( ! $confirmation_code)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $user = User::whereConfirmationCode($confirmation_code)->first();
+
+        if( ! $user)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $user->confirmed = 1;
+        $user->confirmation_code = null;
+        $user->save();
+
+        Flash::message('You have successfully verified your account.');
+
+        return Redirect::route('login_path');
+    }
+
+
+
 
 
 }
