@@ -19,7 +19,7 @@ export default {
     getTotalProductInCart() {
       window.axios.get('/api/carts/user/' + this.userId).then(res => {
         if(res.data.total !== 0) {
-          this.total = res.data.length
+          this.total = res.data.carts.length
         }
       })
     }
