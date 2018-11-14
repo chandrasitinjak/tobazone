@@ -36,7 +36,7 @@
                                                 <td> <span class="username"> {{ $user->gender}}</span> </td>  
                                                 <td> <span class="username"> {{ $user->birthday}}</span> </td>                                                                                              
                                                 <td>
-                                                <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#detailMerchantModal" onclick=""> Konfirmasi </button>
+                                                   <a href="{{url('user/verify', $user->verifyUser->token)}}" class="btn btn-xs btn-info pull-right">Konfirmasi</a>
                                                 </td>
                                             </tr>
                                             @endforeach
