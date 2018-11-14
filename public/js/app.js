@@ -51685,7 +51685,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -51728,6 +51728,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -51735,33 +51737,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ["userId"],
   data: function data() {
     return {
-      carts: [],
+      merchants: [],
       totalProductCost: 0,
       totalShippingCost: 0
     };
   },
-
-  methods: {
-    getProducts: function getProducts() {
-      var _this = this;
-
-      window.axios.get("/api/carts/user/" + this.userId).then(function (res) {
-        _this.carts = res.data.products;
-      }).catch(function (err) {
-        console.log(err);
-      });
-    }
-  },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this = this;
 
-    this.getProducts();
-    __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on('TOTAL_PRODUCT_COST', function (totalProductCost) {
-      _this2.totalProductCost = totalProductCost;
+    __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on("MERCHANT_LIST", function (merchants) {
+      _this.merchants = merchants;
+      console.log(_this.merchants);
     });
 
-    __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on('TOTAL_SHIPPING_COST', function (totalShippingCost) {
-      _this2.totalShippingCost = totalShippingCost;
+    __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on("TOTAL_SHIPPING_COST", function (totalShippingCost) {
+      _this.totalShippingCost = totalShippingCost;
     });
   }
 });
@@ -51784,47 +51774,57 @@ var render = function() {
       [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("div", {}, [
-            _c("span", [_vm._v(" Total Harga Produk ")]),
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _vm._l(_vm.merchants, function(merchant) {
+              return _c("div", [
+                _c("div", [
+                  _c("span", [_vm._v("Total Harga Produk")]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "float-right font-weight-bold" }, [
+                    _vm._v("Rp. " + _vm._s(merchant.totalProductCost))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("span", [_vm._v("Total Ongkos Kirim")]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "float-right font-weight-bold" }, [
+                    _vm._v("Rp. " + _vm._s(merchant.totalShippingCost))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", {
+                  staticStyle: {
+                    "border-bottom": "1px #b4b4b4 solid",
+                    margin: "10px 0px 10px 0px"
+                  }
+                }),
+                _vm._v("Total Pembayaran\n        "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "float-right h5",
+                    staticStyle: { color: "#ff8415" }
+                  },
+                  [
+                    _vm._v(
+                      "Rp " +
+                        _vm._s(
+                          merchant.totalProductCost + merchant.totalShippingCost
+                        )
+                    )
+                  ]
+                )
+              ])
+            }),
             _vm._v(" "),
-            _c("span", { staticClass: "float-right font-weight-bold" }, [
-              _vm._v(" Rp. " + _vm._s(_vm.totalProductCost) + " ")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", {}, [
-            _c("span", [_vm._v(" Total Ongkos Kirim ")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "float-right font-weight-bold" }, [
-              _vm._v(" Rp. " + _vm._s(_vm.totalShippingCost) + " ")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", {
-            staticStyle: {
-              "border-bottom": "1px #b4b4b4 solid",
-              margin: "10px 0px 10px 0px"
-            }
-          }),
-          _vm._v("\n        Total Pembayaran\n        "),
-          _c(
-            "div",
-            {
-              staticClass: "float-right  h5",
-              staticStyle: { color: "#ff8415" }
-            },
-            [
-              _vm._v(
-                "\n          Rp " +
-                  _vm._s(_vm.totalProductCost + _vm.totalShippingCost) +
-                  "\n        "
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _vm._m(1)
-        ])
+            _vm._m(1)
+          ],
+          2
+        )
       ]
     )
   ])
@@ -51944,7 +51944,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -51962,6 +51962,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -52022,79 +52029,68 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       window.axios.get("/api/carts/user/" + this.userId).then(function (res) {
         _this.carts = res.data.carts;
         _this.filterMerchants();
-        _this.publishTotalProductCostEvent();
       }).catch(function (err) {
         console.log(err);
       });
     },
-    filterMerchants: function filterMerchants() {
-      var _this2 = this;
+    filterMerchants: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var _this2 = this;
 
-      var merchantNames = [];
-      this.carts.forEach(function (cart) {
-        var merchantName = cart.product.merchant.profile.name;
-        var merchantAddress = cart.product.merchant.profile.address;
-
-        var found = merchantNames.find(function (element) {
-          return element == merchantName;
-        });
-
-        if (!found) {
-          merchantNames.push(merchantName);
-          _this2.merchants.push({
-            address: JSON.parse(JSON.parse(merchantAddress)[0]),
-            totalWeight: 1000 * cart.total * JSON.parse(cart.product.specification).weight
-          });
-        }
-      });
-    },
-    countShippingPrice: function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(address) {
-        var _this3 = this;
-
-        var shippingCost;
+        var merchantNames;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                shippingCost = 0;
+                merchantNames = [];
                 _context2.next = 3;
-                return Promise.all(this.merchants.map(function () {
-                  var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(merchant) {
-                    var payload;
+                return Promise.all(this.carts.map(function () {
+                  var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(cart) {
+                    var merchantName, merchantAddress, found;
                     return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                       while (1) {
                         switch (_context.prev = _context.next) {
                           case 0:
-                            payload = {
-                              origin: merchant.address.subdistrict_id,
-                              originType: "subdistrict",
-                              destination: address.subdistrict_id,
-                              destinationType: "subdistrict",
-                              weight: merchant.totalWeight,
-                              courier: "jne"
-                            };
-                            _context.next = 3;
-                            return window.axios.post("/api/shippingcost", payload).then(function (res) {
-                              shippingCost += res.data.rajaongkir.results[0].costs[0].cost[0].value;
+                            merchantName = cart.product.merchant.profile.name;
+                            merchantAddress = cart.product.merchant.profile.address;
+                            found = merchantNames.find(function (element) {
+                              return element === merchantName;
                             });
 
-                          case 3:
+
+                            if (!found) {
+                              merchantNames.push(merchantName);
+                              _this2.merchants.push({
+                                name: merchantName,
+                                address: JSON.parse(JSON.parse(merchantAddress)[0]),
+                                totalWeight: 1000 * cart.total * JSON.parse(cart.product.specification).weight,
+                                totalProductCost: cart.product.price * cart.total,
+                                totalShippingCost: 0
+                              });
+                            } else {
+                              _this2.merchants.forEach(function (merchant) {
+                                if (merchant.name === merchantName) {
+                                  merchant.totalProductCost += cart.product.price * cart.total;
+                                }
+                              });
+                            }
+
+                          case 4:
                           case "end":
                             return _context.stop();
                         }
                       }
-                    }, _callee, _this3);
+                    }, _callee, _this2);
                   }));
 
-                  return function (_x2) {
+                  return function (_x) {
                     return _ref2.apply(this, arguments);
                   };
                 }()));
 
               case 3:
 
-                this.publishTotalShippingCostEvent(shippingCost);
+                this.publishMerchantsListEvent(this.merchants);
 
               case 4:
               case "end":
@@ -52104,32 +52100,93 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }, _callee2, this);
       }));
 
-      function countShippingPrice(_x) {
+      function filterMerchants() {
         return _ref.apply(this, arguments);
+      }
+
+      return filterMerchants;
+    }(),
+    countShippingPrice: function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(address) {
+        var _this3 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return Promise.all(this.merchants.map(function () {
+                  var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3(merchant) {
+                    var shippingCost, payload;
+                    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+                      while (1) {
+                        switch (_context3.prev = _context3.next) {
+                          case 0:
+                            shippingCost = 0;
+                            payload = {
+                              origin: merchant.address.subdistrict_id,
+                              originType: "subdistrict",
+                              destination: address.subdistrict_id,
+                              destinationType: "subdistrict",
+                              weight: merchant.totalWeight,
+                              courier: "jne"
+                            };
+                            _context3.next = 4;
+                            return window.axios.post("/api/shippingcost", payload).then(function (res) {
+                              shippingCost = res.data.rajaongkir.results[0].costs[0].cost[0].value;
+                            });
+
+                          case 4:
+
+                            merchant.totalShippingCost = shippingCost;
+
+                          case 5:
+                          case "end":
+                            return _context3.stop();
+                        }
+                      }
+                    }, _callee3, _this3);
+                  }));
+
+                  return function (_x3) {
+                    return _ref4.apply(this, arguments);
+                  };
+                }()));
+
+              case 2:
+
+                this.publishMerchantsListEvent(this.merchants);
+
+              case 3:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function countShippingPrice(_x2) {
+        return _ref3.apply(this, arguments);
       }
 
       return countShippingPrice;
     }(),
-    publishTotalProductCostEvent: function publishTotalProductCostEvent() {
-      var totalProductCost = 0;
-      this.carts.forEach(function (cart) {
-        totalProductCost += cart.total * cart.product.price;
-      });
-      __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit('TOTAL_PRODUCT_COST', totalProductCost);
+    publishMerchantsListEvent: function publishMerchantsListEvent(merchants) {
+      __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("MERCHANT_LIST", merchants);
     },
     publishTotalShippingCostEvent: function publishTotalShippingCostEvent(shippingCost) {
-      __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit('TOTAL_SHIPPING_COST', shippingCost);
+      __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("TOTAL_SHIPPING_COST", shippingCost);
     }
   },
   mounted: function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
       var _this4 = this;
 
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
         while (1) {
-          switch (_context3.prev = _context3.next) {
+          switch (_context5.prev = _context5.next) {
             case 0:
-              _context3.next = 2;
+              _context5.next = 2;
               return this.getProducts();
 
             case 2:
@@ -52140,14 +52197,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             case 3:
             case "end":
-              return _context3.stop();
+              return _context5.stop();
           }
         }
-      }, _callee3, this);
+      }, _callee5, this);
     }));
 
     function mounted() {
-      return _ref3.apply(this, arguments);
+      return _ref5.apply(this, arguments);
     }
 
     return mounted;
@@ -52211,6 +52268,27 @@ var render = function() {
                           "\n                  Jumlah :\n                  "
                         ),
                         _c("b", [_vm._v(_vm._s(cart.total) + " buah")])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "\n                  Penjual :\n                  "
+                        ),
+                        _c("b", [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(cart.product.merchant.profile.name) +
+                              ",\n                    " +
+                              _vm._s(
+                                JSON.parse(
+                                  JSON.parse(
+                                    cart.product.merchant.profile.address
+                                  )[0]
+                                ).city_name
+                              ) +
+                              "\n                  "
+                          )
+                        ])
                       ])
                     ])
                   ])

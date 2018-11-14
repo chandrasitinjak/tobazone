@@ -26,6 +26,13 @@
                     Jumlah :
                     <b>{{ cart.total }} buah</b>
                   </li>
+                  <li>
+                    Penjual :
+                    <b>
+                      {{ cart.product.merchant.profile.name }},
+                      {{ JSON.parse(JSON.parse(cart.product.merchant.profile.address)[0]).city_name }}
+                    </b>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -57,65 +64,78 @@ export default {
         .then(res => {
           this.carts = res.data.carts;
           this.filterMerchants();
-          this.publishTotalProductCostEvent();
         })
         .catch(err => {
           console.log(err);
         });
     },
-    filterMerchants() {
+    async filterMerchants() {
       let merchantNames = [];
-      this.carts.forEach(cart => {
-        let merchantName = cart.product.merchant.profile.name;
-        let merchantAddress = cart.product.merchant.profile.address;
 
-        let found = merchantNames.find(function(element) {
-          return element == merchantName;
-        });
+      await Promise.all(
+        this.carts.map(async cart => {
+          let merchantName = cart.product.merchant.profile.name;
+          let merchantAddress = cart.product.merchant.profile.address;
 
-        if (!found) {
-          merchantNames.push(merchantName);
-          this.merchants.push({
-            address: JSON.parse(JSON.parse(merchantAddress)[0]),
-            totalWeight: 1000 * cart.total * JSON.parse(cart.product.specification).weight,
+          let found = merchantNames.find(function(element) {
+            return element === merchantName;
           });
-        }
-      });
+
+          if (!found) {
+            merchantNames.push(merchantName);
+            this.merchants.push({
+              name: merchantName,
+              address: JSON.parse(JSON.parse(merchantAddress)[0]),
+              totalWeight: 1000 * cart.total * JSON.parse(cart.product.specification).weight,
+              totalProductCost: cart.product.price * cart.total,
+              totalShippingCost: 0,
+            });
+          } else {
+            this.merchants.forEach(merchant => {
+              if(merchant.name === merchantName) {
+                merchant.totalProductCost += cart.product.price * cart.total
+              }
+            });
+          }
+        })
+      );
+
+      this.publishMerchantsListEvent(this.merchants)
     },
     async countShippingPrice(address) {
-      let shippingCost = 0;
+      await Promise.all(
+        this.merchants.map(async merchant => {
+          let shippingCost = 0;
 
-      await Promise.all(this.merchants.map( async (merchant) => {
-        const payload = {
-          origin: merchant.address.subdistrict_id,
-          originType: "subdistrict",
-          destination: address.subdistrict_id,
-          destinationType: "subdistrict",
-          weight: merchant.totalWeight,
-          courier: "jne"
-        };
+          const payload = {
+            origin: merchant.address.subdistrict_id,
+            originType: "subdistrict",
+            destination: address.subdistrict_id,
+            destinationType: "subdistrict",
+            weight: merchant.totalWeight,
+            courier: "jne"
+          };
 
-        await window.axios.post("/api/shippingcost", payload).then(res => {
-          shippingCost += res.data.rajaongkir.results[0].costs[0].cost[0].value;
-        });
-      }));
+          await window.axios.post("/api/shippingcost", payload).then(res => {
+            shippingCost = res.data.rajaongkir.results[0].costs[0].cost[0].value;
+          });
 
-      this.publishTotalShippingCostEvent(shippingCost);
+          merchant.totalShippingCost = shippingCost
+        })
+      );
+
+      this.publishMerchantsListEvent(this.merchants);
     },
-    publishTotalProductCostEvent() {
-      let totalProductCost = 0;
-      this.carts.forEach(cart => {
-        totalProductCost += (cart.total * cart.product.price)
-      })
-      EventBus.$emit('TOTAL_PRODUCT_COST', totalProductCost)
+    publishMerchantsListEvent(merchants) {
+      EventBus.$emit("MERCHANT_LIST", merchants);
     },
     publishTotalShippingCostEvent(shippingCost) {
-      EventBus.$emit('TOTAL_SHIPPING_COST', shippingCost)
+      EventBus.$emit("TOTAL_SHIPPING_COST", shippingCost);
     }
   },
   async mounted() {
     await this.getProducts();
-    
+
     EventBus.$on("ADDRESS_CHOOSEN", address => {
       this.countShippingPrice(address);
     });
