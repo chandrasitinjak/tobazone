@@ -1,57 +1,85 @@
 <template>
-  <div class="row">
-    <div class="col-md-12 mb-3">
-      <label for="select">Pilih Alamat Pengiriman</label>
-      <select v-model="address" @change="publishAddressChoosenEvent">
-        <option v-for="address in addresses" :value=JSON.parse(address)> {{ JSON.parse(address).name }} </option>                        
-      </select>
-    </div>
-    
-    <div class="col-md-12 mb-3">   
-      <div class="contact-info card p-4">
-        <p> {{ address.name }} </p>
-        {{ address.detail }}, {{ address.subdistrict_name}}, {{ address.city_name }}, {{ address.province_name }}
-        <button @click="showModal = !showModal" class="btn btn-sm btn-info col-3 mt-2 pull-right"> Tambah Alamat </button>
+  <div class="card globalcard">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-4">
+          <h5>Alamat Pengiriman</h5>
+        </div>
+        <div class="col-4">
+          <select
+            v-model="address"
+            class="form-control input-sm"
+            @change="publishAddressChoosenEvent"
+          >
+            <option
+              v-for="address in addresses"
+              :value="JSON.parse(address)"
+            >{{ JSON.parse(address).name }}</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <button
+            class="btn btn-sm btn-outline-primary float-right"
+            @click="showModal = !showModal"
+          >Tambah Alamat</button>
+        </div>
       </div>
     </div>
-
-    <div v-if="showModal">
-      <modal v-bind:user-id=userId />
+    <div class="card-body">
+      <div class="font-weight-bold">{{ buyer.name }} ({{ buyer.phone }})</div>
+      <div>
+        <ul>
+          <div v-if="address != null">
+            <li> {{ address.detail }} </li>
+            <li> {{ address.subdistrict_name }} {{ ", " + address.city_name }} {{ ", " + address.province_name }}</li>
+            <li> Kode Pos {{ address.postal_code }} </li>
+          </div>
+        </ul>
+      </div>
     </div>
+    <modal v-if="showModal" v-bind:user-id="userId"/>
   </div>
 </template>
 
 <script>
-import Modal from './AddAddressModal'
-import EventBus from '../../eventBus'
+import Modal from "./AddAddressModal";
+import EventBus from "../../eventBus";
 
 export default {
-  props: ['userId'],
+  props: ["userId"],
   data() {
     return {
       showModal: false,
       addresses: [],
-      address: {},
-    }
+      address: null,
+      buyer: {}
+    };
   },
   components: {
     Modal
   },
   methods: {
     getAddress() {
-      window.axios.get('/profile/' + this.userId).then(res => {
-        this.addresses = JSON.parse(res.data.address)
-      }).catch(err => {
-        console.log(err)
-      })
+      window.axios
+        .get("/profile/" + this.userId)
+        .then(res => {
+          this.addresses = JSON.parse(res.data.address);
+          this.buyer = res.data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
     publishAddressChoosenEvent() {
       EventBus.$emit('ADDRESS_CHOOSEN', this.address)
     }
   },
   mounted() {
-    this.getAddress()
-  },
+    this.getAddress();
+    EventBus.$on("ADD_ADDRESS_MODAL_CLOSED", () => {
+      this.showModal = false;
+    });
+  }
 };
 </script>
 
