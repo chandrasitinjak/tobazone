@@ -11,6 +11,47 @@
 /* ---------------------------------------
 ##### - PLACE YOUR CUSTOM CSS HERE - #####
 --------------------------------------- */
+/* ========= form ========= */
+.formbadge {
+  background-color: transparent;
+  border: 1px #6c757d solid;
+}
+
+/* ===== button upload image ======*/
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding: 3px;
+  border-radius: 6px;
+  border: 2px dashed gray;
+  cursor: pointer;
+
+}
+
+.btn-upcus {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-upcus img {
+  height: 40px;
+  opacity: 0.5;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
 .globalcard {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -18,7 +59,11 @@
   background-color: #ffffff;
 }
 
-.kurir{
+.breadcrumbcard {
+  padding: 0.75rem;
+}
+
+.kurir {
   height: 30px;
 }
 
@@ -230,30 +275,31 @@
   cursor: pointer;
 }
 
-.detailproduct .price{
+.detailproduct .price {
 
 }
 
-.detailreview{
+.detailreview {
   width: 100%;
 }
 
-.detailreview .nav-tabs .nav-link.active{
+.detailreview .nav-tabs .nav-link.active {
   border: none;
   border-bottom: 2px solid #007b91;
   font-size: inherit;
 }
 
-.detailreview .nav-tabs .nav-link{
+.detailreview .nav-tabs .nav-link {
   border: none;
   font-size: inherit;
 }
 
-.detailreview .nav-tabs .nav-link:hover{
+.detailreview .nav-tabs .nav-link:hover {
   border: none;
   border-bottom: 2px solid #007b91;
   font-size: inherit;
 }
+
 /*.detailreview .nav-tabs { border-bottom: 2px solid #DDD; }*/
 /*.detailreview .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }*/
 /*.detailreview .nav-tabs > li > a { border: none; color: #666; }*/
@@ -264,13 +310,12 @@
 /*.detailreview .tab-pane { padding: 15px 0; }*/
 /*.detailreview .tab-content{padding:20px}*/
 
-
 /*------------Keranjang---------------*/
 .keranjang {
   margin-top: 100px;
 }
 
-.keranjang .imgwrapper{
+.keranjang .imgwrapper {
   height: auto;
 }
 
@@ -283,23 +328,23 @@
   border-radius: 0.25em;
 }
 
-.keranjang .card-footer{
+.keranjang .card-footer {
   background-color: white;
 }
 
-.keranjang  .totalpay{
+.keranjang .totalpay {
   border: 0px;
 }
 
-.keranjang .paynow{
+.keranjang .paynow {
   font-weight: 600;
 }
 
 .keranjang .btn-xs {
-  padding  : .25rem .4rem;
-  font-size  : .875rem;
-  line-height  : .5;
-  border-radius : .2rem;
+  padding: .25rem .4rem;
+  font-size: .875rem;
+  line-height: .5;
+  border-radius: .2rem;
 }
 
 /*======= Checkout==========*/
@@ -312,12 +357,12 @@
   border-radius: 0.25em;
 }
 
-.checkout .imgwrapper{
+.checkout .imgwrapper {
   height: auto;
 }
 
 /*---------------Merchant--------------*/
-.store{
+.store {
   padding: 0.3rem;
 }
 
@@ -329,7 +374,7 @@
   color: dodgerblue;
 }
 
-.store-share button{
+.store-share button {
   float: right;
   width: 35px;
   margin-left: 8px;
@@ -357,19 +402,18 @@
   margin-bottom: 15px;
 }
 
-
 /*============ HORIZONTAL CARD ==============*/
-.hcard .card-body{
+.hcard .card-body {
   padding: 0.3rem;
 }
 
-
 /*// Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
-  .horizontalcard .shrink{
+  .horizontalcard .shrink {
 
   }
 }
+
 /*// Small devices (landscape phones, less than 768px)*/
 @media (max-width: 767.98px) {
   .quantity {
