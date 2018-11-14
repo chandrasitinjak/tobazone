@@ -29,9 +29,12 @@ class MerchantController extends Controller
                                             ->pluck('model_id')->toArray();
     
     $users = DB::table('users')->where('email_verified_at', null)
-                                 ->whereIn('id', $merchants)
-                                 ->get();
+                               ->whereIn('id', $merchants)
+                               ->pluck('id')->toArray();
 
-    return view('admin.merchant.index')->with('users', $users);
+    $profiles = DB::table('profiles')->whereIn('user_id', $users)
+                                   ->get();
+    // dd($profiles);
+    return view('admin.merchant.index')->with('profiles', $profiles);
   }
 }

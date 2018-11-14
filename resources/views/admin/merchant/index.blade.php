@@ -11,7 +11,7 @@
                     <div class="col-xl-12">
                         <div class="card">
                         
-                            
+                        
 
                             <div class="card-body--">
                                 <div class="table-stats order-table ov-h">
@@ -20,17 +20,27 @@
                                             <tr>
                                                 <th class="serial">#</th>
                                                 <th>Name</th>
-                                                <th>Email</th>
+                                                <th>Address</th>
+                                                <th>Phone</th>
+                                                <th>Photo</th>
+                                                <th>Gender</th>
+                                                <th>Birthday</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($users as $idx => $user)
+                                            @foreach ($profiles as $idx => $user)
                                             <tr>
                                                 <td class="serial"> {{ $idx+1 }}</td>
-                                                <td> <span class="username"> {{ $user->username}}</span> </td>
-                                                <td> <span class="username"> {{ $user->email}}</span> </td>                                                                                              
-                                                <td><button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#editPermissionModal" onclick=""> Konfirmasi </button></td>
+                                                <td> <span class="username"> {{ $user->name}}</span> </td>
+                                                <td> <span class="username"> {{ $user->address}}</span> </td>  
+                                                <td> <span class="username"> {{ $user->phone}}</span> </td>  
+                                                <td> <span class="username"> {{ $user->photo}}</span> </td>  
+                                                <td> <span class="username"> {{ $user->gender}}</span> </td>  
+                                                <td> <span class="username"> {{ $user->birthday}}</span> </td>                                                                                              
+                                                <td>
+                                                <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#detailMerchantModal" onclick=""> Konfirmasi </button>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
