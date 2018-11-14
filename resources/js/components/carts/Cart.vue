@@ -105,8 +105,7 @@ export default {
   methods: {
     async getCart() {
       await window.axios.get("/api/carts/user/" + this.userId).then(res => {
-        this.carts = res.data
-        console.log(this.carts)
+        this.carts = res.data.carts
       });
     },
     async updateTotal(id, action) {

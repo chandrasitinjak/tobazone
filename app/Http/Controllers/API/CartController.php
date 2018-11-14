@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Cart;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -84,8 +85,13 @@ class CartController extends Controller
 
     public function getUserCart($id) {
         // if(Auth::check()) {
-            $result = Cart::with(['product', 'product.merchant', 'product.merchant.profile'])->where('user_id', $id)->get();
-            return response()->json($result);
+            $carts = Cart::with(['product', 'product.merchant', 'product.merchant.profile'])->where('user_id', $id)->get();
+            $buyer = User::with('profile')->find($id);
+        
+            return response()->json([
+                'carts' => $carts,
+                'buyer' => $buyer
+                ]);
         // } else {
         //     return null;
         // }
