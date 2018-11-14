@@ -22,6 +22,10 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
+Route::get('/login', function() {
+    return redirect('/');
+});
+
 Route::get('/profile', function () {
     return 'This is Profile';
 })->middleware('verified');
