@@ -62,4 +62,8 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function getProducts($id) {
+        return response()->json(Product::where('user_id', $id)->get());
+    }
 }

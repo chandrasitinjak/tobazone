@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 use DB;
 
 class MerchantController extends Controller
 {
   public function index()
   {
-    return view('users.merchants.index');
+    $merchant = User::with('profile')->find(Auth::user()->id);
+    $address = json_decode(json_decode($merchant->profile->address)[0]);
+    $merchant->profile->address = $address;
+
+    return view('users.merchants.index')->with('merchant', $merchant);
   }
 
   public function products()
