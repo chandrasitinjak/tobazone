@@ -5,10 +5,14 @@
                 <li class="active">
                     <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                 </li>
-                <li class="menu-title">UI elements</li>
+                <li class="menu-title">Merchant</li>
                 <!-- /.menu-title -->
+
+                 <li>
+                    <a href="{{ url('/merchantconfirmed')}}"> <i class="menu-icon fa "></i>Merchant </a>
+                </li>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Components</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Merchant</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
                         <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
