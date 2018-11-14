@@ -20,6 +20,9 @@
         <div class="mt-4 align-self-center">
           <button type="button" class="btn essence-btn" onclick="login()">Login</button>
         </div>
+        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
       </div>
       <div class="modal-footer align-self-center">
         <a href="{{ url('/register')}}" class="btn btn-block btn-link"> Register New Account </a>
