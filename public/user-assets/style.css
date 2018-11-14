@@ -373,11 +373,11 @@
 /*// Small devices (landscape phones, less than 768px)*/
 @media (max-width: 767.98px) {
   .quantity {
-      margin-top: 1em;
+    margin-top: 1em;
   }
 
   .header_area .search-area form input {
-      width: 100%;
+    width: 100%;
   }
 }
 
