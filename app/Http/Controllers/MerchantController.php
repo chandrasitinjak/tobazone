@@ -33,8 +33,8 @@ class MerchantController extends Controller
                                ->pluck('id')->toArray();
 
     $profiles = DB::table('profiles')->whereIn('user_id', $users)
-                                   ->get();
-    // dd($profiles);
+                                     ->get();
+    
     return view('admin.merchant.index')->with('profiles', $profiles);
   }
 }
