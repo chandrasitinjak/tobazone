@@ -730,6 +730,18 @@ if (typeof Object.create === 'function') {
 
 /***/ }),
 /* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+
+var EventBus = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a();
+/* harmony default export */ __webpack_exports__["a"] = (EventBus);
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -778,7 +790,7 @@ var objectKeys = Object.keys || function (obj) {
 module.exports = Duplex;
 
 /*<replacement>*/
-var util = __webpack_require__(7);
+var util = __webpack_require__(8);
 util.inherits = __webpack_require__(4);
 /*</replacement>*/
 
@@ -866,7 +878,7 @@ Duplex.prototype._destroy = function (err, cb) {
 };
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2663,7 +2675,7 @@ function isnan (val) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright Joyent, Inc. and other Node contributors.
@@ -2774,10 +2786,10 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7).Buffer))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 /*
@@ -2859,7 +2871,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -3087,18 +3099,6 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-
-
-var EventBus = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a();
-/* harmony default export */ __webpack_exports__["a"] = (EventBus);
-
-/***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3155,7 +3155,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable node/no-deprecated-api */
-var buffer = __webpack_require__(6)
+var buffer = __webpack_require__(7)
 var Buffer = buffer.Buffer
 
 // alternative to using Object.keys for old browsers
@@ -27893,7 +27893,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
 	}
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(6).Buffer, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(7).Buffer, __webpack_require__(0)))
 
 /***/ }),
 /* 28 */
@@ -27903,7 +27903,7 @@ exports = module.exports = __webpack_require__(29);
 exports.Stream = exports;
 exports.Readable = exports;
 exports.Writable = __webpack_require__(33);
-exports.Duplex = __webpack_require__(5);
+exports.Duplex = __webpack_require__(6);
 exports.Transform = __webpack_require__(35);
 exports.PassThrough = __webpack_require__(104);
 
@@ -27979,7 +27979,7 @@ function _isUint8Array(obj) {
 /*</replacement>*/
 
 /*<replacement>*/
-var util = __webpack_require__(7);
+var util = __webpack_require__(8);
 util.inherits = __webpack_require__(4);
 /*</replacement>*/
 
@@ -28014,7 +28014,7 @@ function prependListener(emitter, event, fn) {
 }
 
 function ReadableState(options, stream) {
-  Duplex = Duplex || __webpack_require__(5);
+  Duplex = Duplex || __webpack_require__(6);
 
   options = options || {};
 
@@ -28091,7 +28091,7 @@ function ReadableState(options, stream) {
 }
 
 function Readable(options) {
-  Duplex = Duplex || __webpack_require__(5);
+  Duplex = Duplex || __webpack_require__(6);
 
   if (!(this instanceof Readable)) return new Readable(options);
 
@@ -29400,7 +29400,7 @@ var Duplex;
 Writable.WritableState = WritableState;
 
 /*<replacement>*/
-var util = __webpack_require__(7);
+var util = __webpack_require__(8);
 util.inherits = __webpack_require__(4);
 /*</replacement>*/
 
@@ -29434,7 +29434,7 @@ util.inherits(Writable, Stream);
 function nop() {}
 
 function WritableState(options, stream) {
-  Duplex = Duplex || __webpack_require__(5);
+  Duplex = Duplex || __webpack_require__(6);
 
   options = options || {};
 
@@ -29584,7 +29584,7 @@ if (typeof Symbol === 'function' && Symbol.hasInstance && typeof Function.protot
 }
 
 function Writable(options) {
-  Duplex = Duplex || __webpack_require__(5);
+  Duplex = Duplex || __webpack_require__(6);
 
   // Writable ctor is applied to Duplexes, too.
   // `realHasInstance` is necessary because using plain `instanceof`
@@ -30397,10 +30397,10 @@ function simpleEnd(buf) {
 
 module.exports = Transform;
 
-var Duplex = __webpack_require__(5);
+var Duplex = __webpack_require__(6);
 
 /*<replacement>*/
-var util = __webpack_require__(7);
+var util = __webpack_require__(8);
 util.inherits = __webpack_require__(4);
 /*</replacement>*/
 
@@ -53637,7 +53637,7 @@ var content = __webpack_require__(64);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(9)("1950337b", content, false, {});
+var update = __webpack_require__(10)("1950337b", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -53656,7 +53656,7 @@ if(false) {
 /* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(8)(false);
+exports = module.exports = __webpack_require__(9)(false);
 // imports
 
 
@@ -53908,7 +53908,7 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -55694,7 +55694,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(5);
 //
 //
 //
@@ -55813,7 +55813,7 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -55997,11 +55997,19 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -56264,11 +56272,7 @@ var render = function() {
     _c("div", { staticClass: "col-md-12 keranjang" }, [
       _c("div", { staticClass: "card globalcard " }, [
         _vm.carts.length > 0
-          ? _c("div", { staticClass: "card-header" }, [
-              _c("h5", { staticStyle: { float: "left" } }, [
-                _vm._v("Keranjang Belanja")
-              ])
-            ])
+          ? _c("div", { staticClass: "card-header" }, [_vm._m(0)])
           : _vm._e(),
         _vm._v(" "),
         _c(
@@ -56276,22 +56280,22 @@ var render = function() {
           { staticClass: "card-body" },
           [
             _vm.carts.length > 0
-              ? _c("div", { staticClass: "row" }, [_vm._m(0)])
+              ? _c("div", { staticClass: "row" }, [_vm._m(1)])
               : _c(
                   "div",
                   { staticClass: "col-12 center center-block align-center" },
                   [
                     _c("img", { attrs: { src: "/images/emptycart.png" } }),
                     _vm._v(" "),
-                    _vm._m(1)
+                    _vm._m(2)
                   ]
                 ),
             _vm._v(" "),
             _vm._l(_vm.carts, function(cart) {
               return _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-4 col-4" }, [
+                _c("div", { staticClass: "col-md-6 col-sm-12 col-xs-6" }, [
                   _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-sm-6 col-xs-12" }, [
                       _c(
                         "div",
                         {
@@ -56310,8 +56314,9 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-md-7 p-0" }, [
+                    _c("div", { staticClass: "col-lg-8 col-sm-6 col-xs-12" }, [
                       _c("div", { staticClass: "keranjang-desc-prod" }, [
+                        _c("h6", [_vm._v(" " + _vm._s(cart.product.name))]),
                         _vm._v(
                           "\n                  " +
                             _vm._s(cart.product.description) +
@@ -56322,7 +56327,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-4 col-4" }, [
+                _c("div", { staticClass: "col-md-4 col-sm-4 col-xs-6" }, [
                   _c(
                     "div",
                     {
@@ -56339,86 +56344,90 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-2 col-4" }, [
-                  _c("div", { staticClass: "input-group input-group-sm" }, [
-                    _c("div", { staticClass: "input-group-prepend" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "btn input-group-text",
-                          on: {
-                            click: function($event) {
-                              _vm.updateTotal(cart.id, "minus")
-                            }
-                          }
-                        },
-                        [_vm._v(" - ")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: cart.total,
-                          expression: "cart.total"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "number",
-                        min: "1",
-                        max: cart.product.stock
-                      },
-                      domProps: { value: cart.total },
-                      on: {
-                        change: function($event) {
-                          _vm.updateCart(cart)
-                        },
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(cart, "total", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { attrs: { "clascart.totals": "input-group-prepend" } },
-                      [
+                _c(
+                  "div",
+                  { staticClass: "quantity col-md-2 col-sm-12 col-xs-12" },
+                  [
+                    _c("div", { staticClass: "input-group input-group-sm" }, [
+                      _c("div", { staticClass: "input-group-prepend" }, [
                         _c(
                           "div",
                           {
                             staticClass: "btn input-group-text",
                             on: {
                               click: function($event) {
-                                _vm.updateTotal(cart.id, "plus")
+                                _vm.updateTotal(cart.id, "minus")
                               }
                             }
                           },
-                          [_vm._v(" + ")]
+                          [_vm._v(" - ")]
                         )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-outline-warning btn-sm mt-2 ",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.deleteCart(cart.id)
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: cart.total,
+                            expression: "cart.total"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "number",
+                          min: "1",
+                          max: cart.product.stock
+                        },
+                        domProps: { value: cart.total },
+                        on: {
+                          change: function($event) {
+                            _vm.updateCart(cart)
+                          },
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(cart, "total", $event.target.value)
+                          }
                         }
-                      }
-                    },
-                    [_vm._m(2, true)]
-                  )
-                ])
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { attrs: { "clascart.totals": "input-group-prepend" } },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "btn input-group-text",
+                              on: {
+                                click: function($event) {
+                                  _vm.updateTotal(cart.id, "plus")
+                                }
+                              }
+                            },
+                            [_vm._v(" + ")]
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-warning btn-sm mt-2 ",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.deleteCart(cart.id)
+                          }
+                        }
+                      },
+                      [_vm._m(3, true)]
+                    )
+                  ]
+                )
               ])
             })
           ],
@@ -56433,12 +56442,8 @@ var render = function() {
                   _vm._v(" "),
                   _c("h5", [_vm._v("Rp. " + _vm._s(_vm.getTotalPayment()))])
                 ])
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.carts.length > 0
-          ? _c("div", { staticClass: "card-footer" }, [
+              ]),
+              _vm._v(" "),
               _c(
                 "a",
                 {
@@ -56458,20 +56463,41 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-5" }, [
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-sm btn-outline-primary",
+            attrs: { href: "/", role: "button" }
+          },
+          [_vm._v("Belanja lagi")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-7" }, [
+        _c("h5", [_vm._v("Keranjang Belanja")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
       "div",
       { staticClass: "col-md-12", staticStyle: { "margin-bottom": "2em" } },
       [
         _c("div", { staticClass: "row font-bold" }, [
-          _c("div", { staticClass: "col-md-4 col-4" }, [
+          _c("div", { staticClass: "col-md-6" }, [
             _vm._v("\n                Produk\n              ")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-4 col-4" }, [
+          _c("div", { staticClass: "col-md-4" }, [
             _vm._v("\n                Harga\n              ")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-4 col-4" }, [
+          _c("div", { staticClass: "col-md-2" }, [
             _vm._v("\n                Jumlah\n              ")
           ])
         ])
@@ -56570,7 +56596,7 @@ var content = __webpack_require__(89);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(9)("b075d38a", content, false, {});
+var update = __webpack_require__(10)("b075d38a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -56589,7 +56615,7 @@ if(false) {
 /* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(8)(false);
+exports = module.exports = __webpack_require__(9)(false);
 // imports
 
 
@@ -56607,7 +56633,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddAddressModal__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddAddressModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__AddAddressModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
 //
 //
 //
@@ -56729,7 +56755,7 @@ var content = __webpack_require__(93);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(9)("5e1b36fe", content, false, {});
+var update = __webpack_require__(10)("5e1b36fe", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -56748,7 +56774,7 @@ if(false) {
 /* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(8)(false);
+exports = module.exports = __webpack_require__(9)(false);
 // imports
 
 
@@ -57351,7 +57377,7 @@ var unsafeHeaders = [
 	'via'
 ]
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6).Buffer, __webpack_require__(0), __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7).Buffer, __webpack_require__(0), __webpack_require__(3)))
 
 /***/ }),
 /* 98 */
@@ -57809,7 +57835,7 @@ module.exports = PassThrough;
 var Transform = __webpack_require__(35);
 
 /*<replacement>*/
-var util = __webpack_require__(7);
+var util = __webpack_require__(8);
 util.inherits = __webpack_require__(4);
 /*</replacement>*/
 
@@ -57829,7 +57855,7 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 /* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(6).Buffer
+var Buffer = __webpack_require__(7).Buffer
 
 module.exports = function (buf) {
 	// If the buffer is backed by a Uint8Array, a faster version will work
@@ -59102,7 +59128,7 @@ var content = __webpack_require__(117);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(9)("7899b06e", content, false, {});
+var update = __webpack_require__(10)("7899b06e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -59121,7 +59147,7 @@ if(false) {
 /* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(8)(false);
+exports = module.exports = __webpack_require__(9)(false);
 // imports
 
 
@@ -59137,7 +59163,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(5);
 //
 //
 //
