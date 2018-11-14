@@ -46,6 +46,7 @@
               </a>
               <p class="product-price">Rp {{ $product->price }}</p>
               <p class="product-desc">{{$product->description}}</p>
+              <p class="product-desc">{{$product->category}}</p>
               <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} kg</h6>
               <h6 class="product-desc"> Ukuran {{ json_decode($product->specification)->dimention }}</h6>
 

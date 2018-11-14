@@ -22,6 +22,8 @@ const CardSwiper = require('./components/homes/CardSwiper')
 const CartIcon = require('./components/carts/CartIcon')
 const AddToCartButton = require('./components/AddToCartButton')
 const Cart = require('./components/carts/Cart')
+const AddressChooser = require('./components/shippings/AddressChooser')
+const ShippingDetail = require('./components/shippings/ShippingDetail')
 
 const app = new Vue({
     el: '#app',
@@ -56,4 +58,14 @@ const addToCartButton = new Vue({
 const cart = new Vue({
     el: '#cart',
     components: { Cart }
+})
+
+const addressChooser = new Vue({
+    el: '#address-chooser',
+    components: { AddressChooser }
+})
+
+const shippingDetail = new Vue({
+    el: '#shipping-detail',
+    components: { ShippingDetail }
 })

@@ -30,6 +30,8 @@ Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 Route::get('/carts', 'CartController@index');
 
 Route::middleware(['auth'])->group(function () {
+    Route::post('/profile/edit/{id}', 'ProfileController@updateAddress');
+    Route::get('/profile/{id}', 'ProfileController@getProfile');
 
     Route::middleware('role:admin')->group(function () {
         Route::get('/admin', 'AdminController@index');
