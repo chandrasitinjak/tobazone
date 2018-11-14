@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use App\Profile;
 use App\roles;
 use App\VerifyUser;
 
@@ -68,40 +71,63 @@ class RegisterController extends Controller
      * @return \App\User
      */
 
-    public function verifyUser($token)
-    {
-        $verifyUser = VerifyUser::where('token', $token)->first();
-        if(isset($verifyUser) ){
-            $user = $verifyUser->user;
-            if(!$user->verified) {
-                $verifyUser->user->verified = 1;
-                $verifyUser->user->save();
-                $status = "Your e-mail is verified. You can now login.";
-            }else{
-                $status = "Your e-mail is already verified. You can now login.";
-            }
-        }else{
-            return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
-        }
-
-        return redirect('/login')->with('status', $status);
-    }
-
     protected function create(array $data)
     {
+
         $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            
         ]);
+
+        $userId = $user->id;
+
+        $user->profile()->save(Profile::create([
+            'user_id' => $user->id,
+            'name' => $data['name'],
+            'address' => $data['address'],
+            'phone' => $data['phone'],
+            'photo' => $data['photo'],
+            'gender' => $data['gender'],
+            'birthday' => $data['birthday'],
+        ]));
 
         if($data['role'] === 'merchant'){
             $user->assignRole('merchant');
         } else {
             $user->assignRole('customer');
         }
+
         return $user;
+        
     }
+
+    public function confirm($confirmation_code)
+    {
+        if( ! $confirmation_code)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $user = User::whereConfirmationCode($confirmation_code)->first();
+
+        if( ! $user)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $user->confirmed = 1;
+        $user->confirmation_code = null;
+        $user->save();
+
+        Flash::message('You have successfully verified your account.');
+
+        return Redirect::route('login_path');
+    }
+
+
+
 
 
 }
