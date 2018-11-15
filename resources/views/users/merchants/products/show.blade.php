@@ -277,8 +277,7 @@
               </div>
             </div>
           </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"
-             style="margin-left: -10px">
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style="margin-left: -10px">
             <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: black;
     padding: 10px;
     height: 50px;
@@ -300,25 +299,3 @@
   <!--Card Swipe End-->
 </div>
 @endsection
-
-<script>
-  function addToCart(id) {
-    const total = document.getElementById('total').value
-  
-    jQuery.ajax({
-      url: '/api/carts',
-      type: 'POST',
-      data: {
-        productId: id,
-        userId: '{{ Auth::user()->id }}',
-        total: total,
-        _token: "{{ csrf_token() }}"
-      },
-      dataType: 'json',
-      success: function( data ) {
-        console.log(data);
-      }       
-    })
-  }
-
-</script>
