@@ -1,33 +1,37 @@
-<div class="col-12 col-md-4 col-lg-3">
-  <div class="shop_sidebar_area">
-
-    <div class="widget catagory mb-50">
-      <h6 class="widget-title mb-30">Menu</h6>
-
-      <a href="{{url('/products/create')}}">
-        <h5> <span class="fa fa-plus"> Tambah Produk <span> </h5>
-      </a>
-    </div>
-
-    <div class="widget price mb-50">
-      <h6 class="widget-title mb-30">Filter berdasarkan</h6>
-    </div>
-
-    <div class="widget color mb-50">
-      <p class="widget-title2 mb-30">Warna</p>
-      <div class="widget-desc">
-        <ul class="d-flex">
-          <li><a href="#" class="color1"></a></li>
-          <li><a href="#" class="color2"></a></li>
-          <li><a href="#" class="color3"></a></li>
-          <li><a href="#" class="color4"></a></li>
-          <li><a href="#" class="color5"></a></li>
-          <li><a href="#" class="color6"></a></li>
-          <li><a href="#" class="color7"></a></li>
-          <li><a href="#" class="color8"></a></li>
-          <li><a href="#" class="color9"></a></li>
-          <li><a href="#" class="color10"></a></li>
-        </ul>
+<div class="col-md-3 col-lg-3">
+  <div class="merchant-sidebar">
+    <div class="card globalcard">
+      <div class="card-body">
+        <div class="mercant-sidebar-menu">
+          <ul id="menu-content2" class="menu-content collapse show">
+            <!-- Single Item -->
+            <li data-toggle="collapse" data-target="#clothing">
+              <a>Produk</a>
+              <ul class="sub-menu collapse show" id="clothing">
+                <li><a href="{{ url('/merchant') }}">All</a></li>
+                <li><a href="{{ url('/products/create') }}">Tambah produk</a></li>
+                <li><a>Produk terjual</a></li>
+              </ul>
+            </li>
+            <!-- Single Item -->
+            <li data-toggle="collapse" data-target="#shoes" class="collapsed">
+              <a>Pemesanan</a>
+              <ul class="sub-menu collapse" id="shoes">
+                <li><a>Order Berhasil</a></li>
+                <li><a>Order Dibatalkan</a></li>
+                <li><a>Order Gagal</a></li>
+              </ul>
+            </li>
+            <li data-toggle="collapse" data-target="#penjualan" class="collapsed">
+              <a>Penjualan</a>
+            </li>
+            <ul class="sub-menu collapse" id="penjualan">
+              <li><a>Order Berhasil</a></li>
+              <li><a>Order Dibatalkan</a></li>
+              <li><a>Order Gagal</a></li>
+            </ul>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
