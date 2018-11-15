@@ -23,40 +23,39 @@ const CartIcon = require('./components/carts/CartIcon')
 const AddToCartButton = require('./components/AddToCartButton')
 const Cart = require('./components/carts/Cart')
 const ShippingPage = require('./components/shippings/Container')
-const PaymentDetail = require('./components/shippings/PaymentDetail')
-const CartDetail = require('./components/shippings/CartDetail')
+const ProductListMerchantPage = require('./components/merchants/ProductList') 
 
-const app = new Vue({
+new Vue({
     el: '#app',
     components: { CarouselAsd }
 });
 
-const newProduct = new Vue({
+new Vue({
     el: '#new-product',
     components: { NewProducts }
 })
 
-const cardSwiper = new Vue({
+new Vue({
     el: '#card-swiper',
     components: { CardSwiper }
 })
 
-const banner = new Vue({
+new Vue({
     el: '#banner',
     components: { Banner }
 })
 
-const cartIcon = new Vue({
+new Vue({
     el: '#cart-icon',
     components: { CartIcon }
 })
 
-const addToCartButton = new Vue({
+new Vue({
     el: '#add-to-cart-button',
     components: { AddToCartButton }
 })
 
-const cart = new Vue({
+new Vue({
     el: '#cart',
     components: { Cart }
 })
@@ -64,4 +63,9 @@ const cart = new Vue({
 new Vue({
     el: '#shipping-page',
     components: { ShippingPage }
+})
+
+new Vue({
+    el: '#product-list',
+    components: { ProductListMerchantPage }
 })
