@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use DB;
+use Carbon\Carbon;
 
 class MerchantController extends Controller
 {
@@ -36,5 +37,13 @@ class MerchantController extends Controller
                                      ->get();
     
     return view('admin.merchant.index')->with('profiles', $profiles);
+  }
+
+  public function updateConfirm($id)
+  {
+    $confirm = Users::find($id);
+    $confirm->email_verified_at = Carbon::now();
+    $confirm->save();
+    return view('admin.merchant.index')->with('confirm', $confirm);
   }
 }

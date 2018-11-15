@@ -36,7 +36,12 @@
                                                 <td> <span class="username"> {{ $user->gender}}</span> </td>  
                                                 <td> <span class="username"> {{ $user->birthday}}</span> </td>                                                                                              
                                                 <td>
-                                                   <a href="{{url('user/verify', $user->verifyUser->token)}}" class="btn btn-xs btn-info pull-right">Konfirmasi</a>
+                                                    
+                                                    <form action="/merchant/{{ $user->id }}" method="POST">
+                                                        {{csrf_field()}}
+
+                                                        <button type="Submit"> Konfirmasi</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             @endforeach
