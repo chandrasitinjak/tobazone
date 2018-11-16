@@ -67,6 +67,8 @@ class TransactionController extends Controller
                 'shipping_cost' => $merchant['totalShippingCost'],
             ]);
         }
+
+        return response()->json($transaction);
     }
 
     /**

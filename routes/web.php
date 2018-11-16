@@ -62,8 +62,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware('role:customer')->group(function () {
         Route::post('/carts/delete/{id}', 'CartController@destroy');
-
         Route::get('/shipping', 'ShippingController@index');
+        Route::get('/transactions/{id}', 'TransactionController@show');
     });
 
     Route::middleware('role:costumer|admin')->group(function () {

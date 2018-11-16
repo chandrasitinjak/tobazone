@@ -44,9 +44,10 @@ class TransactionController extends Controller
      * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function show(Transaction $transaction)
+    public function show($id)
     {
-        //
+        $transaction = Transaction::find($id);
+        return view('users.payments.index')->with('transaction', $transaction);
     }
 
     /**
