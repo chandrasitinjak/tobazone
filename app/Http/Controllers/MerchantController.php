@@ -46,9 +46,11 @@ class MerchantController extends Controller
 
   public function updateConfirm($id)
   {
-    $confirm = Users::find($id);
+
+    $confirm = User::find($id);
     $confirm->email_verified_at = Carbon::now();
     $confirm->save();
-    return view('admin.merchant.index')->with('confirm', $confirm);
+    
+    return redirect('/merchantconfirmed');
   }
 }

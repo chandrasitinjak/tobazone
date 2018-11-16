@@ -37,7 +37,7 @@
                                                 <td> <span class="username"> {{ $user->birthday}}</span> </td>                                                                                              
                                                 <td>
                                                     
-                                                    <form action="/merchant/{{ $user->id }}" method="POST">
+                                                    <form action="/merchantconfirmed/{{ $user->user_id }}" method="POST">
                                                         {{csrf_field()}}
 
                                                         <button type="Submit"> Konfirmasi</button>
