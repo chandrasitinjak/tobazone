@@ -36,7 +36,12 @@
                                                 <td> <span class="username"> {{ $user->gender}}</span> </td>  
                                                 <td> <span class="username"> {{ $user->birthday}}</span> </td>                                                                                              
                                                 <td>
-                                                <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#detailMerchantModal" onclick=""> Konfirmasi </button>
+                                                    
+                                                    <form action="/merchantconfirmed/{{ $user->user_id }}" method="POST">
+                                                        {{csrf_field()}}
+
+                                                        <button type="Submit"> Konfirmasi</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             @endforeach

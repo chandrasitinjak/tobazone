@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use DB;
+use Carbon\Carbon;
 
 class MerchantController extends Controller
 {
@@ -41,5 +42,15 @@ class MerchantController extends Controller
                                      ->get();
     
     return view('admin.merchant.index')->with('profiles', $profiles);
+  }
+
+  public function updateConfirm($id)
+  {
+
+    $confirm = User::find($id);
+    $confirm->email_verified_at = Carbon::now();
+    $confirm->save();
+    
+    return redirect('/merchantconfirmed');
   }
 }
