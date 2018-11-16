@@ -48951,7 +48951,11 @@ var render = function() {
                     _vm._v(" Rp " + _vm._s(product.price) + " ")
                   ]),
                   _vm._v(" "),
-                  _vm._m(1, true),
+                  _c("p", { staticClass: "card-text float-right" }, [
+                    _c("small", { staticClass: "text-muted" }, [
+                      _vm._v(_vm._s(product.merchant.profile.name))
+                    ])
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "hover-content" }, [
                     _c("div", { staticClass: "add-to-cart-btn" }, [
@@ -48996,14 +49000,6 @@ var staticRenderFns = [
           [_vm._v("see more")]
         )
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "card-text float-right" }, [
-      _c("small", { staticClass: "text-muted" }, [_vm._v("Balige")])
     ])
   }
 ]
