@@ -50,11 +50,7 @@
               <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} kg</h6>
               <h6 class="product-desc"> Ukuran {{ json_decode($product->specification)->dimention }}</h6>
 
-              @role('customer')
-              <div id="add-to-cart-button">
-                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />
-              </div>
-              @else
+              @role('merchant')
               <div class="cart-fav-box d-flex align-items-center mt-4">
                 <a href="{{ url('/products/edit', $product->id) }}" class="btn essence-btn">Edit</a>
                 <form action="{{ url('/products/delete', $product->id)}}" method="POST">
@@ -62,6 +58,16 @@
                   <button type="submit" class="btn essence-btn ml-4">Delete</button>
                 </form>
               </div>
+              @else 
+                @if(Auth::check())
+                <div id="add-to-cart-button">
+                  <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />
+                </div>
+                @else
+                <div>
+                  <button class="btn essence-btn ml4"> Login Untuk Memesan Barang</button>
+                </div>
+                @endif
               @endrole
             </div>
           </div>
