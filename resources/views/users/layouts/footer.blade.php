@@ -6,7 +6,7 @@
         <ul>
           <li></li>
         </ul>
-        <p>A company for whatever you may need, from website prototyping to publishing</p>
+        <p> Kami menjual Tenun Ulos terbaik dari Penenun terbaik Nusantara </p>
       </div>
       <div class=" col-md-2 ">
         <h6 class="">Jual</h6>
@@ -41,7 +41,7 @@
           </li>
           <li>
 
-            <a href="https://www.instagram.com/uloszone/">
+            <a href="https://www.instagram.com/uloszone/" class="mr-3">
               <i style="font-size: x-large" class="fa fa-instagram"></i>
             </a>
             <a href="https://www.facebook.com/">

@@ -22,32 +22,23 @@
 }
 </style>
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="min-height: 300px">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card m-3">
                 <div class="card-header"><h4><center>You will register as </center></h4></div>
 
                 <div class="card-body">
-                   
-
                          <div class="form-group row mb-0">
-
-                            
                             <div class="col-md-6 offset-md-4">
-                                 
                                 <button class="btn btn-info" name="data" type="button" onclick="myFunction()">Merchant</button>
-                            
-
-                                 <button class="btn btn-info" name="data" type="button" onclick="myFunctionCustomer()">Customer</button>
-                            
+                                <button class="btn btn-info" name="data" type="button" onclick="myFunctionCustomer()">Customer</button>
                             </div>
                         </div>
 
                         <div id="registerMerchant" style="display:none;" class="answer_list">
                             <br>
-                            This is Register Merchant
+                            {{-- This is Register Merchant --}}
                             <form method="POST" action="{{ route('register') }}">
-                            
                         @csrf
 
                         <input type="hidden" value="merchant" name="role"/>
