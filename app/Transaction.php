@@ -6,11 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
+    protected $fillable = ['user_id', 'address', 'additional_info', 'status'];
+
     public function user() {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
-    public function product() {
-        return $this->belongsTo('App\Product');
+    public function orders() {
+        return $this->hasMany('App\Order');
+    }
+
+    public function payment() {
+        return $this->hasOne('App\Payment');
     }
 }

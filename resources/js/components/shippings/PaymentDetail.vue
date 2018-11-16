@@ -24,7 +24,7 @@
           >Rp {{ merchant.totalProductCost + merchant.totalShippingCost }}</div>
         </div>
         <div class="mt-5">
-          <button class="btn essence-btn btn-block">Bayar</button>
+          <button class="btn essence-btn btn-block" @click="createOrder">Bayar</button>
         </div>
       </div>
     </div>
@@ -39,19 +39,33 @@ export default {
   data() {
     return {
       merchants: [],
-      totalProductCost: 0,
-      totalShippingCost: 0
+      finalPaymentDetail: null
     };
   },
-  mounted() {
-    EventBus.$on("MERCHANT_LIST", merchants => {
-      this.merchants = merchants;
-      console.log(this.merchants);
-    });
+  methods: {
+    registerListener() {
+      EventBus.$on("MERCHANT_LIST", merchants => {
+        this.merchants = merchants;
+        console.log(this.merchants);
+      });
 
-    EventBus.$on("TOTAL_SHIPPING_COST", totalShippingCost => {
-      this.totalShippingCost = totalShippingCost;
-    });
+      EventBus.$on("FINAL_TRANSACTION_DETAIL", finalPaymentDetail => {
+        this.finalPaymentDetail = finalPaymentDetail;
+      });
+    },
+    createOrder() {
+      window.axios
+        .post("/api/transactions", this.finalPaymentDetail)
+        .then(res => {
+          console.log(res.data)
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  },
+  mounted() {
+    this.registerListener();
   }
 };
 </script>

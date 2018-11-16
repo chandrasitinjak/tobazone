@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('products', 'API\ProductController');
 Route::get('/merchant/products/{id}', 'API\ProductController@getProducts');
+Route::resource('/transactions', 'API\TransactionController');
 Route::resource('carts', 'API\CartController');
 Route::get('/carts/user/{id}', 'API\CartController@getUserCart');
 Route::get('/provincies', 'API\RegionalController@getProvinces');

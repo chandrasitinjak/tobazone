@@ -24,7 +24,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/login', function() {
     return redirect('/');
-});
+})->name('login');
 
 Route::get('/profile', function () {
     return 'This is Profile';
