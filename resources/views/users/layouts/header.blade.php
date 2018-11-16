@@ -81,36 +81,36 @@
             <li><a href="#">Kategori</a>
               <div class="megamenu">
                 <ul class="single-mega cn-col-4">
-                  <li class="title">Women's Collection</li>
-                  <li><a href="shop.html">Dresses</a></li>
-                  <li><a href="shop.html">Blouses &amp; Shirts</a></li>
-                  <li><a href="shop.html">T-shirts</a></li>
-                  <li><a href="shop.html">Rompers</a></li>
-                  <li><a href="shop.html">Bras &amp; Panties</a></li>
+                  <li class="title">Ulos</li>
+                  <li><a href="shop.html">Mangiring</a></li>
+                  <li><a href="shop.html">Maratur</a></li>
+                  <li><a href="shop.html">Antak-antak</a></li>
+                  <li><a href="shop.html">Ragi Hotang</a></li>
+                  <li><a href="shop.html">Pinuncaan</a></li>
+                  <li><a href="shop.html">Sibolang</a></li>
+                  <li><a href="shop.html">Tumtuman</a></li>
+                  <li><a href="shop.html">Sitolu Tuho</a></li>
                 </ul>
                 <ul class="single-mega cn-col-4">
-                  <li class="title">Men's Collection</li>
-                  <li><a href="shop.html">T-Shirts</a></li>
-                  <li><a href="shop.html">Polo</a></li>
-                  <li><a href="shop.html">Shirts</a></li>
-                  <li><a href="shop.html">Jackets</a></li>
-                  <li><a href="shop.html">Trench</a></li>
+                  <li class="title">Acara</li>
+                  <li><a href="shop.html">Pernikahan</a></li>
+                  <li><a href="shop.html">Monding</a></li>
+                  <li><a href="shop.html">Marhajabuan</a></li>
+                  <li><a href="shop.html">Mambosuri</a></li>
+                  <li><a href="shop.html">Mangharoan</a></li>
                 </ul>
                 <ul class="single-mega cn-col-4">
-                  <li class="title">Kid's Collection</li>
-                  <li><a href="shop.html">Dresses</a></li>
-                  <li><a href="shop.html">Shirts</a></li>
-                  <li><a href="shop.html">T-shirts</a></li>
-                  <li><a href="shop.html">Jackets</a></li>
-                  <li><a href="shop.html">Trench</a></li>
+                  <li class="title">Pembuatan Ulos</li>
+                  <li><a href="shop.html">Tradisional</a></li>
+                  <li><a href="shop.html">ATBM</a></li>
+                  <li><a href="shop.html">Mesin</a></li>
                 </ul>
-                <div class="single-mega cn-col-4">
-                  <img src="img/bg-img/bg-6.jpg" alt="">
-                </div>
+                <!--<div class="single-mega cn-col-4">-->
+                <!--<img src="img/bg-img/bg-6.jpg" alt="">-->
+                <!--</div>-->
               </div>
             </li>
-
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="{{ url('/blogs') }}">Blog</a></li>
           </ul>
         </div>
         <!-- Nav End -->

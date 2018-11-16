@@ -11,6 +11,38 @@
 /* ---------------------------------------
 ##### - PLACE YOUR CUSTOM CSS HERE - #####
 --------------------------------------- */
+/*==============HEADER================*/
+.header_area .header-meta{
+  height: 70px;
+}
+
+.header_area .classy-navbar{
+  height: 70px;
+}
+
+.header_area .search-area form{
+  height: 70px;
+}
+
+.header_area .search-area form input{
+  height: 70px;
+  width: 300px;
+}
+
+/*================FOOTER==============*/
+.footer_area{
+  border-top: 10px #563232 solid;
+  background-color: #e5e5e5;
+}
+
+.footer_area a{
+  color: #787878;
+  font-size: 14px;
+  line-height: 2;
+  font-weight: 400;
+}
+
+
 /* ========= form ========= */
 .formbadge {
   background-color: transparent;
@@ -401,6 +433,23 @@
   margin-left: 15px;
   margin-bottom: 15px;
 }
+/*============PAYMENT===========*/
+.payment{
+  margin-top: 100px;
+}
+
+.payment .time{
+  background-color: #f7f8f7;
+  border: 1px solid #d4d4d4;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #cde4c3;
+  border-radius: 5px;
+  border-bottom: 1px solid #cde4c3!important;
+  padding: 10px;
+}
+
+
 
 /*============ HORIZONTAL CARD ==============*/
 .hcard .card-body {
@@ -417,11 +466,11 @@
 /*// Small devices (landscape phones, less than 768px)*/
 @media (max-width: 767.98px) {
   .quantity {
-    margin-top: 1em;
+      margin-top: 1em;
   }
 
   .header_area .search-area form input {
-    width: 100%;
+      width: 100%;
   }
 }
 
