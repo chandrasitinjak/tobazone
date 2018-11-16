@@ -4,7 +4,10 @@
     <!-- Classy Menu -->
     <nav class="classy-navbar" id="essenceNav">
       <!-- Logo -->
-      <a class="nav-brand" href="{{url('/')}}"><img src="/user-assets/img/core-img/logo.png" alt=""></a>
+      <a class="nav-brand" href="{{url('/')}}">
+        {{-- <img src="/user-assets/img/core-img/logo.png" alt=""> --}}
+        <h5>UlosZone</h5>
+      </a>
       <!-- Navbar Toggler -->
       <div class="classy-navbar-toggler">
         <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -64,7 +67,10 @@
     <!-- Classy Menu -->
     <nav class="classy-navbar" id="essenceNav">
       <!-- Logo -->
-      <a class="nav-brand" href="{{url('/')}}"><img src="/user-assets/img/core-img/logo.png" alt=""></a>
+      <a class="nav-brand" href="{{url('/')}}">
+        {{-- <img src="/user-assets/img/core-img/logo.png" alt=""> --}}
+        <h5>UlosZone</h5>
+      </a>
       <!-- Navbar Toggler -->
       <div class="classy-navbar-toggler">
         <span class="navbarToggler"><span></span><span></span><span></span></span>
