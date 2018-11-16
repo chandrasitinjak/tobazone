@@ -51644,7 +51644,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -51768,7 +51768,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 totalShippingCost: 0,
                                 products: [{
                                   productId: cart.product.id,
-                                  quantity: cart.total
+                                  quantity: cart.total,
+                                  cartId: cart.id
                                 }]
                               });
                             } else {
@@ -51777,7 +51778,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                   merchant.totalProductCost += cart.product.price * cart.total;
                                   merchant.products.push({
                                     productId: cart.product.id,
-                                    quantity: cart.total
+                                    quantity: cart.total,
+                                    cartId: cart.id
                                   });
                                 }
                               });
@@ -51798,9 +51800,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
               case 3:
 
+                console.log(this.merchants);
+
                 this.publishMerchantsListEvent(this.merchants);
 
-              case 4:
+              case 5:
               case "end":
                 return _context2.stop();
             }
