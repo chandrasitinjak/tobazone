@@ -12,7 +12,7 @@ class OrderController extends Controller
     
     public function ordercustomer()
     {
-        $orders = DB::table('transactions')->where('status', 'pending')
+        $orders = Transaction::where('status', 'pending')
         ->get();
         return view('admin.order.orderconfirm')->with('orders', $orders);
     }

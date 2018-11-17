@@ -58,12 +58,11 @@ class MerchantController extends Controller
   {
      $user = User::with('transactions')->find(Auth::user()->id);
      $users = $user->id;
-                                         
-                                      //  dd($users);  
-     $ordered = DB::Table('transactions')->where('status', 'accepted')
-                                         ->whereIn('user_id', $users)
-                                         ->get();
-                                         dd($ordered);                              
+
+     $ordered = Transaction::where('status', 'accepted')
+                              ->whereIn('user_id', $users)
+                              ->get();
+                              dd($ordered);                              
      return view('users.merchants.ordermasuk')->with('ordered', $ordered);
   }
 }
