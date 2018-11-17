@@ -120,7 +120,6 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->name = $request->name;
         $product->price = $request->price;
-        $product->stock = $request->stock;
         $product->description = $request->description;
         $product->category = $request->category;
         $product->specification = json_encode([

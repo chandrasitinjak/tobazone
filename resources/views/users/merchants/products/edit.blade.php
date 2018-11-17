@@ -3,88 +3,109 @@
 @endsection
  
 @section('content')
-<div class="breadcumb_area bg-img" style="background-image: url(/user-assets/img/bg-img/breadcumb.jpg);">
-  <div class="container h-100">
-    <div class="row h-100 align-items-center">
-      <div class="col-12">
-        <div class="page-title text-center">
-          <h2>Edit Product</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<section class="shop_grid_area section-padding-80">
+<section class="shop_grid_area">
   <div class="container">
     <div class="row">
-  @include('users.merchants.sidebar')
+      @include('users.merchants.sidebar')
 
-      <div class="col-12 col-md-8 col-lg-9">
-        <form class="form-group" method="POST" action="{{ url('/products/update', $product->id) }}" enctype="multipart/form-data">
-          {{ csrf_field() }}
-
-          <div>
-            <label class="label"> Name </label>
-            <input class="form-control" type="text" name="name" value="{{ $product->name }}" />
-          </div>
-          <div class="mt-4">
-            <label class="label"> Price </label>
-            <input class="form-control" type="number" min="1" name="price" value="{{ $product->price }}" />
-          </div>
-          <div class="mt-4">
-            <label class="label"> Stock </label>
-            <input class="form-control" type="number" min="1" name="stock" value="{{ $product->stock }}" />
-          </div>
-          <div class="mt-4">
-            <label class="label"> Description </label>
-            <textarea class="form-control" type="text" name="description" rows="5">{{ $product->description }}</textarea>
-          </div>
-          <div class="mt-4">
-            <label class="label"> Specification </label>
-            <div class="row">
-              <div class="col-4">
-                <label class="label"> Ukuran </label>
-                <input class="form-control" type="text" name="dimention" placeholder="Cth: 2m x 90cm" value="{{ json_decode($product->specification)->dimention}}" />
-              </div>
-              <div class="col-4">
-                <label class="label"> Berat </label>
-                <input class="form-control" type="number" min="1" max="3" name="weight" value="{{ json_decode($product->specification)->weight}}" />
-              </div>
-              <div class="col-4">
-                <label class="label"> Warna </label>
-                <select class="form-control" name="color" value="{{ $product->color }}">
-                    <option value="black"> Hitam </option>
-                    <option value="red"> Merah </option>
-                    <option valie="blue"> Biru </option>
-                  </select>
-              </div>
-              <div class="col-4 mt-4">
-                <label class="label"> Metode Pembuatan </label>
-                <select class="form-control" name="category">
-                  <option value="-"> - </option>
-                  <option value="Alat Tenun Bukan Mesin"> Alat Tenun Bukan Mesin </option>
-                  <option value="Tradisional"> Tradisional </option>
-                  <option value="Mesin"> Mesin </option>
-                </select>
-              </div>
+      <div class="col-md-9 crudproduk mt-3" style="display: grid">
+        <div class="pull-right">
+            <div class="card globalcard mt-0">
+                <div class="card-header">
+                    <h6>Ubah Product</h6>
+                </div>
+                <div class="card-body">
+                    <form class="form-group" method="POST" action="{{ url('/products/update', $product->id) }}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <div class="form-group row">
+                            <div class="input-group mb-3">
+                                <label for="inputEmail3" class="col-sm-3 col-form-label">
+                                  Gambar Produk
+                                  <span class="formbadge badge badge-secondary font-weight-light text-muted">Wajib</span>
+                                </label>
+                                <div class="col-sm-9">
+                                    <div class="upload-btn-wrapper">
+                                        <button class="btn-upcus">
+                                          <img src="{{ '/images/assets/addimage.png'}}">
+                                        </button>
+                                        <input id="files" name="images[]" multiple type="file" />
+                                    </div>
+                                    <small id="passwordHelpBlock" class="form-text text-muted">
+                                      Format gambar .jpg .jpeg .png dan ukuran minimum 300 x 300px
+                                      (Untuk gambar optimal gunakan ukuran 700 x 700 px)
+                                    </small>
+                                    <div id="result" class="row mt-4"> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Nama Produk
+                                    <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
+                                </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" value="{{ $product->name }}" aria-describedby="namaprodukhelp" name="name">
+                                <small id="namaprodukhelp" class="form-text text-muted">
+                                    Tulis nama produk sesuai jenis, merek, dan rincian produk.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Harga Produk
+                                    <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
+                                </label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" value="{{ $product->price }}" aria-describedby="namaprodukhelp" min="1" name="price" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Deskripsi Produk
+                                <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <textarea type="text" rows="5" class="form-control" aria-describedby="namaprodukhelp" name="description">{{ $product->description }}</textarea>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <label class="label"> Specification </label>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="label"> Ukuran </label>
+                                    <input class="form-control" type="text" name="dimention" placeholder="Cth: 2m x 90cm" value="{{ json_decode($product->specification)->dimention }}" />
+                                </div>
+                                <div class="col-4">
+                                    <label class="label"> Berat </label>
+                                    <input class="form-control" type="number" min="1" max="3" name="weight" value="{{ json_decode($product->specification)->weight }}"/>
+                                </div>
+                                <div class="col-4">
+                                    <label class="label"> Warna </label>
+                                    <select class="form-control" name="color">
+                                            <option value="black"> Hitam</option>
+                                            <option value="red"> Merah</option>
+                                            <option valie="blue"> Biru</option>
+                                        </select>
+                                </div>
+                                <div class="col-4 mt-4">
+                                    <label class="label"> Metode Pembuatan </label>
+                                    <select class="form-control" name="category">
+                                            <option value="-"> -</option>
+                                            <option value="Alat Tenun Bukan Mesin"> Alat Tenun Bukan Mesin</option>
+                                            <option value="Tradisional"> Tradisional</option>
+                                            <option value="Mesin"> Mesin</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12 mt-4">
+                                <button type="submit" class="btn btn-primary float-right">Perbaharui Barang</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </div>
-          <div class="col-12 mt-4">
-            <div>
-              <label class="label"> Images </label>
-              <input class="form-control-file" id="files" type="file" name="images[]" multiple/>
-            </div>
-            <div id="result" class="row mt-4">
-            </div>
-
-            <input type="hidden" id="deleted-images" name="deletedImages" />
-          </div>
-          <div class="mt-4">
-            <button class="btn btn-block btn-info"> Update </button>
-          </div>
-        </form>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
