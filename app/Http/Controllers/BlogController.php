@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -14,7 +15,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+      $blogs = blog::all();
+      return view('admin.blog.index', compact('blogs'));
     }
 
     /**
@@ -24,7 +26,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+      return view('admin.blog.create');
     }
 
     /**
@@ -35,7 +37,54 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $request->validate([
+
+      ]);
+
+//      $blog = new blog([
+//          'title' => $request->get('title'),
+//          'body' => $request->get('title')
+//      ]);
+//      $blog->user_id = Auth::user()->id;
+//      $blog->save();
+//      return redirect('/blog')->with('success', 'Blog berhasil ditambah');
+
+      $detail=$request->body;
+
+      $dom = new \domdocument();
+      $dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+
+      $images = $dom->getelementsbytagname('img');
+
+      foreach($images as $k => $img){
+        $data = $img->getattribute('src');
+
+        list($type, $data) = explode(';', $data);
+        list(, $data)      = explode(',', $data);
+
+        $data = base64_decode($data);
+        $image_name= time().$k.'.png';
+        $path = public_path() .'/'. $image_name;
+
+        file_put_contents($path, $data);
+
+        $img->removeattribute('src');
+        $img->setattribute('src', $image_name);
+      }
+
+      $detail = $dom->savehtml();
+
+      $blog = new blog([
+          'title' => $request->get('title'),
+//          'body' => $request->get('body')
+      ]);
+
+      $blog->user_id = Auth::user()->id;
+      $blog->body = $detail;
+
+      $blog->save();
+      return redirect('/blog')->with('success', 'Blog berhasil ditambah');
+
     }
 
     /**
@@ -55,9 +104,11 @@ class BlogController extends Controller
      * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
-        //
+        $blog = Blog::find($id);
+        return view('admin.blog.edit', compact('blog'));
+
     }
 
     /**
@@ -67,9 +118,14 @@ class BlogController extends Controller
      * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, $id)
     {
-        //
+        $blog = Blog::find($id);
+        $blog->title = $request->get('title');
+        $blog->body = $request->get('body');
+        $blog->save();
+
+        return redirect('/blog')->with('success', 'berhasillah pokoknya');
     }
 
     /**
@@ -78,8 +134,10 @@ class BlogController extends Controller
      * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy($id)
     {
-        //
+        $blog = Blog::find($id);
+        $blog->delete();
+        return redirect('/blog')->with('success','Blog dihapus');
     }
 }
