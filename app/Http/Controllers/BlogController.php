@@ -41,14 +41,6 @@ class BlogController extends Controller
 
       ]);
 
-//      $blog = new blog([
-//          'title' => $request->get('title'),
-//          'body' => $request->get('title')
-//      ]);
-//      $blog->user_id = Auth::user()->id;
-//      $blog->save();
-//      return redirect('/blog')->with('success', 'Blog berhasil ditambah');
-
       $detail=$request->body;
 
       $dom = new \domdocument();
@@ -76,7 +68,7 @@ class BlogController extends Controller
 
       $blog = new blog([
           'title' => $request->get('title'),
-//          'body' => $request->get('body')
+
       ]);
 
       $blog->user_id = Auth::user()->id;
