@@ -22,9 +22,8 @@
                     </ul>
                 </div><br />
             @endif
-            <form method="post" action="{{ route('blog.update', $blog->id) }}">
-                @method('PATCH')
-                @csrf
+            <form method="POST" action="{{ url('/blog/update', $blog->id) }}">
+                {{ csrf_field() }}
                 <div class="form-group">
                     <label for="name">Share Name:</label>
                     <input type="text" class="form-control" name="title" value={{ $blog->title}} />

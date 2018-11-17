@@ -84,7 +84,6 @@ class BlogController extends Controller
 
       $blog->save();
       return redirect('/blog')->with('success', 'Blog berhasil ditambah');
-
     }
 
     /**

@@ -22,9 +22,10 @@
                     </ul>
                 </div><br/>
             @endif
-            <form method="post" action="{{ route('blog.store') }}">
+            <form method="POST" action="{{ url('/blog/store') }}">
+                {{ csrf_field() }}
                 <div class="form-group">
-                    @csrf
+
                     <label for="name">Blog Title</label>
                     <input type="text" class="form-control" name="title"/>
                 </div>

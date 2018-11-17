@@ -50,11 +50,12 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/permissions/store', 'PermissionController@store');
         Route::post('/permissions/update/{id}', 'PermissionController@update');
 
-
-       Route::resource('blog', 'BlogController');
-//        Route::get('/blog', 'BlogController@index');
-//        Route::get('/blog/create', 'BlogController@create');
-//        Route::post('/blog/edit/{id}'. 'BlogController@update');
+        Route::get('/blog', 'BlogController@index');
+        Route::get('/blog/create', 'BlogController@create');
+        Route::get('/blog/edit/{id}', 'BlogController@edit');
+        Route::post('/blog/delete/{id}', 'BlogController@destroy');
+        Route::post('/blog/update/{id}', 'BlogController@update');
+        Route::post('/blog/store', 'BlogController@store');
 
     });
 

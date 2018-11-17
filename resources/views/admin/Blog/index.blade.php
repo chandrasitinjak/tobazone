@@ -21,12 +21,12 @@
                 <strong class="card-title">{{$blog->title}} </strong>
                 <div class="float-right">
 
-                    <a href="{{ route('blog.edit',$blog->id)}}">
+                    <a href="{{ url('/blog/edit',$blog->id)}}">
                         <i class="fa fa-pencil mr-3" style="color: #4b4b4b"></i>
                     </a>
-                    <form action="{{ route('blog.destroy', $blog->id)}}" method="post" style="display: inline">
+                    <form action="{{ url('/blog/delete', $blog->id)}}" method="post" style="display: inline">
                         @csrf
-                        @method('DELETE')
+
                         <button class="" type="submit" style="background-color: transparent; border: none">
                             <i class="fa fa-trash" style="color: #4b4b4b"></i>
                         </button>
