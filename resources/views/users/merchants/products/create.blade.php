@@ -18,58 +18,59 @@
                             {{ csrf_field() }}
                             <div class="form-group row">
                                 <div class="input-group mb-3">
-                                    <label for="inputEmail3" class="col-sm-3 col-form-label">
+                                    <label class="col-sm-3 col-form-label">
                                             Gambar Produk
                                             <span class="formbadge badge badge-secondary font-weight-light text-muted">Wajib</span>
                                         </label>
                                     <div class="col-sm-9">
                                         <div class="upload-btn-wrapper">
                                             <button class="btn-upcus">
-                                                    <img src="{{ '/images/asset/addimage.png'}}">
+                                                    <img src="{{ '/images/assets/addimage.png'}}">
                                                 </button>
                                             <input id="files" name="images[]" multiple type="file" />
                                         </div>
                                         <small id="passwordHelpBlock" class="form-text text-muted">
-                                                Format gambar .jpg .jpeg .png dan ukuran minimum 300 x 300px
-                                                (Untuk gambar optimal gunakan ukuran 700 x 700 px)
-                                            </small>
+                                            Format gambar .jpg .jpeg .png dan ukuran minimum 300 x 300px
+                                            (Untuk gambar optimal gunakan ukuran 700 x 700 px)
+                                        </small>
+
+                                        <div id="result" class="row mt-4"> </div> 
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-3 col-form-label">Nama Produk
+                                <label class="col-sm-3 col-form-label">Nama Produk
                                         <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                                     </label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="" placeholder="" aria-describedby="namaprodukhelp" name="name">
+                                    <input type="text" class="form-control" aria-describedby="namaprodukhelp" name="name">
                                     <small id="namaprodukhelp" class="form-text text-muted">
-                                            Tulis nama produk sesuai jenis, merek, dan rincian produk.
-                                        </small>
+                                        Tulis nama produk sesuai jenis, merek, dan rincian produk.
+                                    </small>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-3 col-form-label">Harga Produk
+                                <label class="col-sm-3 col-form-label">Harga Produk
                                         <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                                     </label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="" placeholder="" aria-describedby="namaprodukhelp" min="1" name="price" required>
+                                    <input type="number" class="form-control" aria-describedby="namaprodukhelp" min="1" name="price" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-3 col-form-label">Stock Produk
+                                <label class="col-sm-3 col-form-label">Stock Produk
                                         <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                                     </label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="" placeholder="" aria-describedby="namaprodukhelp" min="1" name="stock" required>
+                                    <input type="number" class="form-control" aria-describedby="namaprodukhelp" min="1" name="stock" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-3 col-form-label">Deskripsi Produk
-                                        <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
-                                    </label>
+                                <label class="col-sm-3 col-form-label">Deskripsi Produk
+                                    <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
+                                </label>
                                 <div class="col-sm-9">
-                                    <textarea type="text" rows="5" class="form-control" id="" placeholder="" aria-describedby="namaprodukhelp" name="description">
-                    </textarea>
+                                    <textarea type="text" rows="5" class="form-control" aria-describedby="namaprodukhelp" name="description"></textarea>
                                 </div>
                             </div>
                             <div class="mt-4">
@@ -110,16 +111,12 @@
                         </form>
                     </div>
                 </div>
-
             </div>
-            <!--//List Produk-->
-            <!--//content-->
         </div>
     </div>
 </div>
 </div>
 @endsection
-
 
 <script>
     window.onload = function () {
@@ -153,5 +150,5 @@
         } else {
             console.log("Your browser does not support File API");
         }
-
+    }
 </script>

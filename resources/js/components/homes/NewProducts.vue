@@ -22,7 +22,7 @@
                 <p class="card-title productname"> {{product.name}}</p>
                 <h6 style="color: #ff5205"> Rp {{product.price}} </h6>
                 <p class="card-text float-right">
-                  <small class="text-muted">Balige</small>
+                  <small class="text-muted">{{ product.merchant.profile.name }}</small>
                 </p>
                 <div class="hover-content">                
                   <div class="add-to-cart-btn">
