@@ -4,13 +4,13 @@
 
 @section('content')
     <style>
-        .uper {
-            margin-top: 40px;
+        .note-editable{
+            min-height: 200px;
         }
     </style>
-    <div class="card uper">
+    <div class="card">
         <div class="card-header">
-            Add Blog
+            <strong class="card-title">Add Blog</strong>
         </div>
         <div class="card-body">
             @if ($errors->any())
@@ -25,16 +25,12 @@
             <form method="post" action="{{ route('blog.store') }}">
                 <div class="form-group">
                     @csrf
-                    <label for="name">Title Blog:</label>
+                    <label for="name">Blog Title</label>
                     <input type="text" class="form-control" name="title"/>
                 </div>
-                {{--<div class="form-group">--}}
-                    {{--<label for="price">Share Price :</label>--}}
-                    {{--<input type="text" class="form-control" name="body"/>--}}
-                {{--</div>--}}
                 <div class="form-group">
-                    <label for="price">content</label>
-                    <textarea id="summernote" name="body"></textarea>
+                    <label for="price">Blog Content</label>
+                    <textarea id="summernote" style="min-height: 200px" name="body"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Add</button>
@@ -43,7 +39,9 @@
 
             <script>
                 $(document).ready(function () {
-                    $('#summernote').summernote({});
+                    $('#summernote').summernote({
+
+                    });
                 });
             </script>
         </div>

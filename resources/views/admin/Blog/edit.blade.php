@@ -30,7 +30,7 @@
                     <input type="text" class="form-control" name="title" value={{ $blog->title}} />
                 </div>
                 <div class="form-group">
-                    <label for="price">content</label>
+                    <label for="summernote">content</label>
                     <textarea id="summernote"   class="form-control summernote"  name="body" value={{ $blog->body}}></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Update</button>
