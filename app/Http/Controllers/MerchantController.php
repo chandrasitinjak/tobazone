@@ -53,4 +53,17 @@ class MerchantController extends Controller
     
     return redirect('/merchantconfirmed');
   }
+
+  public function ordermasuk()
+  {
+     $user = User::with('transactions')->find(Auth::user()->id);
+     $users = $user->id;
+                                         
+                                      //  dd($users);  
+     $ordered = DB::Table('transactions')->where('status', 'accepted')
+                                         ->whereIn('user_id', $users)
+                                         ->get();
+                                         dd($ordered);                              
+     return view('users.merchants.ordermasuk')->with('ordered', $ordered);
+  }
 }

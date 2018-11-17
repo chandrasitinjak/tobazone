@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
             'email_verified_at' => Carbon::now(),
         ]);
 
-        User::create([
+        $merchant = User::create([
             'username' => 'merchant',
             'email' => 'merchant@uloszone.com',
             'password' => bcrypt('merchant123'),
@@ -42,6 +42,15 @@ class UsersTableSeeder extends Seeder
             'phone' => '08123',
             'gender' => 'male',
             'birthday' => '123',
+        ]);
+
+        Profile::create([
+            'user_id' => $merchant->id,
+            'name' => 'Merchant',
+            'address' => '[]',
+            'phone' => '081234',
+            'gender' => 'male',
+            'birthday' => '1234',
         ]);
     }
 }

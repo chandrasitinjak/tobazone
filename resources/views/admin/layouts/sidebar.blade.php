@@ -10,8 +10,9 @@
 
                  <li>
                     <a href="{{ url('/merchantconfirmed')}}"> <i class="menu-icon fa "></i>Merchant </a>
+                    
                 </li>
-                <li class="menu-item-has-children dropdown">
+                <li class="menu-item-has-children dropasdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Merchant</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
@@ -42,9 +43,11 @@
                     </ul>
                 </li>
 
-                <li class="menu-title">Icons</li>
+                <li class="menu-title">Customer</li>
                 <!-- /.menu-title -->
-
+                <li>
+                <a href="{{ url('/orderconfirm')}}"> <i class = "menu-icon fa "></i>Customer Ordered </a>
+                </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
                     <ul class="sub-menu children dropdown-menu">
