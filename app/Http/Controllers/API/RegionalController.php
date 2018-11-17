@@ -18,10 +18,11 @@ class RegionalController extends Controller
     }
 
     public function getSubdistricts(Request $request) {
+        
         $client = new Client([
             'base_uri' => 'https://pro.rajaongkir.com/api/',
             'headers' => [
-                "key" => env('RAJAONGKIR_API_KEY')
+                "key" => env("RAJAONGKIR_API_KEY")
             ]
         ]);
 
