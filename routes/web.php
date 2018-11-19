@@ -68,8 +68,8 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('/merchant/products')->group(function () {
             Route::get('/', 'MerchantController@products');
         });
-        Route::get('/merchant/orders', 'MerchantController@orders');
-        Route::get('/ordermasuk','MerchantController@ordermasuk');
+
+        Route::get('/merchant/{id}/orders', 'MerchantController@orders');
     });
 
     Route::middleware('role:customer')->group(function () {

@@ -58,6 +58,7 @@ export default {
         .post("/api/transactions", this.finalPaymentDetail)
         .then(res => {
           console.log(res.data)
+          window.location = "/payment"
         })
         .catch(err => {
           console.log(err);

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Transaction;
+use App\Profile;
 use Auth;
 use DB;
 use Carbon\Carbon;
@@ -24,21 +26,25 @@ class MerchantController extends Controller
     return view('users.merchants.products');
   }
 
-  public function orders()
+  public function orders($id)
   {
-    return view('users.merchants.orders');
+    $orders = Transaction::where('status', 'accepted')
+                          ->where('user_id', $id)
+                          ->get();
+                                                        
+    return view('users.merchants.orders.index')->with('orders', $orders);
   }
 
   public function merchantbeforeconfirmed()
   {
     $merchants = DB::table('model_has_roles')->where('role_id', 2)
-                                            ->pluck('model_id')->toArray();
+                                             ->pluck('model_id')->toArray();
     
-    $users = DB::table('users')->where('email_verified_at', null)
+    $users = User::where('email_verified_at', null)
                                ->whereIn('id', $merchants)
                                ->pluck('id')->toArray();
 
-    $profiles = DB::table('profiles')->whereIn('user_id', $users)
+    $profiles = Profile::whereIn('user_id', $users)
                                      ->get();
     
     return view('admin.merchant.index')->with('profiles', $profiles);
@@ -52,17 +58,5 @@ class MerchantController extends Controller
     $confirm->save();
     
     return redirect('/merchantconfirmed');
-  }
-
-  public function ordermasuk()
-  {
-     $user = User::with('transactions')->find(Auth::user()->id);
-     $users = $user->id;
-
-     $ordered = Transaction::where('status', 'accepted')
-                              ->whereIn('user_id', $users)
-                              ->get();
-                              dd($ordered);                              
-     return view('users.merchants.ordermasuk')->with('ordered', $ordered);
   }
 }

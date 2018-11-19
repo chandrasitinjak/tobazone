@@ -17,7 +17,7 @@
             <li data-toggle="collapse" data-target="#shoes" class="collapsed">
               <a>Pemesanan</a>
               <ul class="sub-menu collapse" id="shoes">
-                <li><a href="{{ url('/ordermasuk')}}">Order Masuk</a></li>
+                <li><a href="{{ url('/merchant/' . Auth::user()->id . '/orders') }}">Order Masuk</a></li>
                 <li><a>Order Berhasil</a></li>
                 <li><a>Order Dibatalkan</a></li>
                 <li><a>Order Gagal</a></li>
