@@ -40,7 +40,8 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware('role:admin')->group(function () {
         Route::get('/admin', 'AdminController@index');
         Route::post('/merchantconfirmed/{id}', 'MerchantController@updateConfirm');
-        Route::get('/merchantconfirmed', 'MerchantController@merchantbeforeconfirmed');
+        Route::get('/admin/newmerchant', 'MerchantController@newmerchant');
+        Route::get('/admin/neworder', 'OrderController@neworder');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
@@ -56,9 +57,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/blog/delete/{id}', 'BlogController@destroy');
         Route::post('/blog/update/{id}', 'BlogController@update');
         Route::post('/blog/store', 'BlogController@store');
-
-
-        Route::get('/orderconfirm', 'OrderController@ordercustomer');
+        
         Route::post('/orderconfirm/{id}', 'OrderController@orderconfirm');
     });
 
@@ -68,8 +67,8 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('/merchant/products')->group(function () {
             Route::get('/', 'MerchantController@products');
         });
-        Route::get('/merchant/orders', 'MerchantController@orders');
-        Route::get('/ordermasuk','MerchantController@ordermasuk');
+
+        Route::get('/merchant/{id}/orders', 'MerchantController@orders');
     });
 
     Route::middleware('role:customer')->group(function () {

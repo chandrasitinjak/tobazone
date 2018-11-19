@@ -85,6 +85,7 @@ export default {
             merchantNames.push(merchantName);
             this.merchants.push({
               name: merchantName,
+              id: cart.product.merchant.id,
               address: JSON.parse(JSON.parse(merchantAddress)[0]),
               totalWeight: 1000 * cart.total * JSON.parse(cart.product.specification).weight,
               totalProductCost: cart.product.price * cart.total,
@@ -93,7 +94,7 @@ export default {
                 {
                   productId: cart.product.id,
                   quantity: cart.total,
-                  cartId: cart.id
+                  cartId: cart.id,
                 }
               ]
             });
@@ -105,7 +106,7 @@ export default {
                   {
                     productId: cart.product.id,
                     quantity: cart.total,
-                    cartId: cart.id
+                    cartId: cart.id,
                   }
                 )
               }
@@ -113,8 +114,6 @@ export default {
           }
         })
       );
-
-      console.log(this.merchants)
 
       this.publishMerchantsListEvent(this.merchants)
     },

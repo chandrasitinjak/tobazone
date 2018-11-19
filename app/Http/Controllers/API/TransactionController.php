@@ -46,7 +46,8 @@ class TransactionController extends Controller
         
         foreach($merchants as $merchant) {
             $transaction = Transaction::create([
-                'user_id' => $request->all()['customerId'],
+                'customer_id' => $request->all()['customerId'],
+                'merchant_id' => $merchant['id'],
                 'address' => $shippingAddress,
                 'additional_info' => "",
                 'status' => "pending"

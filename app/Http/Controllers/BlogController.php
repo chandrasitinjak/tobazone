@@ -16,7 +16,7 @@ class BlogController extends Controller
     public function index()
     {
       $blogs = blog::all();
-      return view('admin.blog.index', compact('blogs'));
+      return view('admin.blogs.index', compact('blogs'));
     }
 
     /**
@@ -26,7 +26,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-      return view('admin.blog.create');
+      return view('admin.blogs.create');
     }
 
     /**
@@ -98,7 +98,7 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::find($id);
-        return view('admin.blog.edit', compact('blog'));
+        return view('admins.blog.edit', compact('blog'));
 
     }
 

@@ -1,5 +1,5 @@
 @extends('admin.layouts.app') 
-@section('title') {{ "Merchant" }}
+@section('title') {{ "New Orders" }}
 @endsection
  
 @section('content')
@@ -15,28 +15,18 @@
                                     <thead>
                                         <tr>
                                             <th class="serial">#</th>
-                                            <th>Name</th>
                                             <th>Address</th>
-                                            <th>Phone</th>
-                                            <th>Photo</th>
-                                            <th>Gender</th>
-                                            <th>Birthday</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($profiles as $idx => $user)
+                                        @foreach ($transactions as $idx => $order)
                                         <tr>
                                             <td class="serial"> {{ $idx+1 }}</td>
-                                            <td> <span class="username"> {{ $user->name}}</span> </td>
-                                            <td> <span class="username"> {{ $user->address}}</span> </td>
-                                            <td> <span class="username"> {{ $user->phone}}</span> </td>
-                                            <td> <span class="username"> {{ $user->photo}}</span> </td>
-                                            <td> <span class="username"> {{ $user->gender}}</span> </td>
-                                            <td> <span class="username"> {{ $user->birthday}}</span> </td>
-                                            <td>
 
-                                                <form action="/merchantconfirmed/{{ $user->user_id }}" method="POST">
+                                            <td> <span class="address"> {{ $order->address}}</span> </td>
+                                            <td>
+                                                <form action="{{ url('/orderconfirm', $order->id) }}" method="POST">
                                                     {{csrf_field()}}
 
                                                     <button type="Submit"> Konfirmasi</button>
