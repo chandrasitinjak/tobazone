@@ -12,31 +12,37 @@ use Carbon\Carbon;
 
 class MerchantController extends Controller
 {
-  public function index()
-  {
+
+  private function getAuthincatedMerchant() {
     $merchant = User::with('profile')->find(Auth::user()->id);
     $address = json_decode(json_decode($merchant->profile->address)[0]);
     $merchant->profile->address = $address;
 
+    return $merchant;
+  }
+
+  public function index() {
+    $merchant = $this->getAuthincatedMerchant();
+
     return view('users.merchants.index')->with('merchant', $merchant);
   }
 
-  public function products()
-  {
+  public function products() {
     return view('users.merchants.products');
   }
 
-  public function orders($id)
-  {
+  public function orders($id) {
+    $merchant = $this->getAuthincatedMerchant();
+    
     $orders = Transaction::where('status', 'accepted')
-                          ->where('user_id', $id)
+                          ->where('merchant_id', $id)
                           ->get();
-                                                        
-    return view('users.merchants.orders.index')->with('orders', $orders);
+             
+    return view('users.merchants.orders.index')->with('orders', $orders)
+                                               ->with('merchant', $merchant);
   }
 
-  public function merchantbeforeconfirmed()
-  {
+  public function newmerchant() {
     $merchants = DB::table('model_has_roles')->where('role_id', 2)
                                              ->pluck('model_id')->toArray();
     
@@ -50,9 +56,7 @@ class MerchantController extends Controller
     return view('admin.merchant.index')->with('profiles', $profiles);
   }
 
-  public function updateConfirm($id)
-  {
-
+  public function updateConfirm($id) {
     $confirm = User::find($id);
     $confirm->email_verified_at = Carbon::now();
     $confirm->save();
