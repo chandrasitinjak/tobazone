@@ -53042,7 +53042,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -53053,6 +53053,15 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -53161,6 +53170,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).catch(function (err) {
         console.log(err);
       });
+    },
+    updateOrderStatus: function updateOrderStatus(id, status) {
+      var _this2 = this;
+
+      var payload = {
+        status: status
+      };
+      window.axios.post("/api/merchant/orders/" + id, payload).then(function (res) {
+        _this2.getProducts();
+      }).catch(function (err) {
+        console.log(err);
+      });
     }
   },
   mounted: function mounted() {
@@ -53187,119 +53208,150 @@ var render = function() {
               _vm._m(0),
               _vm._v(" "),
               _vm._l(_vm.transactions, function(transaction) {
-                return _c(
-                  "div",
-                  _vm._l(transaction.orders, function(order) {
-                    return _c("div", [
-                      _c("div", { staticClass: "card-body" }, [
+                return _c("div", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-body",
+                      staticStyle: {
+                        "border-bottom": "1px #c5c5c5 solid",
+                        "padding-bottom": "10px"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "row mt-2" }, [
                         _c(
                           "div",
-                          {
-                            staticClass: "row mt-3",
-                            staticStyle: {
-                              "border-bottom": "1px #c5c5c5 solid",
-                              "padding-bottom": "10px"
-                            }
-                          },
-                          [
-                            _c(
-                              "div",
-                              { staticClass: "col-md-10 col-sm-12 col-xs-6" },
-                              [
-                                _c("div", { staticClass: "row" }, [
-                                  _c(
-                                    "div",
-                                    { staticClass: "col-lg-3 col-xs-12" },
-                                    [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "vimagewrapper",
-                                          staticStyle: { padding: "0px" }
-                                        },
-                                        [
-                                          _c("img", {
-                                            staticClass: "vimg",
-                                            attrs: {
-                                              src:
-                                                "/images/" +
-                                                JSON.parse(
-                                                  order.product.images
-                                                )[0],
-                                              alt: "Card image cap"
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "col-md-8" }, [
-                                    _c(
-                                      "div",
-                                      { staticClass: "keranjang-desc-prod" },
-                                      [
-                                        _c("h6", [
-                                          _vm._v(
-                                            " " + _vm._s(order.product.name)
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("small", [
-                                          _vm._v(
-                                            " " +
-                                              _vm._s(order.product.description)
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("br"),
-                                        _vm._v(" "),
-                                        _c("small", [
-                                          _c("b", [_vm._v("Jumlah :")]),
-                                          _vm._v(
-                                            " " +
-                                              _vm._s(order.quantity) +
-                                              "\n                          "
-                                          )
-                                        ])
-                                      ]
-                                    ),
+                          { staticClass: "col-md-10 col-sm-12 col-xs-6" },
+                          _vm._l(transaction.orders, function(order, idx) {
+                            return _c("div", { staticClass: "row" }, [
+                              _c("div", { staticClass: "col-lg-3 col-xs-12" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "vimagewrapper",
+                                    staticStyle: { padding: "0px" }
+                                  },
+                                  [
+                                    _c("img", {
+                                      staticClass: "vimg",
+                                      attrs: {
+                                        src:
+                                          "/images/" +
+                                          JSON.parse(order.product.images)[0],
+                                        alt: "Card image cap"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-md-8" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "keranjang-desc-prod" },
+                                  [
+                                    _c("h6", [
+                                      _vm._v(_vm._s(order.product.name))
+                                    ]),
                                     _vm._v(" "),
-                                    _c(
+                                    _c("br"),
+                                    _vm._v(" "),
+                                    _c("small", [
+                                      _c("b", [_vm._v("Jumlah :")]),
+                                      _vm._v(
+                                        " " + _vm._s(order.quantity) + " "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(" "),
+                                      _c("b", [_vm._v("Stok Anda :")]),
+                                      _vm._v(
+                                        " " +
+                                          _vm._s(order.product.stock) +
+                                          "\n                        "
+                                      )
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                idx === transaction.orders.length - 1
+                                  ? _c(
                                       "div",
                                       { staticClass: "keranjang-desc-prod" },
                                       [
                                         _c("small", [
                                           _vm._v(
-                                            "Dikirim ke:\n                            "
+                                            "Dikirim ke:\n                          "
                                           ),
                                           _c("br"),
                                           _vm._v(
-                                            " " +
+                                            "\n                          " +
                                               _vm._s(transaction.address) +
-                                              "\n                          "
+                                              "\n                        "
                                           )
                                         ])
                                       ]
                                     )
-                                  ])
-                                ])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _vm._m(1, true)
-                          ]
-                        )
+                                  : _vm._e()
+                              ])
+                            ])
+                          })
+                        ),
+                        _vm._v(" "),
+                        _c("div", [
+                          _c("div", [
+                            _c("div", [
+                              _c("div", { staticClass: "quantity col-md-2" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-success btn-sm mb-2",
+                                    staticStyle: {
+                                      display: "block",
+                                      width: "90px"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.updateOrderStatus(
+                                          transaction.id,
+                                          "acceptedByMerchant"
+                                        )
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("Terima")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-danger btn-sm",
+                                    staticStyle: { width: "90px" },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.updateOrderStatus(
+                                          transaction.id,
+                                          "rejectedByMerchant"
+                                        )
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("Tolak")]
+                                )
+                              ])
+                            ])
+                          ])
+                        ])
                       ])
-                    ])
-                  })
-                )
-              }),
-              _vm._v(" "),
-              _vm._m(2)
+                    ]
+                  )
+                ])
+              })
             ],
             2
-          )
+          ),
+          _vm._v(" "),
+          _vm._m(1)
         ])
       ])
     ])
@@ -53312,30 +53364,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("h6", [_vm._v("Order Baru")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "quantity col-md-2" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-success btn-sm mb-2",
-          staticStyle: { display: "block", width: "90px" }
-        },
-        [_vm._v("Terima")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-danger btn-sm",
-          staticStyle: { width: "90px" }
-        },
-        [_vm._v("Tolak")]
-      )
     ])
   },
   function() {
