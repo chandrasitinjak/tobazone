@@ -46,7 +46,6 @@ export default {
     registerListener() {
       EventBus.$on("MERCHANT_LIST", merchants => {
         this.merchants = merchants;
-        console.log(this.merchants);
       });
 
       EventBus.$on("FINAL_TRANSACTION_DETAIL", finalPaymentDetail => {
@@ -57,8 +56,7 @@ export default {
       window.axios
         .post("/api/transactions", this.finalPaymentDetail)
         .then(res => {
-          console.log(res.data)
-          window.location = "/payment"
+          window.location = "/transactions/" + res.data.id
         })
         .catch(err => {
           console.log(err);

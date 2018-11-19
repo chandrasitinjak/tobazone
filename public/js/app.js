@@ -50207,6 +50207,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 _context.next = 2;
                 return window.axios.get("/api/carts/user/" + this.userId).then(function (res) {
                   _this.carts = res.data.carts;
+                  console.log(_this.carts);
                 });
 
               case 2:
@@ -51643,7 +51644,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -51767,7 +51768,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 totalShippingCost: 0,
                                 products: [{
                                   productId: cart.product.id,
-                                  quantity: cart.total
+                                  quantity: cart.total,
+                                  cartId: cart.id
                                 }]
                               });
                             } else {
@@ -51776,7 +51778,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                   merchant.totalProductCost += cart.product.price * cart.total;
                                   merchant.products.push({
                                     productId: cart.product.id,
-                                    quantity: cart.total
+                                    quantity: cart.total,
+                                    cartId: cart.id
                                   });
                                 }
                               });
@@ -51797,9 +51800,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
               case 3:
 
+                console.log(this.merchants);
+
                 this.publishMerchantsListEvent(this.merchants);
 
-              case 4:
+              case 5:
               case "end":
                 return _context2.stop();
             }
@@ -52135,7 +52140,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -52198,7 +52203,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on("MERCHANT_LIST", function (merchants) {
         _this.merchants = merchants;
-        console.log(_this.merchants);
       });
 
       __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on("FINAL_TRANSACTION_DETAIL", function (finalPaymentDetail) {
@@ -52207,7 +52211,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     createOrder: function createOrder() {
       window.axios.post("/api/transactions", this.finalPaymentDetail).then(function (res) {
-        console.log(res.data);
+        window.location = "/transactions/" + res.data.id;
       }).catch(function (err) {
         console.log(err);
       });

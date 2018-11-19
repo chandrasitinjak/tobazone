@@ -92,7 +92,8 @@ export default {
               products: [
                 {
                   productId: cart.product.id,
-                  quantity: cart.total
+                  quantity: cart.total,
+                  cartId: cart.id
                 }
               ]
             });
@@ -102,8 +103,9 @@ export default {
                 merchant.totalProductCost += cart.product.price * cart.total
                 merchant.products.push(
                   {
-                   productId: cart.product.id,
-                    quantity: cart.total
+                    productId: cart.product.id,
+                    quantity: cart.total,
+                    cartId: cart.id
                   }
                 )
               }
@@ -111,6 +113,8 @@ export default {
           }
         })
       );
+
+      console.log(this.merchants)
 
       this.publishMerchantsListEvent(this.merchants)
     },

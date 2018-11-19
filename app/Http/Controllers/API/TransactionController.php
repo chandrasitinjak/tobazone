@@ -8,6 +8,7 @@ use App\Transaction;
 use App\Profile;
 use App\Order;
 use App\Payment;
+use App\Cart;
 use Auth;
 
 class TransactionController extends Controller
@@ -54,11 +55,15 @@ class TransactionController extends Controller
             $orders = $merchant['products'];
             
             foreach($orders as $order) {
-                Order::create([
+                $o = Order::create([
                     'transaction_id' => $transaction->id,
                     'product_id' => $order['productId'],
                     'quantity' => $order['quantity']
                 ]);
+
+                if($o) {
+                    Cart::find($order['cartId'])->delete();
+                }
             }
 
             Payment::create([
@@ -67,6 +72,8 @@ class TransactionController extends Controller
                 'shipping_cost' => $merchant['totalShippingCost'],
             ]);
         }
+
+        return response()->json($transaction);
     }
 
     /**
