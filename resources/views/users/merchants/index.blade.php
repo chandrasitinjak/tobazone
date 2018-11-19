@@ -12,7 +12,7 @@
           <div class="row">
             <div class="col-lg-3 col-sm-3 d-none d-sm-block store-image">
               <div class="imgwrapper">
-                <img src="{{ url('/images/no-image.jpg') }}" alt="">
+                <img src="{{ url('/images/assets/no-image.jpg') }}" alt="">
               </div>
             </div>
             <div class="col-md-9 col-sm-12 store-name">
