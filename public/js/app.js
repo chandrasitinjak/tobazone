@@ -53886,7 +53886,11 @@ var render = function() {
                                               "a",
                                               {
                                                 staticClass: "alert-link",
-                                                attrs: { href: "payment.html" }
+                                                attrs: {
+                                                  href:
+                                                    "/customer/transactions/" +
+                                                    transaction.id
+                                                }
                                               },
                                               [
                                                 _vm._v(

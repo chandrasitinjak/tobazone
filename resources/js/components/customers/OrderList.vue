@@ -62,7 +62,7 @@
                               v-if="transaction.status === 'pending'"
                             >Menunggu Pembayaran
                               <br>
-                              <a href="payment.html" class="alert-link">
+                              <a :href="'/customer/transactions/' + transaction.id" class="alert-link">
                                 Upload bukti
                                 pembayaran
                               </a>
