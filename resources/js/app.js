@@ -26,6 +26,7 @@ const ShippingPage = require('./components/shippings/Container')
 const ProductListMerchantPage = require('./components/merchants/ProductList') 
 const OrderListMerchantPage = require('./components/merchants/OrderList')
 const OrderListCustomerPage = require('./components/customers/OrderList')
+const PaymentConfirmation = require('./components/payments/PaymentConfirmation')
 
 new Vue({
     el: '#app',
@@ -80,4 +81,9 @@ new Vue({
 new Vue({
   el: '#order-list-customer',
   components: { OrderListCustomerPage }
+})
+
+new Vue({
+  el: '#payment-confirmation',
+  components: { PaymentConfirmation }
 })

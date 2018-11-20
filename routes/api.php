@@ -29,3 +29,4 @@ Route::post('/shippingcost', 'API\RajaOngkirController@getShippingCost');
 Route::get('/merchant/{id}/orders', 'API\OrderController@getMerchantOrder');
 Route::post('/merchant/orders/{id}', 'API\OrderController@updateOrderStatus');
 Route::get('/customer/{id}/transactions', 'API\TransactionController@getCustomerTransaction');
+Route::get('/customer/{userId}/transaction/{tranId}', 'API\TransactionController@getTransaction');

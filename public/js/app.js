@@ -25283,7 +25283,7 @@ module.exports = Vue;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(18);
-module.exports = __webpack_require__(111);
+module.exports = __webpack_require__(116);
 
 
 /***/ }),
@@ -25318,6 +25318,7 @@ var ShippingPage = __webpack_require__(71);
 var ProductListMerchantPage = __webpack_require__(96);
 var OrderListMerchantPage = __webpack_require__(101);
 var OrderListCustomerPage = __webpack_require__(106);
+var PaymentConfirmation = __webpack_require__(111);
 
 new Vue({
     el: '#app',
@@ -25372,6 +25373,11 @@ new Vue({
 new Vue({
     el: '#order-list-customer',
     components: { OrderListCustomerPage: OrderListCustomerPage }
+});
+
+new Vue({
+    el: '#payment-confirmation',
+    components: { PaymentConfirmation: PaymentConfirmation }
 });
 
 /***/ }),
@@ -54141,6 +54147,546 @@ if (false) {
 
 /***/ }),
 /* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(112)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(114)
+/* template */
+var __vue_template__ = __webpack_require__(115)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/payments/PaymentConfirmation.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-220828a4", Component.options)
+  } else {
+    hotAPI.reload("data-v-220828a4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(113);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("18b17028", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-220828a4\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PaymentConfirmation.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-220828a4\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PaymentConfirmation.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 114 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["userId", "transactionId"],
+  data: function data() {
+    return {
+      transaction: {}
+    };
+  },
+
+  methods: {
+    getTransaction: function getTransaction() {
+      var _this = this;
+
+      window.axios.get("/api/customer/" + this.userId + "/transaction/" + this.transactionId).then(function (res) {
+        _this.transaction = res.data;
+        console.log(_this.transaction);
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    getTotalPayment: function getTotalPayment(payment) {
+      return payment.product_cost + payment.shipping_cost - payment.product_discount - payment.shipping_discount;
+    }
+  },
+  mounted: function mounted() {
+    this.getTransaction();
+  }
+});
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "col-md-12 payment globalcard" }, [
+      _c("div", { staticClass: "row justify-content-md-center" }, [
+        _c("div", { staticClass: "card col-md-12" }, [
+          _c("div", { staticClass: "text-center mt-2" }, [
+            _c("h4", [
+              _vm._v(
+                "Terima Kasih, " + _vm._s(_vm.transaction.customer.profile.name)
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row justify-content-md-center" }, [
+            _c("div", { staticClass: "card my-3 col-6 time" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _c(
+                  "p",
+                  {
+                    staticClass: "text-center",
+                    staticStyle: { "font-size": "small" }
+                  },
+                  [
+                    _vm._v(
+                      "Segera selesaikan pembayaran Anda sebelum stok habis."
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("h2", { staticClass: "text-center" }, [
+                  _vm._v("46Jam 21Menit 15Detik")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "text-center",
+                    staticStyle: { "font-size": "small" }
+                  },
+                  [
+                    _c("i", [
+                      _vm._v(
+                        "(Sebelum " + _vm._s(_vm.transaction.created_at) + ")."
+                      )
+                    ])
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row justify-content-md-center" }, [
+            _c("div", { staticClass: "card col-6 my-3" }, [
+              _c("div", {}, [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("div", { staticClass: "text-muted" }, [
+                    _vm._v("Transfer pembayaran ke nomor Virtual Account :")
+                  ]),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticStyle: { height: "30px", display: "inline" },
+                    attrs: { src: "/images/assets/BNI.png", alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c("h4", { staticStyle: { display: "inline" } }, [
+                    _vm._v("8277-082274162987")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mt-3 text-muted" }, [
+                    _vm._v("Jumlah yang harus dibayar :")
+                  ]),
+                  _vm._v(" "),
+                  _c("h5", { staticStyle: { color: "#ff5205" } }, [
+                    _vm._v(
+                      "Rp " +
+                        _vm._s(_vm.getTotalPayment(_vm.transaction.payment))
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row justify-content-md-center" }, [
+      _c("div", { staticClass: "card col-6 my-3" }, [
+        _c("div", {}, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "text-muted mb-2" }, [
+              _vm._v("Upload Bukti Pembayaran")
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-block btn-primary",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "modal",
+                  "data-target": "#exampleModal"
+                }
+              },
+              [_vm._v("Upload Bukti Pembayaran")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "modal fade",
+                attrs: {
+                  id: "exampleModal",
+                  tabindex: "-1",
+                  role: "dialog",
+                  "aria-labelledby": "exampleModalLabel",
+                  "aria-hidden": "true"
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "modal-dialog modal-dialog-centered",
+                    attrs: { role: "document" }
+                  },
+                  [
+                    _c("div", { staticClass: "modal-content" }, [
+                      _c("div", { staticClass: "modal-header" }, [
+                        _c(
+                          "h5",
+                          {
+                            staticClass: "modal-title",
+                            attrs: { id: "exampleModalLabel" }
+                          },
+                          [_vm._v("Upload Bukti Bayar")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "close",
+                            attrs: {
+                              type: "button",
+                              "data-dismiss": "modal",
+                              "aria-label": "Close"
+                            }
+                          },
+                          [
+                            _c("span", { attrs: { "aria-hidden": "true" } }, [
+                              _vm._v("×")
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "modal-body" }, [
+                        _c("form", [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "small",
+                                attrs: { for: "namapengirim" }
+                              },
+                              [_vm._v("Nama Pengirim")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              staticClass: "form-control form-control-sm",
+                              attrs: {
+                                type: "text",
+                                id: "namapengirim",
+                                "aria-describedby": "emailHelp",
+                                placeholder: "Nama Pengirim"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "small",
+                                attrs: { for: "utkbank" }
+                              },
+                              [_vm._v("Bank Tujuan")]
+                            ),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                staticClass: "form-control",
+                                attrs: { id: "utkbank" }
+                              },
+                              [
+                                _c("option", [_vm._v("BNI")]),
+                                _vm._v(" "),
+                                _c("option", [_vm._v("BRI")]),
+                                _vm._v(" "),
+                                _c("option", [_vm._v("BCA")])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { staticClass: "col-form-label" }, [
+                              _vm._v("Bukti Pembayaran")
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-sm-9" }, [
+                              _c("div", { staticClass: "upload-btn-wrapper" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn-upcus",
+                                    staticStyle: { margin: "auto" }
+                                  },
+                                  [
+                                    _c("img", {
+                                      staticStyle: { height: "100px" },
+                                      attrs: {
+                                        src: "/images/assets/addimage.png"
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("input", {
+                                  attrs: { type: "file", name: "myfile" }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("small", {
+                                staticClass: "form-text text-muted",
+                                attrs: { id: "" }
+                              })
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "modal-footer" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Upload")]
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              ]
+            )
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-220828a4", module.exports)
+  }
+}
+
+/***/ }),
+/* 116 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
