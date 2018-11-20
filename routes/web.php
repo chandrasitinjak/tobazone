@@ -51,12 +51,12 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/permissions/store', 'PermissionController@store');
         Route::post('/permissions/update/{id}', 'PermissionController@update');
 
-        Route::get('/blog', 'BlogController@index');
-        Route::get('/blog/create', 'BlogController@create');
-        Route::get('/blog/edit/{id}', 'BlogController@edit');
-        Route::post('/blog/delete/{id}', 'BlogController@destroy');
-        Route::post('/blog/update/{id}', 'BlogController@update');
-        Route::post('/blog/store', 'BlogController@store');
+        Route::get('/blogs', 'BlogController@index');
+        Route::get('/blogs/create', 'BlogController@create');
+        Route::get('/blogs/edit/{id}', 'BlogController@edit');
+        Route::post('/blogs/delete/{id}', 'BlogController@destroy');
+        Route::post('/blogs/update/{id}', 'BlogController@update');
+        Route::post('/blogs/store', 'BlogController@store');
         
         Route::post('/orderconfirm/{id}', 'OrderController@orderconfirm');
     });
@@ -74,7 +74,8 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware('role:customer')->group(function () {
         Route::post('/carts/delete/{id}', 'CartController@destroy');
         Route::get('/shipping', 'ShippingController@index');
-        Route::get('/transactions/{id}', 'TransactionController@show');
+        Route::get('/customer/transactions/{id}', 'TransactionController@show');
+        Route::get('/customer/{id}/orders', 'TransactionController@getTransactionByUser');
     });
 
     Route::middleware('role:costumer|admin')->group(function () {

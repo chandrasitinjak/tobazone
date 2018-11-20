@@ -83,4 +83,9 @@ class TransactionController extends Controller
     {
         //
     }
+
+    public function getTransactionByUser($id) {
+        // $orders = getTransactionByUser()
+        return view('users.orders.index');
+    }
 }
