@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use DB;
+use App\Transaction;
 use Carbon\Carbon;
 
 class MerchantController extends Controller

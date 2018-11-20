@@ -24,6 +24,8 @@ const AddToCartButton = require('./components/AddToCartButton')
 const Cart = require('./components/carts/Cart')
 const ShippingPage = require('./components/shippings/Container')
 const ProductListMerchantPage = require('./components/merchants/ProductList') 
+const MerchantPage = require('./components/register/MerchantChooser')
+const CustomerPage = require('./components/register/CustomerChooser')
 
 new Vue({
     el: '#app',
@@ -68,4 +70,14 @@ new Vue({
 new Vue({
     el: '#product-list',
     components: { ProductListMerchantPage }
+})
+
+new Vue({
+    el: '#merchant-page',
+    components: { MerchantPage }
+})
+
+new Vue({
+    el: '#customer-page',
+    components: { CustomerPage }
 })

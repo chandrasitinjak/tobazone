@@ -98,8 +98,8 @@ class RegisterController extends Controller
         } else {
             $user->assignRole('customer');
         }
-
-        return $user;
+            
+        return view('auth.register')->with('user', $user);
         
     }
 

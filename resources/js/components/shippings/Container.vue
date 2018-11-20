@@ -6,7 +6,6 @@
           <address-chooser :user-id="userId"/>
           <cart-detail :user-id="userId"/>
         </div>
-
         <div class="col-md-4">
           <payment-detail :user-id="userId"/>
         </div>

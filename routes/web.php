@@ -51,17 +51,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/permissions/update/{id}', 'PermissionController@update');
 
         Route::get('/orderconfirm', 'OrderController@ordercustomer');
-        Route::post('/orderconfirm/{id}', 'OrderController@orderconfirm');
-    });
-
-    Route::middleware('role:merchant')->group(function () {
-        Route::get('/merchant', 'MerchantController@index');
-
-        Route::prefix('/merchant/products')->group(function () {
-            Route::get('/', 'MerchantController@products');
-        });
-        Route::get('/merchant/orders', 'MerchantController@orders');
-        Route::get('/ordermasuk','MerchantController@ordermasuk');
+        Route::post('/orderconfirm/{id}', 'OrderController@ordermasuk','MerchantController@ordermasuk');
     });
 
     Route::middleware('role:customer')->group(function () {
