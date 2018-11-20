@@ -25283,7 +25283,7 @@ module.exports = Vue;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(18);
-module.exports = __webpack_require__(106);
+module.exports = __webpack_require__(111);
 
 
 /***/ }),
@@ -25317,6 +25317,7 @@ var Cart = __webpack_require__(68);
 var ShippingPage = __webpack_require__(71);
 var ProductListMerchantPage = __webpack_require__(96);
 var OrderListMerchantPage = __webpack_require__(101);
+var OrderListCustomerPage = __webpack_require__(106);
 
 new Vue({
     el: '#app',
@@ -25364,8 +25365,13 @@ new Vue({
 });
 
 new Vue({
-    el: '#order-list',
+    el: '#order-list-merchant',
     components: { OrderListMerchantPage: OrderListMerchantPage }
+});
+
+new Vue({
+    el: '#order-list-customer',
+    components: { OrderListCustomerPage: OrderListCustomerPage }
 });
 
 /***/ }),
@@ -52278,7 +52284,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     createOrder: function createOrder() {
       window.axios.post("/api/transactions", this.finalPaymentDetail).then(function (res) {
-        window.location = "/transactions/" + res.data.id;
+        window.location = "/customer/transactions/" + res.data.id;
       }).catch(function (err) {
         console.log(err);
       });
@@ -53490,6 +53496,647 @@ if (false) {
 
 /***/ }),
 /* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(107)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(109)
+/* template */
+var __vue_template__ = __webpack_require__(110)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/customers/OrderList.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4d966cb7", Component.options)
+  } else {
+    hotAPI.reload("data-v-4d966cb7", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(108);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("4094c496", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4d966cb7\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OrderList.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4d966cb7\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OrderList.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 109 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["userId"],
+  data: function data() {
+    return {
+      transactions: []
+    };
+  },
+
+  methods: {
+    getTransactions: function getTransactions() {
+      var _this = this;
+
+      window.axios.get("/api/customer/" + this.userId + "/transactions").then(function (res) {
+        _this.transactions = res.data;
+        console.log(_this.transactions);
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    getTotalPayment: function getTotalPayment(payment) {
+      return payment.product_cost + payment.shipping_cost - payment.product_discount - payment.shipping_discount;
+    }
+  },
+  mounted: function mounted() {
+    this.getTransactions();
+  }
+});
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", [
+      _c("div", { staticClass: "card globalcard" }, [
+        _c("div", { staticClass: "card-header" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "tab-content", attrs: { id: "myTabContent" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "tab-pane fade show active",
+                  attrs: {
+                    id: "pesanansaatini",
+                    role: "tabpanel",
+                    "aria-labelledby": "pesananbaru-tab"
+                  }
+                },
+                _vm._l(_vm.transactions, function(transaction) {
+                  return _c("div", { staticClass: "detailorder mt-2" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-12" }, [
+                        _c(
+                          "div",
+                          { staticClass: "card" },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "card-header",
+                                staticStyle: { "background-color": "#f1f1f1" }
+                              },
+                              [
+                                _vm._m(2, true),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "row detail" }, [
+                                  _c("div", { staticClass: "col-sm-3" }, [
+                                    _vm._v(" " + _vm._s(transaction.created_at))
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "col-sm-3 bold",
+                                      staticStyle: { color: "orangered" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Rp " +
+                                          _vm._s(
+                                            _vm.getTotalPayment(
+                                              transaction.payment
+                                            )
+                                          )
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-sm-6" }, [
+                                    transaction.status === "pending"
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "alert alert-warning p-1",
+                                            staticStyle: {
+                                              "font-size": "x-small"
+                                            },
+                                            attrs: { role: "alert" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Menunggu Pembayaran\n                            "
+                                            ),
+                                            _c("br"),
+                                            _vm._v(" "),
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "alert-link",
+                                                attrs: { href: "payment.html" }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                              Upload bukti\n                              pembayaran\n                            "
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    transaction.status === "acceptedByMerchant"
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "alert alert-warning p-1",
+                                            staticStyle: {
+                                              "font-size": "x-small"
+                                            },
+                                            attrs: { role: "alert" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Sudah diterima penjual\n                            "
+                                            ),
+                                            _c("br")
+                                          ]
+                                        )
+                                      : _vm._e()
+                                  ])
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(transaction.orders, function(order) {
+                              return _c("div", { staticClass: "card-body" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "row singleorderprod",
+                                    staticStyle: { "padding-bottom": "10px" }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-md-12 col-sm-12 col-xs-6"
+                                      },
+                                      [
+                                        _c("div", { staticClass: "row" }, [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "col-sm-2 col-xs-12"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "imgwrapper pesanan",
+                                                  staticStyle: {
+                                                    padding: "0px",
+                                                    height: "auto"
+                                                  }
+                                                },
+                                                [
+                                                  _c("img", {
+                                                    attrs: {
+                                                      src:
+                                                        "/images/" +
+                                                        JSON.parse(
+                                                          order.product.images
+                                                        )[0],
+                                                      alt: "Card image cap"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "col-sm-6 col-xs-12"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "keranjang-desc-prod"
+                                                },
+                                                [
+                                                  _c("h6", [
+                                                    _vm._v(
+                                                      " " +
+                                                        _vm._s(
+                                                          order.product.name
+                                                        ) +
+                                                        " "
+                                                    )
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "h6",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "#FF5205",
+                                                        display: "inline"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "Rp " +
+                                                          _vm._s(
+                                                            order.product.price
+                                                          )
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("br"),
+                                                  _vm._v(" "),
+                                                  _c("small", [
+                                                    _vm._v(
+                                                      "Jumlah " +
+                                                        _vm._s(order.quantity)
+                                                    )
+                                                  ])
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ])
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            })
+                          ],
+                          2
+                        )
+                      ])
+                    ])
+                  ])
+                })
+              )
+            ]
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "card globalcard breadcrumbcard card-body" },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("h5", [_vm._v("Pesanan")])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      { staticClass: "nav nav-tabs", attrs: { id: "myTab", role: "tablist" } },
+      [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link active",
+              attrs: {
+                id: "pesananbaru-tab",
+                "data-toggle": "tab",
+                href: "#pesanansaatini",
+                role: "tab",
+                "aria-controls": "home",
+                "aria-selected": "true"
+              }
+            },
+            [_vm._v("Pesanan Saat Ini")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "Konfirmasi-tab",
+                "data-toggle": "tab",
+                href: "#konfirmasi",
+                role: "tab",
+                "aria-controls": "profile",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("Pesanan Selesai")]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row text-muted" }, [
+      _c("div", { staticClass: "col-sm-3 small" }, [
+        _vm._v("Tanggal Transaksi")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3 small" }, [
+        _vm._v("Total pembayaran")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3 small" }, [_vm._v("Status")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4d966cb7", module.exports)
+  }
+}
+
+/***/ }),
+/* 111 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
