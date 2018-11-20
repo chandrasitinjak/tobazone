@@ -51,10 +51,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/permissions/store', 'PermissionController@store');
         Route::post('/permissions/update/{id}', 'PermissionController@update');
 
-<<<<<<< HEAD
         Route::get('/orderconfirm', 'OrderController@ordercustomer');
         Route::post('/orderconfirm/{id}', 'OrderController@ordermasuk','MerchantController@ordermasuk');
-=======
         Route::get('/blog', 'BlogController@index');
         Route::get('/blog/create', 'BlogController@create');
         Route::get('/blog/edit/{id}', 'BlogController@edit');
@@ -73,7 +71,6 @@ Route::middleware(['auth'])->group(function () {
         });
 
         Route::get('/merchant/{id}/orders', 'MerchantController@orders');
->>>>>>> master
     });
 
     Route::middleware('role:customer')->group(function () {
