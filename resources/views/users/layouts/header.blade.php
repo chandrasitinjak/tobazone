@@ -111,15 +111,11 @@
                   <li><a href="shop.html">ATBM</a></li>
                   <li><a href="shop.html">Mesin</a></li>
                 </ul>
-                <!--<div class="single-mega cn-col-4">-->
-                <!--<img src="img/bg-img/bg-6.jpg" alt="">-->
-                <!--</div>-->
               </div>
             </li>
             <li><a href="{{ url('/blogs') }}">Blog</a></li>
           </ul>
         </div>
-        <!-- Nav End -->
       </div>
     </nav>
 
@@ -141,32 +137,38 @@
             @endif
           </div>
 
+          @auth
+          <div class="user-login-info">
+            <a href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}">Pesanan</a>
+          </div>
+          @endauth
+
           @guest
-          <div class="user-login-info align-content-end">
-            <a href="#">
-            <button class="btn btn-link" type="button" data-toggle="modal" data-target="#loginModal"> Masuk </button>
-          </a>
-          </div>
-          @else
-          <div class="classynav">
-            <div class=" dropdown float-right">
-              <a href="#" class="dropdown-toggle active mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
+            <div class="user-login-info align-content-end">
+              <a href="#">
+                <button class="btn btn-link" type="button" data-toggle="modal" data-target="#loginModal"> Masuk </button>
               </a>
-
-              <div class="user-menu dropdown-menu">
-                <ul class="dropdown">
-                  <a class="nav-link" href="#"><i class="fa fa-user mr-2"></i>My Profile</a>
-
-                  <form method="POST" action="{{ url('/logout')}}">
-                    {{ csrf_field() }}
-                    <button type="submit" class="btn nav-link" style="background-color: transparent"><i class="fa fa-power-off mr-2"></i>Logout</a>
-                </form>
-              </ul>
             </div>
-          </div>
-        </div>
-      @endguest
+          @else
+            <div class="classynav">
+              <div class="dropdown float-right">
+                <a href="#" class="dropdown-toggle active mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
+                </a>
+
+                <div class="user-menu dropdown-menu">
+                  <ul class="dropdown">
+                    <a class="nav-link" href="#"><i class="fa fa-user mr-2"></i>My Profile</a>
+
+                    <form method="POST" action="{{ url('/logout')}}">
+                      {{ csrf_field() }}
+                      <button type="submit" class="btn nav-link" style="background-color: transparent"><i class="fa fa-power-off mr-2"></i>Logout</button>
+                    </form>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          @endguest
     </div>
   </div>
 </header>
