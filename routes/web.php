@@ -52,15 +52,21 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/permissions/update/{id}', 'PermissionController@update');
 
         Route::get('/orderconfirm', 'OrderController@ordercustomer');
-        Route::post('/orderconfirm/{id}', 'OrderController@ordermasuk','MerchantController@ordermasuk');
+        Route::post('/orderconfirm/{id}', 'OrderController@orderconfirm');
+        
         Route::get('/blog', 'BlogController@index');
         Route::get('/blog/create', 'BlogController@create');
         Route::get('/blog/edit/{id}', 'BlogController@edit');
         Route::post('/blog/delete/{id}', 'BlogController@destroy');
         Route::post('/blog/update/{id}', 'BlogController@update');
         Route::post('/blog/store', 'BlogController@store');
-        
-        Route::post('/orderconfirm/{id}', 'OrderController@orderconfirm');
+
+        Route::get('/banner', 'BannerController@index');
+        Route::get('/banner/create', 'BannerController@create');
+        Route::post('/banner/edit/{id}', 'BannerController@edit');
+        Route::post('/banner/delete/{id}', 'BannerController@destroy');
+        Route::post('/banner/update/{id}', 'BannerController@update');
+        Route::post('/banner/store', 'BannerController@store');
     });
 
     Route::middleware('role:merchant')->group(function () {

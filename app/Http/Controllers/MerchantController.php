@@ -8,7 +8,6 @@ use App\Transaction;
 use App\Profile;
 use Auth;
 use DB;
-use App\Transaction;
 use Carbon\Carbon;
 
 class MerchantController extends Controller

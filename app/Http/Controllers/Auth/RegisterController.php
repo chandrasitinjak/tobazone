@@ -73,33 +73,31 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
-
+        // dd($data);
         $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             
         ]);
-
-        $userId = $user->id;
-
+        
         $user->profile()->save(Profile::create([
             'user_id' => $user->id,
             'name' => $data['name'],
-            'address' => $data['address'],
+            'address' => json_decode($data['address']),
             'phone' => $data['phone'],
             'photo' => $data['photo'],
             'gender' => $data['gender'],
             'birthday' => $data['birthday'],
         ]));
-
+        
         if($data['role'] === 'merchant'){
             $user->assignRole('merchant');
         } else {
             $user->assignRole('customer');
         }
             
-        return view('auth.register')->with('user', $user);
+        return $user;
         
     }
 

@@ -28,7 +28,7 @@
             <div class="form-group">
               <label class="label">Alamat</label>  
               <label class="label">Provinsi</label>
-              <select class="form-control" @change="getCities" v-model="selectedProvince">
+              <select class="form-control" v-on:change="getCities" v-model="selectedProvince">
                 <option v-for="province in provicies" :value="province">{{ province.name }}</option>
               </select>
             </div>
@@ -79,7 +79,7 @@
 
             <div class="form-group">
                 <label class="label">Confirm Password</label>
-                <input id = "password-confirm" type="password-confirm" class="form-control" v-model="passwordconfirm" required>
+                <input id = "password-confirm" type="password" class="form-control" v-model="passwordconfirm" required>
             </div>
 
           </form>
@@ -113,6 +113,8 @@ export default {
       gender: "",
       photo: "",
       birthday: "",
+      password: "",
+      passwordconfirm: "",
     };
   },
   methods: {
@@ -149,7 +151,7 @@ export default {
           console.log(err);
         });
     },
-    addAddress() {
+    addMerchant() {
       let payload = {
         provinceId: this.selectedProvince.id,
         cityId: this.selectedCity.id,
@@ -170,7 +172,7 @@ export default {
       };
 
       window.axios
-        .post("/profile/edit/" + payload)
+        .post("/register", payload)
         .then(res => {
           this.provicies = res.data;
           this.dismiss()

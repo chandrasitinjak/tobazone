@@ -18,9 +18,17 @@
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-list-ul"></i> <a href="{{url('/blog')}}"> All Blogs</a></li>
                         <li><i class="menu-icon fa fa-edit"></i> <a href="{{url('/blog/create')}}"> Create Blog</a></li>
-                    </ul>
+                    </ul>  
                 </li>
 
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-book"></i>Banners</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-list-ul"></i> <a href="{{url('/banner')}}"> All Banners</a></li>
+                        <li><i class="menu-icon fa fa-edit"></i> <a href="{{url('/banner/create')}}"> Create Banners</a></li>
+                    </ul>    
+                </li>
+                
                 <li class="menu-title">Role and Permission</li>
                 <!-- /.menu-title -->
                 <li>

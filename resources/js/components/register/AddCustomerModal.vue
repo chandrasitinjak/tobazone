@@ -26,7 +26,6 @@
             </div>
 
             <div class="form-group">
-              <label class="label">Alamat</label>  
               <label class="label">Provinsi</label>
               <select class="form-control" @change="getCities" v-model="selectedProvince">
                 <option v-for="province in provicies" :value="province">{{ province.name }}</option>
@@ -170,7 +169,7 @@ export default {
       };
 
       window.axios
-        .post("/profile/edit/" + payload)
+        .post("/register", payload)
         .then(res => {
           this.provicies = res.data;
           this.dismiss()

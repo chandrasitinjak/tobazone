@@ -86,6 +86,8 @@ class ProfileController extends Controller
     public function getProfile($id) {
         return response(Profile::where('user_id', $id)->first());
     }
+    
+
 
     public function updateAddress(Request $request, $id) {
         $profile = Profile::where('user_id', $id)->first();
