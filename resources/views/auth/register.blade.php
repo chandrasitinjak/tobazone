@@ -26,7 +26,7 @@
         <div class="col-md-8">
             
             <div class="card m-3">
-                <div class="card-header"><h4><center>You will register as </center></h4></div>
+                <div class="card-header"><h4>You will register as</h4></div>
                    
                         <input type="hidden" value="merchant" name="role"/>
                             <div id="merchant-page">

@@ -5,12 +5,12 @@
         <div class="col-7">
           <button
             class="btn btn-sm btn-outline-primary float-right"
-            @click="showModalMerchant = !showModalMerchant"
+            v-on:click="showModalMerchant = !showModalMerchant"
           >Merchant</button>
         </div>
       </div>
     </div>   
-    <modal v-if="showModalMerchant" />
+    <modal-merchant v-if="showModalMerchant" />
   </div>
 </template>
 

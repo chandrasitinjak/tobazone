@@ -10,7 +10,7 @@
         </div>
       </div>
     </div>   
-    <modal v-if="showModalCustomer" />
+    <modal-customer v-if="showModalCustomer" />
   </div>
 </template>
 
