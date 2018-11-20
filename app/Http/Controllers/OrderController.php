@@ -9,13 +9,10 @@ use DB;
 
 class OrderController extends Controller
 {
-    
-    public function ordercustomer()
-    {
-        $orders = Transaction::where('status', 'pending')
-        ->get();
-        return view('admin.order.orderconfirm')->with('orders', $orders);
-    }
+    public function newOrder() {
+        $transactions = Transaction::with('orders')->where('status', 'pending')->get();
+        return view('admin.orders.index')->with('transactions', $transactions);
+      }
 
     public function orderconfirm($id)
     {
@@ -24,7 +21,7 @@ class OrderController extends Controller
 
         $confirm->save();
         
-        return redirect('/orderconfirm');
+        return redirect('/admin/neworder');
         
     }
 }

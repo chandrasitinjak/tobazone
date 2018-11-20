@@ -66,7 +66,7 @@ class ProductController extends Controller
         $product->images = json_encode($imageNames);
         $product->save();
 
-        return redirect('/products')->with('success', 'Product created successfully.');
+        return redirect('/merchant')->with('success', 'Product created successfully.');
     }
 
     /**

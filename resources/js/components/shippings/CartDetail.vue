@@ -85,6 +85,7 @@ export default {
             merchantNames.push(merchantName);
             this.merchants.push({
               name: merchantName,
+              id: cart.product.merchant.id,
               address: JSON.parse(JSON.parse(merchantAddress)[0]),
               totalWeight: 1000 * cart.total * JSON.parse(cart.product.specification).weight,
               totalProductCost: cart.product.price * cart.total,
@@ -92,7 +93,8 @@ export default {
               products: [
                 {
                   productId: cart.product.id,
-                  quantity: cart.total
+                  quantity: cart.total,
+                  cartId: cart.id,
                 }
               ]
             });
@@ -102,8 +104,9 @@ export default {
                 merchant.totalProductCost += cart.product.price * cart.total
                 merchant.products.push(
                   {
-                   productId: cart.product.id,
-                    quantity: cart.total
+                    productId: cart.product.id,
+                    quantity: cart.total,
+                    cartId: cart.id,
                   }
                 )
               }

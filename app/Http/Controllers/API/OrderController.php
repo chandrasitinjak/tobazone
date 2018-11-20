@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Transaction;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Transaction;
 
-class TransactionController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,16 +14,6 @@ class TransactionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
     {
         //
     }
@@ -41,22 +32,10 @@ class TransactionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Transaction  $transaction
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        $transaction = Transaction::find($id);
-        return view('users.payments.index')->with('transaction', $transaction);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Transaction  $transaction
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Transaction $transaction)
     {
         //
     }
@@ -65,10 +44,10 @@ class TransactionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Transaction  $transaction
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Transaction $transaction)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,11 +55,26 @@ class TransactionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Transaction  $transaction
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Transaction $transaction)
+    public function destroy($id)
     {
         //
+    }
+
+    public function updateOrderStatus(Request $request, $id) {
+        $transaction = Transaction::find($id);
+        $transaction->status = $request->status;
+        $transaction->update();
+    }
+
+    public function getMerchantOrder($id) {
+        $trasactions = Transaction::with(['orders', 'orders.product'])
+                                  ->where('merchant_id', $id)
+                                  ->where('status', 'pending')
+                                  ->get();
+
+        return response()->json($trasactions);
     }
 }
