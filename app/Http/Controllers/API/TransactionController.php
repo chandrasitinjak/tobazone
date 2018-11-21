@@ -110,4 +110,20 @@ class TransactionController extends Controller
     {
         //
     }
+
+    public function getCustomerTransaction($id) {
+        $transaction = Transaction::with(['orders', 'orders.product', 'payment'])
+                                  ->where('customer_id', $id)
+                                  ->get();
+
+        return response()->json($transaction);
+    }
+
+    public function getTransaction($userId, $tranId ) {
+        $transaction = Transaction::with(['customer', 'customer.profile', 'payment'])
+                                  ->where('customer_id', $userId)
+                                  ->where('id', $tranId)
+                                  ->first();
+        return response()->json($transaction);
+    }
 }
