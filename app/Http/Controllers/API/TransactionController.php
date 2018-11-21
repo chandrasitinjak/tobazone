@@ -114,6 +114,7 @@ class TransactionController extends Controller
     public function getCustomerTransaction($id) {
         $transaction = Transaction::with(['orders', 'orders.product', 'payment'])
                                   ->where('customer_id', $id)
+                                  ->whereIn('status', ['pending', 'acceptedByMerchant'])
                                   ->get();
 
         return response()->json($transaction);

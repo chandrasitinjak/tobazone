@@ -13,9 +13,11 @@
                   class="text-center"
                   style="font-size: small"
                 >Segera selesaikan pembayaran Anda sebelum stok habis.</p>
-                <h2 class="text-center">46Jam 21Menit 15Detik</h2>
+                <h2
+                  class="text-center"
+                >{{ duration._data.hours }} Jam {{ duration._data.minutes}} Menit {{ duration._data.seconds }} Detik</h2>
                 <p class="text-center" style="font-size: small ">
-                  <i>(Sebelum {{ transaction.created_at }}).</i>
+                  <i>(Sebelum {{ getDeatline() }})</i>
                 </p>
               </div>
             </div>
@@ -82,9 +84,7 @@
                               <label for="utkbank" class="small">Bank Tujuan</label>
                               <br>
                               <select id="utkbank" class="form-control">
-                                <option>BNI</option>
-                                <option>BRI</option>
-                                <option>BCA</option>
+                                <option value="BNI">BNI</option>
                               </select>
                             </div>
                             <br>
@@ -120,11 +120,21 @@
 </template>
 
 <script>
+import moment from "moment";
+
 export default {
   props: ["userId", "transactionId"],
   data() {
     return {
-      transaction: {}
+      transaction: {},
+      deadline: "",
+      duration: {
+        _data: {
+          hours: 0,
+          minutes: 0,
+          seconds: 0
+        }
+      }
     };
   },
   methods: {
@@ -135,18 +145,37 @@ export default {
         )
         .then(res => {
           this.transaction = res.data;
-          console.log(this.transaction)
+          this.deadline = moment(this.transaction.created_at).add(1, "days");
         })
         .catch(err => {
           console.log(err);
         });
     },
     getTotalPayment(payment) {
-      return payment.product_cost + payment.shipping_cost - payment.product_discount - payment.shipping_discount
+      return (
+        payment.product_cost +
+        payment.shipping_cost -
+        payment.product_discount -
+        payment.shipping_discount
+      );
+    },
+    updateDuration() {
+      this.duration = moment.duration(this.deadline.diff(moment()));
+      console.log(this.duration);
+    },
+    getDeatline() {
+      moment.locale("id");
+      return moment(this.transaction.created_at)
+        .add(1, "days")
+        .format("dddd, MMMM Do YYYY, h:mm:ss a");
     }
   },
   mounted() {
     this.getTransaction();
+
+    setInterval(() => {
+      this.updateDuration();
+    }, 1000);
   }
 };
 </script>
