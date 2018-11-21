@@ -142,6 +142,5 @@ class TransactionController extends Controller
             "senderName" => $request->name,
         ]);
         $payment->update();
-        dd($request->all());
     }
 }
