@@ -78,12 +78,13 @@
                                 id="namapengirim"
                                 aria-describedby="emailHelp"
                                 placeholder="Nama Pengirim"
+                                v-model="senderName"
                               >
                             </div>
                             <div class="form-group">
                               <label for="utkbank" class="small">Bank Tujuan</label>
                               <br>
-                              <select id="utkbank" class="form-control">
+                              <select id="utkbank" class="form-control" v-model="selectedBank">
                                 <option value="BNI">BNI</option>
                               </select>
                             </div>
@@ -96,7 +97,7 @@
                                   <button class="btn-upcus" style="margin: auto">
                                     <img src="/images/assets/addimage.png" style="height: 100px">
                                   </button>
-                                  <input type="file" name="myfile">
+                                  <input type="file" name="myfile" v-on:change="onFileChanged">
                                 </div>
                                 <small id="" class="form-text text-muted"></small>
                               </div>
@@ -104,7 +105,11 @@
                           </form>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-primary">Upload</button>
+                          <button
+                            type="button"
+                            class="btn btn-primary"
+                            v-on:click="uploadProofOfPayment"
+                          >Upload</button>
                         </div>
                       </div>
                     </div>
@@ -134,7 +139,10 @@ export default {
           minutes: 0,
           seconds: 0
         }
-      }
+      },
+      selectedFile: null,
+      senderName: '',
+      selectedBank: ''
     };
   },
   methods: {
@@ -161,13 +169,24 @@ export default {
     },
     updateDuration() {
       this.duration = moment.duration(this.deadline.diff(moment()));
-      console.log(this.duration);
     },
     getDeatline() {
       moment.locale("id");
       return moment(this.transaction.created_at)
         .add(1, "days")
         .format("dddd, MMMM Do YYYY, h:mm:ss a");
+    },
+    uploadProofOfPayment() {
+      const formData = new FormData()
+      formData.append('image', this.selectedFile)
+      formData.append('bank', this.selectedBank)
+      formData.append('name', this.senderName)
+
+      window.axios.post('/api/transaction/'+ this.transactionId +'/proof-of-payment', formData)
+    },
+    onFileChanged(event) {
+      this.selectedFile = event.target.files[0];
+      console.log(this.selectedFile)
     }
   },
   mounted() {

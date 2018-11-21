@@ -70589,7 +70589,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -70602,6 +70602,11 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -70738,7 +70743,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           minutes: 0,
           seconds: 0
         }
-      }
+      },
+      selectedFile: null,
+      senderName: '',
+      selectedBank: ''
     };
   },
 
@@ -70758,11 +70766,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     updateDuration: function updateDuration() {
       this.duration = __WEBPACK_IMPORTED_MODULE_0_moment___default.a.duration(this.deadline.diff(__WEBPACK_IMPORTED_MODULE_0_moment___default()()));
-      console.log(this.duration);
     },
     getDeatline: function getDeatline() {
       __WEBPACK_IMPORTED_MODULE_0_moment___default.a.locale("id");
       return __WEBPACK_IMPORTED_MODULE_0_moment___default()(this.transaction.created_at).add(1, "days").format("dddd, MMMM Do YYYY, h:mm:ss a");
+    },
+    uploadProofOfPayment: function uploadProofOfPayment() {
+      var formData = new FormData();
+      formData.append('image', this.selectedFile);
+      formData.append('bank', this.selectedBank);
+      formData.append('name', this.senderName);
+
+      window.axios.post('/api/transaction/' + this.transactionId + '/proof-of-payment', formData);
+    },
+    onFileChanged: function onFileChanged(event) {
+      this.selectedFile = event.target.files[0];
+      console.log(this.selectedFile);
     }
   },
   mounted: function mounted() {
@@ -71139,7 +71158,205 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(0)
+          _c("div", { staticClass: "row justify-content-md-center" }, [
+            _c("div", { staticClass: "card col-6 my-3" }, [
+              _c("div", {}, [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("div", { staticClass: "text-muted mb-2" }, [
+                    _vm._v("Upload Bukti Pembayaran")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block btn-primary",
+                      attrs: {
+                        type: "button",
+                        "data-toggle": "modal",
+                        "data-target": "#exampleModal"
+                      }
+                    },
+                    [_vm._v("Upload Bukti Pembayaran")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal fade",
+                      attrs: {
+                        id: "exampleModal",
+                        tabindex: "-1",
+                        role: "dialog",
+                        "aria-labelledby": "exampleModalLabel",
+                        "aria-hidden": "true"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal-dialog modal-dialog-centered",
+                          attrs: { role: "document" }
+                        },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _vm._m(0),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-body" }, [
+                              _c("form", [
+                                _c("div", { staticClass: "form-group" }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "small",
+                                      attrs: { for: "namapengirim" }
+                                    },
+                                    [_vm._v("Nama Pengirim")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.senderName,
+                                        expression: "senderName"
+                                      }
+                                    ],
+                                    staticClass: "form-control form-control-sm",
+                                    attrs: {
+                                      type: "text",
+                                      id: "namapengirim",
+                                      "aria-describedby": "emailHelp",
+                                      placeholder: "Nama Pengirim"
+                                    },
+                                    domProps: { value: _vm.senderName },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.senderName = $event.target.value
+                                      }
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group" }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "small",
+                                      attrs: { for: "utkbank" }
+                                    },
+                                    [_vm._v("Bank Tujuan")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.selectedBank,
+                                          expression: "selectedBank"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: { id: "utkbank" },
+                                      on: {
+                                        change: function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.selectedBank = $event.target
+                                            .multiple
+                                            ? $$selectedVal
+                                            : $$selectedVal[0]
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        { attrs: { value: "BNI" } },
+                                        [_vm._v("BNI")]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group" }, [
+                                  _c(
+                                    "label",
+                                    { staticClass: "col-form-label" },
+                                    [_vm._v("Bukti Pembayaran")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-sm-9" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "upload-btn-wrapper" },
+                                      [
+                                        _vm._m(1),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          attrs: {
+                                            type: "file",
+                                            name: "myfile"
+                                          },
+                                          on: { change: _vm.onFileChanged }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("small", {
+                                      staticClass: "form-text text-muted",
+                                      attrs: { id: "" }
+                                    })
+                                  ])
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-footer" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  attrs: { type: "button" },
+                                  on: { click: _vm.uploadProofOfPayment }
+                                },
+                                [_vm._v("Upload")]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
         ])
       ])
     ])
@@ -71150,185 +71367,41 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row justify-content-md-center" }, [
-      _c("div", { staticClass: "card col-6 my-3" }, [
-        _c("div", {}, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "text-muted mb-2" }, [
-              _vm._v("Upload Bukti Pembayaran")
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-block btn-primary",
-                attrs: {
-                  type: "button",
-                  "data-toggle": "modal",
-                  "data-target": "#exampleModal"
-                }
-              },
-              [_vm._v("Upload Bukti Pembayaran")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "modal fade",
-                attrs: {
-                  id: "exampleModal",
-                  tabindex: "-1",
-                  role: "dialog",
-                  "aria-labelledby": "exampleModalLabel",
-                  "aria-hidden": "true"
-                }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "modal-dialog modal-dialog-centered",
-                    attrs: { role: "document" }
-                  },
-                  [
-                    _c("div", { staticClass: "modal-content" }, [
-                      _c("div", { staticClass: "modal-header" }, [
-                        _c(
-                          "h5",
-                          {
-                            staticClass: "modal-title",
-                            attrs: { id: "exampleModalLabel" }
-                          },
-                          [_vm._v("Upload Bukti Bayar")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "close",
-                            attrs: {
-                              type: "button",
-                              "data-dismiss": "modal",
-                              "aria-label": "Close"
-                            }
-                          },
-                          [
-                            _c("span", { attrs: { "aria-hidden": "true" } }, [
-                              _vm._v("×")
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "modal-body" }, [
-                        _c("form", [
-                          _c("div", { staticClass: "form-group" }, [
-                            _c(
-                              "label",
-                              {
-                                staticClass: "small",
-                                attrs: { for: "namapengirim" }
-                              },
-                              [_vm._v("Nama Pengirim")]
-                            ),
-                            _vm._v(" "),
-                            _c("input", {
-                              staticClass: "form-control form-control-sm",
-                              attrs: {
-                                type: "text",
-                                id: "namapengirim",
-                                "aria-describedby": "emailHelp",
-                                placeholder: "Nama Pengirim"
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "form-group" }, [
-                            _c(
-                              "label",
-                              {
-                                staticClass: "small",
-                                attrs: { for: "utkbank" }
-                              },
-                              [_vm._v("Bank Tujuan")]
-                            ),
-                            _vm._v(" "),
-                            _c("br"),
-                            _vm._v(" "),
-                            _c(
-                              "select",
-                              {
-                                staticClass: "form-control",
-                                attrs: { id: "utkbank" }
-                              },
-                              [
-                                _c("option", { attrs: { value: "BNI" } }, [
-                                  _vm._v("BNI")
-                                ])
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "form-group" }, [
-                            _c("label", { staticClass: "col-form-label" }, [
-                              _vm._v("Bukti Pembayaran")
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-sm-9" }, [
-                              _c("div", { staticClass: "upload-btn-wrapper" }, [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn-upcus",
-                                    staticStyle: { margin: "auto" }
-                                  },
-                                  [
-                                    _c("img", {
-                                      staticStyle: { height: "100px" },
-                                      attrs: {
-                                        src: "/images/assets/addimage.png"
-                                      }
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("input", {
-                                  attrs: { type: "file", name: "myfile" }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("small", {
-                                staticClass: "form-text text-muted",
-                                attrs: { id: "" }
-                              })
-                            ])
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "modal-footer" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary",
-                            attrs: { type: "button" }
-                          },
-                          [_vm._v("Upload")]
-                        )
-                      ])
-                    ])
-                  ]
-                )
-              ]
-            )
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Upload Bukti Bayar")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "btn-upcus", staticStyle: { margin: "auto" } },
+      [
+        _c("img", {
+          staticStyle: { height: "100px" },
+          attrs: { src: "/images/assets/addimage.png" }
+        })
+      ]
+    )
   }
 ]
 render._withStripped = true

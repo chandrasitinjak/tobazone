@@ -22,8 +22,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('shipping_discount')->default(0);
             $table->string('date')->nullable();
             $table->string('status')->default('pending');
-            $table->string('image')->nullable();
-            $table->string('cancelation_reason')->nullable();
+            $table->text('proof')->nullable();
             $table->timestamps();
 
             $table->foreign('transaction_id')->references('id')->on('transactions');

@@ -127,4 +127,21 @@ class TransactionController extends Controller
                                   ->first();
         return response()->json($transaction);
     }
+
+    public function updateProofOfPayment(Request $request, $id) {
+        $image = $request->file('image');
+        $imageName = time() . $image->getClientOriginalName();
+        $destinationPath = public_path('/images/proof-of-payment');
+        $image->move($destinationPath, $imageName);
+
+        $transaction = Transaction::find($id);
+        $payment = $transaction->payment;
+        $payment->proof = json_encode([
+            "image" => $imageName,
+            "bank" => $request->bank,
+            "senderName" => $request->name,
+        ]);
+        $payment->update();
+        dd($request->all());
+    }
 }
