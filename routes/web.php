@@ -62,8 +62,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/blog/store', 'BlogController@store');
 
         Route::get('/banner', 'BannerController@index');
+        Route::get('/banner/show/{id}', 'BannerController@show');
         Route::get('/banner/create', 'BannerController@create');
-        Route::post('/banner/edit/{id}', 'BannerController@edit');
+        Route::get('/banner/edit/{id}', 'BannerController@edit');
         Route::post('/banner/delete/{id}', 'BannerController@destroy');
         Route::post('/banner/update/{id}', 'BannerController@update');
         Route::post('/banner/store', 'BannerController@store');

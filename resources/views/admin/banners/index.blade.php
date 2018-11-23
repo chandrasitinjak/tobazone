@@ -16,7 +16,7 @@
             }
         </style>
     <div class="col-md-4">
-    <a href="{{ url('/banner/show', $banner->id)}}">
+
         <div class="card">
         @if($banner->image)
             <img src="{{ '/images/' . $banner->image}}", alt="">
@@ -25,12 +25,20 @@
         @endif
             <div class="banner-description">
                 <h2><strong class="card-title">{{$banner->title}} </strong></h2>
-                <p class="banner-desc">{{$banner->description}}a</p>
+                <p class="banner-desc">{{$banner->description}}</p>
                 <a href="#">
                 <button type="button" class="btn btn-link btn-sm"><i class="fa fa-link"></i>&nbsp;{{$banner->link}}</button></a>
-                <a href="{{ url('/banner/show', $banner->id)}}"><span class="badge badge-primary pull-right">Detail</span></a>
                 <div class="float-right">
-
+                <a href="{{ url('/banner/edit', $banner->id)}}">
+                        <i class="fa fa-pencil mr-3" style="color: #4b4b4b"></i>
+                </a>
+                
+                <form action="{{ url('/banner/delete', $banner->id)}}" method="post" style="display: inline">
+                        @csrf
+                    <button class="" type="submit" style="background-color: transparent; border: none">
+                            <i class="fa fa-trash" style="color: #4b4b4b"></i>
+                    </button>
+                </form>
                 </div>
             </div>
 

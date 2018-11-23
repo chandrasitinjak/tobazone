@@ -76,7 +76,7 @@ class BannerController extends Controller
      * @param  \App\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function edit(Banner $banner)
+    public function edit($id)
     {
         $banner = Banner::find($id);
         return view('admin.banners.edit')->with('banner', $banner);
@@ -89,9 +89,27 @@ class BannerController extends Controller
      * @param  \App\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Banner $banner)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'link' => 'required',
+        ]);
+
+        $uploadedImage = $request->file('image');
+        $imageName = $uploadedImage->getClientOriginalName();
+        $destinationPath = public_path('/images');
+        $uploadedImage->move($destinationPath, $imageName);
+
+        $banner = new Banner();
+        $banner->title = $request->title;
+        $banner->description = $request->description;
+        $banner->link = $request->link;       
+        $banner->image = $imageName;
+        $banner->save();
+
+        return redirect('/banner')->with('success', 'Banner berhasil di update');
     }
 
     /**
@@ -100,9 +118,10 @@ class BannerController extends Controller
      * @param  \App\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Banner $banner)
+    public function destroy($id)
     {
-        $banner = Banner::find($id)->delete();
-        return redirect('/banner');
+        $banner = Banner::find($id);
+        $banner->delete();
+        return redirect('/banner','Banner berhasil di hapus');
     }
 }
