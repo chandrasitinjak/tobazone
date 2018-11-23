@@ -36,14 +36,24 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        $banner = new Banner();
-        $banner->name;
-        $banner->title;
-        $banner->description;
-        $banner->image;
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'link' => 'required',
+        ]);
 
-        $banner->$product = Product::find($id);
-        return view('users.merchants.products.edit')->with('product', $product);ave();
+        $uploadedImage = $request->file('image');
+        $imageName = $uploadedImage->getClientOriginalName();
+        $destinationPath = public_path('/images');
+        $uploadedImage->move($destinationPath, $imageName);
+
+        $banner = new Banner();
+        $banner->title = $request->title;
+        $banner->description = $request->description;
+        $banner->link = $request->link;       
+        $banner->image = $imageName;
+        $banner->save();
+   
         return redirect('/banner')->with('success', 'Banner berhasil ditambah');
 
     }
@@ -51,10 +61,10 @@ class BannerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Cart  $cart
+     * @param  \App\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function show(Cart $cart)
+    public function show(Banner $banner)
     {
         //
     }
@@ -62,10 +72,10 @@ class BannerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Cart  $cart
+     * @param  \App\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Banner $banner)
     {
         $banner = Banner::find($id);
         return view('admin.banners.edit')->with('banner', $banner);
@@ -75,10 +85,10 @@ class BannerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cart  $cart
+     * @param  \App\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cart $cart)
+    public function update(Request $request, Banner $banner)
     {
         //
     }
@@ -86,10 +96,10 @@ class BannerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Cart  $cart
+     * @param  \App\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Banner $banner)
     {
         $banner = Banner::find($id)->delete();
         return redirect('/banner');

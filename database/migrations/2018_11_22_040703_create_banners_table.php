@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Http\Request;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -16,9 +17,9 @@ class CreateBannersTable extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->longText('Description');
+            $table->longText('description');
             $table->string('link');
-            $table->text('image');
+            $table->string('image');
             $table->timestamps();
 
         });

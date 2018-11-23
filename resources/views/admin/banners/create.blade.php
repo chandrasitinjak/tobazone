@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title') {{ "Blog" }}
+@section('title') {{ "Banner" }}
 @endsection
 
 @section('content')
@@ -22,19 +22,43 @@
                     </ul>
                 </div><br/>
             @endif
-            <form method="POST" action="{{ url('/banner/store') }}">
-                {{ csrf_field() }}
-                <div class="form-group">
-
+            <form method="POST" action="{{ url('/banner/store') }}" enctype="multipart/form-data">
+                {{ csrf_field() }}                
+                <div class="row form-group">
+                    <div class="col col-md-3">
                     <label for="name">Title</label>
-                    <input type="text" class="form-control" name="title"/>
-                </div>
-                <div class="form-group">
-                    <label for="price">Blog Content</label>
-                    <textarea id="summernote" style="min-height: 200px" name="body"></textarea>
+                    </div>
+                        <div class="col-12 col-md-9"><input type="text" class="form-control" name="title"/>
+                    </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Add</button>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                    <label for="price">Description</label>
+                    </div>
+                        <div class="col-12 col-md-9"><textarea id="summernote" style="min-height: 200px" name="description"></textarea>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                    <label for="name">Link</label>
+                    </div>
+                        <div class="col-12 col-md-9"><input type="text" class="form-control" name="link"/>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="file-input" class=" form-control-label">Upload Foto</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="file" name="image" class="form-control">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+                
+                
             </form>
 
 
