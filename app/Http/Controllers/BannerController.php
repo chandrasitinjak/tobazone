@@ -64,9 +64,10 @@ class BannerController extends Controller
      * @param  \App\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function show(Banner $banner)
+    public function show($id)
     {
-        //
+        $banner = Banner::find($id);
+        return view('admin.banners.show')->with('banner', $banner);
     }
 
     /**
