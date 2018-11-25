@@ -22,7 +22,7 @@
                     </ul>
                 </div><br />
             @endif
-            <form method="POST" action="{{ url('/banner/update', $banner->id) }}">
+            <form method="POST" action="{{ url('/banner/update', $banner->id) }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="name">Title</label>
@@ -31,19 +31,21 @@
 
                 <div class="form-group">
                     <label for="name">Link</label>
-                    <input type="text" class="form-control" name="title" value={{ $banner->link}} />
+                    <input type="text" class="form-control" name="link" value={{ $banner->link}} />
                 </div>
                 
                 <div class="form-group">
                     <label for="summernote">Description</label>
-                    <textarea id="summernote"   class="form-control summernote"  name="description" value={{ $banner->description}}></textarea>
+                    <textarea id="summernote"   class="form-control summernote"  name="description" value={{ $banner->description}}>{{ $banner->description}}</textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="summernote">Description</label>
-                    <input type="file" name="image" class="form-control" value={{ $banner->image}} />
+                    <label for="file-input" class=" form-control-label">Upload Foto</label>
+                    <input type="file" name="image" class="form-control" />
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+                
             </form>
         </div>
     </div>

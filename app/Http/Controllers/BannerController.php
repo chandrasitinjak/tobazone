@@ -42,11 +42,12 @@ class BannerController extends Controller
             'link' => 'required',
         ]);
 
-        $uploadedImage = $request->file('image');
-        $imageName = $uploadedImage->getClientOriginalName();
-        $destinationPath = public_path('/images');
-        $uploadedImage->move($destinationPath, $imageName);
-
+        if($request->hasFile('image')){
+            $uploadedImage = $request->file('image');
+            $imageName = $uploadedImage->getClientOriginalName();
+            $destinationPath = public_path('/images');
+            $uploadedImage->move($destinationPath, $imageName);
+        }
         $banner = new Banner();
         $banner->title = $request->title;
         $banner->description = $request->description;
@@ -97,12 +98,12 @@ class BannerController extends Controller
             'link' => 'required',
         ]);
 
-        $uploadedImage = $request->file('image');
-        $imageName = $uploadedImage->getClientOriginalName();
+        $updateImage = $request->file('image');
+        $imageName = $updateImage->getClientOriginalName();
         $destinationPath = public_path('/images');
-        $uploadedImage->move($destinationPath, $imageName);
-
-        $banner = new Banner();
+        $updateImage->move($destinationPath, $imageName);
+            
+        $banner = Banner::find($id);
         $banner->title = $request->title;
         $banner->description = $request->description;
         $banner->link = $request->link;       
