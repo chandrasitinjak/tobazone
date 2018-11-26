@@ -9,15 +9,19 @@ use DB;
 
 class OrderController extends Controller
 {
-    public function newOrder() {
+    public function getNewOrder() {
         $transactions = Transaction::with('orders')->where('status', 'pending')->get();
-        return view('admin.orders.index')->with('transactions', $transactions);
-      }
+        return view('admin.orders.new-order')->with('transactions', $transactions);
+    }
 
-    public function orderconfirm($id)
-    {
+    public function getPaidOrder() {
+        $transactions = Transaction::with('orders')->where('status', 'paid')->get();
+        return view('admin.orders.paid-order')->with('transactions', $transactions);
+    }
+
+    public function orderconfirm($id) {
         $confirm = Transaction::find($id);
-        $confirm->status = 'activated';
+        $confirm->status = 'acceptedByAdmin';
 
         $confirm->save();
         

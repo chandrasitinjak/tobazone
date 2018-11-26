@@ -8,7 +8,8 @@
 
                 <li class="menu-title">Order</li>
 
-                <li> <a href="{{ url('/admin/neworder')}}"> <i class="menu-icon fa fa-box"></i> New Order </a> </li> 
+                <li> <a href="{{ url('/admin/new-order')}}"> <i class="menu-icon fa fa-box"></i> New Order </a> </li> 
+                <li> <a href="{{ url('/admin/paid-order')}}"> <i class="menu-icon fa fa-box"></i> Paid Order </a> </li> 
 
 
                 <li class="menu-title">Utilities</li>
