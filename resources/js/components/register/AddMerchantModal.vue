@@ -12,35 +12,35 @@
           <form>
             <div class="form-group">
                <label class="label">Username</label>
-               <input type="text" class="form-control" v-model="username" required>
+               <input type="text" class="form-control" v-model="userMerchant.username" required>
             </div>
 
             <div class="form-group">
                 <label class="label">E-mail</label>
-                <input type="text" class="form-control" v-model="email" required>
+                <input type="text" class="form-control" v-model="userMerchant.email" required>
             </div>
 
             <div class="form-group">
                 <label class="label">Nama</label>
-                <input type="text" class="form-control" v-model="nama" required>
+                <input type="text" class="form-control" v-model="userMerchant.name" required>
             </div>
 
             <div class="form-group">
               <label class="label">Alamat</label>  
               <label class="label">Provinsi</label>
-              <select class="form-control" v-on:change="getCities" v-model="selectedProvince">
+              <select class="form-control" v-on:change="getCities" v-model="userMerchant.selectedProvince">
                 <option v-for="province in provicies" :value="province">{{ province.name }}</option>
               </select>
             </div>
             <div class="form-group">
               <label class="label">Kota / Kabupaten</label>
-              <select class="form-control" @change="getSubdistricts" v-model="selectedCity">
+              <select class="form-control" @change="getSubdistricts" v-model="userMerchant.selectedCity">
                 <option v-for="city in cities" :value="city">{{ city.name }}</option>
               </select>
             </div>
             <div class="form-group">
               <label class="label">Kecamatan</label>
-              <select class="form-control" v-model="selectedSubdistrict">
+              <select class="form-control" v-model="userMerchant.selectedSubdistrict">
                 <option
                   v-for="subdistrict in subdistricts"
                   :value="subdistrict"
@@ -54,32 +54,37 @@
 
             <div class="form-group">
                 <label class="label">Phone</label>
-                <input type="text" class="form-control" v-model="phone" required>
+                <input type="text" class="form-control" v-model="userMerchant.phone" required>
             </div>
             
             <div class="form-group">
                 <label class="label">Gender</label>
-                <input type="text" class="form-control" v-model="gender" required>
+                <label form="male">
+                  <input type="radio" id="male" value="Male" class="form-control" v-model="userMerchant.gender" >Male
+                </label>
+                <label form="female">
+                  <input type="radio" id="female" value="Female" class="form-control" v-model="userMerchant.gender" >Female
+                </label>
             </div>
 
             <div class="form-group">
                 <label class="label">Photo</label>
-                <input type="text" class="form-control" v-model="photo" required>
+                <input type="text" class="form-control" v-model="userMerchant.photo" required>
             </div>
 
             <div class="form-group">
                 <label class="label">Birthday</label>
-                <input type="text" class="form-control" v-model="birthday" required>
+                <input type="text" class="form-control" v-model="userMerchant.birthday" required>
             </div>
 
             <div class="form-group">
                 <label class="label">Password</label>
-                <input id = "password" type="password" class="form-control" v-model="password" required>
+                <input id = "password" type="password" class="form-control" v-model="userMerchant.password" required>
             </div>
 
             <div class="form-group">
                 <label class="label">Confirm Password</label>
-                <input id = "password-confirm" type="password" class="form-control" v-model="passwordconfirm" required>
+                <input id = "passwordconfirm" type="password" class="form-control" v-model="userMerchant.passwordconfirm" required>
             </div>
 
           </form>
@@ -101,20 +106,22 @@ export default {
       provicies: [],
       cities: [],
       subdistricts: [],
-      selectedCity: "",
-      selectedProvince: "",
-      selectedSubdistrict: "",
-      addressDetail: "",
-      addressName: "",
-      username: "",
-      email: "",
-      nama: "",
-      phone: "",
-      gender: "",
-      photo: "",
-      birthday: "",
-      password: "",
-      passwordconfirm: "",
+      userMerchant:{      
+
+        selectedCity: "",
+        selectedProvince: "",
+        selectedSubdistrict: "",
+        addressDetail: "",
+        username: "",
+        email: "",
+        name: "",
+        phone: "",
+        gender: "",
+        photo: "",
+        birthday: "",
+        password: "",
+        passwordconfirm: "",
+      }
     };
   },
   methods: {
@@ -133,7 +140,7 @@ export default {
     },
     getCities() {
       window.axios
-        .get("/api/cities?pro_id=" + this.selectedProvince.id)
+        .get("/api/cities?pro_id=" + this.userMerchant.selectedProvince.id)
         .then(res => {
           this.cities = res.data;
         })
@@ -143,7 +150,7 @@ export default {
     },
     getSubdistricts() {
       window.axios
-        .get("/api/subdistricts?city_id=" + this.selectedCity.id)
+        .get("/api/subdistricts?city_id=" + this.userMerchant.selectedCity.id)
         .then(res => {
           this.subdistricts = res.data.rajaongkir.results;
         })
@@ -153,22 +160,25 @@ export default {
     },
     addMerchant() {
       let payload = {
-        provinceId: this.selectedProvince.id,
-        cityId: this.selectedCity.id,
-        subdistrictId: this.selectedSubdistrict.subdistrict_id,
-        provinceName: this.selectedProvince.name,
-        cityName: this.selectedCity.name,
-        subdistrictName: this.selectedSubdistrict.subdistrict_name,
-        addressDetail: this.addressDetail,
-        addressName: this.addressName,
-        username: this.username,
-        email : this.email,
-        nama : this.nama,
-        phone : this.phone,
-        gender : this.gender,
-        photo : this.photo,
-        birthday : this.birthday,
-        postalCode: this.selectedCity.postal_code
+        provinceId: this.userMerchant.selectedProvince.id,
+        cityId: this.userMerchant.selectedCity.id,
+        subdistrictId: this.userMerchant.selectedSubdistrict.subdistrict_id,
+        provinceName: this.userMerchant.selectedProvince.name,
+        cityName: this.userMerchant.selectedCity.name,
+        subdistrictName: this.userMerchant.selectedSubdistrict.subdistrict_name,
+        addressDetail: this.userMerchant.addressDetail,
+        addressName: '',
+        username: this.userMerchant.username,
+        email : this.userMerchant.email,
+        name : this.userMerchant.name,
+        phone : this.userMerchant.phone,
+        gender : this.userMerchant.gender,
+        photo : this.userMerchant.photo,
+        birthday : this.userMerchant.birthday,
+        postalCode: this.userMerchant.selectedCity.postal_code,
+        password: this.userMerchant.password,
+        password_confirmation: this.userMerchant.passwordconfirm,
+        role : 'merchant'
       };
 
       window.axios

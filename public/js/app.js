@@ -53255,6 +53255,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -53264,20 +53269,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       provicies: [],
       cities: [],
       subdistricts: [],
-      selectedCity: "",
-      selectedProvince: "",
-      selectedSubdistrict: "",
-      addressDetail: "",
-      addressName: "",
-      username: "",
-      email: "",
-      nama: "",
-      phone: "",
-      gender: "",
-      photo: "",
-      birthday: "",
-      password: "",
-      passwordconfirm: ""
+      userMerchant: {
+
+        selectedCity: "",
+        selectedProvince: "",
+        selectedSubdistrict: "",
+        addressDetail: "",
+        username: "",
+        email: "",
+        name: "",
+        phone: "",
+        gender: "",
+        photo: "",
+        birthday: "",
+        password: "",
+        passwordconfirm: ""
+      }
     };
   },
 
@@ -53297,7 +53304,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     getCities: function getCities() {
       var _this2 = this;
 
-      window.axios.get("/api/cities?pro_id=" + this.selectedProvince.id).then(function (res) {
+      window.axios.get("/api/cities?pro_id=" + this.userMerchant.selectedProvince.id).then(function (res) {
         _this2.cities = res.data;
       }).catch(function (err) {
         console.log(err);
@@ -53306,7 +53313,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     getSubdistricts: function getSubdistricts() {
       var _this3 = this;
 
-      window.axios.get("/api/subdistricts?city_id=" + this.selectedCity.id).then(function (res) {
+      window.axios.get("/api/subdistricts?city_id=" + this.userMerchant.selectedCity.id).then(function (res) {
         _this3.subdistricts = res.data.rajaongkir.results;
       }).catch(function (err) {
         console.log(err);
@@ -53316,22 +53323,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this4 = this;
 
       var payload = {
-        provinceId: this.selectedProvince.id,
-        cityId: this.selectedCity.id,
-        subdistrictId: this.selectedSubdistrict.subdistrict_id,
-        provinceName: this.selectedProvince.name,
-        cityName: this.selectedCity.name,
-        subdistrictName: this.selectedSubdistrict.subdistrict_name,
-        addressDetail: this.addressDetail,
-        addressName: this.addressName,
-        username: this.username,
-        email: this.email,
-        nama: this.nama,
-        phone: this.phone,
-        gender: this.gender,
-        photo: this.photo,
-        birthday: this.birthday,
-        postalCode: this.selectedCity.postal_code
+        provinceId: this.userMerchant.selectedProvince.id,
+        cityId: this.userMerchant.selectedCity.id,
+        subdistrictId: this.userMerchant.selectedSubdistrict.subdistrict_id,
+        provinceName: this.userMerchant.selectedProvince.name,
+        cityName: this.userMerchant.selectedCity.name,
+        subdistrictName: this.userMerchant.selectedSubdistrict.subdistrict_name,
+        addressDetail: this.userMerchant.addressDetail,
+        addressName: '',
+        username: this.userMerchant.username,
+        email: this.userMerchant.email,
+        name: this.userMerchant.name,
+        phone: this.userMerchant.phone,
+        gender: this.userMerchant.gender,
+        photo: this.userMerchant.photo,
+        birthday: this.userMerchant.birthday,
+        postalCode: this.userMerchant.selectedCity.postal_code,
+        password: this.userMerchant.password,
+        password_confirmation: this.userMerchant.passwordconfirm,
+        role: 'merchant'
       };
 
       window.axios.post("/register", payload).then(function (res) {
@@ -53403,19 +53413,23 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.username,
-                      expression: "username"
+                      value: _vm.userMerchant.username,
+                      expression: "userMerchant.username"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.username },
+                  domProps: { value: _vm.userMerchant.username },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.username = $event.target.value
+                      _vm.$set(
+                        _vm.userMerchant,
+                        "username",
+                        $event.target.value
+                      )
                     }
                   }
                 })
@@ -53429,19 +53443,19 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.email,
-                      expression: "email"
+                      value: _vm.userMerchant.email,
+                      expression: "userMerchant.email"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.email },
+                  domProps: { value: _vm.userMerchant.email },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.email = $event.target.value
+                      _vm.$set(_vm.userMerchant, "email", $event.target.value)
                     }
                   }
                 })
@@ -53455,19 +53469,19 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.nama,
-                      expression: "nama"
+                      value: _vm.userMerchant.name,
+                      expression: "userMerchant.name"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.nama },
+                  domProps: { value: _vm.userMerchant.name },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.nama = $event.target.value
+                      _vm.$set(_vm.userMerchant, "name", $event.target.value)
                     }
                   }
                 })
@@ -53485,8 +53499,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.selectedProvince,
-                        expression: "selectedProvince"
+                        value: _vm.userMerchant.selectedProvince,
+                        expression: "userMerchant.selectedProvince"
                       }
                     ],
                     staticClass: "form-control",
@@ -53501,9 +53515,13 @@ var render = function() {
                               var val = "_value" in o ? o._value : o.value
                               return val
                             })
-                          _vm.selectedProvince = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
+                          _vm.$set(
+                            _vm.userMerchant,
+                            "selectedProvince",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
                         },
                         _vm.getCities
                       ]
@@ -53529,8 +53547,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.selectedCity,
-                        expression: "selectedCity"
+                        value: _vm.userMerchant.selectedCity,
+                        expression: "userMerchant.selectedCity"
                       }
                     ],
                     staticClass: "form-control",
@@ -53545,9 +53563,13 @@ var render = function() {
                               var val = "_value" in o ? o._value : o.value
                               return val
                             })
-                          _vm.selectedCity = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
+                          _vm.$set(
+                            _vm.userMerchant,
+                            "selectedCity",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
                         },
                         _vm.getSubdistricts
                       ]
@@ -53571,8 +53593,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.selectedSubdistrict,
-                        expression: "selectedSubdistrict"
+                        value: _vm.userMerchant.selectedSubdistrict,
+                        expression: "userMerchant.selectedSubdistrict"
                       }
                     ],
                     staticClass: "form-control",
@@ -53586,9 +53608,13 @@ var render = function() {
                             var val = "_value" in o ? o._value : o.value
                             return val
                           })
-                        _vm.selectedSubdistrict = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
+                        _vm.$set(
+                          _vm.userMerchant,
+                          "selectedSubdistrict",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
                       }
                     }
                   },
@@ -53634,19 +53660,19 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.phone,
-                      expression: "phone"
+                      value: _vm.userMerchant.phone,
+                      expression: "userMerchant.phone"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.phone },
+                  domProps: { value: _vm.userMerchant.phone },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.phone = $event.target.value
+                      _vm.$set(_vm.userMerchant, "phone", $event.target.value)
                     }
                   }
                 })
@@ -53655,27 +53681,53 @@ var render = function() {
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { staticClass: "label" }, [_vm._v("Gender")]),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.gender,
-                      expression: "gender"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.gender },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                _c("label", { attrs: { form: "male" } }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.userMerchant.gender,
+                        expression: "userMerchant.gender"
                       }
-                      _vm.gender = $event.target.value
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "radio", id: "male", value: "Male" },
+                    domProps: {
+                      checked: _vm._q(_vm.userMerchant.gender, "Male")
+                    },
+                    on: {
+                      change: function($event) {
+                        _vm.$set(_vm.userMerchant, "gender", "Male")
+                      }
                     }
-                  }
-                })
+                  }),
+                  _vm._v("Male\n              ")
+                ]),
+                _vm._v(" "),
+                _c("label", { attrs: { form: "female" } }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.userMerchant.gender,
+                        expression: "userMerchant.gender"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "radio", id: "female", value: "Female" },
+                    domProps: {
+                      checked: _vm._q(_vm.userMerchant.gender, "Female")
+                    },
+                    on: {
+                      change: function($event) {
+                        _vm.$set(_vm.userMerchant, "gender", "Female")
+                      }
+                    }
+                  }),
+                  _vm._v("Female\n              ")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
@@ -53686,19 +53738,19 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.photo,
-                      expression: "photo"
+                      value: _vm.userMerchant.photo,
+                      expression: "userMerchant.photo"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.photo },
+                  domProps: { value: _vm.userMerchant.photo },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.photo = $event.target.value
+                      _vm.$set(_vm.userMerchant, "photo", $event.target.value)
                     }
                   }
                 })
@@ -53712,19 +53764,23 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.birthday,
-                      expression: "birthday"
+                      value: _vm.userMerchant.birthday,
+                      expression: "userMerchant.birthday"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.birthday },
+                  domProps: { value: _vm.userMerchant.birthday },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.birthday = $event.target.value
+                      _vm.$set(
+                        _vm.userMerchant,
+                        "birthday",
+                        $event.target.value
+                      )
                     }
                   }
                 })
@@ -53738,19 +53794,23 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.password,
-                      expression: "password"
+                      value: _vm.userMerchant.password,
+                      expression: "userMerchant.password"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { id: "password", type: "password", required: "" },
-                  domProps: { value: _vm.password },
+                  domProps: { value: _vm.userMerchant.password },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.password = $event.target.value
+                      _vm.$set(
+                        _vm.userMerchant,
+                        "password",
+                        $event.target.value
+                      )
                     }
                   }
                 })
@@ -53766,23 +53826,27 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.passwordconfirm,
-                      expression: "passwordconfirm"
+                      value: _vm.userMerchant.passwordconfirm,
+                      expression: "userMerchant.passwordconfirm"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: {
-                    id: "password-confirm",
+                    id: "passwordconfirm",
                     type: "password",
                     required: ""
                   },
-                  domProps: { value: _vm.passwordconfirm },
+                  domProps: { value: _vm.userMerchant.passwordconfirm },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.passwordconfirm = $event.target.value
+                      _vm.$set(
+                        _vm.userMerchant,
+                        "passwordconfirm",
+                        $event.target.value
+                      )
                     }
                   }
                 })
@@ -54084,7 +54148,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -54189,6 +54253,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -54198,18 +54267,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       provicies: [],
       cities: [],
       subdistricts: [],
-      selectedCity: "",
-      selectedProvince: "",
-      selectedSubdistrict: "",
-      addressDetail: "",
-      addressName: "",
-      username: "",
-      email: "",
-      nama: "",
-      phone: "",
-      gender: "",
-      photo: "",
-      birthday: ""
+      userCustomer: {
+        selectedCity: "",
+        selectedProvince: "",
+        selectedSubdistrict: "",
+        addressDetail: "",
+        addressName: "",
+        username: "",
+        email: "",
+        name: "",
+        phone: "",
+        gender: "",
+        photo: "",
+        birthday: "",
+        password: "",
+        passwordconfirm: ""
+      }
     };
   },
 
@@ -54244,26 +54317,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         console.log(err);
       });
     },
-    addAddress: function addAddress() {
+    addCustomer: function addCustomer() {
       var _this4 = this;
 
       var payload = {
-        provinceId: this.selectedProvince.id,
-        cityId: this.selectedCity.id,
-        subdistrictId: this.selectedSubdistrict.subdistrict_id,
-        provinceName: this.selectedProvince.name,
-        cityName: this.selectedCity.name,
-        subdistrictName: this.selectedSubdistrict.subdistrict_name,
-        addressDetail: this.addressDetail,
-        addressName: this.addressName,
-        username: this.username,
-        email: this.email,
-        nama: this.nama,
-        phone: this.phone,
-        gender: this.gender,
-        photo: this.photo,
-        birthday: this.birthday,
-        postalCode: this.selectedCity.postal_code
+        provinceId: this.userCustomer.selectedProvince.id,
+        cityId: this.userCustomer.selectedCity.id,
+        subdistrictId: this.userCustomer.selectedSubdistrict.subdistrict_id,
+        provinceName: this.userCustomer.selectedProvince.name,
+        cityName: this.userCustomer.selectedCity.name,
+        subdistrictName: this.userCustomer.selectedSubdistrict.subdistrict_name,
+        addressDetail: this.userCustomer.addressDetail,
+        addressName: this.userCustomer.addressName,
+        username: this.userCustomer.username,
+        email: this.userCustomer.email,
+        nama: this.userCustomer.nama,
+        phone: this.userCustomer.phone,
+        gender: this.userCustomer.gender,
+        photo: this.userCustomer.photo,
+        birthday: this.userCustomer.birthday,
+        postalCode: this.userCustomer.selectedCity.postal_code,
+        role: 'customer'
       };
 
       window.axios.post("/register", payload).then(function (res) {
@@ -54335,19 +54409,23 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.username,
-                      expression: "username"
+                      value: _vm.userCustomer.username,
+                      expression: "userCustomer.username"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.username },
+                  domProps: { value: _vm.userCustomer.username },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.username = $event.target.value
+                      _vm.$set(
+                        _vm.userCustomer,
+                        "username",
+                        $event.target.value
+                      )
                     }
                   }
                 })
@@ -54361,45 +54439,45 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.email,
-                      expression: "email"
+                      value: _vm.userCustomer.email,
+                      expression: "userCustomer.email"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.email },
+                  domProps: { value: _vm.userCustomer.email },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.email = $event.target.value
+                      _vm.$set(_vm.userCustomer, "email", $event.target.value)
                     }
                   }
                 })
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
-                _c("label", { staticClass: "label" }, [_vm._v("Nama")]),
+                _c("label", { staticClass: "label" }, [_vm._v("Name")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.nama,
-                      expression: "nama"
+                      value: _vm.userCustomer.name,
+                      expression: "userCustomer.name"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.nama },
+                  domProps: { value: _vm.userCustomer.name },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.nama = $event.target.value
+                      _vm.$set(_vm.userCustomer, "name", $event.target.value)
                     }
                   }
                 })
@@ -54538,19 +54616,23 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.addressDetail,
-                      expression: "addressDetail"
+                      value: _vm.userCustomer.addressDetail,
+                      expression: "userCustomer.addressDetail"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { rows: "10" },
-                  domProps: { value: _vm.addressDetail },
+                  domProps: { value: _vm.userCustomer.addressDetail },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.addressDetail = $event.target.value
+                      _vm.$set(
+                        _vm.userCustomer,
+                        "addressDetail",
+                        $event.target.value
+                      )
                     }
                   }
                 })
@@ -54564,48 +54646,74 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.phone,
-                      expression: "phone"
+                      value: _vm.userCustomer.phone,
+                      expression: "userCustomer.phone"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.phone },
+                  domProps: { value: _vm.userCustomer.phone },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.phone = $event.target.value
+                      _vm.$set(_vm.userCustomer, "phone", $event.target.value)
                     }
                   }
                 })
               ]),
               _vm._v(" "),
+              _c("label", { staticClass: "label" }, [_vm._v("Gender")]),
+              _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
-                _c("label", { staticClass: "label" }, [_vm._v("Gender")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.gender,
-                      expression: "gender"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.gender },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                _c("label", { attrs: { form: "male" } }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.userCustomer.gender,
+                        expression: "userCustomer.gender"
                       }
-                      _vm.gender = $event.target.value
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "radio", id: "male", value: "Male" },
+                    domProps: {
+                      checked: _vm._q(_vm.userCustomer.gender, "Male")
+                    },
+                    on: {
+                      change: function($event) {
+                        _vm.$set(_vm.userCustomer, "gender", "Male")
+                      }
                     }
-                  }
-                })
+                  }),
+                  _vm._v("Male\n              ")
+                ]),
+                _vm._v(" "),
+                _c("label", { attrs: { form: "female" } }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.userCustomer.gender,
+                        expression: "userCustomer.gender"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "radio", id: "female", value: "Female" },
+                    domProps: {
+                      checked: _vm._q(_vm.userCustomer.gender, "Female")
+                    },
+                    on: {
+                      change: function($event) {
+                        _vm.$set(_vm.userCustomer, "gender", "Female")
+                      }
+                    }
+                  }),
+                  _vm._v("Female\n              ")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
@@ -54616,19 +54724,19 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.photo,
-                      expression: "photo"
+                      value: _vm.userCustomer.photo,
+                      expression: "userCustomer.photo"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.photo },
+                  domProps: { value: _vm.userCustomer.photo },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.photo = $event.target.value
+                      _vm.$set(_vm.userCustomer, "photo", $event.target.value)
                     }
                   }
                 })
@@ -54642,19 +54750,23 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.birthday,
-                      expression: "birthday"
+                      value: _vm.userCustomer.birthday,
+                      expression: "userCustomer.birthday"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.birthday },
+                  domProps: { value: _vm.userCustomer.birthday },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.birthday = $event.target.value
+                      _vm.$set(
+                        _vm.userCustomer,
+                        "birthday",
+                        $event.target.value
+                      )
                     }
                   }
                 })
@@ -54668,19 +54780,23 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.password,
-                      expression: "password"
+                      value: _vm.userCustomer.password,
+                      expression: "userCustomer.password"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { id: "password", type: "password", required: "" },
-                  domProps: { value: _vm.password },
+                  domProps: { value: _vm.userCustomer.password },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.password = $event.target.value
+                      _vm.$set(
+                        _vm.userCustomer,
+                        "password",
+                        $event.target.value
+                      )
                     }
                   }
                 })
@@ -54696,23 +54812,27 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.passwordconfirm,
-                      expression: "passwordconfirm"
+                      value: _vm.userCustomer.passwordconfirm,
+                      expression: "userCustomer.passwordconfirm"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: {
-                    id: "password-confirm",
-                    type: "password-confirm",
+                    id: "passwordconfirm",
+                    type: "password",
                     required: ""
                   },
-                  domProps: { value: _vm.passwordconfirm },
+                  domProps: { value: _vm.userCustomer.passwordconfirm },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.passwordconfirm = $event.target.value
+                      _vm.$set(
+                        _vm.userCustomer,
+                        "passwordconfirm",
+                        $event.target.value
+                      )
                     }
                   }
                 })
@@ -54729,7 +54849,7 @@ var render = function() {
                 {
                   staticClass: "btn btn-primary btn-block",
                   attrs: { type: "button" },
-                  on: { click: _vm.addMerchant }
+                  on: { click: _vm.addCustomer }
                 },
                 [_vm._v("Register")]
               )

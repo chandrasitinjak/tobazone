@@ -12,17 +12,17 @@
           <form>
             <div class="form-group">
                <label class="label">Username</label>
-               <input type="text" class="form-control" v-model="username" required>
+               <input type="text" class="form-control" v-model="userCustomer.username" required>
             </div>
 
             <div class="form-group">
                 <label class="label">E-mail</label>
-                <input type="text" class="form-control" v-model="email" required>
+                <input type="text" class="form-control" v-model="userCustomer.email" required>
             </div>
 
             <div class="form-group">
-                <label class="label">Nama</label>
-                <input type="text" class="form-control" v-model="nama" required>
+                <label class="label">Name</label>
+                <input type="text" class="form-control" v-model="userCustomer.name" required>
             </div>
 
             <div class="form-group">
@@ -48,43 +48,48 @@
             </div>
             <div class="form-group">
               <label class="label">Alamat Rinci</label>
-              <textarea v-model="addressDetail" class="form-control" rows="10"></textarea>
+              <textarea v-model="userCustomer.addressDetail" class="form-control" rows="10"></textarea>
             </div>
 
             <div class="form-group">
                 <label class="label">Phone</label>
-                <input type="text" class="form-control" v-model="phone" required>
+                <input type="text" class="form-control" v-model="userCustomer.phone" required>
             </div>
             
+            <label class="label">Gender</label>
             <div class="form-group">
-                <label class="label">Gender</label>
-                <input type="text" class="form-control" v-model="gender" required>
+                <label form="male">
+                  <input type="radio" id="male" value="Male" class="form-control" v-model="userCustomer.gender" >Male
+                </label>
+                <label form="female">
+                  <input type="radio" id="female" value="Female" class="form-control" v-model="userCustomer.gender" >Female
+                </label>
             </div>
 
             <div class="form-group">
                 <label class="label">Photo</label>
-                <input type="text" class="form-control" v-model="photo" required>
+                <input type="text" class="form-control" v-model="userCustomer.photo" required>
             </div>
 
             <div class="form-group">
                 <label class="label">Birthday</label>
-                <input type="text" class="form-control" v-model="birthday" required>
+                <input type="text" class="form-control" v-model="userCustomer.birthday" required>
             </div>
 
             <div class="form-group">
                 <label class="label">Password</label>
-                <input id = "password" type="password" class="form-control" v-model="password" required>
+                <input id = "password" type="password" class="form-control" v-model="userCustomer.password" required>
             </div>
 
             <div class="form-group">
                 <label class="label">Confirm Password</label>
-                <input id = "password-confirm" type="password-confirm" class="form-control" v-model="passwordconfirm" required>
+                <input id = "passwordconfirm" type="password" class="form-control" v-model="userCustomer.passwordconfirm" required>
             </div>
 
           </form>
         </div>
         <div class="modal-footer" style="border: none">
-          <button type="button" class="btn btn-primary btn-block" v-on:click="addMerchant">Register</button>
+          <button type="button" class="btn btn-primary btn-block" v-on:click="addCustomer">Register</button>
         </div>
       </div>
     </div>
@@ -100,18 +105,22 @@ export default {
       provicies: [],
       cities: [],
       subdistricts: [],
-      selectedCity: "",
-      selectedProvince: "",
-      selectedSubdistrict: "",
-      addressDetail: "",
-      addressName: "",
-      username: "",
-      email: "",
-      nama: "",
-      phone: "",
-      gender: "",
-      photo: "",
-      birthday: "",
+      userCustomer: {
+        selectedCity: "",
+        selectedProvince: "",
+        selectedSubdistrict: "",
+        addressDetail: "",
+        addressName: "",
+        username: "",
+        email: "",
+        name: "",
+        phone: "",
+        gender: "",
+        photo: "",
+        birthday: "",
+        password: "",
+        passwordconfirm: ""
+      }
     };
   },
   methods: {
@@ -148,24 +157,25 @@ export default {
           console.log(err);
         });
     },
-    addAddress() {
+    addCustomer() {
       let payload = {
-        provinceId: this.selectedProvince.id,
-        cityId: this.selectedCity.id,
-        subdistrictId: this.selectedSubdistrict.subdistrict_id,
-        provinceName: this.selectedProvince.name,
-        cityName: this.selectedCity.name,
-        subdistrictName: this.selectedSubdistrict.subdistrict_name,
-        addressDetail: this.addressDetail,
-        addressName: this.addressName,
-        username: this.username,
-        email : this.email,
-        nama : this.nama,
-        phone : this.phone,
-        gender : this.gender,
-        photo : this.photo,
-        birthday : this.birthday,
-        postalCode: this.selectedCity.postal_code
+        provinceId: this.userCustomer.selectedProvince.id,
+        cityId: this.userCustomer.selectedCity.id,
+        subdistrictId: this.userCustomer.selectedSubdistrict.subdistrict_id,
+        provinceName: this.userCustomer.selectedProvince.name,
+        cityName: this.userCustomer.selectedCity.name,
+        subdistrictName: this.userCustomer.selectedSubdistrict.subdistrict_name,
+        addressDetail: this.userCustomer.addressDetail,
+        addressName: this.userCustomer.addressName,
+        username: this.userCustomer.username,
+        email : this.userCustomer.email,
+        nama : this.userCustomer.nama,
+        phone : this.userCustomer.phone,
+        gender : this.userCustomer.gender,
+        photo : this.userCustomer.photo,
+        birthday : this.userCustomer.birthday,
+        postalCode: this.userCustomer.selectedCity.postal_code,
+        role : 'customer'
       };
 
       window.axios
