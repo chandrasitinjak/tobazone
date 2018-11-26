@@ -31,3 +31,4 @@ Route::post('/merchant/orders/{id}', 'API\OrderController@updateOrderStatus');
 Route::get('/customer/{id}/transactions', 'API\TransactionController@getCustomerTransaction');
 Route::get('/customer/{userId}/transaction/{tranId}', 'API\TransactionController@getTransaction');
 Route::post('/transaction/{id}/proof-of-payment', 'API\TransactionController@updateProofOfPayment');
+Route::post('/transaction/{id}/update-status', 'API\TransactionController@updateTransactionStatus');

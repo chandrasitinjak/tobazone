@@ -77,44 +77,16 @@ class TransactionController extends Controller
         return response()->json($transaction);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function updateTransactionStatus(Request $request, $id) {
+        $transaction = Transaction::find($id);
+        $transaction->status = $request->status;
+        $transaction->update();
     }
 
     public function getCustomerTransaction($id) {
         $transaction = Transaction::with(['orders', 'orders.product', 'payment'])
                                   ->where('customer_id', $id)
-                                  ->whereIn('status', ['pending', 'acceptedByMerchant'])
+                                  ->whereIn('status', ['pending', 'acceptedByMerchant', 'paid'])
                                   ->get();
 
         return response()->json($transaction);
@@ -141,6 +113,9 @@ class TransactionController extends Controller
             "bank" => $request->bank,
             "senderName" => $request->name,
         ]);
+        $transaction->status = 'paid';
+
         $payment->update();
+        $transaction->update();
     }
 }

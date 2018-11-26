@@ -76,6 +76,15 @@
                             >Sudah diterima penjual
                               <br>
                             </div>
+
+                            <div
+                              class="alert alert-warning p-1"
+                              role="alert"
+                              style="font-size: x-small"
+                              v-if="transaction.status === 'paid'"
+                            >Sudah dibayar, menunggu diproses penjual
+                              <br>
+                            </div>
                           </div>
                         </div>
                       </div>

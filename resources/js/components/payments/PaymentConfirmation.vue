@@ -146,7 +146,8 @@ export default {
       },
       selectedFile: null,
       senderName: '',
-      selectedBank: ''
+      selectedBank: '',
+      statusUpdated: false,
     };
   },
   methods: {
@@ -173,12 +174,27 @@ export default {
     },
     updateDuration() {
       this.duration = moment.duration(this.deadline.diff(moment()));
+      if(this.duration._data.hours < 0 && this.statusUpdated == false) {
+        this.updateStatusCanceled();
+      }
     },
     getDeatline() {
       moment.locale("id");
       return moment(this.transaction.created_at)
         .add(1, "days")
         .format("dddd, MMMM Do YYYY, h:mm:ss a");
+    },
+    updateStatusCanceled() {
+      let payload = {
+        status: 'canceledBySistem'
+      }
+     
+      window.axios.post('/api/transaction/' + this.transactionId + '/update-status', payload)
+      .then(() => {
+        this.statusUpdated = true;
+      }).catch(err => {
+        console.log(err)
+      })
     },
     uploadProofOfPayment() {
       const formData = new FormData()
@@ -187,13 +203,16 @@ export default {
       formData.append('name', this.senderName)
 
       window.axios.post('/api/transaction/'+ this.transactionId +'/proof-of-payment', formData)
+      then(() => {
+        window.location = '/customer/' + this.userId + '/orders'
+      })
     },
     onFileChanged(event) {
       this.selectedFile = event.target.files[0];
       console.log(this.selectedFile)
     }
   },
-  mounted() {
+  created() {
     this.getTransaction();
 
     setInterval(() => {

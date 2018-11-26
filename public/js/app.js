@@ -69944,7 +69944,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -69955,6 +69955,15 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -70284,6 +70293,26 @@ var render = function() {
                                             _c("br")
                                           ]
                                         )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    transaction.status === "paid"
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "alert alert-warning p-1",
+                                            staticStyle: {
+                                              "font-size": "x-small"
+                                            },
+                                            attrs: { role: "alert" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Sudah dibayar, menunggu diproses penjual\n                            "
+                                            ),
+                                            _c("br")
+                                          ]
+                                        )
                                       : _vm._e()
                                   ])
                                 ])
@@ -70589,7 +70618,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -70750,7 +70779,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       },
       selectedFile: null,
       senderName: '',
-      selectedBank: ''
+      selectedBank: '',
+      statusUpdated: false
     };
   },
 
@@ -70770,31 +70800,52 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     updateDuration: function updateDuration() {
       this.duration = __WEBPACK_IMPORTED_MODULE_0_moment___default.a.duration(this.deadline.diff(__WEBPACK_IMPORTED_MODULE_0_moment___default()()));
+      if (this.duration._data.hours < 0 && this.statusUpdated == false) {
+        this.updateStatusCanceled();
+      }
     },
     getDeatline: function getDeatline() {
       __WEBPACK_IMPORTED_MODULE_0_moment___default.a.locale("id");
       return __WEBPACK_IMPORTED_MODULE_0_moment___default()(this.transaction.created_at).add(1, "days").format("dddd, MMMM Do YYYY, h:mm:ss a");
     },
+    updateStatusCanceled: function updateStatusCanceled() {
+      var _this2 = this;
+
+      var payload = {
+        status: 'canceledBySistem'
+      };
+
+      window.axios.post('/api/transaction/' + this.transactionId + '/update-status', payload).then(function () {
+        _this2.statusUpdated = true;
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
     uploadProofOfPayment: function uploadProofOfPayment() {
+      var _this3 = this;
+
       var formData = new FormData();
       formData.append('image', this.selectedFile);
       formData.append('bank', this.selectedBank);
       formData.append('name', this.senderName);
 
       window.axios.post('/api/transaction/' + this.transactionId + '/proof-of-payment', formData);
+      then(function () {
+        window.location = '/customer/' + _this3.userId + '/orders';
+      });
     },
     onFileChanged: function onFileChanged(event) {
       this.selectedFile = event.target.files[0];
       console.log(this.selectedFile);
     }
   },
-  mounted: function mounted() {
-    var _this2 = this;
+  created: function created() {
+    var _this4 = this;
 
     this.getTransaction();
 
     setInterval(function () {
-      _this2.updateDuration();
+      _this4.updateDuration();
     }, 1000);
   }
 });
