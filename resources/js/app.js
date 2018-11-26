@@ -24,6 +24,8 @@ const AddToCartButton = require('./components/AddToCartButton')
 const Cart = require('./components/carts/Cart')
 const ShippingPage = require('./components/shippings/Container')
 const ProductListMerchantPage = require('./components/merchants/ProductList') 
+const MerchantPage = require('./components/register/MerchantChooser')
+const CustomerPage = require('./components/register/CustomerChooser')
 const OrderListMerchantPage = require('./components/merchants/OrderList')
 const OrderListCustomerPage = require('./components/customers/OrderList')
 const PaymentConfirmation = require('./components/payments/PaymentConfirmation')
@@ -71,6 +73,16 @@ new Vue({
 new Vue({
     el: '#product-list',
     components: { ProductListMerchantPage }
+})
+
+new Vue({
+    el: '#merchant-page',
+    components: { MerchantPage }
+})
+
+new Vue({
+    el: '#customer-page',
+    components: { CustomerPage }
 })
 
 new Vue({

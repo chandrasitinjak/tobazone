@@ -73,7 +73,7 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
-
+        
         $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
@@ -81,24 +81,32 @@ class RegisterController extends Controller
             
         ]);
 
-        $userId = $user->id;
-
         $user->profile()->save(Profile::create([
             'user_id' => $user->id,
             'name' => $data['name'],
-            'address' => $data['address'],
+            'address' =>  json_encode([
+                'name' => $data['addressName'],
+                'province_id' => $data['provinceId'],
+                'city_id' => $data['cityId'],
+                'subdistrict_id' => $data['subdistrictId'],
+                'province_name' => $data['provinceName'],
+                'city_name' => $data['cityName'],
+                'subdistrict_name' => $data['subdistrictName'],
+                'postal_code' => $data['postalCode'],
+                'detail' => $data['addressDetail']
+            ]),
             'phone' => $data['phone'],
             'photo' => $data['photo'],
             'gender' => $data['gender'],
             'birthday' => $data['birthday'],
         ]));
-
+        
         if($data['role'] === 'merchant'){
             $user->assignRole('merchant');
         } else {
             $user->assignRole('customer');
         }
-
+            
         return $user;
         
     }

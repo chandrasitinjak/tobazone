@@ -70764,6 +70764,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["userId", "transactionId"],
   data: function data() {
@@ -70810,6 +70812,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     updateStatusCanceled: function updateStatusCanceled() {
       var _this2 = this;
+
+      window.axios.get("/api/cities?pro_id=" + this.userMerchant.selectedProvince.id).then(function (res) {
+        _this2.cities = res.data;
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    getSubdistricts: function getSubdistricts() {
+      var _this3 = this;
+
+      window.axios.get("/api/subdistricts?city_id=" + this.userMerchant.selectedCity.id).then(function (res) {
+        _this3.subdistricts = res.data.rajaongkir.results;
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    addMerchant: function addMerchant() {
+      var _this4 = this;
 
       var payload = {
         status: 'canceledBySistem'
