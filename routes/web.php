@@ -41,7 +41,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin', 'AdminController@index');
         Route::post('/merchantconfirmed/{id}', 'MerchantController@updateConfirm');
         Route::get('/admin/newmerchant', 'MerchantController@newmerchant');
-        Route::get('/admin/neworder', 'OrderController@neworder');
+        Route::get('/admin/new-order', 'OrderController@getNewOrder');
+        Route::get('/admin/paid-order', 'OrderController@getPaidOrder');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
@@ -53,13 +54,6 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('/orderconfirm', 'OrderController@ordercustomer');
         Route::post('/orderconfirm/{id}', 'OrderController@orderconfirm');
-        
-        Route::get('/blog', 'BlogController@index');
-        Route::get('/blog/create', 'BlogController@create');
-        Route::get('/blog/edit/{id}', 'BlogController@edit');
-        Route::post('/blog/delete/{id}', 'BlogController@destroy');
-        Route::post('/blog/update/{id}', 'BlogController@update');
-        Route::post('/blog/store', 'BlogController@store');
 
         Route::get('/banner', 'BannerController@index');
         Route::get('/banner/show/{id}', 'BannerController@show');
@@ -68,6 +62,16 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/banner/delete/{id}', 'BannerController@destroy');
         Route::post('/banner/update/{id}', 'BannerController@update');
         Route::post('/banner/store', 'BannerController@store');
+
+        Route::get('/blogs', 'BlogController@index');
+        Route::get('/blogs/create', 'BlogController@create');
+        Route::get('/blogs/edit/{id}', 'BlogController@edit');
+        Route::post('/blogs/delete/{id}', 'BlogController@destroy');
+        Route::post('/blogs/update/{id}', 'BlogController@update');
+        Route::post('/blogs/store', 'BlogController@store');
+        
+        Route::post('/orderconfirm/{id}', 'OrderController@orderconfirm');
+
     });
 
     Route::middleware('role:merchant')->group(function () {
@@ -83,7 +87,8 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware('role:customer')->group(function () {
         Route::post('/carts/delete/{id}', 'CartController@destroy');
         Route::get('/shipping', 'ShippingController@index');
-        Route::get('/transactions/{id}', 'TransactionController@show');
+        Route::get('/customer/transactions/{id}', 'TransactionController@show');
+        Route::get('/customer/{id}/orders', 'TransactionController@getTransactionByUser');
     });
 
     Route::middleware('role:costumer|admin')->group(function () {

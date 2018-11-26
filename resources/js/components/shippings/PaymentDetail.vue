@@ -56,7 +56,7 @@ export default {
       window.axios
         .post("/api/transactions", this.finalPaymentDetail)
         .then(res => {
-          window.location = "/transactions/" + res.data.id
+          window.location = "/customer/transactions/" + res.data.id
         })
         .catch(err => {
           console.log(err);

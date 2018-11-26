@@ -77,37 +77,45 @@ class TransactionController extends Controller
         return response()->json($transaction);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function updateTransactionStatus(Request $request, $id) {
+        $transaction = Transaction::find($id);
+        $transaction->status = $request->status;
+        $transaction->update();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    public function getCustomerTransaction($id) {
+        $transaction = Transaction::with(['orders', 'orders.product', 'payment'])
+                                  ->where('customer_id', $id)
+                                  ->whereIn('status', ['pending', 'acceptedByMerchant', 'paid'])
+                                  ->get();
+
+        return response()->json($transaction);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function getTransaction($userId, $tranId ) {
+        $transaction = Transaction::with(['customer', 'customer.profile', 'payment'])
+                                  ->where('customer_id', $userId)
+                                  ->where('id', $tranId)
+                                  ->first();
+        return response()->json($transaction);
+    }
+
+    public function updateProofOfPayment(Request $request, $id) {
+        $image = $request->file('image');
+        $imageName = time() . $image->getClientOriginalName();
+        $destinationPath = public_path('/images/proof-of-payment');
+        $image->move($destinationPath, $imageName);
+
+        $transaction = Transaction::find($id);
+        $payment = $transaction->payment;
+        $payment->proof = json_encode([
+            "image" => $imageName,
+            "bank" => $request->bank,
+            "senderName" => $request->name,
+        ]);
+        $transaction->status = 'paid';
+
+        $payment->update();
+        $transaction->update();
     }
 }
