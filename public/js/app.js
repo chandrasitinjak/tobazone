@@ -70589,7 +70589,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -70602,6 +70602,10 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+//
+//
+//
+//
 //
 //
 //
@@ -71086,277 +71090,293 @@ var render = function() {
           _c("div", { staticClass: "row justify-content-md-center" }, [
             _c("div", { staticClass: "card my-3 col-6 time" }, [
               _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "font-size": "small" }
-                  },
-                  [
-                    _vm._v(
-                      "Segera selesaikan pembayaran Anda sebelum stok habis."
+                _vm.duration._data.hours > 0
+                  ? _c(
+                      "p",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "small" }
+                      },
+                      [
+                        _vm._v(
+                          "Segera selesaikan pembayaran Anda sebelum stok habis."
+                        )
+                      ]
                     )
-                  ]
-                ),
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("h2", { staticClass: "text-center" }, [
-                  _vm._v(
-                    _vm._s(_vm.duration._data.hours) +
-                      " Jam " +
-                      _vm._s(_vm.duration._data.minutes) +
-                      " Menit " +
-                      _vm._s(_vm.duration._data.seconds) +
-                      " Detik"
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "font-size": "small" }
-                  },
-                  [
-                    _c("i", [
-                      _vm._v("(Sebelum " + _vm._s(_vm.getDeatline()) + ")")
+                _vm.duration._data.hours > 0
+                  ? _c("h2", { staticClass: "text-center" }, [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(_vm.duration._data.hours) +
+                          " Jam " +
+                          _vm._s(_vm.duration._data.minutes) +
+                          " Menit " +
+                          _vm._s(_vm.duration._data.seconds) +
+                          " Detik\n              "
+                      )
                     ])
-                  ]
-                )
+                  : _c("h2", { staticClass: "text-center" }, [
+                      _vm._v(
+                        "\n                Waktu Pembayaran Anda Sudah Habis\n              "
+                      )
+                    ]),
+                _vm._v(" "),
+                _vm.duration._data.hours > 0
+                  ? _c(
+                      "p",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "small" }
+                      },
+                      [
+                        _c("i", [
+                          _vm._v("(Sebelum " + _vm._s(_vm.getDeatline()) + ")")
+                        ])
+                      ]
+                    )
+                  : _vm._e()
               ])
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "row justify-content-md-center" }, [
-            _c("div", { staticClass: "card col-6 my-3" }, [
-              _c("div", {}, [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("div", { staticClass: "text-muted" }, [
-                    _vm._v("Transfer pembayaran ke nomor Virtual Account :")
-                  ]),
-                  _vm._v(" "),
-                  _c("img", {
-                    staticStyle: { height: "30px", display: "inline" },
-                    attrs: { src: "/images/assets/BNI.png", alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("h4", { staticStyle: { display: "inline" } }, [
-                    _vm._v("8277-082274162987")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "mt-3 text-muted" }, [
-                    _vm._v("Jumlah yang harus dibayar :")
-                  ]),
-                  _vm._v(" "),
-                  _c("h5", { staticStyle: { color: "#ff5205" } }, [
-                    _vm._v(
-                      "Rp " +
-                        _vm._s(_vm.getTotalPayment(_vm.transaction.payment))
-                    )
+          _vm.duration._data.hours > 0
+            ? _c("div", { staticClass: "row justify-content-md-center" }, [
+                _c("div", { staticClass: "card col-6 my-3" }, [
+                  _c("div", {}, [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("div", { staticClass: "text-muted" }, [
+                        _vm._v("Transfer pembayaran ke nomor Virtual Account :")
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticStyle: { height: "30px", display: "inline" },
+                        attrs: { src: "/images/assets/BNI.png", alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("h4", { staticStyle: { display: "inline" } }, [
+                        _vm._v("8277-082274162987")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mt-3 text-muted" }, [
+                        _vm._v("Jumlah yang harus dibayar :")
+                      ]),
+                      _vm._v(" "),
+                      _c("h5", { staticStyle: { color: "#ff5205" } }, [
+                        _vm._v(
+                          "Rp " +
+                            _vm._s(_vm.getTotalPayment(_vm.transaction.payment))
+                        )
+                      ])
+                    ])
                   ])
                 ])
               ])
-            ])
-          ]),
+            : _vm._e(),
           _vm._v(" "),
-          _c("div", { staticClass: "row justify-content-md-center" }, [
-            _c("div", { staticClass: "card col-6 my-3" }, [
-              _c("div", {}, [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("div", { staticClass: "text-muted mb-2" }, [
-                    _vm._v("Upload Bukti Pembayaran")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-block btn-primary",
-                      attrs: {
-                        type: "button",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_vm._v("Upload Bukti Pembayaran")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "modal fade",
-                      attrs: {
-                        id: "exampleModal",
-                        tabindex: "-1",
-                        role: "dialog",
-                        "aria-labelledby": "exampleModalLabel",
-                        "aria-hidden": "true"
-                      }
-                    },
-                    [
+          _vm.duration._data.hours > 0
+            ? _c("div", { staticClass: "row justify-content-md-center" }, [
+                _c("div", { staticClass: "card col-6 my-3" }, [
+                  _c("div", {}, [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("div", { staticClass: "text-muted mb-2" }, [
+                        _vm._v("Upload Bukti Pembayaran")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-block btn-primary",
+                          attrs: {
+                            type: "button",
+                            "data-toggle": "modal",
+                            "data-target": "#exampleModal"
+                          }
+                        },
+                        [_vm._v("Upload Bukti Pembayaran")]
+                      ),
+                      _vm._v(" "),
                       _c(
                         "div",
                         {
-                          staticClass: "modal-dialog modal-dialog-centered",
-                          attrs: { role: "document" }
+                          staticClass: "modal fade",
+                          attrs: {
+                            id: "exampleModal",
+                            tabindex: "-1",
+                            role: "dialog",
+                            "aria-labelledby": "exampleModalLabel",
+                            "aria-hidden": "true"
+                          }
                         },
                         [
-                          _c("div", { staticClass: "modal-content" }, [
-                            _vm._m(0),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "modal-body" }, [
-                              _c("form", [
-                                _c("div", { staticClass: "form-group" }, [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass: "small",
-                                      attrs: { for: "namapengirim" }
-                                    },
-                                    [_vm._v("Nama Pengirim")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.senderName,
-                                        expression: "senderName"
-                                      }
-                                    ],
-                                    staticClass: "form-control form-control-sm",
-                                    attrs: {
-                                      type: "text",
-                                      id: "namapengirim",
-                                      "aria-describedby": "emailHelp",
-                                      placeholder: "Nama Pengirim"
-                                    },
-                                    domProps: { value: _vm.senderName },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.senderName = $event.target.value
-                                      }
-                                    }
-                                  })
-                                ]),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "modal-dialog modal-dialog-centered",
+                              attrs: { role: "document" }
+                            },
+                            [
+                              _c("div", { staticClass: "modal-content" }, [
+                                _vm._m(0),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "form-group" }, [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass: "small",
-                                      attrs: { for: "utkbank" }
-                                    },
-                                    [_vm._v("Bank Tujuan")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("br"),
-                                  _vm._v(" "),
-                                  _c(
-                                    "select",
-                                    {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.selectedBank,
-                                          expression: "selectedBank"
-                                        }
-                                      ],
-                                      staticClass: "form-control",
-                                      attrs: { id: "utkbank" },
-                                      on: {
-                                        change: function($event) {
-                                          var $$selectedVal = Array.prototype.filter
-                                            .call(
-                                              $event.target.options,
-                                              function(o) {
-                                                return o.selected
-                                              }
-                                            )
-                                            .map(function(o) {
-                                              var val =
-                                                "_value" in o
-                                                  ? o._value
-                                                  : o.value
-                                              return val
-                                            })
-                                          _vm.selectedBank = $event.target
-                                            .multiple
-                                            ? $$selectedVal
-                                            : $$selectedVal[0]
-                                        }
-                                      }
-                                    },
-                                    [
+                                _c("div", { staticClass: "modal-body" }, [
+                                  _c("form", [
+                                    _c("div", { staticClass: "form-group" }, [
                                       _c(
-                                        "option",
-                                        { attrs: { value: "BNI" } },
-                                        [_vm._v("BNI")]
+                                        "label",
+                                        {
+                                          staticClass: "small",
+                                          attrs: { for: "namapengirim" }
+                                        },
+                                        [_vm._v("Nama Pengirim")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.senderName,
+                                            expression: "senderName"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control form-control-sm",
+                                        attrs: {
+                                          type: "text",
+                                          id: "namapengirim",
+                                          "aria-describedby": "emailHelp",
+                                          placeholder: "Nama Pengirim"
+                                        },
+                                        domProps: { value: _vm.senderName },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.senderName = $event.target.value
+                                          }
+                                        }
+                                      })
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass: "small",
+                                          attrs: { for: "utkbank" }
+                                        },
+                                        [_vm._v("Bank Tujuan")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("br"),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.selectedBank,
+                                              expression: "selectedBank"
+                                            }
+                                          ],
+                                          staticClass: "form-control",
+                                          attrs: { id: "utkbank" },
+                                          on: {
+                                            change: function($event) {
+                                              var $$selectedVal = Array.prototype.filter
+                                                .call(
+                                                  $event.target.options,
+                                                  function(o) {
+                                                    return o.selected
+                                                  }
+                                                )
+                                                .map(function(o) {
+                                                  var val =
+                                                    "_value" in o
+                                                      ? o._value
+                                                      : o.value
+                                                  return val
+                                                })
+                                              _vm.selectedBank = $event.target
+                                                .multiple
+                                                ? $$selectedVal
+                                                : $$selectedVal[0]
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "BNI" } },
+                                            [_vm._v("BNI")]
+                                          )
+                                        ]
                                       )
-                                    ]
-                                  )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c(
+                                        "label",
+                                        { staticClass: "col-form-label" },
+                                        [_vm._v("Bukti Pembayaran")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "col-sm-9" }, [
+                                        _c(
+                                          "div",
+                                          { staticClass: "upload-btn-wrapper" },
+                                          [
+                                            _vm._m(1),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              attrs: {
+                                                type: "file",
+                                                name: "myfile"
+                                              },
+                                              on: { change: _vm.onFileChanged }
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("small", {
+                                          staticClass: "form-text text-muted",
+                                          attrs: { id: "" }
+                                        })
+                                      ])
+                                    ])
+                                  ])
                                 ]),
                                 _vm._v(" "),
-                                _c("br"),
-                                _vm._v(" "),
-                                _c("br"),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "form-group" }, [
+                                _c("div", { staticClass: "modal-footer" }, [
                                   _c(
-                                    "label",
-                                    { staticClass: "col-form-label" },
-                                    [_vm._v("Bukti Pembayaran")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "col-sm-9" }, [
-                                    _c(
-                                      "div",
-                                      { staticClass: "upload-btn-wrapper" },
-                                      [
-                                        _vm._m(1),
-                                        _vm._v(" "),
-                                        _c("input", {
-                                          attrs: {
-                                            type: "file",
-                                            name: "myfile"
-                                          },
-                                          on: { change: _vm.onFileChanged }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("small", {
-                                      staticClass: "form-text text-muted",
-                                      attrs: { id: "" }
-                                    })
-                                  ])
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-primary",
+                                      attrs: { type: "button" },
+                                      on: { click: _vm.uploadProofOfPayment }
+                                    },
+                                    [_vm._v("Upload")]
+                                  )
                                 ])
                               ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "modal-footer" }, [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-primary",
-                                  attrs: { type: "button" },
-                                  on: { click: _vm.uploadProofOfPayment }
-                                },
-                                [_vm._v("Upload")]
-                              )
-                            ])
-                          ])
+                            ]
+                          )
                         ]
                       )
-                    ]
-                  )
+                    ])
+                  ])
                 ])
               ])
-            ])
-          ])
+            : _vm._e()
         ])
       ])
     ])

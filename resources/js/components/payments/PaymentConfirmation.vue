@@ -12,17 +12,21 @@
                 <p
                   class="text-center"
                   style="font-size: small"
+                  v-if="duration._data.hours > 0"
                 >Segera selesaikan pembayaran Anda sebelum stok habis.</p>
-                <h2
-                  class="text-center"
-                >{{ duration._data.hours }} Jam {{ duration._data.minutes}} Menit {{ duration._data.seconds }} Detik</h2>
-                <p class="text-center" style="font-size: small ">
+                <h2 class="text-center" v-if="duration._data.hours > 0">
+                  {{ duration._data.hours }} Jam {{ duration._data.minutes}} Menit {{ duration._data.seconds }} Detik
+                </h2>
+                <h2 class="text-center" v-else>
+                  Waktu Pembayaran Anda Sudah Habis
+                </h2>
+                <p class="text-center" style="font-size: small" v-if="duration._data.hours > 0">
                   <i>(Sebelum {{ getDeatline() }})</i>
                 </p>
               </div>
             </div>
           </div>
-          <div class="row justify-content-md-center">
+          <div class="row justify-content-md-center" v-if="duration._data.hours > 0">
             <div class="card col-6 my-3">
               <div class="">
                 <div class="card-body">
@@ -35,7 +39,7 @@
               </div>
             </div>
           </div>
-          <div class="row justify-content-md-center">
+          <div class="row justify-content-md-center" v-if="duration._data.hours > 0">
             <div class="card col-6 my-3">
               <div class="">
                 <div class="card-body">
