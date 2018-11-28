@@ -47,11 +47,7 @@
                 >{{ subdistrict.subdistrict_name }}</option>
               </select>
             </div>
-            <div class="form-group">
-              <label class="label">Alamat Rinci</label>
-              <textarea v-model="addressDetail" class="form-control" rows="10"></textarea>
-            </div>
-
+            
             <div class="form-group">
                 <label class="label">Phone</label>
                 <input type="text" class="form-control" v-model="userMerchant.phone" required>

@@ -80,7 +80,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             
         ]);
-
+    
         $user->profile()->save(Profile::create([
             'user_id' => $user->id,
             'name' => $data['name'],
