@@ -1,51 +1,54 @@
 <template>
   <div class="col-md-12 slide">
-    <div class="card globalcard ">
+    <div class="card globalcard">
       <div class="card-header">
         <h5 style="float: left">Inspirasi Belanja</h5>
         <h6 style="float: right">
           <a href="shop.html" style="color: -webkit-link">Lihat Semua Produk</a>
-
         </h6>
       </div>
       <div class="card-body">
-        <carousel3
-            :autoplay="true"
-            :nav="false"
-            :dots="true"
-            :items="3"
-            :touchDrag="false"
-            :mouseDrag="true"
-            :loop="true">
-
-          <div class="banner_item">
+        <carousel
+          :autoplay="true"
+          :nav="false"
+          :dots="true"
+          :items="banners.length"
+          :touchDrag="false"
+          :mouseDrag="true"
+          :loop="true"
+        >
+          <div class="banner_item" v-for="banner in banners">
             <a href="single-product-details.html">
-              <img src="/user-assets/img/bg-img/sindo_ulos_bandung_(3).jpg" alt="">
+              <img :src="'/images/' + banner.image" alt="Banner Image">
             </a>
           </div>
-          <div class="banner_item">
-            <a href="single-product-details.html">
-              <img src="/user-assets/img/bg-img/sindo_ulos_bandung_(3).jpg" alt="">
-            </a>
-          </div>
-          <div class="banner_item">
-            <a href="single-product-details.html">
-              <img src="/user-assets/img/bg-img/sindo_ulos_bandung_(3).jpg" alt="">
-            </a>
-          </div>
-
-
-        </carousel3>
+        </carousel>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-    import carousel3 from 'vue-owl-carousel'
+import carousel from "vue-owl-carousel";
 
-    export default {
-        components: {carousel3}
+export default {
+  data() {
+    return {
+      banners: []
+    };
+  },
+  methods: {
+    getBanners() {
+      window.axios.get("/get-banners").then(res => {
+        this.banners = res.data;
+        console.log(this.banners);
+      });
     }
+  },
+  mounted() {
+    this.getBanners();
+  },
+  components: { carousel }
+};
 </script>
 

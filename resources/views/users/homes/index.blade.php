@@ -46,9 +46,6 @@
     <banner/>
 </div>
 
-<div id="card-swiper">
-    <card-swiper/>
-</div>
 @include('users.layouts.footer')
 @include('users.layouts.script')
 </body>

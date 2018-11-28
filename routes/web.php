@@ -32,6 +32,7 @@ Route::get('/profile', function () {
 
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 Route::get('/carts', 'CartController@index');
+Route::get('/get-banners', 'BannerController@getBanners');
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/profile/edit/{id}', 'ProfileController@updateAddress');
@@ -71,7 +72,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/blogs/store', 'BlogController@store');
         
         Route::post('/orderconfirm/{id}', 'OrderController@orderconfirm');
-
     });
 
     Route::middleware('role:merchant')->group(function () {

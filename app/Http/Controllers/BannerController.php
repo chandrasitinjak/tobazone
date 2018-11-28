@@ -125,4 +125,8 @@ class BannerController extends Controller
         $banner->delete();
         return redirect('/banner','Banner berhasil di hapus');
     }
+
+    public function getBanners() {
+        return response()->json(Banner::all());
+    }
 }

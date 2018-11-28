@@ -5523,7 +5523,7 @@ module.exports = function(module) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.14.5
+ * @version 1.14.4
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -5620,8 +5620,7 @@ function getStyleComputedProperty(element, property) {
     return [];
   }
   // NOTE: 1 DOM access here
-  var window = element.ownerDocument.defaultView;
-  var css = window.getComputedStyle(element, null);
+  var css = getComputedStyle(element, null);
   return property ? css[property] : css;
 }
 
@@ -5709,7 +5708,7 @@ function getOffsetParent(element) {
   var noOffsetParent = isIE(10) ? document.body : null;
 
   // NOTE: 1 DOM access here
-  var offsetParent = element.offsetParent || null;
+  var offsetParent = element.offsetParent;
   // Skip hidden elements which don't have an offsetParent
   while (offsetParent === noOffsetParent && element.nextElementSibling) {
     offsetParent = (element = element.nextElementSibling).offsetParent;
@@ -5721,9 +5720,9 @@ function getOffsetParent(element) {
     return element ? element.ownerDocument.documentElement : document.documentElement;
   }
 
-  // .offsetParent will return the closest TH, TD or TABLE in case
+  // .offsetParent will return the closest TD or TABLE in case
   // no offsetParent is present, I hate this job...
-  if (['TH', 'TD', 'TABLE'].indexOf(offsetParent.nodeName) !== -1 && getStyleComputedProperty(offsetParent, 'position') === 'static') {
+  if (['TD', 'TABLE'].indexOf(offsetParent.nodeName) !== -1 && getStyleComputedProperty(offsetParent, 'position') === 'static') {
     return getOffsetParent(offsetParent);
   }
 
@@ -6271,8 +6270,7 @@ function getReferenceOffsets(state, popper, reference) {
  * @returns {Object} object containing width and height properties
  */
 function getOuterSizes(element) {
-  var window = element.ownerDocument.defaultView;
-  var styles = window.getComputedStyle(element);
+  var styles = getComputedStyle(element);
   var x = parseFloat(styles.marginTop) + parseFloat(styles.marginBottom);
   var y = parseFloat(styles.marginLeft) + parseFloat(styles.marginRight);
   var result = {
@@ -64151,7 +64149,7 @@ var content = __webpack_require__(171);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("51161b15", content, false, {});
+var update = __webpack_require__(3)("1950337b", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -64175,7 +64173,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.carousel-nav[data-v-85180974] {\r\n  background-color: black;\r\n  padding: 10px;\r\n  height: 50px;\r\n  width: 30px;\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -64235,29 +64233,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log("Carousel mounted.");
+  data: function data() {
+    return {
+      carousels: []
+    };
   },
 
-  components: { carousel1: __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default.a }
+  methods: {
+    getCarousels: function getCarousels() {}
+  },
+  mounted: function mounted() {
+    this.getCarousels();
+  },
+
+  components: { carousel: __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default.a }
 });
 
 /***/ }),
@@ -64273,7 +64266,7 @@ var render = function() {
     { staticStyle: { "margin-top": "100px" } },
     [
       _c(
-        "carousel1",
+        "carousel",
         { attrs: { autoplay: true, nav: false, items: 1, loop: true } },
         [
           _c("img", { attrs: { src: "/user-assets/img/bg-img/banner1.png" } }),
@@ -64359,29 +64352,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -65491,24 +65461,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { carousel3: __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default.a }
+  data: function data() {
+    return {
+      banners: []
+    };
+  },
+
+  methods: {
+    getBanners: function getBanners() {
+      var _this = this;
+
+      window.axios.get("/get-banners").then(function (res) {
+        _this.banners = res.data;
+        console.log(_this.banners);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getBanners();
+  },
+
+  components: { carousel: __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default.a }
 });
 
 /***/ }),
@@ -65520,7 +65497,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-12 slide" }, [
-    _c("div", { staticClass: "card globalcard " }, [
+    _c("div", { staticClass: "card globalcard" }, [
       _vm._m(0),
       _vm._v(" "),
       _c(
@@ -65528,52 +65505,30 @@ var render = function() {
         { staticClass: "card-body" },
         [
           _c(
-            "carousel3",
+            "carousel",
             {
               attrs: {
                 autoplay: true,
                 nav: false,
                 dots: true,
-                items: 3,
+                items: _vm.banners.length,
                 touchDrag: false,
                 mouseDrag: true,
                 loop: true
               }
             },
-            [
-              _c("div", { staticClass: "banner_item" }, [
+            _vm._l(_vm.banners, function(banner) {
+              return _c("div", { staticClass: "banner_item" }, [
                 _c("a", { attrs: { href: "single-product-details.html" } }, [
                   _c("img", {
                     attrs: {
-                      src: "/user-assets/img/bg-img/sindo_ulos_bandung_(3).jpg",
-                      alt: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "banner_item" }, [
-                _c("a", { attrs: { href: "single-product-details.html" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: "/user-assets/img/bg-img/sindo_ulos_bandung_(3).jpg",
-                      alt: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "banner_item" }, [
-                _c("a", { attrs: { href: "single-product-details.html" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: "/user-assets/img/bg-img/sindo_ulos_bandung_(3).jpg",
-                      alt: ""
+                      src: "/images/" + banner.image,
+                      alt: "Banner Image"
                     }
                   })
                 ])
               ])
-            ]
+            })
           )
         ],
         1
@@ -66259,7 +66214,7 @@ var content = __webpack_require__(188);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("7b165460", content, false, {});
+var update = __webpack_require__(3)("43506cc6", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -66283,7 +66238,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.cart-enter-active[data-v-131f3cc0] {\r\n  -webkit-animation: bounce-in-data-v-131f3cc0 0.5s;\r\n          animation: bounce-in-data-v-131f3cc0 0.5s;\n}\n@-webkit-keyframes bounce-in-data-v-131f3cc0 {\n0% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\n}\n50% {\r\n    -webkit-transform: scale(1.3);\r\n            transform: scale(1.3);\n}\n100% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\n}\n}\n@keyframes bounce-in-data-v-131f3cc0 {\n0% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\n}\n50% {\r\n    -webkit-transform: scale(1.3);\r\n            transform: scale(1.3);\n}\n100% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.cart-enter-active[data-v-131f3cc0] {\n  -webkit-animation: bounce-in-data-v-131f3cc0 0.5s;\n          animation: bounce-in-data-v-131f3cc0 0.5s;\n}\n@-webkit-keyframes bounce-in-data-v-131f3cc0 {\n0% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n}\n50% {\n    -webkit-transform: scale(1.3);\n            transform: scale(1.3);\n}\n100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes bounce-in-data-v-131f3cc0 {\n0% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n}\n50% {\n    -webkit-transform: scale(1.3);\n            transform: scale(1.3);\n}\n100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n", ""]);
 
 // exports
 
@@ -67214,7 +67169,7 @@ var content = __webpack_require__(199);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("0694a81f", content, false, {});
+var update = __webpack_require__(3)("62bfa40e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -67348,7 +67303,7 @@ var content = __webpack_require__(203);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("8f35f856", content, false, {});
+var update = __webpack_require__(3)("b075d38a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -67534,7 +67489,7 @@ var content = __webpack_require__(207);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("6178fca4", content, false, {});
+var update = __webpack_require__(3)("5e1b36fe", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -68149,7 +68104,7 @@ var content = __webpack_require__(213);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("5f13f9ce", content, false, {});
+var update = __webpack_require__(3)("09db387f", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -68644,7 +68599,7 @@ var content = __webpack_require__(218);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("697e2568", content, false, {});
+var update = __webpack_require__(3)("17fc13b4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -68955,7 +68910,7 @@ var content = __webpack_require__(224);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("1652d511", content, false, {});
+var update = __webpack_require__(3)("09944c6b", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -69541,7 +69496,7 @@ var content = __webpack_require__(229);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("07ed6796", content, false, {});
+var update = __webpack_require__(3)("66cdfa36", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -70503,7 +70458,7 @@ var content = __webpack_require__(237);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("3647cb6c", content, false, {});
+var update = __webpack_require__(3)("d5af43e8", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -70635,7 +70590,7 @@ var content = __webpack_require__(241);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("85c845fc", content, false, {});
+var update = __webpack_require__(3)("3a4d9e62", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -71489,7 +71444,7 @@ var content = __webpack_require__(247);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("839438fa", content, false, {});
+var update = __webpack_require__(3)("f37d2d46", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -71959,7 +71914,7 @@ var content = __webpack_require__(252);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("78893ebc", content, false, {});
+var update = __webpack_require__(3)("4094c496", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -72633,7 +72588,7 @@ var content = __webpack_require__(257);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("179b2d88", content, false, {});
+var update = __webpack_require__(3)("18b17028", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
