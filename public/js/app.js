@@ -64173,7 +64173,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -64233,24 +64233,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log("Carousel mounted.");
+  data: function data() {
+    return {
+      carousels: []
+    };
   },
 
-  components: { carousel1: __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default.a }
+  methods: {
+    getCarousels: function getCarousels() {}
+  },
+  mounted: function mounted() {
+    this.getCarousels();
+  },
+
+  components: { carousel: __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default.a }
 });
 
 /***/ }),
@@ -64266,7 +64266,7 @@ var render = function() {
     { staticStyle: { "margin-top": "100px" } },
     [
       _c(
-        "carousel1",
+        "carousel",
         { attrs: { autoplay: true, nav: false, items: 1, loop: true } },
         [
           _c("img", { attrs: { src: "/user-assets/img/bg-img/banner1.png" } }),
@@ -65461,24 +65461,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { carousel3: __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default.a }
+  data: function data() {
+    return {
+      banners: []
+    };
+  },
+
+  methods: {
+    getBanners: function getBanners() {
+      var _this = this;
+
+      window.axios.get("/get-banners").then(function (res) {
+        _this.banners = res.data;
+        console.log(_this.banners);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getBanners();
+  },
+
+  components: { carousel: __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default.a }
 });
 
 /***/ }),
@@ -65490,7 +65497,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-12 slide" }, [
-    _c("div", { staticClass: "card globalcard " }, [
+    _c("div", { staticClass: "card globalcard" }, [
       _vm._m(0),
       _vm._v(" "),
       _c(
@@ -65498,52 +65505,30 @@ var render = function() {
         { staticClass: "card-body" },
         [
           _c(
-            "carousel3",
+            "carousel",
             {
               attrs: {
                 autoplay: true,
                 nav: false,
                 dots: true,
-                items: 3,
+                items: _vm.banners.length,
                 touchDrag: false,
                 mouseDrag: true,
                 loop: true
               }
             },
-            [
-              _c("div", { staticClass: "banner_item" }, [
+            _vm._l(_vm.banners, function(banner) {
+              return _c("div", { staticClass: "banner_item" }, [
                 _c("a", { attrs: { href: "single-product-details.html" } }, [
                   _c("img", {
                     attrs: {
-                      src: "/user-assets/img/bg-img/sindo_ulos_bandung_(3).jpg",
-                      alt: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "banner_item" }, [
-                _c("a", { attrs: { href: "single-product-details.html" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: "/user-assets/img/bg-img/sindo_ulos_bandung_(3).jpg",
-                      alt: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "banner_item" }, [
-                _c("a", { attrs: { href: "single-product-details.html" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: "/user-assets/img/bg-img/sindo_ulos_bandung_(3).jpg",
-                      alt: ""
+                      src: "/images/" + banner.image,
+                      alt: "Banner Image"
                     }
                   })
                 ])
               ])
-            ]
+            })
           )
         ],
         1
