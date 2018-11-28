@@ -41,29 +41,6 @@
                 </div>
               </div>
             </div>
-            <!--<div class="col-md-2" v-for="product in products">-->
-              <!--<div class="card product">-->
-                <!--<a :href="'/products/' + product.id">-->
-                  <!--<div class="imgwrapper">-->
-                    <!--<img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap">-->
-                    <!--<input class="update" type="button" value="Update" />-->
-                  <!--</div>-->
-                <!--</a>-->
-
-                <!--<div class="card-body">-->
-                  <!--<p class="card-title productname"> {{product.name}}</p>-->
-                  <!--<h6 style="color: #ff5205"> Rp {{product.price}} </h6>-->
-                  <!--<p class="card-text float-right">-->
-                    <!--<small class="text-muted">{{ product.merchant.profile.name }}</small>-->
-                  <!--</p>-->
-                  <!--<div class="hover-content">-->
-                    <!--<div class="add-to-cart-btn">-->
-                      <!--<button v-on:click="addToCart(product.id)" class="btn  product-btn">Add to Cart</button>-->
-                    <!--</div>-->
-                  <!--</div>-->
-                <!--</div>-->
-              <!--</div>-->
-            <!--</div>-->
           </carousel2>
 
 

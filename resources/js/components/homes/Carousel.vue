@@ -17,12 +17,7 @@
 </template>
 
 <style scoped>
-.carousel-nav {
-  background-color: black;
-  padding: 10px;
-  height: 50px;
-  width: 30px;
-}
+
 </style>
 
 
