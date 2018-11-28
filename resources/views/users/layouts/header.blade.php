@@ -119,6 +119,7 @@
       </div>
     </nav>
 
+
     <!-- Header Meta Data -->
     <div class="header-meta d-flex clearfix justify-content-end">
       <!-- Search Area -->
@@ -128,12 +129,12 @@
           <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
               </form>
           </div>
- 
+
           <div id="cart-icon">
             @if(Auth::check())
-              <cart-icon :user-id="{{Auth::user()->id}}"/> 
+              <cart-icon :user-id="{{Auth::user()->id}}"/>
             @else
-              <cart-icon/> 
+              <cart-icon/>
             @endif
           </div>
 

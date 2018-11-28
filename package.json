@@ -20,6 +20,8 @@
     "vue": "^2.5.7"
   },
   "dependencies": {
-    "moment": "^2.22.2"
+    "moment": "^2.22.2",
+    "npm": "^6.4.1",
+    "vue-owl-carousel": "^2.0.3"
   }
 }
