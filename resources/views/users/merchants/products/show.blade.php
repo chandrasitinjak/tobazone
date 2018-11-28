@@ -9,7 +9,7 @@
       <div class="card globalcard">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-5">
               <div class="detailproduct">
                 <div id="myCarousel" class="carousel slide " data-ride="carousel">
                   <!-- Wrapper for slides -->
@@ -41,6 +41,16 @@
             </div>
 
             <div class="col-md-4">
+              <button type="button" class="badge badge-danger font-weight-light"
+                      data-toggle="test"
+                      data-rigger="focus"
+                      data-content="<b><a href='single-blog.html'>Klik disini</a></b>  untuk informasi selebihnya "
+                      data-html="true"
+                      title="Dibuat dengan ATBM"
+
+                      style="border: none; cursor: pointer">
+                Mesin
+              </button>
               <a href="cart.html">
                 <h2>{{ $product->name }}</h2>
               </a>
@@ -71,10 +81,89 @@
               @endrole
             </div>
           </div>
+          <div class="row">
+            <div class="mt-5 detailreview">
+              <div class="col-md-12">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                       aria-controls="home" aria-selected="true">Deskripsi</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                       aria-controls="profile" aria-selected="false">Ulasan</a>
+                  </li>
+
+                </ul>
+                <div class="tab-content mt-3" id="myTabContent">
+                  <!--for deskripsi-->
+                  <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <ul>
+                      <li>asdkas;d</li>
+                      <li>asdkas;d</li>
+                      <li>asdkas;d</li>
+                    </ul>
+                    Mauris viverra cursus ante laoreet eleifend. Donec vel fringilla ante.
+                    Aenean finibus velit id urna vehicula, nec maximus est sollicitudin.
+                  </div>
+                  <!--for deskripsi-->
+                  <!--for review-->
+                  <div class="tab-pane fade ulasan" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <!--card review-->
+                    <div class="card mt-3">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-1">
+                            <div class="imgwrapper">
+                              <img src="img/product-img/product-4.jpg" alt="" style="">
+                            </div>
+
+                          </div>
+
+                          <div class="col-md-9">
+                            <small>Rabu, 17 October 2018</small>
+                            <br>
+                            ininya sih bagus tagpi cemanalah yakana bukan karna apat
+                            bukanya apa kali
+                            hahaha
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card mt-3">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-1">
+                            <div class="imgwrapper">
+                              <img src="img/product-img/product-4.jpg" alt="" style="">
+                            </div>
+
+                          </div>
+
+                          <div class="col-md-9">
+                            <small>Rabu, 17 October 2018</small>
+                            <br>
+                            ininya sih bagus tagpi cemanalah yakana bukan karna apat
+                            bukanya apa kali
+                            hahaha
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--/////card review-->
+                  </div>
+                  <!--///////for review-->
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>
 
 <div class="row">
@@ -304,4 +393,6 @@
   </div>
   <!--Card Swipe End-->
 </div>
+
+
 @endsection
