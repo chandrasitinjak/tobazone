@@ -18,24 +18,24 @@
 
               :items="6"
               :loop="true">
-            <div class="col-md-2">
+            <div class="col-md-2" v-for="product in products">
               <div class="card product">
-                <a href="#">
+                <a :href="'/products/' + product.id">
                   <div class="imgwrapper">
-                    <img src="/user-assets/img/product-img/product-33.jpg" alt="Card image cap">
+                    <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap">
                     <input class="update" type="button" value="Update" />
                   </div>
                 </a>
 
                 <div class="card-body">
-                  <p class="card-title productname"> nama produk </p>
-                  <h6 style="color: #ff5205"> Rp 123023 </h6>
+                  <p class="card-title productname">{{product.name}}</p>
+                  <h6 style="color: #ff5205"> Rp {{product.price}}</h6>
                   <p class="card-text float-right">
-                    <small class="text-muted">Nama Produk</small>
+                    <small class="text-muted">{{ product.merchant.profile.name }}</small>
                   </p>
                   <div class="hover-content">
                     <div class="add-to-cart-btn">
-                      <button  class="btn  product-btn">Add to Cart</button>
+                      <button v-on:click="addToCart(product.id)" class="btn  product-btn">Add to Cart</button>
                     </div>
                   </div>
                 </div>

@@ -65315,14 +65315,14 @@ var render = function() {
           _c(
             "carousel2",
             { attrs: { autoplay: true, nav: false, items: 6, loop: true } },
-            [
-              _c("div", { staticClass: "col-md-2" }, [
+            _vm._l(_vm.products, function(product) {
+              return _c("div", { staticClass: "col-md-2" }, [
                 _c("div", { staticClass: "card product" }, [
-                  _c("a", { attrs: { href: "#" } }, [
+                  _c("a", { attrs: { href: "/products/" + product.id } }, [
                     _c("div", { staticClass: "imgwrapper" }, [
                       _c("img", {
                         attrs: {
-                          src: "/user-assets/img/product-img/product-33.jpg",
+                          src: "/images/" + JSON.parse(product.images)[0],
                           alt: "Card image cap"
                         }
                       }),
@@ -65336,30 +65336,39 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "card-body" }, [
                     _c("p", { staticClass: "card-title productname" }, [
-                      _vm._v(" nama produk ")
+                      _vm._v(_vm._s(product.name))
                     ]),
                     _vm._v(" "),
                     _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                      _vm._v(" Rp 123023 ")
+                      _vm._v(" Rp " + _vm._s(product.price))
                     ]),
                     _vm._v(" "),
                     _c("p", { staticClass: "card-text float-right" }, [
                       _c("small", { staticClass: "text-muted" }, [
-                        _vm._v("Nama Produk")
+                        _vm._v(_vm._s(product.merchant.profile.name))
                       ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "hover-content" }, [
                       _c("div", { staticClass: "add-to-cart-btn" }, [
-                        _c("button", { staticClass: "btn  product-btn" }, [
-                          _vm._v("Add to Cart")
-                        ])
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn  product-btn",
+                            on: {
+                              click: function($event) {
+                                _vm.addToCart(product.id)
+                              }
+                            }
+                          },
+                          [_vm._v("Add to Cart")]
+                        )
                       ])
                     ])
                   ])
                 ])
               ])
-            ]
+            })
           )
         ],
         1
