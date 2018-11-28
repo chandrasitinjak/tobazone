@@ -9,13 +9,21 @@
       </div>
       <div class="card-body">
         <carousel
-          :autoplay="true"
-          :nav="false"
-          :dots="true"
-          :items="banners.length"
-          :touchDrag="false"
-          :mouseDrag="true"
-          :loop="true"
+            :nav="false"
+            :dots="true"
+            :items="3"
+            :loop="true"
+            :responsive="{0:{margin: 5,
+                    items: 1,
+                    autoplay: true,
+                    touchDrag:true,
+                    mouseDrag:true,
+                    loop: true,
+                    stagePadding:10,},991.88:{items: 3,
+                    touchDrag:false,
+                    mouseDrag:false,
+                    margin:7,
+                    autoplay: false}}"
         >
           <div class="banner_item" v-for="banner in banners">
             <a href="single-product-details.html">

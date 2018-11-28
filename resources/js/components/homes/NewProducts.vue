@@ -15,9 +15,17 @@
           <carousel2
               :autoplay="true"
               :nav="false"
-
-              :items="6"
-              :loop="true">
+              :touchDrag="true"
+              :loop="true"
+              :responsive="{0:{margin: 5,
+                    items: 1,
+                    autoplay: true,
+                    loop: true,
+                    stagePadding:10,},991.88:{items: 6,
+                    touchDrag:true,
+                    margin:30,
+                    loop:true,
+                    autoplay: true}}">
             <div class="col-md-2" v-for="product in products">
               <div class="card product">
                 <a :href="'/products/' + product.id">
