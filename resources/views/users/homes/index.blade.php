@@ -25,42 +25,32 @@
 </head>
 
 <body>
-    @include('users.layouts.header')
-    <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-8">
-                <div id="app" class="mt-0">
-                    <carousel-asd />
-                </div>
-            </div>
-        
-            <div class="col-md-4" style="">
-                <div class="imgbanner " style="height: 160px;background-image: url('/images/1541174865ragihotang.jpg'); background-size: cover; margin-bottom: 17px">
-                </div>
-                <div class="imgbanner" style="height: 160px;background-image: url('/images/1541174865ragihotang.jpg'); background-size: cover">
-                </div>
-              </div>
-        
-        </div>
-    </div>
-  
-    <div id="new-product">
-        @if(Auth::check())
-            <new-products :user-id="{{Auth::user()->id}}" />
-        @else
-            <new-products />
-        @endif
+@include('users.layouts.header')
+<section>
+
+    <div id="app" class="mt-0">
+        <carousel-asd/>
     </div>
 
-    <div id="banner">
-        <banner/>
-    </div>
+</section>
 
-    <div id="card-swiper">
-        <card-swiper />
-    </div>
-    @include('users.layouts.footer')
-    @include('users.layouts.script')
+<div id="new-product">
+    @if(Auth::check())
+        <new-products :user-id="{{Auth::user()->id}}"/>
+    @else
+        <new-products/>
+    @endif
+</div>
+
+<div id="banner">
+    <banner/>
+</div>
+
+<div id="card-swiper">
+    <card-swiper/>
+</div>
+@include('users.layouts.footer')
+@include('users.layouts.script')
 </body>
 
 </html>
