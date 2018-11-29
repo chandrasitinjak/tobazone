@@ -15,8 +15,17 @@ class BlogController extends Controller
      */
     public function index()
     {
-      $blogs = blog::all();
-      return view('admin.blogs.index', compact('blogs'));
+        $blogs = Blog::all();
+        return view('admin.blogs.index')->with('blogs', $blogs);
+    }
+
+    public function showBlogs()
+    {
+        return view('users.blogs.index');
+    }
+
+    public function getBlogs() {
+        return response()->json(Blog::all());
     }
 
     /**
@@ -37,10 +46,6 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-      $request->validate([
-
-      ]);
-
       $detail=$request->body;
 
       $dom = new \domdocument();
@@ -75,7 +80,7 @@ class BlogController extends Controller
       $blog->body = $detail;
 
       $blog->save();
-      return redirect('/blog')->with('success', 'Blog berhasil ditambah');
+      return redirect('/admin/blogs')->with('success', 'Blog berhasil ditambah');
     }
 
     /**
@@ -116,7 +121,7 @@ class BlogController extends Controller
         $blog->body = $request->get('body');
         $blog->save();
 
-        return redirect('/blog')->with('success', 'berhasillah pokoknya');
+        return redirect('/admin/blogs')->with('success', 'berhasillah pokoknya');
     }
 
     /**
@@ -129,6 +134,6 @@ class BlogController extends Controller
     {
         $blog = Blog::find($id);
         $blog->delete();
-        return redirect('/blog')->with('success','Blog dihapus');
+        return redirect('/admin/blogs')->with('success','Blog dihapus');
     }
 }
