@@ -67,11 +67,6 @@
             </div>
 
             <div class="form-group">
-                <label class="label">Photo</label>
-                <input type="text" class="form-control" v-model="userCustomer.photo" required>
-            </div>
-
-            <div class="form-group">
                 <label class="label">Birthday</label>
                 <input type="text" class="form-control" v-model="userCustomer.birthday" required>
             </div>
@@ -172,7 +167,7 @@ export default {
         name : this.userCustomer.name,
         phone : this.userCustomer.phone,
         gender : this.userCustomer.gender,
-        photo : this.userCustomer.photo,
+        photo : '',
         birthday : this.userCustomer.birthday,
         postalCode: this.userCustomer.selectedCity.postal_code,
         password: this.userCustomer.password,
