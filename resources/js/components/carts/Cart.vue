@@ -84,7 +84,7 @@
             </div>
           </div>
 
-          <a href="/shipping" class="btn btn-primary float-right">Lanjut Pembayaran</a>
+          <a href="/shipping" class="btn btn-primary float-right" >Lanjut Pembayaran</a>
         </div>
       </div>
     </div>
