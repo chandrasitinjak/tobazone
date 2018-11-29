@@ -28,4 +28,8 @@ class OrderController extends Controller
         return redirect('/admin/neworder');
         
     }
+
+    public function detailOrder(){
+        return view('admin.orders.detail-order');
+    }
 }

@@ -1,44 +1,46 @@
 @extends('admin.layouts.app') 
 @section('title') {{ "Blog" }}
 @endsection
- 
-@section('content') 
-@if(session()->get('success'))
-    <div class="alert alert-success">
-        {{ session()->get('success') }}
-    </div><br/> 
-@endif 
+@section('content')
+    @if(session()->get('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div><br/>
+    @endif
 
-@foreach($blogs as $blog)
+    @foreach($blogs as $blog)
 
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-header">
-                <strong class="card-title">{{$blog->title}} </strong>
-                <div class="float-right">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">{{$blog->title}} </strong>
+                    <div class="float-right">
 
-                    <a href="{{ url('/blogs/edit',$blog->id)}}">
+                        <a href="{{ url('/blogs/edit',$blog->id)}}">
                             <i class="fa fa-pencil mr-3" style="color: #4b4b4b"></i>
                         </a>
-                    <form action="{{ url('/blog/delete', $blog->id)}}" method="post" style="display: inline">
-                        @csrf
+                        <form action="{{ url('/blog/delete', $blog->id)}}" method="post" style="display: inline">
+                            @csrf
 
-                        <button class="" type="submit" style="background-color: transparent; border: none">
+                            <button class="" type="submit" style="background-color: transparent; border: none">
                                 <i class="fa fa-trash" style="color: #4b4b4b"></i>
                             </button>
-                    </form>
+                        </form>
 
+                    </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <p class="card-text" style="
+                <div class="details" style="display:none">HIDDEN CONTENT</div>
+                {{--<a id="more" href="{{ url('/blogs/)}}"" onclick="$('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')? 'See Less Detail':'See More Details');});"> See More Details</a>--}}
+                <div class="card-body">
+                    <p class="card-text" style="
                             display: block; /* or inline-block */
                             text-overflow: ellipsis;
                             word-wrap: break-word;
                             overflow: hidden;
                             max-height: 3.6em;
                             line-height: 1.8em;">{!! $blog->body !!}</p>
+                </div>
             </div>
         </div>
-    </div>
-@endforeach
+    @endforeach
+@endsection
