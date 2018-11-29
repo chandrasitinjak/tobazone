@@ -16,6 +16,7 @@ body {
     font-size: 16px;
 }
 
+
 .upbanner {
     margin-top: 10px;
     display: block;
@@ -74,7 +75,7 @@ body {
 }
 
 .footer_area a {
-    color: #787878;
+    color: #000000;
     font-size: 14px;
     line-height: 2;
     font-weight: 400;
@@ -183,7 +184,8 @@ body {
 }
 
 .imgwrapper img {
-    width: 100%;
+    max-width: 100%;
+    /*width: 300px;*/
     height: 180px;
     display: inline-block;
     object-fit: scale-down;
@@ -339,7 +341,7 @@ body {
 
 /*============SINGLE PRODUCT===========*/
 .detailproduct .carousel {
-    margin-top: 1em;
+    /*margin-top: 1em;*/
 }
 
 .detailproduct .carousel-item {
