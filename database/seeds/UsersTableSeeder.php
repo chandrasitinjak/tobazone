@@ -38,19 +38,19 @@ class UsersTableSeeder extends Seeder
         Profile::create([
             'user_id' => $customer->id,
             'name' => 'Customer',
-            'address' => '[]',
+            'address' => '["{\"name\":null,\"province_id\":34,\"city_id\":481,\"subdistrict_id\":\"6657\",\"province_name\":\"Sumatera Utara\",\"city_name\":\"Toba Samosir\",\"subdistrict_name\":\"Laguboti\",\"postal_code\":\"22316\",\"detail\":\"Simpang Empat Laguboti\"}"]',
             'phone' => '08123',
             'gender' => 'male',
-            'birthday' => '123',
+            'birthday' => Carbon::now(),
         ]);
 
         Profile::create([
             'user_id' => $merchant->id,
             'name' => 'Merchant',
-            'address' => '[]',
+            'address' => '["{\"name\":null,\"province_id\":34,\"city_id\":481,\"subdistrict_id\":\"6657\",\"province_name\":\"Sumatera Utara\",\"city_name\":\"Toba Samosir\",\"subdistrict_name\":\"Laguboti\",\"postal_code\":\"22316\",\"detail\":\"Simpang Empat Laguboti\"}"]',
             'phone' => '081234',
             'gender' => 'male',
-            'birthday' => '1234',
+            'birthday' => Carbon::now(),
         ]);
     }
 }

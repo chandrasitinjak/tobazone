@@ -45,7 +45,7 @@ class BannerController extends Controller
         if($request->hasFile('image')){
             $uploadedImage = $request->file('image');
             $imageName = $uploadedImage->getClientOriginalName();
-            $destinationPath = public_path('/images');
+            $destinationPath = public_path('/images/banners');
             $uploadedImage->move($destinationPath, $imageName);
         }
         $banner = new Banner();
@@ -55,7 +55,7 @@ class BannerController extends Controller
         $banner->image = $imageName;
         $banner->save();
    
-        return redirect('/banner')->with('success', 'Banner berhasil ditambah');
+        return redirect('/banners')->with('success', 'Banner berhasil ditambah');
 
     }
 
@@ -98,19 +98,22 @@ class BannerController extends Controller
             'link' => 'required',
         ]);
 
-        $updateImage = $request->file('image');
-        $imageName = $updateImage->getClientOriginalName();
-        $destinationPath = public_path('/images');
-        $updateImage->move($destinationPath, $imageName);
-            
         $banner = Banner::find($id);
         $banner->title = $request->title;
         $banner->description = $request->description;
         $banner->link = $request->link;       
-        $banner->image = $imageName;
+
+        if($request->file('image')) {
+            $updateImage = $request->file('image');
+            $imageName = $updateImage->getClientOriginalName();
+            $destinationPath = public_path('/images/banner');
+            $updateImage->move($destinationPath, $imageName);
+            $banner->image = $imageName;
+        }
+            
         $banner->save();
 
-        return redirect('/banner')->with('success', 'Banner berhasil di update');
+        return redirect('/banners')->with('success', 'Banner berhasil di update');
     }
 
     /**
@@ -121,9 +124,8 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        $banner = Banner::find($id);
-        $banner->delete();
-        return redirect('/banner','Banner berhasil di hapus');
+        Banner::find($id)->delete();
+        return redirect('/banners','Banner berhasil di hapus');
     }
 
     public function getBanners() {
