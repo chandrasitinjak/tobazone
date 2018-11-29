@@ -1,4 +1,7 @@
 <template>
+
+
+
   <div class="col-md-12">
     <div class="card globalcard">
       <div class="card-header">
@@ -8,41 +11,58 @@
         </h6>
       </div>
       <div class="card-body globalcardbody">
-        <div class="row">
-          <div class="col-md-2" v-for="product in products">
-            <div class="card product">
-              <a :href="'/products/' + product.id">
-                <div class="imgwrapper">
-                  <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap">
-                  <input class="update" type="button" value="Update" />
-                </div>
-              </a>
 
-              <div class="card-body">
-                <p class="card-title productname"> {{product.name}}</p>
-                <h6 style="color: #ff5205"> Rp {{product.price}} </h6>
-                <p class="card-text float-right">
-                  <small class="text-muted">{{ product.merchant.profile.name }}</small>
-                </p>
-                <div class="hover-content">                
-                  <div class="add-to-cart-btn">
-                    <button v-on:click="addToCart(product.id)" class="btn  product-btn">Add to Cart</button>
+          <carousel2
+              :autoplay="true"
+              :nav="false"
+              :touchDrag="true"
+              :loop="true"
+              :responsive="{0:{margin: 5,
+                    items: 1,
+                    autoplay: true,
+                    loop: true,
+                    stagePadding:10,},991.88:{items: 6,
+                    touchDrag:true,
+                    margin:30,
+                    loop:true,
+                    autoplay: true}}">
+            <div class="col-md-2" v-for="product in products">
+              <div class="card product">
+                <a :href="'/products/' + product.id">
+                  <div class="imgwrapper">
+                    <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap">
+                    <input class="update" type="button" value="Update" />
+                  </div>
+                </a>
+
+                <div class="card-body">
+                  <p class="card-title productname">{{product.name}}</p>
+                  <h6 style="color: #ff5205"> Rp {{product.price}}</h6>
+                  <p class="card-text float-right">
+                    <small class="text-muted">{{ product.merchant.profile.name }}</small>
+                  </p>
+                  <div class="hover-content">
+                    <div class="add-to-cart-btn">
+                      <button v-on:click="addToCart(product.id)" class="btn  product-btn">Add to Cart</button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </carousel2>
+
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
+    import carousel2 from 'vue-owl-carousel'
 import EventBus from '../../eventBus';
 
 export default {
+    components: { carousel2 },
   props: ['userId'],
   data() {
     return {
@@ -62,7 +82,7 @@ export default {
         productId: id,
         total: 1,
         userId: this.userId
-      } 
+      }
       console.log(payload)
       await window.axios.post("/api/carts", payload).then(res => {
         this.emitEvent(res.data)
