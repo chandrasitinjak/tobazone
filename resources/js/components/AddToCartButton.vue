@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <input class="form-control" v-model="total" type="number" min="1" value="1" :max="maxUnit" />
+      <input class="col-2 form-control form-control-sm" v-model="total" type="number" min="1" value="1" :max="maxUnit" />
     </div>
     <div class="cart-fav-box d-flex align-items-center mt-4">
       <button v-on:click="addToCart()" class="btn essence-btn">Add to cart</button>

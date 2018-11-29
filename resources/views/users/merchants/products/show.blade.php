@@ -9,34 +9,45 @@
       <div class="card globalcard">
         <div class="card-body">
           <div class="row">
+
             <div class="col-md-5">
               <div class="detailproduct">
-                <div id="myCarousel" class="carousel slide " data-ride="carousel">
-                  <!-- Wrapper for slides -->
-                  <div class="carousel-inner">
-                    @foreach (json_decode($product->images) as $image) @if ($loop->first)
-                    <div class="carousel-item active">
-                      <img class="align-self-center" src="{{ '/images/' . $image }}" alt="">
-                    </div>
-                    @else
-                    <div class="carousel-item">
-                      <img src="{{ '/images/' . $image }}">
-                    </div>
-                    @endif @endforeach
+                <div class="row">
+                  <div class="col-md-2 pr-0">
+                    <ul class="nav flex-column nav-pills nav-justified smallimage mt-15">
+                      @foreach (json_decode($product->images) as $idx => $image) @if ($loop->first)
+                        <li class="mb-2" data-target="#myCarousel" data-slide-to="{{ $idx }}" class="active">
+                          <img src="{{ '/images/' . $image }}" alt="">
+                        </li>
+                      @else
+                        <li class="mb-2" data-target="#myCarousel" data-slide-to="{{ $idx }}">
+                          <img src="{{ '/images/' . $image }}" alt="">
+                        </li>
+                      @endif @endforeach
+                    </ul>
                   </div>
+                  <div class="col-md-10 ml-0">
+                    <div id="myCarousel" class="carousel slide " data-ride="carousel">
 
-                  <ul class="nav nav-pills nav-justified smallimage mt-15">
-                    @foreach (json_decode($product->images) as $idx => $image) @if ($loop->first)
-                    <li data-target="#myCarousel" data-slide-to="{{ $idx }}" class="active">
-                      <img src="{{ '/images/' . $image }}" alt="">
-                    </li>
-                    @else
-                    <li data-target="#myCarousel" data-slide-to="{{ $idx }}">
-                      <img src="{{ '/images/' . $image }}" alt="">
-                    </li>
-                    @endif @endforeach
-                  </ul>
+                      <!-- Wrapper for slides -->
+                      <div class="carousel-inner">
+                        @foreach (json_decode($product->images) as $image) @if ($loop->first)
+                          <div class="carousel-item active">
+                            <img class="align-self-center" src="{{ '/images/' . $image }}" alt="">
+                          </div>
+                        @else
+                          <div class="carousel-item">
+                            <img src="{{ '/images/' . $image }}">
+                          </div>
+                        @endif @endforeach
+                      </div>
+
+
+                    </div>
+                  </div>
                 </div>
+
+
               </div>
             </div>
 
@@ -51,6 +62,7 @@
                       style="border: none; cursor: pointer">
                 Mesin
               </button>
+
               <a href="cart.html">
                 <h2>{{ $product->name }}</h2>
               </a>

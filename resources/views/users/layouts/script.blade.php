@@ -15,7 +15,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 <script>
-    $('[data-toggle="test"]').popover({
+    $(document).ready(function () {  $('[data-toggle="test"]').popover({
         trigger: 'focus'
-    });
+    });  });
+
 </script>
