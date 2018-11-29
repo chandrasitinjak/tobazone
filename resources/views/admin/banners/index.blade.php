@@ -1,50 +1,40 @@
-@extends('admin.layouts.app')
+@extends('admin.layouts.app') 
 @section('title') {{ "Banner" }}
 @endsection
-
+ 
 @section('content')
-    @if(session()->get('success'))
-        <div class="alert alert-success">
-            {{ session()->get('success') }}
-        </div><br/>
-    @endif
-    @foreach($banners as $banner)
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-12">
+                <a href="{{ url('/banners/create')}}" class="btn btn-info text-white pull-right"> 
+                        <span class="fa fa-plus"> </span> Add Banner 
+                    </a>
+            </div>
+        </div>
 
-        <style>
-            .card-body .card-text{
+        <div class="row">
+            @foreach ($banners as $banner)
+            <div class="col-md-4 mt-3">
+                <div class="card">
+                    <img class="card-img-top" src="{{ url('/images/banners/' . $banner->image)}}" alt="Banner image">
+                    <div class="card-body">
+                        <p class="card-text"> {{ $banner->description }}</p>
+                        <a href="#"> 
+                            <span class="btn btn-link btn-sm"><i class="fa fa-link"></i>&nbsp; Link</span>
+                        </a>
 
-            }
-        </style>
-    <div class="col-md-4">
+                        <label class="switch switch-3d switch-primary mr-3">
+                            <input type="checkbox" class="switch-input" checked="" /> 
+                            <span class="switch-label"></span> <span class="switch-handle"></span>
+                        </label>
 
-        <div class="card">
-        @if($banner->image)
-            <img src="{{ '/images/' . $banner->image}}", alt="">
-        @else
-            <img src="{{ '/images/no-image.jpg'}}" alt="">
-        @endif
-            <div class="banner-description">
-                <h2><strong class="card-title">{{$banner->title}} </strong></h2>
-                <p class="banner-desc">{{$banner->description}}</p>
-                <a href="#">
-                <button type="button" class="btn btn-link btn-sm"><i class="fa fa-link"></i>&nbsp;{{$banner->link}}</button></a>
-                <div class="float-right">
-                <a href="{{ url('/banner/edit', $banner->id)}}">
-                        <i class="fa fa-pencil mr-3" style="color: #4b4b4b"></i>
-                </a>
-                
-                <form action="{{ url('/banner/delete', $banner->id)}}" method="post" style="display: inline">
-                        @csrf
-                    <button class="" type="submit" style="background-color: transparent; border: none">
-                            <i class="fa fa-trash" style="color: #4b4b4b"></i>
-                    </button>
-                </form>
+                        <a href="{{ url('/banners/show', $banner->id)}}"><span class="badge badge-primary pull-right">Detail</span></a>
+                    </div>
                 </div>
             </div>
-
+            @endforeach
         </div>
     </div>
-    @endforeach
-
-
+</div>
 @endsection

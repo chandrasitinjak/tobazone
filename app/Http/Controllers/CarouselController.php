@@ -14,7 +14,8 @@ class CarouselController extends Controller
      */
     public function index()
     {
-        //
+        $carousels = Carousel::all();
+        return view('admin.carousels.index')->with('carousels', $carousels);
     }
 
     /**
@@ -24,7 +25,7 @@ class CarouselController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.carousels.create');
     }
 
     /**
@@ -35,7 +36,19 @@ class CarouselController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image = $request->file('image');
+        $imageName = time() . $image->getClientOriginalName();
+        $destinationPath = public_path('/images/carousels');
+        $image->move($destinationPath, $imageName);
+
+        $carousel = new Carousel();
+        $carousel->link = $request->link;
+        $carousel->description = $request->description;
+        $carousel->image = $imageName;
+        $carousel->status = 'nonactive';
+        $carousel->save();
+
+        return redirect('/carousels');
     }
 
     /**
@@ -44,9 +57,10 @@ class CarouselController extends Controller
      * @param  \App\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
-    public function show(Carousel $carousel)
+    public function show($id)
     {
-        //
+        $carousel = Carousel::find($id);
+        return view('admin.carousels.show')->with('carousel', $carousel);
     }
 
     /**
@@ -55,9 +69,10 @@ class CarouselController extends Controller
      * @param  \App\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
-    public function edit(Carousel $carousel)
+    public function edit($id)
     {
-        //
+        $carousel = Carousel::find($id);
+        return view('admin.carousels.edit')->with('carousel', $carousel);
     }
 
     /**
@@ -67,9 +82,23 @@ class CarouselController extends Controller
      * @param  \App\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Carousel $carousel)
+    public function update(Request $request, $id)
     {
-        //
+        $carousel = Carousel::find($id);
+        $carousel->link = $request->link;
+        $carousel->description = $request->description;
+
+        if($request->file('image')) {
+            $image = $request->file('image');
+            $imageName = time() . $image->getClientOriginalName();
+            $destinationPath = public_path('/images/carousels');
+            $image->move($destinationPath, $imageName);
+            $carousel->image = $imageName;
+        }
+
+        $carousel->update();
+
+        return redirect('/carousels');
     }
 
     /**
@@ -78,8 +107,10 @@ class CarouselController extends Controller
      * @param  \App\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Carousel $carousel)
+    public function destroy($id)
     {
-        //
+        Carousel::find($id)->delete();
+
+        return redirect('/carousels');
     }
 }
