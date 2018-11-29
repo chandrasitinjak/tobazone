@@ -37,10 +37,6 @@
                                         <td>10 November 2018</td>
                                         <td> <span class="address"> {{ $order->address}}</span> </td>
                                         <td colspan="2">
-                                            {{--<form action="{{ url('/orderconfirm', $order->id) }}" method="POST">--}}
-                                            {{--{{csrf_field()}}--}}
-                                            {{--<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> &nbsp; Konfirmasi</button>--}}
-                                            {{--</form>--}}
 
                                             <form action="{{ url('/orderconfirm', $order->id) }}" method="POST">
                                                 {{csrf_field()}}
