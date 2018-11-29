@@ -43,7 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware('role:admin')->group(function () {
         Route::get('/admin', 'AdminController@index');
         Route::post('/merchantconfirmed/{id}', 'MerchantController@updateConfirm');
-        Route::get('/admin/newmerchant', 'MerchantController@newmerchant');
+        Route::get('/admin/new-merchant', 'MerchantController@newMerchant');
         Route::get('/admin/new-order', 'OrderController@getNewOrder');
         Route::get('/admin/paid-order', 'OrderController@getPaidOrder');
 
