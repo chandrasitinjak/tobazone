@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label for="price">Blog Content</label>
-                    <textarea id="summernote" style="min-height: 200px" name="body"></textarea>
+                    <textarea id="summernote"  class="form-control summernote" name="body"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Add</button>

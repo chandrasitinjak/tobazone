@@ -46,6 +46,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/new-merchant', 'MerchantController@newMerchant');
         Route::get('/admin/new-order', 'OrderController@getNewOrder');
         Route::get('/admin/paid-order', 'OrderController@getPaidOrder');
+        Route::get('/admin/new-order/order-detail', 'OrderController@detailOrder');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
@@ -74,7 +75,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/carousels/update/{id}', 'CarouselController@update');
         Route::post('/carousels/store', 'CarouselController@store');
 
-        Route::get('/admin/blogs', 'BlogController@index');
+        Route::get('/blogs', 'BlogController@index');
         Route::get('/blogs/create', 'BlogController@create');
         Route::get('/blogs/edit/{id}', 'BlogController@edit');
         Route::post('/blogs/delete/{id}', 'BlogController@destroy');
