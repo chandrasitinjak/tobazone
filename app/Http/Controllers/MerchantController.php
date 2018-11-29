@@ -42,7 +42,7 @@ class MerchantController extends Controller
                                                ->with('merchant', $merchant);
   }
 
-  public function newmerchant() {
+  public function newMerchant() {
     $merchants = DB::table('model_has_roles')->where('role_id', 2)
                                              ->pluck('model_id')->toArray();
     
@@ -50,8 +50,11 @@ class MerchantController extends Controller
                                ->whereIn('id', $merchants)
                                ->pluck('id')->toArray();
 
-    $profiles = Profile::whereIn('user_id', $users)
-                                     ->get();
+    $profiles = Profile::whereIn('user_id', $users)->get();
+
+    foreach($profiles as $profile) {
+      $profile->address = json_decode(json_decode($profile->address)[0]);
+    }
     
     return view('admin.merchant.index')->with('profiles', $profiles);
   }

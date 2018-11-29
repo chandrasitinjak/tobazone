@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header align-items-center border-0">
-          <h5 class="modal-title font-light" id="MerchantModal">Customer</h5>
+          <h5 class="modal-title font-light" id="CustomerModal">Customer</h5>
           <button type="button" class="close" @click="dismiss" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -27,19 +27,19 @@
 
             <div class="form-group">
               <label class="label">Provinsi</label>
-              <select class="form-control" @change="getCities" v-model="selectedProvince">
+              <select class="form-control" @change="getCities" v-model="userCustomer.selectedProvince">
                 <option v-for="province in provicies" :value="province">{{ province.name }}</option>
               </select>
             </div>
             <div class="form-group">
               <label class="label">Kota / Kabupaten</label>
-              <select class="form-control" @change="getSubdistricts" v-model="selectedCity">
+              <select class="form-control" @change="getSubdistricts" v-model="userCustomer.selectedCity">
                 <option v-for="city in cities" :value="city">{{ city.name }}</option>
               </select>
             </div>
             <div class="form-group">
               <label class="label">Kecamatan</label>
-              <select class="form-control" v-model="selectedSubdistrict">
+              <select class="form-control" v-model="userCustomer.selectedSubdistrict">
                 <option
                   v-for="subdistrict in subdistricts"
                   :value="subdistrict"
@@ -119,7 +119,7 @@ export default {
         photo: "",
         birthday: "",
         password: "",
-        passwordconfirm: ""
+        passwordconfirm: "",
       }
     };
   },
@@ -139,7 +139,7 @@ export default {
     },
     getCities() {
       window.axios
-        .get("/api/cities?pro_id=" + this.selectedProvince.id)
+        .get("/api/cities?pro_id=" + this.userCustomer.selectedProvince.id)
         .then(res => {
           this.cities = res.data;
         })
@@ -149,7 +149,7 @@ export default {
     },
     getSubdistricts() {
       window.axios
-        .get("/api/subdistricts?city_id=" + this.selectedCity.id)
+        .get("/api/subdistricts?city_id=" + this.userCustomer.selectedCity.id)
         .then(res => {
           this.subdistricts = res.data.rajaongkir.results;
         })
@@ -169,12 +169,14 @@ export default {
         addressName: this.userCustomer.addressName,
         username: this.userCustomer.username,
         email : this.userCustomer.email,
-        nama : this.userCustomer.nama,
+        name : this.userCustomer.name,
         phone : this.userCustomer.phone,
         gender : this.userCustomer.gender,
         photo : this.userCustomer.photo,
         birthday : this.userCustomer.birthday,
         postalCode: this.userCustomer.selectedCity.postal_code,
+        password: this.userCustomer.password,
+        password_confirmation: this.userCustomer.passwordconfirm,
         role : 'customer'
       };
 
@@ -186,7 +188,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
-        });
+      });
     }
   },
   mounted() {
