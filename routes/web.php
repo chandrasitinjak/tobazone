@@ -33,6 +33,8 @@ Route::get('/profile', function () {
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 Route::get('/carts', 'CartController@index');
 Route::get('/get-banners', 'BannerController@getBanners');
+Route::get('/blogs', 'BlogController@showBlogs');
+Route::get('/get-blogs', 'BlogController@getBlogs');
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/profile/edit/{id}', 'ProfileController@updateAddress');
@@ -64,7 +66,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/banner/update/{id}', 'BannerController@update');
         Route::post('/banner/store', 'BannerController@store');
 
-        Route::get('/blogs', 'BlogController@index');
+        Route::get('/admin/blogs', 'BlogController@index');
         Route::get('/blogs/create', 'BlogController@create');
         Route::get('/blogs/edit/{id}', 'BlogController@edit');
         Route::post('/blogs/delete/{id}', 'BlogController@destroy');
