@@ -20,23 +20,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
 
 <script>
-//  (function($) {
-//            "use strict";
-//
-//            jQuery('#vmap').vectorMap({
-//                map: 'world_en',
-//                backgroundColor: null,
-//                color: '#ffffff',
-//                hoverOpacity: 0.7,
-//                selectedColor: '#1de9b6',
-//                enableZoom: true,
-//                showTooltip: true,
-//                values: sample_data,
-//                scaleColors: ['#1de9b6', '#03a9f5'],
-//                normalizeFunction: 'polynomial'
-//            });
-//        })(jQuery);
-
 
   $(document).ready(function() {
       $('#summernote').summernote();
