@@ -1,6 +1,6 @@
 @extends('admin.layouts.app') 
 @section('content')
-  <div class="row justify-content-center">
+  <div class="container">
     {{ "Warning! Admin Panel!" }}
   </div>
 @endsection

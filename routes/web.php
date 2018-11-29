@@ -59,13 +59,21 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/orderconfirm', 'OrderController@ordercustomer');
         Route::post('/orderconfirm/{id}', 'OrderController@orderconfirm');
 
-        Route::get('/banner', 'BannerController@index');
-        Route::get('/banner/show/{id}', 'BannerController@show');
-        Route::get('/banner/create', 'BannerController@create');
-        Route::get('/banner/edit/{id}', 'BannerController@edit');
-        Route::post('/banner/delete/{id}', 'BannerController@destroy');
-        Route::post('/banner/update/{id}', 'BannerController@update');
-        Route::post('/banner/store', 'BannerController@store');
+        Route::get('/banners', 'BannerController@index');
+        Route::get('/banners/show/{id}', 'BannerController@show');
+        Route::get('/banners/create', 'BannerController@create');
+        Route::get('/banners/edit/{id}', 'BannerController@edit');
+        Route::post('/banners/delete/{id}', 'BannerController@destroy');
+        Route::post('/banners/update/{id}', 'BannerController@update');
+        Route::post('/banners/store', 'BannerController@store');
+
+        Route::get('/carousels', 'CarouselController@index');
+        Route::get('/carousels/show/{id}', 'CarouselController@show');
+        Route::get('/carousels/create', 'CarouselController@create');
+        Route::get('/carousels/edit/{id}', 'CarouselController@edit');
+        Route::post('/carousels/delete/{id}', 'CarouselController@destroy');
+        Route::post('/carousels/update/{id}', 'CarouselController@update');
+        Route::post('/carousels/store', 'CarouselController@store');
 
         Route::get('/admin/blogs', 'BlogController@index');
         Route::get('/blogs/create', 'BlogController@create');
