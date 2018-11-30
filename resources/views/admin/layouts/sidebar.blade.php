@@ -14,7 +14,10 @@
             <ul class="nav navbar-nav">
                 <h3 class="menu-title">Merchant</h3>
                 <li> <a href="{{ url('/admin/new-merchant')}}"> <i class="menu-icon fa fa-user"></i> Merchant </a> </li>
-
+                
+                <h3 class="menu-title">Product</h3>
+                <li> <a href="{{ url('/admin/list-product')}}"> <i class="menu-icon fa fa-user"></i> Merchant </a> </li>
+                
                 <h3 class="menu-title">Order</h3>
                 <li> <a href="{{ url('/admin/new-order')}}"> <i class="menu-icon fa fa-archive"></i> New Order </a> </li>
                 <li> <a href="{{ url('/admin/paid-order')}}"> <i class="menu-icon fa fa-archive"></i> Paid Order </a> </li>
