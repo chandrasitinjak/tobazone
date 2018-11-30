@@ -1,9 +1,7 @@
  <template>
   <div class style="margin-top: 100px;">
     <carousel :autoplay="true" :nav="false" :items="1" :loop="true">
-      <img src="/user-assets/img/bg-img/banner1.png" />
-      <img src="/user-assets/img/bg-img/banner1.png" />
-      <img src="/user-assets/img/bg-img/banner1.png" />
+      <img v-for="carousel in carousels" :src="'/images/carousels/' + carousel.image" />
     </carousel>
   </div>
 </template>
