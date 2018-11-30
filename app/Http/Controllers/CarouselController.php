@@ -113,4 +113,8 @@ class CarouselController extends Controller
 
         return redirect('/carousels');
     }
+
+    public function getCarousels() {
+        return response()->json(Carousel::all());
+    }
 }
