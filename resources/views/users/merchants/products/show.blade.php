@@ -60,7 +60,8 @@
                       title="Dibuat dengan ATBM"
 
                       style="border: none; cursor: pointer">
-                Mesin
+
+                {{$product->category}}
               </button>
 
               <a href="cart.html">
@@ -87,7 +88,7 @@
                 </div>
                 @else
                 <div>
-                  <button class="btn essence-btn ml4"> Login Untuk Memesan Barang</button>
+                  <button class="btn essence-btn ml4 " data-toggle="modal" data-target="#loginModal"> Login Untuk Memesan Barang</button>
                 </div>
                 @endif
               @endrole
@@ -406,5 +407,5 @@
   <!--Card Swipe End-->
 </div>
 
-
+@include('users.auth.login_modal')
 @endsection

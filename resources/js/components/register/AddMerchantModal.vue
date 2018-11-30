@@ -1,14 +1,12 @@
 <template>
   <div>
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header align-items-center border-0">
-          <h5 class="modal-title font-light" id="MerchantModal">Merchant</h5>
-          <button type="button" class="close" @click="dismiss" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
+    <div class="registration">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-md-7 d-none d-md-block d-lg-block" style="background-color: red">
+            <div></div>
+          </div>
+          <div class="col-md-5">
           <form>
             <div class="form-group">
                <label class="label">Username</label>
@@ -82,11 +80,9 @@
                 <label class="label">Confirm Password</label>
                 <input id = "passwordconfirm" type="password" class="form-control" v-model="userMerchant.passwordconfirm" required>
             </div>
-
+            <button type="button" class="btn btn-primary btn-block" v-on:click="addMerchant">Register</button>
           </form>
-        </div>
-        <div class="modal-footer" style="border: none">
-          <button type="button" class="btn btn-primary btn-block" v-on:click="addMerchant">Register</button>
+          </div>
         </div>
       </div>
     </div>

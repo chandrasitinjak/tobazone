@@ -1,28 +1,25 @@
 <template>
-  <div>
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header align-items-center border-0">
-          <h5 class="modal-title font-light" id="CustomerModal">Customer</h5>
-          <button type="button" class="close" @click="dismiss" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+  <div class="registration">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-md-7" style="background-color: blue">
+          <div></div>
         </div>
-        <div class="modal-body">
+        <div class="col-md-5">
           <form>
             <div class="form-group">
-               <label class="label">Username</label>
-               <input type="text" class="form-control" v-model="userCustomer.username" required>
+              <label class="label">Username</label>
+              <input type="text" class="form-control" v-model="userCustomer.username" required>
             </div>
 
             <div class="form-group">
-                <label class="label">E-mail</label>
-                <input type="text" class="form-control" v-model="userCustomer.email" required>
+              <label class="label">E-mail</label>
+              <input type="text" class="form-control" v-model="userCustomer.email" required>
             </div>
 
             <div class="form-group">
-                <label class="label">Name</label>
-                <input type="text" class="form-control" v-model="userCustomer.name" required>
+              <label class="label">Nama Lengkap</label>
+              <input type="text" class="form-control" v-model="userCustomer.name" required>
             </div>
 
             <div class="form-group">
@@ -41,55 +38,47 @@
               <label class="label">Kecamatan</label>
               <select class="form-control" v-model="userCustomer.selectedSubdistrict">
                 <option
-                  v-for="subdistrict in subdistricts"
-                  :value="subdistrict"
+                    v-for="subdistrict in subdistricts"
+                    :value="subdistrict"
                 >{{ subdistrict.subdistrict_name }}</option>
               </select>
             </div>
             <div class="form-group">
               <label class="label">Alamat Rinci</label>
-              <textarea v-model="userCustomer.addressDetail" class="form-control" rows="10"></textarea>
+              <textarea v-model="userCustomer.addressDetail" class="form-control" rows="3"></textarea>
             </div>
 
             <div class="form-group">
-                <label class="label">Phone</label>
-                <input type="text" class="form-control" v-model="userCustomer.phone" required>
+              <label class="label">Phone</label>
+              <input type="text" class="form-control" v-model="userCustomer.phone" required>
             </div>
-            
+
             <label class="label">Gender</label>
             <div class="form-group">
-                <label form="male">
-                  <input type="radio" id="male" value="Male" class="form-control" v-model="userCustomer.gender" >Male
-                </label>
-                <label form="female">
-                  <input type="radio" id="female" value="Female" class="form-control" v-model="userCustomer.gender" >Female
-                </label>
+              <label form="male">
+                <input type="radio" id="male" value="Male" class="form-control" v-model="userCustomer.gender" >Male
+              </label>
+              <label form="female">
+                <input type="radio" id="female" value="Female" class="form-control" v-model="userCustomer.gender" >Female
+              </label>
             </div>
 
             <div class="form-group">
-                <label class="label">Photo</label>
-                <input type="text" class="form-control" v-model="userCustomer.photo" required>
+              <label class="label">Birthday</label>
+              <input type="text" class="form-control" v-model="userCustomer.birthday" required>
             </div>
 
             <div class="form-group">
-                <label class="label">Birthday</label>
-                <input type="text" class="form-control" v-model="userCustomer.birthday" required>
+              <label class="label">Password</label>
+              <input id = "password" type="password" class="form-control" v-model="userCustomer.password" required>
             </div>
 
             <div class="form-group">
-                <label class="label">Password</label>
-                <input id = "password" type="password" class="form-control" v-model="userCustomer.password" required>
+              <label class="label">Confirm Password</label>
+              <input id = "passwordconfirm" type="password" class="form-control" v-model="userCustomer.passwordconfirm" required>
             </div>
-
-            <div class="form-group">
-                <label class="label">Confirm Password</label>
-                <input id = "passwordconfirm" type="password" class="form-control" v-model="userCustomer.passwordconfirm" required>
-            </div>
-
+            <button type="button" class="btn btn-primary btn-block" v-on:click="addCustomer">Register</button>
           </form>
-        </div>
-        <div class="modal-footer" style="border: none">
-          <button type="button" class="btn btn-primary btn-block" v-on:click="addCustomer">Register</button>
         </div>
       </div>
     </div>
