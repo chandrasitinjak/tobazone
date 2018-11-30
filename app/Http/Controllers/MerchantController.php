@@ -64,6 +64,6 @@ class MerchantController extends Controller
     $confirm->email_verified_at = Carbon::now();
     $confirm->save();
     
-    return redirect('/merchantconfirmed');
+    return redirect('/admin/new-merchant');
   }
 }

@@ -181,8 +181,7 @@ export default {
       window.axios
         .post("/register", payload)
         .then(res => {
-          this.provicies = res.data;
-          this.dismiss()
+          window.location = "/"
         })
         .catch(err => {
           console.log(err);

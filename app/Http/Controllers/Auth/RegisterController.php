@@ -15,7 +15,7 @@ use Spatie\Permission\Models\Permission;
 use App\Profile;
 use App\roles;
 use App\VerifyUser;
-
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -50,6 +50,27 @@ class RegisterController extends Controller
     }
 
     /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        if(!$user->hasRole('merchant')) {
+            $this->guard()->login($user);
+            $this->user()->sendEmailVerificationNotification();
+        }
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -80,23 +101,27 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             
         ]);
-    
+        
+        $address = [];
+   
+        array_push($address, json_encode([
+            'name' => $data['addressName'],
+            'province_id' => $data['provinceId'],
+            'city_id' => $data['cityId'],
+            'subdistrict_id' => $data['subdistrictId'],
+            'province_name' => $data['provinceName'],
+            'city_name' => $data['cityName'],
+            'subdistrict_name' => $data['subdistrictName'],
+            'postal_code' => $data['postalCode'],
+            'detail' => $data['addressDetail']
+        ]));
+        
         $user->profile()->save(Profile::create([
             'user_id' => $user->id,
             'name' => $data['name'],
-            'address' =>  json_encode([
-                'name' => $data['addressName'],
-                'province_id' => $data['provinceId'],
-                'city_id' => $data['cityId'],
-                'subdistrict_id' => $data['subdistrictId'],
-                'province_name' => $data['provinceName'],
-                'city_name' => $data['cityName'],
-                'subdistrict_name' => $data['subdistrictName'],
-                'postal_code' => $data['postalCode'],
-                'detail' => $data['addressDetail']
-            ]),
+            'address' => json_encode($address),
             'phone' => $data['phone'],
-            'photo' =>'images/no-image.jpg',
+            'photo' =>'no-image.jpg',
             'gender' => $data['gender'],
             'birthday' => $data['birthday'],
         ]));
@@ -108,7 +133,6 @@ class RegisterController extends Controller
         }
             
         return $user;
-        
     }
 
     public function verifyUser($token)
