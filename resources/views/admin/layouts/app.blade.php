@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ url('/admin-assets/assets/css/summernote.css') }}">
     <link rel="stylesheet" href="{{ url('/admin-assets/assets/css/summernote-lite.css') }}">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ url('/admin-assets/assets/css/style.css')}}">
 

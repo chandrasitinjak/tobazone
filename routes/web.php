@@ -76,7 +76,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/carousels/update/{id}', 'CarouselController@update');
         Route::post('/carousels/store', 'CarouselController@store');
 
-        Route::get('/blogs', 'BlogController@index');
+        Route::get('/admin/blogs', 'BlogController@index');
         Route::get('/blogs/create', 'BlogController@create');
         Route::get('/blogs/edit/{id}', 'BlogController@edit');
         Route::post('/blogs/delete/{id}', 'BlogController@destroy');
