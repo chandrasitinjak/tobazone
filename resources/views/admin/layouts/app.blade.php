@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sufee Admin - HTML5 Admin Template</title>
+    <title>UlosZone</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,6 +22,10 @@
     <link rel="stylesheet" href="{{ url('/admin-assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ url('/admin-assets/vendors/selectFX/css/cs-skin-elastic.css') }}">
     <link rel="stylesheet" href="{{ url('/admin-assets/vendors/jqvmap/dist/jqvmap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/admin-assets/vendors/jqvmap/dist/jqvmap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/admin-assets/assets/css/summernote.css') }}">
+    <link rel="stylesheet" href="{{ url('/admin-assets/assets/css/summernote-lite.css') }}">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ url('/admin-assets/assets/css/style.css')}}">
 

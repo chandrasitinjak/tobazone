@@ -119,7 +119,6 @@
       </div>
     </nav>
 
-
     <!-- Header Meta Data -->
     <div class="header-meta d-flex clearfix justify-content-end">
       <!-- Search Area -->

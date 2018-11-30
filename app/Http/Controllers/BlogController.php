@@ -46,41 +46,41 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-      $detail=$request->body;
+        $detail=$request->body;
 
-      $dom = new \domdocument();
-      $dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $dom = new \domdocument();
+        $dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
-      $images = $dom->getelementsbytagname('img');
+        $images = $dom->getelementsbytagname('img');
 
-      foreach($images as $k => $img){
-        $data = $img->getattribute('src');
+        foreach($images as $k => $img){
+            $data = $img->getattribute('src');
 
-        list($type, $data) = explode(';', $data);
-        list(, $data)      = explode(',', $data);
+            list($type, $data) = explode(';', $data);
+            list(, $data)      = explode(',', $data);
 
-        $data = base64_decode($data);
-        $image_name= time().$k.'.png';
-        $path = public_path() .'/'. $image_name;
+            $data = base64_decode($data);
+            $image_name= time().$k.'.png';
+            $path = public_path() .'/'. $image_name;
 
-        file_put_contents($path, $data);
+            file_put_contents($path, $data);
 
-        $img->removeattribute('src');
-        $img->setattribute('src', $image_name);
-      }
+            $img->removeattribute('src');
+            $img->setattribute('src', $image_name);
+        }
 
-      $detail = $dom->savehtml();
+        $detail = $dom->savehtml();
 
-      $blog = new blog([
-          'title' => $request->get('title'),
+        $blog = new blog([
+            'title' => $request->get('title'),
 
-      ]);
+        ]);
 
-      $blog->user_id = Auth::user()->id;
-      $blog->body = $detail;
+        $blog->user_id = Auth::user()->id;
+        $blog->body = $detail;
 
-      $blog->save();
-      return redirect('/admin/blogs')->with('success', 'Blog berhasil ditambah');
+        $blog->save();
+        return redirect('/admin/blogs')->with('success', 'Blog berhasil ditambah');
     }
 
     /**
