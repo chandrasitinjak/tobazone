@@ -13,6 +13,10 @@ class Product extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function reviews() {
+        return $this->hasMany('App\ProductReview');
+    }
+
     protected $fillable = ['name', 'price', 'stock', 'description', 'category', 'specification', 'image', 'color'];
     protected $dates = ['deleted_at'];
 }
