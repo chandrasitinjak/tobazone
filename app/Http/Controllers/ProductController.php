@@ -145,11 +145,6 @@ class ProductController extends Controller
         return redirect('products/' . $id);
     }
 
-    public function getProduct()
-    {
-
-    }
-
     /**
      * Remove the specified resource from storage.
      *

@@ -104,7 +104,6 @@ class BlogController extends Controller
     {
         $blog = Blog::find($id);
         return view('admin.blogs.edit', compact('blog'));
-
     }
 
     /**

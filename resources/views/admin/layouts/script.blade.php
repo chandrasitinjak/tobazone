@@ -1,6 +1,5 @@
 <script src="{{ url('/admin-assets/vendors/jquery/dist/jquery.min.js')}}"></script>
 <script src="{{ url('/admin-assets/vendors/popper.js/dist/umd/popper.min.js')}}"></script>
-<script src="{{ url('/admin-assets/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <script src="{{ url('/admin-assets/assets/js/main.js')}}"></script>
 
 <script src="{{ url('/admin-assets/vendors/chart.js/dist/Chart.bundle.min.js')}}"></script>
