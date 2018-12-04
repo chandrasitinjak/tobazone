@@ -13,9 +13,13 @@
 ##### - PLACE YOUR CUSTOM CSS HERE - #####
 --------------------------------------- */
 body {
-    font-size: 16px;
+    font-size: 13px;
+    background-color: #f5f5f5;
 }
 
+.VueCarousel-slide img{
+    width: 100%;
+}
 
 .upbanner {
     margin-top: 10px;
@@ -67,6 +71,7 @@ body {
 .footer_area {
     border-top: 10px #563232 solid;
     background-color: #e5e5e5;
+    padding: 30px 0 10px;
 }
 
 .footer_area p, a{
@@ -158,11 +163,11 @@ body {
 
 .product {
     margin: 2px;
-    border: none;
+    border: 1px solid #eee;
 }
 
 .product:hover {
-    /*box-shadow: 0px 0px 5px 1px #0000000f;*/
+    box-shadow: 0 0 4px 1px rgba(204,204,204,.48);
     cursor: pointer;
     transform: translateY(-2px);
     transition-duration: 0.3s;
@@ -205,6 +210,7 @@ body {
 
 .product .card-body {
     padding: 0.5rem;
+    min-height: 127px;
 }
 
 .cto {
@@ -234,7 +240,7 @@ body {
 }
 
 .globalcard .globalcardbody {
-    height: 329px;
+    height: 353px;
 }
 
 .product .hover-content {
@@ -344,18 +350,38 @@ body {
     /*margin-top: 1em;*/
 }
 
+.detailproduct .imagesliderholder{
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    padding: 3px;
+}
+
 .detailproduct .carousel-item {
     margin-top: 1em;
     height: 300px;
+    text-align: center;
 }
 
 .detailproduct .carousel-item img {
     /*object-fit: cover;*/
     position: relative;
+    height: inherit;
 }
 
 .detailproduct .smallimage li {
     margin-right: 1em;
+    text-align: center;
+    border: 1px solid #dfdfdf;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.detailproduct .smallimage li:hover {
+    margin-right: 1em;
+    text-align: center;
+    border: 1px solid #9a4a33;
+    padding: 3px;
+    border-radius: 3px;
 }
 
 .detailproduct .smallimage img {
@@ -373,7 +399,7 @@ body {
 
 .detailreview .nav-tabs .nav-link.active {
     border: none;
-    border-bottom: 2px solid #007b91;
+    border-bottom: 2px solid saddlebrown;
     font-size: inherit;
 }
 
@@ -383,10 +409,19 @@ body {
 }
 
 .detailreview .nav-tabs .nav-link:hover {
-    border: none;
-    border-bottom: 2px solid #007b91;
-    font-size: inherit;
+
 }
+
+.detailreview .nav-item i{
+    font-size: x-large;
+}
+.detailreview .nav-item span{
+    vertical-align: super;
+}
+.detailreview .nav-tabs .nav-link.active{
+    color: saddlebrown;
+}
+
 
 .detailreview .ulasan .imgwrapper {
     height: 50px;
@@ -400,6 +435,10 @@ body {
     width: 50px;
     object-fit: cover;
 
+}
+
+.smallimageholder ul{
+    flex-direction: column;
 }
 
 .vimagewrapper {
@@ -521,6 +560,10 @@ body {
     border-radius: 5px;
     border-bottom: 1px solid #cde4c3 !important;
     padding: 10px;
+}
+
+.payment h4{
+    vertical-align: bottom;
 }
 
 /*============ HORIZONTAL CARD ==============*/
@@ -660,6 +703,17 @@ input:-webkit-autofill:focus {
 }
 
 
+/*===============REGISTRATION=================*/
+.registration label{
+    font-size: small;
+}
+#load{
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:9999;
+    background:url("https://www.creditmutuel.fr/cmne/fr/banques/webservices/nswr/images/loading.gif") no-repeat center center rgba(0,0,0,0.25)
+}
 
 
 /*// Small devices (landscape phones, less than 768px)*/
@@ -675,6 +729,11 @@ input:-webkit-autofill:focus {
     .loginmodal p, .loginmodal a {
         font-size: x-small;
     }
+
+    .smallimageholder ul{
+        flex-direction: row;
+    }
+
 }
 
 /*// Medium devices (tablets, less than 992px)*/
@@ -684,3 +743,7 @@ input:-webkit-autofill:focus {
 /*// Large devices (desktops, less than 1200px)*/
 @media (max-width: 1199.98px) {
 }
+
+
+
+

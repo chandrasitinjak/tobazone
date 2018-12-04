@@ -9,14 +9,15 @@
       </div>
       <div class="card-body globalcardbody">
         <carousel
-          :navigate-to="someLocalProperty"
           :mouse-drag="true"
           :scrollPerPage="true"
-          :spacePadding="30"
+          :spacePadding="20"
+          :speed="800"
+          :paginationEnabled="false"
           :perPageCustom="[[0, 1], [991.88, 6]]"
         >
-          <slide v-for="product in products">
-            <div class="card product">
+          <slide class="px-2" v-for="product in products">
+            <div class="card product ">
               <a :href="'/products/' + product.id">
                 <div class="imgwrapper">
                   <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap">
@@ -29,11 +30,11 @@
                 <p class="card-text float-right">
                   <small class="text-muted">{{ product.merchant.profile.name }}</small>
                 </p>
-                <div class="hover-content">
-                  <div class="add-to-cart-btn">
-                    <button v-on:click="addToCart(product.id)" class="btn product-btn">Add to Cart</button>
-                  </div>
-                </div>
+                <!--<div class="hover-content">-->
+                  <!--<div class="add-to-cart-btn">-->
+                    <!--<button v-on:click="addToCart(product.id)" class="btn product-btn">Add to Cart</button>-->
+                  <!--</div>-->
+                <!--</div>-->
               </div>
             </div>
           </slide>

@@ -7,75 +7,95 @@
         </div>
         <div class="col-md-5">
           <form>
-            <div class="form-group">
-              <label class="label">Username</label>
-              <input type="text" class="form-control" v-model="userCustomer.username" required>
+            <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                  <label class="label">Username</label>
+                  <input type="text" class="form-control form-control-sm" v-model="userCustomer.username" required>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label class="label">E-mail</label>
+                  <input type="text" class="form-control form-control-sm" v-model="userCustomer.email" required>
+                </div>
+              </div>
             </div>
-
-            <div class="form-group">
-              <label class="label">E-mail</label>
-              <input type="text" class="form-control" v-model="userCustomer.email" required>
-            </div>
-
             <div class="form-group">
               <label class="label">Nama Lengkap</label>
-              <input type="text" class="form-control" v-model="userCustomer.name" required>
+              <input type="text" class="form-control form-control-sm" v-model="userCustomer.name" required>
             </div>
-
-            <div class="form-group">
-              <label class="label">Provinsi</label>
-              <select class="form-control" @change="getCities" v-model="userCustomer.selectedProvince">
-                <option v-for="province in provicies" :value="province">{{ province.name }}</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="label">Kota / Kabupaten</label>
-              <select class="form-control" @change="getSubdistricts" v-model="userCustomer.selectedCity">
-                <option v-for="city in cities" :value="city">{{ city.name }}</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="label">Kecamatan</label>
-              <select class="form-control" v-model="userCustomer.selectedSubdistrict">
-                <option
-                    v-for="subdistrict in subdistricts"
-                    :value="subdistrict"
-                >{{ subdistrict.subdistrict_name }}</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="label">Alamat Rinci</label>
-              <textarea v-model="userCustomer.addressDetail" class="form-control" rows="3"></textarea>
-            </div>
-
             <div class="form-group">
               <label class="label">Phone</label>
               <input type="text" class="form-control" v-model="userCustomer.phone" required>
             </div>
 
             <label class="label">Gender</label>
-            <div class="form-group">
-              <label form="male">
-                <input type="radio" id="male" value="Male" class="form-control" v-model="userCustomer.gender" >Male
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="male" id="male" value="Male" v-model="userCustomer.gender" >
+              <label class="form-check-label" for="male">
+                Male
               </label>
-              <label form="female">
-                <input type="radio" id="female" value="Female" class="form-control" v-model="userCustomer.gender" >Female
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="female" id="female" value="Female" v-model="userCustomer.gender">
+              <label class="form-check-label" for="female">
+                Female
               </label>
             </div>
 
+            <div class="row">
+              <div class="col-4">
+                <div class="form-group">
+                  <label class="label">Provinsi</label>
+                  <select class="form-control form-control-sm" @change="getCities" v-model="userCustomer.selectedProvince">
+                    <option v-for="province in provicies" :value="province">{{ province.name }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-group">
+                  <label class="label">Kota / Kabupaten</label>
+                  <select class="form-control form-control-sm" @change="getSubdistricts" v-model="userCustomer.selectedCity">
+                    <option v-for="city in cities" :value="city">{{ city.name }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-group">
+                  <label class="label">Kecamatan</label>
+                  <select class="form-control form-control-sm" v-model="userCustomer.selectedSubdistrict">
+                    <option
+                        v-for="subdistrict in subdistricts"
+                        :value="subdistrict"
+                    >{{ subdistrict.subdistrict_name }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <label class="label">Alamat Rinci</label>
+              <textarea v-model="userCustomer.addressDetail" class="form-control form-control-sm" rows="3"></textarea>
+            </div>
+
+
+
             <div class="form-group">
               <label class="label">Birthday</label>
-              <input type="text" class="form-control" v-model="userCustomer.birthday" required>
+              <input type="date" class="form-control form-control-sm" v-model="userCustomer.birthday" required>
             </div>
 
             <div class="form-group">
               <label class="label">Password</label>
-              <input id = "password" type="password" class="form-control" v-model="userCustomer.password" required>
+              <input id = "password" type="password" class="form-control form-control-sm" v-model="userCustomer.password" required>
             </div>
 
             <div class="form-group">
               <label class="label">Confirm Password</label>
-              <input id = "passwordconfirm" type="password" class="form-control" v-model="userCustomer.passwordconfirm" required>
+              <input id = "passwordconfirm" type="password" class="form-control form-control-sm" v-model="userCustomer.passwordconfirm" required>
             </div>
             <button type="button" class="btn btn-primary btn-block" v-on:click="addCustomer">Register</button>
           </form>
