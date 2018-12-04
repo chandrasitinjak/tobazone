@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="/user-assets/css/core-style.css">
   <link rel="stylesheet" href="/user-assets/style.css">
 
-4
 </head>
 
 <body>

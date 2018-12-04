@@ -30,7 +30,7 @@
                   <div class="imagesliderholder col-md-10 ml-0 ">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-                      <!-- Wrapper for slides -->
+
                       <div class="carousel-inner">
                         @foreach (json_decode($product->images) as $image) @if ($loop->first)
                           <div class="carousel-item active">
@@ -118,7 +118,7 @@
 
                 </ul>
                 <div class="tab-content mt-3" id="myTabContent">
-                  <!--for deskripsi-->
+
                   <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
                     <ul>
                       <li>asdkas;d</li>
@@ -128,11 +128,8 @@
                     Mauris viverra cursus ante laoreet eleifend. Donec vel fringilla ante.
                     Aenean finibus velit id urna vehicula, nec maximus est sollicitudin.
                   </div>
-                  <!--for deskripsi-->
-                  <!--for review-->
+
                   <div class="tab-pane fade ulasan" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <!--card review-->
-                      {{--if there aren't any reviews yet--}}
                       <div class="text-sm-center">
                           <img src="" alt="">
                           <b>Belum ada ulasan untuk produk ini</b>
@@ -176,9 +173,7 @@
                         </div>
                       </div>
                     </div>
-                    <!--/////card review-->
                   </div>
-                  <!--///////for review-->
                 </div>
               </div>
             </div>
