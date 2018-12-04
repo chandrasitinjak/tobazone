@@ -86,7 +86,6 @@ class TransactionController extends Controller
     public function getCustomerTransaction($id) {
         $transaction = Transaction::with(['orders', 'orders.product', 'payment'])
                                   ->where('customer_id', $id)
-                                  ->whereIn('status', ['pending', 'acceptedByMerchant', 'paid'])
                                   ->get();
 
         return response()->json($transaction);
@@ -113,7 +112,8 @@ class TransactionController extends Controller
             "bank" => $request->bank,
             "senderName" => $request->name,
         ]);
-        $transaction->status = 'paid';
+        $payment->status = 'paid';
+        $transaction->status = 'acceptedBySystem';
 
         $payment->update();
         $transaction->update();

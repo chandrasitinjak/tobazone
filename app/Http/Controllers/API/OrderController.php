@@ -69,10 +69,10 @@ class OrderController extends Controller
         $transaction->update();
     }
 
-    public function getMerchantOrder($id) {
-        $trasactions = Transaction::with(['orders', 'orders.product'])
+    public function getNewOrdersByMerchant($id) {
+        $trasactions = Transaction::with(['orders', 'orders.product', 'payment'])
                                   ->where('merchant_id', $id)
-                                  ->where('status', 'pending')
+                                  ->whereIn('status', ['acceptedByAdmin', 'acceptedBySystem'])
                                   ->get();
 
         return response()->json($trasactions);

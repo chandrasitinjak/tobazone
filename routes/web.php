@@ -45,12 +45,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin', 'AdminController@index');
         Route::post('/merchantconfirmed/{id}', 'MerchantController@updateConfirm');
         Route::get('/admin/new-merchant', 'MerchantController@newMerchant');
-        Route::get('/admin/new-order', 'OrderController@getNewOrder');
-        Route::get('/admin/paid-order', 'OrderController@getPaidOrder');
+        Route::get('/admin/new-order', 'TransactionController@getNewOrder');
+        Route::get('/admin/paid-order', 'TransactionController@getPaidOrder');
+        Route::get('/admin/unpaid-order', 'TransactionController@getUnpaidOrder');
         Route::get('/admin/new-order/order-detail', 'OrderController@detailOrder');
         Route::get('/admin/list-merchant', 'MerchantController@listMerchant');
         Route::get('/admin/list-merchant/merchant-detail/{id}', 'MerchantController@detailMerchant');
-        Route::get('/admin/order-detail/{id}', 'TransactionController@getTransactionDetail');
+        Route::get('/admin/new-order-detail/{id}', 'TransactionController@getTransactionDetail');
+        Route::get('/admin/unpaid-order-detail/{id}', 'TransactionController@getUnpaidTransactionDetail');
+        Route::post('/transaction/update-status/{id}', 'TransactionController@updateStatus');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
@@ -96,7 +99,8 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/', 'MerchantController@products');
         });
 
-        Route::get('/merchant/{id}/orders', 'MerchantController@orders');
+        Route::get('/merchant/{id}/new-orders', 'MerchantController@getNewOrders');
+        Route::get('/merchant/{id}/ongoing-orders', 'MerchantController@getOngoingOrders');
     });
 
     Route::middleware('role:customer')->group(function () {

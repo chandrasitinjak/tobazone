@@ -3,93 +3,58 @@
 namespace App\Http\Controllers;
 
 use App\Transaction;
+use App\User;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Transaction  $transaction
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $transaction = Transaction::find($id);
         return view('users.payments.index')->with('transaction', $transaction);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Transaction  $transaction
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Transaction $transaction)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Transaction  $transaction
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Transaction $transaction)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Transaction  $transaction
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Transaction $transaction)
-    {
-        //
-    }
-
     public function getTransactionByUser($id) {
-        return view('users.orders.index');
+        $user = User::with('profile')->where("id", $id)->first();
+        return view('users.orders.index')->with('user', $user);
     }
 
     public function getTransactionDetail($id) {
         $transaction = Transaction::with(['orders', 'customer', 'payment', 'customer.profile'])->where('id', $id)->first();
-        return view('admin.orders.detail-order')->with('transaction', $transaction);
+        return view('admin.orders.new-order-detail')->with('transaction', $transaction);
     }
+
+    public function getAcceptedTransactionDetail($id) {
+        $transaction = Transaction::with(['orders', 'customer', 'payment', 'customer.profile'])->where('id', $id)->first();
+        return view('admin.orders.accepted-order-detail')->with('transaction', $transaction);
+    }
+
+    public function getUnpaidTransactionDetail($id){
+        $transaction = Transaction::with(['orders', 'customer', 'payment', 'customer.profile'])->where('id', $id)->first();
+        return view('admin.orders.accepted-order-detail')->with('transaction', $transaction);
+    }
+
+    public function getNewOrder() {
+        $transactions = Transaction::with(['orders', 'merchant', 'customer', 'customer.profile'])->where('status', 'pending')->get();
+        return view('admin.orders.new-order')->with('transactions', $transactions);
+    }
+
+    public function getPaidOrder() {
+        $transactions = Transaction::with('orders')->whereIn('status', ['paid', 'acceptedBySystem'])->get();
+        return view('admin.orders.paid-order')->with('transactions', $transactions);
+    }
+
+    public function getUnpaidOrder() {
+        $transactions = Transaction::with('orders')->whereIn('status', ['acceptedByAdmin', 'acceptedByMerchant'])->get();
+        return view('admin.orders.unpaid-order')->with('transactions', $transactions);
+    }
+
+    public function updateStatus(Request $request, $id) {
+        $transaction = Transaction::find($id);
+        $transaction->status = $request->status;
+        $transaction->update();
+
+        return redirect('/admin/new-order');
+    }
+
 }

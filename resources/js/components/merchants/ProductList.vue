@@ -108,6 +108,7 @@
 
 <script>
 export default {
+  props: ['userId'],
   data() {
     return {
       products: [],
@@ -118,7 +119,7 @@ export default {
   methods: {
     getProducts() {
       window.axios
-        .get("/api/merchant/products/2")
+        .get("/api/merchant/products/" + this.userId)
         .then(res => {
           this.orginalProductsData = res.data;
           this.products = this.orginalProductsData;

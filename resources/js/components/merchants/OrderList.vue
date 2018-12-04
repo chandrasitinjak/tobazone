@@ -24,7 +24,8 @@
                       <div class="col-md-8">
                         <div class="keranjang-desc-prod">
                           <h6>{{ order.product.name }}</h6>
-                          <br>
+                          <h6 style="color: green;" v-if="transaction.payment.status === 'paid'"> Sudah dibayar </h6>
+                          <h6 style="color: red;" v-else> Belum dibayar </h6>
                           <small>
                             <b>Jumlah :</b> {{ order.quantity }} <br/>
                             <b>Stok Anda :</b> {{ order.product.stock }}
@@ -107,7 +108,7 @@ export default {
   methods: {
     getProducts() {
       window.axios
-        .get("/api/merchant/" + this.userId + "/orders")
+        .get("/api/merchant/" + this.userId + "/new-orders")
         .then(res => {
           this.transactions = res.data;
           console.log(this.transactions);
