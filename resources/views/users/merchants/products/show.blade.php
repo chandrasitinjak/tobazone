@@ -17,13 +17,13 @@
                   <div class="col-md-2 pr-0 smallimageholder">
                     <ul class="nav nav-pills nav-justified smallimage ">
                       @foreach (json_decode($product->images) as $idx => $image) @if ($loop->first)
-                        <li class="mb-2" data-target="#myCarousel" data-slide-to="{{ $idx }}" class="active">
-                          <img src="{{ '/images/' . $image }}" alt="">
-                        </li>
+                      <li class="mb-2" data-target="#myCarousel" data-slide-to="{{ $idx }}" class="active">
+                        <img src="{{ '/images/' . $image }}" alt="">
+                      </li>
                       @else
-                        <li class="mb-2" data-target="#myCarousel" data-slide-to="{{ $idx }}">
-                          <img src="{{ '/images/' . $image }}" alt="">
-                        </li>
+                      <li class="mb-2" data-target="#myCarousel" data-slide-to="{{ $idx }}">
+                        <img src="{{ '/images/' . $image }}" alt="">
+                      </li>
                       @endif @endforeach
                     </ul>
                   </div>
@@ -33,13 +33,13 @@
                       <!-- Wrapper for slides -->
                       <div class="carousel-inner">
                         @foreach (json_decode($product->images) as $image) @if ($loop->first)
-                          <div class="carousel-item active">
-                            <img class="align-self-center" src="{{ '/images/' . $image }}" alt="">
-                          </div>
+                        <div class="carousel-item active">
+                          <img class="align-self-center" src="{{ '/images/' . $image }}" alt="">
+                        </div>
                         @else
-                          <div class="carousel-item">
-                            <img src="{{ '/images/' . $image }}">
-                          </div>
+                        <div class="carousel-item">
+                          <img src="{{ '/images/' . $image }}">
+                        </div>
                         @endif @endforeach
                       </div>
                     </div>
@@ -63,6 +63,8 @@
 
                 {{$product->category}}
               </button>
+              @endif
+
 
 
                 <h2>{{ $product->name }}</h2>
@@ -70,6 +72,7 @@
               <h4 class="product-price" style="color: orange">Rp {{ $product->price }}</h4>
               <p class="product-desc">{{$product->description}}</p>
               <p class="product-desc">{{$product->category}}</p>
+
               <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} kg</h6>
               <h6 class="product-desc"> Ukuran {{ json_decode($product->specification)->dimention }}</h6>
 
@@ -81,6 +84,7 @@
                   <button type="submit" class="btn essence-btn ml-4">Delete</button>
                 </form>
               </div>
+
               @else 
                 @if(Auth::check())
                 <div id="add-to-cart-button">
@@ -92,6 +96,7 @@
                 </div>
                 @endif
               @endrole
+
             </div>
           </div>
 
@@ -118,16 +123,10 @@
 
                 </ul>
                 <div class="tab-content mt-3" id="myTabContent">
-                  <!--for deskripsi-->
                   <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <ul>
-                      <li>asdkas;d</li>
-                      <li>asdkas;d</li>
-                      <li>asdkas;d</li>
-                    </ul>
-                    Mauris viverra cursus ante laoreet eleifend. Donec vel fringilla ante.
-                    Aenean finibus velit id urna vehicula, nec maximus est sollicitudin.
+                    {{ $product->description }}
                   </div>
+
                   <!--for deskripsi-->
                   <!--for review-->
                   <div class="tab-pane fade ulasan" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -156,6 +155,8 @@
                       </div>
                     </div>
 
+                  <div class="tab-pane fade ulasan" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    @foreach ($product->reviews as $review)
                     <div class="card mt-3">
                       <div class="card-body">
                         <div class="row">
@@ -168,17 +169,13 @@
 
                           <div class="col-md-9">
                             <small>Rabu, 17 October 2018</small>
-                            <br>
-                            ininya sih bagus tagpi cemanalah yakana bukan karna apat
-                            bukanya apa kali
-                            hahaha
+                            <br> ininya sih bagus tagpi cemanalah yakana bukan karna apat bukanya apa kali hahaha
                           </div>
                         </div>
                       </div>
                     </div>
-                    <!--/////card review-->
+                    @endforeach
                   </div>
-                  <!--///////for review-->
                 </div>
               </div>
             </div>
@@ -418,5 +415,7 @@
   <!--Card Swipe End-->
 </div>
 
+
 @include('users.auth.login_modal')
+
 @endsection
