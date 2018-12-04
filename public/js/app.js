@@ -64181,7 +64181,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -64239,8 +64239,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -64283,13 +64281,11 @@ var render = function() {
       _c(
         "carousel",
         { attrs: { autoplay: true, nav: false, items: 1, loop: true } },
-        [
-          _c("img", { attrs: { src: "/user-assets/img/bg-img/banner1.png" } }),
-          _vm._v(" "),
-          _c("img", { attrs: { src: "/user-assets/img/bg-img/banner1.png" } }),
-          _vm._v(" "),
-          _c("img", { attrs: { src: "/user-assets/img/bg-img/banner1.png" } })
-        ]
+        _vm._l(_vm.carousels, function(carousel) {
+          return _c("img", {
+            attrs: { src: "/images/carousels/" + carousel.image }
+          })
+        })
       )
     ],
     1

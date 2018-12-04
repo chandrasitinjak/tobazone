@@ -77,7 +77,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::find($id);
+        $product = Product::with(['reviews', 'reviews.customer', 'reviews.customer.profile'])->where('id',$id)->first();
         return view('users.merchants.products.show')->with('product', $product);
     }
 

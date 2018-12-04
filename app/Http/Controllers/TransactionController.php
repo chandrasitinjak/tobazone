@@ -87,4 +87,9 @@ class TransactionController extends Controller
     public function getTransactionByUser($id) {
         return view('users.orders.index');
     }
+
+    public function getTransactionDetail($id) {
+        $transaction = Transaction::with(['orders', 'customer', 'payment', 'customer.profile'])->where('id', $id)->first();
+        return view('admin.orders.detail-order')->with('transaction', $transaction);
+    }
 }
