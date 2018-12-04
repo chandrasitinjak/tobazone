@@ -31,15 +31,21 @@ class MerchantController extends Controller
     return view('users.merchants.products');
   }
 
-  public function orders($id) {
+  public function getNewOrders($id) {
+    $merchant = $this->getAuthincatedMerchant();
+             
+    return view('users.merchants.orders.new-order')->with('merchant', $merchant);
+  }
+
+  public function getOngoingOrders($id) {
     $merchant = $this->getAuthincatedMerchant();
     
-    $orders = Transaction::where('status', 'accepted')
+    $orders = Transaction::where('status', 'paid')
                           ->where('merchant_id', $id)
                           ->get();
              
-    return view('users.merchants.orders.index')->with('orders', $orders)
-                                               ->with('merchant', $merchant);
+    return view('users.merchants.orders.ongoing-order')->with('orders', $orders)
+                                                       ->with('merchant', $merchant);
   }
 
   public function newMerchant() {

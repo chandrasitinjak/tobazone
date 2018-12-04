@@ -1,5 +1,5 @@
 @extends('users.layouts.app') 
-@section('title') {{ "Dashboard" }}
+@section('title') {{ "Order" }}
 @endsection
  
 @section('content')
@@ -48,8 +48,8 @@
 
     <!--content-->
 
-    <div id="product-list" class="col-12 col-md-9 col-lg-9">
-      <product-list-merchant-page :user-id="{{ Auth::user()->id }}" />
+    <div id="order-list-merchant" class="col-12 col-md-9 col-lg-9">
+      <order-list-merchant-page :user-id="{{ Auth::user()->id }}" />
     </div>
 
   </div>

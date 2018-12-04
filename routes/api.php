@@ -26,7 +26,7 @@ Route::get('/provincies', 'API\RegionalController@getProvinces');
 Route::get('/cities', 'API\RegionalController@getCities');
 Route::get('/subdistricts', 'API\RegionalController@getSubdistricts');
 Route::post('/shippingcost', 'API\RajaOngkirController@getShippingCost');
-Route::get('/merchant/{id}/orders', 'API\OrderController@getMerchantOrder');
+Route::get('/merchant/{id}/new-orders', 'API\OrderController@getNewOrdersByMerchant');
 Route::post('/merchant/orders/{id}', 'API\OrderController@updateOrderStatus');
 Route::get('/customer/{id}/transactions', 'API\TransactionController@getCustomerTransaction');
 Route::get('/customer/{userId}/transaction/{tranId}', 'API\TransactionController@getTransaction');
