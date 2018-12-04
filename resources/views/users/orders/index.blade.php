@@ -47,7 +47,10 @@
                   <li><a href="#">Order Gagal</a></li>
                 </ul>
                 <li data-toggle="collapse" data-target="#ulasan" class="collapsed" style="border-top:1px #b6b6b6 solid ">
-                  <a href="#">Keluar</a>
+                  <form method="POST" action="{{ url('/logout')}}">
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn nav-link" style="background-color: transparent">Keluar</button>
+                  </form>
                 </li>
                 <!-- Single Item -->
               </ul>

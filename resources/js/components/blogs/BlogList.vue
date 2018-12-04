@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-wrapper">
+  <div class="blog-wrapper" style="margin-top: 100px">
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-6">

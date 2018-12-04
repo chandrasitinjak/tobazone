@@ -10,13 +10,17 @@
 <!-- Classy Nav js -->
 <script src="/user-assets/js/classy-nav.min.js"></script>
 <!-- Active js -->
-<script src="/user-assets/js/active.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
+<script src="/user-assets/js/jquery.elevatezoom.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 <script>
-    $(document).ready(function () {  $('[data-toggle="test"]').popover({
-        trigger: 'focus'
-    });  });
+    $(document).ready(function () {
+        $('[data-toggle="test"]').popover({
+            trigger: 'focus'
+        });
+    });
+
 
 </script>

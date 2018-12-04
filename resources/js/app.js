@@ -30,6 +30,8 @@ const OrderListMerchantPage = require('./components/merchants/OrderList')
 const OrderListCustomerPage = require('./components/customers/OrderList')
 const PaymentConfirmation = require('./components/payments/PaymentConfirmation')
 const BlogList = require('./components/blogs/BlogList')
+const RegCustomer = require('./components/register/AddCustomerModal')
+const RegMerchant = require('./components/register/AddMerchantModal')
 
 new Vue({
     el: '#app',
@@ -104,4 +106,14 @@ new Vue({
 new Vue({
   el: '#blog-list',
   components: { BlogList }
+})
+
+new Vue({
+    el: '#reg-customer',
+    components: { RegCustomer }
+})
+
+new Vue({
+    el: '#reg-merchant',
+    components: { RegMerchant }
 })

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <h5 class="">Ulos Zone</h5>
+        <h6 class="">Ulos Zone</h6>
         <ul>
           <li></li>
         </ul>
@@ -19,7 +19,7 @@
           </li>
         </ul>
       </div>
-      <div class=" col-md-3">
+      <div class=" col-md-2">
         <h6 class="">Penjual</h6>
         <ul>
           <li>
@@ -30,15 +30,22 @@
           </li>
         </ul>
       </div>
-      <div class=" col-md-3">
+      <div class=" col-md-2">
         <h6 class="">Layanan Pengguna</h6>
         <ul>
           <li>
-            <p>uloszone@gmail.com</p>
+            <p class="mb-0">uloszone@gmail.com</p>
           </li>
           <li>
-            <p>+62851 0604 4870</p>
+            <p class="mb-0">+62851 0604 4870</p>
           </li>
+
+        </ul>
+
+      </div>
+      <div class="col-md-3">
+        <h6>Ikuti Kami</h6>
+        <ul>
           <li>
 
             <a href="https://www.instagram.com/uloszone/" class="mr-3">
@@ -49,7 +56,6 @@
             </a>
           </li>
         </ul>
-
       </div>
     </div>
     <div class="row">
