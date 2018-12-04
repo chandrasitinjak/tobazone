@@ -32,12 +32,14 @@
                 <option v-for="province in provicies" :value="province">{{ province.name }}</option>
               </select>
             </div>
+
             <div class="form-group">
               <label class="label">Kota / Kabupaten</label>
               <select class="form-control" @change="getSubdistricts" v-model="userMerchant.selectedCity">
                 <option v-for="city in cities" :value="city">{{ city.name }}</option>
               </select>
             </div>
+
             <div class="form-group">
               <label class="label">Kecamatan</label>
               <select class="form-control" v-model="userMerchant.selectedSubdistrict">
@@ -49,8 +51,8 @@
             </div>
             
             <div class="form-group">
-                <label class="label">Phone</label>
-                <input type="text" class="form-control" v-model="userMerchant.phone" required>
+              <label class="label">Alamat Rinci</label>
+              <textarea v-model="userMerchant.addressDetail" class="form-control" rows="10"></textarea>
             </div>
             
             <div class="form-group">
@@ -62,12 +64,12 @@
                   <input type="radio" id="female" value="Female" class="form-control" v-model="userMerchant.gender" >Female
                 </label>
             </div>
-
+            
             <div class="form-group">
-                <label class="label">Photo</label>
-                <input type="text" class="form-control" v-model="userMerchant.photo" required>
+                <label class="label">Phone</label>
+                <input type="text" class="form-control" v-model="userMerchant.phone" required>
             </div>
-
+            
             <div class="form-group">
                 <label class="label">Birthday</label>
                 <input type="text" class="form-control" v-model="userMerchant.birthday" required>
@@ -103,7 +105,6 @@ export default {
       cities: [],
       subdistricts: [],
       userMerchant:{      
-
         selectedCity: "",
         selectedProvince: "",
         selectedSubdistrict: "",
@@ -112,8 +113,8 @@ export default {
         email: "",
         name: "",
         phone: "",
-        gender: "",
         photo: "",
+        gender: "",
         birthday: "",
         password: "",
         passwordconfirm: "",
@@ -167,9 +168,9 @@ export default {
         username: this.userMerchant.username,
         email : this.userMerchant.email,
         name : this.userMerchant.name,
+        photo : '',
         phone : this.userMerchant.phone,
         gender : this.userMerchant.gender,
-        photo : this.userMerchant.photo,
         birthday : this.userMerchant.birthday,
         postalCode: this.userMerchant.selectedCity.postal_code,
         password: this.userMerchant.password,
@@ -180,8 +181,7 @@ export default {
       window.axios
         .post("/register", payload)
         .then(res => {
-          this.provicies = res.data;
-          this.dismiss()
+          window.location = "/"
         })
         .catch(err => {
           console.log(err);

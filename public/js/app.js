@@ -5523,7 +5523,7 @@ module.exports = function(module) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.14.4
+ * @version 1.14.5
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -5620,7 +5620,8 @@ function getStyleComputedProperty(element, property) {
     return [];
   }
   // NOTE: 1 DOM access here
-  var css = getComputedStyle(element, null);
+  var window = element.ownerDocument.defaultView;
+  var css = window.getComputedStyle(element, null);
   return property ? css[property] : css;
 }
 
@@ -5708,7 +5709,7 @@ function getOffsetParent(element) {
   var noOffsetParent = isIE(10) ? document.body : null;
 
   // NOTE: 1 DOM access here
-  var offsetParent = element.offsetParent;
+  var offsetParent = element.offsetParent || null;
   // Skip hidden elements which don't have an offsetParent
   while (offsetParent === noOffsetParent && element.nextElementSibling) {
     offsetParent = (element = element.nextElementSibling).offsetParent;
@@ -5720,9 +5721,9 @@ function getOffsetParent(element) {
     return element ? element.ownerDocument.documentElement : document.documentElement;
   }
 
-  // .offsetParent will return the closest TD or TABLE in case
+  // .offsetParent will return the closest TH, TD or TABLE in case
   // no offsetParent is present, I hate this job...
-  if (['TD', 'TABLE'].indexOf(offsetParent.nodeName) !== -1 && getStyleComputedProperty(offsetParent, 'position') === 'static') {
+  if (['TH', 'TD', 'TABLE'].indexOf(offsetParent.nodeName) !== -1 && getStyleComputedProperty(offsetParent, 'position') === 'static') {
     return getOffsetParent(offsetParent);
   }
 
@@ -6270,7 +6271,8 @@ function getReferenceOffsets(state, popper, reference) {
  * @returns {Object} object containing width and height properties
  */
 function getOuterSizes(element) {
-  var styles = getComputedStyle(element);
+  var window = element.ownerDocument.defaultView;
+  var styles = window.getComputedStyle(element);
   var x = parseFloat(styles.marginTop) + parseFloat(styles.marginBottom);
   var y = parseFloat(styles.marginLeft) + parseFloat(styles.marginRight);
   var result = {
@@ -69773,7 +69775,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       cities: [],
       subdistricts: [],
       userMerchant: {
-
         selectedCity: "",
         selectedProvince: "",
         selectedSubdistrict: "",
@@ -69782,8 +69783,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         email: "",
         name: "",
         phone: "",
-        gender: "",
         photo: "",
+        gender: "",
         birthday: "",
         password: "",
         passwordconfirm: ""
@@ -69823,8 +69824,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     },
     addMerchant: function addMerchant() {
-      var _this4 = this;
-
       var payload = {
         provinceId: this.userMerchant.selectedProvince.id,
         cityId: this.userMerchant.selectedCity.id,
@@ -69837,9 +69836,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         username: this.userMerchant.username,
         email: this.userMerchant.email,
         name: this.userMerchant.name,
+        photo: '',
         phone: this.userMerchant.phone,
         gender: this.userMerchant.gender,
-        photo: this.userMerchant.photo,
         birthday: this.userMerchant.birthday,
         postalCode: this.userMerchant.selectedCity.postal_code,
         password: this.userMerchant.password,
@@ -69848,8 +69847,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       };
 
       window.axios.post("/register", payload).then(function (res) {
-        _this4.provicies = res.data;
-        _this4.dismiss();
+        window.location = "/";
       }).catch(function (err) {
         console.log(err);
       });
@@ -70149,7 +70147,11 @@ var render = function() {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.userMerchant, "phone", $event.target.value)
+                      _vm.$set(
+                        _vm.userMerchant,
+                        "addressDetail",
+                        $event.target.value
+                      )
                     }
                   }
                 })
@@ -70208,26 +70210,26 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
-                _c("label", { staticClass: "label" }, [_vm._v("Photo")]),
+                _c("label", { staticClass: "label" }, [_vm._v("Phone")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.userMerchant.photo,
-                      expression: "userMerchant.photo"
+                      value: _vm.userMerchant.phone,
+                      expression: "userMerchant.phone"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.userMerchant.photo },
+                  domProps: { value: _vm.userMerchant.phone },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.userMerchant, "photo", $event.target.value)
+                      _vm.$set(_vm.userMerchant, "phone", $event.target.value)
                     }
                   }
                 })
@@ -70735,6 +70737,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -70957,6 +70962,36 @@ var render = function() {
                         return
                       }
                       _vm.$set(_vm.userCustomer, "name", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { staticClass: "label" }, [_vm._v("Nama Alamat")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.userCustomer.addressName,
+                      expression: "userCustomer.addressName"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.userCustomer.addressName },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.userCustomer,
+                        "addressName",
+                        $event.target.value
+                      )
                     }
                   }
                 })
@@ -71205,32 +71240,6 @@ var render = function() {
                   }),
                   _vm._v("Female\n              ")
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { staticClass: "label" }, [_vm._v("Photo")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.userCustomer.photo,
-                      expression: "userCustomer.photo"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.userCustomer.photo },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.userCustomer, "photo", $event.target.value)
-                    }
-                  }
-                })
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [

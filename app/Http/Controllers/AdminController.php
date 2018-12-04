@@ -11,5 +11,11 @@ class AdminController extends Controller
     return view('admin.index');
   }
 
+  public function countOrder()
+  {
+    $count = Order::where('status','=','pending')->count();
+
+    return view('admin.index')->with('counts', $count);
+  }
  
 }

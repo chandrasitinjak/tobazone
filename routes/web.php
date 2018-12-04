@@ -47,6 +47,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/new-merchant', 'MerchantController@newMerchant');
         Route::get('/admin/new-order', 'OrderController@getNewOrder');
         Route::get('/admin/paid-order', 'OrderController@getPaidOrder');
+        Route::get('/admin/new-order/order-detail', 'OrderController@detailOrder');
+        Route::get('/admin/list-merchant', 'MerchantController@listMerchant');
+        Route::get('/admin/list-merchant/merchant-detail/{id}', 'MerchantController@detailMerchant');
         Route::get('/admin/order-detail/{id}', 'TransactionController@getTransactionDetail');
 
         Route::get('/roles', 'RoleController@index');

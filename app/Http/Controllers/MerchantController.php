@@ -64,6 +64,43 @@ class MerchantController extends Controller
     $confirm->email_verified_at = Carbon::now();
     $confirm->save();
     
-    return redirect('/merchantconfirmed');
+    return redirect('/admin/new-merchant');
+  }
+
+  public function listMerchant(){
+    $merchants = DB::table('model_has_roles')->where('role_id', 2)
+                                             ->pluck('model_id')->toArray();
+
+    $users = User::whereIn('id', $merchants)
+                          ->pluck('id')->toArray();
+
+    $profiles = Profile::whereIn('user_id', $users)->get();
+
+    foreach($profiles as $profile) {
+      $profile->address = json_decode(json_decode($profile->address)[0]);
+    }
+
+    return view('admin.merchant.list')->with('profiles', $profiles);
+  }
+
+  public function detailMerchant($id){
+    $merchants = DB::table('model_has_roles')->where('role_id', 2)
+    ->pluck('model_id')->toArray();
+    
+    $users = User::whereIn('id', $merchants)
+                          ->pluck('id')->toArray();
+                          
+    $profiles = Profile::whereIn('user_id', $users)->get();
+  
+    $profile = $profiles->find($id);
+    
+    dd($profile);
+    
+    foreach($profiles as $profile) {
+      $profile->address = json_decode(json_decode($profile->address)[0]);
+    }
+
+    return view('admin.merchant.detail-merchant')->with('profiles', $profiles);
+
   }
 }
