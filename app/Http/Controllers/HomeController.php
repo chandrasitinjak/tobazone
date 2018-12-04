@@ -35,6 +35,7 @@ class HomeController extends Controller
             } else if ($role === 'merchant') {
                 return redirect('/merchant');
             }
+            
         }
         
         return view('users.homes.index');
