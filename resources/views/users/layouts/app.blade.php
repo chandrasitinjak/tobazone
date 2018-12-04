@@ -13,19 +13,22 @@
   <title> @yield('title')</title>
 
   <!-- Favicon  -->
-  <link rel="icon" href="/user-assets/img/core-img/favicon.ico">
+  <link rel="shortcut icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
 
   <!-- Core Style CSS -->
   <link rel="stylesheet" href="/user-assets/css/core-style.css">
   <link rel="stylesheet" href="/user-assets/style.css">
+
 </head>
 
 <body>
+
   @include('users.layouts.header')
   @include('users.layouts.cart')
   @yield('content')
   @include('users.layouts.footer')
   @include('users.layouts.script')
+
 </body>
 
 </html>

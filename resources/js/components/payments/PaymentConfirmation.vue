@@ -93,7 +93,6 @@
                                 </select>
                               </div>
                               <br>
-                              <br>
                               <div class="form-group">
                                 <label class="col-form-label">Bukti Pembayaran</label>
                                 <div class="col-sm-9">
