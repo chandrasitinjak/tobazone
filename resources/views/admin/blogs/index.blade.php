@@ -35,13 +35,7 @@
                         </div>
 
                         <div class="card-body">
-                            <p class="card-text" style="
-                                        display: block; /* or inline-block */
-                                        text-overflow: ellipsis;
-                                        word-wrap: break-word;
-                                        overflow: hidden;
-                                        max-height: 3.6em;
-                                        line-height: 1.8em;">{!! $blog->body !!}</p>
+                            <p class="card-text" id="clampjs2">{!! $blog->body !!}</p>
                         </div>
                     </div>
                 </div>

@@ -18,8 +18,11 @@
             <div class="col-md-4 mt-3">
                 <div class="card">
                     <img class="card-img-top" src="{{ url('/images/banners/' . $banner->image)}}" alt="Banner image">
+                    <div class="card-title">
+                        <h2 class="card-text" style="text-align: center"> {{ $banner->title}}</h2>
+                    </div>
                     <div class="card-body">
-                        <p class="card-text"> {{ $banner->description }}</p>
+                        <p class="card-text" id="clampjs"> {{ $banner->description }}</p>
                         <a href="#"> 
                             <span class="btn btn-link btn-sm"><i class="fa fa-link"></i>&nbsp; Link</span>
                         </a>

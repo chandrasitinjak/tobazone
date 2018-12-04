@@ -8,9 +8,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+
                     <div class="card-body">
                         <img class="card-img-top" src="{{ url('/images/banners', $banner->image)}}" alt="banner" height="300">
-
+                        <div class="card-title">
+                            <h2 class="card-text" style="text-align: center"> {{ $banner->title}}</h2>
+                        </div>
                         <p class="card-text"> {{ $banner->description }}</p>
                         <a href="#">
                             <button type="button" class="btn btn-link btn-sm"><i class="fa fa-link"></i>&nbsp; https://uloszone.com</button></a>
