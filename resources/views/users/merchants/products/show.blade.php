@@ -33,13 +33,13 @@
 
                       <div class="carousel-inner">
                         @foreach (json_decode($product->images) as $image) @if ($loop->first)
-                          <div class="carousel-item active">
-                            <img class="align-self-center" src="{{ '/images/' . $image }}" alt="">
-                          </div>
+                        <div class="carousel-item active">
+                          <img class="align-self-center" src="{{ '/images/' . $image }}" alt="">
+                        </div>
                         @else
-                          <div class="carousel-item">
-                            <img src="{{ '/images/' . $image }}">
-                          </div>
+                        <div class="carousel-item">
+                          <img src="{{ '/images/' . $image }}">
+                        </div>
                         @endif @endforeach
                       </div>
                     </div>
@@ -81,7 +81,8 @@
                   <button type="submit" class="btn essence-btn ml-4">Delete</button>
                 </form>
               </div>
-              @else 
+
+              @else
                 @if(Auth::check())
                 <div id="add-to-cart-button">
                   <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />
@@ -92,6 +93,7 @@
                 </div>
                 @endif
               @endrole
+
             </div>
           </div>
 
@@ -118,15 +120,8 @@
 
                 </ul>
                 <div class="tab-content mt-3" id="myTabContent">
-
                   <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <ul>
-                      <li>asdkas;d</li>
-                      <li>asdkas;d</li>
-                      <li>asdkas;d</li>
-                    </ul>
-                    Mauris viverra cursus ante laoreet eleifend. Donec vel fringilla ante.
-                    Aenean finibus velit id urna vehicula, nec maximus est sollicitudin.
+                    {{ $product->description }}
                   </div>
 
                   <div class="tab-pane fade ulasan" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -153,6 +148,8 @@
                       </div>
                     </div>
 
+                  <div class="tab-pane fade ulasan" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    @foreach ($product->reviews as $review)
                     <div class="card mt-3">
                       <div class="card-body">
                         <div class="row">
@@ -165,14 +162,12 @@
 
                           <div class="col-md-9">
                             <small>Rabu, 17 October 2018</small>
-                            <br>
-                            ininya sih bagus tagpi cemanalah yakana bukan karna apat
-                            bukanya apa kali
-                            hahaha
+                            <br> ininya sih bagus tagpi cemanalah yakana bukan karna apat bukanya apa kali hahaha
                           </div>
                         </div>
                       </div>
                     </div>
+                    @endforeach
                   </div>
                 </div>
               </div>
@@ -413,5 +408,7 @@
   <!--Card Swipe End-->
 </div>
 
+
 @include('users.auth.login_modal')
+
 @endsection

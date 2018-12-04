@@ -30,6 +30,7 @@
                 <p class="card-text float-right">
                   <small class="text-muted">{{ product.merchant.profile.name }}</small>
                 </p>
+
               </div>
             </div>
           </slide>
