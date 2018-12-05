@@ -36,6 +36,7 @@ Route::get('/get-banners', 'BannerController@getBanners');
 Route::get('/blogs', 'BlogController@showBlogs');
 Route::get('/get-blogs', 'BlogController@getBlogs');
 Route::get('/get-carousels', 'CarouselController@getCarousels');
+Route::get('/search', 'ProductController@searchProduct');
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/profile/edit/{id}', 'ProfileController@updateAddress');
