@@ -33,6 +33,7 @@ const PaymentConfirmation = require('./components/payments/PaymentConfirmation')
 const BlogList = require('./components/blogs/BlogList')
 const RegCustomer = require('./components/register/AddCustomerModal')
 const RegMerchant = require('./components/register/AddMerchantModal')
+const TrackingPage = require('./components/customers/TrackingPage')
 
 new Vue({
   el: '#app',
@@ -122,4 +123,9 @@ new Vue({
 new Vue({
   el: '#on-process-order-list',
   components: { OnProcessOrderListMerchantPage }
+})
+
+new Vue({
+  el: "#tracking-page",
+  components: { TrackingPage }
 })

@@ -1902,7 +1902,7 @@
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(260)("./" + name);
+                __webpack_require__(265)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -41810,7 +41810,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(147);
-module.exports = __webpack_require__(267);
+module.exports = __webpack_require__(272);
 
 
 /***/ }),
@@ -41846,12 +41846,13 @@ var ProductListMerchantPage = __webpack_require__(225);
 var MerchantPage = __webpack_require__(230);
 var CustomerPage = __webpack_require__(237);
 var OrderListMerchantPage = __webpack_require__(246);
-var OnProcessOrderListMerchantPage = __webpack_require__(271);
-var OrderListCustomerPage = __webpack_require__(251);
-var PaymentConfirmation = __webpack_require__(256);
-var BlogList = __webpack_require__(262);
+var OnProcessOrderListMerchantPage = __webpack_require__(251);
+var OrderListCustomerPage = __webpack_require__(256);
+var PaymentConfirmation = __webpack_require__(261);
+var BlogList = __webpack_require__(267);
 var RegCustomer = __webpack_require__(22);
 var RegMerchant = __webpack_require__(21);
+var TrackingPage = __webpack_require__(276);
 
 new Vue({
   el: '#app',
@@ -41941,6 +41942,11 @@ new Vue({
 new Vue({
   el: '#on-process-order-list',
   components: { OnProcessOrderListMerchantPage: OnProcessOrderListMerchantPage }
+});
+
+new Vue({
+  el: "#tracking-page",
+  components: { TrackingPage: TrackingPage }
 });
 
 /***/ }),
@@ -71891,6 +71897,703 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
+Component.options.__file = "resources/js/components/merchants/OnProcessOrderList.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-16aa222b", Component.options)
+  } else {
+    hotAPI.reload("data-v-16aa222b", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 252 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(253);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("00484e38", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-16aa222b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OnProcessOrderList.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-16aa222b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OnProcessOrderList.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 253 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 254 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["userId"],
+  data: function data() {
+    return {
+      transactions: [],
+      orginalProductsData: [],
+      searchName: "",
+      shippingNumber: "",
+      selectedId: ""
+    };
+  },
+
+  methods: {
+    getProducts: function getProducts() {
+      var _this = this;
+
+      window.axios.get("/api/merchant/" + this.userId + "/onprocess-orders").then(function (res) {
+        _this.transactions = res.data;
+        console.log(_this.transactions);
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    updateResi: function updateResi() {
+      var _this2 = this;
+
+      var payload = {
+        shippingNumber: this.shippingNumber
+      };
+
+      window.axios.post("/api/orders/" + this.selectedId + "/update-shipping-number", payload).then(function () {
+        window.location = "/merchant/" + _this2.userId + "/ongoing-orders";
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    updateSelectedId: function updateSelectedId(id) {
+      this.selectedId = id;
+      console.log(this.selectedId);
+    }
+  },
+  mounted: function mounted() {
+    this.getProducts();
+  }
+});
+
+/***/ }),
+/* 255 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card globalcard" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "pull-right" }, [
+          _c(
+            "div",
+            { staticClass: "card globalcard mt-0" },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._l(_vm.transactions, function(transaction) {
+                return _c("div", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-body",
+                      staticStyle: {
+                        "border-bottom": "1px #c5c5c5 solid",
+                        "padding-bottom": "10px"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "row mt-2" }, [
+                        _c(
+                          "div",
+                          { staticClass: "col-md-10 col-sm-12 col-xs-6" },
+                          _vm._l(transaction.orders, function(order, idx) {
+                            return _c("div", { staticClass: "row" }, [
+                              _c("div", { staticClass: "col-lg-3 col-xs-12" }, [
+                                _c("div", { staticClass: "vimagewrapper" }, [
+                                  _c("img", {
+                                    staticClass: "vimg",
+                                    attrs: {
+                                      src:
+                                        "/images/" +
+                                        JSON.parse(order.product.images)[0],
+                                      alt: "Card image cap"
+                                    }
+                                  })
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-md-8" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "keranjang-desc-prod" },
+                                  [
+                                    _c("h6", [
+                                      _vm._v(_vm._s(order.product.name))
+                                    ]),
+                                    _vm._v(" "),
+                                    transaction.payment.status === "paid"
+                                      ? _c(
+                                          "h6",
+                                          { staticStyle: { color: "green" } },
+                                          [_vm._v("Sudah dibayar")]
+                                        )
+                                      : _c(
+                                          "h6",
+                                          { staticStyle: { color: "red" } },
+                                          [_vm._v("Belum dibayar")]
+                                        ),
+                                    _vm._v(" "),
+                                    _c("small", [
+                                      _c("b", [_vm._v("Jumlah :")]),
+                                      _vm._v(
+                                        "\n                          " +
+                                          _vm._s(order.quantity) +
+                                          "\n                          "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(" "),
+                                      _c("b", [_vm._v("Stok Anda :")]),
+                                      _vm._v(
+                                        "\n                          " +
+                                          _vm._s(order.product.stock) +
+                                          "\n                        "
+                                      )
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                idx === transaction.orders.length - 1
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "keranjang-desc-prod" },
+                                      [
+                                        _c("small", [
+                                          _vm._v(
+                                            "Dikirim ke:\n                          "
+                                          ),
+                                          _c("br"),
+                                          _vm._v(
+                                            "\n                          " +
+                                              _vm._s(transaction.address) +
+                                              "\n                        "
+                                          )
+                                        ])
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ])
+                          })
+                        ),
+                        _vm._v(" "),
+                        _c("div", [
+                          _c("div", [
+                            _c("div", [
+                              transaction.shipping_number === null
+                                ? _c(
+                                    "div",
+                                    { staticClass: "quantity col-md-5" },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-success btn-sm mb-2",
+                                          staticStyle: {
+                                            display: "block",
+                                            width: "90px"
+                                          },
+                                          attrs: {
+                                            "data-toggle": "modal",
+                                            "data-target": "#resiModal"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.updateSelectedId(
+                                                transaction.id
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("Input Resi")]
+                                      )
+                                    ]
+                                  )
+                                : _c(
+                                    "div",
+                                    { staticClass: "quantity col-md-5" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "btn btn-info btn-sm mb-2",
+                                          staticStyle: {
+                                            display: "block",
+                                            width: "90px"
+                                          },
+                                          attrs: {
+                                            href:
+                                              "/transactions/" +
+                                              transaction.id +
+                                              "/tracking"
+                                          }
+                                        },
+                                        [_vm._v("Lacak Pengiriman")]
+                                      )
+                                    ]
+                                  ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "modal fade",
+                                  attrs: {
+                                    id: "resiModal",
+                                    tabindex: "-1",
+                                    role: "dialog",
+                                    "aria-labelledby": "exampleModalLabel",
+                                    "aria-hidden": "true"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "modal-dialog modal-dialog-centered",
+                                      attrs: { role: "document" }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "modal-content" },
+                                        [
+                                          _vm._m(1, true),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "modal-body" },
+                                            [
+                                              _c("form", [
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "form-group" },
+                                                  [
+                                                    _c(
+                                                      "label",
+                                                      {
+                                                        staticClass: "small",
+                                                        attrs: {
+                                                          for: "namapengirim"
+                                                        }
+                                                      },
+                                                      [_vm._v("Nomor Resi")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("input", {
+                                                      directives: [
+                                                        {
+                                                          name: "model",
+                                                          rawName: "v-model",
+                                                          value:
+                                                            _vm.shippingNumber,
+                                                          expression:
+                                                            "shippingNumber"
+                                                        }
+                                                      ],
+                                                      staticClass:
+                                                        "form-control form-control-sm",
+                                                      attrs: {
+                                                        type: "text",
+                                                        placeholder:
+                                                          "Nomor Resi"
+                                                      },
+                                                      domProps: {
+                                                        value:
+                                                          _vm.shippingNumber
+                                                      },
+                                                      on: {
+                                                        input: function(
+                                                          $event
+                                                        ) {
+                                                          if (
+                                                            $event.target
+                                                              .composing
+                                                          ) {
+                                                            return
+                                                          }
+                                                          _vm.shippingNumber =
+                                                            $event.target.value
+                                                        }
+                                                      }
+                                                    })
+                                                  ]
+                                                )
+                                              ])
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "modal-footer" },
+                                            [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass:
+                                                    "btn btn-primary",
+                                                  attrs: { type: "button" },
+                                                  on: { click: _vm.updateResi }
+                                                },
+                                                [_vm._v("Submit")]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              })
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _vm._m(2)
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h6", [_vm._v("Order yang Sedang Diproses")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Upload Bukti Bayar")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("nav", { attrs: { "aria-label": "navigation" } }, [
+      _c("ul", { staticClass: "pagination mt-50 mb-50" }, [
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fa fa-angle-left" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("1")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("2")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("3")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("...")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("21")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fa fa-angle-right" })
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-16aa222b", module.exports)
+  }
+}
+
+/***/ }),
+/* 256 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(257)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(259)
+/* template */
+var __vue_template__ = __webpack_require__(260)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
 Component.options.__file = "resources/js/components/customers/OrderList.vue"
 
 /* hot reload */
@@ -71913,13 +72616,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 252 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(253);
+var content = __webpack_require__(258);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -71939,7 +72642,7 @@ if(false) {
 }
 
 /***/ }),
-/* 253 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -71953,7 +72656,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 254 */
+/* 259 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -72183,7 +72886,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 255 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -72319,7 +73022,9 @@ var render = function() {
                                                       staticClass: "alert-link",
                                                       attrs: {
                                                         href:
-                                                          "/customer/transactions/" +
+                                                          "/customer/" +
+                                                          _vm.userId +
+                                                          "/transactions/" +
                                                           transaction.id +
                                                           "/tracking"
                                                       }
@@ -72898,19 +73603,19 @@ if (false) {
 }
 
 /***/ }),
-/* 256 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(257)
+  __webpack_require__(262)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(259)
+var __vue_script__ = __webpack_require__(264)
 /* template */
-var __vue_template__ = __webpack_require__(261)
+var __vue_template__ = __webpack_require__(266)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -72949,13 +73654,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 257 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(258);
+var content = __webpack_require__(263);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -72975,7 +73680,7 @@ if(false) {
 }
 
 /***/ }),
-/* 258 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -72989,7 +73694,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 259 */
+/* 264 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -73229,7 +73934,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 260 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -73494,10 +74199,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 260;
+webpackContext.id = 265;
 
 /***/ }),
-/* 261 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -73888,19 +74593,19 @@ if (false) {
 }
 
 /***/ }),
-/* 262 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(263)
+  __webpack_require__(268)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(265)
+var __vue_script__ = __webpack_require__(270)
 /* template */
-var __vue_template__ = __webpack_require__(266)
+var __vue_template__ = __webpack_require__(271)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -73939,13 +74644,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 263 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(264);
+var content = __webpack_require__(269);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -73965,7 +74670,7 @@ if(false) {
 }
 
 /***/ }),
-/* 264 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -73979,7 +74684,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 265 */
+/* 270 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -74043,7 +74748,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 266 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -74107,28 +74812,28 @@ if (false) {
 }
 
 /***/ }),
-/* 267 */
+/* 272 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(272)
+  __webpack_require__(277)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(274)
+var __vue_script__ = __webpack_require__(279)
 /* template */
-var __vue_template__ = __webpack_require__(275)
+var __vue_template__ = __webpack_require__(280)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -74145,7 +74850,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/merchants/OnProcessOrderList.vue"
+Component.options.__file = "resources/js/components/customers/TrackingPage.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -74154,9 +74859,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-16aa222b", Component.options)
+    hotAPI.createRecord("data-v-2738098b", Component.options)
   } else {
-    hotAPI.reload("data-v-16aa222b", Component.options)
+    hotAPI.reload("data-v-2738098b", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -74167,23 +74872,23 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 272 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(273);
+var content = __webpack_require__(278);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("00484e38", content, false, {});
+var update = __webpack_require__(3)("e18baf5c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-16aa222b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OnProcessOrderList.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-16aa222b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OnProcessOrderList.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2738098b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./TrackingPage.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2738098b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./TrackingPage.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -74193,7 +74898,7 @@ if(false) {
 }
 
 /***/ }),
-/* 273 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -74201,13 +74906,13 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 274 */
+/* 279 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -74369,350 +75074,312 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["userId"],
+  props: ['transactionId'],
   data: function data() {
     return {
-      transactions: [],
-      orginalProductsData: [],
-      searchName: "",
-      shippingNumber: "",
-      selectedId: ""
+      transaction: {},
+      trackings: {}
     };
   },
 
   methods: {
-    getProducts: function getProducts() {
+    getTransaction: function getTransaction() {
       var _this = this;
 
-      window.axios.get("/api/merchant/" + this.userId + "/onprocess-orders").then(function (res) {
-        _this.transactions = res.data;
-        console.log(_this.transactions);
+      window.axios.get("/api/transaction/" + this.transactionId + "/tracking").then(function (res) {
+        console.log(res.data);
+        _this.transaction = res.data.transaction;
+        _this.trackings = res.data.tracking.rajaongkir.result.manifest;
       }).catch(function (err) {
         console.log(err);
       });
-    },
-    updateResi: function updateResi() {
-      var _this2 = this;
-
-      var payload = {
-        shippingNumber: this.shippingNumber
-      };
-
-      window.axios.post("/api/orders/" + this.selectedId + "/update-shipping-number", payload).then(function () {
-        window.location = "/merchant/" + _this2.userId + "/ongoing-orders";
-      }).catch(function (err) {
-        console.log(err);
-      });
-    },
-    updateSelectedId: function updateSelectedId(id) {
-      this.selectedId = id;
-      console.log(this.selectedId);
     }
   },
   mounted: function mounted() {
-    this.getProducts();
+    this.getTransaction();
+    console.log(this.transactionId);
   }
 });
 
 /***/ }),
-/* 275 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card globalcard" }, [
-    _c("div", { staticClass: "card-body" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "pull-right" }, [
+  return _c("div", { staticClass: "col-md-10 crudproduk" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "card globalcard" }, [
+      _c("div", { staticClass: "card-body detailorder" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "row detail mb-2" }, [
+          _c("div", { staticClass: "col-md-3 col-sm-1" }, [
+            _vm._v(" " + _vm._s(_vm.transaction.created_at))
+          ]),
+          _vm._v(" "),
           _c(
             "div",
-            { staticClass: "card globalcard mt-0" },
+            {
+              staticClass: "col-sm-3 col-sm-1 bold",
+              staticStyle: { color: "orangered" }
+            },
             [
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._l(_vm.transactions, function(transaction) {
-                return _c("div", [
+              _vm._v(
+                "Rp " +
+                  _vm._s(
+                    _vm.transaction.payment.product_cost +
+                      _vm.transaction.payment.shipping_cost
+                  )
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-2" }, [
+            _vm._v("Pembayaran diterima\n          "),
+            _c("br"),
+            _vm._v(" "),
+            _c("small", [
+              _vm._v(
+                " " +
+                  _vm._s(JSON.parse(_vm.transaction.payment.proof)["bank"]) +
+                  " "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mt-4" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("div", { staticClass: "row detail" }, [
+            _c("div", { staticClass: "col-md-6 small" }, [
+              _vm._v(
+                " \n            " +
+                  _vm._s(_vm.transaction.address) +
+                  "\n          "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3 small" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-striped table-responsive-sm table-sm"
+                },
+                [
+                  _c("tbody", [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        { staticClass: "light", attrs: { scope: "row" } },
+                        [_vm._v("Total belanja")]
+                      ),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "Rp " + _vm._s(_vm.transaction.payment.product_cost)
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("Biaya Pengiriman")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "Rp " + _vm._s(_vm.transaction.payment.shipping_cost)
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("Total Pembayaran")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("b", [
+                          _vm._v(
+                            "Rp " +
+                              _vm._s(
+                                _vm.transaction.payment.product_cost +
+                                  _vm.transaction.payment.shipping_cost
+                              )
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "detailorder mt-2" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "row singleorderprod mb-3",
+                  staticStyle: { "border-bottom": "1px #00000020 solid" }
+                },
+                [
                   _c(
                     "div",
-                    {
-                      staticClass: "card-body",
-                      staticStyle: {
-                        "border-bottom": "1px #c5c5c5 solid",
-                        "padding-bottom": "10px"
-                      }
-                    },
-                    [
-                      _c("div", { staticClass: "row mt-2" }, [
+                    { staticClass: "col-md-12 mb-3" },
+                    _vm._l(_vm.transaction.orders, function(order) {
+                      return _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-3 col-xs-12" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "imgwrapper detailpesanan",
+                              staticStyle: { padding: "0px", height: "auto" }
+                            },
+                            [
+                              _c("img", {
+                                attrs: {
+                                  src:
+                                    "/images/" +
+                                    JSON.parse(order.product.images)[0],
+                                  alt: "Card image cap"
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-5 col-xs-12" }, [
+                          _c("div", { staticClass: "keranjang-desc-prod" }, [
+                            _c("h6", [_vm._v("Ulos Ragihotang")]),
+                            _vm._v(" "),
+                            _c(
+                              "h6",
+                              {
+                                staticStyle: {
+                                  color: "#FF5205",
+                                  display: "inline"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "Rp " + _vm._s(order.product.price) + " "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("small", [_vm._v("/ unit")]),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c("small", [
+                              _vm._v("Jumlah " + _vm._s(order.quantity))
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(3, true)
+                      ])
+                    })
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(4),
+              _vm._v(" "),
+              _c("div", { staticClass: "row detail mb-2" }, [
+                _c("div", { staticClass: "col-md-3" }, [
+                  _c("b", [_vm._v("Terkirim")]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("small", [
+                    _vm._v(
+                      "Disediakan dan dikirim oleh " +
+                        _vm._s(
+                          _vm.transaction.orders[0].product.merchant.profile
+                            .name
+                        )
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-3 bold" }, [
+                  _c("b", [_vm._v("JNE Reguler")]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("small", [_vm._v("Nomor Resi")]),
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.transaction.shipping_number) +
+                      "\n              "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(5),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "collapse row justify-content-center",
+                  attrs: { id: "posisipengiriman" }
+                },
+                [
+                  _c("div", { staticClass: "card card-body col-md-8 mt-3" }, [
+                    _c(
+                      "table",
+                      {
+                        staticClass:
+                          "table table-striped table-responsive-sm table-sm"
+                      },
+                      [
+                        _vm._m(6),
+                        _vm._v(" "),
                         _c(
-                          "div",
-                          { staticClass: "col-md-10 col-sm-12 col-xs-6" },
-                          _vm._l(transaction.orders, function(order, idx) {
-                            return _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col-lg-3 col-xs-12" }, [
-                                _c("div", { staticClass: "vimagewrapper" }, [
-                                  _c("img", {
-                                    staticClass: "vimg",
-                                    attrs: {
-                                      src:
-                                        "/images/" +
-                                        JSON.parse(order.product.images)[0],
-                                      alt: "Card image cap"
-                                    }
-                                  })
-                                ])
+                          "tbody",
+                          _vm._l(_vm.trackings, function(tracking) {
+                            return _c("tr", { staticClass: "light" }, [
+                              _c("td", [
+                                _vm._v(
+                                  " " +
+                                    _vm._s(tracking.manifest_description) +
+                                    " "
+                                )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-md-8" }, [
-                                _c(
-                                  "div",
-                                  { staticClass: "keranjang-desc-prod" },
-                                  [
-                                    _c("h6", [
-                                      _vm._v(_vm._s(order.product.name))
-                                    ]),
-                                    _vm._v(" "),
-                                    transaction.payment.status === "paid"
-                                      ? _c(
-                                          "h6",
-                                          { staticStyle: { color: "green" } },
-                                          [_vm._v("Sudah dibayar")]
-                                        )
-                                      : _c(
-                                          "h6",
-                                          { staticStyle: { color: "red" } },
-                                          [_vm._v("Belum dibayar")]
-                                        ),
-                                    _vm._v(" "),
-                                    _c("small", [
-                                      _c("b", [_vm._v("Jumlah :")]),
-                                      _vm._v(
-                                        "\n                          " +
-                                          _vm._s(order.quantity) +
-                                          "\n                          "
-                                      ),
-                                      _c("br"),
-                                      _vm._v(" "),
-                                      _c("b", [_vm._v("Stok Anda :")]),
-                                      _vm._v(
-                                        "\n                          " +
-                                          _vm._s(order.product.stock) +
-                                          "\n                        "
-                                      )
-                                    ])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                idx === transaction.orders.length - 1
-                                  ? _c(
-                                      "div",
-                                      { staticClass: "keranjang-desc-prod" },
-                                      [
-                                        _c("small", [
-                                          _vm._v(
-                                            "Dikirim ke:\n                          "
-                                          ),
-                                          _c("br"),
-                                          _vm._v(
-                                            "\n                          " +
-                                              _vm._s(transaction.address) +
-                                              "\n                        "
-                                          )
-                                        ])
-                                      ]
-                                    )
-                                  : _vm._e()
+                              _c("td", [
+                                _vm._v(
+                                  " " +
+                                    _vm._s(tracking.manifest_date) +
+                                    "  " +
+                                    _vm._s(tracking.manifest_time) +
+                                    " "
+                                )
                               ])
                             ])
                           })
-                        ),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("div", [
-                            _c("div", [
-                              transaction.shipping_number === null
-                                ? _c(
-                                    "div",
-                                    { staticClass: "quantity col-md-5" },
-                                    [
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass:
-                                            "btn btn-success btn-sm mb-2",
-                                          staticStyle: {
-                                            display: "block",
-                                            width: "90px"
-                                          },
-                                          attrs: {
-                                            "data-toggle": "modal",
-                                            "data-target": "#resiModal"
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              _vm.updateSelectedId(
-                                                transaction.id
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [_vm._v("Input Resi")]
-                                      )
-                                    ]
-                                  )
-                                : _c(
-                                    "div",
-                                    { staticClass: "quantity col-md-5" },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass:
-                                            "btn btn-info btn-sm mb-2",
-                                          staticStyle: {
-                                            display: "block",
-                                            width: "90px"
-                                          },
-                                          attrs: {
-                                            href:
-                                              "/transactions/" +
-                                              transaction.id +
-                                              "/tracking"
-                                          }
-                                        },
-                                        [_vm._v("Lacak Pengiriman")]
-                                      )
-                                    ]
-                                  ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "modal fade",
-                                  attrs: {
-                                    id: "resiModal",
-                                    tabindex: "-1",
-                                    role: "dialog",
-                                    "aria-labelledby": "exampleModalLabel",
-                                    "aria-hidden": "true"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "modal-dialog modal-dialog-centered",
-                                      attrs: { role: "document" }
-                                    },
-                                    [
-                                      _c(
-                                        "div",
-                                        { staticClass: "modal-content" },
-                                        [
-                                          _vm._m(1, true),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "modal-body" },
-                                            [
-                                              _c("form", [
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "form-group" },
-                                                  [
-                                                    _c(
-                                                      "label",
-                                                      {
-                                                        staticClass: "small",
-                                                        attrs: {
-                                                          for: "namapengirim"
-                                                        }
-                                                      },
-                                                      [_vm._v("Nomor Resi")]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c("input", {
-                                                      directives: [
-                                                        {
-                                                          name: "model",
-                                                          rawName: "v-model",
-                                                          value:
-                                                            _vm.shippingNumber,
-                                                          expression:
-                                                            "shippingNumber"
-                                                        }
-                                                      ],
-                                                      staticClass:
-                                                        "form-control form-control-sm",
-                                                      attrs: {
-                                                        type: "text",
-                                                        placeholder:
-                                                          "Nomor Resi"
-                                                      },
-                                                      domProps: {
-                                                        value:
-                                                          _vm.shippingNumber
-                                                      },
-                                                      on: {
-                                                        input: function(
-                                                          $event
-                                                        ) {
-                                                          if (
-                                                            $event.target
-                                                              .composing
-                                                          ) {
-                                                            return
-                                                          }
-                                                          _vm.shippingNumber =
-                                                            $event.target.value
-                                                        }
-                                                      }
-                                                    })
-                                                  ]
-                                                )
-                                              ])
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "modal-footer" },
-                                            [
-                                              _c(
-                                                "button",
-                                                {
-                                                  staticClass:
-                                                    "btn btn-primary",
-                                                  attrs: { type: "button" },
-                                                  on: { click: _vm.updateResi }
-                                                },
-                                                [_vm._v("Submit")]
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]
-                  )
-                ])
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _vm._m(2)
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ])
+          ])
         ])
       ])
     ])
@@ -74723,32 +75390,79 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h6", [_vm._v("Order yang Sedang Diproses")])
+    return _c(
+      "div",
+      { staticClass: "card globalcard breadcrumbcard card-body" },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("h5", [_vm._v("Detail Pemesanan")])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row text-muted" }, [
+      _c("div", { staticClass: "col-md-3 small" }, [
+        _vm._v("Tanggal Transaksi")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3 small" }, [
+        _vm._v("Total pembayaran")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3 small" }, [
+        _vm._v("Status Pembayaran")
+      ])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Upload Bukti Bayar")]
-      ),
+    return _c("div", { staticClass: "row text-muted" }, [
+      _c("div", { staticClass: "col-md-6 small" }, [
+        _vm._v("Alamat Pengiriman")
+      ]),
       _vm._v(" "),
+      _c("div", { staticClass: "col-md-3 small" }, [
+        _vm._v("Ringkasan Pembayaran")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-4" }, [
       _c(
         "button",
         {
-          staticClass: "close",
+          staticClass: "btn small smallbtn",
+          staticStyle: { width: "150px" },
           attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
+            "data-toggle": "modal",
+            "data-target": "#tulisulasan",
+            role: "button"
           }
         },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+        [_vm._v("Tulis Ulasan")]
+      ),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "btn small smallbtn mt-3",
+          staticStyle: { width: "150px" },
+          attrs: { href: "single-product-details.html", role: "button" }
+        },
+        [_vm._v("Lihat Ulasan")]
       )
     ])
   },
@@ -74756,49 +75470,51 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("nav", { attrs: { "aria-label": "navigation" } }, [
-      _c("ul", { staticClass: "pagination mt-50 mb-50" }, [
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fa fa-angle-left" })
-          ])
-        ]),
+    return _c("div", { staticClass: "row text-muted" }, [
+      _c("div", { staticClass: "col-md-3 small" }, [
+        _vm._v("Status Pengiriman")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3 small" }, [_vm._v("Jasa Pengiriman")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row text-center" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c(
+          "a",
+          {
+            staticClass: "down",
+            attrs: {
+              "data-toggle": "collapse",
+              href: "#posisipengiriman",
+              role: "button",
+              "aria-expanded": "false",
+              "aria-controls": "collapseExample"
+            }
+          },
+          [
+            _vm._v(
+              "\n                  LACAK POSISI PENGIRIMAN\n                  "
+            ),
+            _c("i", { staticClass: "fa fa-chevron-down" })
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Status")]),
         _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("1")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("2")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("3")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("...")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("21")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fa fa-angle-right" })
-          ])
-        ])
+        _c("th", [_vm._v("Waktu")])
       ])
     ])
   }
@@ -74808,7 +75524,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-16aa222b", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-2738098b", module.exports)
   }
 }
 
