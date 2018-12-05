@@ -9,7 +9,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Paid Order</strong>
+                        <strong class="card-title">Unpaid Order</strong>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped">
@@ -32,7 +32,7 @@
                                     <td>{{ $order->created_at }}</td>
                                     <td> <span class="address"> {{ $order->address }}</span> </td>
                                     <td>
-                                        <a href="{{ url('/admin/paid-order-detail', $order->id)}}">
+                                        <a href="{{ url('/admin/unpaid-order-detail', $order->id)}}">
                                                 <button type="button" class="btn btn-primary btn-sm" title="Lihat Detail">
                                                     <i class="fa fa-eye"></i>
                                                 </button>

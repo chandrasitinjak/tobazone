@@ -8,13 +8,24 @@
           </div>
           <div class="row justify-content-md-center">
             <div class="card my-3 col-6 time">
-              <div class="card-body" v-if="transaction.status === 'paid'">
-                <h2 class="text-center"> Terimakasih sudah melakukan pembayaran</h2>
-                <h4 class="text-center"> Mohon menunggu pesanan Anda diproses oleh penjual</h4>
+              <div
+                class="card-body"
+                v-if="transaction.payment.status === 'paid' || transaction.status === 'acceptedBySystem'"
+              >
+                <h2 class="text-center">Terimakasih sudah melakukan pembayaran</h2>
+                <h4 class="text-center">Mohon menunggu pesanan Anda diproses oleh penjual</h4>
               </div>
-              <div class="card-body" v-else-if="duration._data.hours >= 0 && duration._data.minutes >= 0 && duration._data.seconds >= 0">
-                <p class="text-center" style="font-size: small">Segera selesaikan pembayaran Anda sebelum stok habis.</p>
-                <h2 class="text-center" >{{ duration._data.hours }} Jam {{ duration._data.minutes}} Menit {{ duration._data.seconds }} Detik</h2>
+              <div
+                class="card-body"
+                v-else-if="duration._data.hours >= 0 && duration._data.minutes >= 0 && duration._data.seconds >= 0"
+              >
+                <p
+                  class="text-center"
+                  style="font-size: small"
+                >Segera selesaikan pembayaran Anda sebelum stok habis.</p>
+                <h2
+                  class="text-center"
+                >{{ duration._data.hours }} Jam {{ duration._data.minutes}} Menit {{ duration._data.seconds }} Detik</h2>
                 <p class="text-center" style="font-size: small" v-if="duration._data.hours > 0">
                   <i>(Sebelum {{ getDeatline() }})</i>
                 </p>
@@ -25,7 +36,9 @@
             </div>
           </div>
 
-          <div v-if="duration._data.hours >= 0 && duration._data.minutes >= 0 && duration._data.seconds >= 0 && transaction.status !== 'paid'">
+          <div
+            v-if="duration._data.hours >= 0 && duration._data.minutes >= 0 && duration._data.seconds >= 0 && transaction.payment.status !== 'paid'"
+          >
             <div class="row justify-content-md-center">
               <div class="card col-6 my-3">
                 <div class>
@@ -41,7 +54,7 @@
             </div>
             <div class="row justify-content-md-center">
               <div class="card col-6 my-3">
-                <div class>
+                <div>
                   <div class="card-body">
                     <div class="text-muted mb-2">Upload Bukti Pembayaran</div>
                     <button
