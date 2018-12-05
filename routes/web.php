@@ -111,6 +111,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/shipping', 'ShippingController@index');
         Route::get('/customer/transactions/{id}', 'TransactionController@show');
         Route::get('/customer/{id}/orders', 'TransactionController@getTransactionByUser');
+        Route::get('/customer/{userId}/transactions/{transactionId}/tracking', 'TransactionController@getTrackingInfo');
     });
 
     Route::middleware('role:costumer|admin')->group(function () {

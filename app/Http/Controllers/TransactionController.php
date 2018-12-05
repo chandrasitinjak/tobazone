@@ -67,4 +67,8 @@ class TransactionController extends Controller
         return redirect('/admin/new-order');
     }
 
+    public function getTrackingInfo($userId, $transactionId) {
+        $user = User::with('profile')->where('id', $userId)->first();
+        return view('users.orders.tracking')->with('user', $user);
+    }
 }

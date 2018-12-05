@@ -10,19 +10,10 @@ use App\Order;
 use App\Payment;
 use App\Cart;
 use Auth;
+use GuzzleHttp\Client;
 
 class TransactionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -117,5 +108,35 @@ class TransactionController extends Controller
 
         $payment->update();
         $transaction->update();
+    }
+
+    public function getTrackingStatus($id) {
+        $transaction = Transaction::with(['orders', 'orders.product.merchant.profile', 'payment'])
+                                  ->where('id', $id)->first();
+
+        $tracking = $this->getTracking($transaction->shipping_number);
+
+        return response()->json([
+            "transaction" => $transaction,
+            "tracking" => json_decode($tracking)
+        ]);
+    }
+
+    private function getTracking($shippingNumber) {
+        $client = new Client([
+            'base_uri' => 'https://pro.rajaongkir.com/api/',
+            'headers' => [
+                "key" => env('RAJAONGKIR_API_KEY'),
+                "Content-Type" => "application/x-www-form-urlencoded"
+            ]
+        ]);
+
+        $payload = [
+            "waybill" => $shippingNumber,
+            "courier" => "jne"
+        ];
+
+        $result = $client->request('POST', 'waybill', ['form_params' => $payload]);
+        return $result->getBody()->getContents();
     }
 }

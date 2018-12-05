@@ -67,7 +67,7 @@
 
                             <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'readyForProcess' && transaction.shipping_number !== null">
                               Barang dalam pengirima
-                              <a :href="'/customer/transactions/' + transaction.id + '/tracking'" class="alert-link">
+                              <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'" class="alert-link">
                                 Lacak Pengiriman
                               </a>
                             </div>
