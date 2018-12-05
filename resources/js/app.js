@@ -34,6 +34,7 @@ const BlogList = require('./components/blogs/BlogList')
 const RegCustomer = require('./components/register/AddCustomerModal')
 const RegMerchant = require('./components/register/AddMerchantModal')
 const TrackingPage = require('./components/customers/TrackingPage')
+const SearchProduct = require('./components/search/SearchProduct')
 
 new Vue({
   el: '#app',
@@ -128,4 +129,9 @@ new Vue({
 new Vue({
   el: "#tracking-page",
   components: { TrackingPage }
+})
+
+new Vue({
+  el: "#search-product",
+  components: { SearchProduct }
 })

@@ -157,4 +157,8 @@ class ProductController extends Controller
         $product = Product::find($id)->delete();
         return redirect('/products');
     }
+
+    public function searchProduct(Request $request) {
+        return view('users.homes.search');
+    }
 }
