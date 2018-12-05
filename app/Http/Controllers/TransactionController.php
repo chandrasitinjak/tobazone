@@ -24,14 +24,14 @@ class TransactionController extends Controller
         return view('admin.orders.new-order-detail')->with('transaction', $transaction);
     }
 
-    public function getAcceptedTransactionDetail($id) {
+    public function getPaidTransactionDetail($id) {
         $transaction = Transaction::with(['orders', 'customer', 'payment', 'customer.profile'])->where('id', $id)->first();
-        return view('admin.orders.accepted-order-detail')->with('transaction', $transaction);
+        return view('admin.orders.paid-order-detail')->with('transaction', $transaction);
     }
 
     public function getUnpaidTransactionDetail($id){
         $transaction = Transaction::with(['orders', 'customer', 'payment', 'customer.profile'])->where('id', $id)->first();
-        return view('admin.orders.accepted-order-detail')->with('transaction', $transaction);
+        return view('admin.orders.unpaid-order-detail')->with('transaction', $transaction);
     }
 
     public function getNewOrder() {
@@ -47,6 +47,16 @@ class TransactionController extends Controller
     public function getUnpaidOrder() {
         $transactions = Transaction::with('orders')->whereIn('status', ['acceptedByAdmin', 'acceptedByMerchant'])->get();
         return view('admin.orders.unpaid-order')->with('transactions', $transactions);
+    }
+
+    public function getInvalidOrder() {
+        $transactions = Transaction::with('orders')->whereIn('status', ['invalidProofOfPayment'])->get();
+        return view('admin.orders.invalid-order')->with('transactions', $transactions);
+    }
+
+    public function getOnProcessOrder() {
+        $transactions = Transaction::with('orders')->whereIn('status', ['readyForProcess'])->get();
+        return view('admin.orders.onprocess-order')->with('transactions', $transactions);
     }
 
     public function updateStatus(Request $request, $id) {

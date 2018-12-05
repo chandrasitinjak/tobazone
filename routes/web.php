@@ -48,11 +48,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/new-order', 'TransactionController@getNewOrder');
         Route::get('/admin/paid-order', 'TransactionController@getPaidOrder');
         Route::get('/admin/unpaid-order', 'TransactionController@getUnpaidOrder');
+        Route::get('/admin/invalid-order', 'TransactionController@getInvalidOrder');
+        Route::get('/admin/onprocess-order', 'TransactionController@getOnProcessOrder');
         Route::get('/admin/new-order/order-detail', 'OrderController@detailOrder');
         Route::get('/admin/list-merchant', 'MerchantController@listMerchant');
         Route::get('/admin/list-merchant/merchant-detail/{id}', 'MerchantController@detailMerchant');
         Route::get('/admin/new-order-detail/{id}', 'TransactionController@getTransactionDetail');
         Route::get('/admin/unpaid-order-detail/{id}', 'TransactionController@getUnpaidTransactionDetail');
+        Route::get('/admin/paid-order-detail/{id}', 'TransactionController@getPaidTransactionDetail');
         Route::post('/transaction/update-status/{id}', 'TransactionController@updateStatus');
 
         Route::get('/roles', 'RoleController@index');

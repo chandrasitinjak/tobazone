@@ -42,7 +42,7 @@
               aria-labelledby="pesananbaru-tab"
             >
               <div class="detailorder mt-2" v-for="transaction in transactions">
-                <div class="row" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByAdmin' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedBySystem'">
+                <div class="row" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByAdmin' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedBySystem' || transaction.status === 'readyForProcess'">
                   <div class="col-12">
                     <div class="card">
                       <div class="card-header" style="background-color: #f1f1f1">
@@ -60,20 +60,24 @@
                           <div class="col-sm-6">
                             <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedByAdmin'">
                               Menunggu Pembayaran
-                              <br>
                               <a :href="'/customer/transactions/' + transaction.id" class="alert-link">
                                 Upload bukti pembayaran
                               </a>
                             </div>
 
-                            <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'acceptedByMerchant'">
-                              Sudah diterima penjual
-                              <br>
+                            <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'readyForProcess' && transaction.shipping_number !== null">
+                              Barang dalam pengirima
+                              <a :href="'/customer/transactions/' + transaction.id + '/tracking'" class="alert-link">
+                                Lacak Pengiriman
+                              </a>
                             </div>
 
-                            <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'acceptedBySystem'">
+                            <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'acceptedByMerchant'">
+                              Sudah diterima penjual
+                            </div>
+
+                            <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'acceptedBySystem' || transaction.shipping_number === null">
                               Sudah dibayar, menunggu diproses penjual
-                              <br>
                             </div>
                           </div>
                         </div>
@@ -117,7 +121,7 @@
               aria-labelledby="Konfirmasi-tab"
             >
               <div class="detailorder mt-2" v-for="transaction in transactions">
-                <div class="row" v-if="transaction.status === 'rejectedByAdmin' || transaction.status === 'rejectedByMerchant' || transaction.status === 'canceledBySistem'">
+                <div class="row" v-if="transaction.status === 'rejectedByAdmin' || transaction.status === 'rejectedByMerchant' || transaction.status === 'canceledBySistem' || transaction.status === 'invalidProofOfPayment'">
                   <div class="col-12">
                     <div class="card">
                       <div class="card-header" style="background-color: #f1f1f1">
@@ -139,6 +143,10 @@
 
                             <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'rejectedByMerchant'">
                               Ditolak oleh Penjual
+                            </div>
+
+                            <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'invalidProofOfPayment'">
+                              Ditolak oleh Admin karena bukti pembayaran tidak valid
                             </div>
 
                             <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'canceledBySistem'">

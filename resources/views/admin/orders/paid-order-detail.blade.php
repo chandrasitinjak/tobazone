@@ -121,18 +121,20 @@
                             </div>
                         </div>
 
-                        @if($transaction->payment->proof)
                         <div class="card-body">
-                            <a href="#"><button type="button" class="btn btn-primary btn-lg btn-block">Accept</button></a>
+                            <form action="{{ url('/transaction/update-status', $transaction->id)}}" method="POST">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="status" value="readyForProcess" />
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Accept</button>
+                            </form>
                         </div>
                         <div class="card-body">
-                            <a href="#"><button type="button" class="btn btn-danger btn-lg btn-block">Reject</button></a>
+                            <form action="{{ url('/transaction/update-status', $transaction->id)}}" method="POST">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="status" value="invalidProofOfPayment" />
+                                <button type="submit" class="btn btn-danger btn-lg btn-block">Reject</button>
+                            </form>
                         </div>
-                        @else
-                        <div class="card-body">
-                            <a href="#"><button type="button" class="btn btn-danger btn-lg btn-block">Reject</button></a>
-                        </div>
-                        @endif
                     </div>
                 </div>
             </div>

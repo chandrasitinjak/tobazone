@@ -8,64 +8,15 @@ use App\Transaction;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
     public function updateOrderStatus(Request $request, $id) {
         $transaction = Transaction::find($id);
         $transaction->status = $request->status;
+        $transaction->update();
+    }
+
+    public function updateShippingNumber(Request $request, $id) {
+        $transaction = Transaction::find($id);
+        $transaction->shipping_number = $request->shippingNumber;
         $transaction->update();
     }
 
@@ -73,6 +24,15 @@ class OrderController extends Controller
         $trasactions = Transaction::with(['orders', 'orders.product', 'payment'])
                                   ->where('merchant_id', $id)
                                   ->whereIn('status', ['acceptedByAdmin', 'acceptedBySystem'])
+                                  ->get();
+
+        return response()->json($trasactions);
+    }
+
+    public function getOnProcessOrdersByMerchant($id) {
+        $trasactions = Transaction::with(['orders', 'orders.product', 'payment'])
+                                  ->where('merchant_id', $id)
+                                  ->whereIn('status', ['readyForProcess'])
                                   ->get();
 
         return response()->json($trasactions);
