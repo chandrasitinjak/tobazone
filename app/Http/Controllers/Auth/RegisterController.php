@@ -50,27 +50,6 @@ class RegisterController extends Controller
     }
 
     /**
-     * Handle a registration request for the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function register(Request $request)
-    {
-        $this->validator($request->all())->validate();
-
-        event(new Registered($user = $this->create($request->all())));
-
-        if(!$user->hasRole('merchant')) {
-            $this->guard()->login($user);
-            $this->user()->sendEmailVerificationNotification();
-        }
-
-        return $this->registered($request, $user)
-                        ?: redirect($this->redirectPath());
-    }
-
-    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -94,12 +73,11 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
-        
         $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            
+            'status' => $data['role'] === 'customer' ? 'verifiedByAdmin' : "-" 
         ]);
         
         $address = [];

@@ -38,9 +38,10 @@ Route::get('/get-blogs', 'BlogController@getBlogs');
 Route::get('/get-carousels', 'CarouselController@getCarousels');
 Route::get('/search', 'ProductController@searchProduct');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::post('/profile/edit/{id}', 'ProfileController@updateAddress');
     Route::get('/profile/{id}', 'ProfileController@getProfile');
+    Route::get('/unverified', 'HomeController@showUnverifiedPage');
 
     Route::middleware('role:admin')->group(function () {
         Route::get('/admin', 'AdminController@index');

@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
             'username' => 'admin',
             'email' => 'uloszone@gmail.com',
             'password' => bcrypt('admin123'),
+            'status' => 'verifiedByAdmin',
             'email_verified_at' => Carbon::now(),
         ]);
 
@@ -25,6 +26,7 @@ class UsersTableSeeder extends Seeder
             'username' => 'merchant',
             'email' => 'merchant@uloszone.com',
             'password' => bcrypt('merchant123'),
+            'status' => 'verifiedByAdmin',
             'email_verified_at' => Carbon::now(),
         ]);
 
@@ -32,6 +34,7 @@ class UsersTableSeeder extends Seeder
             'username' => 'customer',
             'email' => 'customer@uloszone.com',
             'password' => bcrypt('customer123'),
+            'status' => 'verifiedByAdmin',
             'email_verified_at' => Carbon::now(),
         ]);
 
