@@ -8,7 +8,7 @@
       </div>
     </div>
     <div>
-      <div class="card globalcard">
+      <div class="card globalcard" style="min-height: 400px">
         <div class="card-header">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
@@ -172,7 +172,7 @@
                                   <h6>{{ order.product.name }}</h6>
                                   <h6
                                     style="color: #FF5205; display: inline;"
-                                  >Rp {{ order.product.price }}</h6>
+                                  >Rp {{formatPrice(order.product.price)}}</h6>
                                   <br>
                                   <small>Jumlah {{ order.quantity }}</small>
                                 </div>
@@ -202,6 +202,10 @@ export default {
     };
   },
   methods: {
+      formatPrice(value) {
+          let val = (value/1).toFixed().replace('.', ',')
+          return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+      },
     getTransactions() {
       window.axios
         .get("/api/customer/" + this.userId + "/transactions")

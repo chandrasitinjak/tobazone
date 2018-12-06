@@ -110,8 +110,8 @@
           </div>
           @endauth @guest
           <div class="user-login-info align-content-end">
-            <a href="#">
-                <button class="btn btn-link" type="button" data-toggle="modal" data-target="#loginModal"> Masuk </button>
+            <a href="#" >
+                <button class="btn btn-link" type="button" data-toggle="modal" data-target="#loginModal" style="color: black;text-decoration-line: unset;"> Masuk </button>
               </a>
           </div>
           @else

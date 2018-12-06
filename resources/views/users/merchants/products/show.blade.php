@@ -407,6 +407,7 @@
   </div>
   <!--Card Swipe End-->
 </div>
+</div>
 
 
 @include('users.auth.login_modal')

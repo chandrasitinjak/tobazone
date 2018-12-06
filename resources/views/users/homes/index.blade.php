@@ -13,7 +13,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon  -->
-    <link rel="icon" href="/user-assets/img/core-img/favicon.ico">
+    <link rel="icon" href=http://sstatic.net/stackoverflow/img/favicon.ico">
 
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="/user-assets/css/owl.carousel.css">
