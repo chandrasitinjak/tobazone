@@ -3,7 +3,7 @@
 @endsection
  
 @section('content')
-<div class="container">
+
   <div class="row">
     <div class="col-md-3 col-lg-3">
       <div class="merchant-sidebar">
@@ -25,5 +25,5 @@
       <order-list-customer-page :user-id="{{ Auth::user()->id }}" />
     </div>
   </div>
-</div>
+
 @endsection

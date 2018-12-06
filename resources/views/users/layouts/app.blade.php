@@ -12,8 +12,8 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title> @yield('title')</title>
 
-  <!-- Favicon  -->
-  <link rel="shortcut icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
+
+  <link rel="icon" href=http://sstatic.net/stackoverflow/img/favicon.ico">
 
   <!-- Core Style CSS -->
   <link rel="stylesheet" href="/user-assets/css/core-style.css">

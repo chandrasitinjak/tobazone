@@ -1,11 +1,11 @@
 <template>
-  <div class style="margin-top: 100px;">
+  <div class style="margin-top: 100px;" v-if="carousels.length > 0">
     <Carousel
         :autoplay="true"
         :nav="false"
         :loop="true"
-        :speed="1000"
-        :paginationActiveColor="761616"
+        :speed="800"
+        :paginationPadding="3"
         :paginationEnabled="true"
         :perPageCustom="[[0, 1], [991.88, 1]]">
 
@@ -18,6 +18,24 @@
 
     </Carousel>
   </div>
+
+  <div v-else style="margin-top: 100px;" >
+    <Carousel
+        :autoplay="true"
+        :nav="false"
+        :loop="true"
+        :speed="800"
+        :paginationEnabled="true"
+        :perPageCustom="[[0, 1], [991.88, 1]]">
+
+
+      <slide class="px-2">
+        <img src="/images/assets/empty_carousels.gif" alt="">
+      </slide>
+
+    </Carousel>
+  </div>
+
 </template>
 
 <style scoped>

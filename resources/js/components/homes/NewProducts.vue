@@ -4,7 +4,7 @@
       <div class="card-header">
         <h5 style="float: left">Produk Terbaru</h5>
         <h6 style="float: right">
-          <a href="shop.html" style="color: -webkit-link">see more</a>
+          <a href="#" style="color: -webkit-link">Lihat Semua Produk</a>
         </h6>
       </div>
       <div class="card-body globalcardbody">
@@ -26,7 +26,7 @@
 
               <div class="card-body">
                 <p class="card-title productname">{{product.name}}</p>
-                <h6 style="color: #ff5205">Rp {{product.price}}</h6>
+                <h6 style="color: #ff5205">Rp {{formatPrice (product.price)}}</h6>
                 <p class="card-text float-right">
                   <small class="text-muted">{{ product.merchant.profile.name }}</small>
                 </p>
@@ -38,6 +38,7 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -54,6 +55,10 @@ export default {
     };
   },
   methods: {
+      formatPrice(value) {
+          let val = (value/1).toFixed().replace('.', ',')
+          return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+      },
     async getAllProducts() {
       await window.axios
         .get("/api/products")

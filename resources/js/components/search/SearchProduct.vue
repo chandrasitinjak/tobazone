@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card globalcard">
+    <div class="card globalcard" style="min-height: 400px">
       <div class="card-header">
         <nav class="navbar navbar-expand-sm navbar-light">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -43,7 +43,7 @@
               <input
                 class="form-control form-control-sm mr-sm-2"
                 type="search"
-                placeholder="Filter Berdasarkan Nama"
+                placeholder="Filter Nama"
                 aria-label="Search"
                 v-model="searchName"
                 @input="filterProductByName"
@@ -53,8 +53,9 @@
         </nav>
       </div>
       <div class="card-body">
-        <div class="row">
-          <div v-for="product in products" class="col-lg-3 col-sm-2 px-1">
+      <div class="" v-if="products.length>0">
+        <div class="row" >
+          <div v-for="product in products" class="col-lg-2 col-md-2 col-sm-2 px-1">
             <div class="card products">
               <a :href="'/products/' + product.id">
                 <div class="imgwrapper">
@@ -63,7 +64,7 @@
               </a>
               <div class="card-body">
                 <p class="card-title productname">{{ product.name }}</p>
-                <h6 style="color: #ff5205">Rp {{ product.price }}</h6>
+                <h6 style="color: #ff5205">Rp {{formatPrice( product.price )}}</h6>
                 <p class="card-text float-right">
                   <small class="text-muted"> {{ product.merchant.profile.name }}</small>
                 </p>
@@ -71,36 +72,49 @@
             </div>
           </div>
         </div>
-        <!-- Pagination -->
-        <nav aria-label="navigation">
-          <ul class="pagination mt-50 mb-50">
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <i class="fa fa-angle-left"></i>
-              </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">...</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">21</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <i class="fa fa-angle-right"></i>
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <div class="row">
+          <!-- Pagination -->
+          <nav aria-label="navigation">
+            <ul class="pagination mt-50 mb-50">
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="fa fa-angle-left"></i>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">...</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">21</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+        <div v-else class="col-12 center center-block align-center text-center">
+          <img src="/images/assets/search_result_empty.png" style="height: 120px; border: none; opacity: 0.5" />
+          <p class="text font-bold">
+            <br>
+            Oops, produk tidak ditemukan :(
+          </p>
+          <div class="btn essence-btn " id="searchagain">Lakukan Pencarian Baru</div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -117,6 +131,10 @@ export default {
     };
   },
   methods: {
+      formatPrice(value) {
+          let val = (value/1).toFixed().replace('.', ',')
+          return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+      },
     getProducts() {
       let payload = {
         keyword: this.keyword

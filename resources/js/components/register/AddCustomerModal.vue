@@ -1,11 +1,11 @@
 <template>
   <div class="registration">
-    <div class="col-12">
+    <div class="">
       <div class="row">
-        <div class="col-md-7" style="background-color: blue">
-          <div></div>
-        </div>
-        <div class="col-md-5">
+        <!--<div class="col-md-7" style="background-color: blue">-->
+          <!--<div></div>-->
+        <!--</div>-->
+        <div class="col-md-12">
           <form>
             <div class="row">
             <div class="col-6">
@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
               <label class="label">Phone</label>
-              <input type="text" class="form-control" v-model="userCustomer.phone" required>
+              <input type="text" class="form-control form-control-sm" v-model="userCustomer.phone" required>
             </div>
 
             <label class="label">Gender</label>
@@ -97,7 +97,7 @@
               <label class="label">Confirm Password</label>
               <input id = "passwordconfirm" type="password" class="form-control form-control-sm" v-model="userCustomer.passwordconfirm" required>
             </div>
-            <button type="button" class="btn btn-primary btn-block" v-on:click="addCustomer">Register</button>
+            <button type="button" class="btn essence-btn btn-block" v-on:click="addCustomer">Register</button>
           </form>
         </div>
       </div>

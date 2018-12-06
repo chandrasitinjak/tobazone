@@ -60,7 +60,7 @@
     </div>
     <div class="row">
       <div class="col-md-12 mt-3">
-        <p class="text-center">Team UlosZone</p>
+        <p class="">Team UlosZone</p>
       </div>
     </div>
   </div>

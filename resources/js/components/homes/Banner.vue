@@ -3,41 +3,43 @@
     <div class="card globalcard">
       <div class="card-header">
         <h5 style="float: left">Inspirasi Belanja</h5>
-        <h6 style="float: right">
-          <a href="shop.html" style="color: -webkit-link">Lihat Semua Produk</a>
-        </h6>
+        <!--<h6 style="float: right">-->
+          <!--<a href="shop.html" style="color: -webkit-link">Lihat Semua Produk</a>-->
+        <!--</h6>-->
       </div>
       <div class="card-body">
-        <carousel
-            :nav="false"
-            :dots="true"
-            :items="3"
-            :loop="true"
-            :responsive="{0:{margin: 5,
-                    items: 1,
-                    autoplay: true,
-                    touchDrag:true,
-                    mouseDrag:true,
-                    loop: true,
-                    stagePadding:10,},991.88:{items: 3,
-                    touchDrag:false,
-                    mouseDrag:false,
-                    margin:7,
-                    autoplay: false}}"
-        >
-          <div class="banner_item" v-for="banner in banners">
-            <a href="single-product-details.html">
-              <img :src="'/images/' + banner.image" alt="Banner Image">
+        <div class="flex" >
+          <div class="ab d-inline-flex" v-for="banner in banners"  style="margin: 2px;
+    min-width: 300px;
+    width: 33%;" >
+            <a :href="banner.link">
+              <img :src="'/images/banners/' + banner.image" alt="Inspirasi Belanja" style="">
             </a>
           </div>
-        </carousel>
+
+        </div>
+
+        <!--<Carousel-->
+
+            <!--:nav="false"-->
+
+            <!--:paginationEnabled="true"-->
+            <!--:perPageCustom="[[0, 1], [991.88, 3]]">-->
+
+          <!--<slide class="px-2 " v-for="banner in banners">-->
+              <!---->
+          <!--</slide>-->
+
+        <!--</Carousel>-->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import carousel from "vue-owl-carousel";
+
+import { Carousel, Slide } from "vue-carousel";
+
 
 export default {
   data() {
@@ -56,7 +58,7 @@ export default {
   mounted() {
     this.getBanners();
   },
-  components: { carousel }
+  components: { Carousel, Slide }
 };
 </script>
 

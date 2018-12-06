@@ -20,6 +20,10 @@
         $('[data-toggle="test"]').popover({
             trigger: 'focus'
         });
+
+        $('#searchagain').click(function() {
+            $('#headerSearch').focus();
+        });
     });
 
 
