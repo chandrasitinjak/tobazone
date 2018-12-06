@@ -47,7 +47,7 @@ class MerchantController extends Controller
     $merchants = DB::table('model_has_roles')->where('role_id', 2)
                                              ->pluck('model_id')->toArray();
     
-    $users = User::where('email_verified_at', null)
+    $users = User::where('status', '-')
                                ->whereIn('id', $merchants)
                                ->pluck('id')->toArray();
 
@@ -62,7 +62,7 @@ class MerchantController extends Controller
 
   public function updateConfirm($id) {
     $confirm = User::find($id);
-    $confirm->email_verified_at = Carbon::now();
+    $confirm->status = "verifiedByAdmin";
     $confirm->save();
     
     return redirect('/admin/new-merchant');
