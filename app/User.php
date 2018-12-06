@@ -5,9 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
-
 use Spatie\Permission\Traits\HasRoles;
+use App\Notifications\EmailRegistration;
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
@@ -42,5 +41,9 @@ class User extends Authenticatable implements MustVerifyEmailContract
 
     public function transactions() {
         return $this->hasMany('App\Transaction');
+    }
+
+    public function sendEmailVerificationNotification() {
+        $this->notify(new EmailRegistration);
     }
 }
