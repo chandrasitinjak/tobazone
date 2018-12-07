@@ -117,7 +117,7 @@ export default {
         .post("/profile/edit/" + this.userId, payload)
         .then(res => {
           this.provicies = res.data;
-          this.dismiss()
+          window.location = "/shipping"
         })
         .catch(err => {
           console.log(err);

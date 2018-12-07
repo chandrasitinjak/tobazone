@@ -24,7 +24,7 @@
           >Rp {{ merchant.totalProductCost + merchant.totalShippingCost }}</div>
         </div>
         <div class="mt-5">
-          <button class="btn essence-btn btn-block" @click="createOrder">Bayar</button>
+          <button class="btn essence-btn btn-block" @click.prevent="createOrder" :disabled="disable">Bayar</button>
         </div>
       </div>
     </div>
@@ -39,7 +39,8 @@ export default {
   data() {
     return {
       merchants: [],
-      finalPaymentDetail: null
+      finalPaymentDetail: null,
+      disable: false,
     };
   },
   methods: {
@@ -53,6 +54,8 @@ export default {
       });
     },
     createOrder() {
+      this.disable = true
+
       window.axios
         .post("/api/transactions", this.finalPaymentDetail)
         .then(res => {

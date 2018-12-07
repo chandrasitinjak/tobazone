@@ -67180,7 +67180,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       window.axios.post("/profile/edit/" + this.userId, payload).then(function (res) {
         _this4.provicies = res.data;
-        _this4.dismiss();
+        window.location = "/shipping";
       }).catch(function (err) {
         console.log(err);
       });
@@ -68161,7 +68161,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -68214,7 +68214,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       merchants: [],
-      finalPaymentDetail: null
+      finalPaymentDetail: null,
+      disable: false
     };
   },
 
@@ -68231,6 +68232,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     },
     createOrder: function createOrder() {
+      this.disable = true;
+
       window.axios.post("/api/transactions", this.finalPaymentDetail).then(function (res) {
         window.location = "/customer/transactions/" + res.data.id;
       }).catch(function (err) {
@@ -68313,7 +68316,13 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn essence-btn btn-block",
-                  on: { click: _vm.createOrder }
+                  attrs: { disabled: _vm.disable },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.createOrder($event)
+                    }
+                  }
                 },
                 [_vm._v("Bayar")]
               )
