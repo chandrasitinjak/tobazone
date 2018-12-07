@@ -229,8 +229,7 @@ export default {
       window.axios.post(
         "/api/transaction/" + this.transactionId + "/proof-of-payment",
         formData
-      );
-      then(() => {
+      ).then(() => {
         window.location = "/customer/" + this.userId + "/orders";
       });
     },
