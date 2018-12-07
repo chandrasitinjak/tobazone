@@ -76122,7 +76122,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         keyword: this.keyword
       };
 
-      window.axios.post("/api/product/search/", payload).then(function (res) {
+      window.axios.post("/api/product/search", payload).then(function (res) {
         _this.orginalProductsData = res.data;
         _this.products = _this.orginalProductsData;
       }).catch(function (err) {
