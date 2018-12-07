@@ -179,10 +179,10 @@ export default {
     },
     getTotalPayment(payment) {
       return (
-        payment.product_cost +
-        payment.shipping_cost -
-        payment.product_discount -
-        payment.shipping_discount
+        parseInt(payment.product_cost, 10) +
+        parseInt(payment.shipping_cost, 10) -
+        parseInt(payment.product_discount, 10) -
+        parseInt(payment.shipping_discount, 10)
       );
     },
     updateDuration() {

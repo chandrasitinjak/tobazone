@@ -74010,7 +74010,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     },
     getTotalPayment: function getTotalPayment(payment) {
-      return payment.product_cost + payment.shipping_cost - payment.product_discount - payment.shipping_discount;
+      return parseInt(payment.product_cost, 10) + parseInt(payment.shipping_cost, 10) - parseInt(payment.product_discount, 10) - parseInt(payment.shipping_discount, 10);
     },
     updateDuration: function updateDuration() {
       this.duration = __WEBPACK_IMPORTED_MODULE_0_moment___default.a.duration(this.deadline.diff(__WEBPACK_IMPORTED_MODULE_0_moment___default()()));
