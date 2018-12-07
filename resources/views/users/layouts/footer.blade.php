@@ -9,7 +9,7 @@
         <p> Kami menjual Tenun Ulos terbaik dari Penenun terbaik Nusantara </p>
       </div>
       <div class=" col-md-2 ">
-        <h6 class="">Jual</h6>
+        <h6 class="">Beli</h6>
         <ul>
           <li>
             <a href="#">Cara Berbelanja</a>
@@ -20,7 +20,7 @@
         </ul>
       </div>
       <div class=" col-md-2">
-        <h6 class="">Penjual</h6>
+        <h6 class="">Jual</h6>
         <ul>
           <li>
             <a href="#">Mendaftar Jadi Penjual</a>
@@ -51,8 +51,11 @@
             <a href="https://www.instagram.com/uloszone/" class="mr-3">
               <i style="font-size: x-large" class="fa fa-instagram"></i>
             </a>
-            <a href="https://www.facebook.com/">
+            <a href="https://www.facebook.com/" class="mr-3">
               <i style="font-size: x-large" class="fa fa-facebook"></i>
+            </a>
+            <a href="https://www.facebook.com/">
+              <i style="font-size: x-large" class="fa fa-envelope-o"></i>
             </a>
           </li>
         </ul>
@@ -60,7 +63,7 @@
     </div>
     <div class="row">
       <div class="col-md-12 mt-3">
-        <p class="">Team UlosZone</p>
+         <h6>Team UlosZone</h6>
       </div>
     </div>
   </div>
