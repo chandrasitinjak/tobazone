@@ -24,14 +24,23 @@
                       <div class="col-md-8">
                         <div class="keranjang-desc-prod">
                           <h6>{{ order.product.name }}</h6>
-                          <h6 style="color: green;" v-if="transaction.payment.status === 'paid'"> Sudah dibayar </h6>
-                          <h6 style="color: red;" v-else> Belum dibayar </h6>
+                          <h6
+                            style="color: green;"
+                            v-if="transaction.payment.status === 'paid'"
+                          >Sudah dibayar</h6>
+                          <h6 style="color: red;" v-else>Belum dibayar</h6>
                           <small>
-                            <b>Jumlah :</b> {{ order.quantity }} <br/>
-                            <b>Stok Anda :</b> {{ order.product.stock }}
+                            <b>Jumlah :</b>
+                            {{ order.quantity }}
+                            <br>
+                            <b>Stok Anda :</b>
+                            {{ order.product.stock }}
                           </small>
                         </div>
-                        <div v-if="idx === transaction.orders.length - 1" class="keranjang-desc-prod">
+                        <div
+                          v-if="idx === transaction.orders.length - 1"
+                          class="keranjang-desc-prod"
+                        >
                           <small>Dikirim ke:
                             <br>
                             {{ transaction.address }}
@@ -41,20 +50,30 @@
                     </div>
                   </div>
                   <div>
-                <div>
-                  <div>
-                    <div class="quantity col-md-2">
-                      <button 
-                        class="btn btn-success btn-sm mb-2"
-                        style="display: block; width: 90px" 
-                        v-on:click="updateOrderStatus(transaction.id, 'acceptedByMerchant')">Terima</button>
-                      <button class="btn btn-danger btn-sm" 
-                        style="width: 90px" 
-                        v-on:click="updateOrderStatus(transaction.id, 'rejectedByMerchant')">Tolak</button>
+                    <div>
+                      <div>
+                        <div class="quantity col-md-2">
+                          <button
+                            class="btn btn-success btn-sm mb-2"
+                            style="display: block; width: 90px"
+                            v-on:click="updateOrderStatus(transaction.id, 'acceptedByMerchant')"
+                            v-if="transaction.payment.status !== 'paid'"
+                          >Terima</button>
+                          <button
+                            class="btn btn-success btn-sm mb-2"
+                            style="display: block; width: 90px"
+                            v-on:click="updateOrderStatus(transaction.id, 'readyForProcess')"
+                            v-else >"
+                          >Terima</button>
+                          <button
+                            class="btn btn-danger btn-sm"
+                            style="width: 90px"
+                            v-on:click="updateOrderStatus(transaction.id, 'rejectedByMerchant')"
+                          >Tolak</button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
                 </div>
               </div>
             </div>
@@ -120,11 +139,11 @@ export default {
     updateOrderStatus(id, status) {
       const payload = {
         status: status
-      }
+      };
       window.axios
         .post("/api/merchant/orders/" + id, payload)
         .then(res => {
-          this.getProducts()
+          this.getProducts();
         })
         .catch(err => {
           console.log(err);
