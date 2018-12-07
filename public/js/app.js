@@ -66626,14 +66626,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                   total: 1,
                   userId: this.userId
                 };
-
-                console.log(payload);
-                _context.next = 4;
+                _context.next = 3;
                 return window.axios.post("/api/carts", payload).then(function (res) {
                   _this.emitEvent(res.data);
                 });
 
-              case 4:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -66648,7 +66646,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       return addToCart;
     }(),
     emitEvent: function emitEvent(data) {
-      __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("CART_ADDED", data);
+      __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("CART_UPDATED", data);
     }
   },
   mounted: function mounted() {}
