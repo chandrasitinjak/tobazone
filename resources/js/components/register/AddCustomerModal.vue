@@ -126,9 +126,6 @@ export default {
     };
   },
   methods: {
-    dismiss() {
-      EventBus.$emit("ADD_ADDRESS_MODAL_CLOSED", null);
-    },
     getProvincies() {
       window.axios
         .get("/api/provincies")
@@ -184,9 +181,9 @@ export default {
 
       window.axios
         .post("/register", payload)
-        .then(res => {
-          this.provicies = res.data;
-          this.dismiss()
+        .then(() => {
+          window.location = "/"
+          console.log("reditrectttttttttttttttt")
         })
         .catch(err => {
           console.log(err);

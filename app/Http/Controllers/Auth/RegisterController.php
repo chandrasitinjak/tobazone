@@ -37,7 +37,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/email/verify';
 
     /**
      * Create a new controller instance.
@@ -126,10 +126,10 @@ class RegisterController extends Controller
                 $status = "Your e-mail is already verified. You can now login.";
             }
         }else{
-            return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
+            return redirect('/')->with('warning', "Sorry your email cannot be identified.");
         }
 
-        return redirect('/login')->with('status', $status);
+        return redirect('/')->with('status', $status);
     }
 
     public function confirm($confirmation_code)

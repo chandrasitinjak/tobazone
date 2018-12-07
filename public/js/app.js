@@ -69823,9 +69823,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
-    dismiss: function dismiss() {
-      __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("ADD_ADDRESS_MODAL_CLOSED", null);
-    },
     getProvincies: function getProvincies() {
       var _this = this;
 
@@ -69854,8 +69851,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     },
     addCustomer: function addCustomer() {
-      var _this4 = this;
-
       var payload = {
         provinceId: this.userCustomer.selectedProvince.id,
         cityId: this.userCustomer.selectedCity.id,
@@ -69878,9 +69873,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         role: 'customer'
       };
 
-      window.axios.post("/register", payload).then(function (res) {
-        _this4.provicies = res.data;
-        _this4.dismiss();
+      window.axios.post("/register", payload).then(function () {
+        window.location = "/";
+        console.log("reditrectttttttttttttttt");
       }).catch(function (err) {
         console.log(err);
       });
