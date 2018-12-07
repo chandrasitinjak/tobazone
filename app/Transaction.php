@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    protected $fillable = ['customer_id', 'merchant_id', 'address', 'additional_info', 'status'];
+    protected $fillable = ['customer_id', 'merchant_id', 'address', 'status'];
 
     public function merchant() {
         return $this->belongsTo('App\User', 'merchant_id');
