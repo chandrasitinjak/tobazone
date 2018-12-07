@@ -46,14 +46,10 @@
                                 </div>
                             </div>
 
-                            <div class="row form-group">
-                                <div class="col col-md-3">
-                                    <label for="file-input" class=" form-control-label">Image</label>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="file-input" class=" form-control-label"> Image </label></div>
+                                    <div class="col-12 col-md-9"><input type="file" id="file-input" name="image" class="form-control-file"></div>
                                 </div>
-                                <div class="col-12 col-md-9">
-                                    <input type="file" name="image" class="form-control">
-                                </div>
-                            </div>
                         </div>
                         
                         <div class="card-footer">
