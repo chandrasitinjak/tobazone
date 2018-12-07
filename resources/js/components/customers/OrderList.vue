@@ -218,12 +218,13 @@ export default {
         });
     },
     getTotalPayment(payment) {
-      return (
-        payment.product_cost +
-        payment.shipping_cost -
-        payment.product_discount -
-        payment.shipping_discount
-      );
+      let total = 0
+      total += parseInt(payment.product_cost, 10)
+      total += parseInt(payment.shipping_cost, 10)
+      total -= parseInt(payment.product_discount, 10)
+      total -= parseInt(payment.shipping_discount, 10)
+
+      return total;
     }
   },
   mounted() {
