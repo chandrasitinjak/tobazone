@@ -141,7 +141,7 @@ export default {
       }
 
       window.axios
-        .post("/api/product/search", payload)
+        .get("/api/product/search?keyword=" + this.keyword)
         .then(res => {
           this.orginalProductsData = res.data;
           this.products = this.orginalProductsData;
