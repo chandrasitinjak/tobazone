@@ -18,7 +18,7 @@
                             <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
                             <div class="stat-content dib">
                                 <div class="stat-text">Total Order</div>
-                                <div class="stat-digit"><?php $counts ?></div>
+                                <div class="stat-digit">{{ $countOrder }}</div>
                             </div>
                         </div>
                     </div>
@@ -32,8 +32,8 @@
                         <div class="stat-widget-one">
                             <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
                             <div class="stat-content dib">
-                                <div class="stat-text">New Customer</div>
-                                <div class="stat-digit">961</div>
+                                <div class="stat-text">Total Merchant</div>
+                                <div class="stat-digit">{{ $countMerchant }}</div>
                             </div>
                         </div>
                     </div>
@@ -46,8 +46,8 @@
                         <div class="stat-widget-one">
                             <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
                             <div class="stat-content dib">
-                                <div class="stat-text">Active Projects</div>
-                                <div class="stat-digit">770</div>
+                                <div class="stat-text">Total Customer</div>
+                                <div class="stat-digit">{{ $countCustomer }}</div>
                             </div>
                         </div>
                     </div>

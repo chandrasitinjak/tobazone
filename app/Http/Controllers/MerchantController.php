@@ -95,8 +95,6 @@ class MerchantController extends Controller
   
     $profile = $profiles->find($id);
     
-    dd($profile);
-    
     foreach($profiles as $profile) {
       $profile->address = json_decode(json_decode($profile->address)[0]);
     }

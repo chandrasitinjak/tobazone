@@ -3,19 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Transaction;
+use DB;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
   public function index()
   {
-    return view('admin.index');
-  }
+    $countOrder = Transaction::all()->count();
 
-  public function countOrder()
-  {
-    $count = Order::where('status','=','pending')->count();
-
-    return view('admin.index')->with('counts', $count);
+    $countMerchant = DB::table('model_has_roles')->where('role_id', 2)->count();
+     
+    $countCustomer = DB::table('model_has_roles')->where('role_id', 3)->count();
+    
+    return view('admin.index')
+    ->with('countOrder', $countOrder)
+    ->with('countMerchant', $countMerchant)
+    ->with('countCustomer', $countCustomer);
+         
   }
  
 }
