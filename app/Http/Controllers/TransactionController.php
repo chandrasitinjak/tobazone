@@ -49,6 +49,11 @@ class TransactionController extends Controller
         return view('admin.orders.unpaid-order')->with('transactions', $transactions);
     }
 
+    public function getSuccessedOrder() {
+        $transactions = Transaction::with('orders')->where('status', 'orderSuccessed')->get();
+        return view('admin.orders.successed-order')->with('transactions', $transactions);
+    }
+
     public function getInvalidOrder() {
         $transactions = Transaction::with('orders')->whereIn('status', ['invalidProofOfPayment'])->get();
         return view('admin.orders.invalid-order')->with('transactions', $transactions);

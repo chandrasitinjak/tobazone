@@ -22,6 +22,7 @@
                 <li> <a href="{{ url('/admin/paid-order')}}"> <i class="menu-icon fa fa-archive"></i> Paid Order </a> </li>
                 <li> <a href="{{ url('/admin/invalid-order')}}"> <i class="menu-icon fa fa-archive"></i> Invalid Order </a> </li>
                 <li> <a href="{{ url('/admin/onprocess-order')}}"> <i class="menu-icon fa fa-archive"></i> On Process Order </a> </li>
+                <li> <a href="{{ url('/admin/successed-order')}}"> <i class="menu-icon fa fa-archive"></i> Successed Order </a> </li>
 
                 <h3 class="menu-title">View</h3>
                 <li> <a href="{{ url('/banners')}}"> <i class="menu-icon fa fa-key"></i> Banner </a> </li>

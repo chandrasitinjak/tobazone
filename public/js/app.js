@@ -74200,7 +74200,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -74369,9 +74369,88 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['transactionId'],
+  props: ["transactionId", "customerId"],
   data: function data() {
     return {
       transaction: {},
@@ -74387,9 +74466,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         console.log(res.data);
         _this.transaction = res.data.transaction;
         _this.trackings = res.data.tracking.rajaongkir.result.manifest;
+        _this.updateStatus(res.data.tracking.rajaongkir.result.delivered);
       }).catch(function (err) {
         console.log(err);
       });
+    },
+    updateStatus: function updateStatus(delivered) {
+      var _this2 = this;
+
+      var payload = {
+        status: "orderSuccessed"
+      };
+
+      if (delivered && this.transaction.status !== "orderSuccessed") {
+        window.axios.post("/api/merchant/orders/" + this.transactionId, payload).then(function () {
+          window.location = "/customer/" + _this2.customerId + "/transactions/" + _this2.transactionId + "/tracking";
+        });
+      }
     }
   },
   mounted: function mounted() {
@@ -74415,7 +74508,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "row detail mb-2" }, [
           _c("div", { staticClass: "col-md-3 col-sm-1" }, [
-            _vm._v(" " + _vm._s(_vm.transaction.created_at))
+            _vm._v(_vm._s(_vm.transaction.created_at))
           ]),
           _vm._v(" "),
           _c(
@@ -74440,11 +74533,7 @@ var render = function() {
             _c("br"),
             _vm._v(" "),
             _c("small", [
-              _vm._v(
-                " " +
-                  _vm._s(JSON.parse(_vm.transaction.payment.proof)["bank"]) +
-                  " "
-              )
+              _vm._v(_vm._s(JSON.parse(_vm.transaction.payment.proof)["bank"]))
             ])
           ])
         ]),
@@ -74454,11 +74543,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "row detail" }, [
             _c("div", { staticClass: "col-md-6 small" }, [
-              _vm._v(
-                " \n            " +
-                  _vm._s(_vm.transaction.address) +
-                  "\n          "
-              )
+              _vm._v(_vm._s(_vm.transaction.address))
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-3 small" }, [
@@ -74557,7 +74642,9 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-5 col-xs-12" }, [
                           _c("div", { staticClass: "keranjang-desc-prod" }, [
-                            _c("h6", [_vm._v("Ulos Ragihotang")]),
+                            _c("h6", [
+                              _vm._v(" " + _vm._s(order.product.name))
+                            ]),
                             _vm._v(" "),
                             _c(
                               "h6",
@@ -74567,11 +74654,7 @@ var render = function() {
                                   display: "inline"
                                 }
                               },
-                              [
-                                _vm._v(
-                                  "Rp " + _vm._s(order.product.price) + " "
-                                )
-                              ]
+                              [_vm._v("Rp " + _vm._s(order.product.price))]
                             ),
                             _vm._v(" "),
                             _c("small", [_vm._v("/ unit")]),
@@ -74584,14 +74667,16 @@ var render = function() {
                           ])
                         ]),
                         _vm._v(" "),
-                        _vm._m(3, true)
+                        _vm._m(3, true),
+                        _vm._v(" "),
+                        _vm._m(4, true)
                       ])
                     })
                   )
                 ]
               ),
               _vm._v(" "),
-              _vm._m(4),
+              _vm._m(5),
               _vm._v(" "),
               _c("div", { staticClass: "row detail mb-2" }, [
                 _c("div", { staticClass: "col-md-3" }, [
@@ -74624,7 +74709,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(5),
+              _vm._m(6),
               _vm._v(" "),
               _c(
                 "div",
@@ -74641,27 +74726,21 @@ var render = function() {
                           "table table-striped table-responsive-sm table-sm"
                       },
                       [
-                        _vm._m(6),
+                        _vm._m(7),
                         _vm._v(" "),
                         _c(
                           "tbody",
                           _vm._l(_vm.trackings, function(tracking) {
                             return _c("tr", { staticClass: "light" }, [
                               _c("td", [
-                                _vm._v(
-                                  " " +
-                                    _vm._s(tracking.manifest_description) +
-                                    " "
-                                )
+                                _vm._v(_vm._s(tracking.manifest_description))
                               ]),
                               _vm._v(" "),
                               _c("td", [
                                 _vm._v(
-                                  " " +
-                                    _vm._s(tracking.manifest_date) +
-                                    "  " +
-                                    _vm._s(tracking.manifest_time) +
-                                    " "
+                                  _vm._s(tracking.manifest_date) +
+                                    " " +
+                                    _vm._s(tracking.manifest_time)
                                 )
                               ])
                             ])
@@ -74759,6 +74838,175 @@ var staticRenderFns = [
         [_vm._v("Lihat Ulasan")]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "tulisulasan",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalCenterTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered modal-lg",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "exampleModalCenterTitle" }
+                  },
+                  [_vm._v("Tulis Ulasan")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "modal-body row justify-content-md-center" },
+                [
+                  _vm._v(
+                    "Kami ingin melayani anda dengan lebih baik, silahkan beri penilaian pengalaman berbelanja Anda\n                          "
+                  ),
+                  _c("div", { staticClass: "col-md-10" }, [
+                    _c("div", { staticClass: "detailorder mt-2" }, [
+                      _c("div", { staticClass: "card" }, [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "row singleorderprod",
+                              staticStyle: { "padding-bottom": "10px" }
+                            },
+                            [
+                              _c("div", { staticClass: "col-md-12" }, [
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col-md-2" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "imgwrapper detailpesanan",
+                                        staticStyle: {
+                                          padding: "0px",
+                                          height: "auto"
+                                        }
+                                      },
+                                      [
+                                        _c("img", {
+                                          staticStyle: { height: "auto" },
+                                          attrs: {
+                                            src:
+                                              "img/product-img/product-2.jpg",
+                                            alt: "Card image cap"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-md-10" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "keranjang-desc-prod" },
+                                      [
+                                        _c("h6", [
+                                          _vm._v(
+                                            "Ulos Ragihotang dan kawankawana asdhaskjdh"
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "h6",
+                                          {
+                                            staticStyle: {
+                                              color: "#FF5205",
+                                              display: "inline"
+                                            }
+                                          },
+                                          [_vm._v("Rp 12321")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("small", [_vm._v("/unit")]),
+                                        _vm._v(" "),
+                                        _c("br"),
+                                        _vm._v(" "),
+                                        _c("small", [_vm._v("Jumlah 1")])
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-12 mt-2" }, [
+                    _vm._v(
+                      "Berikan komentar anda tentang produk:\n                            "
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("form", [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("textarea", {
+                          staticClass: "form-control",
+                          attrs: { id: "textareakomentar", rows: "3" }
+                        })
+                      ])
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary btn-sm",
+                    attrs: { type: "button" }
+                  },
+                  [_vm._v("Kirim Ulasan")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this

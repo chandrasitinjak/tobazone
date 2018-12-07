@@ -17,11 +17,14 @@
         </div>
 
         <div class="row detail mb-2">
-          <div class="col-md-3 col-sm-1"> {{ transaction.created_at }}</div>
-          <div class="col-sm-3 col-sm-1 bold" style="color: orangered">Rp {{ transaction.payment.product_cost + transaction.payment.shipping_cost }}</div>
+          <div class="col-md-3 col-sm-1">{{ transaction.created_at }}</div>
+          <div
+            class="col-sm-3 col-sm-1 bold"
+            style="color: orangered"
+          >Rp {{ transaction.payment.product_cost + transaction.payment.shipping_cost }}</div>
           <div class="col-sm-2">Pembayaran diterima
             <br>
-            <small> {{ JSON.parse(transaction.payment.proof)['bank'] }} </small>
+            <small>{{ JSON.parse(transaction.payment.proof)['bank'] }}</small>
           </div>
         </div>
         <div class="mt-4">
@@ -31,9 +34,7 @@
           </div>
 
           <div class="row detail">
-            <div class="col-md-6 small"> 
-              {{ transaction.address }}
-            </div>
+            <div class="col-md-6 small">{{ transaction.address }}</div>
             <div class="col-sm-3 small">
               <table class="table table-striped table-responsive-sm table-sm">
                 <tbody>
@@ -65,13 +66,16 @@
                   <div class="row" v-for="order in transaction.orders">
                     <div class="col-sm-3 col-xs-12">
                       <div class="imgwrapper detailpesanan" style="padding: 0px; height: auto">
-                        <img :src="'/images/' + JSON.parse(order.product.images)[0]" alt="Card image cap">
+                        <img
+                          :src="'/images/' + JSON.parse(order.product.images)[0]"
+                          alt="Card image cap"
+                        >
                       </div>
                     </div>
                     <div class="col-sm-5 col-xs-12">
                       <div class="keranjang-desc-prod">
-                        <h6>Ulos Ragihotang</h6>
-                        <h6 style="color: #FF5205; display: inline;">Rp {{order.product.price}} </h6>
+                        <h6> {{ order.product.name }}</h6>
+                        <h6 style="color: #FF5205; display: inline;">Rp {{order.product.price}}</h6>
                         <small>/ unit</small>
                         <br>
                         <small>Jumlah {{ order.quantity }}</small>
@@ -93,6 +97,81 @@
                         style="width: 150px"
                         role="button"
                       >Lihat Ulasan</a>
+                    </div>
+                    <div
+                      class="modal fade"
+                      id="tulisulasan"
+                      tabindex="-1"
+                      role="dialog"
+                      aria-labelledby="exampleModalCenterTitle"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Tulis Ulasan</h5>
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div
+                            class="modal-body row justify-content-md-center"
+                          >Kami ingin melayani anda dengan lebih baik, silahkan beri penilaian pengalaman berbelanja Anda
+                            <div class="col-md-10">
+                              <div class="detailorder mt-2">
+                                <div class="card">
+                                  <div class="card-body">
+                                    <div class="row singleorderprod" style=" padding-bottom: 10px">
+                                      <div class="col-md-12">
+                                        <div class="row">
+                                          <div class="col-md-2">
+                                            <div
+                                              class="imgwrapper detailpesanan"
+                                              style="padding: 0px; height: auto"
+                                            >
+                                              <img
+                                                src="img/product-img/product-2.jpg"
+                                                alt="Card image cap"
+                                                style="height: auto"
+                                              >
+                                            </div>
+                                          </div>
+                                          <div class="col-md-10">
+                                            <div class="keranjang-desc-prod">
+                                              <h6>Ulos Ragihotang dan kawankawana asdhaskjdh</h6>
+                                              <h6 style="color: #FF5205; display: inline;">Rp 12321</h6>
+                                              <small>/unit</small>
+                                              <br>
+                                              <small>Jumlah 1</small>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-12 mt-2">Berikan komentar anda tentang produk:
+                              <br>
+                              <form>
+                                <div class="form-group">
+                                  <textarea class="form-control" id="textareakomentar" rows="3"></textarea>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary btn-sm">Kirim Ulasan</button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -141,8 +220,8 @@
                     </thead>
                     <tbody>
                       <tr v-for="tracking in trackings" class="light">
-                        <td> {{ tracking.manifest_description}} </td>
-                        <td> {{ tracking.manifest_date }}  {{ tracking.manifest_time }} </td>
+                        <td>{{ tracking.manifest_description}}</td>
+                        <td>{{ tracking.manifest_date }} {{ tracking.manifest_time }}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -158,7 +237,7 @@
 
 <script>
 export default {
-  props: ['transactionId'],
+  props: ["transactionId", "customerId"],
   data() {
     return {
       transaction: {},
@@ -170,18 +249,37 @@ export default {
       window.axios
         .get("/api/transaction/" + this.transactionId + "/tracking")
         .then(res => {
-          console.log(res.data)
-          this.transaction = res.data.transaction
-          this.trackings = res.data.tracking.rajaongkir.result.manifest
+          console.log(res.data);
+          this.transaction = res.data.transaction;
+          this.trackings = res.data.tracking.rajaongkir.result.manifest;
+          this.updateStatus(res.data.tracking.rajaongkir.result.delivered);
         })
         .catch(err => {
           console.log(err);
         });
+    },
+    updateStatus(delivered) {
+      let payload = {
+        status: "orderSuccessed"
+      };
+
+      if (delivered && this.transaction.status !== "orderSuccessed") {
+        window.axios
+          .post("/api/merchant/orders/" + this.transactionId, payload)
+          .then(() => {
+            window.location =
+              "/customer/" +
+              this.customerId +
+              "/transactions/" +
+              this.transactionId +
+              "/tracking";
+          });
+      }
     }
   },
   mounted() {
     this.getTransaction();
-    console.log(this.transactionId)
+    console.log(this.transactionId);
   }
 };
 </script>
