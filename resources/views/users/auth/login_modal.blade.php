@@ -1,9 +1,9 @@
 <div class="modal fade loginmodal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
-     data-backdrop="true">
+  data-backdrop="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header ">
-          <h3 class="modal-title" style="margin: auto">Ulos Zone</h3>
+        <h3 class="modal-title" style="margin: auto">Ulos Zone</h3>
         <button type="button" class="close p-0 m-0" data-dismiss="modal" aria-label="Close" style="">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -43,39 +43,11 @@
         <button type="button" class="btn essence-btn btn-block" onclick="login()">Login</button>
       </div>
 
-
       <div class="modal-footer border-0 justify-content-between px-5">
         <p> Belum punya akun?
           <a href="{{ url('/register')}}" class="" style="font-weight: 800; color: #4b1815">Daftar disini</a>
         </p>
-
-
       </div>
     </div>
   </div>
 </div>
-
-<script>
-    async function login() {
-        const email = document.getElementById('email').value
-        const password = document.getElementById('password').value
-
-        await jQuery.ajax({
-            url: '/login',
-            type: 'POST',
-            data: {
-                email: email,
-                password: password,
-                _token: "{{ csrf_token() }}"
-            },
-            dataType: 'json',
-            success: function() {
-
-            },
-            complete: () => {
-            window.location.reload();
-    }
-    })
-    }
-
-</script>

@@ -2,9 +2,6 @@
   <div class="registration">
     <div class="">
       <div class="row">
-        <!--<div class="col-md-7" style="background-color: blue">-->
-          <!--<div></div>-->
-        <!--</div>-->
         <div class="col-md-12">
           <form>
             <div class="row">
@@ -74,14 +71,10 @@
               </div>
             </div>
 
-
-
             <div class="form-group">
               <label class="label">Alamat Rinci</label>
               <textarea v-model="userCustomer.addressDetail" class="form-control form-control-sm" rows="3"></textarea>
             </div>
-
-
 
             <div class="form-group">
               <label class="label">Birthday</label>
@@ -205,6 +198,3 @@ export default {
   }
 };
 </script>
-
-<style>
-</style>

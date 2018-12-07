@@ -29882,10 +29882,6 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(241)
-}
 var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(243)
@@ -29894,7 +29890,7 @@ var __vue_template__ = __webpack_require__(244)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = injectStyle
+var __vue_styles__ = null
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -41802,17 +41798,14 @@ window.Vue = __webpack_require__(19);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var CarouselAsd = __webpack_require__(171);
+var Carousel = __webpack_require__(171);
 var NewProducts = __webpack_require__(177);
 var Banner = __webpack_require__(183);
-var CardSwiper = __webpack_require__(186);
 var CartIcon = __webpack_require__(189);
 var AddToCartButton = __webpack_require__(194);
 var Cart = __webpack_require__(197);
 var ShippingPage = __webpack_require__(200);
 var ProductListMerchantPage = __webpack_require__(225);
-var MerchantPage = __webpack_require__(230);
-var CustomerPage = __webpack_require__(237);
 var OrderListMerchantPage = __webpack_require__(246);
 var OnProcessOrderListMerchantPage = __webpack_require__(251);
 var OrderListCustomerPage = __webpack_require__(256);
@@ -41822,105 +41815,30 @@ var RegCustomer = __webpack_require__(21);
 var RegMerchant = __webpack_require__(20);
 var TrackingPage = __webpack_require__(272);
 var SearchProduct = __webpack_require__(277);
+var LoginModal = __webpack_require__(286);
 
-new Vue({
+var app = new Vue({
   el: '#app',
-  components: { CarouselAsd: CarouselAsd }
-});
-
-new Vue({
-  el: '#new-product',
-  components: { NewProducts: NewProducts }
-});
-
-new Vue({
-  el: '#card-swiper',
-  components: { CardSwiper: CardSwiper }
-});
-
-new Vue({
-  el: '#banner',
-  components: { Banner: Banner }
-});
-
-new Vue({
-  el: '#cart-icon',
-  components: { CartIcon: CartIcon }
-});
-
-new Vue({
-  el: '#add-to-cart-button',
-  components: { AddToCartButton: AddToCartButton }
-});
-
-new Vue({
-  el: '#cart',
-  components: { Cart: Cart }
-});
-
-new Vue({
-  el: '#shipping-page',
-  components: { ShippingPage: ShippingPage }
-});
-
-new Vue({
-  el: '#product-list',
-  components: { ProductListMerchantPage: ProductListMerchantPage }
-});
-
-new Vue({
-  el: '#merchant-page',
-  components: { MerchantPage: MerchantPage }
-});
-
-new Vue({
-  el: '#customer-page',
-  components: { CustomerPage: CustomerPage }
-});
-
-new Vue({
-  el: '#order-list-merchant',
-  components: { OrderListMerchantPage: OrderListMerchantPage }
-});
-
-new Vue({
-  el: '#order-list-customer',
-  components: { OrderListCustomerPage: OrderListCustomerPage }
-});
-
-new Vue({
-  el: '#payment-confirmation',
-  components: { PaymentConfirmation: PaymentConfirmation }
-});
-
-new Vue({
-  el: '#blog-list',
-  components: { BlogList: BlogList }
-});
-
-new Vue({
-  el: '#reg-customer',
-  components: { RegCustomer: RegCustomer }
-});
-
-new Vue({
-  el: '#reg-merchant',
-  components: { RegMerchant: RegMerchant }
-});
-
-new Vue({
-  el: '#on-process-order-list',
-  components: { OnProcessOrderListMerchantPage: OnProcessOrderListMerchantPage }
-});
-
-new Vue({
-  el: "#tracking-page",
-  components: { TrackingPage: TrackingPage }
-});
-
-new Vue({
-  el: "#search-product",
-  components: { SearchProduct: SearchProduct }
+  components: {
+    Carousel: Carousel,
+    NewProducts: NewProducts,
+    Banner: Banner,
+    SearchProduct: SearchProduct,
+    CartIcon: CartIcon,
+    OrderListCustomerPage: OrderListCustomerPage,
+    Cart: Cart,
+    AddToCartButton: AddToCartButton,
+    ShippingPage: ShippingPage,
+    TrackingPage: TrackingPage,
+    PaymentConfirmation: PaymentConfirmation,
+    RegCustomer: RegCustomer,
+    RegMerchant: RegMerchant,
+    BlogList: BlogList,
+    ProductListMerchantPage: ProductListMerchantPage,
+    OrderListMerchantPage: OrderListMerchantPage,
+    OnProcessOrderListMerchantPage: OnProcessOrderListMerchantPage,
+    LoginModal: LoginModal
+  }
 });
 
 /***/ }),
@@ -64286,7 +64204,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -64371,16 +64289,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 // import carousel from "vue-owl-carousel";
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: "carousel",
   components: { Carousel: __WEBPACK_IMPORTED_MODULE_0_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_0_vue_carousel__["Slide"] },
   data: function data() {
     return {
@@ -64394,7 +64308,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       window.axios.get("/get-carousels").then(function (res) {
         _this.carousels = res.data;
-        console.log(_this.carousels);
       });
     }
   },
@@ -65769,590 +65682,9 @@ if (false) {
 }
 
 /***/ }),
-/* 186 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(187)
-/* template */
-var __vue_template__ = __webpack_require__(188)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/homes/CardSwiper.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7a7f1e0e", Component.options)
-  } else {
-    hotAPI.reload("data-v-7a7f1e0e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 187 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log("CardSwiper mounted.");
-  }
-});
-
-/***/ }),
-/* 188 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 mt-4" }, [
-      _c("div", { staticClass: "card globalcard" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c(
-            "div",
-            {
-              staticClass: "carousel slide",
-              attrs: {
-                id: "carouselExampleIndicators",
-                "data-ride": "carousel"
-              }
-            },
-            [
-              _c("ol", { staticClass: "carousel-indicators" }, [
-                _c("li", {
-                  staticClass: "active",
-                  attrs: {
-                    "data-target": "#carouselExampleIndicators",
-                    "data-slide-to": "0"
-                  }
-                }),
-                _vm._v(" "),
-                _c("li", {
-                  attrs: {
-                    "data-target": "#carouselExampleIndicators",
-                    "data-slide-to": "1"
-                  }
-                }),
-                _vm._v(" "),
-                _c("li", {
-                  attrs: {
-                    "data-target": "#carouselExampleIndicators",
-                    "data-slide-to": "2"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "carousel-inner" }, [
-                _c("div", { staticClass: "carousel-item active" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-33.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-44.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-22.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-44.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "carousel-item" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-33.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-44.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-22.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-3" }, [
-                      _c("div", { staticClass: "card product" }, [
-                        _c("div", { staticClass: "imgwrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/user-assets/img/product-img/product-44.jpg",
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("p", { staticClass: "card-title productname" }, [
-                            _vm._v("Ulos Ragihotang asdjahslkd")
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                            _vm._v(" Rp 2.400.000")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text float-right" }, [
-                            _c("small", { staticClass: "text-muted" }, [
-                              _vm._v("Balige")
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "carousel-control-prev",
-                  staticStyle: { "margin-left": "-20px" },
-                  attrs: {
-                    href: "#carouselExampleIndicators",
-                    role: "button",
-                    "data-slide": "prev"
-                  }
-                },
-                [
-                  _c("span", {
-                    staticClass: "carousel-control-prev-icon",
-                    staticStyle: {
-                      "background-color": "black",
-                      padding: "10px",
-                      height: "50px",
-                      width: "30px"
-                    },
-                    attrs: { "aria-hidden": "true" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "carousel-control-next",
-                  attrs: {
-                    href: "#carouselExampleIndicators",
-                    role: "button",
-                    "data-slide": "next"
-                  }
-                },
-                [
-                  _c("span", {
-                    staticClass: "carousel-control-next-icon",
-                    staticStyle: {
-                      "background-color": "black",
-                      padding: "10px",
-                      height: "50px",
-                      width: "30px"
-                    },
-                    attrs: { "aria-hidden": "true" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-                ]
-              )
-            ]
-          )
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7a7f1e0e", module.exports)
-  }
-}
-
-/***/ }),
+/* 186 */,
+/* 187 */,
+/* 188 */,
 /* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -69642,158 +68974,16 @@ if (false) {
 }
 
 /***/ }),
-/* 230 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(231)
-}
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(233)
-/* template */
-var __vue_template__ = __webpack_require__(236)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/register/MerchantChooser.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-9f2d72dc", Component.options)
-  } else {
-    hotAPI.reload("data-v-9f2d72dc", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 231 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(232);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("66cdfa36", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9f2d72dc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MerchantChooser.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9f2d72dc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MerchantChooser.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 232 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 233 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddMerchantModal__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddMerchantModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__AddMerchantModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      showModalMerchant: false
-    };
-  },
-
-  components: {
-    ModalMerchant: __WEBPACK_IMPORTED_MODULE_0__AddMerchantModal___default.a
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$on("ADD_MERCHANT_MODAL_CLOSED", function () {
-      _this.showModalMerchant = false;
-    });
-  }
-});
-
-/***/ }),
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
 /* 234 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(5);
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -70491,237 +69681,19 @@ if (false) {
 }
 
 /***/ }),
-/* 236 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "card globalcard" },
-    [
-      _c("div", { staticClass: "card-header" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-7" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-sm btn-outline-primary float-right",
-                on: {
-                  click: function($event) {
-                    _vm.showModalMerchant = !_vm.showModalMerchant
-                  }
-                }
-              },
-              [_vm._v("Merchant")]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm.showModalMerchant ? _c("modal-merchant") : _vm._e()
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-9f2d72dc", module.exports)
-  }
-}
-
-/***/ }),
-/* 237 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(238)
-}
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(240)
-/* template */
-var __vue_template__ = __webpack_require__(245)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/register/CustomerChooser.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-54bff288", Component.options)
-  } else {
-    hotAPI.reload("data-v-54bff288", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 238 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(239);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("d5af43e8", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-54bff288\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CustomerChooser.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-54bff288\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CustomerChooser.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 239 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 240 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddCustomerModal__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddCustomerModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__AddCustomerModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      showModalCustomer: false
-    };
-  },
-
-  components: {
-    ModalCustomer: __WEBPACK_IMPORTED_MODULE_0__AddCustomerModal___default.a
-  }
-});
-
-/***/ }),
-/* 241 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(242);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("3a4d9e62", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-08da9f9f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AddCustomerModal.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-08da9f9f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AddCustomerModal.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 242 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
 /* 243 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(5);
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -71405,52 +70377,7 @@ if (false) {
 }
 
 /***/ }),
-/* 245 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "card globalcard" },
-    [
-      _c("div", { staticClass: "card-header" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-7" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-sm btn-outline-primary float-right",
-                on: {
-                  click: function($event) {
-                    _vm.showModalCustomer = !_vm.showModalCustomer
-                  }
-                }
-              },
-              [_vm._v("Customer")]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm.showModalCustomer ? _c("modal-customer") : _vm._e()
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-54bff288", module.exports)
-  }
-}
-
-/***/ }),
+/* 245 */,
 /* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -76567,6 +75494,474 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(287)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(289)
+/* template */
+var __vue_template__ = __webpack_require__(290)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/auths/LoginModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-36b037f3", Component.options)
+  } else {
+    hotAPI.reload("data-v-36b037f3", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 287 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(288);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("a22a5912", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-36b037f3\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LoginModal.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-36b037f3\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LoginModal.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 288 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 289 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    login: function login() {}
+  },
+  mounted: function mounted() {
+    console.log("wjasdfa");
+  }
+});
+
+/***/ }),
+/* 290 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "col-md-12 payment globalcard" }, [
+      _c("div", { staticClass: "row justify-content-md-center" }, [
+        _c("div", { staticClass: "card col-md-12" }, [
+          _c("div", { staticClass: "row justify-content-md-center" }, [
+            _c("div", { staticClass: "card col-6 my-3" }, [
+              _c("div", [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("div", { staticClass: "text-muted mb-2" }, [
+                    _vm._v("Upload Bukti Pembayaran")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block btn-primary",
+                      attrs: {
+                        type: "button",
+                        "data-toggle": "modal",
+                        "data-target": "#exampleModal"
+                      }
+                    },
+                    [_vm._v("Upload Bukti Pembayaran")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal fade",
+                      attrs: {
+                        id: "exampleModal",
+                        tabindex: "-1",
+                        role: "dialog",
+                        "aria-labelledby": "exampleModalLabel",
+                        "aria-hidden": "true"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal-dialog modal-dialog-centered",
+                          attrs: { role: "document" }
+                        },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _vm._m(0),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-body" }, [
+                              _c("form", [
+                                _c("div", { staticClass: "form-group" }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "small",
+                                      attrs: { for: "namapengirim" }
+                                    },
+                                    [_vm._v("Nama Pengirim")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.senderName,
+                                        expression: "senderName"
+                                      }
+                                    ],
+                                    staticClass: "form-control form-control-sm",
+                                    attrs: {
+                                      type: "text",
+                                      id: "namapengirim",
+                                      "aria-describedby": "emailHelp",
+                                      placeholder: "Nama Pengirim"
+                                    },
+                                    domProps: { value: _vm.senderName },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.senderName = $event.target.value
+                                      }
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group" }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "small",
+                                      attrs: { for: "utkbank" }
+                                    },
+                                    [_vm._v("Bank Tujuan")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "select",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.selectedBank,
+                                          expression: "selectedBank"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: { id: "utkbank" },
+                                      on: {
+                                        change: function($event) {
+                                          var $$selectedVal = Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function(o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function(o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                          _vm.selectedBank = $event.target
+                                            .multiple
+                                            ? $$selectedVal
+                                            : $$selectedVal[0]
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "option",
+                                        { attrs: { value: "BNI" } },
+                                        [_vm._v("BNI")]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group" }, [
+                                  _c(
+                                    "label",
+                                    { staticClass: "col-form-label" },
+                                    [_vm._v("Bukti Pembayaran")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-sm-9" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "upload-btn-wrapper" },
+                                      [
+                                        _vm._m(1),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          attrs: {
+                                            type: "file",
+                                            name: "myfile"
+                                          },
+                                          on: { change: _vm.onFileChanged }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("small", {
+                                      staticClass: "form-text text-muted",
+                                      attrs: { id: "" }
+                                    })
+                                  ])
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-footer" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  attrs: { type: "button" },
+                                  on: { click: _vm.uploadProofOfPayment }
+                                },
+                                [_vm._v("Upload")]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Upload Bukti Bayar")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "btn-upcus", staticStyle: { margin: "auto" } },
+      [
+        _c("img", {
+          staticStyle: { height: "100px" },
+          attrs: { src: "/images/assets/addimage.png" }
+        })
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-36b037f3", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

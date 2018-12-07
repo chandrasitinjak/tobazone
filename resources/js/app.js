@@ -15,17 +15,14 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const CarouselAsd = require('./components/homes/Carousel')
+const Carousel = require('./components/homes/Carousel')
 const NewProducts = require('./components/homes/NewProducts')
 const Banner = require('./components/homes/Banner')
-const CardSwiper = require('./components/homes/CardSwiper')
 const CartIcon = require('./components/carts/CartIcon')
 const AddToCartButton = require('./components/AddToCartButton')
 const Cart = require('./components/carts/Cart')
 const ShippingPage = require('./components/shippings/Container')
 const ProductListMerchantPage = require('./components/merchants/ProductList')
-const MerchantPage = require('./components/register/MerchantChooser')
-const CustomerPage = require('./components/register/CustomerChooser')
 const OrderListMerchantPage = require('./components/merchants/OrderList')
 const OnProcessOrderListMerchantPage = require('./components/merchants/OnProcessOrderList')
 const OrderListCustomerPage = require('./components/customers/OrderList')
@@ -35,103 +32,28 @@ const RegCustomer = require('./components/register/AddCustomerModal')
 const RegMerchant = require('./components/register/AddMerchantModal')
 const TrackingPage = require('./components/customers/TrackingPage')
 const SearchProduct = require('./components/search/SearchProduct')
+const LoginModal = require('./components/auths/LoginModal')
 
-new Vue({
+const app = new Vue({
   el: '#app',
-  components: { CarouselAsd }
+  components: {
+    Carousel,
+    NewProducts,
+    Banner,
+    SearchProduct,
+    CartIcon,
+    OrderListCustomerPage,
+    Cart,
+    AddToCartButton,
+    ShippingPage,
+    TrackingPage,
+    PaymentConfirmation,
+    RegCustomer,
+    RegMerchant,
+    BlogList,
+    ProductListMerchantPage,
+    OrderListMerchantPage,
+    OnProcessOrderListMerchantPage,
+    LoginModal
+  }
 });
-
-new Vue({
-  el: '#new-product',
-  components: { NewProducts }
-})
-
-new Vue({
-  el: '#card-swiper',
-  components: { CardSwiper }
-})
-
-new Vue({
-  el: '#banner',
-  components: { Banner }
-})
-
-new Vue({
-  el: '#cart-icon',
-  components: { CartIcon }
-})
-
-new Vue({
-  el: '#add-to-cart-button',
-  components: { AddToCartButton }
-})
-
-new Vue({
-  el: '#cart',
-  components: { Cart }
-})
-
-new Vue({
-  el: '#shipping-page',
-  components: { ShippingPage }
-})
-
-new Vue({
-  el: '#product-list',
-  components: { ProductListMerchantPage }
-})
-
-new Vue({
-  el: '#merchant-page',
-  components: { MerchantPage }
-})
-
-new Vue({
-  el: '#customer-page',
-  components: { CustomerPage }
-})
-
-new Vue({
-  el: '#order-list-merchant',
-  components: { OrderListMerchantPage }
-})
-
-new Vue({
-  el: '#order-list-customer',
-  components: { OrderListCustomerPage }
-})
-
-new Vue({
-  el: '#payment-confirmation',
-  components: { PaymentConfirmation }
-})
-
-new Vue({
-  el: '#blog-list',
-  components: { BlogList }
-})
-
-new Vue({
-  el: '#reg-customer',
-  components: { RegCustomer }
-})
-
-new Vue({
-  el: '#reg-merchant',
-  components: { RegMerchant }
-})
-
-new Vue({
-  el: '#on-process-order-list',
-  components: { OnProcessOrderListMerchantPage }
-})
-
-new Vue({
-  el: "#tracking-page",
-  components: { TrackingPage }
-})
-
-new Vue({
-  el: "#search-product",
-  components: { SearchProduct }
-})

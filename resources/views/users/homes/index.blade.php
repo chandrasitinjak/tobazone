@@ -25,27 +25,26 @@
 </head>
 
 <body>
-@include('users.layouts.header')
-<section>
+<div id="app">
+    @include('users.layouts.header')
+    <section>
+        <div class="mt-0">
+            <carousel> </carousel>
+        </div>
+    </section>
 
-    <div id="app" class="mt-0">
-        <carousel-asd/>
+    <div id="new-product">
+        @if(Auth::check())
+            <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Terbaru'"/>
+        @else
+            <new-products :title="'Produk Terbaru'"/>
+        @endif
     </div>
 
-</section>
-
-<div id="new-product">
-    @if(Auth::check())
-        <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Terbaru'"/>
-    @else
-        <new-products :title="'Produk Terbaru'"/>
-    @endif
+    <div id="banner">
+        <banner/>
+    </div>
 </div>
-
-<div id="banner">
-    <banner/>
-</div>
-
 @include('users.layouts.footer')
 @include('users.layouts.script')
 </body>

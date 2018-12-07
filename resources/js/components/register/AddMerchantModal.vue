@@ -76,17 +76,10 @@
               </div>
             </div>
 
-
-
-
-
-            
             <div class="form-group">
               <label class="label">Alamat Rinci</label>
               <textarea v-model="userMerchant.addressDetail" class="form-control form-control-sm" rows="3"></textarea>
             </div>
-            
-
 
             <div class="form-group">
                 <label class="label">Password</label>
