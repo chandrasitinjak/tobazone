@@ -65564,7 +65564,10 @@ var staticRenderFns = [
       _c("h6", { staticStyle: { float: "right" } }, [
         _c(
           "a",
-          { staticStyle: { color: "-webkit-link" }, attrs: { href: "#" } },
+          {
+            staticStyle: { color: "-webkit-link" },
+            attrs: { href: "/search" }
+          },
           [_vm._v("Lihat Semua Produk")]
         )
       ])

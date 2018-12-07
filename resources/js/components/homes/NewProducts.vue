@@ -4,7 +4,7 @@
       <div class="card-header">
         <h5 style="float: left">Produk Terbaru</h5>
         <h6 style="float: right">
-          <a href="#" style="color: -webkit-link">Lihat Semua Produk</a>
+          <a href="/search" style="color: -webkit-link">Lihat Semua Produk</a>
         </h6>
       </div>
       <div class="card-body globalcardbody">
