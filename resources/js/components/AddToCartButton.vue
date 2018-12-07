@@ -26,13 +26,13 @@ export default {
         total: 1,
         userId: this.userId
       };
-      console.log(payload);
+
       await window.axios.post("/api/carts", payload).then(res => {
         this.emitEvent(res.data);
       });
     },
     emitEvent(data) {
-      EventBus.$emit("CART_ADDED", data);
+      EventBus.$emit("CART_UPDATED", data);
     }
   },
   mounted() {}
