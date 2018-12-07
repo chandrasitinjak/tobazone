@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <div class="card globalcard">
       <div class="card-header">
-        <h5 style="float: left">Produk Terbaru</h5>
+        <h5 style="float: left"> {{ title }}</h5>
         <h6 style="float: right">
           <a href="/search" style="color: -webkit-link">Lihat Semua Produk</a>
         </h6>
@@ -48,7 +48,7 @@ import EventBus from "../../eventBus";
 
 export default {
   components: { carousel2, Carousel, Slide },
-  props: ["userId"],
+  props: ["userId", "title"],
   data() {
     return {
       products: []

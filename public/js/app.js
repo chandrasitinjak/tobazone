@@ -64595,7 +64595,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: { carousel2: __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default.a, Carousel: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Slide"] },
-  props: ["userId"],
+  props: ["userId", "title"],
   data: function data() {
     return {
       products: []
@@ -65496,7 +65496,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-12" }, [
     _c("div", { staticClass: "card globalcard" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "card-header" }, [
+        _c("h5", { staticStyle: { float: "left" } }, [
+          _vm._v(" " + _vm._s(_vm.title))
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -65558,19 +65564,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h5", { staticStyle: { float: "left" } }, [_vm._v("Produk Terbaru")]),
-      _vm._v(" "),
-      _c("h6", { staticStyle: { float: "right" } }, [
-        _c(
-          "a",
-          {
-            staticStyle: { color: "-webkit-link" },
-            attrs: { href: "/search" }
-          },
-          [_vm._v("Lihat Semua Produk")]
-        )
-      ])
+    return _c("h6", { staticStyle: { float: "right" } }, [
+      _c(
+        "a",
+        { staticStyle: { color: "-webkit-link" }, attrs: { href: "/search" } },
+        [_vm._v("Lihat Semua Produk")]
+      )
     ])
   }
 ]

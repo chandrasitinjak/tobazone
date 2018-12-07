@@ -36,9 +36,9 @@
 
 <div id="new-product">
     @if(Auth::check())
-        <new-products :user-id="{{Auth::user()->id}}"/>
+        <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Terbaru'"/>
     @else
-        <new-products/>
+        <new-products :title="'Produk Terbaru'"/>
     @endif
 </div>
 
