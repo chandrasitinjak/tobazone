@@ -21,7 +21,12 @@
 
                     <form action="{{ url('/logout')}}" method="POST">
                         {{ csrf_field() }}
-                        <button class="nav-link" type="submit"><i class="fa fa-power-off"></i>Logout</a>
+                        <button class="" style="background: none;
+                                                border: none;
+                                                font-size: 14px;
+                                                color: black;
+                                                padding-left: 0;"
+                                type="submit"><i class="fa fa-power-off"></i>&nbsp;Logout</a>
                     </form>
                 </div>
             </div>
