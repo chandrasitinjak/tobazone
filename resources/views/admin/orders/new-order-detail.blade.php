@@ -31,9 +31,9 @@
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Product Name</th>
-                                                <th scope="col">Jumlah</th>
-                                                <th scope="col">Harga</th>
-                                                <th scope="col">Diskon (%)</th>
+                                                <th scope="col">Qty</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Discount (%)</th>
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
@@ -63,16 +63,16 @@
                                     <table class="table">
                                         <tr>
                                             <th scope="row">
-                                                Jumlah
+                                                Sum
                                             </th>
                                             <td>
-                                                Rp700000
+                                                IDR700000
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <th>
-                                                Diskon
+                                                Discount
                                             </th>
                                             <td>
                                                 0%
@@ -81,10 +81,10 @@
 
                                         <tr>
                                             <th>
-                                                Total harga
+                                                Total price
                                             </th>
                                             <th>
-                                                Rp700000
+                                                IDR700000
                                             </th>
                                         </tr>
 
