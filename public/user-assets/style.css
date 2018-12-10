@@ -26,6 +26,10 @@ body {
     margin-top: 10px;
     display: block;
 }
+
+.imagesliderholder img{
+    cursor: zoom-in;
+}
 /*================BLOG==============*/
 .blog .blogcard .blogpict{
      background-repeat: no-repeat;
@@ -62,10 +66,14 @@ body {
 }
 
 .header_area .search-area form input, .header_area .search-area form input:focus {
-    width: 400px;
-} {
-    width: 400px;
+    width: inherit;
 }
+
+.navbar ul li a{
+    color: black;
+    font-weight: 500;
+}
+
 
 
 .header_area .classynav ul li a{
@@ -75,6 +83,48 @@ body {
 .classy-nav-container a:hover{
     color: black;
 }
+/* Style the search field */
+form.example input[type=text] {
+    padding: 10px;
+    font-size: small;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    border-right: none;
+}
+
+/* Style the submit button */
+form.example button {
+    background-color: white;
+    float: left;
+    width: 20%;
+    padding: 10px;
+    color: #000000;
+    font-size: small;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+}
+
+/*form.example button:hover {*/
+    /*background: #0b7dda;*/
+/*}*/
+
+/* Clear floats */
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.search-area input:focus{
+    outline: none !important;
+}
+
+
+/*.header_area .cart-area a{*/
+    /*line-height: 85px;*/
+/*}*/
     /*================FOOTER==============*/
 .footer_area {
     border-top: 10px #4b1815 solid;
@@ -303,7 +353,7 @@ body {
 
 .products {
     margin-bottom: 1em;
-    border: none;
+    /*border: none;*/
 }
 
 .products:hover {
@@ -448,9 +498,6 @@ body {
 
 }
 
-.smallimageholder ul{
-    flex-direction: column;
-}
 
 .vimagewrapper {
     height: auto;
@@ -463,6 +510,14 @@ body {
     padding: 3px;
     border: 1px #d4d4d4 solid;
     border-radius: 0.25em;
+}
+
+.custom-badge {
+    font-size: 100%;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #783223
 }
 
 /*------------Keranjang---------------*/
@@ -771,6 +826,14 @@ input:-webkit-autofill:focus {
     font-weight: 800;
     color: #4b1815;
 }
+
+.registration .custom-radio input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
 /*.registration  .nav .nav-item .show{*/
     /*background-color: #2196F3;*/
 /*}*/
@@ -784,9 +847,18 @@ input:-webkit-autofill:focus {
     background:url("https://www.creditmutuel.fr/cmne/fr/banques/webservices/nswr/images/loading.gif") no-repeat center center rgba(0,0,0,0.25)
 }
 
+/*// Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 576px) {
+    .navbar .navbar-collapse .search{
+        visibility: hidden;
+    }
 
-/*// Small devices (landscape phones, less than 768px)*/
-@media (max-width: 767.98px) {
+    .navbar .custom-container{
+        justify-content: space-between;
+    }
+}
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
     .quantity {
         margin-top: 1em;
     }
@@ -799,20 +871,92 @@ input:-webkit-autofill:focus {
         font-size: x-small;
     }
 
-    .smallimageholder ul{
+    .smallimageholder ul {
         flex-direction: row;
+    }
+
+    .search-area form {
+        width: auto;
+    }
+
+    .smallimageholder ul {
+        flex-direction: row;
+    }
+
+    .header_area .cart-area a{
+        height: 40px;
+    }
+
+    .globalcard .product{
+        border: 1px solid rgba(0,0,0,.125);
+    }
+
+   .navbar .navbar-collapse .search{
+        visibility: hidden;
+    }
+
+    .navbar .custom-container{
+        justify-content: space-between;
+    }
+
+    .navbar .navbar-expand-lg{
+        border-bottom: none;
     }
 
 }
 
-/*// Medium devices (tablets, less than 992px)*/
-@media (max-width: 991.98px) {
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    .header_area .cart-area a{
+        height: 40px;
+    }
+
+    .navbar .navbar-expand-lg{
+        border-bottom:none;
+    }
+
 }
 
-/*// Large devices (desktops, less than 1200px)*/
-@media (max-width: 1199.98px) {
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    .search-area form{
+        width: 400px;
+    }
+
+    .smallimageholder ul {
+        flex-direction: column;
+    }
+
+    .navbar {
+        border-bottom: 1px solid #ebebeb;
+    }
 }
 
+/*// Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    .search-area form{
+        width: 400px;
+    }
+
+    .smallimageholder ul {
+        flex-direction: column;
+    }
+    .header_area .cart-area a{
+        height: 85px;
+    }
+
+    .product{
+        border: none;
+    }
+
+    .navbar .navbar-expand-lg{
+        border-bottom: 1px solid #ebebeb;
+    }
+
+    .navbar{
+        padding: 1rem 0 1rem ;
+    }
+}
 
 
 

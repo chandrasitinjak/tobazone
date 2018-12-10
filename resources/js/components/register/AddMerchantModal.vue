@@ -6,13 +6,15 @@
 
           <div class="col-md-12">
           <form>
-            <label class="label text-muted">Pemilik Toko</label> <br>
+            <label class="label text-muted">Pemilik Toko (Merchant)</label> <br>
             <div class="row">
 
               <div class="col-6">
                 <div class="form-group">
                   <label class="label">Username Merchant</label>
-                  <input type="text" class="form-control form-control-sm" v-model="userMerchant.username" required>
+                  <input type="text" class="form-control form-control-sm" v-model="userMerchant.username"
+                         placeholder=""
+                         required>
                 </div>
               </div>
               <div class="col-6">
@@ -28,6 +30,7 @@
             </div>
             <div class="form-group mt">
               <label class="label">Gender</label><br>
+
               <label form="male">
                 <input type="radio" id="male" value="Male" class="form-control form-control-sm" v-model="userMerchant.gender" >Male
               </label>
@@ -57,7 +60,7 @@
               </div>
               <div class="col-4">
                 <div class="form-group">
-                  <label class="label">Kota / Kabupaten</label>
+                  <label class="label">Kabupaten</label>
                   <select class="form-control form-control-sm" @change="getSubdistricts" v-model="userMerchant.selectedCity">
                     <option v-for="city in cities" :value="city">{{ city.name }}</option>
                   </select>

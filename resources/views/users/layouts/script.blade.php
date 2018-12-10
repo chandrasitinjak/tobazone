@@ -1,6 +1,7 @@
 <script src="/js/app.js" defer></script>
 <!-- jQuery (Necessary for All JavaScript Plugins) -->
-<script src="/user-assets/js/jquery/jquery-2.2.4.min.js"></script>
+{{--<script src="/user-assets/js/jquery/jquery-2.2.4.min.js"></script>--}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!-- Popper js -->
 <script src="/user-assets/js/popper.min.js"></script>
 <!-- Bootstrap js -->
@@ -10,10 +11,10 @@
 <!-- Classy Nav js -->
 <script src="/user-assets/js/classy-nav.min.js"></script>
 <!-- Active js -->
-<script src="/user-assets/js/jquery.elevatezoom.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
 <script src="/js/login.js"> </script>
 
 <script>
@@ -25,6 +26,12 @@
         $('#searchagain').click(function() {
             $('#headerSearch').focus();
         });
+
+        $('.imagesliderholder img').on('click', function() {
+            $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
+            $('#enlargeImageModal').modal('show');
+        });
+
     });
 
 

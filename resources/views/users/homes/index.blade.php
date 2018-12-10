@@ -13,15 +13,12 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon  -->
-    <link rel="icon" href=http://sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="icon" href="/images/assets/icon.png">
 
     <!-- Core Style CSS -->
-    <link rel="stylesheet" href="/user-assets/css/owl.carousel.css">
-
     <link rel="stylesheet" href="/user-assets/css/core-style.css">
     <link rel="stylesheet" href="/user-assets/style.css">
-    <link href="/user-assets/css/full-slider.css" rel="stylesheet">
-    <link href="/user-assets/css/cardslide.css" rel="stylesheet">
+
 </head>
 
 <body>
