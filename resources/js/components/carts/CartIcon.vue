@@ -1,8 +1,8 @@
 <template>
-  <div class="cart-area" style="width:40px">
+  <div class="cart-area" style="width:41px">
     <a href="/carts">
       <transition name="cart">
-        <img src="/user-assets/img/core-img/bag.svg" style="width: 22px" v-if="show">
+        <img src="/user-assets/img/core-img/bag.svg" style="width: 23px" v-if="show">
       </transition>
       <span style="display:inline-block">{{total}}</span>
     </a>

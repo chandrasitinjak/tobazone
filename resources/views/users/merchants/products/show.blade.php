@@ -64,7 +64,7 @@
 
                 <h2>{{ $product->name }}</h2>
 
-              <h4 class="product-price" style="color: orange">Rp {{ $product->price }}</h4>
+              <h4 class="product-price" style="color: orange">Rp {{ number_format($product->price ,2) }}</h4>
               <p class="product-desc">{{$product->description}}</p>
               <p class="product-desc">Produk ini dibuat dengan metode {{$product->category}}</p>
               <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} kg</h6>
