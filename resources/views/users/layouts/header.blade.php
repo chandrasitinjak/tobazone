@@ -1,5 +1,3 @@
-@role('merchant')
-@include('users.auth.login_modal')
 <nav class="navbar navbar-expand-lg navbar-white bg-white fixed-top">
     <div class="container custom-container">
         <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -38,7 +36,6 @@
                                        aria-haspopup="true" aria-expanded="false">
                                         <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
                                     </a>
-
                                     <div class="user-menu dropdown-menu">
                                         <ul class="dropdown">
                                             <a class="nav-link" href="#"><i class="fa fa-user mr-2"></i>My Profile</a>
@@ -78,14 +75,11 @@
                 </form>
             </div>
         </div>
-
         <div id="cart-icon" class="d-none d-lg-block">
             @if(Auth::check())
                 <cart-icon :user-id="{{Auth::user()->id}}"/> @else
                 <cart-icon/> @endif
         </div>
-
-
         <div class="loginbutton d-none d-lg-block">
             @auth
                 <div class="user-login-info">
@@ -123,8 +117,6 @@
                 </div>
             @endguest
         </div>
-
-
     </div>
 </nav>
 
@@ -137,4 +129,3 @@
     </div>
 </div>
 @include('users.auth.login_modal')
-@endrole
