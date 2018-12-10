@@ -25,9 +25,9 @@
                 <li> <a href="{{ url('/admin/successed-order')}}"> <i class="menu-icon fa fa-archive"></i> Successed Order </a> </li>
 
                 <h3 class="menu-title">View</h3>
-                <li> <a href="{{ url('/banners')}}"> <i class="menu-icon fa fa-key"></i> Banner </a> </li>
-                <li> <a href="{{ url('/carousels')}}"> <i class="menu-icon fa fa-lock"></i> Carousel </a> </li>
-                <li> <a href="{{ url('/admin/blogs')}}"> <i class="menu-icon fa fa-lock"></i> Blogs </a> </li>
+                <li> <a href="{{ url('/carousels')}}"> <i class="menu-icon fa fa-star"></i> Carousel </a> </li>
+                <li> <a href="{{ url('/banners')}}"> <i class="menu-icon fa fa-bookmark"></i> Banner </a> </li>
+                <li> <a href="{{ url('/admin/blogs')}}"> <i class="menu-icon fa fa-stack-exchange"></i> Blogs </a> </li>
 
                 <h3 class="menu-title">Role & Permissions</h3>
 
