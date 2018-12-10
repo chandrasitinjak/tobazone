@@ -174,11 +174,11 @@ export default {
     sortProductByPrice(type) {
       if (type === "asc") {
         this.products = this.orginalProductsData.sort((a, b) => {
-          return a.price > b.price ? 1 : -1;
+          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
         });
       } else {
         this.products = this.orginalProductsData.sort((a, b) => {
-          return a.price < b.price ? 1 : -1;
+          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
         });
       }
     },
