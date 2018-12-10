@@ -122,6 +122,21 @@ form.example::after {
 }
 
 
+.dropdown-menu{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.dropdown-menu .dropdown-item{
+
+    padding-left: 1rem
+}
+
+.classynav .dropdown li .btn:focus{
+    outline: none !important;
+    box-shadow: none; */
+}
 /*.header_area .cart-area a{*/
     /*line-height: 85px;*/
 /*}*/
