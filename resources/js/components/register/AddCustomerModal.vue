@@ -52,7 +52,7 @@
               </div>
               <div class="col-4">
                 <div class="form-group">
-                  <label class="label">Kota / Kabupaten</label>
+                  <label class="label">Kabupaten</label>
                   <select class="form-control form-control-sm" @change="getSubdistricts" v-model="userCustomer.selectedCity">
                     <option v-for="city in cities" :value="city">{{ city.name }}</option>
                   </select>

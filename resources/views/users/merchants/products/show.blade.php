@@ -51,15 +51,12 @@
             </div>
 
             <div class="col-md-4">
-              <button type="button" class="badge  font-weight-light"
+              <button type="button" class="badge custom-badge font-weight-light"
                       data-toggle="test"
                       data-rigger="focus"
                       data-content="<b><a href='single-blog.html'>Klik disini</a></b>  untuk informasi selebihnya "
                       data-html="true"
-
-                      title="Dibuat dengan {{$product->category}} "
-
-                      style="border: none; cursor: pointer; padding: 2px; color: white; background-color: #783223">
+                      title="Dibuat dengan {{$product->category}} ">
 
                 {{$product->category}}
               </button>
@@ -69,7 +66,7 @@
 
               <h4 class="product-price" style="color: orange">Rp {{ $product->price }}</h4>
               <p class="product-desc">{{$product->description}}</p>
-              <p class="product-desc">{{$product->category}}</p>
+              <p class="product-desc">Produk ini dibuat dengan metode {{$product->category}}</p>
               <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} kg</h6>
               <h6 class="product-desc"> Ukuran {{ json_decode($product->specification)->dimention }}</h6>
 
@@ -132,21 +129,7 @@
                       </div>
 
 
-                      <div class="card mt-3">
-                      <div class="card-body">
-                        <div class="row">
 
-                          <div class="col-md-9">
-                            Oleh <b>Palti Sinaga</b> <br>
-                            <small>Rabu, 17 October 2018</small>
-                            <br>
-                            ininya sih bagus tagpi cemanalah yakana bukan karna apat
-                            bukanya apa kali
-                            hahaha
-                          </div>
-                        </div>
-                      </div>
-                    </div>
 
                   <div class="tab-pane fade ulasan" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     @foreach ($product->reviews as $review)
@@ -157,12 +140,6 @@
                             <div class="imgwrapper">
                               <img src="img/product-img/product-4.jpg" alt="" style="">
                             </div>
-
-                          </div>
-
-                          <div class="col-md-9">
-                            <small>Rabu, 17 October 2018</small>
-                            <br> ininya sih bagus tagpi cemanalah yakana bukan karna apat bukanya apa kali hahaha
                           </div>
                         </div>
                       </div>
@@ -177,7 +154,7 @@
       </div>
     </div>
   </div>
-
+  </div>
 </div>
 
 <div id="new-product">
