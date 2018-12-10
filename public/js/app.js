@@ -65687,7 +65687,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ["userId"],
   data: function data() {
     return {
-      total: null,
+      total: 0,
       show: true
     };
   },
@@ -65703,9 +65703,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           _this.show = true;
         }, 500);
 
-        if (res.data.total !== 0) {
-          _this.total = res.data.carts.length;
-        }
+        var carts = res.data.carts;
+        var total = 0;
+
+        carts.forEach(function (cart) {
+          total += cart.total;
+        });
+
+        _this.total = total;
       });
     }
   },
@@ -66094,8 +66099,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
 
 
 
@@ -66124,7 +66127,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 _context.next = 2;
                 return window.axios.get("/api/carts/user/" + this.userId).then(function (res) {
                   _this.carts = res.data.carts;
-                  console.log(_this.carts);
                 });
 
               case 2:
@@ -66181,6 +66183,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 break;
 
               case 8:
+
+                this.emitEvent(null);
+
+              case 9:
               case 'end':
                 return _context2.stop();
             }

@@ -33,8 +33,6 @@
           <p class="text font-bold mt-3">
             Keranjang belanja Anda kosong, </p>
           <a href="/" class="btn essence-btn">Ayo Lanjut Berbelanja</a>
-
-
         </div>
 
         <div class="row" v-for="cart in carts">
@@ -112,11 +110,9 @@ export default {
     async getCart() {
       await window.axios.get("/api/carts/user/" + this.userId).then(res => {
         this.carts = res.data.carts
-        console.log(this.carts);
       });
     },
     async updateTotal(id, action) {
-
       for(let i=0; i<this.carts.length; i++) {
         if(this.carts[i].id === id) {
           if(action === 'minus') {
@@ -134,6 +130,8 @@ export default {
           break
         }
       }
+
+      this.emitEvent(null)
     },
     async updateCart(cart) {
       await window.axios.put('/api/carts/' + cart.id, cart).then(res => {
