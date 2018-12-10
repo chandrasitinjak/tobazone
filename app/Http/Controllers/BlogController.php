@@ -61,12 +61,12 @@ class BlogController extends Controller
 
             $data = base64_decode($data);
             $image_name= time().$k.'.png';
-            $path = public_path() .'/'. $image_name;
+            $path = public_path() .'/admin-assets/images/blog/'. $image_name;
 
             file_put_contents($path, $data);
 
             $img->removeattribute('src');
-            $img->setattribute('src', $image_name);
+            $img->setattribute('src', '/admin-assets/images/blog/'.$image_name);
         }
 
         $detail = $dom->savehtml();
