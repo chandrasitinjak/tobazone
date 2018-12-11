@@ -72771,6 +72771,84 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -72847,7 +72925,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         postalCode: this.userCustomer.selectedCity.postal_code,
         password: this.userCustomer.password,
         password_confirmation: this.userCustomer.passwordconfirm,
-        role: 'customer'
+        role: "customer"
       };
 
       window.axios.post("/register", payload).then(function () {
@@ -72965,7 +73043,9 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { staticClass: "label" }, [_vm._v("Phone")]),
+              _c("label", { staticClass: "label" }, [
+                _vm._v("Nomor Handphone")
+              ]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -72990,7 +73070,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("label", { staticClass: "label" }, [_vm._v("Gender")]),
+            _c("label", { staticClass: "label" }, [_vm._v("Jenis Kelamin")]),
             _vm._v(" "),
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
@@ -73020,7 +73100,7 @@ var render = function() {
               _c(
                 "label",
                 { staticClass: "form-check-label", attrs: { for: "male" } },
-                [_vm._v("\n              Male\n            ")]
+                [_vm._v("Male")]
               )
             ]),
             _vm._v(" "),
@@ -73054,8 +73134,42 @@ var render = function() {
               _c(
                 "label",
                 { staticClass: "form-check-label", attrs: { for: "female" } },
-                [_vm._v("\n              Female\n            ")]
+                [_vm._v("Female")]
               )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group mt-3" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("Nama Alamat")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.userCustomer.addressName,
+                    expression: "userCustomer.addressName"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  placeholder: "Cth: Alamat Rumah / Alamat Kantor",
+                  required: ""
+                },
+                domProps: { value: _vm.userCustomer.addressName },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.userCustomer,
+                      "addressName",
+                      $event.target.value
+                    )
+                  }
+                }
+              })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
@@ -73216,7 +73330,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control form-control-sm",
-                attrs: { rows: "3" },
+                attrs: { rows: "3", placeholder: "Cth: Jalan Melati Nomor 23" },
                 domProps: { value: _vm.userCustomer.addressDetail },
                 on: {
                   input: function($event) {
