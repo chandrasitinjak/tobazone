@@ -23,7 +23,6 @@ class MerchantController extends Controller
 
   public function index() {
     $merchant = $this->getAuthincatedMerchant();
-
     return view('users.merchants.index')->with('merchant', $merchant);
   }
 
