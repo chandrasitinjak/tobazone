@@ -71258,7 +71258,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -71271,6 +71271,10 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+//
+//
+//
+//
 //
 //
 //
@@ -71433,7 +71437,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       selectedFile: null,
       senderName: "",
       selectedBank: "",
-      statusUpdated: false
+      statusUpdated: false,
+      image: null
     };
   },
 
@@ -71494,7 +71499,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     onFileChanged: function onFileChanged(event) {
       this.selectedFile = event.target.files[0];
-      console.log(this.selectedFile);
+      this.image = URL.createObjectURL(this.selectedFile);
     }
   },
   created: function created() {
@@ -72066,17 +72071,65 @@ var render = function() {
                                               staticClass: "upload-btn-wrapper"
                                             },
                                             [
-                                              _vm._m(1),
-                                              _vm._v(" "),
-                                              _c("input", {
-                                                attrs: {
-                                                  type: "file",
-                                                  name: "myfile"
-                                                },
-                                                on: {
-                                                  change: _vm.onFileChanged
-                                                }
-                                              })
+                                              _vm.selectedFile === null
+                                                ? _c(
+                                                    "button",
+                                                    {
+                                                      staticClass: "btn-upcus",
+                                                      staticStyle: {
+                                                        margin: "auto"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("img", {
+                                                        staticStyle: {
+                                                          height: "100px"
+                                                        },
+                                                        attrs: {
+                                                          src:
+                                                            "/images/assets/addimage.png"
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c("input", {
+                                                        attrs: {
+                                                          type: "file",
+                                                          name: "myfile"
+                                                        },
+                                                        on: {
+                                                          change:
+                                                            _vm.onFileChanged
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                : _c("div", [
+                                                    _c(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "btn btn-danger btn-sm",
+                                                        attrs: {
+                                                          type: "button"
+                                                        },
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            _vm.selectedFile = null
+                                                          }
+                                                        }
+                                                      },
+                                                      [_vm._v(" Hapus Gambar ")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("img", {
+                                                      attrs: {
+                                                        id: "uploaded_image",
+                                                        src: _vm.image
+                                                      }
+                                                    })
+                                                  ])
                                             ]
                                           ),
                                           _vm._v(" "),
@@ -72141,21 +72194,6 @@ var staticRenderFns = [
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      { staticClass: "btn-upcus", staticStyle: { margin: "auto" } },
-      [
-        _c("img", {
-          staticStyle: { height: "100px" },
-          attrs: { src: "/images/assets/addimage.png" }
-        })
-      ]
-    )
   }
 ]
 render._withStripped = true
