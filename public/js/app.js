@@ -65707,7 +65707,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var total = 0;
 
         carts.forEach(function (cart) {
-          total += cart.total;
+          total += parseInt(cart.total);
         });
 
         _this.total = total;

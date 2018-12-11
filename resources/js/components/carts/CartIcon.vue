@@ -33,7 +33,7 @@ export default {
         let total = 0
 
         carts.forEach(cart => {
-          total += cart.total
+          total += parseInt(cart.total)
         });
 
         this.total = total
