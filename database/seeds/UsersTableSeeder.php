@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        $admin = User::create([
             'username' => 'admin',
             'email' => 'uloszone@gmail.com',
             'password' => bcrypt('admin123'),
@@ -50,6 +50,15 @@ class UsersTableSeeder extends Seeder
         Profile::create([
             'user_id' => $merchant->id,
             'name' => 'Merchant',
+            'address' => '["{\"name\":null,\"province_id\":34,\"city_id\":481,\"subdistrict_id\":\"6657\",\"province_name\":\"Sumatera Utara\",\"city_name\":\"Toba Samosir\",\"subdistrict_name\":\"Laguboti\",\"postal_code\":\"22316\",\"detail\":\"Simpang Empat Laguboti\"}"]',
+            'phone' => '081234',
+            'gender' => 'male',
+            'birthday' => Carbon::now(),
+        ]);
+
+        Profile::create([
+            'user_id' => $admin->id,
+            'name' => 'Admin',
             'address' => '["{\"name\":null,\"province_id\":34,\"city_id\":481,\"subdistrict_id\":\"6657\",\"province_name\":\"Sumatera Utara\",\"city_name\":\"Toba Samosir\",\"subdistrict_name\":\"Laguboti\",\"postal_code\":\"22316\",\"detail\":\"Simpang Empat Laguboti\"}"]',
             'phone' => '081234',
             'gender' => 'male',
