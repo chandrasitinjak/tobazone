@@ -33,6 +33,7 @@ const RegMerchant = require('./components/register/AddMerchantModal')
 const TrackingPage = require('./components/customers/TrackingPage')
 const SearchProduct = require('./components/search/SearchProduct')
 const LoginModal = require('./components/auths/LoginModal')
+const Spinner = require('./components/Spinner')
 
 const app = new Vue({
   el: '#app',
@@ -54,6 +55,7 @@ const app = new Vue({
     ProductListMerchantPage,
     OrderListMerchantPage,
     OnProcessOrderListMerchantPage,
-    LoginModal
+    LoginModal,
+    Spinner
   }
 });

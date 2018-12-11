@@ -23,6 +23,7 @@
 
 <body>
 <div id="app">
+    <spinner> </spinner>
     @include('users.layouts.header')
     <section>
         <div class="mt-0">
