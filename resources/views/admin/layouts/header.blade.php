@@ -9,7 +9,7 @@
         <div class="col-sm-5">
             <div class="user-area dropdown float-right">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="user-avatar rounded-circle" src="{{ url('/admin-assets/images/admin.jpg')}}" alt="User Avatar">
+                                <img class="user-avatar rounded-circle" src="{{url('/images/profiles', Auth::user()->profile->photo)}}" alt="User Avatar">
                             </a>
 
                 <div class="user-menu dropdown-menu">

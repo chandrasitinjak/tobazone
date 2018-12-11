@@ -17,7 +17,7 @@
                                     <div class="row form-group">
                                         
                                         <div class="col col-md-3">
-                                            <img src="{{$user->profile->photo}}" alt="foto" height="150" width="150">
+                                            <img src="{{url('images/profiles/'.$user->profile->photo)}}" alt="foto" height="150" width="150">
                                         </div>
                                         
                                         <div class="col-12 col-md-9">
@@ -29,7 +29,7 @@
                                             
                                             <div class="row form-group">
                                                 <div class="col col-md-3"><label for="email-input" class=" form-control-label">Phone</label></div>
-                                                <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" placeholder="totapetro@gmail.com" class="form-control" disabled="" value="{{$user->profile->phone}}"></div>
+                                                <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" class="form-control" disabled="" value="{{$user->profile->phone}}"></div>
                                             </div>
 
                                             <div class="row form-group">

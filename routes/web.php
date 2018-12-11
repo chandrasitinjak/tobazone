@@ -63,6 +63,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/profile', 'AdminController@showProfile');
         Route::get('/admin/edit-profile', 'AdminController@editProfile');
         Route::get('/admin/show-password', 'AdminController@showChangePassword');
+        Route::post('/admin/update-profile', 'AdminController@updateProfile');
         Route::post('/admin/edit-password','AdminController@editPassword');
 
         Route::get('/roles', 'RoleController@index');

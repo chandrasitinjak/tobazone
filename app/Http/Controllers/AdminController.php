@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use App\Transaction;
+use App\Profile;
 use DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
@@ -44,6 +45,24 @@ class AdminController extends Controller
     return view('admin.profiles.edit')->with('user', $user);
   }
 
+  public function updateProfile(Request $request){
+    $user = $this->getAuthincatedUser(); 
+    $profile = [];
+    $profile['name'] = $request->name;  
+    $profile['phone'] = $request->phone;
+    
+    if($request->file('photo')) {
+      $updateImage = $request->file('photo');
+      $imageName = $updateImage->getClientOriginalName();
+      $destinationPath = public_path('/images/profiles');
+      $updateImage->move($destinationPath, $imageName);
+      $profile['photo'] = $imageName;
+    }
+
+    $user->profile()->update($profile);
+
+    return redirect('/admin/profile')->with('success', 'Admin berhasil di update');
+  }
   public function showChangePassword(){
     $user = $this->getAuthincatedUser();
     return view('admin.profiles.edit-password')->with('user', $user);
