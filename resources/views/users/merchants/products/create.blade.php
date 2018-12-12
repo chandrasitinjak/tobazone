@@ -29,12 +29,8 @@
                                                 </button>
                                             <input id="files" name="images[]" multiple type="file" />
                                         </div>
-                                        <small id="passwordHelpBlock" class="form-text text-muted">
-                                            Format gambar .jpg .jpeg .png dan ukuran minimum 300 x 300px
-                                            (Untuk gambar optimal gunakan ukuran 700 x 700 px)
-                                        </small>
-
-                                        <div id="result" class="row mt-4"> </div> 
+                                        <div id="result" class="row mt-4">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +132,7 @@
                     picReader.addEventListener("load", function (event) {
                         var picFile = event.target;
                         var div = document.createElement("div");
-                        div.className = "col-3"
+                        div.className = "col-4 col-md-3 col-lg-3"
                         div.innerHTML = "<div class='single-product-wrapper'> <div class='product-img'> <img src='"
                             + picFile.result + "'> </div> </div>";
 

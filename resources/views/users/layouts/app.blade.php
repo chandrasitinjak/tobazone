@@ -36,7 +36,7 @@
               <span aria-hidden="true" class="float-right" style="margin: 10px 10px 0">×</span></button>
           {{--</div>--}}
           <div class="modal-body">
-            <img src="" class="enlargeImageModalSource" style="width: 100%;">
+            <img src="" class="enlargeImageModalSource" style="width: 200%;">
           </div>
         </div>
       </div>

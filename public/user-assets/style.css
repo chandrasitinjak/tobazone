@@ -57,6 +57,10 @@ body {
 }
 
 /*==============HEADER================*/
+.main{
+    box-shadow: 0px 2px 9px #88888824;
+}
+
 .header_area .header-meta {
     height: auto;
 }
@@ -587,6 +591,15 @@ form.example::after {
 }
 
 /*---------------Merchant--------------*/
+#result img {
+    height: 100px;
+    object-fit: scale-down;
+    border: 1px solid grey;
+    padding: 2px;
+    border-radius: 4px;
+}
+
+
 .store {
     padding: 0.3rem;
     box-shadow: 0px 2px 8px 0px #0000004a;
@@ -883,6 +896,17 @@ input:-webkit-autofill:focus {
         font-size: medium;
         font-weight: 800;
     }
+
+    .loginmodal .modal-body{
+        padding-left: 1rem!important;
+        padding-right: 1rem!important;
+    }
+
+    .loginmodal .modal-footer{
+        padding-left: 1rem!important;
+        padding-right: 1rem!important;
+    }
+
 }
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
@@ -934,6 +958,15 @@ input:-webkit-autofill:focus {
         font-size: medium;
         font-weight: 800;
     }
+    .loginmodal .modal-body{
+        padding-left: 1rem!important;
+        padding-right: 1rem!important;
+    }
+
+    .loginmodal .modal-footer{
+        padding-left: 1rem!important;
+        padding-right: 1rem!important;
+    }
 }
 
 /*// Medium devices (tablets, 768px and up)*/
@@ -949,6 +982,16 @@ input:-webkit-autofill:focus {
     .store .widget span{
         font-size: medium;
         font-weight: 800;
+    }
+
+    .loginmodal .modal-body{
+        padding-left: 3rem!important;
+        padding-right: 3rem!important;
+    }
+
+    .loginmodal .modal-footer{
+        padding-left: 3rem!important;
+        padding-right: 3rem!important;
     }
 
 }
@@ -970,6 +1013,16 @@ input:-webkit-autofill:focus {
     .store .widget span{
         font-size: large;
         font-weight: 800;
+    }
+
+    .loginmodal .modal-body{
+        padding-left: 3rem!important;
+        padding-right: 3rem!important;
+    }
+
+    .loginmodal .modal-footer{
+        padding-left: 3rem!important;
+        padding-right: 3rem!important;
     }
 }
 
@@ -1001,6 +1054,16 @@ input:-webkit-autofill:focus {
     .store .widget span{
         font-size: large;
         font-weight: 800;
+    }
+
+    .loginmodal .modal-body{
+        padding-left: 3rem!important;
+        padding-right: 3rem!important;
+    }
+
+    .loginmodal .modal-footer{
+        padding-left: 3rem!important;
+        padding-right: 3rem!important;
     }
 }
 

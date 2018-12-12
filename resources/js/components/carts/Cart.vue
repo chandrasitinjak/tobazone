@@ -13,8 +13,8 @@
       </div>
       <div class="card-body">
         <div class="row" v-if="carts.length > 0">
-          <div class="col-md-12" style="margin-bottom: 2em">
-            <div class="row font-bold">
+          <div class="col-md-12 d-none " style="margin-bottom: 2em">
+            <div class="row font-bold d-none d-sm-block">
               <div class="col-md-6">Produk</div>
               <div class="col-md-4">Harga</div>
               <div class="col-md-2">Jumlah</div>
@@ -53,7 +53,7 @@
               style="color: #ff8415"
             >Rp {{formatPrice( cart.product.price )}}</div>
           </div>
-          <div class="quantity col-md-2 col-sm-12 col-xs-12">
+          <div class="quantity col-5 col-md-2">
             <div class="input-group input-group-sm">
               <div class="input-group-prepend">
                 <div class="btn input-group-text" v-on:click="updateTotal(cart.id, 'minus')">-</div>

@@ -66432,90 +66432,86 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "quantity col-md-2 col-sm-12 col-xs-12" },
-                  [
-                    _c("div", { staticClass: "input-group input-group-sm" }, [
-                      _c("div", { staticClass: "input-group-prepend" }, [
+                _c("div", { staticClass: "quantity col-5 col-md-2" }, [
+                  _c("div", { staticClass: "input-group input-group-sm" }, [
+                    _c("div", { staticClass: "input-group-prepend" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "btn input-group-text",
+                          on: {
+                            click: function($event) {
+                              _vm.updateTotal(cart.id, "minus")
+                            }
+                          }
+                        },
+                        [_vm._v("-")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: cart.total,
+                          expression: "cart.total"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        min: "1",
+                        max: cart.product.stock
+                      },
+                      domProps: { value: cart.total },
+                      on: {
+                        change: function($event) {
+                          _vm.updateCart(cart)
+                        },
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(cart, "total", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { attrs: { "clascart.totals": "input-group-prepend" } },
+                      [
                         _c(
                           "div",
                           {
                             staticClass: "btn input-group-text",
                             on: {
                               click: function($event) {
-                                _vm.updateTotal(cart.id, "minus")
+                                _vm.updateTotal(cart.id, "plus")
                               }
                             }
                           },
-                          [_vm._v("-")]
+                          [_vm._v("+")]
                         )
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: cart.total,
-                            expression: "cart.total"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "number",
-                          min: "1",
-                          max: cart.product.stock
-                        },
-                        domProps: { value: cart.total },
-                        on: {
-                          change: function($event) {
-                            _vm.updateCart(cart)
-                          },
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(cart, "total", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { attrs: { "clascart.totals": "input-group-prepend" } },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass: "btn input-group-text",
-                              on: {
-                                click: function($event) {
-                                  _vm.updateTotal(cart.id, "plus")
-                                }
-                              }
-                            },
-                            [_vm._v("+")]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-outline-warning btn-sm mt-2",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            _vm.deleteCart(cart.id)
-                          }
-                        }
-                      },
-                      [_vm._m(2, true)]
+                      ]
                     )
-                  ]
-                )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-warning btn-sm mt-2",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.deleteCart(cart.id)
+                        }
+                      }
+                    },
+                    [_vm._m(2, true)]
+                  )
+                ])
               ])
             })
           ],
@@ -66578,9 +66574,12 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "col-md-12", staticStyle: { "margin-bottom": "2em" } },
+      {
+        staticClass: "col-md-12 d-none ",
+        staticStyle: { "margin-bottom": "2em" }
+      },
       [
-        _c("div", { staticClass: "row font-bold" }, [
+        _c("div", { staticClass: "row font-bold d-none d-sm-block" }, [
           _c("div", { staticClass: "col-md-6" }, [_vm._v("Produk")]),
           _vm._v(" "),
           _c("div", { staticClass: "col-md-4" }, [_vm._v("Harga")]),
@@ -68474,7 +68473,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -68485,33 +68484,6 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -68691,6 +68663,17 @@ var render = function() {
               },
               [
                 _c("ul", { staticClass: "navbar-nav mr-auto mt-2 mt-lg-0" }, [
+                  _c("li", { staticClass: "d-lg-none" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-sm btn-success",
+                        attrs: { href: "/products/create" }
+                      },
+                      [_vm._v("Tambah produk")]
+                    )
+                  ]),
+                  _vm._v(" "),
                   _c("li", [
                     _c(
                       "a",
@@ -68925,9 +68908,7 @@ var render = function() {
               ])
             ])
           })
-        ),
-        _vm._v(" "),
-        _vm._m(1)
+        )
       ])
     ])
   ])
@@ -68952,56 +68933,6 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "fa fa-bars" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("nav", { attrs: { "aria-label": "navigation" } }, [
-      _c("ul", { staticClass: "pagination mt-50 mb-50" }, [
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fa fa-angle-left" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("1")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("2")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("3")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("...")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("21")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fa fa-angle-right" })
-          ])
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -69099,7 +69030,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -69110,36 +69041,6 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -69238,6 +69139,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed().replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
     getProducts: function getProducts() {
       var _this = this;
 
@@ -69464,9 +69369,7 @@ var render = function() {
               })
             ],
             2
-          ),
-          _vm._v(" "),
-          _vm._m(1)
+          )
         ])
       ])
     ])
@@ -69479,56 +69382,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("h6", [_vm._v("Order Baru")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("nav", { attrs: { "aria-label": "navigation" } }, [
-      _c("ul", { staticClass: "pagination mt-50 mb-50" }, [
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fa fa-angle-left" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("1")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("2")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("3")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("...")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("21")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fa fa-angle-right" })
-          ])
-        ])
-      ])
     ])
   }
 ]
@@ -70644,8 +70497,10 @@ var render = function() {
                                             _vm._v(
                                               "Rp " +
                                                 _vm._s(
-                                                  _vm.getTotalPayment(
-                                                    transaction.payment
+                                                  _vm.formatPrice(
+                                                    _vm.getTotalPayment(
+                                                      transaction.payment
+                                                    )
                                                   )
                                                 )
                                             )
@@ -70871,9 +70726,11 @@ var render = function() {
                                                                 _vm._v(
                                                                   "Rp " +
                                                                     _vm._s(
-                                                                      order
-                                                                        .product
-                                                                        .price
+                                                                      _vm.formatPrice(
+                                                                        order
+                                                                          .product
+                                                                          .price
+                                                                      )
                                                                     )
                                                                 )
                                                               ]
@@ -71386,7 +71243,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -71399,6 +71256,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+//
 //
 //
 //
@@ -71571,6 +71429,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed().replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
     getTransaction: function getTransaction() {
       var _this = this;
 
@@ -71930,71 +71792,75 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row justify-content-md-center" }, [
-            _c("div", { staticClass: "card my-3 col-6 time" }, [
-              _vm.transaction.payment.status === "paid" ||
-              _vm.transaction.status === "acceptedBySystem"
-                ? _c("div", { staticClass: "card-body" }, [
-                    _c("h2", { staticClass: "text-center" }, [
-                      _vm._v("Terimakasih sudah melakukan pembayaran")
-                    ]),
-                    _vm._v(" "),
-                    _c("h4", { staticClass: "text-center" }, [
-                      _vm._v(
-                        "Mohon menunggu pesanan Anda diproses oleh penjual"
-                      )
-                    ])
-                  ])
-                : _vm.duration._data.hours >= 0 &&
-                  _vm.duration._data.minutes >= 0 &&
-                  _vm.duration._data.seconds >= 0
-                ? _c("div", { staticClass: "card-body" }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "font-size": "small" }
-                      },
-                      [
+            _c(
+              "div",
+              { staticClass: "card my-3 col-12 col-md-6 col-lg-6 time" },
+              [
+                _vm.transaction.payment.status === "paid" ||
+                _vm.transaction.status === "acceptedBySystem"
+                  ? _c("div", { staticClass: "card-body" }, [
+                      _c("h2", { staticClass: "text-center" }, [
+                        _vm._v("Terimakasih sudah melakukan pembayaran")
+                      ]),
+                      _vm._v(" "),
+                      _c("h4", { staticClass: "text-center" }, [
                         _vm._v(
-                          "Segera selesaikan pembayaran Anda sebelum stok habis."
+                          "Mohon menunggu pesanan Anda diproses oleh penjual"
                         )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("h2", { staticClass: "text-center" }, [
-                      _vm._v(
-                        _vm._s(_vm.duration._data.hours) +
-                          " Jam " +
-                          _vm._s(_vm.duration._data.minutes) +
-                          " Menit " +
-                          _vm._s(_vm.duration._data.seconds) +
-                          " Detik"
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm.duration._data.hours > 0
-                      ? _c(
-                          "p",
-                          {
-                            staticClass: "text-center",
-                            staticStyle: { "font-size": "small" }
-                          },
-                          [
-                            _c("i", [
-                              _vm._v(
-                                "(Sebelum " + _vm._s(_vm.getDeatline()) + ")"
-                              )
-                            ])
-                          ]
-                        )
-                      : _vm._e()
-                  ])
-                : _c("div", { staticClass: "card-body" }, [
-                    _c("h2", { staticClass: "text-center" }, [
-                      _vm._v("Waktu Pembayaran Anda Sudah Habis")
+                      ])
                     ])
-                  ])
-            ])
+                  : _vm.duration._data.hours >= 0 &&
+                    _vm.duration._data.minutes >= 0 &&
+                    _vm.duration._data.seconds >= 0
+                  ? _c("div", { staticClass: "card-body" }, [
+                      _c(
+                        "p",
+                        {
+                          staticClass: "text-center",
+                          staticStyle: { "font-size": "small" }
+                        },
+                        [
+                          _vm._v(
+                            "Segera selesaikan pembayaran Anda sebelum stok habis."
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("h2", { staticClass: "text-center" }, [
+                        _vm._v(
+                          _vm._s(_vm.duration._data.hours) +
+                            " Jam " +
+                            _vm._s(_vm.duration._data.minutes) +
+                            " Menit " +
+                            _vm._s(_vm.duration._data.seconds) +
+                            " Detik"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm.duration._data.hours > 0
+                        ? _c(
+                            "p",
+                            {
+                              staticClass: "text-center",
+                              staticStyle: { "font-size": "small" }
+                            },
+                            [
+                              _c("i", [
+                                _vm._v(
+                                  "(Sebelum " + _vm._s(_vm.getDeatline()) + ")"
+                                )
+                              ])
+                            ]
+                          )
+                        : _vm._e()
+                    ])
+                  : _c("div", { staticClass: "card-body" }, [
+                      _c("h2", { staticClass: "text-center" }, [
+                        _vm._v("Waktu Pembayaran Anda Sudah Habis")
+                      ])
+                    ])
+              ]
+            )
           ]),
           _vm._v(" "),
           _vm.duration._data.hours >= 0 &&
@@ -72003,292 +71869,334 @@ var render = function() {
           _vm.transaction.payment.status !== "paid"
             ? _c("div", [
                 _c("div", { staticClass: "row justify-content-md-center" }, [
-                  _c("div", { staticClass: "card col-6 my-3" }, [
-                    _c("div", {}, [
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("div", { staticClass: "text-muted" }, [
+                  _c(
+                    "div",
+                    { staticClass: "card col-12 col-md-6 col-lg-6 my-3" },
+                    [
+                      _c("div", {}, [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("div", { staticClass: "text-muted" }, [
+                            _vm._v(
+                              "Transfer pembayaran ke nomor Virtual Account :"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticStyle: { height: "30px", display: "inline" },
+                            attrs: { src: "/images/assets/BRI.png", alt: "" }
+                          }),
+                          _vm._v(" "),
+                          _c("h4", { staticStyle: { display: "inline" } }, [
+                            _vm._v("031401003328537")
+                          ]),
+                          _vm._v(" "),
+                          _c("br"),
                           _vm._v(
-                            "Transfer pembayaran ke nomor Virtual Account :"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticStyle: { height: "30px", display: "inline" },
-                          attrs: { src: "/images/assets/BNI.png", alt: "" }
-                        }),
-                        _vm._v(" "),
-                        _c("h4", { staticStyle: { display: "inline" } }, [
-                          _vm._v("8277-082274162987")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "mt-3 text-muted" }, [
-                          _vm._v("Jumlah yang harus dibayar :")
-                        ]),
-                        _vm._v(" "),
-                        _c("h5", { staticStyle: { color: "#ff5205" } }, [
-                          _vm._v(
-                            "Rp " +
-                              _vm._s(
-                                _vm.getTotalPayment(_vm.transaction.payment)
-                              )
-                          )
+                            "a/n Anggiat Saut Parulian\n                  "
+                          ),
+                          _c("div", { staticClass: "mt-3 text-muted" }, [
+                            _vm._v("Jumlah yang harus dibayar :")
+                          ]),
+                          _vm._v(" "),
+                          _c("h5", { staticStyle: { color: "#ff5205" } }, [
+                            _vm._v(
+                              "Rp " +
+                                _vm._s(
+                                  _vm.formatPrice(
+                                    _vm.getTotalPayment(_vm.transaction.payment)
+                                  )
+                                )
+                            )
+                          ])
                         ])
                       ])
-                    ])
-                  ])
+                    ]
+                  )
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row justify-content-md-center" }, [
-                  _c("div", { staticClass: "card col-6 my-3" }, [
-                    _c("div", [
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("div", { staticClass: "text-muted mb-2" }, [
-                          _vm._v("Upload Bukti Pembayaran")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-block btn-primary",
-                            attrs: {
-                              type: "button",
-                              "data-toggle": "modal",
-                              "data-target": "#exampleModal"
-                            }
-                          },
-                          [_vm._v("Upload Bukti Pembayaran")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "modal fade",
-                            attrs: {
-                              id: "exampleModal",
-                              tabindex: "-1",
-                              role: "dialog",
-                              "aria-labelledby": "exampleModalLabel",
-                              "aria-hidden": "true"
-                            }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "modal-dialog modal-dialog-centered",
-                                attrs: { role: "document" }
-                              },
-                              [
-                                _c("div", { staticClass: "modal-content" }, [
-                                  _vm._m(0),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "modal-body" }, [
-                                    _c("form", [
-                                      _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "div",
+                    { staticClass: "card col-12 col-md-6 col-lg-6 my-3" },
+                    [
+                      _c("div", [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("div", { staticClass: "text-muted mb-2" }, [
+                            _vm._v("Upload Bukti Pembayaran")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-block btn-primary",
+                              attrs: {
+                                type: "button",
+                                "data-toggle": "modal",
+                                "data-target": "#exampleModal"
+                              }
+                            },
+                            [_vm._v("Upload Bukti Pembayaran")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "modal fade",
+                              attrs: {
+                                id: "exampleModal",
+                                tabindex: "-1",
+                                role: "dialog",
+                                "aria-labelledby": "exampleModalLabel",
+                                "aria-hidden": "true"
+                              }
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "modal-dialog modal-dialog-centered",
+                                  attrs: { role: "document" }
+                                },
+                                [
+                                  _c("div", { staticClass: "modal-content" }, [
+                                    _vm._m(0),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "modal-body" }, [
+                                      _c("form", [
                                         _c(
-                                          "label",
-                                          {
-                                            staticClass: "small",
-                                            attrs: { for: "namapengirim" }
-                                          },
-                                          [_vm._v("Nama Pengirim")]
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass: "small",
+                                                attrs: { for: "namapengirim" }
+                                              },
+                                              [_vm._v("Nama Pengirim")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.senderName,
+                                                  expression: "senderName"
+                                                }
+                                              ],
+                                              staticClass:
+                                                "form-control form-control-sm",
+                                              attrs: {
+                                                type: "text",
+                                                id: "namapengirim",
+                                                "aria-describedby": "emailHelp",
+                                                placeholder: "Nama Pengirim"
+                                              },
+                                              domProps: {
+                                                value: _vm.senderName
+                                              },
+                                              on: {
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.senderName =
+                                                    $event.target.value
+                                                }
+                                              }
+                                            })
+                                          ]
                                         ),
                                         _vm._v(" "),
-                                        _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: _vm.senderName,
-                                              expression: "senderName"
-                                            }
-                                          ],
-                                          staticClass:
-                                            "form-control form-control-sm",
-                                          attrs: {
-                                            type: "text",
-                                            id: "namapengirim",
-                                            "aria-describedby": "emailHelp",
-                                            placeholder: "Nama Pengirim"
-                                          },
-                                          domProps: { value: _vm.senderName },
-                                          on: {
-                                            input: function($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.senderName =
-                                                $event.target.value
-                                            }
-                                          }
-                                        })
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "form-group" }, [
                                         _c(
-                                          "label",
-                                          {
-                                            staticClass: "small",
-                                            attrs: { for: "utkbank" }
-                                          },
-                                          [_vm._v("Bank Tujuan")]
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass: "small",
+                                                attrs: { for: "utkbank" }
+                                              },
+                                              [_vm._v("Bank Tujuan")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("br"),
+                                            _vm._v(" "),
+                                            _c(
+                                              "select",
+                                              {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value: _vm.selectedBank,
+                                                    expression: "selectedBank"
+                                                  }
+                                                ],
+                                                staticClass: "form-control",
+                                                attrs: { id: "utkbank" },
+                                                on: {
+                                                  change: function($event) {
+                                                    var $$selectedVal = Array.prototype.filter
+                                                      .call(
+                                                        $event.target.options,
+                                                        function(o) {
+                                                          return o.selected
+                                                        }
+                                                      )
+                                                      .map(function(o) {
+                                                        var val =
+                                                          "_value" in o
+                                                            ? o._value
+                                                            : o.value
+                                                        return val
+                                                      })
+                                                    _vm.selectedBank = $event
+                                                      .target.multiple
+                                                      ? $$selectedVal
+                                                      : $$selectedVal[0]
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  { attrs: { value: "BNI" } },
+                                                  [_vm._v("BNI")]
+                                                )
+                                              ]
+                                            )
+                                          ]
                                         ),
                                         _vm._v(" "),
                                         _c("br"),
                                         _vm._v(" "),
                                         _c(
-                                          "select",
-                                          {
-                                            directives: [
-                                              {
-                                                name: "model",
-                                                rawName: "v-model",
-                                                value: _vm.selectedBank,
-                                                expression: "selectedBank"
-                                              }
-                                            ],
-                                            staticClass: "form-control",
-                                            attrs: { id: "utkbank" },
-                                            on: {
-                                              change: function($event) {
-                                                var $$selectedVal = Array.prototype.filter
-                                                  .call(
-                                                    $event.target.options,
-                                                    function(o) {
-                                                      return o.selected
-                                                    }
-                                                  )
-                                                  .map(function(o) {
-                                                    var val =
-                                                      "_value" in o
-                                                        ? o._value
-                                                        : o.value
-                                                    return val
-                                                  })
-                                                _vm.selectedBank = $event.target
-                                                  .multiple
-                                                  ? $$selectedVal
-                                                  : $$selectedVal[0]
-                                              }
-                                            }
-                                          },
+                                          "div",
+                                          { staticClass: "form-group" },
                                           [
                                             _c(
-                                              "option",
-                                              { attrs: { value: "BNI" } },
-                                              [_vm._v("BNI")]
+                                              "label",
+                                              { staticClass: "col-form-label" },
+                                              [_vm._v("Bukti Pembayaran")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "col-sm-9" },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "upload-btn-wrapper"
+                                                  },
+                                                  [
+                                                    _vm.selectedFile === null
+                                                      ? _c(
+                                                          "button",
+                                                          {
+                                                            staticClass:
+                                                              "btn-upcus",
+                                                            staticStyle: {
+                                                              margin: "auto"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c("img", {
+                                                              staticStyle: {
+                                                                height: "100px"
+                                                              },
+                                                              attrs: {
+                                                                src:
+                                                                  "/images/assets/addimage.png"
+                                                              }
+                                                            }),
+                                                            _vm._v(" "),
+                                                            _c("input", {
+                                                              attrs: {
+                                                                type: "file",
+                                                                name: "myfile"
+                                                              },
+                                                              on: {
+                                                                change:
+                                                                  _vm.onFileChanged
+                                                              }
+                                                            })
+                                                          ]
+                                                        )
+                                                      : _c("div", [
+                                                          _c(
+                                                            "button",
+                                                            {
+                                                              staticClass:
+                                                                "btn btn-danger btn-sm",
+                                                              attrs: {
+                                                                type: "button"
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  _vm.selectedFile = null
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                " Ganti Gambar "
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c("img", {
+                                                            attrs: {
+                                                              id:
+                                                                "uploaded_image",
+                                                              src: _vm.image
+                                                            }
+                                                          })
+                                                        ])
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c("small", {
+                                                  staticClass:
+                                                    "form-text text-muted",
+                                                  attrs: { id: "" }
+                                                })
+                                              ]
                                             )
                                           ]
                                         )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("br"),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "form-group" }, [
-                                        _c(
-                                          "label",
-                                          { staticClass: "col-form-label" },
-                                          [_vm._v("Bukti Pembayaran")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "col-sm-9" }, [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "upload-btn-wrapper"
-                                            },
-                                            [
-                                              _vm.selectedFile === null
-                                                ? _c(
-                                                    "button",
-                                                    {
-                                                      staticClass: "btn-upcus",
-                                                      staticStyle: {
-                                                        margin: "auto"
-                                                      }
-                                                    },
-                                                    [
-                                                      _c("img", {
-                                                        staticStyle: {
-                                                          height: "100px"
-                                                        },
-                                                        attrs: {
-                                                          src:
-                                                            "/images/assets/addimage.png"
-                                                        }
-                                                      }),
-                                                      _vm._v(" "),
-                                                      _c("input", {
-                                                        attrs: {
-                                                          type: "file",
-                                                          name: "myfile"
-                                                        },
-                                                        on: {
-                                                          change:
-                                                            _vm.onFileChanged
-                                                        }
-                                                      })
-                                                    ]
-                                                  )
-                                                : _c("div", [
-                                                    _c(
-                                                      "button",
-                                                      {
-                                                        staticClass:
-                                                          "btn btn-danger btn-sm",
-                                                        attrs: {
-                                                          type: "button"
-                                                        },
-                                                        on: {
-                                                          click: function(
-                                                            $event
-                                                          ) {
-                                                            _vm.selectedFile = null
-                                                          }
-                                                        }
-                                                      },
-                                                      [_vm._v(" Hapus Gambar ")]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c("img", {
-                                                      attrs: {
-                                                        id: "uploaded_image",
-                                                        src: _vm.image
-                                                      }
-                                                    })
-                                                  ])
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("small", {
-                                            staticClass: "form-text text-muted",
-                                            attrs: { id: "" }
-                                          })
-                                        ])
                                       ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "modal-footer" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-primary",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: _vm.uploadProofOfPayment
+                                          }
+                                        },
+                                        [_vm._v("Upload")]
+                                      )
                                     ])
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "modal-footer" }, [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-primary",
-                                        attrs: { type: "button" },
-                                        on: { click: _vm.uploadProofOfPayment }
-                                      },
-                                      [_vm._v("Upload")]
-                                    )
                                   ])
-                                ])
-                              ]
-                            )
-                          ]
-                        )
+                                ]
+                              )
+                            ]
+                          )
+                        ])
                       ])
-                    ])
-                  ])
+                    ]
+                  )
                 ])
               ])
             : _vm._e()
@@ -75615,7 +75523,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -75626,31 +75534,6 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -75835,207 +75718,218 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "card-header" }, [
-          _c("nav", { staticClass: "navbar navbar-expand-sm navbar-light" }, [
-            _c(
-              "div",
-              {
-                staticClass: "collapse navbar-collapse",
-                attrs: { id: "navbarSupportedContent" }
-              },
-              [
-                _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-                  _c("li", { staticClass: "nav-item dropdown" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link dropdown-toggle",
-                        attrs: {
-                          id: "navbarDropdown",
-                          role: "button",
-                          "data-toggle": "dropdown",
-                          "aria-haspopup": "true",
-                          "aria-expanded": "false"
-                        }
-                      },
-                      [_vm._v("Kategori")]
-                    ),
+          _c(
+            "nav",
+            {
+              staticClass: "navbar navbar-expand-lg mproduct p-1",
+              staticStyle: { "background-color": "transparent", border: "none" }
+            },
+            [
+              _c("h5", { staticClass: "mr-3" }, [_vm._v("Filter Produk")]),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "collapse navbar-collapse",
+                  attrs: { id: "navbarTogglerDemo02" }
+                },
+                [
+                  _c("ul", { staticClass: "navbar-nav mr-auto mt-2 mt-lg-0" }, [
+                    _c("li", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link dropdown-toggle",
+                          attrs: {
+                            id: "navbarDropdown",
+                            role: "button",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false"
+                          }
+                        },
+                        [_vm._v("Kategori")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "dropdown-menu",
+                          attrs: { "aria-labelledby": "navbarDropdown" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.filterProductByCategory("ATBM")
+                                }
+                              }
+                            },
+                            [_vm._v("Alat Tenun Bukan Mesin")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.filterProductByCategory("Tradisional")
+                                }
+                              }
+                            },
+                            [_vm._v("Tradisional")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.filterProductByCategory("Mesin")
+                                }
+                              }
+                            },
+                            [_vm._v("Mesin")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "dropdown-divider" }),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.filterProductByCategory("")
+                                }
+                              }
+                            },
+                            [_vm._v("Semua kategori")]
+                          )
+                        ]
+                      )
+                    ]),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "dropdown-menu",
-                        attrs: { "aria-labelledby": "navbarDropdown" }
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "dropdown-item",
-                            on: {
-                              click: function($event) {
-                                _vm.filterProductByCategory("ATBM")
+                    _c("li", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link dropdown-toggle",
+                          attrs: {
+                            id: "navbarDropdown1",
+                            role: "button",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false"
+                          }
+                        },
+                        [_vm._v("Urutkan Berdasarkan")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "dropdown-menu",
+                          attrs: { "aria-labelledby": "navbarDropdown1" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByName("asc")
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("Alat Tenun Bukan Mesin")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "dropdown-item",
-                            on: {
-                              click: function($event) {
-                                _vm.filterProductByCategory("Tradisional")
+                            },
+                            [_vm._v("Nama A-Z")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByName("des")
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("Tradisional")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "dropdown-item",
-                            on: {
-                              click: function($event) {
-                                _vm.filterProductByCategory("Mesin")
+                            },
+                            [_vm._v("Nama Z-A")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByPrice("asc")
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("Mesin")]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "dropdown-divider" }),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "dropdown-item",
-                            on: {
-                              click: function($event) {
-                                _vm.filterProductByCategory("")
+                            },
+                            [_vm._v("Harga Termurah")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByPrice("des")
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("Semua kategory")]
-                        )
-                      ]
-                    )
+                            },
+                            [_vm._v("Harga Termahal")]
+                          )
+                        ]
+                      )
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("li", { staticClass: "nav-item dropdown" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link dropdown-toggle",
-                        attrs: {
-                          id: "navbarDropdown1",
-                          role: "button",
-                          "data-toggle": "dropdown",
-                          "aria-haspopup": "true",
-                          "aria-expanded": "false"
+                  _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.searchName,
+                          expression: "searchName"
                         }
+                      ],
+                      staticClass: "form-control form-control-sm mr-sm-2",
+                      attrs: {
+                        type: "search",
+                        placeholder: "Filter Nama",
+                        "aria-label": "Search"
                       },
-                      [_vm._v("Urutkan Berdasarkan")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "dropdown-menu",
-                        attrs: { "aria-labelledby": "navbarDropdown1" }
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "dropdown-item",
-                            on: {
-                              click: function($event) {
-                                _vm.sortProductByName("asc")
-                              }
+                      domProps: { value: _vm.searchName },
+                      on: {
+                        input: [
+                          function($event) {
+                            if ($event.target.composing) {
+                              return
                             }
+                            _vm.searchName = $event.target.value
                           },
-                          [_vm._v("Nama A-Z")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "dropdown-item",
-                            on: {
-                              click: function($event) {
-                                _vm.sortProductByName("des")
-                              }
-                            }
-                          },
-                          [_vm._v("Nama Z-A")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "dropdown-item",
-                            on: {
-                              click: function($event) {
-                                _vm.sortProductByPrice("asc")
-                              }
-                            }
-                          },
-                          [_vm._v("Harga Termurah")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "dropdown-item",
-                            on: {
-                              click: function($event) {
-                                _vm.sortProductByPrice("des")
-                              }
-                            }
-                          },
-                          [_vm._v("Harga Termahal")]
-                        )
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-inline my-2 my-lg-0" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.searchName,
-                        expression: "searchName"
+                          _vm.filterProductByName
+                        ]
                       }
-                    ],
-                    staticClass: "form-control form-control-sm mr-sm-2",
-                    attrs: {
-                      type: "search",
-                      placeholder: "Filter Nama",
-                      "aria-label": "Search"
-                    },
-                    domProps: { value: _vm.searchName },
-                    on: {
-                      input: [
-                        function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.searchName = $event.target.value
-                        },
-                        _vm.filterProductByName
-                      ]
-                    }
-                  })
-                ])
-              ]
-            )
-          ])
+                    })
+                  ])
+                ]
+              )
+            ]
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
@@ -76047,7 +75941,7 @@ var render = function() {
                   _vm._l(_vm.products, function(product) {
                     return _c(
                       "div",
-                      { staticClass: "col-lg-2 col-md-2 col-sm-2 px-1" },
+                      { staticClass: "col-6 col-md-2 col-lg-2 px-1" },
                       [
                         _c("div", { staticClass: "card products" }, [
                           _c(
@@ -76090,9 +75984,7 @@ var render = function() {
                       ]
                     )
                   })
-                ),
-                _vm._v(" "),
-                _vm._m(0)
+                )
               ])
             : _c(
                 "div",
@@ -76132,53 +76024,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("nav", { attrs: { "aria-label": "navigation" } }, [
-        _c("ul", { staticClass: "pagination mt-50 mb-50" }, [
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _c("i", { staticClass: "fa fa-angle-left" })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("1")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("2")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("3")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("...")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("21")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _c("i", { staticClass: "fa fa-angle-right" })
-            ])
-          ])
-        ])
-      ])
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarTogglerDemo02",
+          "aria-controls": "navbarTogglerDemo02",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "fa fa-bars" })]
+    )
   },
   function() {
     var _vm = this

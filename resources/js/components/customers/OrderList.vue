@@ -56,7 +56,7 @@
                           <div
                             class="col-sm-3 bold"
                             style="color: orangered"
-                          >Rp {{ getTotalPayment(transaction.payment)}}</div>
+                          >Rp {{formatPrice( getTotalPayment(transaction.payment))}}</div>
                           <div class="col-sm-6">
                             <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedByAdmin'">
                               Menunggu Pembayaran
@@ -99,7 +99,7 @@
                                   <h6>{{ order.product.name }}</h6>
                                   <h6
                                     style="color: #FF5205; display: inline;"
-                                  >Rp {{ order.product.price }}</h6>
+                                  >Rp {{formatPrice( order.product.price )}}</h6>
                                   <br>
                                   <small>Jumlah {{ order.quantity }}</small>
                                 </div>
