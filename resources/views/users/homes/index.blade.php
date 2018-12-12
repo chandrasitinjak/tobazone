@@ -13,7 +13,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon  -->
-    <link rel="icon" href="/images/assets/icon.png">
+    <link rel="shortcut icon" href="/images/assets/icon.ico">
 
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="/user-assets/css/core-style.css">
