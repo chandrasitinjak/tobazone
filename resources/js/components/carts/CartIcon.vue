@@ -16,7 +16,7 @@ export default {
   props: ["userId"],
   data() {
     return {
-      total: null,
+      total: 0,
       show: true
     };
   },
@@ -28,10 +28,15 @@ export default {
         setTimeout(() => {
           this.show = true;
         }, 500);
-        
-        if (res.data.total !== 0) {
-          this.total = res.data.carts.length;
-        }
+
+        const carts = res.data.carts
+        let total = 0
+
+        carts.forEach(cart => {
+          total += parseInt(cart.total)
+        });
+
+        this.total = total
       });
     }
   },

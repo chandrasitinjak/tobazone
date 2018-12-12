@@ -110,10 +110,14 @@
                                 <label class="col-form-label">Bukti Pembayaran</label>
                                 <div class="col-sm-9">
                                   <div class="upload-btn-wrapper">
-                                    <button class="btn-upcus" style="margin: auto">
+                                    <button class="btn-upcus" style="margin: auto" v-if="selectedFile === null">
                                       <img src="/images/assets/addimage.png" style="height: 100px">
+                                      <input type="file" name="myfile" v-on:change="onFileChanged">
                                     </button>
-                                    <input type="file" name="myfile" v-on:change="onFileChanged">
+                                    <div v-else>
+                                      <button type="button" class="btn btn-danger btn-sm" v-on:click="selectedFile = null"> Hapus Gambar </button>
+                                      <img id="uploaded_image" :src="image" />
+                                    </div>
                                   </div>
                                   <small id class="form-text text-muted"></small>
                                 </div>
@@ -160,7 +164,8 @@ export default {
       selectedFile: null,
       senderName: "",
       selectedBank: "",
-      statusUpdated: false
+      statusUpdated: false,
+      image: null
     };
   },
   methods: {
@@ -235,7 +240,7 @@ export default {
     },
     onFileChanged(event) {
       this.selectedFile = event.target.files[0];
-      console.log(this.selectedFile);
+      this.image = URL.createObjectURL(this.selectedFile);
     }
   },
   created() {

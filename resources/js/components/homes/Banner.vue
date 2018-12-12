@@ -6,11 +6,13 @@
       </div>
       <div class="card-body" style="text-align: center;">
         <div class="flex">
-          <div class="ab d-inline-flex" v-for="banner in banners" style="margin: 2px;
-    min-width: 300px;
-    width: 33%;">
+          <div
+            class="ab d-inline-flex"
+            v-for="banner in banners"
+            style="margin: 2px; min-width: 300px; width: 33%;"
+          >
             <a :href="banner.link">
-              <img :src="'/images/banners/' + banner.image" alt="Inspirasi Belanja" style="">
+              <img :src="'/images/banners/' + banner.image" alt="Inspirasi Belanja" style>
             </a>
           </div>
         </div>
@@ -20,10 +22,6 @@
 </template>
 
 <script>
-
-//
-
-
 export default {
   data() {
     return {
@@ -34,7 +32,6 @@ export default {
     getBanners() {
       window.axios.get("/get-banners").then(res => {
         this.banners = res.data;
-        console.log(this.banners);
       });
     }
   },

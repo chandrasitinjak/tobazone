@@ -9,7 +9,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Unpaid Order</strong>
+                        <strong class="card-title">Successed Order</strong>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped">
