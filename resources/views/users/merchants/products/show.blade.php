@@ -17,13 +17,13 @@
                   <div class="col-md-2 pr-0 smallimageholder">
                     <ul class="nav nav-pills nav-justified smallimage ">
                       @foreach (json_decode($product->images) as $idx => $image) @if ($loop->first)
-                        <li class="mb-2" data-target="#myCarousel" data-slide-to="{{ $idx }}" class="active">
-                          <img src="{{ '/images/' . $image }}" alt="">
-                        </li>
+                      <li class="mb-2" data-target="#myCarousel" data-slide-to="{{ $idx }}" class="active">
+                        <img src="{{ '/images/' . $image }}" alt="">
+                      </li>
                       @else
-                        <li class="mb-2" data-target="#myCarousel" data-slide-to="{{ $idx }}">
-                          <img src="{{ '/images/' . $image }}" alt="">
-                        </li>
+                      <li class="mb-2" data-target="#myCarousel" data-slide-to="{{ $idx }}">
+                        <img src="{{ '/images/' . $image }}" alt="">
+                      </li>
                       @endif @endforeach
                     </ul>
                   </div>
@@ -51,18 +51,14 @@
             </div>
 
             <div class="col-md-4">
-              <button type="button" class="badge custom-badge font-weight-light"
-                      data-toggle="test"
-                      data-rigger="focus"
-                      data-content="<b><a href='single-blog.html'>Klik disini</a></b>  untuk informasi selebihnya "
-                      data-html="true"
-                      title="Dibuat dengan {{$product->category}} ">
+              <button type="button" class="badge custom-badge font-weight-light" data-toggle="test" data-rigger="focus" data-content="<b><a href='single-blog.html'>Klik disini</a></b>  untuk informasi selebihnya "
+                data-html="true" title="Dibuat dengan {{$product->category}} ">
 
                 {{$product->category}}
               </button>
 
 
-                <h2>{{ $product->name }}</h2>
+              <h2>{{ $product->name }}</h2>
 
               <h4 class="product-price" style="color: orange">Rp {{ number_format($product->price ,0) }}</h4>
               <p class="product-desc">{{$product->description}}</p>
@@ -79,17 +75,15 @@
                 </form>
               </div>
 
+              @else @if(Auth::check())
+              <div id="add-to-cart-button">
+                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />
+              </div>
               @else
-                @if(Auth::check())
-                <div id="add-to-cart-button">
-                  <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />
-                </div>
-                @else
-                <div>
-                  <button class="btn essence-btn ml4 " data-toggle="modal" data-target="#loginModal"> Login Untuk Memesan Barang</button>
-                </div>
-                @endif
-              @endrole
+              <div>
+                <button class="btn essence-btn ml4 " data-toggle="modal" data-target="#loginModal"> Login Untuk Memesan Barang</button>
+              </div>
+              @endif @endrole
 
             </div>
           </div>
@@ -101,15 +95,13 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                       aria-controls="home" aria-selected="true">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
                       <i class="fa fa-file-text-o mr-2"></i>
                       <span>Deskripsi</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                       aria-controls="profile" aria-selected="false">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
                       <i class="fa fa-thumbs-o-up mr-2"></i>
                       <span>Ulasan</span></a>
                     </a>
@@ -122,29 +114,25 @@
                   </div>
 
                   <div class="tab-pane fade ulasan" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                      <div class="text-sm-center">
-                          <img src="" alt="">
-                          <b>Belum ada ulasan untuk produk ini</b>
-                          <p>Jadilah yang pertama membeli produk ini dan memberikan ulasan</p>
-                      </div>
-
-
-
-
-                  <div class="tab-pane fade ulasan" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    @foreach ($product->reviews as $review)
+                    @if($product->review->count() === 0)
+                    <div class="text-sm-center">
+                      <img src="" alt="">
+                      <b>Belum ada ulasan untuk produk ini</b>
+                      <p>Jadilah yang pertama membeli produk ini dan memberikan ulasan</p>
+                    </div>
+                    @else @foreach ($product->reviews as $review)
                     <div class="card mt-3">
                       <div class="card-body">
                         <div class="row">
-                          <div class="col-md-1">
-                            <div class="imgwrapper">
-                              <img src="img/product-img/product-4.jpg" alt="" style="">
-                            </div>
+                          <div class="col-md-9">
+                            Oleh <b> {{ $review->customer->profile->name }}</b> <br>
+                            <small>{{ date_format($review->created_at,"l, d F Y, h:i:s") }}</small>
+                            <br> {{ $review->body }}
                           </div>
                         </div>
                       </div>
                     </div>
-                    @endforeach
+                    @endforeach @endif
                   </div>
                 </div>
               </div>
@@ -154,17 +142,12 @@
       </div>
     </div>
   </div>
-  </div>
 </div>
 
 <div id="new-product">
   @if(Auth::check())
-      <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Lain'"/>
-  @else
-      <new-products :title="'Produk Lain'"/>
-  @endif
+  <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Lain'" /> @else
+  <new-products :title="'Produk Lain'" /> @endif
 </div>
-
-@include('users.auth.login_modal')
-
+  @include('users.auth.login_modal')
 @endsection

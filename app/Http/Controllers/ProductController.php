@@ -16,7 +16,6 @@ class ProductController extends Controller
      */
     public function index()
     {
-
         $products = Product::where('user_id', Auth::user()->id)->get();
         return view('users.merchants.products.index')->with('products', $products);
     }
@@ -78,7 +77,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::with(['reviews', 'reviews.customer', 'reviews.customer.profile'])->where('id',$id)->first();
+        $product = Product::with(['reviews.customer.profile'])->where('id',$id)->first();
         return view('users.merchants.products.show')->with('product', $product);
     }
 

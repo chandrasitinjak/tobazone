@@ -5355,6 +5355,57 @@ module.exports = __webpack_require__(178);
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(254)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(256)
+/* template */
+var __vue_template__ = __webpack_require__(257)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/Spinner.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7ae326fe", Component.options)
+  } else {
+    hotAPI.reload("data-v-7ae326fe", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
@@ -5454,57 +5505,6 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)))
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(254)
-}
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(256)
-/* template */
-var __vue_template__ = __webpack_require__(257)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/Spinner.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7ae326fe", Component.options)
-  } else {
-    hotAPI.reload("data-v-7ae326fe", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
 
 /***/ }),
 /* 10 */
@@ -41775,7 +41775,7 @@ var RegMerchant = __webpack_require__(259);
 var TrackingPage = __webpack_require__(262);
 var SearchProduct = __webpack_require__(267);
 var LoginModal = __webpack_require__(272);
-var Spinner = __webpack_require__(9);
+var Spinner = __webpack_require__(8);
 
 var app = new Vue({
   el: '#app',
@@ -62944,7 +62944,7 @@ module.exports = __webpack_require__(150);
 var utils = __webpack_require__(4);
 var bind = __webpack_require__(13);
 var Axios = __webpack_require__(152);
-var defaults = __webpack_require__(8);
+var defaults = __webpack_require__(9);
 
 /**
  * Create an instance of Axios
@@ -63027,7 +63027,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(8);
+var defaults = __webpack_require__(9);
 var utils = __webpack_require__(4);
 var InterceptorManager = __webpack_require__(161);
 var dispatchRequest = __webpack_require__(162);
@@ -63566,7 +63566,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(4);
 var transformData = __webpack_require__(163);
 var isCancel = __webpack_require__(17);
-var defaults = __webpack_require__(8);
+var defaults = __webpack_require__(9);
 var isAbsoluteURL = __webpack_require__(164);
 var combineURLs = __webpack_require__(165);
 
@@ -69409,7 +69409,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          '"\n                        >Terima'
+                                          "\n                        Terima"
                                         )
                                       ]
                                     ),
@@ -70249,7 +70249,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -70260,6 +70260,12 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -70853,6 +70859,7 @@ var render = function() {
                   },
                   _vm._l(_vm.transactions, function(transaction) {
                     return _c("div", { staticClass: "detailorder mt-2" }, [
+                      transaction.status === "orderSuccessed" ||
                       transaction.status === "rejectedByAdmin" ||
                       transaction.status === "rejectedByMerchant" ||
                       transaction.status === "canceledBySistem" ||
@@ -70970,6 +70977,24 @@ var render = function() {
                                                   )
                                                 ]
                                               )
+                                            : transaction.status ===
+                                              "orderSuccessed"
+                                            ? _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "alert alert-warning p-1",
+                                                  staticStyle: {
+                                                    "font-size": "x-small"
+                                                  },
+                                                  attrs: { role: "alert" }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                            Transaksi Sukses\n                          "
+                                                  )
+                                                ]
+                                              )
                                             : _vm._e()
                                         ])
                                       ])
@@ -71002,98 +71027,115 @@ var render = function() {
                                                   { staticClass: "row" },
                                                   [
                                                     _c(
-                                                      "div",
+                                                      "a",
                                                       {
-                                                        staticClass:
-                                                          "col-sm-2 col-xs-12"
+                                                        attrs: {
+                                                          href:
+                                                            "/customer/" +
+                                                            _vm.userId +
+                                                            "/transactions/" +
+                                                            transaction.id +
+                                                            "/tracking"
+                                                        }
                                                       },
                                                       [
                                                         _c(
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "imgwrapper pesanan",
-                                                            staticStyle: {
-                                                              padding: "0px",
-                                                              height: "auto"
-                                                            }
+                                                              "col-sm-2 col-xs-12"
                                                           },
                                                           [
-                                                            _c("img", {
-                                                              attrs: {
-                                                                src:
-                                                                  "/images/" +
-                                                                  JSON.parse(
-                                                                    order
-                                                                      .product
-                                                                      .images
-                                                                  )[0],
-                                                                alt:
-                                                                  "Card image cap"
-                                                              }
-                                                            })
-                                                          ]
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "col-sm-6 col-xs-12"
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "keranjang-desc-prod"
-                                                          },
-                                                          [
-                                                            _c("h6", [
-                                                              _vm._v(
-                                                                _vm._s(
-                                                                  order.product
-                                                                    .name
-                                                                )
-                                                              )
-                                                            ]),
-                                                            _vm._v(" "),
                                                             _c(
-                                                              "h6",
+                                                              "div",
                                                               {
+                                                                staticClass:
+                                                                  "imgwrapper pesanan",
                                                                 staticStyle: {
-                                                                  color:
-                                                                    "#FF5205",
-                                                                  display:
-                                                                    "inline"
+                                                                  padding:
+                                                                    "0px",
+                                                                  height: "auto"
                                                                 }
                                                               },
                                                               [
-                                                                _vm._v(
-                                                                  "Rp " +
-                                                                    _vm._s(
-                                                                      _vm.formatPrice(
+                                                                _c("img", {
+                                                                  attrs: {
+                                                                    src:
+                                                                      "/images/" +
+                                                                      JSON.parse(
                                                                         order
                                                                           .product
-                                                                          .price
-                                                                      )
-                                                                    )
-                                                                )
+                                                                          .images
+                                                                      )[0],
+                                                                    alt:
+                                                                      "Card image cap"
+                                                                  }
+                                                                })
                                                               ]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c("br"),
-                                                            _vm._v(" "),
-                                                            _c("small", [
-                                                              _vm._v(
-                                                                "Jumlah " +
-                                                                  _vm._s(
-                                                                    order.quantity
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-sm-6 col-xs-12"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "keranjang-desc-prod"
+                                                              },
+                                                              [
+                                                                _c("h6", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      order
+                                                                        .product
+                                                                        .name
+                                                                    )
                                                                   )
-                                                              )
-                                                            ])
+                                                                ]),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "h6",
+                                                                  {
+                                                                    staticStyle: {
+                                                                      color:
+                                                                        "#FF5205",
+                                                                      display:
+                                                                        "inline"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "Rp " +
+                                                                        _vm._s(
+                                                                          _vm.formatPrice(
+                                                                            order
+                                                                              .product
+                                                                              .price
+                                                                          )
+                                                                        )
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c("br"),
+                                                                _vm._v(" "),
+                                                                _c("small", [
+                                                                  _vm._v(
+                                                                    "Jumlah " +
+                                                                      _vm._s(
+                                                                        order.quantity
+                                                                      )
+                                                                  )
+                                                                ])
+                                                              ]
+                                                            )
                                                           ]
                                                         )
                                                       ]
@@ -72840,7 +72882,7 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Spinner__);
 //
 //
@@ -73799,7 +73841,7 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Spinner__);
 //
 //
@@ -74662,7 +74704,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -74673,6 +74715,25 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Spinner__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -74911,12 +74972,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    spinner: __WEBPACK_IMPORTED_MODULE_1__Spinner___default.a
+  },
   props: ["transactionId", "customerId"],
   data: function data() {
     return {
-      transaction: {},
-      trackings: {}
+      transaction: null,
+      trackings: {},
+      selectedProduct: {},
+      feedback: ""
     };
   },
 
@@ -74924,13 +74993,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     getTransaction: function getTransaction() {
       var _this = this;
 
+      __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("SPINNER", true);
       window.axios.get("/api/transaction/" + this.transactionId + "/tracking").then(function (res) {
-        console.log(res.data);
         _this.transaction = res.data.transaction;
         _this.trackings = res.data.tracking.rajaongkir.result.manifest;
         _this.updateStatus(res.data.tracking.rajaongkir.result.delivered);
+        __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("SPINNER", false);
       }).catch(function (err) {
         console.log(err);
+        __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("SPINNER", false);
       });
     },
     updateStatus: function updateStatus(delivered) {
@@ -74945,11 +75016,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           window.location = "/customer/" + _this2.customerId + "/transactions/" + _this2.transactionId + "/tracking";
         });
       }
+    },
+    updateReview: function updateReview(productId) {
+      var payload = {
+        transactionId: this.transactionId,
+        userId: this.transaction.customer_id,
+        feedback: this.feedback
+      };
+
+      window.axios.post("/api/product/" + productId + "/review", payload).then(function () {
+        window.location.reload(true);
+      }).catch(function (err) {
+        console.log(err);
+        window.location.reload(true);
+      });
     }
   },
   mounted: function mounted() {
     this.getTransaction();
-    console.log(this.transactionId);
   }
 });
 
@@ -74961,226 +75045,62 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-md-10 crudproduk" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "card globalcard" }, [
-      _c("div", { staticClass: "card-body detailorder" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c("div", { staticClass: "row detail mb-2" }, [
-          _c("div", { staticClass: "col-md-3 col-sm-1" }, [
-            _vm._v(_vm._s(_vm.transaction.created_at))
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "col-sm-3 col-sm-1 bold",
-              staticStyle: { color: "orangered" }
-            },
-            [
-              _vm._v(
-                "Rp " +
-                  _vm._s(
-                    _vm.transaction.payment.product_cost +
-                      _vm.transaction.payment.shipping_cost
-                  )
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-2" }, [
-            _vm._v("Pembayaran diterima\n          "),
-            _c("br"),
-            _vm._v(" "),
-            _c("small", [
-              _vm._v(_vm._s(JSON.parse(_vm.transaction.payment.proof)["bank"]))
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "mt-4" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _c("div", { staticClass: "row detail" }, [
-            _c("div", { staticClass: "col-md-6 small" }, [
-              _vm._v(_vm._s(_vm.transaction.address))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-3 small" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-striped table-responsive-sm table-sm"
-                },
-                [
-                  _c("tbody", [
-                    _c("tr", [
-                      _c(
-                        "th",
-                        { staticClass: "light", attrs: { scope: "row" } },
-                        [_vm._v("Total belanja")]
-                      ),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v(
-                          "Rp " + _vm._s(_vm.transaction.payment.product_cost)
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("th", { attrs: { scope: "row" } }, [
-                        _vm._v("Biaya Pengiriman")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v(
-                          "Rp " + _vm._s(_vm.transaction.payment.shipping_cost)
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("th", { attrs: { scope: "row" } }, [
-                        _vm._v("Total Pembayaran")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("b", [
-                          _vm._v(
-                            "Rp " +
-                              _vm._s(
-                                _vm.transaction.payment.product_cost +
-                                  _vm.transaction.payment.shipping_cost
-                              )
-                          )
-                        ])
-                      ])
-                    ])
-                  ])
-                ]
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "detailorder mt-2" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-body" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "row singleorderprod mb-3",
-                  staticStyle: { "border-bottom": "1px #00000020 solid" }
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "col-md-12 mb-3" },
-                    _vm._l(_vm.transaction.orders, function(order) {
-                      return _c("div", { staticClass: "row" }, [
-                        _c("div", { staticClass: "col-sm-3 col-xs-12" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass: "imgwrapper detailpesanan",
-                              staticStyle: { padding: "0px", height: "auto" }
-                            },
-                            [
-                              _c("img", {
-                                attrs: {
-                                  src:
-                                    "/images/" +
-                                    JSON.parse(order.product.images)[0],
-                                  alt: "Card image cap"
-                                }
-                              })
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "col-sm-5 col-xs-12" }, [
-                          _c("div", { staticClass: "keranjang-desc-prod" }, [
-                            _c("h6", [
-                              _vm._v(" " + _vm._s(order.product.name))
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "h6",
-                              {
-                                staticStyle: {
-                                  color: "#FF5205",
-                                  display: "inline"
-                                }
-                              },
-                              [_vm._v("Rp " + _vm._s(order.product.price))]
-                            ),
-                            _vm._v(" "),
-                            _c("small", [_vm._v("/ unit")]),
-                            _vm._v(" "),
-                            _c("br"),
-                            _vm._v(" "),
-                            _c("small", [
-                              _vm._v("Jumlah " + _vm._s(order.quantity))
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(3, true),
-                        _vm._v(" "),
-                        _vm._m(4, true)
-                      ])
-                    })
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(5),
+  return _c(
+    "div",
+    { staticClass: "col-md-10 crudproduk" },
+    [
+      _c("spinner"),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm.transaction !== null
+        ? _c("div", { staticClass: "card globalcard" }, [
+            _c("div", { staticClass: "card-body detailorder" }, [
+              _vm._m(1),
               _vm._v(" "),
               _c("div", { staticClass: "row detail mb-2" }, [
-                _c("div", { staticClass: "col-md-3" }, [
-                  _c("b", [_vm._v("Terkirim")]),
-                  _vm._v(" "),
+                _c("div", { staticClass: "col-md-3 col-sm-1" }, [
+                  _vm._v(_vm._s(_vm.transaction.created_at))
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-sm-3 col-sm-1 bold",
+                    staticStyle: { color: "orangered" }
+                  },
+                  [
+                    _vm._v(
+                      "Rp " +
+                        _vm._s(
+                          _vm.transaction.payment.product_cost +
+                            _vm.transaction.payment.shipping_cost
+                        )
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-2" }, [
+                  _vm._v("Pembayaran diterima\n          "),
                   _c("br"),
                   _vm._v(" "),
                   _c("small", [
                     _vm._v(
-                      "Disediakan dan dikirim oleh " +
-                        _vm._s(
-                          _vm.transaction.orders[0].product.merchant.profile
-                            .name
-                        )
+                      _vm._s(JSON.parse(_vm.transaction.payment.proof)["bank"])
                     )
                   ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-3 bold" }, [
-                  _c("b", [_vm._v("JNE Reguler")]),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("small", [_vm._v("Nomor Resi")]),
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.transaction.shipping_number) +
-                      "\n              "
-                  )
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(6),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "collapse row justify-content-center",
-                  attrs: { id: "posisipengiriman" }
-                },
-                [
-                  _c("div", { staticClass: "card card-body col-md-8 mt-3" }, [
+              _c("div", { staticClass: "mt-4" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c("div", { staticClass: "row detail" }, [
+                  _c("div", { staticClass: "col-md-6 small" }, [
+                    _vm._v(_vm._s(_vm.transaction.address))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-3 small" }, [
                     _c(
                       "table",
                       {
@@ -75188,37 +75108,646 @@ var render = function() {
                           "table table-striped table-responsive-sm table-sm"
                       },
                       [
-                        _vm._m(7),
-                        _vm._v(" "),
-                        _c(
-                          "tbody",
-                          _vm._l(_vm.trackings, function(tracking) {
-                            return _c("tr", { staticClass: "light" }, [
-                              _c("td", [
-                                _vm._v(_vm._s(tracking.manifest_description))
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [
+                        _c("tbody", [
+                          _c("tr", [
+                            _c(
+                              "th",
+                              { staticClass: "light", attrs: { scope: "row" } },
+                              [_vm._v("Total belanja")]
+                            ),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "Rp " +
+                                  _vm._s(_vm.transaction.payment.product_cost)
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("tr", [
+                            _c("th", { attrs: { scope: "row" } }, [
+                              _vm._v("Biaya Pengiriman")
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "Rp " +
+                                  _vm._s(_vm.transaction.payment.shipping_cost)
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("tr", [
+                            _c("th", { attrs: { scope: "row" } }, [
+                              _vm._v("Total Pembayaran")
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("b", [
                                 _vm._v(
-                                  _vm._s(tracking.manifest_date) +
-                                    " " +
-                                    _vm._s(tracking.manifest_time)
+                                  "Rp " +
+                                    _vm._s(
+                                      _vm.transaction.payment.product_cost +
+                                        _vm.transaction.payment.shipping_cost
+                                    )
                                 )
                               ])
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "detailorder mt-2" }, [
+                _c("div", { staticClass: "card" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "row singleorderprod mb-3",
+                        staticStyle: { "border-bottom": "1px #00000020 solid" }
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "col-md-12 mb-3" },
+                          _vm._l(_vm.transaction.orders, function(order) {
+                            return _c("div", { staticClass: "row" }, [
+                              _c("div", { staticClass: "col-sm-3 col-xs-12" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "imgwrapper detailpesanan",
+                                    staticStyle: {
+                                      padding: "0px",
+                                      height: "auto"
+                                    }
+                                  },
+                                  [
+                                    _c("img", {
+                                      attrs: {
+                                        src:
+                                          "/images/" +
+                                          JSON.parse(order.product.images)[0],
+                                        alt: "Card image cap"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-5 col-xs-12" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "keranjang-desc-prod" },
+                                  [
+                                    _c("h6", [
+                                      _vm._v(_vm._s(order.product.name))
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "h6",
+                                      {
+                                        staticStyle: {
+                                          color: "#FF5205",
+                                          display: "inline"
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Rp " + _vm._s(order.product.price)
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("small", [_vm._v("/ unit")]),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                    _vm._v(" "),
+                                    _c("small", [
+                                      _vm._v("Jumlah " + _vm._s(order.quantity))
+                                    ])
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-md-4" }, [
+                                _vm.transaction.status === "orderSuccessed" &&
+                                order.product.review === null
+                                  ? _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn small smallbtn",
+                                        staticStyle: { width: "150px" },
+                                        attrs: {
+                                          "data-toggle": "modal",
+                                          "data-target": "#tulisulasan",
+                                          role: "button"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.selectedProduct = order.product
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Tulis Ulasan")]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.transaction.status === "orderSuccessed" &&
+                                order.product.review !== null
+                                  ? _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn small smallbtn",
+                                        staticStyle: { width: "150px" },
+                                        attrs: {
+                                          "data-toggle": "modal",
+                                          "data-target": "#tulisulasan",
+                                          role: "button"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.selectedProduct = order.product
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Lihat Ulasan")]
+                                    )
+                                  : _vm._e()
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "modal fade",
+                                  attrs: {
+                                    id: "tulisulasan",
+                                    tabindex: "-1",
+                                    role: "dialog",
+                                    "aria-labelledby":
+                                      "exampleModalCenterTitle",
+                                    "aria-hidden": "true"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "modal-dialog modal-dialog-centered modal-lg",
+                                      attrs: { role: "document" }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "modal-content" },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "modal-header" },
+                                            [
+                                              order.product.review === null
+                                                ? _c(
+                                                    "h5",
+                                                    {
+                                                      staticClass:
+                                                        "modal-title",
+                                                      attrs: {
+                                                        id:
+                                                          "exampleModalCenterTitle"
+                                                      }
+                                                    },
+                                                    [_vm._v("Tulis Ulasan")]
+                                                  )
+                                                : _c(
+                                                    "h5",
+                                                    {
+                                                      staticClass:
+                                                        "modal-title",
+                                                      attrs: {
+                                                        id:
+                                                          "exampleModalCenterTitle"
+                                                      }
+                                                    },
+                                                    [_vm._v("Ulasan Anda")]
+                                                  ),
+                                              _vm._v(" "),
+                                              _vm._m(3, true)
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "modal-body row justify-content-md-center"
+                                            },
+                                            [
+                                              order.product.review === null
+                                                ? _c("div", [
+                                                    _vm._v(
+                                                      "Kami ingin melayani anda dengan lebih baik, silahkan beri penilaian pengalaman berbelanja Anda"
+                                                    )
+                                                  ])
+                                                : _c("div", [
+                                                    _vm._v(
+                                                      "Anda sudah memberikan review untuk produk dibawah ini"
+                                                    )
+                                                  ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "col-md-10" },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "detailorder mt-2"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "div",
+                                                        { staticClass: "card" },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "card-body"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "row singleorderprod",
+                                                                  staticStyle: {
+                                                                    "padding-bottom":
+                                                                      "10px"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "col-md-12"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "div",
+                                                                        {
+                                                                          staticClass:
+                                                                            "row"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "div",
+                                                                            {
+                                                                              staticClass:
+                                                                                "col-md-2"
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "div",
+                                                                                {
+                                                                                  staticClass:
+                                                                                    "imgwrapper detailpesanan",
+                                                                                  staticStyle: {
+                                                                                    padding:
+                                                                                      "0px",
+                                                                                    height:
+                                                                                      "auto"
+                                                                                  }
+                                                                                },
+                                                                                [
+                                                                                  _c(
+                                                                                    "img",
+                                                                                    {
+                                                                                      staticStyle: {
+                                                                                        height:
+                                                                                          "auto"
+                                                                                      },
+                                                                                      attrs: {
+                                                                                        src:
+                                                                                          "/images/" +
+                                                                                          JSON.parse(
+                                                                                            order
+                                                                                              .product
+                                                                                              .images
+                                                                                          )[0],
+                                                                                        alt:
+                                                                                          "Card image cap"
+                                                                                      }
+                                                                                    }
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          ),
+                                                                          _vm._v(
+                                                                            " "
+                                                                          ),
+                                                                          _c(
+                                                                            "div",
+                                                                            {
+                                                                              staticClass:
+                                                                                "col-md-10"
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "div",
+                                                                                {
+                                                                                  staticClass:
+                                                                                    "keranjang-desc-prod"
+                                                                                },
+                                                                                [
+                                                                                  _c(
+                                                                                    "h6",
+                                                                                    [
+                                                                                      _vm._v(
+                                                                                        _vm._s(
+                                                                                          _vm
+                                                                                            .selectedProduct
+                                                                                            .name
+                                                                                        )
+                                                                                      )
+                                                                                    ]
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "h6",
+                                                                                    {
+                                                                                      staticStyle: {
+                                                                                        color:
+                                                                                          "#FF5205",
+                                                                                        display:
+                                                                                          "inline"
+                                                                                      }
+                                                                                    },
+                                                                                    [
+                                                                                      _vm._v(
+                                                                                        "Rp " +
+                                                                                          _vm._s(
+                                                                                            _vm
+                                                                                              .selectedProduct
+                                                                                              .price
+                                                                                          )
+                                                                                      )
+                                                                                    ]
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "small",
+                                                                                    [
+                                                                                      _vm._v(
+                                                                                        "/unit"
+                                                                                      )
+                                                                                    ]
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "br"
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass: "col-md-12 mt-2"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Komentar Anda:\n                            "
+                                                  ),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "form-group mt-2"
+                                                    },
+                                                    [
+                                                      order.product.review ===
+                                                      null
+                                                        ? _c("textarea", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.feedback,
+                                                                expression:
+                                                                  "feedback"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control",
+                                                            attrs: {
+                                                              rows: "3"
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.feedback
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.feedback =
+                                                                  $event.target.value
+                                                              }
+                                                            }
+                                                          })
+                                                        : _c(
+                                                            "textarea",
+                                                            {
+                                                              staticClass:
+                                                                "form-control",
+                                                              attrs: {
+                                                                rows: "3",
+                                                                readonly: ""
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  order.product
+                                                                    .review.body
+                                                                )
+                                                              )
+                                                            ]
+                                                          )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "modal-footer" },
+                                            [
+                                              order.product.review === null
+                                                ? _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-primary btn-sm",
+                                                      attrs: { type: "button" },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          _vm.updateReview(
+                                                            _vm.selectedProduct
+                                                              .id
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [_vm._v("Kirim Ulasan")]
+                                                  )
+                                                : _vm._e()
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
                             ])
                           })
                         )
                       ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row detail mb-2" }, [
+                      _c("div", { staticClass: "col-md-3" }, [
+                        _c("b", [_vm._v("Terkirim")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("small", [
+                          _vm._v(
+                            "Disediakan dan dikirim oleh " +
+                              _vm._s(
+                                _vm.transaction.orders[0].product.merchant
+                                  .profile.name
+                              )
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-3 bold" }, [
+                        _c("b", [_vm._v("JNE Reguler")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("small", [_vm._v("Nomor Resi")]),
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(_vm.transaction.shipping_number) +
+                            "\n              "
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "collapse row justify-content-center",
+                        attrs: { id: "posisipengiriman" }
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "card card-body col-md-8 mt-3" },
+                          [
+                            _c(
+                              "table",
+                              {
+                                staticClass:
+                                  "table table-striped table-responsive-sm table-sm"
+                              },
+                              [
+                                _vm._m(6),
+                                _vm._v(" "),
+                                _c(
+                                  "tbody",
+                                  _vm._l(_vm.trackings, function(tracking) {
+                                    return _c("tr", { staticClass: "light" }, [
+                                      _c("td", [
+                                        _vm._v(
+                                          _vm._s(tracking.manifest_description)
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("td", [
+                                        _vm._v(
+                                          _vm._s(tracking.manifest_date) +
+                                            " " +
+                                            _vm._s(tracking.manifest_time)
+                                        )
+                                      ])
+                                    ])
+                                  })
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ]
                     )
                   ])
-                ]
-              )
+                ])
+              ])
             ])
           ])
-        ])
-      ])
-    ])
-  ])
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -75273,201 +75802,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn small smallbtn",
-          staticStyle: { width: "150px" },
-          attrs: {
-            "data-toggle": "modal",
-            "data-target": "#tulisulasan",
-            role: "button"
-          }
-        },
-        [_vm._v("Tulis Ulasan")]
-      ),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn small smallbtn mt-3",
-          staticStyle: { width: "150px" },
-          attrs: { href: "single-product-details.html", role: "button" }
-        },
-        [_vm._v("Lihat Ulasan")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c(
-      "div",
+      "button",
       {
-        staticClass: "modal fade",
+        staticClass: "close",
         attrs: {
-          id: "tulisulasan",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "exampleModalCenterTitle",
-          "aria-hidden": "true"
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
         }
       },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "modal-dialog modal-dialog-centered modal-lg",
-            attrs: { role: "document" }
-          },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "modal-title",
-                    attrs: { id: "exampleModalCenterTitle" }
-                  },
-                  [_vm._v("Tulis Ulasan")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: {
-                      type: "button",
-                      "data-dismiss": "modal",
-                      "aria-label": "Close"
-                    }
-                  },
-                  [
-                    _c("span", { attrs: { "aria-hidden": "true" } }, [
-                      _vm._v("×")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "modal-body row justify-content-md-center" },
-                [
-                  _vm._v(
-                    "Kami ingin melayani anda dengan lebih baik, silahkan beri penilaian pengalaman berbelanja Anda\n                          "
-                  ),
-                  _c("div", { staticClass: "col-md-10" }, [
-                    _c("div", { staticClass: "detailorder mt-2" }, [
-                      _c("div", { staticClass: "card" }, [
-                        _c("div", { staticClass: "card-body" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass: "row singleorderprod",
-                              staticStyle: { "padding-bottom": "10px" }
-                            },
-                            [
-                              _c("div", { staticClass: "col-md-12" }, [
-                                _c("div", { staticClass: "row" }, [
-                                  _c("div", { staticClass: "col-md-2" }, [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "imgwrapper detailpesanan",
-                                        staticStyle: {
-                                          padding: "0px",
-                                          height: "auto"
-                                        }
-                                      },
-                                      [
-                                        _c("img", {
-                                          staticStyle: { height: "auto" },
-                                          attrs: {
-                                            src:
-                                              "img/product-img/product-2.jpg",
-                                            alt: "Card image cap"
-                                          }
-                                        })
-                                      ]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "col-md-10" }, [
-                                    _c(
-                                      "div",
-                                      { staticClass: "keranjang-desc-prod" },
-                                      [
-                                        _c("h6", [
-                                          _vm._v(
-                                            "Ulos Ragihotang dan kawankawana asdhaskjdh"
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "h6",
-                                          {
-                                            staticStyle: {
-                                              color: "#FF5205",
-                                              display: "inline"
-                                            }
-                                          },
-                                          [_vm._v("Rp 12321")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("small", [_vm._v("/unit")]),
-                                        _vm._v(" "),
-                                        _c("br"),
-                                        _vm._v(" "),
-                                        _c("small", [_vm._v("Jumlah 1")])
-                                      ]
-                                    )
-                                  ])
-                                ])
-                              ])
-                            ]
-                          )
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-12 mt-2" }, [
-                    _vm._v(
-                      "Berikan komentar anda tentang produk:\n                            "
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("form", [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("textarea", {
-                          staticClass: "form-control",
-                          attrs: { id: "textareakomentar", rows: "3" }
-                        })
-                      ])
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-footer" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary btn-sm",
-                    attrs: { type: "button" }
-                  },
-                  [_vm._v("Kirim Ulasan")]
-                )
-              ])
-            ])
-          ]
-        )
-      ]
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
     )
   },
   function() {
