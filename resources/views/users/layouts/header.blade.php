@@ -60,9 +60,9 @@
                         @endguest
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Kategori</a>
-                </li>
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link" href="#">Kategori</a>--}}
+                {{--</li>--}}
 
             </ul>
             <div class="d-sm-none d-md-block d-lg-block search">
@@ -133,14 +133,21 @@ font-size: 1rem;">Pesanan</a>
     </div>
 </nav>
 
-<div class="col-sm-12 d-sm-block d-md-none d-lg-none" style="    top: -16px;">
-    <div class="search-area">
-        <form class="example" action="/search">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+@if (Auth::guest() || Auth::user()->hasRole('customer'))
+    <div class="col-sm-12 d-sm-block d-md-none d-lg-none" style="    top: -16px;">
+        <div class="search-area">
+            <form class="example" action="/search">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
     </div>
-</div>
+@else
+
+@endif
+
+
+
 
 
 @role('merchant')
