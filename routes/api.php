@@ -36,3 +36,4 @@ Route::post('/transaction/{id}/proof-of-payment', 'API\TransactionController@upd
 Route::post('/transaction/{id}/update-status', 'API\TransactionController@updateTransactionStatus');
 Route::get('/transaction/{id}/tracking', 'API\TransactionController@getTrackingStatus');
 Route::get('/product/search', 'API\ProductController@searchProduct');
+Route::post('/product/{id}/review', 'API\ProductController@addReview');

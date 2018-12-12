@@ -63,8 +63,8 @@
                             class="btn btn-success btn-sm mb-2"
                             style="display: block; width: 90px"
                             v-on:click="updateOrderStatus(transaction.id, 'readyForProcess')"
-                            v-else >"
-                          >Terima</button>
+                            v-else>
+                          Terima</button>
                           <button
                             class="btn btn-danger btn-sm"
                             style="width: 90px"

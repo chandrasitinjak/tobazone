@@ -1,5 +1,6 @@
 <template>
   <div class="col-md-10 crudproduk">
+    <spinner></spinner>
     <div class="card globalcard breadcrumbcard card-body">
       <div class="row">
         <div class="col-md-4">
@@ -8,7 +9,7 @@
       </div>
     </div>
 
-    <div class="card globalcard">
+    <div class="card globalcard" v-if="transaction !== null">
       <div class="card-body detailorder">
         <div class="row text-muted">
           <div class="col-md-3 small">Tanggal Transaksi</div>
@@ -74,7 +75,7 @@
                     </div>
                     <div class="col-sm-5 col-xs-12">
                       <div class="keranjang-desc-prod">
-                        <h6> {{ order.product.name }}</h6>
+                        <h6>{{ order.product.name }}</h6>
                         <h6 style="color: #FF5205; display: inline;">Rp {{order.product.price}}</h6>
                         <small>/ unit</small>
                         <br>
@@ -89,14 +90,18 @@
                         data-target="#tulisulasan"
                         style="width: 150px"
                         role="button"
+                        v-if="transaction.status === 'orderSuccessed' && order.product.review === null"
+                        v-on:click="selectedProduct = order.product"
                       >Tulis Ulasan</button>
-                      <br>
-                      <a
-                        href="single-product-details.html"
-                        class="btn small smallbtn mt-3"
+                      <button
+                        class="btn small smallbtn"
+                        data-toggle="modal"
+                        data-target="#tulisulasan"
                         style="width: 150px"
                         role="button"
-                      >Lihat Ulasan</a>
+                        v-if="transaction.status === 'orderSuccessed' && order.product.review !== null"
+                        v-on:click="selectedProduct = order.product"
+                      >Lihat Ulasan</button>
                     </div>
                     <div
                       class="modal fade"
@@ -109,7 +114,12 @@
                       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Tulis Ulasan</h5>
+                            <h5
+                              class="modal-title"
+                              id="exampleModalCenterTitle"
+                              v-if="order.product.review === null"
+                            >Tulis Ulasan</h5>
+                            <h5 class="modal-title" id="exampleModalCenterTitle" v-else>Ulasan Anda</h5>
                             <button
                               type="button"
                               class="close"
@@ -119,9 +129,11 @@
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <div
-                            class="modal-body row justify-content-md-center"
-                          >Kami ingin melayani anda dengan lebih baik, silahkan beri penilaian pengalaman berbelanja Anda
+                          <div class="modal-body row justify-content-md-center">
+                            <div
+                              v-if="order.product.review === null"
+                            >Kami ingin melayani anda dengan lebih baik, silahkan beri penilaian pengalaman berbelanja Anda</div>
+                            <div v-else>Anda sudah memberikan review untuk produk dibawah ini</div>
                             <div class="col-md-10">
                               <div class="detailorder mt-2">
                                 <div class="card">
@@ -135,7 +147,7 @@
                                               style="padding: 0px; height: auto"
                                             >
                                               <img
-                                                src="img/product-img/product-2.jpg"
+                                                :src="'/images/' + JSON.parse(order.product.images)[0]"
                                                 alt="Card image cap"
                                                 style="height: auto"
                                               >
@@ -143,11 +155,12 @@
                                           </div>
                                           <div class="col-md-10">
                                             <div class="keranjang-desc-prod">
-                                              <h6>Ulos Ragihotang dan kawankawana asdhaskjdh</h6>
-                                              <h6 style="color: #FF5205; display: inline;">Rp 12321</h6>
+                                              <h6>{{ selectedProduct.name }}</h6>
+                                              <h6
+                                                style="color: #FF5205; display: inline;"
+                                              >Rp {{ selectedProduct.price }}</h6>
                                               <small>/unit</small>
                                               <br>
-                                              <small>Jumlah 1</small>
                                             </div>
                                           </div>
                                         </div>
@@ -158,17 +171,20 @@
                               </div>
                             </div>
 
-                            <div class="col-md-12 mt-2">Berikan komentar anda tentang produk:
-                              <br>
-                              <form>
-                                <div class="form-group">
-                                  <textarea class="form-control" id="textareakomentar" rows="3"></textarea>
-                                </div>
-                              </form>
+                            <div class="col-md-12 mt-2">Komentar Anda:
+                              <div class="form-group mt-2">
+                                <textarea class="form-control" v-model="feedback" rows="3" v-if="order.product.review === null"></textarea>
+                                <textarea class="form-control" rows="3" v-else readonly>{{ order.product.review.body }}</textarea>
+                              </div>
                             </div>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary btn-sm">Kirim Ulasan</button>
+                            <button
+                              type="button"
+                              v-if="order.product.review === null"
+                              v-on:click="updateReview(selectedProduct.id)"
+                              class="btn btn-primary btn-sm"
+                            >Kirim Ulasan</button>
                           </div>
                         </div>
                       </div>
@@ -236,26 +252,36 @@
 </template>
 
 <script>
+import EventBus from "../../eventBus";
+import spinner from "../Spinner";
+
 export default {
+  components: {
+    spinner
+  },
   props: ["transactionId", "customerId"],
   data() {
     return {
-      transaction: {},
-      trackings: {}
+      transaction: null,
+      trackings: {},
+      selectedProduct: {},
+      feedback: ""
     };
   },
   methods: {
     getTransaction() {
+      EventBus.$emit("SPINNER", true);
       window.axios
         .get("/api/transaction/" + this.transactionId + "/tracking")
         .then(res => {
-          console.log(res.data);
           this.transaction = res.data.transaction;
           this.trackings = res.data.tracking.rajaongkir.result.manifest;
           this.updateStatus(res.data.tracking.rajaongkir.result.delivered);
+          EventBus.$emit("SPINNER", false);
         })
         .catch(err => {
           console.log(err);
+          EventBus.$emit("SPINNER", false);
         });
     },
     updateStatus(delivered) {
@@ -275,11 +301,27 @@ export default {
               "/tracking";
           });
       }
+    },
+    updateReview(productId) {
+      let payload = {
+        transactionId: this.transactionId,
+        userId: this.transaction.customer_id,
+        feedback: this.feedback
+      };
+
+      window.axios
+        .post("/api/product/" + productId + "/review", payload)
+        .then(() => {
+          window.location.reload(true);
+        })
+        .catch(err => {
+          console.log(err);
+          window.location.reload(true);
+        });
     }
   },
   mounted() {
     this.getTransaction();
-    console.log(this.transactionId);
   }
 };
 </script>

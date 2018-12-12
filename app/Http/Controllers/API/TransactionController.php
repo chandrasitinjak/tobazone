@@ -20,8 +20,7 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $profile = Profile::where('user_id', $request->all()['customerId'])->first();
 
         $customerAddress = $request->all()['customerAddress'];
@@ -111,8 +110,9 @@ class TransactionController extends Controller
     }
 
     public function getTrackingStatus($id) {
-        $transaction = Transaction::with(['orders', 'orders.product.merchant.profile', 'payment'])
-                                  ->where('id', $id)->first();
+        $transaction = Transaction::with(['orders.product.review', 'orders.product.merchant.profile', 'payment'])
+                                  ->where('id', $id)
+                                  ->first();
 
         $tracking = $this->getTracking($transaction->shipping_number);
 

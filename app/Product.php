@@ -17,6 +17,10 @@ class Product extends Model
         return $this->hasMany('App\ProductReview');
     }
 
+    public function review() {
+        return $this->hasOne('App\ProductReview');
+    }
+
     protected $fillable = ['name', 'price', 'stock', 'description', 'category', 'specification', 'image', 'color'];
     protected $dates = ['deleted_at'];
 }

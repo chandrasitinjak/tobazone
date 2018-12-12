@@ -121,7 +121,7 @@
               aria-labelledby="Konfirmasi-tab"
             >
               <div class="detailorder mt-2" v-for="transaction in transactions">
-                <div class="row" v-if="transaction.status === 'rejectedByAdmin' || transaction.status === 'rejectedByMerchant' || transaction.status === 'canceledBySistem' || transaction.status === 'invalidProofOfPayment'">
+                <div class="row" v-if="transaction.status === 'orderSuccessed' || transaction.status === 'rejectedByAdmin' || transaction.status === 'rejectedByMerchant' || transaction.status === 'canceledBySistem' || transaction.status === 'invalidProofOfPayment'">
                   <div class="col-12">
                     <div class="card">
                       <div class="card-header" style="background-color: #f1f1f1">
@@ -152,6 +152,10 @@
                             <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'canceledBySistem'">
                               Tidak melakukan pembayaran melewati batas waktu pembayaran
                             </div>
+
+                            <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'orderSuccessed'">
+                              Transaksi Sukses
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -159,24 +163,26 @@
                         <div class="row singleorderprod" style=" padding-bottom: 10px">
                           <div class="col-md-12 col-sm-12 col-xs-6">
                             <div class="row">
-                              <div class="col-sm-2 col-xs-12">
-                                <div class="imgwrapper pesanan" style="padding: 0px; height: auto">
-                                  <img
-                                    :src="'/images/' + JSON.parse(order.product.images)[0]"
-                                    alt="Card image cap"
-                                  >
+                              <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'">
+                                <div class="col-sm-2 col-xs-12">
+                                  <div class="imgwrapper pesanan" style="padding: 0px; height: auto">
+                                    <img
+                                      :src="'/images/' + JSON.parse(order.product.images)[0]"
+                                      alt="Card image cap"
+                                    >
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="col-sm-6 col-xs-12">
-                                <div class="keranjang-desc-prod">
-                                  <h6>{{ order.product.name }}</h6>
-                                  <h6
-                                    style="color: #FF5205; display: inline;"
-                                  >Rp {{formatPrice(order.product.price)}}</h6>
-                                  <br>
-                                  <small>Jumlah {{ order.quantity }}</small>
+                                <div class="col-sm-6 col-xs-12">
+                                  <div class="keranjang-desc-prod">
+                                    <h6>{{ order.product.name }}</h6>
+                                    <h6
+                                      style="color: #FF5205; display: inline;"
+                                    >Rp {{formatPrice(order.product.price)}}</h6>
+                                    <br>
+                                    <small>Jumlah {{ order.quantity }}</small>
+                                  </div>
                                 </div>
-                              </div>
+                              </a>
                             </div>
                           </div>
                         </div>
