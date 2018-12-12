@@ -1,37 +1,42 @@
 <template>
-  <div>
+  <div >
     <div class="card globalcard">
-      <div class="card-header">
-        <nav class="navbar navbar-expand-sm navbar-light">
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item dropdown">
+      <div class="card-header px-0">
+        <nav class="navbar navbar-expand-lg mproduct p-1" style="background-color: transparent; border:none">
+          <h5 class="mr-3">Produk</h5>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li>
                 <a
-                  class="nav-link dropdown-toggle"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
+                   class="nav-link dropdown-toggle"
+                   id="navbarDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
                 >Kategori</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" @click="filterProductByCategory('Alat Tenun Bukan Mesin')">Alat Tenun Bukan Mesin</a>
                   <a class="dropdown-item" @click="filterProductByCategory('Tradisional')">Tradisional</a>
                   <a class="dropdown-item" @click="filterProductByCategory('Mesin')">Mesin</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" @click="filterProductByCategory('')">Semua kategory</a>
+                  <a  class="dropdown-item" @click="filterProductByCategory('')">Semua kategory</a>
                 </div>
               </li>
-              <li class="nav-item dropdown">
+              <li>
                 <a
-                  class="nav-link dropdown-toggle"
-                  id="navbarDropdown1"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
+                   class="nav-link dropdown-toggle"
+                   id="navbarDropdown1"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
                 >Urutkan Berdasarkan</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="left: 156px;">
                   <a class="dropdown-item" @click="sortProductByName('asc')">Nama A-Z</a>
                   <a class="dropdown-item" @click="sortProductByName('des')">Nama Z-A</a>
                   <a class="dropdown-item" @click="sortProductByPrice('asc')">Harga Termurah</a>
@@ -39,28 +44,28 @@
                 </div>
               </li>
             </ul>
-            <div class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0">
               <input
-                class="form-control form-control-sm mr-sm-2"
-                type="search"
-                placeholder="Cari Produk"
-                aria-label="Search"
-                v-model="searchName"
-                @input="filterProductByName"
+                  class="form-control form-control-sm mr-sm-2"
+                  type="search"
+                  placeholder="Cari Produk"
+                  aria-label="Search"
+                  v-model="searchName"
+                  @input="filterProductByName"
               >
-            </div>
+            </form>
           </div>
         </nav>
       </div>
       <div class="card-body">
         <div class="row">
-          <div v-for="product in products" class="col-lg-3 col-sm-2 px-1">
+          <div v-for="product in products" class="col-6 col-md-3 px-1">
             <div class="card products">
               <a :href="'/products/' + product.id">
                 <div class="imgwrapper">
                   <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap">
                 </div>
-              </a>
+
               <div class="card-body">
                 <p class="card-title productname">{{ product.name }}</p>
                 <h6 style="color: #ff5205">Rp {{ product.price }}</h6>
@@ -68,6 +73,7 @@
                   <small class="text-muted">Stock {{ product.stock }}</small>
                 </p>
               </div>
+              </a>
             </div>
           </div>
         </div>

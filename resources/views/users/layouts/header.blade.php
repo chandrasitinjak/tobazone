@@ -8,7 +8,7 @@
             <h5>UlosZone</h5>
         </a>
 
-        <a class="nav-link d-none d-sm-block"  href="https://medium.com/uloszone"
+        <a class="nav-link d-none d-sm-block"  href="https://medium.com/uloszone" rel="noopener noreferrer" target="_blank"
            style="font-weight: 400; font-size: 1rem;">Blog</a>
 
         <div id="cart-icon" class="d-lg-none">
@@ -37,11 +37,16 @@
                                    {{--aria-haspopup="true" aria-expanded="false">--}}
                                     {{--<img width="25" src="/user-assets/img/core-img/user.svg" alt="">--}}
                                 {{--</a>--}}
+                                @role('merchant')
+                                    <a href="">hahahaha</a>
+                                @endrole
+
                                 <a class="dropdown-item" href="#"></i>My Profile</a>
                                 @auth
                                     <div class="user-login-info dropdown-item">
                                         <a href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}">Pesanan</a>
                                     </div>
+
                                 @endauth
                             </div>
 

@@ -2,27 +2,30 @@
   <div class="card globalcard">
     <div class="card-header">
       <div class="row">
-        <div class="col-4">
+        <div class="col-12 col-md-4">
           <h5>Alamat Pengiriman</h5>
         </div>
-        <div class="col-4">
-          <select v-model="address" class="form-control input-sm" @change="publishAddressChoosenEvent">
+        <div class="col-md-4 col-12">
+          <select v-model="address" class="form-control form-control-sm" @change="publishAddressChoosenEvent">
             <option v-for="address in addresses" :value="JSON.parse(address)"> {{ JSON.parse(address).name }}</option>
           </select>
         </div>
-        <div class="col-4">
+        <div class="col-md-4 col-12">
           <button
-            class="btn btn-sm btn-outline-primary float-right"
+            class="btn btn-sm btn-outline-primary float-right mt-1"
             @click="showModal = !showModal"
           >Tambah Alamat</button>
         </div>
       </div>
     </div>
     <div class="card-body">
-      <div class="font-weight-bold">{{ buyer.name }} ({{ buyer.phone }})</div>
+      <div class="font-weight-bold">{{ buyer.name }}
+        <br>
+        <i class="fa fa-phone mr-2"></i>{{ buyer.phone }}</div>
       <div>
         <ul>
-          <div v-if="address != null">
+          <div class="mt-2" v-if="address != null">
+            <b>Dikirim ke Alamat </b> <br>
             <li> {{ address.detail }} </li>
             <li> {{ address.subdistrict_name }} {{ ", " + address.city_name }} {{ ", " + address.province_name }}</li>
             <li> Kode Pos {{ address.postal_code }} </li>

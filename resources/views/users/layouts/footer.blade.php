@@ -9,7 +9,7 @@
         <p> Kami menjual Tenun Ulos terbaik dari Penenun terbaik Nusantara </p>
       </div>
       <div class=" col-md-2 ">
-        <h6 class="">Beli</h6>
+        <h6 class="">BELI</h6>
         <ul>
           <li>
             <a href="#">Cara Berbelanja</a>
@@ -20,7 +20,7 @@
         </ul>
       </div>
       <div class=" col-md-2">
-        <h6 class="">Jual</h6>
+        <h6 class="">JUAL</h6>
         <ul>
           <li>
             <a href="#">Mendaftar Jadi Penjual</a>
@@ -30,8 +30,8 @@
           </li>
         </ul>
       </div>
-      <div class=" col-md-2">
-        <h6 class="">Layanan Pengguna</h6>
+      <div class=" col-md-3">
+        <h6 class="">LAYANAN PENGGUNA</h6>
         <ul>
           <li>
             <p class="mb-0">uloszone@gmail.com</p>
@@ -43,7 +43,7 @@
         </ul>
 
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <h6>Ikuti Kami</h6>
         <ul>
           <li>
