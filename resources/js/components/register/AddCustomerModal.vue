@@ -235,6 +235,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
+          EventBus.$emit("SPINNER", false);
         });
     },
     addCustomer() {
@@ -269,6 +270,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
+          EventBus.$emit("SPINNER", false);
         });
     }
   },

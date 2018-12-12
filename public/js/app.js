@@ -73091,6 +73091,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("SPINNER", false);
       }).catch(function (err) {
         console.log(err);
+        __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("SPINNER", false);
       });
     },
     addCustomer: function addCustomer() {
@@ -73122,6 +73123,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         window.location = "/";
       }).catch(function (err) {
         console.log(err);
+        __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("SPINNER", false);
       });
     }
   },
@@ -73949,6 +73951,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("SPINNER", false);
       }).catch(function (err) {
         console.log(err);
+        __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("SPINNER", false);
       });
     },
     addMerchant: function addMerchant() {
@@ -73980,6 +73983,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         window.location = "/";
       }).catch(function (err) {
         console.log(err);
+        __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("SPINNER", false);
       });
     }
   },

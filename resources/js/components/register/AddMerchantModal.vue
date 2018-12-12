@@ -230,6 +230,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
+          EventBus.$emit("SPINNER", false);
         });
     },
     addMerchant() {
@@ -264,6 +265,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
+          EventBus.$emit("SPINNER", false);
         });
     }
   },
