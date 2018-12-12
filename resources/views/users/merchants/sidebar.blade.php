@@ -8,7 +8,7 @@
             <li data-toggle="collapse" data-target="#produk">
               <a >Produk</a>
               <ul class="sub-menu collapse show" id="produk">
-                <li><a href="{{ url('/merchant') }}">All</a></li>
+                <li><a href="{{ url('/merchant') }}">Semua Produk</a></li>
                 <li><a href="{{ url('/products/create') }}">Tambah produk</a></li>
                 <li><a href="">Produk terjual</a></li>
               </ul>

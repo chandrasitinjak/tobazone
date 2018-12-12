@@ -65734,6 +65734,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -65799,9 +65800,17 @@ var render = function() {
               : _vm._e()
           ]),
           _vm._v(" "),
-          _c("span", { staticStyle: { display: "inline-block" } }, [
-            _vm._v(_vm._s(_vm.total))
-          ])
+          _c(
+            "span",
+            {
+              staticStyle: {
+                display: "inline-block",
+                "font-size": "large",
+                color: "#4b1815"
+              }
+            },
+            [_vm._v(_vm._s(_vm.total))]
+          )
         ],
         1
       )
@@ -65985,7 +65994,7 @@ var render = function() {
             }
           }
         },
-        [_vm._v("Add to cart")]
+        [_vm._v("Tambah ke keranjang")]
       )
     ])
   ])
@@ -66828,7 +66837,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -66842,6 +66851,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddAddressModal__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddAddressModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__AddAddressModal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
+//
 //
 //
 //
@@ -67010,7 +67020,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -67022,6 +67032,20 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(5);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -67158,11 +67182,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "col-12 col-md-12 col-lg-12" }, [
     _c(
       "div",
       {
-        staticClass: "modal-dialog modal-dialog-centered",
+        staticClass: "modal-dialog modal-lg modal-dialog-centered",
         attrs: { role: "document" }
       },
       [
@@ -67211,7 +67235,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text" },
+                  attrs: { type: "text", "aria-describedby": "namaalamat" },
                   domProps: { value: _vm.addressName },
                   on: {
                     input: function($event) {
@@ -67221,132 +67245,162 @@ var render = function() {
                       _vm.addressName = $event.target.value
                     }
                   }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { staticClass: "label" }, [_vm._v("Provinsi")]),
+                }),
                 _vm._v(" "),
                 _c(
-                  "select",
+                  "small",
                   {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectedProvince,
-                        expression: "selectedProvince"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    on: {
-                      change: [
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.selectedProvince = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        },
-                        _vm.getCities
-                      ]
-                    }
+                    staticClass: "form-text text-muted",
+                    attrs: { id: "namaalamat" }
                   },
-                  _vm._l(_vm.provicies, function(province) {
-                    return _c("option", { domProps: { value: province } }, [
-                      _vm._v(_vm._s(province.name))
-                    ])
-                  })
+                  [
+                    _vm._v(
+                      "\n              Contoh: AlamatRumah, Kantor, Kampus\n            "
+                    )
+                  ]
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { staticClass: "label" }, [
-                  _vm._v("Kota / Kabupaten")
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { staticClass: "label" }, [_vm._v("Provinsi")]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selectedProvince,
+                            expression: "selectedProvince"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          change: [
+                            function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.selectedProvince = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                            _vm.getCities
+                          ]
+                        }
+                      },
+                      _vm._l(_vm.provicies, function(province) {
+                        return _c("option", { domProps: { value: province } }, [
+                          _vm._v(_vm._s(province.name))
+                        ])
+                      })
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { staticClass: "label" }, [
+                      _vm._v("Kota / Kabupaten")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
                       {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectedCity,
-                        expression: "selectedCity"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    on: {
-                      change: [
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.selectedCity = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        },
-                        _vm.getSubdistricts
-                      ]
-                    }
-                  },
-                  _vm._l(_vm.cities, function(city) {
-                    return _c("option", { domProps: { value: city } }, [
-                      _vm._v(_vm._s(city.name))
-                    ])
-                  })
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { staticClass: "label" }, [_vm._v("Kecamatan")]),
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selectedCity,
+                            expression: "selectedCity"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          change: [
+                            function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.selectedCity = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                            _vm.getSubdistricts
+                          ]
+                        }
+                      },
+                      _vm._l(_vm.cities, function(city) {
+                        return _c("option", { domProps: { value: city } }, [
+                          _vm._v(_vm._s(city.name))
+                        ])
+                      })
+                    )
+                  ])
+                ]),
                 _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { staticClass: "label" }, [
+                      _vm._v("Kecamatan")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
                       {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectedSubdistrict,
-                        expression: "selectedSubdistrict"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.selectedSubdistrict = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      }
-                    }
-                  },
-                  _vm._l(_vm.subdistricts, function(subdistrict) {
-                    return _c("option", { domProps: { value: subdistrict } }, [
-                      _vm._v(_vm._s(subdistrict.subdistrict_name))
-                    ])
-                  })
-                )
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selectedSubdistrict,
+                            expression: "selectedSubdistrict"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.selectedSubdistrict = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          }
+                        }
+                      },
+                      _vm._l(_vm.subdistricts, function(subdistrict) {
+                        return _c(
+                          "option",
+                          { domProps: { value: subdistrict } },
+                          [
+                            _vm._v(
+                              _vm._s(subdistrict.subdistrict_name) +
+                                "\n                  "
+                            )
+                          ]
+                        )
+                      })
+                    )
+                  ])
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
@@ -67362,7 +67416,12 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { rows: "10" },
+                  attrs: {
+                    "aria-describedby": "alamatrinci",
+                    rows: "3",
+                    placeholder:
+                      "Cantumkan patokan alamat, nama panggilan penerima, dan no. telp alternatif (contoh: Rumah sebelah minimarket 'Fruit Mart', panggilan penerima: Pak Budi, no. telp lain:  081234567890)."
+                  },
                   domProps: { value: _vm.addressDetail },
                   on: {
                     input: function($event) {
@@ -67372,7 +67431,16 @@ var render = function() {
                       _vm.addressDetail = $event.target.value
                     }
                   }
-                })
+                }),
+                _vm._v(" "),
+                _c(
+                  "small",
+                  {
+                    staticClass: "form-text text-muted",
+                    attrs: { id: "alamatrinci" }
+                  },
+                  [_vm._v(" Diisi dengan petunjuk lokasi untuk kurir")]
+                )
               ])
             ])
           ]),
@@ -67499,8 +67567,6 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _c("li", [_vm._v(" " + _vm._s(_vm.address.detail) + " ")]),
-                  _vm._v(" "),
                   _c("li", [
                     _vm._v(
                       " " +
@@ -67514,7 +67580,13 @@ var render = function() {
                   _vm._v(" "),
                   _c("li", [
                     _vm._v(" Kode Pos " + _vm._s(_vm.address.postal_code) + " ")
-                  ])
+                  ]),
+                  _vm._v(" "),
+                  _c("b", [_vm._v(" Alamat Rinci")]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("li", [_vm._v(" " + _vm._s(_vm.address.detail) + " ")])
                 ])
               : _vm._e()
           ])
@@ -71243,7 +71315,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -71256,6 +71328,9 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+//
+//
+//
 //
 //
 //
@@ -72064,8 +72139,28 @@ var render = function() {
                                               [
                                                 _c(
                                                   "option",
+                                                  { attrs: { value: "BRI" } },
+                                                  [_vm._v("BRI")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: { value: "MANDIRI" }
+                                                  },
+                                                  [_vm._v("MANDIRI")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
                                                   { attrs: { value: "BNI" } },
                                                   [_vm._v("BNI")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  { attrs: { value: "BCA" } },
+                                                  [_vm._v("BCA")]
                                                 )
                                               ]
                                             )

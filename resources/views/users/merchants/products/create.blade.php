@@ -72,26 +72,35 @@
                             <div class="mt-4">
                                 <label class="label"> Specification </label>
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Ukuran </label>
                                         <input class="form-control" type="text" name="dimention" placeholder="Cth: 2m x 90cm" />
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Berat </label>
-                                        <input class="form-control" type="number" min="1" max="3" name="weight" />
+                                        <input class="form-control" type="number" min="1" max="3" name="weight" aria-describedby="warnadasar" placeholder="/kg"/>
+                                        <small id="warnadasar" class="form-text text-muted">
+                                            Berat digenapkan ke kilogram
+                                        </small>
                                     </div>
-                                    <div class="col-4">
-                                        <label class="label"> Warna </label>
-                                        <select class="form-control" name="color">
+                                    <div class="col-12 col-md-4 col-lg-4">
+                                        <label class="label"> Warna Dasar</label>
+                                        <select class="form-control" name="color" aria-describedby="warnadasar">
                                                 <option value="black"> Hitam</option>
                                                 <option value="red"> Merah</option>
-                                                <option valie="blue"> Biru</option>
+                                                <option value="blue"> Biru</option>
+                                                <option value="blue"> Putih</option>
+                                                <option value="blue"> Ungu</option>
+                                                <option value="blue"> Hijau</option>
+                                                <option value="blue"> Cokelat</option>
                                             </select>
+                                        <small id="warnadasar" class="form-text text-muted">
+                                            Pilih warna yang paling dominan
+                                        </small>
                                     </div>
-                                    <div class="col-4 mt-4">
+                                    <div class="col-12 col-md-4 col-lg-4 mt-4">
                                         <label class="label"> Metode Pembuatan </label>
                                         <select class="form-control" name="category">
-                                                <option value="-"> -</option>
                                                 <option value="ATBM"> Alat Tenun Bukan Mesin</option>
                                                 <option value="Tradisional"> Tradisional</option>
                                                 <option value="Mesin"> Mesin</option>

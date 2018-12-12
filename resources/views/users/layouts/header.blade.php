@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-white bg-white fixed-top main">
     <div class="container custom-container">
         <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -53,15 +52,15 @@
 
                             <form class="nav-link " method="POST" action="{{ url('/logout')}}">
                                 {{ csrf_field() }}
-                                <button type="submit " class="btn nav-link pt-0"
-                                        style="background-color: transparent">Logout
+                                <button type="submit " class="btn nav-link pt-0" style="background-color: white"
+                                        >Logout
                                 </button>
                             </form>
                         @endguest
                     </div>
                 </li>
                 {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link" href="#">Kategori</a>--}}
+                {{--<a class="nav-link" href="#">Kategori</a>--}}
                 {{--</li>--}}
 
             </ul>
@@ -213,11 +212,12 @@ font-size: 1rem;">Pesanan</a>
                             <li><a href="">Produk terjual</a></li>
                         </ul>
                     </div>
-
-                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                </li>
+                <li class="nav-item d-lg-none dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownpe" role="button"
                        data-toggle="dropdown" style="font-size: 1rem">Pemesanan</a>
 
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownpe">
                         <ul class="dropdown-item">
                             <li><a href="{{ url('/merchant/' . Auth::user()->id . '/new-orders') }}">Order Masuk</a>
                             </li>

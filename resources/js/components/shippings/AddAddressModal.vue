@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="col-12 col-md-12 col-lg-12">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header align-items-center border-0">
           <h5 class="modal-title font-light" id="exampleModalLabel">Tambah Alamat</h5>
@@ -12,32 +12,46 @@
           <form>
             <div class="form-group">
               <label class="label">Nama Alamat</label>
-              <input type="text" class="form-control" v-model="addressName">
+              <input type="text" class="form-control" v-model="addressName" aria-describedby="namaalamat">
+              <small id="namaalamat" class="form-text text-muted">
+                Contoh: AlamatRumah, Kantor, Kampus
+              </small>
             </div>
-            <div class="form-group">
-              <label class="label">Provinsi</label>
-              <select class="form-control" @change="getCities" v-model="selectedProvince">
-                <option v-for="province in provicies" :value="province">{{ province.name }}</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="label">Kota / Kabupaten</label>
-              <select class="form-control" @change="getSubdistricts" v-model="selectedCity">
-                <option v-for="city in cities" :value="city">{{ city.name }}</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="label">Kecamatan</label>
-              <select class="form-control" v-model="selectedSubdistrict">
-                <option
-                  v-for="subdistrict in subdistricts"
-                  :value="subdistrict"
-                >{{ subdistrict.subdistrict_name }}</option>
-              </select>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="label">Provinsi</label>
+                  <select class="form-control" @change="getCities" v-model="selectedProvince">
+                    <option v-for="province in provicies" :value="province">{{ province.name }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="label">Kota / Kabupaten</label>
+                  <select class="form-control" @change="getSubdistricts" v-model="selectedCity">
+                    <option v-for="city in cities" :value="city">{{ city.name }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="label">Kecamatan</label>
+                  <select class="form-control" v-model="selectedSubdistrict">
+                    <option
+                        v-for="subdistrict in subdistricts"
+                        :value="subdistrict"
+                    >{{ subdistrict.subdistrict_name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
             </div>
             <div class="form-group">
               <label class="label">Alamat Rinci</label>
-              <textarea v-model="addressDetail" class="form-control" rows="10"></textarea>
+              <textarea v-model="addressDetail" aria-describedby="alamatrinci" class="form-control" rows="3"
+                        placeholder="Cantumkan patokan alamat, nama panggilan penerima, dan no. telp alternatif (contoh: Rumah sebelah minimarket 'Fruit Mart', panggilan penerima: Pak Budi, no. telp lain:  081234567890)."></textarea>
+              <small id="alamatrinci" class="form-text text-muted"> Diisi dengan petunjuk lokasi untuk kurir</small>
             </div>
           </form>
         </div>
