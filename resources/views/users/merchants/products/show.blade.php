@@ -126,7 +126,7 @@
                         <div class="row">
                           <div class="col-md-9">
                             Oleh <b> {{ $review->customer->profile->name }}</b> <br>
-                            <small>{{ $review->created_at }}</small>
+                            <small>{{ date_format($review->created_at,"l, d F Y, h:i:s") }}</small>
                             <br> {{ $review->body }}
                           </div>
                         </div>
