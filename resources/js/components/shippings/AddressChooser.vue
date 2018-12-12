@@ -26,9 +26,10 @@
         <ul>
           <div class="mt-2" v-if="address != null">
             <b>Dikirim ke Alamat </b> <br>
-            <li> {{ address.detail }} </li>
             <li> {{ address.subdistrict_name }} {{ ", " + address.city_name }} {{ ", " + address.province_name }}</li>
             <li> Kode Pos {{ address.postal_code }} </li>
+            <b> Alamat Rinci</b> <br>
+            <li> {{ address.detail }} </li>
           </div>
         </ul>
       </div>

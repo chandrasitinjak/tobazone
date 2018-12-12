@@ -7,7 +7,7 @@
             <h4>Terima Kasih, {{ transaction.customer.profile.name }}</h4>
           </div>
           <div class="row justify-content-md-center">
-            <div class="card my-3 col-6 time">
+            <div class="card my-3 col-12 col-md-6 col-lg-6 time">
               <div
                 class="card-body"
                 v-if="transaction.payment.status === 'paid' || transaction.status === 'acceptedBySystem'"
@@ -40,20 +40,21 @@
             v-if="duration._data.hours >= 0 && duration._data.minutes >= 0 && duration._data.seconds >= 0 && transaction.payment.status !== 'paid'"
           >
             <div class="row justify-content-md-center">
-              <div class="card col-6 my-3">
+              <div class="card col-12 col-md-6 col-lg-6 my-3">
                 <div class>
                   <div class="card-body">
                     <div class="text-muted">Transfer pembayaran ke nomor Virtual Account :</div>
-                    <img src="/images/assets/BNI.png" style="height: 30px; display: inline" alt>
-                    <h4 style="display: inline">8277-082274162987</h4>
+                    <img src="/images/assets/BRI.png" style="height: 30px; display: inline" alt>
+                    <h4 style="display: inline">031401003328537</h4>
+                    <br>a/n Anggiat Saut Parulian
                     <div class="mt-3 text-muted">Jumlah yang harus dibayar :</div>
-                    <h5 style="color: #ff5205">Rp {{ getTotalPayment(transaction.payment) }}</h5>
+                    <h5 style="color: #ff5205">Rp {{ formatPrice( getTotalPayment(transaction.payment) )}}</h5>
                   </div>
                 </div>
               </div>
             </div>
             <div class="row justify-content-md-center">
-              <div class="card col-6 my-3">
+              <div class="card col-12 col-md-6 col-lg-6 my-3">
                 <div>
                   <div class="card-body">
                     <div class="text-muted mb-2">Upload Bukti Pembayaran</div>
@@ -102,7 +103,10 @@
                                 <label for="utkbank" class="small">Bank Tujuan</label>
                                 <br>
                                 <select id="utkbank" class="form-control" v-model="selectedBank">
+                                  <option value="BRI">BRI</option>
+                                  <option value="MANDIRI">MANDIRI</option>
                                   <option value="BNI">BNI</option>
+                                  <option value="BCA">BCA</option>
                                 </select>
                               </div>
                               <br>
@@ -115,7 +119,7 @@
                                       <input type="file" name="myfile" v-on:change="onFileChanged">
                                     </button>
                                     <div v-else>
-                                      <button type="button" class="btn btn-danger btn-sm" v-on:click="selectedFile = null"> Hapus Gambar </button>
+                                      <button type="button" class="btn btn-danger btn-sm" v-on:click="selectedFile = null"> Ganti Gambar </button>
                                       <img id="uploaded_image" :src="image" />
                                     </div>
                                   </div>
@@ -169,6 +173,10 @@ export default {
     };
   },
   methods: {
+      formatPrice(value) {
+          let val = (value/1).toFixed().replace('.', ',')
+          return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+      },
     getTransaction() {
       window.axios
         .get(

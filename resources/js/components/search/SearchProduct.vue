@@ -2,10 +2,17 @@
   <div>
     <div class="card globalcard" style="min-height: 400px">
       <div class="card-header">
-        <nav class="navbar navbar-expand-sm navbar-light">
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item dropdown">
+
+
+        <nav class="navbar navbar-expand-lg mproduct p-1" style="background-color: transparent; border:none">
+          <h5 class="mr-3">Filter Produk</h5>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li>
                 <a
                     class="nav-link dropdown-toggle"
                     id="navbarDropdown"
@@ -19,10 +26,10 @@
                   <a class="dropdown-item" @click="filterProductByCategory('Tradisional')">Tradisional</a>
                   <a class="dropdown-item" @click="filterProductByCategory('Mesin')">Mesin</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" @click="filterProductByCategory('')">Semua kategory</a>
+                  <a class="dropdown-item" @click="filterProductByCategory('')">Semua kategori</a>
                 </div>
               </li>
-              <li class="nav-item dropdown">
+              <li>
                 <a
                     class="nav-link dropdown-toggle"
                     id="navbarDropdown1"
@@ -39,7 +46,7 @@
                 </div>
               </li>
             </ul>
-            <div class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0">
               <input
                   class="form-control form-control-sm mr-sm-2"
                   type="search"
@@ -48,14 +55,14 @@
                   v-model="searchName"
                   @input="filterProductByName"
               >
-            </div>
+            </form>
           </div>
         </nav>
       </div>
       <div class="card-body">
         <div class="" v-if="products.length>0">
           <div class="row">
-            <div v-for="product in products" class="col-lg-2 col-md-2 col-sm-2 px-1">
+            <div v-for="product in products" class="col-6 col-md-2 col-lg-2 px-1">
               <div class="card products">
                 <a :href="'/products/' + product.id">
                   <div class="imgwrapper">
@@ -71,38 +78,6 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <!-- Pagination -->
-            <nav aria-label="navigation">
-              <ul class="pagination mt-50 mb-50">
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    <i class="fa fa-angle-left"></i>
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">...</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">21</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    <i class="fa fa-angle-right"></i>
-                  </a>
-                </li>
-              </ul>
-            </nav>
           </div>
         </div>
 

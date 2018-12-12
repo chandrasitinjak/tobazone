@@ -10,6 +10,9 @@
 
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="d-lg-none">
+                <a :href="'/products/create'" class="btn btn-sm btn-success">Tambah produk</a>
+              </li>
               <li>
                 <a
                    class="nav-link dropdown-toggle"
@@ -77,36 +80,6 @@
             </div>
           </div>
         </div>
-        <!-- Pagination -->
-        <nav aria-label="navigation">
-          <ul class="pagination mt-50 mb-50">
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <i class="fa fa-angle-left"></i>
-              </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">...</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">21</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <i class="fa fa-angle-right"></i>
-              </a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </div>
   </div>

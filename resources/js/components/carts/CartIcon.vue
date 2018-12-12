@@ -4,7 +4,8 @@
       <transition name="cart">
         <img src="/user-assets/img/core-img/bag.svg" style="width: 23px" v-if="show">
       </transition>
-      <span style="display:inline-block">{{total}}</span>
+      <span style="display:inline-block;font-size: large;
+    color: #4b1815;">{{total}}</span>
     </a>
   </div>
 </template>

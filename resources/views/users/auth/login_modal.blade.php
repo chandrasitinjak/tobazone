@@ -9,7 +9,7 @@
         </button>
       </div>
 
-      <div class="modal-body px-5">
+      <div class="modal-body">
         <h6 class=" font-light " id="exampleModalLabel">Masuk ke Akun Anda</h6>
         <form>
           <div class="form-group">
@@ -39,7 +39,7 @@
           </div>
         </form>
       </div>
-      <div class="modal-footer  py-0 px-5" style="border: none">
+      <div class="modal-footer  py-0 " style="border: none">
         <button type="button" class="btn essence-btn btn-block" onclick="login()">Login</button>
       </div>
 

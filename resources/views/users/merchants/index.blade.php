@@ -45,9 +45,9 @@
                   </div>
                   <div class="card col-lg-3 col-6  widget" style="border-left: 4px solid #ca4665;">
                     <div class="card-body p-1">
-                      <small>Total Pendapatan</small>
+                      <small>Total Penjualan</small>
                       <br>
-                      <span>Rp.151,021</span>
+                      <span>Rp.1,001,021</span>
                     </div>
                   </div>
                 </div>
