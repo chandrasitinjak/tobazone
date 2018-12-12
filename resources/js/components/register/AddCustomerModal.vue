@@ -1,5 +1,6 @@
 <template>
   <div class="registration">
+    <spinner> </spinner>
     <div class>
       <div class="row">
         <div class="col-md-12">
@@ -53,7 +54,6 @@
                 class="form-check-input"
                 type="radio"
                 name="male"
-                id="male"
                 value="Male"
                 v-model="userCustomer.gender"
               >
@@ -64,7 +64,6 @@
                 class="form-check-input"
                 type="radio"
                 name="female"
-                id="female"
                 value="Female"
                 v-model="userCustomer.gender"
               >
@@ -146,7 +145,6 @@
             <div class="form-group">
               <label class="label">Password</label>
               <input
-                id="password"
                 type="password"
                 class="form-control form-control-sm"
                 v-model="userCustomer.password"
@@ -157,7 +155,6 @@
             <div class="form-group">
               <label class="label">Confirm Password</label>
               <input
-                id="passwordconfirm"
                 type="password"
                 class="form-control form-control-sm"
                 v-model="userCustomer.passwordconfirm"
@@ -178,8 +175,12 @@
 
 <script>
 import EventBus from "../../eventBus";
+import spinner from "../Spinner"
 
 export default {
+  components: {
+    spinner
+  },
   data() {
     return {
       provicies: [],
@@ -225,10 +226,12 @@ export default {
         });
     },
     getSubdistricts() {
+      EventBus.$emit("SPINNER", true);
       window.axios
         .get("/api/subdistricts?city_id=" + this.userCustomer.selectedCity.id)
         .then(res => {
           this.subdistricts = res.data.rajaongkir.results;
+          EventBus.$emit("SPINNER", false);
         })
         .catch(err => {
           console.log(err);
@@ -257,11 +260,12 @@ export default {
         role: "customer"
       };
 
+      EventBus.$emit("SPINNER", true);
       window.axios
         .post("/register", payload)
         .then(() => {
+          EventBus.$emit("SPINNER", false);
           window.location = "/";
-          console.log("reditrectttttttttttttttt");
         })
         .catch(err => {
           console.log(err);

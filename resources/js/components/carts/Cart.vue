@@ -1,6 +1,5 @@
 <template>
   <div class="col-md-12 keranjang">
-    <spinner> </spinner>
     <div class="card globalcard" style="min-height: 400px">
       <div class="card-header" v-if="carts.length > 0">
         <div class="row">
@@ -102,13 +101,9 @@
 
 <script>
 import EventBus from "../../eventBus";
-import spinner from '../Spinner'
 
 export default {
   props: ["userId"],
-  components: {
-    spinner
-  },
   data() {
     return {
       carts: []

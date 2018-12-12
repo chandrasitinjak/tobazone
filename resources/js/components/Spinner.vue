@@ -14,7 +14,6 @@ export default {
   mounted() {
     EventBus.$on('SPINNER', (signal) => {
       this.shown = signal
-      console.log(signal)
     })
   }
 };
