@@ -1,5 +1,5 @@
 <template>
-  <div>
+
     <div
       class="card shopsummary globalcard"
       style="position: -webkit-sticky; position: sticky; top: 6rem;"
@@ -11,24 +11,24 @@
         <div v-for="merchant in merchants">
           <div>
             <span>Total Harga Produk</span>
-            <span class="float-right font-weight-bold">Rp. {{ merchant.totalProductCost }}</span>
+            <span class="float-right font-weight-bold">Rp. {{formatPrice( merchant.totalProductCost )}}</span>
           </div>
           <div>
             <span>Total Ongkos Kirim</span>
-            <span class="float-right font-weight-bold">Rp. {{ merchant.totalShippingCost }}</span>
+            <span class="float-right font-weight-bold">Rp. {{formatPrice (merchant.totalShippingCost) }}</span>
           </div>
           <div style="border-bottom: 1px #b4b4b4 solid; margin: 10px 0px 10px 0px"></div>Total Pembayaran
           <div
             class="float-right h5"
             style="color: #ff8415"
-          >Rp {{ merchant.totalProductCost + merchant.totalShippingCost }}</div>
+          >Rp {{formatPrice( merchant.totalProductCost + merchant.totalShippingCost) }}</div>
         </div>
         <div class="mt-5">
           <button class="btn essence-btn btn-block" @click.prevent="createOrder" :disabled="disable">Bayar</button>
         </div>
       </div>
     </div>
-  </div>
+
 </template>
 
 <script>
@@ -44,6 +44,10 @@ export default {
     };
   },
   methods: {
+      formatPrice(value) {
+          let val = (value/1).toFixed().replace('.', ',')
+          return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+      },
     registerListener() {
       EventBus.$on("MERCHANT_LIST", merchants => {
         this.merchants = merchants;

@@ -148,7 +148,7 @@ form.example::after {
 }
 
 .footer_area p{
-    color: white;
+    color: #ffffffb3;
 }
 
 .footer_area h6{
@@ -156,7 +156,7 @@ form.example::after {
 }
 
 .footer_area a {
-    color: white;
+    color: #ffffffb3;
     font-size: 14px;
     line-height: 2;
     font-weight: 400;
@@ -589,6 +589,7 @@ form.example::after {
 /*---------------Merchant--------------*/
 .store {
     padding: 0.3rem;
+    box-shadow: 0px 2px 8px 0px #0000004a;
 }
 
 .store-name h5 {
@@ -611,8 +612,9 @@ form.example::after {
     font-size: 14px;
     margin-bottom: 5px;
     display: block;
-    font-weight: 300;
+    font-weight: 500;
     color: #787878;
+    cursor: pointer;
 }
 
 .merchant-sidebar .mercant-sidebar-menu li > a {
@@ -620,6 +622,7 @@ form.example::after {
     font-size: 12px;
     margin-bottom: 15px;
     display: block;
+    cursor: pointer;
 }
 
 .mercant-sidebar-menu .sub-menu {
@@ -627,7 +630,11 @@ form.example::after {
     margin-bottom: 15px;
 }
 
-/*============PAYMENT===========*/
+.mproduct .collapse ul li a{
+    cursor: pointer;
+}
+
+    /*============PAYMENT===========*/
 .payment {
     margin-top: 100px;
 }
@@ -871,6 +878,11 @@ input:-webkit-autofill:focus {
     .navbar .custom-container{
         justify-content: space-between;
     }
+
+    .store .widget span{
+        font-size: medium;
+        font-weight: 800;
+    }
 }
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
@@ -883,7 +895,7 @@ input:-webkit-autofill:focus {
     }
 
     .loginmodal p, .loginmodal a {
-        font-size: x-small;
+        font-size: small;
     }
 
     .smallimageholder ul {
@@ -918,6 +930,10 @@ input:-webkit-autofill:focus {
         border-bottom: none;
     }
 
+    .store .widget span{
+        font-size: medium;
+        font-weight: 800;
+    }
 }
 
 /*// Medium devices (tablets, 768px and up)*/
@@ -928,6 +944,11 @@ input:-webkit-autofill:focus {
 
     .navbar .navbar-expand-lg{
         border-bottom:none;
+    }
+
+    .store .widget span{
+        font-size: medium;
+        font-weight: 800;
     }
 
 }
@@ -944,6 +965,11 @@ input:-webkit-autofill:focus {
 
     .navbar {
         border-bottom: 1px solid #ebebeb;
+    }
+
+    .store .widget span{
+        font-size: large;
+        font-weight: 800;
     }
 }
 
@@ -970,6 +996,11 @@ input:-webkit-autofill:focus {
 
     .navbar{
         padding: 1rem 0 1rem ;
+    }
+
+    .store .widget span{
+        font-size: large;
+        font-weight: 800;
     }
 }
 

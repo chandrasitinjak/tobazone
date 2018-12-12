@@ -17,12 +17,13 @@
           :perPageCustom="[[0, 1], [991.88, 6]]"
         >
           <slide class="px-2" v-for="product in products">
+            <a :href="'/products/' + product.id">
             <div class="card product ">
-              <a :href="'/products/' + product.id">
+
                 <div class="imgwrapper">
                   <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap">
                 </div>
-              </a>
+
 
               <div class="card-body">
                 <p class="card-title productname">{{product.name}}</p>
@@ -33,6 +34,7 @@
 
               </div>
             </div>
+            </a>
           </slide>
         </carousel>
       </div>

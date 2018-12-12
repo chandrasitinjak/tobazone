@@ -2,7 +2,7 @@
   <div class="card globalcard">
     <div class="card-header">
       <div class="row">
-        <div class="col-7">
+        <div class="col-12">
           <h5>Barang yang Anda Pesan</h5>
         </div>
       </div>
@@ -12,15 +12,15 @@
         <div class="col-md-9 col-sm-12 col-xs-6">
           <div class="row">
             <div class="col-lg-4 col-sm-6 col-xs-12">
-              <a href="single-product-details.html">
+              <a :href="'/products/' + cart.product.id" style="float: left;">
                 <div class="imgwrapper" style="padding: 0px">
                   <img :src="'/images/' + JSON.parse(cart.product.images)[0]" alt="Card image cap">
                 </div>
               </a>
             </div>
             <div class="col-lg-7 col-sm-6 col-xs-12">
-              <div class="mb-1">{{ cart.product.name }}</div>
-              <div class="small">
+              <div class="mb-1"><h6>{{ cart.product.name }}</h6></div>
+              <div class="medium">
                 <ul>
                   <li>
                     Jumlah :
@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="col-md-3">
-          <div class="float-right h6" style="color: #ff8415">Rp {{ cart.product.price * cart.total}}</div>
+          <div class="float-right h6" style="color: #ff8415">Rp {{formatPrice( cart.product.price * cart.total)}}</div>
         </div>
       </div>
     </div>
@@ -54,10 +54,15 @@ export default {
   data() {
     return {
       carts: [],
-      merchants: []
+      merchants: [],
+        products: []
     };
   },
   methods: {
+      formatPrice(value) {
+          let val = (value/1).toFixed().replace('.', ',')
+          return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+      },
     getProducts() {
       window.axios
         .get("/api/carts/user/" + this.userId)

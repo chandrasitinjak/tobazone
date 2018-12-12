@@ -64235,7 +64235,7 @@ var render = function() {
   return _vm.carousels.length > 0
     ? _c(
         "div",
-        { staticStyle: { "margin-top": "100px" } },
+        { staticClass: "big-banner" },
         [
           _c(
             "Carousel",
@@ -64265,7 +64265,7 @@ var render = function() {
       )
     : _c(
         "div",
-        { staticStyle: { "margin-top": "100px" } },
+        {},
         [
           _c(
             "Carousel",
@@ -64366,6 +64366,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
+//
 //
 //
 //
@@ -65343,8 +65345,8 @@ var render = function() {
             },
             _vm._l(_vm.products, function(product) {
               return _c("slide", { staticClass: "px-2" }, [
-                _c("div", { staticClass: "card product " }, [
-                  _c("a", { attrs: { href: "/products/" + product.id } }, [
+                _c("a", { attrs: { href: "/products/" + product.id } }, [
+                  _c("div", { staticClass: "card product " }, [
                     _c("div", { staticClass: "imgwrapper" }, [
                       _c("img", {
                         attrs: {
@@ -65352,21 +65354,21 @@ var render = function() {
                           alt: "Card image cap"
                         }
                       })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("p", { staticClass: "card-title productname" }, [
-                      _vm._v(_vm._s(product.name))
                     ]),
                     _vm._v(" "),
-                    _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                      _vm._v("Rp " + _vm._s(_vm.formatPrice(product.price)))
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text float-right" }, [
-                      _c("small", { staticClass: "text-muted" }, [
-                        _vm._v(_vm._s(product.merchant.profile.name))
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("p", { staticClass: "card-title productname" }, [
+                        _vm._v(_vm._s(product.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                        _vm._v("Rp " + _vm._s(_vm.formatPrice(product.price)))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text float-right" }, [
+                        _c("small", { staticClass: "text-muted" }, [
+                          _vm._v(_vm._s(product.merchant.profile.name))
+                        ])
                       ])
                     ])
                   ])
@@ -66770,7 +66772,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -66784,6 +66786,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddAddressModal__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddAddressModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__AddAddressModal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
+//
+//
+//
 //
 //
 //
@@ -67362,7 +67367,7 @@ var render = function() {
         _c("div", { staticClass: "row" }, [
           _vm._m(0),
           _vm._v(" "),
-          _c("div", { staticClass: "col-4" }, [
+          _c("div", { staticClass: "col-md-4 col-12" }, [
             _c(
               "select",
               {
@@ -67374,7 +67379,7 @@ var render = function() {
                     expression: "address"
                   }
                 ],
-                staticClass: "form-control input-sm",
+                staticClass: "form-control form-control-sm",
                 on: {
                   change: [
                     function($event) {
@@ -67404,11 +67409,11 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-4" }, [
+          _c("div", { staticClass: "col-md-4 col-12" }, [
             _c(
               "button",
               {
-                staticClass: "btn btn-sm btn-outline-primary float-right",
+                staticClass: "btn btn-sm btn-outline-primary float-right mt-1",
                 on: {
                   click: function($event) {
                     _vm.showModal = !_vm.showModal
@@ -67423,13 +67428,21 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
         _c("div", { staticClass: "font-weight-bold" }, [
-          _vm._v(_vm._s(_vm.buyer.name) + " (" + _vm._s(_vm.buyer.phone) + ")")
+          _vm._v(_vm._s(_vm.buyer.name) + "\n      "),
+          _c("br"),
+          _vm._v(" "),
+          _c("i", { staticClass: "fa fa-phone mr-2" }),
+          _vm._v(_vm._s(_vm.buyer.phone))
         ]),
         _vm._v(" "),
         _c("div", [
           _c("ul", [
             _vm.address != null
-              ? _c("div", [
+              ? _c("div", { staticClass: "mt-2" }, [
+                  _c("b", [_vm._v("Dikirim ke Alamat ")]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
                   _c("li", [_vm._v(" " + _vm._s(_vm.address.detail) + " ")]),
                   _vm._v(" "),
                   _c("li", [
@@ -67464,7 +67477,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-4" }, [
+    return _c("div", { staticClass: "col-12 col-md-4" }, [
       _c("h5", [_vm._v("Alamat Pengiriman")])
     ])
   }
@@ -67564,7 +67577,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -67638,11 +67651,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   data: function data() {
     return {
       carts: [],
-      merchants: []
+      merchants: [],
+      products: []
     };
   },
 
   methods: {
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed().replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
     getProducts: function getProducts() {
       var _this = this;
 
@@ -67874,32 +67892,39 @@ var render = function() {
             _c("div", { staticClass: "col-md-9 col-sm-12 col-xs-6" }, [
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-lg-4 col-sm-6 col-xs-12" }, [
-                  _c("a", { attrs: { href: "single-product-details.html" } }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "imgwrapper",
-                        staticStyle: { padding: "0px" }
-                      },
-                      [
-                        _c("img", {
-                          attrs: {
-                            src:
-                              "/images/" + JSON.parse(cart.product.images)[0],
-                            alt: "Card image cap"
-                          }
-                        })
-                      ]
-                    )
-                  ])
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { float: "left" },
+                      attrs: { href: "/products/" + cart.product.id }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "imgwrapper",
+                          staticStyle: { padding: "0px" }
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "/images/" + JSON.parse(cart.product.images)[0],
+                              alt: "Card image cap"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  )
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-7 col-sm-6 col-xs-12" }, [
                   _c("div", { staticClass: "mb-1" }, [
-                    _vm._v(_vm._s(cart.product.name))
+                    _c("h6", [_vm._v(_vm._s(cart.product.name))])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "small" }, [
+                  _c("div", { staticClass: "medium" }, [
                     _c("ul", [
                       _c("li", [
                         _vm._v(
@@ -67941,7 +67966,12 @@ var render = function() {
                   staticClass: "float-right h6",
                   staticStyle: { color: "#ff8415" }
                 },
-                [_vm._v("Rp " + _vm._s(cart.product.price * cart.total))]
+                [
+                  _vm._v(
+                    "Rp " +
+                      _vm._s(_vm.formatPrice(cart.product.price * cart.total))
+                  )
+                ]
               )
             ])
           ]
@@ -67957,7 +67987,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-7" }, [
+        _c("div", { staticClass: "col-12" }, [
           _c("h5", [_vm._v("Barang yang Anda Pesan")])
         ])
       ])
@@ -68059,7 +68089,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -68118,6 +68148,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed().replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
     registerListener: function registerListener() {
       var _this = this;
 
@@ -68152,85 +68186,89 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      {
-        staticClass: "card shopsummary globalcard",
-        staticStyle: { position: "sticky", top: "6rem" }
-      },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "card-body" },
-          [
-            _vm._l(_vm.merchants, function(merchant) {
-              return _c("div", [
-                _c("div", [
-                  _c("span", [_vm._v("Total Harga Produk")]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "float-right font-weight-bold" }, [
-                    _vm._v("Rp. " + _vm._s(merchant.totalProductCost))
-                  ])
-                ]),
+  return _c(
+    "div",
+    {
+      staticClass: "card shopsummary globalcard",
+      staticStyle: { position: "sticky", top: "6rem" }
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "card-body" },
+        [
+          _vm._l(_vm.merchants, function(merchant) {
+            return _c("div", [
+              _c("div", [
+                _c("span", [_vm._v("Total Harga Produk")]),
                 _vm._v(" "),
-                _c("div", [
-                  _c("span", [_vm._v("Total Ongkos Kirim")]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "float-right font-weight-bold" }, [
-                    _vm._v("Rp. " + _vm._s(merchant.totalShippingCost))
-                  ])
-                ]),
+                _c("span", { staticClass: "float-right font-weight-bold" }, [
+                  _vm._v(
+                    "Rp. " + _vm._s(_vm.formatPrice(merchant.totalProductCost))
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("span", [_vm._v("Total Ongkos Kirim")]),
                 _vm._v(" "),
-                _c("div", {
-                  staticStyle: {
-                    "border-bottom": "1px #b4b4b4 solid",
-                    margin: "10px 0px 10px 0px"
-                  }
-                }),
-                _vm._v("Total Pembayaran\n        "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "float-right h5",
-                    staticStyle: { color: "#ff8415" }
-                  },
-                  [
-                    _vm._v(
-                      "Rp " +
-                        _vm._s(
+                _c("span", { staticClass: "float-right font-weight-bold" }, [
+                  _vm._v(
+                    "Rp. " + _vm._s(_vm.formatPrice(merchant.totalShippingCost))
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", {
+                staticStyle: {
+                  "border-bottom": "1px #b4b4b4 solid",
+                  margin: "10px 0px 10px 0px"
+                }
+              }),
+              _vm._v("Total Pembayaran\n      "),
+              _c(
+                "div",
+                {
+                  staticClass: "float-right h5",
+                  staticStyle: { color: "#ff8415" }
+                },
+                [
+                  _vm._v(
+                    "Rp " +
+                      _vm._s(
+                        _vm.formatPrice(
                           merchant.totalProductCost + merchant.totalShippingCost
                         )
-                    )
-                  ]
-                )
-              ])
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "mt-5" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn essence-btn btn-block",
-                  attrs: { disabled: _vm.disable },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.createOrder($event)
-                    }
-                  }
-                },
-                [_vm._v("Bayar")]
+                      )
+                  )
+                ]
               )
             ])
-          ],
-          2
-        )
-      ]
-    )
-  ])
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "mt-5" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn essence-btn btn-block",
+                attrs: { disabled: _vm.disable },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.createOrder($event)
+                  }
+                }
+              },
+              [_vm._v("Bayar")]
+            )
+          ])
+        ],
+        2
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -68379,7 +68417,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -68390,6 +68428,12 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -68570,210 +68614,222 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "card globalcard" }, [
-      _c("div", { staticClass: "card-header" }, [
-        _c("nav", { staticClass: "navbar navbar-expand-sm navbar-light" }, [
-          _c(
-            "div",
-            {
-              staticClass: "collapse navbar-collapse",
-              attrs: { id: "navbarSupportedContent" }
-            },
-            [
-              _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-                _c("li", { staticClass: "nav-item dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link dropdown-toggle",
-                      attrs: {
-                        id: "navbarDropdown",
-                        role: "button",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_vm._v("Kategori")]
-                  ),
+      _c("div", { staticClass: "card-header px-0" }, [
+        _c(
+          "nav",
+          {
+            staticClass: "navbar navbar-expand-lg mproduct p-1",
+            staticStyle: { "background-color": "transparent", border: "none" }
+          },
+          [
+            _c("h5", { staticClass: "mr-3" }, [_vm._v("Produk")]),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "collapse navbar-collapse",
+                attrs: { id: "navbarTogglerDemo02" }
+              },
+              [
+                _c("ul", { staticClass: "navbar-nav mr-auto mt-2 mt-lg-0" }, [
+                  _c("li", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link dropdown-toggle",
+                        attrs: {
+                          id: "navbarDropdown",
+                          role: "button",
+                          "data-toggle": "dropdown",
+                          "aria-haspopup": "true",
+                          "aria-expanded": "false"
+                        }
+                      },
+                      [_vm._v("Kategori")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "dropdown-menu",
+                        attrs: { "aria-labelledby": "navbarDropdown" }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            on: {
+                              click: function($event) {
+                                _vm.filterProductByCategory(
+                                  "Alat Tenun Bukan Mesin"
+                                )
+                              }
+                            }
+                          },
+                          [_vm._v("Alat Tenun Bukan Mesin")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            on: {
+                              click: function($event) {
+                                _vm.filterProductByCategory("Tradisional")
+                              }
+                            }
+                          },
+                          [_vm._v("Tradisional")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            on: {
+                              click: function($event) {
+                                _vm.filterProductByCategory("Mesin")
+                              }
+                            }
+                          },
+                          [_vm._v("Mesin")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "dropdown-divider" }),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            on: {
+                              click: function($event) {
+                                _vm.filterProductByCategory("")
+                              }
+                            }
+                          },
+                          [_vm._v("Semua kategory")]
+                        )
+                      ]
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "dropdown-menu",
-                      attrs: { "aria-labelledby": "navbarDropdown" }
-                    },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          on: {
-                            click: function($event) {
-                              _vm.filterProductByCategory(
-                                "Alat Tenun Bukan Mesin"
-                              )
+                  _c("li", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link dropdown-toggle",
+                        attrs: {
+                          id: "navbarDropdown1",
+                          role: "button",
+                          "data-toggle": "dropdown",
+                          "aria-haspopup": "true",
+                          "aria-expanded": "false"
+                        }
+                      },
+                      [_vm._v("Urutkan Berdasarkan")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "dropdown-menu",
+                        staticStyle: { left: "156px" },
+                        attrs: { "aria-labelledby": "navbarDropdown1" }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            on: {
+                              click: function($event) {
+                                _vm.sortProductByName("asc")
+                              }
                             }
-                          }
-                        },
-                        [_vm._v("Alat Tenun Bukan Mesin")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          on: {
-                            click: function($event) {
-                              _vm.filterProductByCategory("Tradisional")
+                          },
+                          [_vm._v("Nama A-Z")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            on: {
+                              click: function($event) {
+                                _vm.sortProductByName("des")
+                              }
                             }
-                          }
-                        },
-                        [_vm._v("Tradisional")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          on: {
-                            click: function($event) {
-                              _vm.filterProductByCategory("Mesin")
+                          },
+                          [_vm._v("Nama Z-A")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            on: {
+                              click: function($event) {
+                                _vm.sortProductByPrice("asc")
+                              }
                             }
-                          }
-                        },
-                        [_vm._v("Mesin")]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "dropdown-divider" }),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          on: {
-                            click: function($event) {
-                              _vm.filterProductByCategory("")
+                          },
+                          [_vm._v("Harga Termurah")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            on: {
+                              click: function($event) {
+                                _vm.sortProductByPrice("des")
+                              }
                             }
-                          }
-                        },
-                        [_vm._v("Semua kategory")]
-                      )
-                    ]
-                  )
+                          },
+                          [_vm._v("Harga Termahal")]
+                        )
+                      ]
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
-                _c("li", { staticClass: "nav-item dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link dropdown-toggle",
-                      attrs: {
-                        id: "navbarDropdown1",
-                        role: "button",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
+                _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.searchName,
+                        expression: "searchName"
                       }
+                    ],
+                    staticClass: "form-control form-control-sm mr-sm-2",
+                    attrs: {
+                      type: "search",
+                      placeholder: "Cari Produk",
+                      "aria-label": "Search"
                     },
-                    [_vm._v("Urutkan Berdasarkan")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "dropdown-menu",
-                      attrs: { "aria-labelledby": "navbarDropdown1" }
-                    },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          on: {
-                            click: function($event) {
-                              _vm.sortProductByName("asc")
-                            }
+                    domProps: { value: _vm.searchName },
+                    on: {
+                      input: [
+                        function($event) {
+                          if ($event.target.composing) {
+                            return
                           }
+                          _vm.searchName = $event.target.value
                         },
-                        [_vm._v("Nama A-Z")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          on: {
-                            click: function($event) {
-                              _vm.sortProductByName("des")
-                            }
-                          }
-                        },
-                        [_vm._v("Nama Z-A")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          on: {
-                            click: function($event) {
-                              _vm.sortProductByPrice("asc")
-                            }
-                          }
-                        },
-                        [_vm._v("Harga Termurah")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          on: {
-                            click: function($event) {
-                              _vm.sortProductByPrice("des")
-                            }
-                          }
-                        },
-                        [_vm._v("Harga Termahal")]
-                      )
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-inline my-2 my-lg-0" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.searchName,
-                      expression: "searchName"
+                        _vm.filterProductByName
+                      ]
                     }
-                  ],
-                  staticClass: "form-control form-control-sm mr-sm-2",
-                  attrs: {
-                    type: "search",
-                    placeholder: "Cari Produk",
-                    "aria-label": "Search"
-                  },
-                  domProps: { value: _vm.searchName },
-                  on: {
-                    input: [
-                      function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.searchName = $event.target.value
-                      },
-                      _vm.filterProductByName
-                    ]
-                  }
-                })
-              ])
-            ]
-          )
-        ])
+                  })
+                ])
+              ]
+            )
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
@@ -68781,7 +68837,7 @@ var render = function() {
           "div",
           { staticClass: "row" },
           _vm._l(_vm.products, function(product) {
-            return _c("div", { staticClass: "col-lg-3 col-sm-2 px-1" }, [
+            return _c("div", { staticClass: "col-6 col-md-3 px-1" }, [
               _c("div", { staticClass: "card products" }, [
                 _c("a", { attrs: { href: "/products/" + product.id } }, [
                   _c("div", { staticClass: "imgwrapper" }, [
@@ -68791,21 +68847,21 @@ var render = function() {
                         alt: "Card image cap"
                       }
                     })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("p", { staticClass: "card-title productname" }, [
-                    _vm._v(_vm._s(product.name))
                   ]),
                   _vm._v(" "),
-                  _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                    _vm._v("Rp " + _vm._s(product.price))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text float-right" }, [
-                    _c("small", { staticClass: "text-muted" }, [
-                      _vm._v("Stock " + _vm._s(product.stock))
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("p", { staticClass: "card-title productname" }, [
+                      _vm._v(_vm._s(product.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                      _vm._v("Rp " + _vm._s(product.price))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text float-right" }, [
+                      _c("small", { staticClass: "text-muted" }, [
+                        _vm._v("Stock " + _vm._s(product.stock))
+                      ])
                     ])
                   ])
                 ])
@@ -68814,12 +68870,32 @@ var render = function() {
           })
         ),
         _vm._v(" "),
-        _vm._m(0)
+        _vm._m(1)
       ])
     ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarTogglerDemo02",
+          "aria-controls": "navbarTogglerDemo02",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "fa fa-bars" })]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -1,5 +1,5 @@
 <template>
-  <div class style="margin-top: 100px;" v-if="carousels.length > 0">
+  <div class="big-banner" v-if="carousels.length > 0">
     <Carousel
       :autoplay="true"
       :nav="false"
@@ -17,7 +17,7 @@
     </Carousel>
   </div>
 
-  <div v-else style="margin-top: 100px;">
+  <div v-else style="">
     <Carousel
       :autoplay="true"
       :nav="false"
