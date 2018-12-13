@@ -114,7 +114,7 @@
                   </div>
 
                   <div class="tab-pane fade ulasan" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    @if($product->review !== null)
+                    @if($product->review === null)
                     <div class="text-sm-center">
                       <img src="" alt="">
                       <b>Belum ada ulasan untuk produk ini</b>
