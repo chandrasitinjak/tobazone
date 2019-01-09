@@ -12,7 +12,7 @@
         <h6 class="">BELI</h6>
         <ul>
           <li>
-            <a href="#">Cara Berbelanja</a>
+            <a href="/carabelanja">Cara Berbelanja</a>
           </li>
           <li>
             <a href="#">Cara Pembayaran</a>

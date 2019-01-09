@@ -147,4 +147,5 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 });
 
 Route::get('/products/{id}', 'ProductController@show');
+Route::get('/carabelanja', 'qnaController@show');
 
