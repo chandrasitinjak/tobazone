@@ -66544,7 +66544,7 @@ var render = function() {
               _c(
                 "a",
                 {
-                  staticClass: "btn btn-primary float-right",
+                  staticClass: "btn essence-btn float-right",
                   attrs: { href: "/shipping" }
                 },
                 [_vm._v("Lanjut Pembayaran")]
