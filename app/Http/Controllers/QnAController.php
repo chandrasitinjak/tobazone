@@ -15,4 +15,9 @@ class QnAController extends Controller
   {
     return view ('users.homes.carabelanja');
   }
+
+  public function showj()
+  {
+    return view ('users.homes.jual');
+  }
 }

@@ -23,10 +23,10 @@
         <h6 class="">JUAL</h6>
         <ul>
           <li>
-            <a href="#">Mendaftar Jadi Penjual</a>
+            <a href="/register">Mendaftar Jadi Penjual</a>
           </li>
           <li>
-            <a href="#">Cara Berjualan</a>
+            <a href="/carajual">Cara Berjualan</a>
           </li>
         </ul>
       </div>
@@ -51,10 +51,10 @@
             <a href="https://www.instagram.com/uloszone/" class="mr-3">
               <i style="font-size: x-large" class="fa fa-instagram"></i>
             </a>
-            <a href="https://www.facebook.com/" class="mr-3">
+            <a href="https://www.facebook.com/UlosZone-530480990759183/" class="mr-3">
               <i style="font-size: x-large" class="fa fa-facebook"></i>
             </a>
-            <a href="https://www.facebook.com/">
+            <a href="mailto:uloszone@gmail.com">
               <i style="font-size: x-large" class="fa fa-envelope-o"></i>
             </a>
           </li>
