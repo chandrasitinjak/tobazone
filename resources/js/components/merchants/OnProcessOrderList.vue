@@ -61,13 +61,6 @@
                             v-on:click="updateSelectedId(transaction.id)"
                           >Input Resi</button>
                         </div>
-                        <div class="quantity col-md-5" v-else>
-                          <a
-                            :href="'/transactions/' + transaction.id + '/tracking'"
-                            class="btn btn-info btn-sm mb-2"
-                            style="display: block; width: 90px"
-                          >Lacak Pengiriman</a>
-                        </div>
                         <div
                           class="modal fade"
                           id="resiModal"
