@@ -22,7 +22,7 @@
           <div
             class="col-sm-3 col-sm-1 bold"
             style="color: orangered"
-          >Rp {{ transaction.payment.product_cost + transaction.payment.shipping_cost }}</div>
+          >Rp {{ parseInt(transaction.payment.product_cost) + parseInt(transaction.payment.shipping_cost) }}</div>
           <div class="col-sm-2">Pembayaran diterima
             <br>
             <small>{{ JSON.parse(transaction.payment.proof)['bank'] }}</small>
@@ -50,7 +50,7 @@
                   <tr>
                     <th scope="row">Total Pembayaran</th>
                     <td>
-                      <b>Rp {{ transaction.payment.product_cost + transaction.payment.shipping_cost }}</b>
+                      <b>Rp {{ parseInt(transaction.payment.product_cost) + parseInt(transaction.payment.shipping_cost) }}</b>
                     </td>
                   </tr>
                 </tbody>
