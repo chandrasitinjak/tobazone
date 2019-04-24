@@ -55,54 +55,12 @@
                         </div>
 
                         <div class="vue-misc">
-                            <div class="row">
-                                <div class="col-md-6">
-                                </div>
-
-                                <div class="col-md-6">
-                                    <table class="table">
-                                        <tr>
-                                            <th scope="row">
-                                                Jumlah
-                                            </th>
-                                            <td>
-                                                Rp700000
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>
-                                                Diskon
-                                            </th>
-                                            <td>
-                                                0%
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>
-                                                Total harga
-                                            </th>
-                                            <th>
-                                                Rp700000
-                                            </th>
-                                        </tr>
-
-                                    </table>
-                                </div>
-
-                            </div>
-                        </div>
-                        <br>
-
-                        <div class="vue-misc">
                             <!-- <h2 class="display-5 my-3">Misc</h2> -->
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Address</h3>
                                     <address class="mt-3">
                                         {{ $transaction->address }}<br>
-                                        Sitoluama, Laguboti, 22474<br>
                                         {{ $transaction->customer->email}}
                                     </address>
                                 </div>
