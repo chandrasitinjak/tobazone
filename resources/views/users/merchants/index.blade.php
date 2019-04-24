@@ -34,24 +34,6 @@
                 {{", " . $merchant->profile->address->province_name}} <br>
                 <i class="fa fa-clock-o mr-1"></i>{{date('d-m-Y', strtotime($merchant->email_verified_at))}}
               </div>
-              <div class="col-12 mt-3">
-                <div class="row">
-                  <div class="card col-lg-2 col-5 mr-1 widget" style="border-left: 4px solid #2aacca;">
-                    <div class="card-body p-1">
-                      <small>Produk Terjual</small>
-                      <br>
-                      <h4>2</h4>
-                    </div>
-                  </div>
-                  <div class="card col-lg-3 col-6  widget" style="border-left: 4px solid #ca4665;">
-                    <div class="card-body p-1">
-                      <small>Total Penjualan</small>
-                      <br>
-                      <span>Rp.1,001,021</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
