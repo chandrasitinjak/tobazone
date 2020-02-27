@@ -16,8 +16,15 @@ class ProvinceAndCitySeeder extends Seeder
         $string = file_get_contents("database/seeds/province.json");
         $provincies = json_decode($string);
         
+        $id_provincie = 1;
+
         foreach($provincies as $province) {
-            Province::create(['name' => $province->province]);
+            Province::create([
+                'id' => $id_provincie,
+                'name' => $province->province,                
+            ]);
+            
+            $id_provincie++;
         }
 
         $string = file_get_contents("database/seeds/city.json");
