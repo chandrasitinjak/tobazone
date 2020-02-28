@@ -15,6 +15,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $admin = User::create([
+            'id' => 1,
             'username' => 'admin',
             'email' => 'uloszone@gmail.com',
             'password' => bcrypt('admin123'),
@@ -23,6 +24,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $merchant = User::create([
+            'id' => 2,
             'username' => 'merchant',
             'email' => 'merchant@uloszone.com',
             'password' => bcrypt('merchant123'),
@@ -31,6 +33,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $customer = User::create([
+            'id' => 3,
             'username' => 'customer',
             'email' => 'customer@uloszone.com',
             'password' => bcrypt('customer123'),
