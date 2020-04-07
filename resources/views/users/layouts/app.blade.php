@@ -11,7 +11,7 @@
 
   <!-- Title  -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title> @yield('title', 'UlosZone')</title>
+  <title> @yield('title', 'Tobazone')</title>
 
   <link rel="shortcut icon" href="/images/assets/icon.ico">
 
