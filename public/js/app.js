@@ -65932,6 +65932,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 });
 
               case 3:
+
+                //pindah ke halaman keranjang
+                window.location = "/carts";
+
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -65961,30 +65966,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.total,
-            expression: "total"
-          }
-        ],
-        staticClass: "col-2 form-control form-control-sm",
-        attrs: { type: "number", min: "1", value: "1", max: _vm.maxUnit },
-        domProps: { value: _vm.total },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.total = $event.target.value
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
     _c("div", { staticClass: "cart-fav-box d-flex align-items-center mt-4" }, [
       _c(
         "button",
