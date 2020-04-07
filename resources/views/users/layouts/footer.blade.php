@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <h6 class="">Ulos Zone</h6>
+                <h6 class="">Tobazone</h6>
                 <ul>
                     <li></li>
                 </ul>
@@ -69,7 +69,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 mt-3">
-                <h6>Team UlosZone</h6>
+                <h6>Team Tobazone</h6>
             </div>
         </div>
     </div>

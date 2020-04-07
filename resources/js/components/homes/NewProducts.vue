@@ -16,7 +16,7 @@
           :paginationEnabled="false"
           :perPageCustom="[[0, 1], [991.88, 6]]"
         >
-          <slide class="px-2" v-for="product in products">
+          <slide class="px-2" v-for="product in products" :key="product.id">
             <a :href="'/products/' + product.id">
             <div class="card product ">
 

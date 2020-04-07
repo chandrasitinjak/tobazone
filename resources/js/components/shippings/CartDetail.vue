@@ -152,6 +152,7 @@ export default {
 
       this.publishFinalTransactionDetail(transactionDetail);
     },
+    
     publishMerchantsListEvent(merchants) {
       EventBus.$emit("MERCHANT_LIST", merchants);
     },

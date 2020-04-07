@@ -34,6 +34,7 @@
               >Pesanan Selesai</a>
             </li>
           </ul>
+
           <div class="tab-content" id="myTabContent">
             <div
               class="tab-pane fade show active"
@@ -163,6 +164,8 @@
                         <div class="row singleorderprod" style=" padding-bottom: 10px">
                           <div class="col-md-12 col-sm-12 col-xs-6">
                             <div class="row">
+
+                              <div class="col-md-6">
                               <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'">
                                 <div class="col-sm-2 col-xs-12">
                                   <div class="imgwrapper pesanan" style="padding: 0px; height: auto">
@@ -182,7 +185,24 @@
                                     <small>Jumlah {{ order.quantity }}</small>
                                   </div>
                                 </div>
+
+
+
                               </a>
+                              </div>
+                              <div class="col-md-6">
+                                    <div v-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 0">  
+                                      <label for=""> Pesanan telah sampai</label><br>
+                                      <button class="btn small smallbtn" v-on:click="confirmByUser(transaction.id)">konfirmasi</button>
+                                    </div>
+                                    <div v-else-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 1">  
+                                      <p> Terimakasih sudah melakukan konfirmasi</p>                                      
+                                    </div>
+                                    <div v-else> 
+                                       <p>tidak dilakukan pengiriman, pembelian ditolak admin</p>
+                                    </div>                                    
+                              </div>
+
                             </div>
                           </div>
                         </div>
@@ -203,11 +223,26 @@
 export default {
   props: ["userId"],
   data() {
-    return {
+    return {      
       transactions: []
     };
   },
   methods: {
+
+    confirmByUser(id_transaksi) {
+
+      let confirmByUser =  {
+        data : 1
+      }
+
+      window.axios
+        .post("/api/transaction/" + id_transaksi + "/confirmByUser", confirmByUser)       
+        .then(() => {          
+          alert("berhasil mengkonfirmasi");
+          window.location.reload(true);
+        })
+
+    },
       formatPrice(value) {
           let val = (value/1).toFixed().replace('.', ',')
           return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")

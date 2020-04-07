@@ -20,6 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->string('shipping_number')->nullable();
             $table->string('address');
             $table->string('status');
+            $table->integer('confirm_user')->default(0);
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('users');

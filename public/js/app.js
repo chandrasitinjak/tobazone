@@ -41733,13 +41733,12 @@ module.exports = Vue;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(145);
-module.exports = __webpack_require__(277);
+module.exports = __webpack_require__(280);
 
 
 /***/ }),
 /* 145 */
 /***/ (function(module, exports, __webpack_require__) {
-
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -41776,36 +41775,39 @@ var TrackingPage = __webpack_require__(262);
 var SearchProduct = __webpack_require__(267);
 var LoginModal = __webpack_require__(272);
 var Spinner = __webpack_require__(8);
+var SuccesOrdersList = __webpack_require__(277);
+// const Test = require('./components/test/test');
 
 var app = new Vue({
-  el: '#app',
-  components: {
-    Carousel: Carousel,
-    NewProducts: NewProducts,
-    Banner: Banner,
-    SearchProduct: SearchProduct,
-    CartIcon: CartIcon,
-    OrderListCustomerPage: OrderListCustomerPage,
-    Cart: Cart,
-    AddToCartButton: AddToCartButton,
-    ShippingPage: ShippingPage,
-    TrackingPage: TrackingPage,
-    PaymentConfirmation: PaymentConfirmation,
-    RegCustomer: RegCustomer,
-    RegMerchant: RegMerchant,
-    BlogList: BlogList,
-    ProductListMerchantPage: ProductListMerchantPage,
-    OrderListMerchantPage: OrderListMerchantPage,
-    OnProcessOrderListMerchantPage: OnProcessOrderListMerchantPage,
-    LoginModal: LoginModal,
-    Spinner: Spinner
-  }
+    el: '#app',
+    components: {
+        // Test,
+        Carousel: Carousel,
+        NewProducts: NewProducts,
+        Banner: Banner,
+        SearchProduct: SearchProduct,
+        CartIcon: CartIcon,
+        OrderListCustomerPage: OrderListCustomerPage,
+        Cart: Cart,
+        AddToCartButton: AddToCartButton,
+        ShippingPage: ShippingPage,
+        TrackingPage: TrackingPage,
+        PaymentConfirmation: PaymentConfirmation,
+        RegCustomer: RegCustomer,
+        RegMerchant: RegMerchant,
+        BlogList: BlogList,
+        ProductListMerchantPage: ProductListMerchantPage,
+        OrderListMerchantPage: OrderListMerchantPage,
+        OnProcessOrderListMerchantPage: OnProcessOrderListMerchantPage,
+        LoginModal: LoginModal,
+        Spinner: Spinner,
+        SuccesOrdersList: SuccesOrdersList
+    }
 });
 
 /***/ }),
 /* 146 */
 /***/ (function(module, exports, __webpack_require__) {
-
 
 window._ = __webpack_require__(147);
 window.Popper = __webpack_require__(11).default;
@@ -65397,7 +65399,7 @@ var render = function() {
               }
             },
             _vm._l(_vm.products, function(product) {
-              return _c("slide", { staticClass: "px-2" }, [
+              return _c("slide", { key: product.id, staticClass: "px-2" }, [
                 _c("a", { attrs: { href: "/products/" + product.id } }, [
                   _c("div", { staticClass: "card product " }, [
                     _c("div", { staticClass: "imgwrapper" }, [
@@ -67705,7 +67707,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -70219,7 +70221,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -70431,6 +70433,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["userId"],
@@ -70441,6 +70463,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
+    confirmByUser: function confirmByUser(id_transaksi) {
+
+      var confirmByUser = {
+        data: 1
+      };
+
+      window.axios.post("/api/transaction/" + id_transaksi + "/confirmByUser", confirmByUser).then(function () {
+        alert("berhasil mengkonfirmasi");
+        window.location.reload(true);
+      });
+    },
     formatPrice: function formatPrice(value) {
       var val = (value / 1).toFixed().replace('.', ',');
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -70997,117 +71030,198 @@ var render = function() {
                                                   { staticClass: "row" },
                                                   [
                                                     _c(
-                                                      "a",
+                                                      "div",
                                                       {
-                                                        attrs: {
-                                                          href:
-                                                            "/customer/" +
-                                                            _vm.userId +
-                                                            "/transactions/" +
-                                                            transaction.id +
-                                                            "/tracking"
-                                                        }
+                                                        staticClass: "col-md-6"
                                                       },
                                                       [
                                                         _c(
-                                                          "div",
+                                                          "a",
                                                           {
-                                                            staticClass:
-                                                              "col-sm-2 col-xs-12"
+                                                            attrs: {
+                                                              href:
+                                                                "/customer/" +
+                                                                _vm.userId +
+                                                                "/transactions/" +
+                                                                transaction.id +
+                                                                "/tracking"
+                                                            }
                                                           },
                                                           [
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "imgwrapper pesanan",
-                                                                staticStyle: {
-                                                                  padding:
-                                                                    "0px",
-                                                                  height: "auto"
-                                                                }
+                                                                  "col-sm-2 col-xs-12"
                                                               },
                                                               [
-                                                                _c("img", {
-                                                                  attrs: {
-                                                                    src:
-                                                                      "/images/" +
-                                                                      JSON.parse(
-                                                                        order
-                                                                          .product
-                                                                          .images
-                                                                      )[0],
-                                                                    alt:
-                                                                      "Card image cap"
-                                                                  }
-                                                                })
-                                                              ]
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-sm-6 col-xs-12"
-                                                          },
-                                                          [
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "keranjang-desc-prod"
-                                                              },
-                                                              [
-                                                                _c("h6", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      order
-                                                                        .product
-                                                                        .name
-                                                                    )
-                                                                  )
-                                                                ]),
-                                                                _vm._v(" "),
                                                                 _c(
-                                                                  "h6",
+                                                                  "div",
                                                                   {
+                                                                    staticClass:
+                                                                      "imgwrapper pesanan",
                                                                     staticStyle: {
-                                                                      color:
-                                                                        "#FF5205",
-                                                                      display:
-                                                                        "inline"
+                                                                      padding:
+                                                                        "0px",
+                                                                      height:
+                                                                        "auto"
                                                                     }
                                                                   },
                                                                   [
-                                                                    _vm._v(
-                                                                      "Rp " +
-                                                                        _vm._s(
-                                                                          _vm.formatPrice(
+                                                                    _c("img", {
+                                                                      attrs: {
+                                                                        src:
+                                                                          "/images/" +
+                                                                          JSON.parse(
                                                                             order
                                                                               .product
-                                                                              .price
-                                                                          )
+                                                                              .images
+                                                                          )[0],
+                                                                        alt:
+                                                                          "Card image cap"
+                                                                      }
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "col-sm-6 col-xs-12"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "keranjang-desc-prod"
+                                                                  },
+                                                                  [
+                                                                    _c("h6", [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          order
+                                                                            .product
+                                                                            .name
                                                                         )
+                                                                      )
+                                                                    ]),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "h6",
+                                                                      {
+                                                                        staticStyle: {
+                                                                          color:
+                                                                            "#FF5205",
+                                                                          display:
+                                                                            "inline"
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Rp " +
+                                                                            _vm._s(
+                                                                              _vm.formatPrice(
+                                                                                order
+                                                                                  .product
+                                                                                  .price
+                                                                              )
+                                                                            )
+                                                                        )
+                                                                      ]
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c("br"),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "small",
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Jumlah " +
+                                                                            _vm._s(
+                                                                              order.quantity
+                                                                            )
+                                                                        )
+                                                                      ]
                                                                     )
                                                                   ]
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _c("br"),
-                                                                _vm._v(" "),
-                                                                _c("small", [
-                                                                  _vm._v(
-                                                                    "Jumlah " +
-                                                                      _vm._s(
-                                                                        order.quantity
-                                                                      )
-                                                                  )
-                                                                ])
+                                                                )
                                                               ]
                                                             )
                                                           ]
                                                         )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass: "col-md-6"
+                                                      },
+                                                      [
+                                                        transaction.status ===
+                                                          "orderSuccessed" &&
+                                                        transaction.confirm_user ===
+                                                          0
+                                                          ? _c("div", [
+                                                              _c(
+                                                                "label",
+                                                                {
+                                                                  attrs: {
+                                                                    for: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    " Pesanan telah sampai"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _c("br"),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "button",
+                                                                {
+                                                                  staticClass:
+                                                                    "btn small smallbtn",
+                                                                  on: {
+                                                                    click: function(
+                                                                      $event
+                                                                    ) {
+                                                                      _vm.confirmByUser(
+                                                                        transaction.id
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "konfirmasi"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ])
+                                                          : transaction.status ===
+                                                              "orderSuccessed" &&
+                                                            transaction.confirm_user ===
+                                                              1
+                                                          ? _c("div", [
+                                                              _c("p", [
+                                                                _vm._v(
+                                                                  " Terimakasih sudah melakukan konfirmasi"
+                                                                )
+                                                              ])
+                                                            ])
+                                                          : _c("div", [
+                                                              _c("p", [
+                                                                _vm._v(
+                                                                  "tidak dilakukan pengiriman, pembelian ditolak admin"
+                                                                )
+                                                              ])
+                                                            ])
                                                       ]
                                                     )
                                                   ]
@@ -75605,9 +75719,7 @@ var render = function() {
                                                         "btn btn-primary btn-sm",
                                                       attrs: { type: "button" },
                                                       on: {
-                                                        click: function(
-                                                          $event
-                                                        ) {
+                                                        "": function($event) {
                                                           _vm.updateReview(
                                                             _vm.selectedProduct
                                                               .id
@@ -76940,6 +77052,200 @@ if (false) {
 
 /***/ }),
 /* 277 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(278)
+/* template */
+var __vue_template__ = __webpack_require__(279)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/merchants/SuccesOrdersList.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-617614c2", Component.options)
+  } else {
+    hotAPI.reload("data-v-617614c2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 278 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ["userId"],
+    data: function data() {
+        return {
+            transactions: []
+        };
+    },
+
+
+    methods: {
+        getSuccessOrders: function getSuccessOrders() {
+            var _this = this;
+
+            window.axios.get("/api/merchant/" + this.userId + "/success-orders").then(function (res) {
+                _this.transactions = res.data;
+                console.log(_this.transactions);
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }
+    },
+    mounted: function mounted() {
+        this.getSuccessOrders();
+    }
+});
+
+/***/ }),
+/* 279 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card globalcard" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "pull-right" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-2" }),
+            _vm._v(" "),
+            _c(
+              "table",
+              [
+                _c(
+                  "tr",
+                  [
+                    _c("td", [_vm._v("id_customer")]),
+                    _vm._v(" "),
+                    _c("center", [_c("td", [_vm._v("address")])]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("tanggal konfirmasi")])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.transactions, function(transaction) {
+                  return _c("tr", [
+                    _c("td", [_vm._v(" " + _vm._s(transaction.merchant_id))]),
+                    _vm._v(" "),
+                    _c("td", { staticStyle: { width: "680px" } }, [
+                      _vm._v(" " + _vm._s(transaction.address))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(transaction.updated_at))])
+                  ])
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-2" })
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card globalcard mt-0" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _c("h6", [_vm._v("Order yang berhasil")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-617614c2", module.exports)
+  }
+}
+
+/***/ }),
+/* 280 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

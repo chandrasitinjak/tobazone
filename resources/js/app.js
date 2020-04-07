@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -34,28 +33,32 @@ const TrackingPage = require('./components/customers/TrackingPage')
 const SearchProduct = require('./components/search/SearchProduct')
 const LoginModal = require('./components/auths/LoginModal')
 const Spinner = require('./components/Spinner')
+const SuccesOrdersList = require('./components/merchants/SuccesOrdersList')
+    // const Test = require('./components/test/test');
 
 const app = new Vue({
-  el: '#app',
-  components: {
-    Carousel,
-    NewProducts,
-    Banner,
-    SearchProduct,
-    CartIcon,
-    OrderListCustomerPage,
-    Cart,
-    AddToCartButton,
-    ShippingPage,
-    TrackingPage,
-    PaymentConfirmation,
-    RegCustomer,
-    RegMerchant,
-    BlogList,
-    ProductListMerchantPage,
-    OrderListMerchantPage,
-    OnProcessOrderListMerchantPage,
-    LoginModal,
-    Spinner
-  }
+    el: '#app',
+    components: {
+        // Test,
+        Carousel,
+        NewProducts,
+        Banner,
+        SearchProduct,
+        CartIcon,
+        OrderListCustomerPage,
+        Cart,
+        AddToCartButton,
+        ShippingPage,
+        TrackingPage,
+        PaymentConfirmation,
+        RegCustomer,
+        RegMerchant,
+        BlogList,
+        ProductListMerchantPage,
+        OrderListMerchantPage,
+        OnProcessOrderListMerchantPage,
+        LoginModal,
+        Spinner,
+        SuccesOrdersList
+    }
 });

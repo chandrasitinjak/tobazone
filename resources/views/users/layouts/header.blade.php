@@ -5,18 +5,23 @@
             <span class="fa fa-bars"></span>
         </button>
         <a class="navbar-brand mr-5" href="/">
-            <h5>UlosZone</h5>
+            <h5>Tobazone</h5>
         </a>
 
         <a class="nav-link d-none d-sm-block" href="https://medium.com/uloszone" rel="noopener noreferrer"
            target="_blank"
            style="font-weight: 400; font-size: 1rem;">Blog</a>
 
-        <div id="cart-icon" class="d-lg-none">
+        <!-- <div id="cart-icon" class="d-lg-none">
             @if(Auth::check())
-                <cart-icon :user-id="{{Auth::user()->id}}"/> @else
-                <cart-icon/> @endif
-        </div>
+                <cart-icon :user-id="{{Auth::user()->id}}"/>
+            @else
+                <cart-icon/> 
+            @endif
+        </div> -->
+        
+        <!-- Supaya Memperbaiki posisi -->
+        
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-start">
                 <li class="nav-item d-lg-none dropdown">
@@ -69,6 +74,7 @@
             </div>
         </div>
 
+        <!-- Form Search -->
         <div class="d-none d-lg-block" style="margin-right: 8rem">
 
             <div class="search-area">
@@ -78,20 +84,24 @@
                 </form>
             </div>
         </div>
+        
 
+        <!-- Icon Cart -->
         <div id="cart-icon" class="d-none d-lg-block mr-3">
             @if(Auth::check())
-                <cart-icon :user-id="{{Auth::user()->id}}"/> @else
-                <cart-icon/> @endif
+                <cart-icon :user-id="{{Auth::user()->id}}"/>
+            @else
+                <cart-icon/> 
+            @endif
         </div>
-
+        
         @auth
             <div class="user-login-info mr-2 d-none d-sm-block">
-                <a href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}" style="font-weight: 400;
-font-size: 1rem;">Pesanan</a>
+                <a href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}" style="font-weight: 400;font-size: 1rem;">Pesanan</a>
             </div>
         @endauth
 
+        <!-- Togle untuk form login -->
         <div class="loginbutton d-none d-lg-block">
             @guest
                 <div class="user-login-info align-content-end">
@@ -132,8 +142,8 @@ font-size: 1rem;">Pesanan</a>
     </div>
 </nav>
 
-@if (Auth::guest() || Auth::user()->hasRole('customer'))
-    <div class="col-sm-12 d-sm-block d-md-none d-lg-none" style="    top: -16px;">
+<!-- @if (Auth::guest() || Auth::user()->hasRole('customer'))
+    <div class="col-sm-12 d-sm-block d-md-none d-lg-none" style="top: -16px;">
         <div class="search-area">
             <form class="example" action="/search">
                 <input type="text" placeholder="Search.." name="search">
@@ -143,7 +153,7 @@ font-size: 1rem;">Pesanan</a>
     </div>
 @else
 
-@endif
+@endif -->
 
 
 
@@ -157,12 +167,12 @@ font-size: 1rem;">Pesanan</a>
             <span class="fa fa-th"></span>
         </button>
         <a class="navbar-brand mr-5" href="/">
-            <h5>Merchant Uloszone</h5>
+            <h5>Merchant Tobazone</h5>
         </a>
 
         <a class="nav-link d-none d-sm-block" href="https://medium.com/uloszone" rel="noopener noreferrer"
            target="_blank"
-           style="font-weight: 400; font-size: 1rem;">Blog Uloszone</a>
+           style="font-weight: 400; font-size: 1rem;">Blog Tobazone</a>
 
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -268,7 +278,7 @@ font-size: 1rem;">Pesanan</a>
                         <div class="user-menu dropdown-menu mt-2" style="border: 1px solid #e0e0e0; left: -70px;">
                             <ul class="dropdown">
                                 <li>
-                                    <a class="nav-link" href="#">My Profile</a>
+                                    <a class="nav-link" href="#">My ProfileSS</a>
                                 </li>
                                 <li>
                                     <form method="POST" action="{{ url('/logout')}}">

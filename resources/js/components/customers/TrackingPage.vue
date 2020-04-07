@@ -120,12 +120,12 @@
                               v-if="order.product.review === null"
                             >Tulis Ulasan</h5>
                             <h5 class="modal-title" id="exampleModalCenterTitle" v-else>Ulasan Anda</h5>
-                            <button
-                              type="button"
-                              class="close"
-                              data-dismiss="modal"
-                              aria-label="Close"
-                            >
+                              <button
+                                type="button"
+                                class="close"
+                                data-dismiss="modal"
+                                aria-label="Close"
+                              >
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
@@ -182,7 +182,7 @@
                             <button
                               type="button"
                               v-if="order.product.review === null"
-                              v-on:click="updateReview(selectedProduct.id)"
+                              v-on: ="updateReview(selectedProduct.id)"
                               class="btn btn-primary btn-sm"
                             >Kirim Ulasan</button>
                           </div>

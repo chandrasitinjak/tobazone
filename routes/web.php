@@ -13,12 +13,17 @@ use Illuminate\Support\Facades\Auth;
 |
  */
 
-Route::get('/', function () {
+Route::get('/', function () {            
     if (Auth::user()) {
-        return redirect('/home');
+        return redirect('/home');        
     }
+    
     return view('users.homes.index');
 });
+
+// Route::get('/test', function(){
+//     echo "hello world";
+// });
 
 Auth::routes(['verify' => true]);
 
@@ -105,13 +110,13 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
     Route::middleware('role:merchant')->group(function () {
         Route::get('/merchant', 'MerchantController@index');
-
         Route::prefix('/merchant/products')->group(function () {
             Route::get('/', 'MerchantController@products');
         });
 
         Route::get('/merchant/{id}/new-orders', 'MerchantController@getNewOrders');
         Route::get('/merchant/{id}/ongoing-orders', 'MerchantController@getOngoingOrders');
+        Route::get('/merchant/{id}/succes-orders', 'MerchantController@getSuccesOrder');
     });
 
     Route::middleware('role:customer')->group(function () {

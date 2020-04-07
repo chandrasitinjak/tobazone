@@ -31,10 +31,21 @@ class OrderController extends Controller
 
     public function getOnProcessOrdersByMerchant($id) {
         $trasactions = Transaction::with(['orders', 'orders.product', 'payment'])
-                                  ->where('merchant_id', $id)
+                                  ->where('merchant_id', $id)                                  
                                   ->whereIn('status', ['readyForProcess'])
                                   ->get();
 
+        return response()->json($trasactions);
+    }
+
+    public function getSuccesOrdersByMerchant($id) {
+
+        $trasactions = Transaction::with(['orders', 'orders.product', 'payment'])
+                                  ->where('merchant_id', $id)
+                                  ->where('confirm_user', 1)
+                                  ->whereIn('status', ['orderSuccessed'])
+                                  ->get();  
+                                  
         return response()->json($trasactions);
     }
 }

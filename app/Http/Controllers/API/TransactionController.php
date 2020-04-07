@@ -40,7 +40,8 @@ class TransactionController extends Controller
                 'merchant_id' => $merchant['id'],
                 'address' => $shippingAddress,
                 'additional_info' => "",
-                'status' => "pending"
+                'status' => "pending",
+                'confirm_user' => 1
             ]);
 
             $orders = $merchant['products'];
@@ -73,9 +74,17 @@ class TransactionController extends Controller
         $transaction->update();
     }
 
+    public function confirmByUser(Request $request, $id) {
+
+        $transaction = Transaction::find($id);
+        $transaction->confirm_user = $request->data;
+        $transaction->update();
+    }
+
     public function getCustomerTransaction($id) {
         $transaction = Transaction::with(['orders', 'orders.product', 'payment'])
                                   ->where('customer_id', $id)
+                                  ->orderBy('created_at', 'desc')
                                   ->get();
 
         return response()->json($transaction);

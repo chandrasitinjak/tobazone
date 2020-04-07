@@ -37,3 +37,10 @@ Route::post('/transaction/{id}/update-status', 'API\TransactionController@update
 Route::get('/transaction/{id}/tracking', 'API\TransactionController@getTrackingStatus');
 Route::get('/product/search', 'API\ProductController@searchProduct');
 Route::post('/product/{id}/review', 'API\ProductController@addReview');
+
+
+// Route::post('/transaction/{id}/update-status', 'API\TransactionController@updateTransactionStatus');
+Route::post('/transaction/{id}/confirmByUser', 'API\TransactionController@confirmByUser');
+
+// Route::get('/merchant/{id}/onprocess-orders', 'API\OrderController@getOnProcessOrdersByMerchant');
+Route::get('/merchant/{id}/success-orders', 'API\OrderController@getSuccesOrdersByMerchant');

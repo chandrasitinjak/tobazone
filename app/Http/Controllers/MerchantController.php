@@ -42,6 +42,12 @@ class MerchantController extends Controller
     return view('users.merchants.orders.ongoing-order')->with('merchant', $merchant);
   }
 
+  public function getSuccesOrder($id) {
+    $merchant = $this->getAuthincatedMerchant();
+    
+    return view('users.merchants.orders.success-order')->with('merchant', $merchant);    
+  }
+
   public function newMerchant() {
     $merchants = DB::table('model_has_roles')->where('role_id', 2)
                                              ->pluck('model_id')->toArray();

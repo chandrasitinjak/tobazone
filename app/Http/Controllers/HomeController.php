@@ -36,8 +36,7 @@ class HomeController extends Controller
                 return redirect('/merchant');
             }
             
-        }
-        
+        }        
         return view('users.homes.index');
     }
 
