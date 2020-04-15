@@ -25,9 +25,7 @@
 <div id="app">
     @include('users.layouts.header')    
     <section>
-        <h1>hello</h1>
-        <div class="mt-0">
-            <!-- <test> </test> -->
+        <div class="mt-0">            
             <carousel> </carousel>            
         </div>
     </section>

@@ -148,9 +148,9 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
     });
 
-    Route::get('/home', 'products@index');
+    Route::get('/home', 'HomeController@index');
 });
 
 Route::get('/products/{id}', 'ProductController@show');
 Route::get('/carabelanja', 'QnAController@show');
-Route::get('/carajual', 'QnAController@showj');
+Route::get('/carajual', 'QnAController@show');
