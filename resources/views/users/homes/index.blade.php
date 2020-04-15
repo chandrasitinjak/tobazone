@@ -23,12 +23,12 @@
 
 <body>
 <div id="app">
-    @include('users.layouts.header')
+    @include('users.layouts.header')    
     <section>
+        <h1>hello</h1>
         <div class="mt-0">
             <!-- <test> </test> -->
-            <carousel> </carousel>
-            <h1>Hello gais</h1>
+            <carousel> </carousel>            
         </div>
     </section>
 
