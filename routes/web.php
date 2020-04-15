@@ -148,7 +148,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
     });
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/home', 'products@index');
 });
 
 Route::get('/products/{id}', 'ProductController@show');

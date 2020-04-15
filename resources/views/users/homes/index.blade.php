@@ -28,12 +28,14 @@
         <div class="mt-0">
             <!-- <test> </test> -->
             <carousel> </carousel>
+            <h1>Hello gais</h1>
         </div>
     </section>
 
     <div id="new-product">
         @if(Auth::check())
             <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Terbaru'"/>
+            
         @else
             <new-products :title="'Produk Terbaru'"/>
         @endif

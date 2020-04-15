@@ -1,6 +1,6 @@
 @extends('users.layouts.app') 
 @section('title') {{ "Products Detail" }}
-@endsection
+@endsection   
  
 @section('content')
 <div class="col-md-12">
@@ -77,7 +77,7 @@
 
               @else @if(Auth::check())
               <div id="add-to-cart-button">
-                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />
+                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />~
               </div>
               @else
               <div>

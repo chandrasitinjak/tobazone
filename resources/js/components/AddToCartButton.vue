@@ -20,14 +20,16 @@ export default {
     };
   },
   methods: {
-    async addToCart() {
+    // async addToCart() {
+    addToCart() {
       let payload = {
         productId: this.productId,
         total: 1,
         userId: this.userId
       };
 
-      await window.axios.post("/api/carts", payload).then(res => {
+      // await window.axios.post("/api/carts", payload).then(res => {
+      window.axios.post("/api/carts", payload).then(res => {
         this.emitEvent(res.data);
       });
       

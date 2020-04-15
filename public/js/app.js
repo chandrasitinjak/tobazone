@@ -5348,13 +5348,6 @@ module.exports = g;
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(178);
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -5403,7 +5396,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5505,6 +5498,13 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)))
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(178);
+
 
 /***/ }),
 /* 10 */
@@ -41764,7 +41764,9 @@ var AddToCartButton = __webpack_require__(190);
 var Cart = __webpack_require__(193);
 var ShippingPage = __webpack_require__(196);
 var ProductListMerchantPage = __webpack_require__(221);
+
 var OrderListMerchantPage = __webpack_require__(226);
+
 var OnProcessOrderListMerchantPage = __webpack_require__(231);
 var OrderListCustomerPage = __webpack_require__(236);
 var PaymentConfirmation = __webpack_require__(241);
@@ -41774,7 +41776,7 @@ var RegMerchant = __webpack_require__(259);
 var TrackingPage = __webpack_require__(262);
 var SearchProduct = __webpack_require__(267);
 var LoginModal = __webpack_require__(272);
-var Spinner = __webpack_require__(8);
+var Spinner = __webpack_require__(7);
 var SuccesOrdersList = __webpack_require__(277);
 // const Test = require('./components/test/test');
 
@@ -62946,7 +62948,7 @@ module.exports = __webpack_require__(150);
 var utils = __webpack_require__(4);
 var bind = __webpack_require__(13);
 var Axios = __webpack_require__(152);
-var defaults = __webpack_require__(9);
+var defaults = __webpack_require__(8);
 
 /**
  * Create an instance of Axios
@@ -63029,7 +63031,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(9);
+var defaults = __webpack_require__(8);
 var utils = __webpack_require__(4);
 var InterceptorManager = __webpack_require__(161);
 var dispatchRequest = __webpack_require__(162);
@@ -63568,7 +63570,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(4);
 var transformData = __webpack_require__(163);
 var isCancel = __webpack_require__(17);
-var defaults = __webpack_require__(9);
+var defaults = __webpack_require__(8);
 var isAbsoluteURL = __webpack_require__(164);
 var combineURLs = __webpack_require__(165);
 
@@ -64410,7 +64412,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel__);
@@ -65882,13 +65884,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
-
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(5);
 //
 //
 //
@@ -65912,46 +65908,26 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   },
 
   methods: {
-    addToCart: function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var _this = this;
+    // async addToCart() {
+    addToCart: function addToCart() {
+      var _this = this;
 
-        var payload;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                payload = {
-                  productId: this.productId,
-                  total: 1,
-                  userId: this.userId
-                };
-                _context.next = 3;
-                return window.axios.post("/api/carts", payload).then(function (res) {
-                  _this.emitEvent(res.data);
-                });
+      var payload = {
+        productId: this.productId,
+        total: 1,
+        userId: this.userId
+      };
 
-              case 3:
+      // await window.axios.post("/api/carts", payload).then(res => {
+      window.axios.post("/api/carts", payload).then(function (res) {
+        _this.emitEvent(res.data);
+      });
 
-                //pindah ke halaman keranjang
-                window.location = "/carts";
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function addToCart() {
-        return _ref.apply(this, arguments);
-      }
-
-      return addToCart;
-    }(),
+      //pindah ke halaman keranjang
+      window.location = "/carts";
+    },
     emitEvent: function emitEvent(data) {
-      __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("CART_UPDATED", data);
+      __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("CART_UPDATED", data);
     }
   },
   mounted: function mounted() {}
@@ -66045,7 +66021,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
 
@@ -67699,7 +67675,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
 
@@ -72947,7 +72923,7 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Spinner__);
 //
 //
@@ -73906,7 +73882,7 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Spinner__);
 //
 //
@@ -74781,7 +74757,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Spinner__);
 //
 //
@@ -77184,7 +77160,7 @@ var render = function() {
                 _vm._v(" "),
                 _vm._l(_vm.transactions, function(transaction) {
                   return _c("tr", [
-                    _c("td", [_vm._v(" " + _vm._s(transaction.merchant_id))]),
+                    _c("td", [_vm._v(" " + _vm._s(transaction.orders.id))]),
                     _vm._v(" "),
                     _c("td", { staticStyle: { width: "680px" } }, [
                       _vm._v(" " + _vm._s(transaction.address))
@@ -77211,7 +77187,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card globalcard mt-0" }, [
       _c("div", { staticClass: "card-header" }, [
-        _c("h6", [_vm._v("Order yang berhasil")])
+        _c("h6", [_vm._v("Order berhasil")])
       ])
     ])
   }

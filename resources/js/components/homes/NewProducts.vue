@@ -61,6 +61,7 @@ export default {
           let val = (value/1).toFixed().replace('.', ',')
           return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
       },
+    
     async getAllProducts() {
       await window.axios
         .get("/api/products")
@@ -71,6 +72,8 @@ export default {
           console.log(err);
         });
     },
+
+
     async addToCart(id) {
       let payload = {
         productId: id,

@@ -22,7 +22,9 @@ const AddToCartButton = require('./components/AddToCartButton')
 const Cart = require('./components/carts/Cart')
 const ShippingPage = require('./components/shippings/Container')
 const ProductListMerchantPage = require('./components/merchants/ProductList')
+
 const OrderListMerchantPage = require('./components/merchants/OrderList')
+
 const OnProcessOrderListMerchantPage = require('./components/merchants/OnProcessOrderList')
 const OrderListCustomerPage = require('./components/customers/OrderList')
 const PaymentConfirmation = require('./components/payments/PaymentConfirmation')

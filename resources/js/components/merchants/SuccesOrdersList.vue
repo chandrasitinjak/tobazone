@@ -5,7 +5,7 @@
         <div class="pull-right">
           <div class="card globalcard mt-0">
             <div class="card-header">
-              <h6>Order yang berhasil</h6>
+              <h6>Order berhasil</h6>
             </div>           
           </div>          
           
@@ -20,7 +20,7 @@
                     <td>tanggal konfirmasi</td>                    
                 </tr>                
                 <tr v-for="transaction in transactions">
-                    <td> {{ transaction.merchant_id }}</td>
+                    <td> {{ transaction.orders.id }}</td>
                     <td style="width : 680px"> {{ transaction.address }}</td>
                     <td>{{ transaction.updated_at }}</td>
                 </tr>
