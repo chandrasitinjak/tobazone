@@ -1,7 +1,7 @@
 # Ulos Zone
 
 ## Prerequisite
-- PHP 7.2.11
+- PHP 7.4.1
 - Node JS 8.10.0
 - NPM 3.5.2
 - Composer 1.6.3
