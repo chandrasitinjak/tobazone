@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,20 +16,16 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {            
     if (Auth::user()) {
         return redirect('/home');        
-    }
-    
-    return view('users.homes.index');
+    }    
+
+    return view('users.homes.index');    
 });
-
-// Route::get('/test', function(){
-//     echo "hello world";
-// });
-
-Auth::routes(['verify' => true]);
 
 Route::get('/login', function() {
     return redirect('/');
 })->name('login');
+
+Auth::routes(['verify' => true]);
 
 Route::get('/profile', function () {
     return 'This is Profile';

@@ -278,7 +278,7 @@
                         <div class="user-menu dropdown-menu mt-2" style="border: 1px solid #e0e0e0; left: -70px;">
                             <ul class="dropdown">
                                 <li>
-                                    <a class="nav-link" href="#">My ProfileSS</a>
+                                    <a class="nav-link" href="#">My Profile</a>
                                 </li>
                                 <li>
                                     <form method="POST" action="{{ url('/logout')}}">

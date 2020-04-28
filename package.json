@@ -23,6 +23,7 @@
     "moment": "^2.22.2",
     "npm": "^6.4.1",
     "vue-carousel": "^0.16.0-rc2",
-    "vue-owl-carousel": "^2.0.3"
+    "vue-owl-carousel": "^2.0.3",
+    "vuelidate": "^0.7.5"
   }
 }

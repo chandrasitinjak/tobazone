@@ -97,7 +97,7 @@ export default {
     login() {}
   },
   mounted() {
-    console.log("wjasdfa");
+    
   }
 };
 </script>
