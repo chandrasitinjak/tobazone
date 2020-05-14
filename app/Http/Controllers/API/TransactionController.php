@@ -142,7 +142,7 @@ class TransactionController extends Controller
 
         $payload = [
             "waybill" => $shippingNumber,
-            "courier" => "jne"
+            "courier" => "tiki"
         ];
 
         $result = $client->request('POST', 'waybill', ['form_params' => $payload]);

@@ -8,7 +8,7 @@
 - Maria DB 5.7.24
 
 ## Installation
-- Clone this project, run `git clone https://github.com/ecojuntak/uloszone-web.git`
+- Clone this project, run `git clone https://github.com/chandrasitinjak/tobazone.git`
 - Run `composer install` to download all PHP dependencies
 - Run `npm install` to download all the Node JS dependencies
 - Copy `.env.example` to `.env`, if you using Unix terminal just run `cp .env.example .env`

@@ -39,6 +39,11 @@ Route::post('/transaction/{id}/proof-of-payment', 'API\TransactionController@upd
 Route::post('/transaction/{id}/update-status', 'API\TransactionController@updateTransactionStatus');
 Route::get('/transaction/{id}/tracking', 'API\TransactionController@getTrackingStatus');
 Route::get('/product/search', 'API\ProductController@searchProduct');
+Route::get('/product/ulos', 'API\ProductController@searchUlos');
+Route::get('/product/pakaian', 'API\ProductController@searchPakaian');
+Route::get('/product/makanan', 'API\ProductController@searchMakanan');
+Route::get('/product/obat', 'API\ProductController@searchObat');
+Route::get('/product/aksesoris', 'API\ProductController@searchAksesoris');
 Route::post('/product/{id}/review', 'API\ProductController@addReview');
 
 

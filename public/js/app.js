@@ -4687,86 +4687,6 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "withParams", {
-  enumerable: true,
-  get: function get() {
-    return _withParams.default;
-  }
-});
-exports.regex = exports.ref = exports.len = exports.req = void 0;
-
-var _withParams = _interopRequireDefault(__webpack_require__(260));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-var req = function req(value) {
-  if (Array.isArray(value)) return !!value.length;
-
-  if (value === undefined || value === null) {
-    return false;
-  }
-
-  if (value === false) {
-    return true;
-  }
-
-  if (value instanceof Date) {
-    return !isNaN(value.getTime());
-  }
-
-  if (_typeof(value) === 'object') {
-    for (var _ in value) {
-      return true;
-    }
-
-    return false;
-  }
-
-  return !!String(value).length;
-};
-
-exports.req = req;
-
-var len = function len(value) {
-  if (Array.isArray(value)) return value.length;
-
-  if (_typeof(value) === 'object') {
-    return Object.keys(value).length;
-  }
-
-  return String(value).length;
-};
-
-exports.len = len;
-
-var ref = function ref(reference, vm, parentVm) {
-  return typeof reference === 'function' ? reference.call(vm, parentVm) : parentVm[reference];
-};
-
-exports.ref = ref;
-
-var regex = function regex(type, expr) {
-  return (0, _withParams.default)({
-    type: type
-  }, function (value) {
-    return !req(value) || expr.test(value);
-  });
-};
-
-exports.regex = regex;
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 /*
@@ -4848,7 +4768,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -5074,6 +4994,86 @@ function applyToTag (styleElement, obj) {
   }
 }
 
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "withParams", {
+  enumerable: true,
+  get: function get() {
+    return _withParams.default;
+  }
+});
+exports.regex = exports.ref = exports.len = exports.req = void 0;
+
+var _withParams = _interopRequireDefault(__webpack_require__(260));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var req = function req(value) {
+  if (Array.isArray(value)) return !!value.length;
+
+  if (value === undefined || value === null) {
+    return false;
+  }
+
+  if (value === false) {
+    return true;
+  }
+
+  if (value instanceof Date) {
+    return !isNaN(value.getTime());
+  }
+
+  if (_typeof(value) === 'object') {
+    for (var _ in value) {
+      return true;
+    }
+
+    return false;
+  }
+
+  return !!String(value).length;
+};
+
+exports.req = req;
+
+var len = function len(value) {
+  if (Array.isArray(value)) return value.length;
+
+  if (_typeof(value) === 'object') {
+    return Object.keys(value).length;
+  }
+
+  return String(value).length;
+};
+
+exports.len = len;
+
+var ref = function ref(reference, vm, parentVm) {
+  return typeof reference === 'function' ? reference.call(vm, parentVm) : parentVm[reference];
+};
+
+exports.ref = ref;
+
+var regex = function regex(type, expr) {
+  return (0, _withParams.default)({
+    type: type
+  }, function (value) {
+    return !req(value) || expr.test(value);
+  });
+};
+
+exports.regex = regex;
 
 /***/ }),
 /* 5 */
@@ -42093,7 +42093,7 @@ var _integer = _interopRequireDefault(__webpack_require__(280));
 
 var _decimal = _interopRequireDefault(__webpack_require__(281));
 
-var helpers = _interopRequireWildcard(__webpack_require__(2));
+var helpers = _interopRequireWildcard(__webpack_require__(4));
 
 exports.helpers = helpers;
 
@@ -42108,7 +42108,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(148);
-module.exports = __webpack_require__(308);
+module.exports = __webpack_require__(333);
 
 
 /***/ }),
@@ -42145,9 +42145,7 @@ var AddToCartButton = __webpack_require__(195);
 var Cart = __webpack_require__(198);
 var ShippingPage = __webpack_require__(201);
 var ProductListMerchantPage = __webpack_require__(226);
-
 var OrderListMerchantPage = __webpack_require__(231);
-
 var OnProcessOrderListMerchantPage = __webpack_require__(236);
 var OrderListCustomerPage = __webpack_require__(241);
 var PaymentConfirmation = __webpack_require__(246);
@@ -42159,6 +42157,11 @@ var SearchProduct = __webpack_require__(295);
 var LoginModal = __webpack_require__(300);
 var Spinner = __webpack_require__(8);
 var SuccesOrdersList = __webpack_require__(305);
+var ProductsUlos = __webpack_require__(308);
+var ProductsPakaian = __webpack_require__(313);
+var ProductsMakanan = __webpack_require__(318);
+var ProductsAksesoris = __webpack_require__(323);
+var ProductsObat = __webpack_require__(328);
 // const Test = require('./components/test/test');
 
 var app = new Vue({
@@ -42184,7 +42187,12 @@ var app = new Vue({
         OnProcessOrderListMerchantPage: OnProcessOrderListMerchantPage,
         LoginModal: LoginModal,
         Spinner: Spinner,
-        SuccesOrdersList: SuccesOrdersList
+        SuccesOrdersList: SuccesOrdersList,
+        ProductsUlos: ProductsUlos,
+        ProductsPakaian: ProductsPakaian,
+        ProductsMakanan: ProductsMakanan,
+        ProductsAksesoris: ProductsAksesoris,
+        ProductsObat: ProductsObat
     }
 });
 
@@ -65373,7 +65381,7 @@ var content = __webpack_require__(177);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("51161b15", content, false, {});
+var update = __webpack_require__(3)("51161b15", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -65392,7 +65400,7 @@ if(false) {
 /* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -66625,22 +66633,31 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "row", staticStyle: { "background-color": "green" } },
+        { staticClass: "row", staticStyle: { "background-color": "#d4cece" } },
         _vm._l(_vm.products, function(product) {
-          return _c("div", { staticClass: "col-md-2" }, [
-            _c("div", { staticClass: "card-body globalcardbody" }, [
-              _c("a", { attrs: { href: "/products/" + product.id } }, [
-                _c("div", { staticClass: "card product " }, [
-                  _c("div", { staticClass: "imgwrapper" }, [
+          return _c("div", { staticClass: "col-md-2 p-md-3" }, [
+            _c("a", { attrs: { href: "/products/" + product.id } }, [
+              _c("div", { staticClass: "card product " }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "imgwrapper",
+                    staticStyle: { padding: "0px" }
+                  },
+                  [
                     _c("img", {
                       attrs: {
                         src: "/images/" + JSON.parse(product.images)[0],
                         alt: "Card image cap"
                       }
                     })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "card-body", staticStyle: { height: "2rem" } },
+                  [
                     _c(
                       "p",
                       {
@@ -66664,34 +66681,36 @@ var render = function() {
                         _vm._v(_vm._s(product.merchant.profile.name))
                       ])
                     ])
-                  ])
-                ])
+                  ]
+                )
               ])
             ])
           ])
         })
       ),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "row p-5", staticStyle: { "background-color": "red" } },
-        [
-          _c(
-            "div",
-            { staticClass: "col-md-12" },
-            [
-              _c("center", [
+      _c("div", { staticClass: "row p-4" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-12" },
+          [
+            _c("center", [
+              _c("a", { attrs: { href: "/search" } }, [
                 _c(
                   "button",
-                  { staticClass: "btn btn-info", attrs: { type: "button" } },
-                  [_vm._v("Browser More")]
+                  {
+                    staticClass: "btn btn-toba",
+                    staticStyle: { "text-decoration-line": "unset" },
+                    attrs: { type: "button" }
+                  },
+                  [_vm._v(" Lihat Lebih Banyak\n                 ")]
                 )
               ])
-            ],
-            1
-          )
-        ]
-      )
+            ])
+          ],
+          1
+        )
+      ])
     ])
   ])
 }
@@ -66941,7 +66960,7 @@ var content = __webpack_require__(192);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("7b165460", content, false, {});
+var update = __webpack_require__(3)("7b165460", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -66960,7 +66979,7 @@ if(false) {
 /* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -67890,7 +67909,7 @@ var content = __webpack_require__(203);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("0694a81f", content, false, {});
+var update = __webpack_require__(3)("0694a81f", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -67909,7 +67928,7 @@ if(false) {
 /* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -68024,7 +68043,7 @@ var content = __webpack_require__(207);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("8f35f856", content, false, {});
+var update = __webpack_require__(3)("8f35f856", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -68043,7 +68062,7 @@ if(false) {
 /* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -68211,7 +68230,7 @@ var content = __webpack_require__(211);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("6178fca4", content, false, {});
+var update = __webpack_require__(3)("6178fca4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -68230,7 +68249,7 @@ if(false) {
 /* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -68902,7 +68921,7 @@ var content = __webpack_require__(217);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("5f13f9ce", content, false, {});
+var update = __webpack_require__(3)("5f13f9ce", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -68921,7 +68940,7 @@ if(false) {
 /* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -69433,7 +69452,7 @@ var content = __webpack_require__(222);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("697e2568", content, false, {});
+var update = __webpack_require__(3)("697e2568", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -69452,7 +69471,7 @@ if(false) {
 /* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -69802,7 +69821,7 @@ var content = __webpack_require__(228);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("1652d511", content, false, {});
+var update = __webpack_require__(3)("1652d511", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -69821,7 +69840,7 @@ if(false) {
 /* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -70357,7 +70376,7 @@ var content = __webpack_require__(233);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("839438fa", content, false, {});
+var update = __webpack_require__(3)("839438fa", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -70376,7 +70395,7 @@ if(false) {
 /* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -70807,7 +70826,7 @@ var content = __webpack_require__(238);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("85912d04", content, false, {});
+var update = __webpack_require__(3)("85912d04", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -70826,7 +70845,7 @@ if(false) {
 /* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -71474,7 +71493,7 @@ var content = __webpack_require__(243);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("78893ebc", content, false, {});
+var update = __webpack_require__(3)("78893ebc", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -71493,7 +71512,7 @@ if(false) {
 /* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -72694,7 +72713,7 @@ var content = __webpack_require__(248);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("179b2d88", content, false, {});
+var update = __webpack_require__(3)("179b2d88", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -72713,7 +72732,7 @@ if(false) {
 /* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -73801,7 +73820,7 @@ var content = __webpack_require__(254);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("a51ecf22", content, false, {});
+var update = __webpack_require__(3)("a51ecf22", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -73820,7 +73839,7 @@ if(false) {
 /* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -74607,7 +74626,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = (0, _common.regex)('alpha', /^[a-zA-Z]*$/);
 
@@ -74668,7 +74687,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = (0, _common.regex)('alphaNum', /^[a-zA-Z0-9]*$/);
 
@@ -74686,7 +74705,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = (0, _common.regex)('numeric', /^[0-9]*$/);
 
@@ -74704,7 +74723,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = function _default(min, max) {
   return (0, _common.withParams)({
@@ -74730,7 +74749,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var emailRegex = /(^$|^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$)/;
 
@@ -74750,7 +74769,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = (0, _common.withParams)({
   type: 'ipAddress'
@@ -74798,7 +74817,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = function _default() {
   var separator = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ':';
@@ -74836,7 +74855,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = function _default(length) {
   return (0, _common.withParams)({
@@ -74861,7 +74880,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = function _default(length) {
   return (0, _common.withParams)({
@@ -74886,7 +74905,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = (0, _common.withParams)({
   type: 'required'
@@ -74912,7 +74931,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = function _default(prop) {
   return (0, _common.withParams)({
@@ -74937,7 +74956,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = function _default(prop) {
   return (0, _common.withParams)({
@@ -74962,7 +74981,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = function _default(equalTo) {
   return (0, _common.withParams)({
@@ -74987,7 +75006,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var urlRegex = /^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i;
 
@@ -75007,7 +75026,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = function _default() {
   for (var _len = arguments.length, validators = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -75043,7 +75062,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = function _default() {
   for (var _len = arguments.length, validators = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -75079,7 +75098,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = function _default(validator) {
   return (0, _common.withParams)({
@@ -75103,7 +75122,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = function _default(min) {
   return (0, _common.withParams)({
@@ -75128,7 +75147,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = function _default(max) {
   return (0, _common.withParams)({
@@ -75153,7 +75172,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = (0, _common.regex)('integer', /(^[0-9]*$)|(^-[0-9]+$)/);
 
@@ -75171,7 +75190,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _common = __webpack_require__(2);
+var _common = __webpack_require__(4);
 
 var _default = (0, _common.regex)('decimal', /^[-]?\d*(\.\d+)?$/);
 
@@ -75188,7 +75207,7 @@ var content = __webpack_require__(283);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("7d81a9ee", content, false, {});
+var update = __webpack_require__(3)("7d81a9ee", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -75207,7 +75226,7 @@ if(false) {
 /* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -77775,7 +77794,7 @@ var content = __webpack_require__(292);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("1a4cb46c", content, false, {});
+var update = __webpack_require__(3)("1a4cb46c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -77794,7 +77813,7 @@ if(false) {
 /* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -79036,7 +79055,7 @@ var content = __webpack_require__(297);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("35d92190", content, false, {});
+var update = __webpack_require__(3)("35d92190", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -79055,7 +79074,7 @@ if(false) {
 /* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -79207,7 +79226,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     filterProductByCategory: function filterProductByCategory(category) {
       this.products = this.orginalProductsData.filter(function (product) {
-        return product.category.includes(category);
+        return product.cat_product.includes(category);
       });
     },
     sortProductByName: function sortProductByName(type) {
@@ -79303,11 +79322,11 @@ var render = function() {
                               staticClass: "dropdown-item",
                               on: {
                                 click: function($event) {
-                                  _vm.filterProductByCategory("ATBM")
+                                  _vm.filterProductByCategory("ulos")
                                 }
                               }
                             },
-                            [_vm._v("Alat Tenun Bukan Mesin")]
+                            [_vm._v("Ulos")]
                           ),
                           _vm._v(" "),
                           _c(
@@ -79316,11 +79335,11 @@ var render = function() {
                               staticClass: "dropdown-item",
                               on: {
                                 click: function($event) {
-                                  _vm.filterProductByCategory("Tradisional")
+                                  _vm.filterProductByCategory("pakaian")
                                 }
                               }
                             },
-                            [_vm._v("Tradisional")]
+                            [_vm._v("Pakaian")]
                           ),
                           _vm._v(" "),
                           _c(
@@ -79329,11 +79348,37 @@ var render = function() {
                               staticClass: "dropdown-item",
                               on: {
                                 click: function($event) {
-                                  _vm.filterProductByCategory("Mesin")
+                                  _vm.filterProductByCategory("makanan")
                                 }
                               }
                             },
-                            [_vm._v("Mesin")]
+                            [_vm._v("Makanan")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.filterProductByCategory("obat")
+                                }
+                              }
+                            },
+                            [_vm._v("Obat")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.filterProductByCategory("aksesoris")
+                                }
+                              }
+                            },
+                            [_vm._v("Aksesoris")]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "dropdown-divider" }),
@@ -79658,7 +79703,7 @@ var content = __webpack_require__(302);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("0cd53c91", content, false, {});
+var update = __webpack_require__(3)("0cd53c91", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -79677,7 +79722,7 @@ if(false) {
 /* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)(false);
+exports = module.exports = __webpack_require__(2)(false);
 // imports
 
 
@@ -80255,6 +80300,2766 @@ if (false) {
 
 /***/ }),
 /* 308 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(309)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(311)
+/* template */
+var __vue_template__ = __webpack_require__(312)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/search/Ulos.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0a7d7ce7", Component.options)
+  } else {
+    hotAPI.reload("data-v-0a7d7ce7", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 309 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(310);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("1dda0958", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0a7d7ce7\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Ulos.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0a7d7ce7\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Ulos.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 310 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 311 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  //   props: ['keyword'],
+  data: function data() {
+    return {
+      products: [],
+      orginalProductsData: [],
+      searchName: ""
+    };
+  },
+
+  methods: {
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed().replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
+    getProducts: function getProducts() {
+      var _this = this;
+
+      var payload = {
+        keyword: this.keyword
+      };
+
+      window.axios.get("/api/product/ulos").then(function (res) {
+        _this.orginalProductsData = res.data;
+        _this.products = _this.orginalProductsData;
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    filterProductByName: function filterProductByName() {
+      var _this2 = this;
+
+      this.products = this.orginalProductsData.filter(function (product) {
+        return product.name.toLowerCase().includes(_this2.searchName.toLowerCase());
+      });
+    },
+    filterProductByCategory: function filterProductByCategory(category) {
+      this.products = this.orginalProductsData.filter(function (product) {
+        return product.cat_product.includes(category);
+      });
+    },
+    sortProductByName: function sortProductByName(type) {
+      if (type === "asc") {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return a.name > b.name ? 1 : -1;
+        });
+      } else {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return a.name < b.name ? 1 : -1;
+        });
+      }
+    },
+    sortProductByPrice: function sortProductByPrice(type) {
+      if (type === "asc") {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
+        });
+      } else {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
+        });
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getProducts();
+  }
+});
+
+/***/ }),
+/* 312 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "card globalcard",
+        staticStyle: { "min-height": "400px" }
+      },
+      [
+        _c("div", { staticClass: "card-header" }, [
+          _c(
+            "nav",
+            {
+              staticClass: "navbar navbar-expand-lg mproduct p-1",
+              staticStyle: { "background-color": "transparent", border: "none" }
+            },
+            [
+              _c("h5", { staticClass: "mr-3" }, [_vm._v("Filter Ulos")]),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "collapse navbar-collapse",
+                  attrs: { id: "navbarTogglerDemo02" }
+                },
+                [
+                  _c("ul", { staticClass: "navbar-nav mr-auto mt-2 mt-lg-0" }, [
+                    _c("li", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link dropdown-toggle",
+                          attrs: {
+                            id: "navbarDropdown1",
+                            role: "button",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false"
+                          }
+                        },
+                        [_vm._v("Urutkan Berdasarkan")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "dropdown-menu",
+                          attrs: { "aria-labelledby": "navbarDropdown1" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByName("asc")
+                                }
+                              }
+                            },
+                            [_vm._v("Nama A-Z")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByName("des")
+                                }
+                              }
+                            },
+                            [_vm._v("Nama Z-A")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByPrice("asc")
+                                }
+                              }
+                            },
+                            [_vm._v("Harga Termurah")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByPrice("des")
+                                }
+                              }
+                            },
+                            [_vm._v("Harga Termahal")]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.searchName,
+                          expression: "searchName"
+                        }
+                      ],
+                      staticClass: "form-control form-control-sm mr-sm-2",
+                      attrs: {
+                        type: "search",
+                        placeholder: "Filter Nama",
+                        "aria-label": "Search"
+                      },
+                      domProps: { value: _vm.searchName },
+                      on: {
+                        input: [
+                          function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.searchName = $event.target.value
+                          },
+                          _vm.filterProductByName
+                        ]
+                      }
+                    })
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _vm.products.length > 0
+            ? _c("div", {}, [
+                _c(
+                  "div",
+                  { staticClass: "row" },
+                  _vm._l(_vm.products, function(product) {
+                    return _c(
+                      "div",
+                      { staticClass: "col-6 col-md-2 col-lg-2 px-1" },
+                      [
+                        _c("div", { staticClass: "card products" }, [
+                          _c(
+                            "a",
+                            { attrs: { href: "/products/" + product.id } },
+                            [
+                              _c("div", { staticClass: "imgwrapper" }, [
+                                _c("img", {
+                                  attrs: {
+                                    src:
+                                      "/images/" +
+                                      JSON.parse(product.images)[0],
+                                    alt: "Card image cap"
+                                  }
+                                })
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "card-body" }, [
+                            _c(
+                              "p",
+                              {
+                                staticClass: "card-title productname",
+                                staticStyle: {
+                                  "white-space": "nowrap",
+                                  overflow: "hidden",
+                                  "text-overflow": "ellipsis",
+                                  "max-width": "20ex"
+                                }
+                              },
+                              [_vm._v(_vm._s(product.name))]
+                            ),
+                            _vm._v(" "),
+                            _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                              _vm._v(
+                                "Rp " + _vm._s(_vm.formatPrice(product.price))
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "card-text float-right" }, [
+                              _c("small", { staticClass: "text-muted" }, [
+                                _vm._v(
+                                  " " + _vm._s(product.merchant.profile.name)
+                                )
+                              ])
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  })
+                )
+              ])
+            : _c(
+                "div",
+                {
+                  staticClass:
+                    "col-12 center center-block align-center text-center"
+                },
+                [
+                  _c("img", {
+                    staticStyle: {
+                      height: "120px",
+                      border: "none",
+                      opacity: "0.5"
+                    },
+                    attrs: { src: "/images/assets/search_result_empty.png" }
+                  }),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "btn essence-btn ",
+                      attrs: { id: "searchagain" }
+                    },
+                    [_vm._v("Lakukan Pencarian Baru")]
+                  )
+                ]
+              )
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarTogglerDemo02",
+          "aria-controls": "navbarTogglerDemo02",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "fa fa-bars" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text font-bold" }, [
+      _c("br"),
+      _vm._v("\n          Oops, produk tidak ditemukan :(\n        ")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0a7d7ce7", module.exports)
+  }
+}
+
+/***/ }),
+/* 313 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(314)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(316)
+/* template */
+var __vue_template__ = __webpack_require__(317)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/search/Pakaian.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7138611a", Component.options)
+  } else {
+    hotAPI.reload("data-v-7138611a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 314 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(315);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("2732350c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7138611a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Pakaian.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7138611a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Pakaian.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 315 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 316 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  //   props: ['keyword'],
+  data: function data() {
+    return {
+      products: [],
+      orginalProductsData: [],
+      searchName: ""
+    };
+  },
+
+  methods: {
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed().replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
+    getProducts: function getProducts() {
+      var _this = this;
+
+      var payload = {
+        keyword: this.keyword
+      };
+
+      window.axios.get("/api/product/pakaian").then(function (res) {
+        _this.orginalProductsData = res.data;
+        _this.products = _this.orginalProductsData;
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    filterProductByName: function filterProductByName() {
+      var _this2 = this;
+
+      this.products = this.orginalProductsData.filter(function (product) {
+        return product.name.toLowerCase().includes(_this2.searchName.toLowerCase());
+      });
+    },
+    filterProductByCategory: function filterProductByCategory(category) {
+      this.products = this.orginalProductsData.filter(function (product) {
+        return product.cat_product.includes(category);
+      });
+    },
+    sortProductByName: function sortProductByName(type) {
+      if (type === "asc") {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return a.name > b.name ? 1 : -1;
+        });
+      } else {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return a.name < b.name ? 1 : -1;
+        });
+      }
+    },
+    sortProductByPrice: function sortProductByPrice(type) {
+      if (type === "asc") {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
+        });
+      } else {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
+        });
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getProducts();
+  }
+});
+
+/***/ }),
+/* 317 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "card globalcard",
+        staticStyle: { "min-height": "400px" }
+      },
+      [
+        _c("div", { staticClass: "card-header" }, [
+          _c(
+            "nav",
+            {
+              staticClass: "navbar navbar-expand-lg mproduct p-1",
+              staticStyle: { "background-color": "transparent", border: "none" }
+            },
+            [
+              _c("h5", { staticClass: "mr-3" }, [_vm._v("Filter Pakaian")]),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "collapse navbar-collapse",
+                  attrs: { id: "navbarTogglerDemo02" }
+                },
+                [
+                  _c("ul", { staticClass: "navbar-nav mr-auto mt-2 mt-lg-0" }, [
+                    _c("li", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link dropdown-toggle",
+                          attrs: {
+                            id: "navbarDropdown1",
+                            role: "button",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false"
+                          }
+                        },
+                        [_vm._v("Urutkan Berdasarkan")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "dropdown-menu",
+                          attrs: { "aria-labelledby": "navbarDropdown1" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByName("asc")
+                                }
+                              }
+                            },
+                            [_vm._v("Nama A-Z")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByName("des")
+                                }
+                              }
+                            },
+                            [_vm._v("Nama Z-A")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByPrice("asc")
+                                }
+                              }
+                            },
+                            [_vm._v("Harga Termurah")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByPrice("des")
+                                }
+                              }
+                            },
+                            [_vm._v("Harga Termahal")]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.searchName,
+                          expression: "searchName"
+                        }
+                      ],
+                      staticClass: "form-control form-control-sm mr-sm-2",
+                      attrs: {
+                        type: "search",
+                        placeholder: "Filter Nama",
+                        "aria-label": "Search"
+                      },
+                      domProps: { value: _vm.searchName },
+                      on: {
+                        input: [
+                          function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.searchName = $event.target.value
+                          },
+                          _vm.filterProductByName
+                        ]
+                      }
+                    })
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _vm.products.length > 0
+            ? _c("div", {}, [
+                _c(
+                  "div",
+                  { staticClass: "row" },
+                  _vm._l(_vm.products, function(product) {
+                    return _c(
+                      "div",
+                      { staticClass: "col-6 col-md-2 col-lg-2 px-1" },
+                      [
+                        _c("div", { staticClass: "card products" }, [
+                          _c(
+                            "a",
+                            { attrs: { href: "/products/" + product.id } },
+                            [
+                              _c("div", { staticClass: "imgwrapper" }, [
+                                _c("img", {
+                                  attrs: {
+                                    src:
+                                      "/images/" +
+                                      JSON.parse(product.images)[0],
+                                    alt: "Card image cap"
+                                  }
+                                })
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "card-body" }, [
+                            _c(
+                              "p",
+                              {
+                                staticClass: "card-title productname",
+                                staticStyle: {
+                                  "white-space": "nowrap",
+                                  overflow: "hidden",
+                                  "text-overflow": "ellipsis",
+                                  "max-width": "20ex"
+                                }
+                              },
+                              [_vm._v(_vm._s(product.name))]
+                            ),
+                            _vm._v(" "),
+                            _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                              _vm._v(
+                                "Rp " + _vm._s(_vm.formatPrice(product.price))
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "card-text float-right" }, [
+                              _c("small", { staticClass: "text-muted" }, [
+                                _vm._v(
+                                  " " + _vm._s(product.merchant.profile.name)
+                                )
+                              ])
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  })
+                )
+              ])
+            : _c(
+                "div",
+                {
+                  staticClass:
+                    "col-12 center center-block align-center text-center"
+                },
+                [
+                  _c("img", {
+                    staticStyle: {
+                      height: "120px",
+                      border: "none",
+                      opacity: "0.5"
+                    },
+                    attrs: { src: "/images/assets/search_result_empty.png" }
+                  }),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "btn essence-btn ",
+                      attrs: { id: "searchagain" }
+                    },
+                    [_vm._v("Lakukan Pencarian Baru")]
+                  )
+                ]
+              )
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarTogglerDemo02",
+          "aria-controls": "navbarTogglerDemo02",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "fa fa-bars" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text font-bold" }, [
+      _c("br"),
+      _vm._v("\n          Oops, produk tidak ditemukan :(\n        ")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7138611a", module.exports)
+  }
+}
+
+/***/ }),
+/* 318 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(319)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(321)
+/* template */
+var __vue_template__ = __webpack_require__(322)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/search/Makanan.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1134df75", Component.options)
+  } else {
+    hotAPI.reload("data-v-1134df75", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 319 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(320);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("34532923", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1134df75\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Makanan.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1134df75\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Makanan.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 320 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 321 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  //   props: ['keyword'],
+  data: function data() {
+    return {
+      products: [],
+      orginalProductsData: [],
+      searchName: ""
+    };
+  },
+
+  methods: {
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed().replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
+    getProducts: function getProducts() {
+      var _this = this;
+
+      var payload = {
+        keyword: this.keyword
+      };
+
+      window.axios.get("/api/product/makanan").then(function (res) {
+        _this.orginalProductsData = res.data;
+        _this.products = _this.orginalProductsData;
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    filterProductByName: function filterProductByName() {
+      var _this2 = this;
+
+      this.products = this.orginalProductsData.filter(function (product) {
+        return product.name.toLowerCase().includes(_this2.searchName.toLowerCase());
+      });
+    },
+    filterProductByCategory: function filterProductByCategory(category) {
+      this.products = this.orginalProductsData.filter(function (product) {
+        return product.cat_product.includes(category);
+      });
+    },
+    sortProductByName: function sortProductByName(type) {
+      if (type === "asc") {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return a.name > b.name ? 1 : -1;
+        });
+      } else {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return a.name < b.name ? 1 : -1;
+        });
+      }
+    },
+    sortProductByPrice: function sortProductByPrice(type) {
+      if (type === "asc") {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
+        });
+      } else {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
+        });
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getProducts();
+  }
+});
+
+/***/ }),
+/* 322 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "card globalcard",
+        staticStyle: { "min-height": "400px" }
+      },
+      [
+        _c("div", { staticClass: "card-header" }, [
+          _c(
+            "nav",
+            {
+              staticClass: "navbar navbar-expand-lg mproduct p-1",
+              staticStyle: { "background-color": "transparent", border: "none" }
+            },
+            [
+              _c("h5", { staticClass: "mr-3" }, [_vm._v("Filter Makanan")]),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "collapse navbar-collapse",
+                  attrs: { id: "navbarTogglerDemo02" }
+                },
+                [
+                  _c("ul", { staticClass: "navbar-nav mr-auto mt-2 mt-lg-0" }, [
+                    _c("li", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link dropdown-toggle",
+                          attrs: {
+                            id: "navbarDropdown1",
+                            role: "button",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false"
+                          }
+                        },
+                        [_vm._v("Urutkan Berdasarkan")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "dropdown-menu",
+                          attrs: { "aria-labelledby": "navbarDropdown1" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByName("asc")
+                                }
+                              }
+                            },
+                            [_vm._v("Nama A-Z")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByName("des")
+                                }
+                              }
+                            },
+                            [_vm._v("Nama Z-A")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByPrice("asc")
+                                }
+                              }
+                            },
+                            [_vm._v("Harga Termurah")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByPrice("des")
+                                }
+                              }
+                            },
+                            [_vm._v("Harga Termahal")]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.searchName,
+                          expression: "searchName"
+                        }
+                      ],
+                      staticClass: "form-control form-control-sm mr-sm-2",
+                      attrs: {
+                        type: "search",
+                        placeholder: "Filter Nama",
+                        "aria-label": "Search"
+                      },
+                      domProps: { value: _vm.searchName },
+                      on: {
+                        input: [
+                          function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.searchName = $event.target.value
+                          },
+                          _vm.filterProductByName
+                        ]
+                      }
+                    })
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _vm.products.length > 0
+            ? _c("div", {}, [
+                _c(
+                  "div",
+                  { staticClass: "row" },
+                  _vm._l(_vm.products, function(product) {
+                    return _c(
+                      "div",
+                      { staticClass: "col-6 col-md-2 col-lg-2 px-1" },
+                      [
+                        _c("div", { staticClass: "card products" }, [
+                          _c(
+                            "a",
+                            { attrs: { href: "/products/" + product.id } },
+                            [
+                              _c("div", { staticClass: "imgwrapper" }, [
+                                _c("img", {
+                                  attrs: {
+                                    src:
+                                      "/images/" +
+                                      JSON.parse(product.images)[0],
+                                    alt: "Card image cap"
+                                  }
+                                })
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "card-body" }, [
+                            _c(
+                              "p",
+                              {
+                                staticClass: "card-title productname",
+                                staticStyle: {
+                                  "white-space": "nowrap",
+                                  overflow: "hidden",
+                                  "text-overflow": "ellipsis",
+                                  "max-width": "20ex"
+                                }
+                              },
+                              [_vm._v(_vm._s(product.name))]
+                            ),
+                            _vm._v(" "),
+                            _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                              _vm._v(
+                                "Rp " + _vm._s(_vm.formatPrice(product.price))
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "card-text float-right" }, [
+                              _c("small", { staticClass: "text-muted" }, [
+                                _vm._v(
+                                  " " + _vm._s(product.merchant.profile.name)
+                                )
+                              ])
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  })
+                )
+              ])
+            : _c(
+                "div",
+                {
+                  staticClass:
+                    "col-12 center center-block align-center text-center"
+                },
+                [
+                  _c("img", {
+                    staticStyle: {
+                      height: "120px",
+                      border: "none",
+                      opacity: "0.5"
+                    },
+                    attrs: { src: "/images/assets/search_result_empty.png" }
+                  }),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "btn essence-btn ",
+                      attrs: { id: "searchagain" }
+                    },
+                    [_vm._v("Lakukan Pencarian Baru")]
+                  )
+                ]
+              )
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarTogglerDemo02",
+          "aria-controls": "navbarTogglerDemo02",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "fa fa-bars" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text font-bold" }, [
+      _c("br"),
+      _vm._v("\n          Oops, produk tidak ditemukan :(\n        ")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1134df75", module.exports)
+  }
+}
+
+/***/ }),
+/* 323 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(324)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(326)
+/* template */
+var __vue_template__ = __webpack_require__(327)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/search/Aksesoris.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0b94da70", Component.options)
+  } else {
+    hotAPI.reload("data-v-0b94da70", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 324 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(325);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("b39932f6", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b94da70\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Aksesoris.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b94da70\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Aksesoris.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 325 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 326 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  //   props: ['keyword'],
+  data: function data() {
+    return {
+      products: [],
+      orginalProductsData: [],
+      searchName: ""
+    };
+  },
+
+  methods: {
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed().replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
+    getProducts: function getProducts() {
+      var _this = this;
+
+      var payload = {
+        keyword: this.keyword
+      };
+
+      window.axios.get("/api/product/aksesoris").then(function (res) {
+        _this.orginalProductsData = res.data;
+        _this.products = _this.orginalProductsData;
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    filterProductByName: function filterProductByName() {
+      var _this2 = this;
+
+      this.products = this.orginalProductsData.filter(function (product) {
+        return product.name.toLowerCase().includes(_this2.searchName.toLowerCase());
+      });
+    },
+    filterProductByCategory: function filterProductByCategory(category) {
+      this.products = this.orginalProductsData.filter(function (product) {
+        return product.cat_product.includes(category);
+      });
+    },
+    sortProductByName: function sortProductByName(type) {
+      if (type === "asc") {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return a.name > b.name ? 1 : -1;
+        });
+      } else {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return a.name < b.name ? 1 : -1;
+        });
+      }
+    },
+    sortProductByPrice: function sortProductByPrice(type) {
+      if (type === "asc") {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
+        });
+      } else {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
+        });
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getProducts();
+  }
+});
+
+/***/ }),
+/* 327 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "card globalcard",
+        staticStyle: { "min-height": "400px" }
+      },
+      [
+        _c("div", { staticClass: "card-header" }, [
+          _c(
+            "nav",
+            {
+              staticClass: "navbar navbar-expand-lg mproduct p-1",
+              staticStyle: { "background-color": "transparent", border: "none" }
+            },
+            [
+              _c("h5", { staticClass: "mr-3" }, [_vm._v("Filter Aksesoris")]),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "collapse navbar-collapse",
+                  attrs: { id: "navbarTogglerDemo02" }
+                },
+                [
+                  _c("ul", { staticClass: "navbar-nav mr-auto mt-2 mt-lg-0" }, [
+                    _c("li", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link dropdown-toggle",
+                          attrs: {
+                            id: "navbarDropdown1",
+                            role: "button",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false"
+                          }
+                        },
+                        [_vm._v("Urutkan Berdasarkan")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "dropdown-menu",
+                          attrs: { "aria-labelledby": "navbarDropdown1" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByName("asc")
+                                }
+                              }
+                            },
+                            [_vm._v("Nama A-Z")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByName("des")
+                                }
+                              }
+                            },
+                            [_vm._v("Nama Z-A")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByPrice("asc")
+                                }
+                              }
+                            },
+                            [_vm._v("Harga Termurah")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByPrice("des")
+                                }
+                              }
+                            },
+                            [_vm._v("Harga Termahal")]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.searchName,
+                          expression: "searchName"
+                        }
+                      ],
+                      staticClass: "form-control form-control-sm mr-sm-2",
+                      attrs: {
+                        type: "search",
+                        placeholder: "Filter Nama",
+                        "aria-label": "Search"
+                      },
+                      domProps: { value: _vm.searchName },
+                      on: {
+                        input: [
+                          function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.searchName = $event.target.value
+                          },
+                          _vm.filterProductByName
+                        ]
+                      }
+                    })
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _vm.products.length > 0
+            ? _c("div", {}, [
+                _c(
+                  "div",
+                  { staticClass: "row" },
+                  _vm._l(_vm.products, function(product) {
+                    return _c(
+                      "div",
+                      { staticClass: "col-6 col-md-2 col-lg-2 px-1" },
+                      [
+                        _c("div", { staticClass: "card products" }, [
+                          _c(
+                            "a",
+                            { attrs: { href: "/products/" + product.id } },
+                            [
+                              _c("div", { staticClass: "imgwrapper" }, [
+                                _c("img", {
+                                  attrs: {
+                                    src:
+                                      "/images/" +
+                                      JSON.parse(product.images)[0],
+                                    alt: "Card image cap"
+                                  }
+                                })
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "card-body" }, [
+                            _c(
+                              "p",
+                              {
+                                staticClass: "card-title productname",
+                                staticStyle: {
+                                  "white-space": "nowrap",
+                                  overflow: "hidden",
+                                  "text-overflow": "ellipsis",
+                                  "max-width": "20ex"
+                                }
+                              },
+                              [_vm._v(_vm._s(product.name))]
+                            ),
+                            _vm._v(" "),
+                            _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                              _vm._v(
+                                "Rp " + _vm._s(_vm.formatPrice(product.price))
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "card-text float-right" }, [
+                              _c("small", { staticClass: "text-muted" }, [
+                                _vm._v(
+                                  " " + _vm._s(product.merchant.profile.name)
+                                )
+                              ])
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  })
+                )
+              ])
+            : _c(
+                "div",
+                {
+                  staticClass:
+                    "col-12 center center-block align-center text-center"
+                },
+                [
+                  _c("img", {
+                    staticStyle: {
+                      height: "120px",
+                      border: "none",
+                      opacity: "0.5"
+                    },
+                    attrs: { src: "/images/assets/search_result_empty.png" }
+                  }),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "btn essence-btn ",
+                      attrs: { id: "searchagain" }
+                    },
+                    [_vm._v("Lakukan Pencarian Baru")]
+                  )
+                ]
+              )
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarTogglerDemo02",
+          "aria-controls": "navbarTogglerDemo02",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "fa fa-bars" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text font-bold" }, [
+      _c("br"),
+      _vm._v("\n          Oops, produk tidak ditemukan :(\n        ")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0b94da70", module.exports)
+  }
+}
+
+/***/ }),
+/* 328 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(329)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(331)
+/* template */
+var __vue_template__ = __webpack_require__(332)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/search/Obat.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-72625df2", Component.options)
+  } else {
+    hotAPI.reload("data-v-72625df2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 329 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(330);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("2878e820", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-72625df2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Obat.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-72625df2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Obat.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 330 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 331 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  //   props: ['keyword'],
+  data: function data() {
+    return {
+      products: [],
+      orginalProductsData: [],
+      searchName: ""
+    };
+  },
+
+  methods: {
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed().replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
+    getProducts: function getProducts() {
+      var _this = this;
+
+      var payload = {
+        keyword: this.keyword
+      };
+
+      window.axios.get("/api/product/obat").then(function (res) {
+        _this.orginalProductsData = res.data;
+        _this.products = _this.orginalProductsData;
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    filterProductByName: function filterProductByName() {
+      var _this2 = this;
+
+      this.products = this.orginalProductsData.filter(function (product) {
+        return product.name.toLowerCase().includes(_this2.searchName.toLowerCase());
+      });
+    },
+    filterProductByCategory: function filterProductByCategory(category) {
+      this.products = this.orginalProductsData.filter(function (product) {
+        return product.cat_product.includes(category);
+      });
+    },
+    sortProductByName: function sortProductByName(type) {
+      if (type === "asc") {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return a.name > b.name ? 1 : -1;
+        });
+      } else {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return a.name < b.name ? 1 : -1;
+        });
+      }
+    },
+    sortProductByPrice: function sortProductByPrice(type) {
+      if (type === "asc") {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
+        });
+      } else {
+        this.products = this.orginalProductsData.sort(function (a, b) {
+          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
+        });
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getProducts();
+  }
+});
+
+/***/ }),
+/* 332 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "card globalcard",
+        staticStyle: { "min-height": "400px" }
+      },
+      [
+        _c("div", { staticClass: "card-header" }, [
+          _c(
+            "nav",
+            {
+              staticClass: "navbar navbar-expand-lg mproduct p-1",
+              staticStyle: { "background-color": "transparent", border: "none" }
+            },
+            [
+              _c("h5", { staticClass: "mr-3" }, [_vm._v("Filter Obat")]),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "collapse navbar-collapse",
+                  attrs: { id: "navbarTogglerDemo02" }
+                },
+                [
+                  _c("ul", { staticClass: "navbar-nav mr-auto mt-2 mt-lg-0" }, [
+                    _c("li", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link dropdown-toggle",
+                          attrs: {
+                            id: "navbarDropdown1",
+                            role: "button",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false"
+                          }
+                        },
+                        [_vm._v("Urutkan Berdasarkan")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "dropdown-menu",
+                          attrs: { "aria-labelledby": "navbarDropdown1" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByName("asc")
+                                }
+                              }
+                            },
+                            [_vm._v("Nama A-Z")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByName("des")
+                                }
+                              }
+                            },
+                            [_vm._v("Nama Z-A")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByPrice("asc")
+                                }
+                              }
+                            },
+                            [_vm._v("Harga Termurah")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.sortProductByPrice("des")
+                                }
+                              }
+                            },
+                            [_vm._v("Harga Termahal")]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.searchName,
+                          expression: "searchName"
+                        }
+                      ],
+                      staticClass: "form-control form-control-sm mr-sm-2",
+                      attrs: {
+                        type: "search",
+                        placeholder: "Filter Nama",
+                        "aria-label": "Search"
+                      },
+                      domProps: { value: _vm.searchName },
+                      on: {
+                        input: [
+                          function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.searchName = $event.target.value
+                          },
+                          _vm.filterProductByName
+                        ]
+                      }
+                    })
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _vm.products.length > 0
+            ? _c("div", {}, [
+                _c(
+                  "div",
+                  { staticClass: "row" },
+                  _vm._l(_vm.products, function(product) {
+                    return _c(
+                      "div",
+                      { staticClass: "col-6 col-md-2 col-lg-2 px-1" },
+                      [
+                        _c("div", { staticClass: "card products" }, [
+                          _c(
+                            "a",
+                            { attrs: { href: "/products/" + product.id } },
+                            [
+                              _c("div", { staticClass: "imgwrapper" }, [
+                                _c("img", {
+                                  attrs: {
+                                    src:
+                                      "/images/" +
+                                      JSON.parse(product.images)[0],
+                                    alt: "Card image cap"
+                                  }
+                                })
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "card-body" }, [
+                            _c(
+                              "p",
+                              {
+                                staticClass: "card-title productname",
+                                staticStyle: {
+                                  "white-space": "nowrap",
+                                  overflow: "hidden",
+                                  "text-overflow": "ellipsis",
+                                  "max-width": "20ex"
+                                }
+                              },
+                              [_vm._v(_vm._s(product.name))]
+                            ),
+                            _vm._v(" "),
+                            _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                              _vm._v(
+                                "Rp " + _vm._s(_vm.formatPrice(product.price))
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "card-text float-right" }, [
+                              _c("small", { staticClass: "text-muted" }, [
+                                _vm._v(
+                                  " " + _vm._s(product.merchant.profile.name)
+                                )
+                              ])
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  })
+                )
+              ])
+            : _c(
+                "div",
+                {
+                  staticClass:
+                    "col-12 center center-block align-center text-center"
+                },
+                [
+                  _c("img", {
+                    staticStyle: {
+                      height: "120px",
+                      border: "none",
+                      opacity: "0.5"
+                    },
+                    attrs: { src: "/images/assets/search_result_empty.png" }
+                  }),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "btn essence-btn ",
+                      attrs: { id: "searchagain" }
+                    },
+                    [_vm._v("Lakukan Pencarian Baru")]
+                  )
+                ]
+              )
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarTogglerDemo02",
+          "aria-controls": "navbarTogglerDemo02",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "fa fa-bars" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text font-bold" }, [
+      _c("br"),
+      _vm._v("\n          Oops, produk tidak ditemukan :(\n        ")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-72625df2", module.exports)
+  }
+}
+
+/***/ }),
+/* 333 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

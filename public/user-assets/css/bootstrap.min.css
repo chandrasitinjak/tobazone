@@ -619,8 +619,8 @@ pre code {
 
 .container-fluid {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 45px;
+    padding-left: 45px;
     margin-right: auto;
     margin-left: auto
 }
@@ -4785,6 +4785,34 @@ input[type=submit].btn-block {
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem
+}
+.card-test {
+  box-shadow: 0 0 0 .1rem rgba(225, 225, 225, .5);
+  border: none;
+  border-radius: none;
+}
+
+.card-test:hover, .card-test:focus {
+  color: #fff;
+  border: none;
+  box-shadow: 0 2rem 2rem .2rem rgba(117, 117, 117, .2);
+}
+
+.card-img-overlay-a {
+    position: center;
+    padding-top: 6.25rem;
+}
+
+.card-title-a {
+    margin-bottom: .75rem;
+    font-size: 25px;
+    font-style : bold
+}
+
+.card-title-a:hover, .card-title-a:focus {
+    margin-bottom: .75rem;
+    font-size: 27px;
+    font-style : bold
 }
 
 .card>hr {

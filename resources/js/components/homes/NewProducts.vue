@@ -9,18 +9,16 @@
         </div>
       </div>
 
-      <div class="row" style="background-color : green">
-        <div class="col-md-2" v-for="product in products">
-            <div class="card-body globalcardbody">
+      <div class="row" style="background-color : #d4cece">
+        <div class="col-md-2 p-md-3" v-for="product in products">
+            
                 <a :href="'/products/' + product.id">
             <div class="card product ">
-
-                <div class="imgwrapper">
+                <div class="imgwrapper" style="padding:0px;">
                   <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap">
                 </div>
 
-
-              <div class="card-body">
+              <div class="card-body" style="height:2rem">
                 <!-- <p class="card-title productname">{{product.name}}</p> -->
                 <p class="card-title productname" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20ex;">{{product.name}}</p>
                 <h6 style="color: #ff5205">Rp {{formatPrice (product.price)}}</h6>
@@ -30,16 +28,18 @@
 
               </div>
             </div>
-            </a>
-
-            </div>
+            </a>            
         </div>
       </div>
 
-      <div class="row p-5" style="background-color : red;">
+      <div class="row p-4" style="">
         <div class="col-md-12">
             <center>
-              <button type="button" class="btn btn-info" >Browser More</button>
+              <a href="/search">
+                  <button class="btn btn-toba" type="button"
+                    style="text-decoration-line: unset; "> Lihat Lebih Banyak
+                  </button>
+              </a>
             </center>
         </div>
       </div>

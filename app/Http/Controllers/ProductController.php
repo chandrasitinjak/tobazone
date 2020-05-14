@@ -268,4 +268,24 @@ class ProductController extends Controller
     public function searchProduct(Request $request) {
         return view('users.homes.search');
     }
+
+    public function searchProductByUlos() {        
+        return view('users.category.ulos');
+    }
+
+    public function searchProductByPakaian() {        
+        return view('users.category.pakaian');
+    }    
+
+    public function searchProductByMakanan() {        
+        return view('users.category.makanan');
+    }
+    
+    public function searchProductByAksesoris() {        
+        return view('users.category.aksesoris');
+    }
+
+    public function searchProductByObat() {        
+        return view('users.category.obat');
+    }
 }

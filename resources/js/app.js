@@ -24,9 +24,7 @@ const AddToCartButton = require('./components/AddToCartButton')
 const Cart = require('./components/carts/Cart')
 const ShippingPage = require('./components/shippings/Container')
 const ProductListMerchantPage = require('./components/merchants/ProductList')
-
 const OrderListMerchantPage = require('./components/merchants/OrderList')
-
 const OnProcessOrderListMerchantPage = require('./components/merchants/OnProcessOrderList')
 const OrderListCustomerPage = require('./components/customers/OrderList')
 const PaymentConfirmation = require('./components/payments/PaymentConfirmation')
@@ -38,6 +36,11 @@ const SearchProduct = require('./components/search/SearchProduct')
 const LoginModal = require('./components/auths/LoginModal')
 const Spinner = require('./components/Spinner')
 const SuccesOrdersList = require('./components/merchants/SuccesOrdersList')
+const ProductsUlos = require('./components/search/Ulos')
+const ProductsPakaian = require('./components/search/Pakaian')
+const ProductsMakanan = require('./components/search/Makanan')
+const ProductsAksesoris = require('./components/search/Aksesoris')
+const ProductsObat = require('./components/search/Obat')
     // const Test = require('./components/test/test');
 
 const app = new Vue({
@@ -63,6 +66,11 @@ const app = new Vue({
         OnProcessOrderListMerchantPage,
         LoginModal,
         Spinner,
-        SuccesOrdersList
+        SuccesOrdersList,
+        ProductsUlos,
+        ProductsPakaian,
+        ProductsMakanan,
+        ProductsAksesoris,
+        ProductsObat
     }
 });

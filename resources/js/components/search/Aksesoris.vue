@@ -3,14 +3,14 @@
     <div class="card globalcard" style="min-height: 400px">
       <div class="card-header">
         <nav class="navbar navbar-expand-lg mproduct p-1" style="background-color: transparent; border:none">
-          <h5 class="mr-3">Filter Produk</h5>
+          <h5 class="mr-3">Filter Aksesoris</h5>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars"></span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li>
+              <!-- <li>
                 <a
                     class="nav-link dropdown-toggle"
                     id="navbarDropdown"
@@ -28,7 +28,7 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" @click="filterProductByCategory('')">Semua kategori</a>
                 </div>
-              </li>
+              </li> -->
               <li>
                 <a
                     class="nav-link dropdown-toggle"
@@ -70,7 +70,7 @@
                   </div>
                 </a>
                 <div class="card-body">
-                  <p class="card-title productname">{{ product.name }}</p>
+                  <p class="card-title productname" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20ex;">{{ product.name }}</p>
                   <h6 style="color: #ff5205">Rp {{formatPrice( product.price )}}</h6>
                   <p class="card-text float-right">
                     <small class="text-muted"> {{ product.merchant.profile.name }}</small>
@@ -97,7 +97,7 @@
 
 <script>
 export default {
-  props: ['keyword'],
+//   props: ['keyword'],
   data() {
     return {
       products: [],
@@ -116,7 +116,7 @@ export default {
       }
 
       window.axios
-        .get("/api/product/search?keyword=" + this.keyword)
+        .get("/api/product/aksesoris")
         .then(res => {
           this.orginalProductsData = res.data;
           this.products = this.orginalProductsData;

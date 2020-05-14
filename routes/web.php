@@ -38,6 +38,12 @@ Route::get('/blogs', 'BlogController@showBlogs');
 Route::get('/get-blogs', 'BlogController@getBlogs');
 Route::get('/get-carousels', 'CarouselController@getCarousels');
 Route::get('/search', 'ProductController@searchProduct');
+Route::get('/product/ulos', 'ProductController@searchProductByUlos');
+Route::get('/product/pakaian', 'ProductController@searchProductByPakaian');
+Route::get('/product/makanan', 'ProductController@searchProductByMakanan');
+Route::get('/product/aksesoris', 'ProductController@searchProductByAksesoris');
+Route::get('/product/obat', 'ProductController@searchProductByObat');
+
 
 Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::post('/profile/edit/{id}', 'ProfileController@updateAddress');

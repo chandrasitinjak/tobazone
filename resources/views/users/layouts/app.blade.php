@@ -24,13 +24,14 @@
 </head>
 
 <body>
-  <div class="container">
+  
   <div id="app">
     @include('users.layouts.header')    
+    <div class="container-fluid">
     @include('users.layouts.cart')
     @yield('content')
-    @include('users.layouts.footer')  
-    @include('users.layouts.script')
+    </div>
+    @include('users.layouts.footer')      
     <div class="modal fade" id="enlargeImageModal" tabindex="-1" role="dialog" aria-labelledby="enlargeImageModal" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -44,8 +45,8 @@
         </div>
       </div>
     </div>
+  <!-- </div> -->  
   </div>
-  
-  </div>
+  @include('users.layouts.script')
 </body>
 </html>

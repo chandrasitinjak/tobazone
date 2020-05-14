@@ -27,6 +27,31 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
+    public function searchUlos() {
+        $products = Product::with('merchant.profile')->where('cat_product', 'ulos')->get();
+        return response()->json($products);
+    }
+
+    public function searchPakaian() {
+        $products = Product::with('merchant.profile')->where('cat_product', 'pakaian')->get();
+        return response()->json($products);
+    }
+
+    public function searchMakanan() {
+        $products = Product::with('merchant.profile')->where('cat_product', 'makanan')->get();
+        return response()->json($products);
+    }
+
+    public function searchObat() {
+        $products = Product::with('merchant.profile')->where('cat_product', 'obat')->get();
+        return response()->json($products);
+    }
+    
+    public function searchAksesoris() {
+        $products = Product::with('merchant.profile')->where('cat_product', 'aksesoris')->get();
+        return response()->json($products);
+    }
+    
     public function addReview(Request $request, $id) {
         ProductReview::create([
             'user_id' => $request->userId,
@@ -35,4 +60,6 @@ class ProductController extends Controller
             'body' => $request->feedback
         ]);
     }
+
+    
 }

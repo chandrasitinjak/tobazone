@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-white sticky-top pl-6">
+<nav class="navbar navbar-expand-lg navbar-white sticky-top ">
     <div class="container-fluid custom-container">
         <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
                                 </a>
 
 
-                                <a class="dropdown-item" href="#"></i>My Profile</a>
+                                <a class="dropdown-item" href="{{ url('/customer/'.Auth::user()->id.'/myProfil') }}"></i>My Profile</a>
                                 @auth
                                     <div class="user-login-info dropdown-item">
                                         <a href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}">Pesanan</a>
@@ -101,8 +101,8 @@
                                 style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
                         </button>
                     </a>
-                    <a href="#">
-                        <button class="btn btn-toba" type="button" data-toggle="modal" data-target="#loginModal"
+                    <a href="{{ url('/register') }}">
+                        <button class="btn btn-toba" type="button"
                                 style="text-decoration-line: unset;"> Daftar
                         </button>
                     </a>
@@ -118,7 +118,7 @@
                         <div class="user-menu dropdown-menu mt-2" style="border: 1px solid #e0e0e0; left: -70px;">
                             <ul class="dropdown">
                                 <li>
-                                    <a class="nav-link" href="#">My Profile</a>
+                                    <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/myProfil') }}">My Profile</a>
                                 </li>
                                 <li>
                                     <form method="POST" action="{{ url('/logout')}}">
@@ -287,10 +287,10 @@
           Pakaian
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Ulos</a>
-          <a class="dropdown-item" href="#">Atasan</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Bahan Spesial</a>
+          <a class="dropdown-item" href="#">Pria</a>
+          <a class="dropdown-item" href="#">Wanita</a>
+          <!-- <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Bahan Spesial</a> -->
         </div>
       </li>
       <li class="nav-item dropdown" style="margin-left: 3rem">
@@ -298,41 +298,51 @@
           Aksesoris
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Kepala</a>
-          <a class="dropdown-item" href="#">Tangan</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Recomended Aksesoris</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown" style="margin-left: 3rem">
-        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Alat Musik
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Hasapi</a>
-          <a class="dropdown-item" href="#">Tagading</a>
-          <a class="dropdown-item" href="#">Sarune</a>
-          <a class="dropdown-item" href="#">Seruling</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Costum</a>
-        </div>
+          <a class="dropdown-item" href="#">Buatan Tangan</a>
+          <a class="dropdown-item" href="#">Buatan Mesin</a>
+          <!-- <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Recomended Aksesoris</a> -->
+        <!-- </div> -->
       </li>
       <li class="nav-item dropdown" style="margin-left: 3rem">
         <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Makanan
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Makanan Basah</a>
-          <a class="dropdown-item" href="#">Makanan Kering</a>
+          <a class="dropdown-item" href="#">Basah</a>
+          <a class="dropdown-item" href="#">Kering</a>
+          <!-- <a class="dropdown-item" href="#">Sarune</a>
+          <a class="dropdown-item" href="#">Seruling</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Costum</a>
+          <a class="dropdown-item" href="#">Costum</a> -->
         </div>
+      </li>
+      <li class="nav-item dropdown" style="margin-left: 3rem">
+        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Obat
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Cair</a>
+          <a class="dropdown-item" href="#">Padat</a>
+          <!-- <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Costum</a>
+        </div> -->
+      </li>
+      <li class="nav-item dropdown" style="margin-left: 3rem">
+        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Ulos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Tradisional</a>
+          <a class="dropdown-item" href="#">Mesin</a>
+          <!-- <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Costum</a>
+        </div> -->
       </li>
     </ul>
   </div> 
   <div class="container-fluid custom-container"> 
 </nav>
-
-
 @endrole
+
 @include('users.auth.login_modal')
