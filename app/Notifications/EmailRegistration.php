@@ -44,14 +44,14 @@ class EmailRegistration extends Notification
     {
         return (new MailMessage)
             ->from('uloszone@gmail.com', 'Admin')
-            ->subject('Welcome to UlosZone')
+            ->subject('Welcome to Tobazone')
             ->greeting('Horas!')
             ->line('Klik tombol dibawah untuk memverifikasi akun Anda')
             ->action(
                 'Verifikasi Email',
                 $this->verificationUrl($notifiable)
             )
-            ->line('Jika Anda tidak merasa mendaftar di UlosZone.com, Anda tidak perlu memverifikasi email.');        
+            ->line('Jika Anda tidak merasa mendaftar di https://tobazone.com/, Anda tidak perlu memverifikasi email.');        
     }
 
     protected function verificationUrl($notifiable)

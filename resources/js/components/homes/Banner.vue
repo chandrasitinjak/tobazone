@@ -1,6 +1,6 @@
 <template>
-  <div class="col-md-12 slide">
-    <div class="card globalcard">
+  <div class="slide">
+    <div class="card globalcard" style="width: 100%!important;">
       <div class="card-header">
         <h5 style="float: left">Inspirasi Belanja</h5>
       </div>

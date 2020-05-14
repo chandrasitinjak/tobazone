@@ -23,7 +23,7 @@
                    aria-expanded="false"
                 >Kategori</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" @click="filterProductByCategory('Alat Tenun Bukan Mesin')">Alat Tenun Bukan Mesin</a>
+                  <a class="dropdown-item" @click="filterProductByCategory('ATBM')">Alat Tenun Bukan Mesin</a>
                   <a class="dropdown-item" @click="filterProductByCategory('Tradisional')">Tradisional</a>
                   <a class="dropdown-item" @click="filterProductByCategory('Mesin')">Mesin</a>
                   <div class="dropdown-divider"></div>

@@ -9,7 +9,20 @@
               <a>Produk</a>
               <ul class="sub-menu collapse show" id="produk">
                 <li><a href="{{ url('/merchant') }}">Semua Produk</a></li>
-                <li><a href="{{ url('/products/create') }}">Tambah produk</a></li>
+                <li>                
+                  <ul id="menu-content2" class="menu-content collapse show">
+                      <li data-toggle="collapse" data-target="#tambah_produk">
+                        <a>Tambah Produk</a>
+                        <ul class="sub-menu collapse show" id="tambah_produk">
+                         <li> <a href="{{ url('/products/ulos/create') }}">Tambah ulos</a></li>
+                         <li> <a href="{{ url('/products/clothes/create') }}">Tambah pakaian</a></li>
+                         <li> <a href="{{ url('/products/food/create') }}">Tambah makanan</a></li>                         
+                         <li> <a href="{{ url('/products/accessories/create') }}">Tambah aksesoris</a></li>
+                         <li> <a href="{{ url('/products/medicine/create') }}">Tambah obat</a></li>
+                          </ul>
+                      </li>
+                  </ul>                  
+                </li>
                 <li><a href="">Produk terjual</a></li>
               </ul>
             </li>
@@ -38,3 +51,4 @@
     </div>
   </div>
 </div>
+

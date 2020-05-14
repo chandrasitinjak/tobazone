@@ -1,7 +1,8 @@
 <template>
-  <div class="big-banner" v-if="carousels.length > 0">
+  <div v-if="carousels.length > 0">
     <Carousel
       :autoplay="true"
+      :autoplayTimeout="3000"
       :nav="false"
       :loop="true"
       :speed="800"
@@ -9,9 +10,9 @@
       :paginationEnabled="true"
       :perPageCustom="[[0, 1], [991.88, 1]]"
     >
-      <slide class="px-2" v-for="carousel in carousels">
+      <slide class="px-0" v-for="carousel in carousels">
         <a :href="carousel.link">
-          <img :src="'/images/carousels/' + carousel.image">
+          <img :src="'/images/carousels/' + carousel.image" style="height : 28em; width : 100%!important">
         </a>
       </slide>
     </Carousel>
@@ -20,14 +21,15 @@
   <div v-else style="">
     <Carousel
       :autoplay="true"
+      :autoplayTimeout="3000"
       :nav="false"
       :loop="true"
       :speed="800"
       :paginationEnabled="true"
       :perPageCustom="[[0, 1], [991.88, 1]]"
     >
-      <slide class="px-2">
-        <img src="/images/assets/empty_carousels.gif" alt>
+      <slide class="px-0sssss">
+        <img src="/images/assets/empty_carousel.gif" style="height : 28em; width : 100%!important">
       </slide>
     </Carousel>
   </div>

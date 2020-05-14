@@ -86,7 +86,59 @@ class ProfileController extends Controller
     public function getProfile($id) {
         return response(Profile::where('user_id', $id)->first());
     }
+
+    public function myProfile($id) {
+        $profile = Profile::all()->where('user_id', $id)->first();        
+        
+        $data = json_decode($profile->address);
+
+        $data_real = json_decode($data[0]);
+
+        // echo "hello world";
+        return view('users.profiles.index')->with('profiles', $profile)->with('data', $data_real);
+    }
+
+    public function editProfile($id) {
+        $profile = Profile::all()->where('user_id', $id)->first();        
+        
+        $data = json_decode($profile->address);
+
+        $data_real = json_decode($data[0]);
+
+        // echo "hello world";
+        return view('users.profiles.edit')->with('profiles', $profile)->with('data', $data_real);
+    }
+
+    public function getMerchantProfile($id) {
+
+        $data = Profile::all()->where('user_id', $id)->first();
+        // var_dump($data);        
+        return view('users.merchants.profiles.index');
+    }
     
+    public function storeUpdate(Request $request, $id) {
+
+
+        $profile = Profile::all()->where('user_id', $id)->first();
+        
+        $image = $request->file('profile_picture');
+        if($image == NULL) {            
+            $profile->name = $request->profile_name;
+            $profile->phone = $request->profile_phone;
+        } else {                            
+            $imageName = time(). $image->getClientOriginalName();
+            $destinationPath = public_path('/images/user_profiles');
+            $image->move($destinationPath, $imageName);
+
+            $profile->name = $request->profile_name;
+            $profile->phone = $request->profile_phone;
+            $profile->photo = $imageName;
+        }
+        
+        $profile->update();
+
+        return redirect('/customer/'.$id.'/myProfil');
+    }
 
 
     public function updateAddress(Request $request, $id) {

@@ -19,6 +19,8 @@
       </div>
     </div>
     <div class="card-body">
+      <div class="row">
+      <div class="col-md-12">
       <div class="font-weight-bold">{{ buyer.name }}
         <br>
         <i class="fa fa-phone mr-2"></i>{{ buyer.phone }}</div>
@@ -33,9 +35,11 @@
           </div>
         </ul>
       </div>
+      </div>     
+      </div>
     </div>
-    <modal v-if="showModal" v-bind:user-id="userId"/>
-  </div>
+    <modal v-if="showModal" v-bind:user-id="userId"/>        
+  </div>  
 </template>
 
 <script>
@@ -49,7 +53,7 @@ export default {
       showModal: false,
       addresses: [],
       address: null,
-      buyer: {}
+      buyer: {},      
     };
   },
   components: {
@@ -75,7 +79,7 @@ export default {
     this.getAddress();
     EventBus.$on("ADD_ADDRESS_MODAL_CLOSED", () => {
       this.showModal = false;
-    });
+    }); 
   }
 };
 </script>

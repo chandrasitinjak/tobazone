@@ -7,7 +7,7 @@
   @else
   <div id="cart">
       <cart />
-    </div>
+  </div>
   @endif
   
 @endsection

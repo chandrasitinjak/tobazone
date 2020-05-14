@@ -1,23 +1,18 @@
 <template>
-  <div class="col-md-12">
-    <div class="card globalcard">
-      <div class="card-header">
-        <h5 style="float: left"> {{ title }}</h5>
-        <h6 style="float: right">
-          <a href="/search" style="color: -webkit-link">Lihat Semua Produk</a>
-        </h6>
+ <div class="row pt-4">
+   <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12">
+            <center>
+              <h3>Produk Unggulan</h3>
+            </center>
+        </div>
       </div>
-      <div class="card-body globalcardbody">
-        <carousel
-          :mouse-drag="true"
-          :scrollPerPage="true"
-          :spacePadding="20"
-          :speed="800"
-          :paginationEnabled="false"
-          :perPageCustom="[[0, 1], [991.88, 6]]"
-        >
-          <slide class="px-2" v-for="product in products" :key="product.id">
-            <a :href="'/products/' + product.id">
+
+      <div class="row" style="background-color : green">
+        <div class="col-md-2" v-for="product in products">
+            <div class="card-body globalcardbody">
+                <a :href="'/products/' + product.id">
             <div class="card product ">
 
                 <div class="imgwrapper">
@@ -26,7 +21,8 @@
 
 
               <div class="card-body">
-                <p class="card-title productname">{{product.name}}</p>
+                <!-- <p class="card-title productname">{{product.name}}</p> -->
+                <p class="card-title productname" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20ex;">{{product.name}}</p>
                 <h6 style="color: #ff5205">Rp {{formatPrice (product.price)}}</h6>
                 <p class="card-text float-right">
                   <small class="text-muted">{{ product.merchant.profile.name }}</small>
@@ -35,11 +31,20 @@
               </div>
             </div>
             </a>
-          </slide>
-        </carousel>
+
+            </div>
+        </div>
       </div>
-    </div>
-  </div>
+
+      <div class="row p-5" style="background-color : red;">
+        <div class="col-md-12">
+            <center>
+              <button type="button" class="btn btn-info" >Browser More</button>
+            </center>
+        </div>
+      </div>
+   </div>
+ </div>
 
 </template>
 
@@ -61,7 +66,6 @@ export default {
           let val = (value/1).toFixed().replace('.', ',')
           return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
       },
-    
     async getAllProducts() {
       await window.axios
         .get("/api/products")
@@ -72,8 +76,6 @@ export default {
           console.log(err);
         });
     },
-
-
     async addToCart(id) {
       let payload = {
         productId: id,

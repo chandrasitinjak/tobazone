@@ -7,7 +7,7 @@
             <a href="/" role="button" class="btn btn-sm btn-outline-primary">Belanja lagi</a>
           </div>
           <div class="col-7">
-            <h5>Keranjang Belanja</h5>
+            <h5>Keranjang Belanja Anda</h5>
           </div>
         </div>
       </div>
@@ -61,6 +61,7 @@
 
               <input
                 type="number"
+                onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"            
                 class="form-control"
                 v-model="cart.total"
                 v-on:change="updateCart(cart)"
@@ -75,8 +76,7 @@
             <button
               type="button"
               v-on:click="deleteCart(cart.id)"
-              class="btn btn-outline-warning btn-sm mt-2"
-            >
+              class="btn btn-outline-warning btn-sm mt-2" >
               <span>
                 <i class="fa fa-trash"></i> Hapus
               </span>

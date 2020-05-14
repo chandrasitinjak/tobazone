@@ -13,13 +13,28 @@
             <span>Total Harga Produk</span>
             <span class="float-right font-weight-bold">Rp. {{formatPrice( merchant.totalProductCost )}}</span>
           </div>
+
+        
           <div>
             <span>Total Ongkos Kirim</span>
             <span class="float-right font-weight-bold">Rp. {{formatPrice (merchant.totalShippingCost) }}</span>
           </div>
+
+          <div v-if="merchant.totalShippingCost != 0">
+          <div>
+            <span>Kurir yang digunakan </span>
+            <span class="float-right font-weight-bold">{{ (merchant.courier_used) }}</span>
+          </div>
+
+          <div>
+            <span>Estimasi waktu(hari)</span>
+            <span class="float-right font-weight-bold">{{ (merchant.estimate_waktu) }}</span>
+          </div>
+          </div>
+
           <div style="border-bottom: 1px #b4b4b4 solid; margin: 10px 0px 10px 0px"></div>Total Pembayaran
           <div
-            class="float-right h5"
+            class="float-right h5"  
             style="color: #ff8415"
           >Rp {{formatPrice( merchant.totalProductCost + merchant.totalShippingCost) }}</div>
         </div>
@@ -27,6 +42,7 @@
           <button class="btn essence-btn btn-block" @click.prevent="createOrder" :disabled="disable">Bayar</button>
         </div>
       </div>
+      <!-- {{ merchants }} -->
     </div>
 
 </template>
@@ -54,19 +70,20 @@ export default {
       });
 
       EventBus.$on("FINAL_TRANSACTION_DETAIL", finalPaymentDetail => {
-        this.finalPaymentDetail = finalPaymentDetail;
+        this.finalPaymentDetail = finalPaymentDetail;        
       });
     },
     createOrder() {
       this.disable = true
-
+      
       window.axios
         .post("/api/transactions", this.finalPaymentDetail)
         .then(res => {
           window.location = "/customer/transactions/" + res.data.id
         })
         .catch(err => {
-          console.log(err);
+          // console.log(err);
+          alert(err);
         });
     }
   },

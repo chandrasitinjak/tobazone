@@ -3,7 +3,7 @@
     <div class="card-header">
       <div class="row">
         <div class="col-12">
-          <h5>Barang yang Anda Pesan</h5>
+          <h5>Barang yang Anda Pesan </h5>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>    
 </template>
 
 <script>
@@ -55,7 +55,7 @@ export default {
     return {
       carts: [],
       merchants: [],
-        products: []
+      products: [],      
     };
   },
   methods: {
@@ -92,9 +92,13 @@ export default {
               name: merchantName,
               id: cart.product.merchant.id,
               address: JSON.parse(JSON.parse(merchantAddress)[0]),
-              totalWeight: 1000 * cart.total * JSON.parse(cart.product.specification).weight,
+              // totalWeight: 1000 * cart.total * JSON.parse(cart.product.specification).weight,
+
+              totalWeight: cart.total * JSON.parse(cart.product.specification).weight,
               totalProductCost: cart.product.price * cart.total,
               totalShippingCost: 0,
+              courier_used: "",
+              estimate_waktu: "",
               products: [
                 {
                   productId: cart.product.id,
@@ -117,15 +121,19 @@ export default {
               }
             });
           }
-        })
+        })        
       );
-
+      console.log(this.carts);
+      
       this.publishMerchantsListEvent(this.merchants)
     },
+
     async countShippingPrice(address) {
       await Promise.all(
         this.merchants.map(async merchant => {
           let shippingCost = 0;
+          let courier_used = "";
+          let estimasi_waktu = "";
 
           const payload = {
             origin: merchant.address.subdistrict_id,
@@ -133,14 +141,26 @@ export default {
             destination: address.subdistrict_id,
             destinationType: "subdistrict",
             weight: merchant.totalWeight,
-            courier: "jne"
-          };
-
-          await window.axios.post("/api/shippingcost", payload).then(res => {
-            shippingCost = res.data.rajaongkir.results[0].costs[0].cost[0].value;
+            courier: "jne:sicepat:tiki:pos:ninja"
+          };          
+                    
+          await window.axios.post("/api/shippingcost", payload).then(res => {       
+            
+            var len_data = res.data.rajaongkir.results.length;
+            var i;
+            for(i=0; i<len_data; i++) {                 
+              if(res.data.rajaongkir.results[i].costs.length != 0) {                                                     
+                shippingCost = res.data.rajaongkir.results[i].costs[0].cost[0].value;
+                estimasi_waktu = res.data.rajaongkir.results[i].costs[0].cost[0].etd;
+                courier_used = res.data.rajaongkir.results[i].name;
+                break;
+                }
+              }            
           });
 
-          merchant.totalShippingCost = shippingCost
+          merchant.totalShippingCost = shippingCost;
+          merchant.courier_used = courier_used;
+          merchant.estimate_waktu = estimasi_waktu;
         })
       );
 
@@ -152,13 +172,15 @@ export default {
 
       this.publishFinalTransactionDetail(transactionDetail);
     },
+
     
     publishMerchantsListEvent(merchants) {
       EventBus.$emit("MERCHANT_LIST", merchants);
     },
+
     publishFinalTransactionDetail(transactionDetail) {
       EventBus.$emit("FINAL_TRANSACTION_DETAIL", transactionDetail);
-    }
+    },    
   },
   async mounted() {
     await this.getProducts();

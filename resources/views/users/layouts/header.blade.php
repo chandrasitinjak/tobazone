@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-white bg-white fixed-top main">
-    <div class="container custom-container">
+<nav class="navbar navbar-expand-lg navbar-white sticky-top pl-6">
+    <div class="container-fluid custom-container">
         <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars"></span>
@@ -8,20 +8,10 @@
             <h5>Tobazone</h5>
         </a>
 
-        <a class="nav-link d-none d-sm-block" href="https://medium.com/uloszone" rel="noopener noreferrer"
+        <!-- <a class="nav-link d-none d-sm-block" href="https://medium.com/uloszone" rel="noopener noreferrer"
            target="_blank"
-           style="font-weight: 400; font-size: 1rem;">Blog</a>
+           style="font-weight: 400; font-size: 1rem;">Blog</a> -->
 
-        <!-- <div id="cart-icon" class="d-lg-none">
-            @if(Auth::check())
-                <cart-icon :user-id="{{Auth::user()->id}}"/>
-            @else
-                <cart-icon/> 
-            @endif
-        </div> -->
-        
-        <!-- Supaya Memperbaiki posisi -->
-        
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-start">
                 <li class="nav-item d-lg-none dropdown">
@@ -80,21 +70,22 @@
             <div class="search-area">
                 <form class="example" action="/search">
                     <input type="text" placeholder="Cari Produk" name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button type="submit" style="background-color:#fff!important; border-color:#A8A8A8!important;">
+                      <i class="fa fa-search"></i></button>
                 </form>
             </div>
         </div>
-        
+
 
         <!-- Icon Cart -->
-        <div id="cart-icon" class="d-none d-lg-block mr-3">
+        <div id="cart-icon" class="d-none d-lg-block mr-3" style="margin-right:50px!important">
             @if(Auth::check())
                 <cart-icon :user-id="{{Auth::user()->id}}"/>
             @else
-                <cart-icon/> 
+                <cart-icon/>
             @endif
         </div>
-        
+
         @auth
             <div class="user-login-info mr-2 d-none d-sm-block">
                 <a href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}" style="font-weight: 400;font-size: 1rem;">Pesanan</a>
@@ -106,8 +97,13 @@
             @guest
                 <div class="user-login-info align-content-end">
                     <a href="#">
-                        <button class="btn btn-link " type="button" data-toggle="modal" data-target="#loginModal"
-                                style="color: black;text-decoration-line: unset;"> Masuk
+                        <button class="btn btn-toba" type="button" data-toggle="modal" data-target="#loginModal"
+                                style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
+                        </button>
+                    </a>
+                    <a href="#">
+                        <button class="btn btn-toba" type="button" data-toggle="modal" data-target="#loginModal"
+                                style="text-decoration-line: unset;"> Daftar
                         </button>
                     </a>
                 </div>
@@ -139,25 +135,8 @@
             @endguest
         </div>
 
-    </div>
+      <div>
 </nav>
-
-<!-- @if (Auth::guest() || Auth::user()->hasRole('customer'))
-    <div class="col-sm-12 d-sm-block d-md-none d-lg-none" style="top: -16px;">
-        <div class="search-area">
-            <form class="example" action="/search">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-    </div>
-@else
-
-@endif -->
-
-
-
-
 
 @role('merchant')
 <nav class="navbar navbar-expand-lg navbar-white bg-white fixed-top main">
@@ -253,7 +232,7 @@
 
             </ul>
             <div class="d-sm-none d-md-block d-lg-block search">
-                <input type="text" class="" placeholder="asdasd">
+                <input type="text" class="" placeholder="asdasd" >
             </div>
         </div>
 
@@ -296,5 +275,64 @@
         </div>
     </div>
 </nav>
+@else 
+
+<nav class="navbar2 navbar-expand-lg navbar-white main">  
+    <div class="container-fluid custom-container">
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pakaian
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Ulos</a>
+          <a class="dropdown-item" href="#">Atasan</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Bahan Spesial</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" style="margin-left: 3rem">
+        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Aksesoris
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Kepala</a>
+          <a class="dropdown-item" href="#">Tangan</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Recomended Aksesoris</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" style="margin-left: 3rem">
+        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Alat Musik
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Hasapi</a>
+          <a class="dropdown-item" href="#">Tagading</a>
+          <a class="dropdown-item" href="#">Sarune</a>
+          <a class="dropdown-item" href="#">Seruling</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Costum</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" style="margin-left: 3rem">
+        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Makanan
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Makanan Basah</a>
+          <a class="dropdown-item" href="#">Makanan Kering</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Costum</a>
+        </div>
+      </li>
+    </ul>
+  </div> 
+  <div class="container-fluid custom-container"> 
+</nav>
+
+
 @endrole
 @include('users.auth.login_modal')

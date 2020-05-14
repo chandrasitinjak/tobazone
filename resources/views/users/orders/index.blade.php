@@ -12,7 +12,7 @@
             <div class="mercant-sidebar-menu">
               <div class="col-md-12 text-center">
                 <div class="imgwrapper mb-3" style="padding: 0px;">
-                  <img src="{{ url("/images", $user->profile->photo )}}" alt="Card image cap" style="object-fit: scale-down">
+                  <img src="{{ url("/images/user_profiles/".$user->profile->photo )}}" alt="Card image cap" style="object-fit: scale-down">
                 </div>
                 <h6>{{ $user->profile->name }}</h6>
               </div>

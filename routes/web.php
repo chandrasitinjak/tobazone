@@ -84,7 +84,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/banners/edit/{id}', 'BannerController@edit');
         Route::post('/banners/delete/{id}', 'BannerController@destroy');
         Route::post('/banners/update/{id}', 'BannerController@update');
-        Route::post('/banners/store', 'BannerController@store');
+    Route::post('/banners/store', 'BannerController@store');
 
         Route::get('/carousels', 'CarouselController@index');
         Route::get('/carousels/show/{id}', 'CarouselController@show');
@@ -113,6 +113,8 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/merchant/{id}/new-orders', 'MerchantController@getNewOrders');
         Route::get('/merchant/{id}/ongoing-orders', 'MerchantController@getOngoingOrders');
         Route::get('/merchant/{id}/succes-orders', 'MerchantController@getSuccesOrder');
+        Route::get('/merchant/{id}/view-profile', 'ProfileController@getMerchantProfile');
+
     });
 
     Route::middleware('role:customer')->group(function () {
@@ -121,6 +123,9 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/customer/transactions/{id}', 'TransactionController@show');
         Route::get('/customer/{id}/orders', 'TransactionController@getTransactionByUser');
         Route::get('/customer/{userId}/transactions/{transactionId}/tracking', 'TransactionController@getTrackingInfo');
+        Route::get('/customer/{id}/myProfil', 'ProfileController@myProfile');
+        Route::get('/customer/{id}/editProfil', 'ProfileController@editProfile');
+        Route::post('/customer/{id}/store', 'ProfileController@storeUpdate');
     });
 
     Route::middleware('role:costumer|admin')->group(function () {
@@ -129,11 +134,17 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
     Route::middleware('role:merchant|admin')->group(function () {
         Route::get('/products', 'ProductController@index');
-        Route::get('/products/create', 'ProductController@create');
+        
+        Route::get('/products/ulos/create', 'ProductController@createUlos');
+        Route::get('/products/food/create', 'ProductController@createFood');
+        Route::get('/products/clothes/create', 'ProductController@createClothes');
+        Route::get('/products/accessories/create', 'ProductController@createAccessories');
+        Route::get('/products/medicine/create', 'ProductController@createMedicine');
+        
         Route::get('/products/edit/{id}', 'ProductController@edit');
         Route::post('/products/delete/{id}', 'ProductController@destroy');
         Route::post('/products/update/{id}', 'ProductController@update');
-        Route::post('/products/store', 'ProductController@store');
+        Route::post('/products/store/{id}', 'ProductController@store');
 
         Route::prefix('/orders')->group(function () {
             Route::get('/', 'TransactionController@index');
@@ -150,3 +161,5 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 Route::get('/products/{id}', 'ProductController@show');
 Route::get('/carabelanja', 'QnAController@show');
 Route::get('/carajual', 'QnAController@show');
+
+// Route::get('/food', 'makananController@index');

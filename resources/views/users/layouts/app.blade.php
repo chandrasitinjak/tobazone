@@ -18,15 +18,18 @@
   <!-- Core Style CSS -->
   <link rel="stylesheet" href="/user-assets/css/core-style.css">
   <link rel="stylesheet" href="/user-assets/style.css">
-  
+
+  <!-- <link rel="stylesheet" href="/user-assets/devke2.css"> -->
+
 </head>
 
 <body>
+  <div class="container">
   <div id="app">
-    @include('users.layouts.header')
+    @include('users.layouts.header')    
     @include('users.layouts.cart')
     @yield('content')
-    @include('users.layouts.footer')
+    @include('users.layouts.footer')  
     @include('users.layouts.script')
     <div class="modal fade" id="enlargeImageModal" tabindex="-1" role="dialog" aria-labelledby="enlargeImageModal" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -42,6 +45,7 @@
       </div>
     </div>
   </div>
+  
+  </div>
 </body>
-
 </html>

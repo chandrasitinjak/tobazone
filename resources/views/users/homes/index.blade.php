@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title> {{"Tobazone"}}</title>
+    <title> {{"Uloszone"}}</title>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon  -->
@@ -22,28 +22,50 @@
 </head>
 
 <body>
+
+
 <div id="app">
     @include('users.layouts.header')    
-    <section>
-        <div class="mt-0">            
-            <carousel> </carousel>            
-        </div>
-    </section>
+    <div class="container-fluid">        
+            <div class="row mt-3" style="background-color : ">
+                <div class="col-md-8" style="padding-right:0.8rem">
+                    <carousel> </carousel>
+                </div>
 
-    <div id="new-product">
-        @if(Auth::check())
-            <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Terbaru'"/>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12" style="padding-left:0.5rem">
+                            <img src="{{ url("/images/banners/banner-1.png" )}}" alt="Card image cap test" style="height:12.6em">
+                        </div>
+                        <!-- <img src="{{ url('/images/banners/banner') }}" alt=""> -->
+                    </div>
+
+                    <div class="row pt-2 pr-0">
+                    <div class="col-md-12" style="padding-left:0.5rem">
+                            <img src="{{ url("/images/banners/banner-1.png" )}}" alt="Card image cap test" style="height:12.6em">
+                        </div>
+                    </div>
+                </div>
+            </div>            
             
-        @else
-            <new-products :title="'Produk Terbaru'"/>
-        @endif
-    </div>
 
-    <div id="banner">
+        
+              <div id="new-product">
+                @if(Auth::check())
+                    <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Terbaru'"/>
+                @else
+                    <new-products :title="'Produk Terbaru'"/>
+                @endif
+              </div>        
+
+    
+
+    <!-- <div id="banner">
         <banner/>
-    </div>
+    </div> -->
 </div>
 @include('users.layouts.footer')
+</div>
 @include('users.layouts.script')
 </body>
 

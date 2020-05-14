@@ -184,7 +184,7 @@ export default {
         )
         .then(res => {
           this.transaction = res.data;
-          this.deadline = moment(this.transaction.created_at).add(1, "days");
+          this.deadline = moment(this.transaction.created_at).add(1, "minutes");
         })
         .catch(err => {
           console.log(err);

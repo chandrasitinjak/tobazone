@@ -58,13 +58,41 @@
               </button>
 
 
-              <h2>{{ $product->name }}</h2>
+              <h2>{{ $product->name }} </h2>
 
               <h4 class="product-price" style="color: orange">Rp {{ number_format($product->price ,0) }}</h4>
               <p class="product-desc">{{$product->description}}</p>
+              @if($product['cat_product'] == "ulos")
               <p class="product-desc">Produk ini dibuat dengan metode {{$product->category}}</p>
+              @elseif($product['cat_product'] == "pakaian")
+              <p class="product-desc">Produk ini adalah yang terbaik untuk {{$product->category}}</p>
+              @elseif($product['cat_product'] == "makanan")
+              <p class="product-desc">Umur simpan : {{ json_decode($product->specification)->umur_simpan}}</p>
+              @elseif($product['cat_product'] == "aksesoris")
+              <p class="product-desc">Produk ini dibuat dengan  {{$product->category}}</p>
+              @elseif($product['cat_product'] == "obat")
+              <p class="product-desc">Obat ini merupakan obat {{$product->category}}</p>
+              @endif
+              
               <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} kg</h6>
+
+
+              @if($product['cat_product'] == "ulos")
               <h6 class="product-desc"> Ukuran {{ json_decode($product->specification)->dimention }}</h6>
+              @elseif($product['cat_product'] == "pakaian")
+              <h6 class="product-desc"> Ukuran : {{ json_decode($product->specification)->size }}</h6>
+              @elseif($product['cat_product'] == "makanan")
+              <h6 class="product-desc"> Ukuran Pembungkus: {{ json_decode($product->specification)->size_pack }}</h6>
+              @elseif($product['cat_product'] == "aksesoris")
+              <h6 class="product-desc"> Ukuran : {{ json_decode($product->specification)->size }}, Warna : {{ $product->color }} </h6>
+              @elseif($product['cat_product'] == "obat")
+                  @if(json_decode($product->specification)->jenis == "Padat")
+                    <h6 class="product-desc"> - </h6>
+                  @elseif(json_decode($product->specification)->jenis == "Cair")
+                  <h6 class="product-desc"> Volume : {{ $product->color }} </h6>
+                  @endif
+
+              @endif
 
               @role('merchant')
               <div class="cart-fav-box d-flex align-items-center mt-4">
@@ -79,6 +107,12 @@
               <div id="add-to-cart-button">
                 <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />~
               </div>
+
+              <!-- <div id="add-to-cart-button">
+                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />~                
+              </div> -->
+
+
               @else
               <div>
                 <button class="btn essence-btn ml4 " data-toggle="modal" data-target="#loginModal"> Login Untuk Memesan Barang</button>

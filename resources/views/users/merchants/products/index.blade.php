@@ -70,7 +70,7 @@
                         <a href="{{ url('products/edit', $product->id)}}" class="btn essence-btn">Edit</a>
                       </div>
                     </div>
-                  </div>
+                </div>
                 </a>
               </div>
             </div>

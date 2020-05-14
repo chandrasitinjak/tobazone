@@ -21,6 +21,9 @@ Route::resource('products', 'API\ProductController');
 Route::get('/merchant/products/{id}', 'API\ProductController@getProducts');
 Route::resource('/transactions', 'API\TransactionController');
 Route::resource('carts', 'API\CartController');
+
+// Route::post('wishlist', 'API\CartController@addToWishlist');
+
 Route::get('/carts/user/{id}', 'API\CartController@getUserCart');
 Route::get('/provincies', 'API\RegionalController@getProvinces');
 Route::get('/cities', 'API\RegionalController@getCities');

@@ -27,6 +27,7 @@ class RegionalController extends Controller
         ]);
 
         $result = $client->request('GET', 'subdistrict?city=' . $request->city_id);
+        
         return $result->getBody()->getContents();
     }
 }

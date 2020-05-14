@@ -11,10 +11,10 @@
             <div class="pull-right">
                 <div class="card globalcard mt-0">
                     <div class="card-header">
-                        <h6>Tambah Produk Baru </h6>
+                        <h6>Tambah Pakaian Baru </h6>
                     </div>
                     <div class="card-body">
-                        <form class="form-group" method="POST" action="{{ url('/products/store') }}" enctype="multipart/form-data">
+                        <form class="form-group" method="POST" action="{{ url('/products/store', 2) }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group row">
                                 <div class="input-group mb-3">
@@ -74,7 +74,7 @@
                                 <div class="row">
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Ukuran </label>
-                                        <input class="form-control" type="text" name="dimention" placeholder="Cth: 2m x 90cm" />
+                                        <input class="form-control" type="text" name="dimention" placeholder="Cth: S, X, L, M, XL, XXL" />
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Berat </label>
@@ -86,31 +86,30 @@
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Warna Dasar</label>
                                         <select class="form-control" name="color" aria-describedby="warnadasar">
-                                                <option value="black"> Hitam</option>
-                                                <option value="red"> Merah</option>
-                                                <option value="blue"> Biru</option>
-                                                <option value="blue"> Putih</option>
-                                                <option value="blue"> Ungu</option>
-                                                <option value="blue"> Hijau</option>
-                                                <option value="blue"> Cokelat</option>
+                                                <option value="Hitam"> Hitam</option>
+                                                <option value="Merah"> Merah</option>
+                                                <option value="Biru"> Biru</option>
+                                                <option value="Putih"> Putih</option>
+                                                <option value="Ungu"> Ungu</option>
+                                                <option value="Hijau"> Hijau</option>
+                                                <option value="Cokelat"> Cokelat</option>
                                             </select>
                                         <small id="warnadasar" class="form-text text-muted">
                                             Pilih warna yang paling dominan
                                         </small>
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4 mt-4">
-                                        <label class="label"> Metode Pembuatan </label>
+                                        <label class="label"> Pakaian Untuk </label>
                                         <select class="form-control" name="category">
-                                                <option value="ATBM"> Alat Tenun Bukan Mesin</option>
-                                                <option value="Tradisional"> Tradisional</option>
-                                                <option value="Mesin"> Mesin</option>
+                                                <option value="Pria"> Pria</option>
+                                                <option value="Wanita"> Wanita</option>                                                
                                             </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12 mt-4">
-                                    <button type="submit" class="btn btn-primary float-right">Tambah Barang</button>
+                                    <button type="submit" class="btn btn-primary float-right">Tambah Pakaian</button>
                                 </div>
                             </div>
                         </form>
