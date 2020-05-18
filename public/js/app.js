@@ -69174,7 +69174,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                               destination: address.subdistrict_id,
                               destinationType: "subdistrict",
                               weight: merchant.totalWeight,
-                              courier: "jne:sicepat:tiki:pos:ninja"
+                              courier: "jne:sicepat:pos:ninja"
                             };
                             _context3.next = 7;
                             return window.axios.post("/api/shippingcost", payload).then(function (res) {

@@ -144,7 +144,7 @@ export default {
             destination: address.subdistrict_id,
             destinationType: "subdistrict",
             weight: merchant.totalWeight,
-            courier: "jne:sicepat:tiki:pos:ninja"
+            courier: "jne:sicepat:pos:ninja"
           };          
                     
           await window.axios.post("/api/shippingcost", payload).then(res => {       
