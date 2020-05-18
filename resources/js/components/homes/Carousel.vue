@@ -28,8 +28,8 @@
       :paginationEnabled="true"
       :perPageCustom="[[0, 1], [991.88, 1]]"
     >
-      <slide class="px-0sssss">
-        <img src="/images/assets/empty_carousel.gif" style="height : 28em; width : 100%!important">
+      <slide class="px-0">
+        <a href="/register"><img src="/images/assets/empty_carousel.gif" style="height : 28em; width : 100%!important"></a>
       </slide>
     </Carousel>
   </div>

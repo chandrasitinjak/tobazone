@@ -23,3 +23,10 @@
     # RewriteCond %{SERVER_PORT} 80 
     # RewriteRule ^(.*)$ https://uloszone.com/$1 [R,L]
 </IfModule>
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW SSL_REDIRECT:tobazone.com
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} (www\.)?tobazone.com$
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE SSL_REDIRECT:tobazone.com
