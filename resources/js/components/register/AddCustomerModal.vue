@@ -9,7 +9,9 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label class="label">Username</label>
-                                    <input type="text" class="form-control form-control-sm" v-model="userCustomer.username"
+                                    <input type="text" 
+                                    class="form-control form-control-sm" 
+                                    v-model="userCustomer.username"
                                       v-model.trim="$v.userCustomer.username.$model"
                                       :class="{'is-invalid':$v.userCustomer.username.$error, 'is-valid':!$v.userCustomer.username.$invalid }">
                                     <div class="valid-feedback">Username is valid</div>
@@ -21,9 +23,11 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label class="label">E-mail</label>
-                                    <input type="text" class="form-control form-control-sm" v-model="userCustomer.email"
-                                      v-model.trim="$v.userCustomer.email.$model"
-                                      :class="{'is-invalid':$v.userCustomer.email.$error, 'is-valid':!$v.userCustomer.email.$invalid }">
+                                    <input type="text" 
+                                    class="form-control form-control-sm" 
+                                    v-model="userCustomer.email"
+                                    v-model.trim="$v.userCustomer.email.$model"
+                                    :class="{'is-invalid':$v.userCustomer.email.$error, 'is-valid':!$v.userCustomer.email.$invalid }">
                                     <div class="valid-feedback">Email is valid</div>
                                     <div class="invalid-feedback">
                                       <span v-if="!$v.userCustomer.email.required">Email is required</span>
@@ -298,6 +302,7 @@
               }
             }
         },
+        
         validations: {
           userCustomer: {
             username: {
