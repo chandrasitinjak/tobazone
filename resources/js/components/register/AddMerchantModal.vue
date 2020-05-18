@@ -227,12 +227,10 @@
                 <span v-if="!$v.userMerchant.password.required">Confirm Password is required</span>
                 <span v-if="!$v.userMerchant.password.sameAs">Password must be match</span>
               </div>
-            </div>
-            <button
-              type="button"
-              class="btn essence-btn btn-block"
-              v-on:click="addMerchant"
-            >Register</button>
+            </div>	
+            
+            <button type="button" class="btn essence-btn btn-block" 
+              v-on:click="addMerchant">Register</button>
           </form>
         </div>
       </div>
@@ -241,9 +239,9 @@
 </template>
 
 <script>
-import { required, minLength, email, sameAs } from "vuelidate/lib/validators";
-import EventBus from "../../eventBus";
-import spinner from "../Spinner";
+    import { required, minLength, email, sameAs } from "vuelidate/lib/validators";
+    import EventBus from "../../eventBus";
+    import spinner from "../Spinner";
 
 export default {
   components: {
@@ -309,30 +307,29 @@ export default {
         });
     },
     addMerchant() {
-      this.$v.$touch();
-      if (!this.$v.$invalid) {
+      this.$v.$touch()
+      if (!this.$v.$invalid) {      
         let payload = {
-          provinceId: this.userMerchant.selectedProvince.id,
-          cityId: this.userMerchant.selectedCity.id,
-          subdistrictId: this.userMerchant.selectedSubdistrict.subdistrict_id,
-          provinceName: this.userMerchant.selectedProvince.name,
-          cityName: this.userMerchant.selectedCity.name,
-          subdistrictName: this.userMerchant.selectedSubdistrict
-            .subdistrict_name,
-          addressDetail: this.userMerchant.addressDetail,
-          addressName: this.userMerchant.addressName,
-          username: this.userMerchant.username,
-          email: this.userMerchant.email,
-          name: this.userMerchant.name,
-          phone: this.userMerchant.phone,
-          gender: this.userMerchant.gender,
-          photo: this.userMerchant.photo,
-          birthday: this.userMerchant.birthday,
-          postalCode: this.userMerchant.selectedCity.postal_code,
-          password: this.userMerchant.password,
-          password_confirmation: this.userMerchant.passwordconfirm,
-          role: "merchant"
-        };
+        provinceId: this.userMerchant.selectedProvince.id,
+        cityId: this.userMerchant.selectedCity.id,
+        subdistrictId: this.userMerchant.selectedSubdistrict.subdistrict_id,
+        provinceName: this.userMerchant.selectedProvince.name,
+        cityName: this.userMerchant.selectedCity.name,
+        subdistrictName: this.userMerchant.selectedSubdistrict.subdistrict_name,
+        addressDetail: this.userMerchant.addressDetail,
+        addressName: "",
+        username: this.userMerchant.username,
+        email: this.userMerchant.email,
+        name: this.userMerchant.name,
+        photo: "",
+        phone: this.userMerchant.phone,
+        gender: this.userMerchant.gender,
+        birthday: this.userMerchant.birthday,
+        postalCode: this.userMerchant.selectedCity.postal_code,
+        password: this.userMerchant.password,
+        password_confirmation: this.userMerchant.passwordconfirm,
+        role: "merchant"
+      };
 
         EventBus.$emit("SPINNER", true);
         window.axios
@@ -348,6 +345,7 @@ export default {
       }
     }
   },
+
   validations: {
     userMerchant: {
       username: {
@@ -363,10 +361,7 @@ export default {
       },
       phone: {
         required
-      },
-      addressName: {
-        required
-      },
+      },      
       addressDetail: {
         required
       },

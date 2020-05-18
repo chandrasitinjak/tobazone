@@ -65593,11 +65593,13 @@ var render = function() {
               }
             },
             [
-              _c("slide", { staticClass: "px-0sssss" }, [
-                _c("img", {
-                  staticStyle: { height: "28em", width: "100%!important" },
-                  attrs: { src: "/images/assets/empty_carousel.gif" }
-                })
+              _c("slide", { staticClass: "px-0" }, [
+                _c("a", { attrs: { href: "/register" } }, [
+                  _c("img", {
+                    staticStyle: { height: "28em", width: "100%!important" },
+                    attrs: { src: "/images/assets/empty_carousel.gif" }
+                  })
+                ])
               ])
             ],
             1
@@ -74483,6 +74485,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -74583,6 +74589,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         }
     },
+
     validations: {
         userCustomer: {
             username: {
@@ -76647,8 +76654,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -76726,13 +76731,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           cityName: this.userMerchant.selectedCity.name,
           subdistrictName: this.userMerchant.selectedSubdistrict.subdistrict_name,
           addressDetail: this.userMerchant.addressDetail,
-          addressName: this.userMerchant.addressName,
+          addressName: "",
           username: this.userMerchant.username,
           email: this.userMerchant.email,
           name: this.userMerchant.name,
+          photo: "",
           phone: this.userMerchant.phone,
           gender: this.userMerchant.gender,
-          photo: this.userMerchant.photo,
           birthday: this.userMerchant.birthday,
           postalCode: this.userMerchant.selectedCity.postal_code,
           password: this.userMerchant.password,
@@ -76751,6 +76756,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
     }
   },
+
   validations: {
     userMerchant: {
       username: {
@@ -76765,9 +76771,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
       },
       phone: {
-        required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
-      },
-      addressName: {
         required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
       },
       addressDetail: {
