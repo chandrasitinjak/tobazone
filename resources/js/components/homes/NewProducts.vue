@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-12">
             <center>
-              <h3>Produk Unggulan</h3>
+              <h3>Ragam Produk</h3>
             </center>
         </div>
       </div>
@@ -66,6 +66,7 @@ export default {
           let val = (value/1).toFixed().replace('.', ',')
           return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
       },
+
     async getAllProducts() {
       await window.axios
         .get("/api/products")

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <h6 class="">Ulos Zone</h6>
+                <h6 class="">Tobazone</h6>
                 <ul>
                     <li></li>
                 </ul>
@@ -54,10 +54,10 @@
                 <ul>
                     <li>
 
-                        <a href="https://www.instagram.com/uloszone/" class="mr-3">
+                        <a href="#" class="mr-3">
                             <i style="font-size: x-large" class="fa fa-instagram"></i>
                         </a>
-                        <a href="https://www.facebook.com/UlosZone-530480990759183/" class="mr-3">
+                        <a href="#" class="mr-3">
                             <i style="font-size: x-large" class="fa fa-facebook"></i>
                         </a>
                         <a href="mailto:uloszone@gmail.com">
@@ -69,7 +69,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 mt-3">
-                <h6>Team UlosZone</h6>
+                <h6>Team Tobazone</h6>
             </div>
         </div>
     </div>

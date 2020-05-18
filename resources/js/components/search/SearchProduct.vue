@@ -19,7 +19,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                 >Kategori</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: 9rem;">
                   <a class="dropdown-item" @click="filterProductByCategory('ulos')">Ulos</a>
                   <a class="dropdown-item" @click="filterProductByCategory('pakaian')">Pakaian</a>
                   <a class="dropdown-item" @click="filterProductByCategory('makanan')">Makanan</a>
@@ -38,7 +38,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                 >Urutkan Berdasarkan</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="left: 13rem;">
                   <a class="dropdown-item" @click="sortProductByName('asc')">Nama A-Z</a>
                   <a class="dropdown-item" @click="sortProductByName('des')">Nama Z-A</a>
                   <a class="dropdown-item" @click="sortProductByPrice('asc')">Harga Termurah</a>
@@ -153,7 +153,7 @@ export default {
         });
       } else {
         this.products = this.orginalProductsData.sort((a, b) => {
-          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
+          return parseInt(a.price) < parseInt(b.price) ? 1 : -1;
         });
       }
     },

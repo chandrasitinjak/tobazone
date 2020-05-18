@@ -8,7 +8,7 @@
 
 
 
-                    <form method="POST" action="{{ url('/customer/'.$profiles->user_id.'/store') }}" enctype="multipart/form-data" style="margin-top: 2rem">
+                    <form method="POST" action="{{ url('/merchant/'.$profiles->user_id.'/store') }}" enctype="multipart/form-data" style="margin-top: 2rem">
                         @csrf
                         <div class="form-group">
                             <label class="label">Nama</label>

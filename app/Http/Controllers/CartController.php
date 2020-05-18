@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,6 +19,20 @@ class CartController extends Controller
         return view('users.carts.index');
     }
 
+    public function myWishlist($id) {
+
+        $myWishList = Wishlist::with(['product'])->where('user_id', $id)->get();
+        // return $myWishList;
+        return view ('users.profiles.wishlist')->with('wishlist', $myWishList);
+    }
+
+    public function deleteWishlist($id) {
+        $data = Wishlist::find($id)->delete();
+
+        return redirect('/customer/'.Auth::user()->id.'/wishlist');
+    }
+
+    
     /**
      * Show the form for creating a new resource.
      *

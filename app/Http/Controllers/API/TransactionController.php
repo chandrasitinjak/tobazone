@@ -38,10 +38,10 @@ class TransactionController extends Controller
             $transaction = Transaction::create([
                 'customer_id' => $request->all()['customerId'],
                 'merchant_id' => $merchant['id'],
+                'courier' => $merchant['courier_code'],
                 'address' => $shippingAddress,
                 'additional_info' => "",
-                'status' => "pending",
-                'confirm_user' => 1
+                'status' => "pending",                
             ]);
 
             $orders = $merchant['products'];
@@ -90,7 +90,7 @@ class TransactionController extends Controller
         return response()->json($transaction);
     }
 
-    public function getTransaction($userId, $tranId ) {
+    public function getTransaction($userId, $tranId) {
         $transaction = Transaction::with(['customer', 'customer.profile', 'payment'])
                                   ->where('customer_id', $userId)
                                   ->where('id', $tranId)
@@ -123,7 +123,7 @@ class TransactionController extends Controller
                                   ->where('id', $id)
                                   ->first();
 
-        $tracking = $this->getTracking($transaction->shipping_number);
+        $tracking = $this->getTracking($transaction->shipping_number, $transaction->courier);
 
         return response()->json([
             "transaction" => $transaction,
@@ -131,7 +131,7 @@ class TransactionController extends Controller
         ]);
     }
 
-    private function getTracking($shippingNumber) {
+    private function getTracking($shippingNumber, $courier) {
         $client = new Client([
             'base_uri' => 'https://pro.rajaongkir.com/api/',
             'headers' => [
@@ -142,7 +142,7 @@ class TransactionController extends Controller
 
         $payload = [
             "waybill" => $shippingNumber,
-            "courier" => "tiki"
+            "courier" => $courier,
         ];
 
         $result = $client->request('POST', 'waybill', ['form_params' => $payload]);

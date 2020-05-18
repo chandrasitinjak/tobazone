@@ -8,6 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import StarRating from 'vue-star-rating'
 import Vuelidate from 'vuelidate'
 Vue.use(Vuelidate)
 /**
@@ -41,12 +42,18 @@ const ProductsPakaian = require('./components/search/Pakaian')
 const ProductsMakanan = require('./components/search/Makanan')
 const ProductsAksesoris = require('./components/search/Aksesoris')
 const ProductsObat = require('./components/search/Obat')
+const AddToWishlistButton = require('./components/AddToWishlistButton')
+const UserRating = require('./components/merchants/UserRating')
     // const Test = require('./components/test/test');
+
+Vue.component('star-rating', StarRating)
 
 const app = new Vue({
     el: '#app',
     components: {
+        UserRating,
         // Test,
+        AddToWishlistButton,
         Carousel,
         NewProducts,
         Banner,

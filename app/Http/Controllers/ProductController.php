@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Profile;
+use App\Rating;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -86,12 +87,14 @@ class ProductController extends Controller
                 'dimention' => $request->dimention,
                 'weight' => $request->weight
             ]);
+            $product->category = $request->category;
         } else if($id == 2) {
             $product->cat_product = "pakaian";                        
             $product->specification = json_encode([
                 'size' => $request->dimention,
                 'weight' => $request->weight
             ]);
+            $product->category = $request->category;
         } else if($id == 3) {            
             $product->cat_product = "makanan";
             $product->specification = json_encode([
@@ -100,6 +103,7 @@ class ProductController extends Controller
                 'umur_simpan' => $request->color
             ]);
             $product->color = "-";
+            $product->category = $request->category;
 
         } else if($id == 4) {
             $product->cat_product = "aksesoris";            
@@ -107,6 +111,7 @@ class ProductController extends Controller
                 'size' => $request->dimention,
                 'weight' => $request->weight
             ]);
+            $product->category = $request->category;
         } else if($id == 5) {
             $product->cat_product = "obat";            
             $product->specification = json_encode([
@@ -115,18 +120,19 @@ class ProductController extends Controller
             ]);
             
             if($request->dimention == "Padat")
-                $product->color = "-";
+                $product->color = $request->color_1;
 
             else if($request->dimention == "Cair")
                 $product->color = $request->color;
+
+            $product->category = "-";
 
         }        
         
         $product->name = $request->name;
         $product->price = $request->price;
         $product->stock = $request->stock;
-        $product->sold = 0;
-        $product->category = $request->category;
+        $product->sold = 0;        
         $product->description = $request->description;
         
         $product->images = json_encode($imageNames);
@@ -145,10 +151,23 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::with(['reviews.customer.profile'])->where('id',$id)->first();
-
-        // var_dump($product['cat_product']);
+        $product = Product::with(['reviews.customer.profile'])->where('id',$id)->first();        
+        $product->rating = 0;
+        if (Auth::check()) {
+            $rating = $this->getPersonalRating(Auth::user()->id, $id);
+            if ($rating != null) {
+                $product->rating = $rating->rating;
+            }
+        }
+        
         return view('users.merchants.products.show')->with('product', $product);
+    }
+
+
+    private function getPersonalRating($userID, $productID) {
+        return Rating::where('user_id', $userID)
+            ->where('product_id', $productID)
+            ->first();
     }
 
     /**

@@ -55,7 +55,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Stock Produk
+                                <label class="col-sm-3 col-form-label">Stok Produk
                                         <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                                     </label>
                                 <div class="col-sm-9">
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="mt-4">
-                                <label class="label"> Specification </label>
+                                <label class="label"> Spesifikasi </label>
                                 <div class="row">
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Ukuran </label>
@@ -79,9 +79,9 @@
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Berat </label>
-                                        <input class="form-control" type="number" min="1" max="3" name="weight" aria-describedby="warnadasar" placeholder="/kg"/>
+                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/g"/>
                                         <small id="warnadasar" class="form-text text-muted">
-                                            Berat digenapkan ke kilogram
+                                            Berat dalam satuan gram
                                         </small>
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4">

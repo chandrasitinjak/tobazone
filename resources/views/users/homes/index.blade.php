@@ -59,56 +59,53 @@
               </div>  
               
             
-            <div class="row">
+              <div class="row" style="padding-top: 2rem; position:center" >
                 <div class="col-md-12">
+                  <center>
                     <div class="row">
                         <div class="col-md-12">
-                            <center>
                                 <h3>Kategori</h3>
-                            </center>
                         </div>
                     </div>
 
-                    <div class="col-md-12">
-
-                        
+                    <div class="col-md-12" style="padding: 2rem 7rem 2rem 7rem">
                         <div class="row">
-                            
-                            <div class="col-md-4">
-                            <a href="{{ url('/product/ulos') }}">
-                            <div class="card bg-dark text-white">
-                            <img src="{{ url("/images/banners/banner-1.png" )}}" alt="Card image cap test" style="height:12.6em">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text">Last updated 3 mins ago</p>
-                                </div>
-                                </div>
+                            <div class="col-md-4" style="padding-left : 4rem">
+                            <a href="{{ url('/product/pakaian') }}">
+                              <div class="card card-test bg-dark text-white" style="width:250px; height:250px;">
+                                <img src="{{ url("/images/kategori/pakaian.png" )}}" alt="Card image cap test" style="width:250px; height:250px;">
+                                    <div class="card-img-overlay card-img-overlay-a">
+                                        <center>
+                                          <p class="card-title card-title-a" style="color: #fff;">PAKAIAN</p>
+                                        </center>
+                                    </div>
+                              </div>
                             </a>
                             </div>
-                            
 
                             <div class="col-md-4">
-                            <a href="{{ url('/product/pakaian') }}">
-                            <div class="card bg-dark text-white">
-                            <img src="{{ url("/images/banners/banner-1.png" )}}" alt="Card image cap test" style="height:12.6em">
-                                <div class="card-img-overlay p-lg-5">
-                                    <h5 class="align-items : center">Ulos</h5>                                    
-                                </div>
-                                </div>
-                            </a>
-                            </div>                            
+                            <a href="{{ url('/product/obat') }}">
+                              <div class="card card-test bg-dark text-white" style="width:250px; height:250px;">
+                                <img src="{{ url("/images/kategori/obat.png" )}}" alt="Card image cap test" style="size: 100%;">
+                                    <div class="card-img-overlay card-img-overlay-a">
+                                        <center>
+                                          <p class="card-title card-title-a" style="color: #fff;">OBAT</p>
+                                        </center>
+                                    </div>
+                              </div>
+                              </a>
+                            </div>
 
-                            <div class="col-md-4">
-                            <a href="{{ url('/product/makanan') }}">
-                            <div class="card bg-dark text-white">
-                            <img src="{{ url("/images/banners/banner-1.png" )}}" alt="Card image cap test" style="height:12.6em">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text">Last updated 3 mins ago</p>
-                                </div>
-                                </div>
+                            <div class="col-md-4" style="padding-right: 4rem!important">
+                            <a href="{{ url('/product/ulos') }}">
+                              <div class="card card-test bg-dark text-white" style="width:250px; height:250px;">
+                                <img src="{{ url("/images/kategori/ulos.png" )}}" alt="Card image cap test" style="size: 100%;">
+                                    <div class="card-img-overlay card-img-overlay-a">
+                                        <center>
+                                          <p class="card-title card-title-a" style="color: #fff;">ULOS</p>
+                                        </center>
+                                    </div>
+                              </div>
                             </a>
                             </div>
                         </div>
@@ -117,31 +114,31 @@
                             <div class="col-md-2">
 
                             </div>
-                            
+
                             <div class="col-md-4">
-                            <a href="{{ url('/product/aksesoris') }}">   
-                            <div class="card bg-dark text-white">
-                            <img src="{{ url("/images/banners/banner-1.png" )}}" alt="Card image cap test" style="height:12.6em">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text">Last updated 3 mins ago</p>
-                                </div>
-                                </div>
-                            </a>
+                            <a href="{{ url('/product/aksesoris') }}">
+                              <div class="card card-test bg-dark text-white" style="width:250px; height:250px;">
+                                <img src="{{ url("/images/kategori/aksesoris.png" )}}" alt="Card image cap test" style="size: 100%;">
+                                    <div class="card-img-overlay card-img-overlay-a">
+                                        <center>
+                                          <p class="card-title card-title-a" style="color: #fff;">AKSESORIS</p>
+                                        </center>
+                                    </div>
+                              </div>
+                              </a>
                             </div>
 
                             <div class="col-md-4">
-                            <a href="{{ url('/product/obat') }}">   
-                            <div class="card bg-dark text-white">
-                            <img src="{{ url("/images/banners/banner-1.png" )}}" alt="Card image cap test" style="height:12.6em">
-                            <div class="card-img-overlay">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text">Last updated 3 mins ago</p>
-                            </div>
-                            </div>
-                            </a>
+                            <a href="{{ url('/product/makanan') }}">
+                              <div class="card card-test bg-dark text-white" style="width:250px; height:250px;">
+                                <img src="{{ url("/images/kategori/makanan.png" )}}" alt="Card image cap test" style="size: 100%;">
+                                    <div class="card-img-overlay card-img-overlay-a">
+                                        <center>
+                                          <p class="card-title card-title-a" style="color: #fff;">MAKANAN</p>
+                                        </center>
+                                    </div>
+                              </div>
+                              </a>
                             </div>
 
                             <div class="col-md-2">
@@ -149,9 +146,9 @@
                             </div>
                         </div>
                     </div>
-                </div>    
+                  </center>
+                </div>
             </div>
-
     
 
     <!-- <div id="banner">

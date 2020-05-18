@@ -11,9 +11,18 @@
           <div class="card-body p-1">
             <div class="mercant-sidebar-menu">
               <div class="col-md-12 text-center">
-                <div class="imgwrapper mb-3" style="padding: 0px;">
-                  <img src="{{ url("/images/profiles", $user->profile->photo )}}" alt="Card image cap" style="object-fit: scale-down">
+              @if($user->profiles->photo != null)
+                  <div class="imgwrapper mb-3" style="padding: 0px;">
+                    <img src="{{ url("/images/user_profiles/".$user->profiles->photo )}}" alt="Card image cap test" style="object-fit: scale-down">
+                  </div>
+                @else
+                <div class="imgwrapper mb-1" style="padding: 0px; margin : auto">
+                  <img src="#" alt="Belum ada foto" style="object-fit: scale-down">
                 </div>
+                @endif
+                <!-- <div class="imgwrapper mb-3" style="padding: 0px;">
+                  <img src="{{ url("/images/profiles", $user->profile->photo )}}" alt="Card image cap" style="object-fit: scale-down">
+                </div> -->
                 <h6>{{ $user->profile->name }}</h6>
               </div>
             </div>

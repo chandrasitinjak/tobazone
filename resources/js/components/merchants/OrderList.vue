@@ -7,6 +7,11 @@
             <div class="card-header">
               <h6>Order Baru</h6>
             </div>
+
+            <div v-if="transactions.length == 0">
+                <h1>belum ada order baru</h1>                
+            </div>
+            
             <div v-for="transaction in transactions">
               <div class="card-body" style="border-bottom: 1px #c5c5c5 solid; padding-bottom: 10px">
                 <div class="row mt-2">

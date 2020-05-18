@@ -113,7 +113,7 @@
             </div>
           </div>
           <!-- Pagination -->
-          <nav aria-label="navigation">
+          <!-- <nav aria-label="navigation">
             <ul class="pagination mt-50 mb-50">
               <li class="page-item">
                 <a class="page-link" href="#">
@@ -141,7 +141,7 @@
                 </a>
               </li>
             </ul>
-          </nav>
+          </nav> -->
         </div>
       </div>
     </div>

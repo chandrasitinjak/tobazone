@@ -98,6 +98,28 @@ class ProfileController extends Controller
         return view('users.profiles.index')->with('profiles', $profile)->with('data', $data_real);
     }
 
+    public function merchantProfile($id) {
+        $profile = Profile::all()->where('user_id', $id)->first();        
+        
+        $data = json_decode($profile->address);
+
+        $data_real = json_decode($data[0]);
+
+        // echo "hello world";
+        return view('users.merchants.profiles.index')->with('profiles', $profile)->with('data', $data_real);
+    }
+
+    public function merchantEditProfile($id) {
+        $profile = Profile::all()->where('user_id', $id)->first();        
+        
+        $data = json_decode($profile->address);
+
+        $data_real = json_decode($data[0]);
+
+        // echo "hello world";
+        return view('users.merchants.profiles.edit')->with('profiles', $profile)->with('data', $data_real);
+    }
+
     public function editProfile($id) {
         $profile = Profile::all()->where('user_id', $id)->first();        
         
@@ -139,6 +161,31 @@ class ProfileController extends Controller
 
         return redirect('/customer/'.$id.'/myProfil');
     }
+
+    public function storeUpdateMerchant(Request $request, $id) {
+
+
+        $profile = Profile::all()->where('user_id', $id)->first();
+        
+        $image = $request->file('profile_picture');
+        if($image == NULL) {            
+            $profile->name = $request->profile_name;
+            $profile->phone = $request->profile_phone;
+        } else {                            
+            $imageName = time(). $image->getClientOriginalName();
+            $destinationPath = public_path('/images/user_profiles');
+            $image->move($destinationPath, $imageName);
+
+            $profile->name = $request->profile_name;
+            $profile->phone = $request->profile_phone;
+            $profile->photo = $imageName;
+        }
+        
+        $profile->update();
+
+        return redirect('/merchant/'.$id.'/myProfile');
+    }
+
 
 
     public function updateAddress(Request $request, $id) {

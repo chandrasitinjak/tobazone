@@ -4806,7 +4806,8 @@ input[type=submit].btn-block {
 .card-title-a {
     margin-bottom: .75rem;
     font-size: 25px;
-    font-style : bold
+    font-style : bold;
+    padding-top: 5.05rem;
 }
 
 .card-title-a:hover, .card-title-a:focus {

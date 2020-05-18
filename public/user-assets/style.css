@@ -280,6 +280,15 @@ form.example::after {
 
 }
 
+.imgwrapper-a {
+    height: 160px;
+    width: 160px;
+}
+
+.img-circle {
+    border-radius: 80px;
+}
+
 .product .card-text {
     font-size: small;
     margin-bottom: 0;

@@ -51,7 +51,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::get('/unverified', 'HomeController@showUnverifiedPage');
 
     Route::middleware('role:admin')->group(function () {
-        Route::get('/admin', 'AdminController@index');
+    Route::get('/admin', 'AdminController@index');
         Route::post('/merchantconfirmed/{id}', 'MerchantController@updateConfirm');
         Route::get('/admin/new-merchant', 'MerchantController@newMerchant');
         Route::get('/admin/new-order', 'TransactionController@getNewOrder');
@@ -121,6 +121,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/merchant/{id}/succes-orders', 'MerchantController@getSuccesOrder');
         Route::get('/merchant/{id}/view-profile', 'ProfileController@getMerchantProfile');
 
+        Route::get('/merchant/detail-transaction/{id}', 'OrderController@getDetailSuccesOrdersByMerchant');
     });
 
     Route::middleware('role:customer')->group(function () {
@@ -132,6 +133,8 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/customer/{id}/myProfil', 'ProfileController@myProfile');
         Route::get('/customer/{id}/editProfil', 'ProfileController@editProfile');
         Route::post('/customer/{id}/store', 'ProfileController@storeUpdate');
+        Route::get('/customer/{id}/wishlist', 'CartController@myWishlist');
+        Route::post('/wishlist/{id}/delete', 'CartController@deleteWishlist');
     });
 
     Route::middleware('role:costumer|admin')->group(function () {
@@ -151,6 +154,11 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::post('/products/delete/{id}', 'ProductController@destroy');
         Route::post('/products/update/{id}', 'ProductController@update');
         Route::post('/products/store/{id}', 'ProductController@store');
+
+        Route::get('/merchant/{id}/editProfile', 'ProfileController@merchantEditProfile');
+        Route::get('/merchant/{id}/myProfile', 'ProfileController@merchantProfile');
+        Route::post('/merchant/{id}/store', 'ProfileController@storeUpdateMerchant');
+        
 
         Route::prefix('/orders')->group(function () {
             Route::get('/', 'TransactionController@index');

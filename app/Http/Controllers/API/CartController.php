@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Cart;
 use App\User;
+use App\Wishlist;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -46,6 +47,20 @@ class CartController extends Controller
         return response()->json($cart);
     }
 
+    
+    public function addToWishlist(Request $request)
+    {
+        $newData = new Wishlist();
+        $newData->user_id = $request->userId;
+        $newData->product_id = $request->productId;
+        $newData->save();
+    }
+
+    public function cekWishlist($userId, $productId) {        
+
+        $data = Wishlist::all()->where('product_id', $productId)->where('user_id', $userId);
+        return response()->json($data);
+    }
     /**
      * Display the specified resource.
      *

@@ -10,7 +10,7 @@
 
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <!-- <li>
+              <li>
                 <a
                     class="nav-link dropdown-toggle"
                     id="navbarDropdown"
@@ -19,16 +19,16 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                 >Kategori</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" @click="filterProductByCategory('ulos')">Ulos</a>
-                  <a class="dropdown-item" @click="filterProductByCategory('pakaian')">Pakaian</a>
-                  <a class="dropdown-item" @click="filterProductByCategory('makanan')">Makanan</a>
-                  <a class="dropdown-item" @click="filterProductByCategory('obat')">Obat</a>
-                  <a class="dropdown-item" @click="filterProductByCategory('aksesoris')">Aksesoris</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: 7rem;">
+                  <a class="dropdown-item" @click="filterProductByCategory('ATBM')">Alat Tenun Bukan Mesin</a>
+                  <a class="dropdown-item" @click="filterProductByCategory('Tradisional')">Tradisional</a>
+                  <a class="dropdown-item" @click="filterProductByCategory('Mesin')">Mesin</a>
+                  
+                  
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" @click="filterProductByCategory('')">Semua kategori</a>
                 </div>
-              </li> -->
+              </li>
               <li>
                 <a
                     class="nav-link dropdown-toggle"
@@ -38,7 +38,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                 >Urutkan Berdasarkan</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="left: 12rem;">
                   <a class="dropdown-item" @click="sortProductByName('asc')">Nama A-Z</a>
                   <a class="dropdown-item" @click="sortProductByName('des')">Nama Z-A</a>
                   <a class="dropdown-item" @click="sortProductByPrice('asc')">Harga Termurah</a>
@@ -132,7 +132,7 @@ export default {
     },
     filterProductByCategory(category) {
       this.products = this.orginalProductsData.filter(product =>
-        product.cat_product.includes(category)
+        product.category.includes(category)
       );
     },
     sortProductByName(type) {
@@ -153,7 +153,7 @@ export default {
         });
       } else {
         this.products = this.orginalProductsData.sort((a, b) => {
-          return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
+          return parseInt(a.price) < parseInt(b.price) ? 1 : -1;
         });
       }
     },

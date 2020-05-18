@@ -44,9 +44,9 @@
                 <div class>
                   <div class="card-body">
                     <div class="text-muted">Transfer pembayaran ke nomor Virtual Account :</div>
-                    <img src="/images/assets/BRI.png" style="height: 30px; display: inline" alt>
-                    <h4 style="display: inline">031401003328537</h4>
-                    <br>a/n Anggiat Saut Parulian
+                    <img src="/images/assets/mandiri.jpg" style="height: 30px; display: inline" alt>
+                    <h4 style="display: inline">1060012275478</h4>
+                    <br>a/n Ruth Elvin Harianja
                     <div class="mt-3 text-muted">Jumlah yang harus dibayar :</div>
                     <h5 style="color: #ff5205">Rp {{ formatPrice( getTotalPayment(transaction.payment) )}}</h5>
                   </div>
@@ -184,7 +184,7 @@ export default {
         )
         .then(res => {
           this.transaction = res.data;
-          this.deadline = moment(this.transaction.created_at).add(1, "minutes");
+          this.deadline = moment(this.transaction.created_at).add(1, "days");
         })
         .catch(err => {
           console.log(err);

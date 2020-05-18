@@ -21,7 +21,7 @@ Route::resource('products', 'API\ProductController');
 Route::get('/merchant/products/{id}', 'API\ProductController@getProducts');
 Route::resource('/transactions', 'API\TransactionController');
 Route::resource('carts', 'API\CartController');
-
+Route::post('wishlist', 'API\CartController@addToWishlist');
 // Route::post('wishlist', 'API\CartController@addToWishlist');
 
 Route::get('/carts/user/{id}', 'API\CartController@getUserCart');
@@ -45,6 +45,8 @@ Route::get('/product/makanan', 'API\ProductController@searchMakanan');
 Route::get('/product/obat', 'API\ProductController@searchObat');
 Route::get('/product/aksesoris', 'API\ProductController@searchAksesoris');
 Route::post('/product/{id}/review', 'API\ProductController@addReview');
+Route::post('/rating', 'API\RatingController@setRating')->name('setRating');
+Route::get('/rating/{id}', 'API\RatingController@getRating')->name('getRating');
 
 
 // Route::post('/transaction/{id}/update-status', 'API\TransactionController@updateTransactionStatus');
@@ -52,3 +54,5 @@ Route::post('/transaction/{id}/confirmByUser', 'API\TransactionController@confir
 
 // Route::get('/merchant/{id}/onprocess-orders', 'API\OrderController@getOnProcessOrdersByMerchant');
 Route::get('/merchant/{id}/success-orders', 'API\OrderController@getSuccesOrdersByMerchant');
+// Route::get('/merchant/detail-transaction/{id}', 'API\OrderController@getDetailSuccesOrdersByMerchant');
+Route::get('/customer/{userId}/wishlists/{productId}', 'API\CartController@cekWishlist');

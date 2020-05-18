@@ -1,6 +1,6 @@
 @extends('users.layouts.app')
 @section('content')
-<div class="row">
+<div class="row" style="padding: 2rem 0 2rem">
     <div class="col-md-3 col-lg-3">
       <div class="merchant-sidebar">
         <div class="card globalcard">
@@ -8,15 +8,14 @@
             <div class="mercant-sidebar-menu">
               <div class="col-md-12 text-center">
                 @if($profiles->photo != null)
-                  <div class="imgwrapper mb-3" style="padding: 0px;">
+                  <div class="imgwrapper imgwrapper-a mb-3 img-circle" style="padding: 0px;">
                     <img src="{{ url("/images/user_profiles/".$profiles->photo )}}" alt="Card image cap test" style="object-fit: scale-down">
                   </div>
                 @else
-                <div class="imgwrapper mb-1" style="padding: 0px; margin : auto">
-                  <img src="#" alt="Belum ada foto" style="object-fit: scale-down">
+                <div class="imgwrapper imgwrapper-a mb-1 img-circle" style="padding: 0px; margin : auto">
+                  <img src="/images/profile.png" style="object-fit: scale-down">
                 </div>
                 @endif
-                <h6> {{ $profiles->name }} </h6>
               </div>
             </div>
           </div>
@@ -24,30 +23,52 @@
       </div>
     </div>
     <div class="col-md-9 col-lg-9">
+        <h6 style="margin-left:-15px; margin-bottom:15px"> {{ $profiles->name }} </h6>
         <div class="row">
-            <p>Nama Alamat</p> <br>
+            <p style="width: 350px">
+              <b>Nomor HP &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</b> &nbsp&nbsp&nbsp&nbsp {{ $profiles->phone }}
+            </p>
+        </div>
+        <div class="row">
+            <p style="width: 350px">
+              <b>Jenis Kelamin &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</b> &nbsp&nbsp&nbsp&nbsp {{$profiles->gender }}
+            </p>
+        </div>
+
+        <div class="row">
+            <p>Alamat</p>
             {{ $data->name}}
         </div>
-        <div class="row">
-            <p>Provinsi</p> :  {{ $data->province_name}} <br>
-            <p>Kabupaten/kota </p> :  {{ $data->city_name}} <br>            
-            <p>Kecamatan </p> :  {{ $data->subdistrict_name}} <br>
-            <p>Kode Pos </p> :  {{ $data->postal_code}} <br>
-            <p>Alamat detail </p> :  {{ $data->detail}} <br>            
-        </div>
-        <div class="row">
-            <p>nomor hp</p> <br>
-            {{ $profiles->phone }}
-        </div>
+
 
         <div class="row">
-            <p>Jenis Kelamin</p> <br>
-            {{ $profiles->gender }}
-        </div>      
-
+            <p style="width: 350px">
+              <b>Provinsi &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</b> &nbsp&nbsp&nbsp&nbsp {{ $data->province_name}}
+            </p>
+        </div>
         <div class="row">
-            <a href="{{ url('/customer/'.$profiles->user_id.'/editProfil') }}" class="btn btn-success">ubah profil</a>
-        </div>         
+            <p style="width: 350px">
+              <b>Kabupaten/kota &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</b> &nbsp&nbsp&nbsp&nbsp {{ $data->city_name}}
+            </p>
+        </div>
+        <div class="row">
+            <p style="width: 350px">
+              <b>Kecamatan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</b> &nbsp&nbsp&nbsp&nbsp {{ $data->subdistrict_name}}
+            </p>
+        </div>
+        <div class="row">
+            <p style="width: 350px">
+              <b>Kode Pos &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</b> &nbsp&nbsp&nbsp&nbsp {{ $data->postal_code}}
+            </p>
+        </div>
+        <div class="row">
+            <p style="width: 350px">
+              <b>Alamat Rinci &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</b> &nbsp&nbsp&nbsp&nbsp {{ $data->detail}}
+            </p>
+        </div>
+        <div class="row" style="padding-top:15px">
+            <a href="{{ url('/customer/'.$profiles->user_id.'/editProfil') }}" class="btn essence-btn">ubah profil</a>
+        </div>
     </div>
   </div>
 @endsection

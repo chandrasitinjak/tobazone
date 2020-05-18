@@ -23,7 +23,7 @@
                       </li>
                   </ul>                  
                 </li>
-                <li><a href="">Produk terjual</a></li>
+                <!-- <li><a href="">Produk terjual</a></li> -->
               </ul>
             </li>
             <!-- Single Item -->
@@ -33,8 +33,8 @@
                 <li><a href="{{ url('/merchant/' . Auth::user()->id . '/new-orders') }}">Order Masuk</a></li>
                 <li><a href="{{ url('/merchant/' . Auth::user()->id . '/ongoing-orders') }}">Order yang Sedang Diproses</a></li>
                 <li><a href="{{ url('/merchant/' . Auth::user()->id . '/succes-orders') }}">Order Berhasil</a></li>
-                <li><a href="#">Order Dibatalkan</a></li>
-                <li><a href="#">Order Gagal</a></li>
+                <!-- <li><a href="#">Order Dibatalkan</a></li>
+                <li><a href="#">Order Gagal</a></li> -->
               </ul>
             </li>
             {{--<li data-toggle="collapse" data-target="#penjualan" class="collapsed">--}}

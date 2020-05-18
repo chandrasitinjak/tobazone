@@ -17,7 +17,8 @@ class CreateTransactionsTable extends Migration
             $table->increments('id');
             $table->integer('customer_id')->unsigned();
             $table->integer('merchant_id')->unsigned();
-            $table->string('shipping_number')->nullable();
+            $table->string('shipping_number')->nullable();            
+            $table->string('courier');
             $table->string('address');
             $table->string('status');
             $table->integer('confirm_user')->default(0);

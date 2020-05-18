@@ -121,6 +121,9 @@
                                     <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/myProfil') }}">My Profile</a>
                                 </li>
                                 <li>
+                                    <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/wishlist') }}">My Wishlist</a>
+                                </li>
+                                <li>
                                     <form method="POST" action="{{ url('/logout')}}">
                                         {{ csrf_field() }}
                                         <button type="submit" class="btn nav-link"
@@ -179,10 +182,7 @@
                                 {{--aria-haspopup="true" aria-expanded="false">--}}
                                 {{--<img width="25" src="/user-assets/img/core-img/user.svg" alt="">--}}
                                 {{--</a>--}}
-
-
-                                <a class="dropdown-item" href="#"></i>My Profile</a>
-
+                                <a class="dropdown-item" href="{{ url('/merchant/'.Auth::user()->id.'/myProfile') }}"></i>My Profile</a>
                             </div>
 
 
@@ -257,7 +257,7 @@
                         <div class="user-menu dropdown-menu mt-2" style="border: 1px solid #e0e0e0; left: -70px;">
                             <ul class="dropdown">
                                 <li>
-                                    <a class="nav-link" href="#">My Profile</a>
+                                    <a class="nav-link" href="{{ url('/merchant/'.Auth::user()->id.'/myProfile') }}">My Profile</a>
                                 </li>
                                 <li>
                                     <form method="POST" action="{{ url('/logout')}}">
@@ -283,34 +283,35 @@
     <ul class="navbar-nav">
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <!-- <a class="nav-link dropdown" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+        <a class="nav-link dropdown" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
           Pakaian
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Pria</a>
-          <a class="dropdown-item" href="#">Wanita</a>
+          <!-- <a class="dropdown-item" href="#">Pria</a> -->
+          <!-- <a class="dropdown-item" href="#">Wanita</a> -->
           <!-- <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Bahan Spesial</a> -->
         </div>
       </li>
       <li class="nav-item dropdown" style="margin-left: 3rem">
-        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown" href="{{ url('/product/aksesoris') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
           Aksesoris
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Buatan Tangan</a>
-          <a class="dropdown-item" href="#">Buatan Mesin</a>
+          <!-- <a class="dropdown-item" href="#">Buatan Tangan</a> -->
+          <!-- <a class="dropdown-item" href="#">Buatan Mesin</a> -->
           <!-- <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Recomended Aksesoris</a> -->
         <!-- </div> -->
       </li>
       <li class="nav-item dropdown" style="margin-left: 3rem">
-        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown" href="{{ url('/product/makanan') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
           Makanan
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Basah</a>
-          <a class="dropdown-item" href="#">Kering</a>
+          <!-- <a class="dropdown-item" href="#">Basah</a> -->
+          <!-- <a class="dropdown-item" href="#">Kering</a> -->
           <!-- <a class="dropdown-item" href="#">Sarune</a>
           <a class="dropdown-item" href="#">Seruling</a>
           <div class="dropdown-divider"></div>
@@ -318,23 +319,23 @@
         </div>
       </li>
       <li class="nav-item dropdown" style="margin-left: 3rem">
-        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown" href="{{ url('/product/obat') }}" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
           Obat
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Cair</a>
-          <a class="dropdown-item" href="#">Padat</a>
+          <!-- <a class="dropdown-item" href="#">Cair</a> -->
+          <!-- <a class="dropdown-item" href="#">Padat</a> -->
           <!-- <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Costum</a>
         </div> -->
       </li>
       <li class="nav-item dropdown" style="margin-left: 3rem">
-        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown" href="{{ url('/product/ulos') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
           Ulos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Tradisional</a>
-          <a class="dropdown-item" href="#">Mesin</a>
+          <!-- <a class="dropdown-item" href="#">Tradisional</a> -->
+          <!-- <a class="dropdown-item" href="#">Mesin</a> -->
           <!-- <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Costum</a>
         </div> -->

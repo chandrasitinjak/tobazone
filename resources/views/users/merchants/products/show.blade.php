@@ -50,10 +50,9 @@
               </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-7">
               <button type="button" class="badge custom-badge font-weight-light" data-toggle="test" data-rigger="focus" data-content="<b><a href='single-blog.html'>Klik disini</a></b>  untuk informasi selebihnya "
                 data-html="true" title="Dibuat dengan {{$product->category}} ">
-
                 {{$product->category}}
               </button>
 
@@ -74,7 +73,7 @@
               <p class="product-desc">Obat ini merupakan obat {{$product->category}}</p>
               @endif
               
-              <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} kg</h6>
+              <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} gram</h6>
 
 
               @if($product['cat_product'] == "ulos")
@@ -104,10 +103,21 @@
               </div>
 
               @else @if(Auth::check())
+              <div class="row">
+              
+              <div class="col-md-5">                
               <div id="add-to-cart-button">
                 <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />~
               </div>
+              </div>
 
+              <div class="col-md-6">              
+              <div id="add-to-wishlist-button">
+                <add-to-wishlist-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />
+              </div>
+              </div>
+
+              </div>
               <!-- <div id="add-to-cart-button">
                 <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />~                
               </div> -->
@@ -148,6 +158,11 @@
                   </div>
 
                   <div class="tab-pane fade ulasan" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    @if (Auth::check())
+                      <div id="user-rating" style="margin-bottom: 25px;">
+                        <user-rating :product="{{ $product->id }}" :user="{{ Auth::user()->id }}" :rating="{{ $product->rating }}"/>
+                      </div>
+                    @endif
                     @if($product->review === null)
                     <div class="text-sm-center">
                       <img src="" alt="">

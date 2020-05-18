@@ -23,9 +23,11 @@
                    aria-expanded="false"
                 >Kategori</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" @click="filterProductByCategory('ATBM')">Alat Tenun Bukan Mesin</a>
-                  <a class="dropdown-item" @click="filterProductByCategory('Tradisional')">Tradisional</a>
-                  <a class="dropdown-item" @click="filterProductByCategory('Mesin')">Mesin</a>
+                  <a class="dropdown-item" @click="filterProductByCategory('ulos')">Ulos</a>
+                  <a class="dropdown-item" @click="filterProductByCategory('pakaian')">Pakaian</a>
+                  <a class="dropdown-item" @click="filterProductByCategory('makanan')">Makanan</a>
+                  <a class="dropdown-item" @click="filterProductByCategory('aksesoris')">Aksesoris</a>
+                  <a class="dropdown-item" @click="filterProductByCategory('obat')">Obat</a>
                   <div class="dropdown-divider"></div>
                   <a  class="dropdown-item" @click="filterProductByCategory('')">Semua kategory</a>
                 </div>
@@ -70,8 +72,8 @@
                 </div>
 
               <div class="card-body">
-                <p class="card-title productname">{{ product.name }}</p>
-                <h6 style="color: #ff5205">Rp {{ product.price }}</h6>
+                <p class="card-title productname" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20ex;">{{ product.name }}</p>
+                <h6 style="color: #ff5205">Rp {{ formatPrice(product.price) }}</h6>
                 <p class="card-text float-right">
                   <small class="text-muted">Stock {{ product.stock }}</small>
                 </p>
@@ -107,6 +109,12 @@ export default {
           console.log(err);
         });
     },
+    
+    formatPrice(value) {
+          let val = (value/1).toFixed().replace('.', ',')
+          return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    },
+
     filterProductByName() {
       this.products = this.orginalProductsData.filter(product =>
         product.name.includes(this.searchName)
@@ -114,7 +122,7 @@ export default {
     },
     filterProductByCategory(category) {
       this.products = this.orginalProductsData.filter(product =>
-        product.category.includes(category)
+        product.cat_product.includes(category)
       );
     },
     sortProductByName(type) {
@@ -131,11 +139,11 @@ export default {
     sortProductByPrice(type) {
       if (type === "asc") {
         this.products = this.orginalProductsData.sort((a, b) => {
-          return a.price > b.price ? 1 : -1;
+            return parseInt(a.price) > parseInt(b.price) ? 1 : -1;
         });
       } else {
         this.products = this.orginalProductsData.sort((a, b) => {
-          return a.price < b.price ? 1 : -1;
+          return parseInt(a.price) < parseInt(b.price) ? 1 : -1;
         });
       }
     },

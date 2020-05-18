@@ -72,6 +72,8 @@ export default {
       EventBus.$on("FINAL_TRANSACTION_DETAIL", finalPaymentDetail => {
         this.finalPaymentDetail = finalPaymentDetail;        
       });
+
+      console.log(this.finalPaymentDetail);
     },
     createOrder() {
       this.disable = true

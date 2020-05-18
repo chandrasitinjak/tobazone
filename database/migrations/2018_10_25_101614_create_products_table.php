@@ -24,7 +24,9 @@ class CreateProductsTable extends Migration
             $table->integer('sold')->default(0);
             $table->string('description');
             $table->string('specification');
-            $table->string('color');
+            $table->string('color');            
+            $table->string('cat_product');            
+            $table->string('asal');
 
             $table->softDeletes();
             $table->timestamps();

@@ -40,13 +40,15 @@ class OrderController extends Controller
 
     public function getSuccesOrdersByMerchant($id) {    
 
-        $trasactions = Transaction::with(['orders', 'orders.product', 'payment'])
+        $trasactions = Transaction::with(['customer_info','orders', 'orders.product', 'payment'])
                                   ->where('merchant_id', $id)
                                   ->where('confirm_user', 1)
                                   ->whereIn('status', ['orderSuccessed'])
                                   ->get();  
-                                          
+                                                  
         // return response()->json($trasactions);
-        return $trasactions;
+        return response()->json($trasactions);
     }
+
+    
 }

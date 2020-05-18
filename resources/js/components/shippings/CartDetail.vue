@@ -92,13 +92,14 @@ export default {
               name: merchantName,
               id: cart.product.merchant.id,
               address: JSON.parse(JSON.parse(merchantAddress)[0]),
+              // totalWeight : 2200,
               // totalWeight: 1000 * cart.total * JSON.parse(cart.product.specification).weight,
-
               totalWeight: cart.total * JSON.parse(cart.product.specification).weight,
               totalProductCost: cart.product.price * cart.total,
               totalShippingCost: 0,
               courier_used: "",
               estimate_waktu: "",
+              courier_code: "",
               products: [
                 {
                   productId: cart.product.id,
@@ -110,7 +111,8 @@ export default {
           } else {
             this.merchants.forEach(merchant => {
               if(merchant.name === merchantName) {
-                merchant.totalProductCost += cart.product.price * cart.total
+                merchant.totalProductCost += cart.product.price * cart.total;
+                merchant.totalWeight += cart.total * JSON.parse(cart.product.specification).weight
                 merchant.products.push(
                   {
                     productId: cart.product.id,
@@ -123,7 +125,7 @@ export default {
           }
         })        
       );
-      console.log(this.carts);
+      // console.log(this.merchants);
       
       this.publishMerchantsListEvent(this.merchants)
     },
@@ -134,6 +136,7 @@ export default {
           let shippingCost = 0;
           let courier_used = "";
           let estimasi_waktu = "";
+          let courier_code = "";
 
           const payload = {
             origin: merchant.address.subdistrict_id,
@@ -153,6 +156,7 @@ export default {
                 shippingCost = res.data.rajaongkir.results[i].costs[0].cost[0].value;
                 estimasi_waktu = res.data.rajaongkir.results[i].costs[0].cost[0].etd;
                 courier_used = res.data.rajaongkir.results[i].name;
+                courier_code = res.data.rajaongkir.results[i].code;
                 break;
                 }
               }            
@@ -161,6 +165,7 @@ export default {
           merchant.totalShippingCost = shippingCost;
           merchant.courier_used = courier_used;
           merchant.estimate_waktu = estimasi_waktu;
+          merchant.courier_code = courier_code;
         })
       );
 
@@ -170,6 +175,8 @@ export default {
         customerId: this.userId,
       }
 
+
+      // console.log(transactionDetail);
       this.publishFinalTransactionDetail(transactionDetail);
     },
 

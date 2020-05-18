@@ -12,7 +12,7 @@
           <div class="row">
             <div class="col-lg-3 col-sm-3 d-none d-sm-block store-image px-0">
               <div class="imgwrapper">
-                <img src="{{ url('/images/assets/no-image.jpg') }}" alt="">
+                <img src="{{ url("/images/user_profiles/".$merchant->profile        ->photo )}}" alt="">
               </div>
             </div>
             <div class="col-md-9 col-sm-12 store-name pl-0">
@@ -20,15 +20,16 @@
                 <div class="col-10 col-sm-8 col-md-10">
                   <h5 class="mb-0"> {{ $merchant->profile->name }}</h5>
                 </div>
+
                 <div class="col-2 ">
+                  <a href="{{ url('/merchant/'.$merchant->id.'/editProfile') }}">
                   <button type="submit" class="btn btn-primary btn-sm float-right">
                       <i class="fa fa-gear"></i> Edit
                     </button>
+                    </a>
                 </div>
               </div>
-
               <p> Horas Mamangke Mangomo Partiga-tiga </p>
-
               <div class="store-desc">
                 <i class="fa fa-map mr-1"></i> {{$merchant->profile->address->subdistrict_name}} {{", " . $merchant->profile->address->city_name}}
                 {{", " . $merchant->profile->address->province_name}} <br>
