@@ -36,13 +36,13 @@
                 <div class="col-md-4">
                     <div class="row">
                         <div class="col-md-12" style="padding-left:0.5rem">
-                            <img src="{{ url("/images/banners/banner-1.png" )}}" alt="Card image cap test" style="height:12.6em">
+                            <img src="{{ url("/images/carousels/carouselsamping1.png" )}}" alt="Card image cap test" style="height:12.6em">
                         </div>                        
                     </div>
 
                     <div class="row pt-2 pr-0">
                     <div class="col-md-12" style="padding-left:0.5rem">
-                            <img src="{{ url("/images/banners/banner-1.png" )}}" alt="Card image cap test" style="height:12.6em">
+                            <img src="{{ url("/images/carousels/carouselsamping2.png" )}}" alt="Card image cap test" style="height:12.6em">
                         </div>
                     </div>
                 </div>                

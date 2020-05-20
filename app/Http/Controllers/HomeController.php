@@ -24,6 +24,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function showUnverifiedPage() {
+        return view('users.merchants.unverified');
+    }
+
     public function index()
     {
         $user = Auth::user();
@@ -40,7 +44,5 @@ class HomeController extends Controller
         return view('users.homes.index');
     }
 
-    public function showUnverifiedPage() {
-        return view('users.merchants.unverified');
-    }
+    
 }
