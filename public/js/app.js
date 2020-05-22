@@ -79571,9 +79571,19 @@ var render = function() {
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "card-body" }, [
-                            _c("p", { staticClass: "card-title productname" }, [
-                              _vm._v(_vm._s(product.name))
-                            ]),
+                            _c(
+                              "p",
+                              {
+                                staticClass: "card-title productname",
+                                staticStyle: {
+                                  "white-space": "nowrap",
+                                  overflow: "hidden",
+                                  "text-overflow": "ellipsis",
+                                  "max-width": "20ex"
+                                }
+                              },
+                              [_vm._v(_vm._s(product.name))]
+                            ),
                             _vm._v(" "),
                             _c("h6", { staticStyle: { color: "#ff5205" } }, [
                               _vm._v(

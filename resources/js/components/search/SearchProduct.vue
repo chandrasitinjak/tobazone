@@ -70,7 +70,7 @@
                   </div>
                 </a>
                 <div class="card-body">
-                  <p class="card-title productname">{{ product.name }}</p>
+                  <p class="card-title productname" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20ex;">{{ product.name }}</p>
                   <h6 style="color: #ff5205">Rp {{formatPrice( product.price )}}</h6>
                   <p class="card-text float-right">
                     <small class="text-muted"> {{ product.merchant.profile.name }}</small>
