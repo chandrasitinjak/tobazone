@@ -87,13 +87,13 @@
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Warna Dasar</label>
                                         <select class="form-control" name="color" aria-describedby="warnadasar">
-                                                <option value="black"> Hitam</option>
-                                                <option value="red"> Merah</option>
-                                                <option value="blue"> Biru</option>
-                                                <option value="white"> Putih</option>
-                                                <option value="purple"> Ungu</option>
-                                                <option value="green"> Hijau</option>
-                                                <option value="brown"> Cokelat</option>
+                                                <option value="Hitam"> Hitam</option>
+                                                <option value="Merah"> Merah</option>
+                                                <option value="Biru"> Biru</option>
+                                                <option value="Putih"> Putih</option>
+                                                <option value="Ungu"> Ungu</option>
+                                                <option value="Hijau"> Hijau</option>
+                                                <option value="Cokelat"> Cokelat</option>
                                             </select>
                                         <small id="warnadasar" class="form-text text-muted">
                                             Pilih warna yang paling dominan

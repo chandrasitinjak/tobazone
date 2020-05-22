@@ -6,7 +6,7 @@
                 <ul>
                     <li></li>
                 </ul>
-                <p> Kami menjual Tenun Ulos terbaik dari Penenun terbaik Nusantara </p>
+                <p> Kami Menjual Produk Lokal Toba </p>
             </div>
             <div class="col-12 col-md-4 mb-3">
                 <div class="row">
@@ -17,7 +17,7 @@
                                 <a href="/carabelanja">Cara Berbelanja</a>
                             </li>
                             <li>
-                                <a href="/carabelanja">Cara Pembayaran</a>
+                                <a href="/carabayar">Cara Pembayaran</a>
                             </li>
                         </ul>
                     </div>

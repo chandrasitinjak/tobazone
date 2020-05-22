@@ -76,23 +76,32 @@
                                 
                                 <div class="col-4">
                                     <label class="label"> Berat </label>
-                                    <input class="form-control" type="number" min="1" max="3" name="weight" value="{{ json_decode($product->specification)->weight }}"/>
+                                    <input class="form-control" type="number" min="1" name="weight" value="{{ json_decode($product->specification)->weight }}"/>
+                                    <small id="warnadasar" class="form-text text-muted">
+                                        Berat dalam satuan gram
+                                    </small>
                                 </div>
                                 <div class="col-4">
-                                    <label class="label"> Warna </label>
+                                    <label class="label"> Warna Dasar</label>
                                     <select class="form-control" name="color">
-                                            <option value="black"> Hitam</option>
-                                            <option value="red"> Merah</option>
-                                            <option valie="blue"> Biru</option>
+                                    <option value="{{ $product->color }}"> {{ $product->color }} </option>
+                                    <option value="Hitam"> Hitam</option>
+                                                <option value="Merah"> Merah</option>
+                                                <option value="Biru"> Biru</option>
+                                                <option value="Putih"> Putih</option>
+                                                <option value="Ungu"> Ungu</option>
+                                                <option value="Hijau"> Hijau</option>
+                                                <option value="Cokelat"> Cokelat</option>
                                         </select>
                                 </div>
                                 <div class="col-4 mt-4">
-                                    <label class="label"> Pakaian Untuk </label>
-                                    <select class="form-control" name="category">
-                                            <option value="-">-</option>
-                                            <option value="Pria"> Pria</option>
-                                                <option value="Wanita"> Wanita</option>                                                
-                                        </select>
+                                     <label class="label"> Metode Pembuatan </label>
+                                        <select class="form-control" name="category">
+                                                <option value="{{ $product->category }}">{{ $product->category }}</option>
+                                                <option value="ATBM"> Alat Tenun Bukan Mesin</option>
+                                                <option value="Tradisional"> Tradisional</option>
+                                                <option value="Mesin"> Mesin</option>
+                                            </select>
                                 </div>
                             </div>                            
                             @elseif($product['cat_product'] == "pakaian")
@@ -104,7 +113,10 @@
                                 
                                 <div class="col-4">
                                     <label class="label"> Berat </label>
-                                    <input class="form-control" type="number" min="1" max="3" name="weight" value="{{ json_decode($product->specification)->weight }}"/>
+                                    <input class="form-control" type="number" min="1" name="weight" value="{{ json_decode($product->specification)->weight }}"/>
+                                    <small id="warnadasar" class="form-text text-muted">
+                                        Berat dalam satuan gram
+                                    </small>
                                 </div>
                                 <div class="col-4">
                                     <label class="label"> Warna </label>
@@ -136,9 +148,9 @@
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Berat </label>
-                                        <input class="form-control" type="number" min="1" max="3" name="weight" aria-describedby="warnadasar" placeholder="/g" value="{{ json_decode($product->specification)->weight }}" />
+                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/g" value="{{ json_decode($product->specification)->weight }}" />
                                         <small id="warnadasar" class="form-text text-muted">
-                                            Berat digenapkan ke gram
+                                            Berat dalam satuan gram
                                         </small>
                                     </div>
 
@@ -182,9 +194,9 @@
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Berat </label>
-                                        <input class="form-control" type="number" min="1" max="3" name="weight" aria-describedby="warnadasar" placeholder="/kg" value="{{ json_decode($product->specification)->weight}}" />
+                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/g" value="{{ json_decode($product->specification)->weight}}" />
                                         <small id="warnadasar" class="form-text text-muted">
-                                            Berat digenapkan ke kilogram
+                                            Berat dalam satuan gram
                                         </small>
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4">
@@ -204,12 +216,11 @@
                                         </small>
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4 mt-4">
-                                        <label class="label"> Metode Pembuatan </label>
-                                        <select class="form-control" name="category">
-                                                <option value="{{ $product->category }}">{{ $product->category }}</option>
-                                                <option value="Diukir"> Diukir</option>
-                                                <option value="Tradisional"> Tradisional</option>
-                                                <option value="Mesin"> Mesin</option>
+                                    <label class="label"> Jenis </label>
+                                        <select class="form-control" name="category">                                                
+                                                <option value="{{ $product->category }}"> {{ $product->category }} </option>    
+                                                <option value="Buatan Tangan"> Buatan Tangan</option>
+                                                <option value="Buatan Mesin"> Buatan Mesin </option>                                                
                                             </select>
                                     </div>
                                 </div>
@@ -219,7 +230,7 @@
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Jenis </label>
                                         <!-- <input class="form-control" type="text" name="dimention" placeholder="Cth: Cair, Padat" /> -->
-                                        <select onchange="cek_jenis()" id="jeniss"class="form-control" name="dimention" aria-describedby="warnadasar">
+                                        <select onchange="cek_jenis()" id="jeniss" class="form-control" name="dimention" aria-describedby="warnadasar">
                                                 <option value="{{ json_decode($product->specification)->jenis}}"> {{ json_decode($product->specification)->jenis}} </option>
                                                 <option value="Padat"> Padat</option>
                                                 <option value="Cair"> Cair</option>                                                
@@ -227,30 +238,27 @@
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Berat </label>
-                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/kg" value="{{ json_decode($product->specification)->weight}}"/>
+                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/g" value="{{ json_decode($product->specification)->weight}}"/>
                                         <small id="warnadasar" class="form-text text-muted">
-                                            Berat digenapkan ke gram
+                                            Berat dalam satuan gram
                                         </small>
                                     </div>
-                                    <div class="col-12 col-md-4 col-lg-4" style="display:none" id="vol">
-                                        <label class="label"> Volume </label>
+                                    <div class="col-12 col-md-4 col-lg-4">
+                                        <label class="label" style="color : white">  asdhkjashdkjsha </label>
                                         <input class="form-control" type="text" name="color" placeholder="/ml" value="{{ $product->color }}" />
-                                        <small id="warnadasar" class="form-text text-muted">
+                                        <small id="warnadasar11" style="display:none" class="form-text text-muted">
                                             Volume dalam satuan mililiter()
+                                        </small>
+
+                                        <small id="warnadasar12" style="display:none" class="form-text text-muted">
+                                            cth : 20cmx90cm
                                         </small>
                                     </div>
                                     <!-- <div class="col-12 col-md-4 col-lg-4" style="display:none" id="vol">
                                         <label class="label"> Volume </label>
                                         <input class="form-control" type="text" name="color" placeholder="/ml" />
                                     </div>                                     -->
-                                    <div class="col-12 col-md-4 col-lg-4">
-                                        <label class="label"> Kategori </label>
-                                        <select class="form-control" name="category">
-                                                <option value="{{ $product->category }}"> {{ $product->category }} </option>
-                                                <option value="Herbal"> Herbal</option>
-                                                <option value="Tradisional"> Tradisional</option>                                                
-                                            </select>
-                                    </div>
+                                    
                                 </div>
                             @endif
                         </div>
@@ -343,9 +351,11 @@
 
   function cek_jenis() {
         if(document.getElementById("jeniss").value == "Cair") {
-            document.getElementById("vol").style.display="block"
+            document.getElementById("warnadasar11").style.display="block";
+            document.getElementById("warnadasar12").style.display="none";
         } else {
-            document.getElementById("vol").style.display="none"
+            document.getElementById("warnadasar12").style.display="block"
+            document.getElementById("warnadasar11").style.display="none";
         } 
     }
 

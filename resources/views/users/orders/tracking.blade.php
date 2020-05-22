@@ -11,9 +11,9 @@
           <div class="card-body p-1">
             <div class="mercant-sidebar-menu">
               <div class="col-md-12 text-center">
-              @if($user->profiles->photo != null)
+              @if($user->profile->photo != null)
                   <div class="imgwrapper mb-3" style="padding: 0px;">
-                    <img src="{{ url("/images/user_profiles/".$user->profiles->photo )}}" alt="Card image cap test" style="object-fit: scale-down">
+                    <img src="{{ url("/images/user_profiles/".$user->profile->photo )}}" alt="Card image cap test" style="object-fit: scale-down">
                   </div>
                 @else
                 <div class="imgwrapper mb-1" style="padding: 0px; margin : auto">

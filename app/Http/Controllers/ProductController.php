@@ -209,8 +209,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->name = $request->name;
         $product->price = $request->price;
-        $product->description = $request->description;
-        $product->category = $request->category;
+        $product->description = $request->description;        
         
         // echo $request->dimention. " " . $request->color;
 
@@ -220,6 +219,7 @@ class ProductController extends Controller
                 'weight' => $request->weight
             ]);
             $product->color = $request->color;
+            $product->category = $request->category;
         } else if($product->cat_product == "pakaian") {
             $product->specification = json_encode([
                 'size' => $request->dimention,
@@ -227,18 +227,21 @@ class ProductController extends Controller
             ]);
 
             $product->color = $request->color;
+            $product->category = $request->category;
         } else if($product->cat_product == "makanan") {
             $product->specification = json_encode([
                 'size_pack' => $request->dimention,
                 'weight' => $request->weight,
                 'umur_simpan' => $request->color
             ]);
+            $product->category = $request->category;
         } else if($product->cat_product == "aksesoris") {
             $product->specification = json_encode([
                 'size' => $request->dimention,
                 'weight' => $request->weight
             ]);
             $product->color = $request->color;
+            $product->category = $request->category;
         } else if($product->cat_product == "obat") {
             $product->specification = json_encode([
                 'jenis' => $request->dimention,
@@ -246,11 +249,13 @@ class ProductController extends Controller
             ]);
 
             if($request->dimention == "Padat") {
-                $product->color = "-";
+                $product->color = $request->color;
             }
             else if($request->dimention == "Cair") {
                 $product->color = $request->color;
             }
+
+            $product->category = "-";
         } 
         
         

@@ -16,10 +16,10 @@
         <table class="table mt-3">
             <thead>
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">nama produk</th>
-                <th scope="col">gambar produk</th>                
-                <th scope="col" colspan="2" ><center>aksi</center></th> 
+                <th scope="col">Nomor</th>
+                <th scope="col">Nama Produk</th>
+                <th scope="col">Gambar Produk</th>                
+                <th scope="col" colspan="2" ><center>Aksi</center></th> 
                 </tr>
             </thead>
             <tbody>

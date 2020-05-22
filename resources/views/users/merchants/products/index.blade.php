@@ -18,9 +18,7 @@
 <section class="shop_grid_area section-padding-80">
   <div class="container">
     <div class="row">
-      
       @include('users.merchants.sidebar')
-
       <div class="col-12 col-md-8 col-lg-9">
         <div class="shop_grid_product_area">
           <div class="row">

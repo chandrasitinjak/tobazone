@@ -6,43 +6,37 @@
                 <div class="row mt-3">
 
                     <div class="col-md-9 col-lg-9 col-9" style="margin:auto">
-                        <h6>
-                            Cari Produk yang Anda Inginkan
-                        </h6>
-                        <div class="imgwrapper" style="box-shadow: 0px 2px 9px #00000042;">
-                            <img src="/images/assets/search.PNG" alt="">
-                        </div>
+                     
 
-                        <br>
                         <h6 class="mt-5">
-                            Pilih Produk yang Ingin Dibeli
+                            Pilih Alamat Pengiriman.
+                            Kemudian Klik Button "Bayar"
                         </h6>
                         <div class="imgwrapper" style="box-shadow: 0px 2px 9px #00000042;">
-                            <img src="/images/assets/select.PNG" alt="">
+                            <img src="/images/assets/shipping.PNG" alt="">
                         </div>
 
                         <h6 class="mt-5">
-                            Klik Button "Tambah ke Keranjang" <br>
+                            Lakukan Pembayaran ke Rekening Bank sesuai Jumlah yang Tertera dengan Batas Waktu yang Tersedia
                         </h6>
                         <div class="imgwrapper" style="box-shadow: 0px 2px 9px #00000042;">
-                            <img src="/images/assets/clickbuy.PNG" alt="">
+                            <img src="/images/assets/pembayaran.PNG" alt="">
                         </div>
 
                         <h6 class="mt-5">
-                            Pastikan Barang yang Anda Beli.  
-                            Lalu Klik Button "Lanjut Pembayaran"  <br>
+                            Upload Bukti Pembayaran Anda <br>
                         </h6>
                         <div class="imgwrapper" style="box-shadow: 0px 2px 9px #00000042;">
-                            <img src="/images/assets/checkout.PNG" alt="">
+                            <img src="/images/assets/kirimbukti.PNG" alt="">
                         </div>
-
 
                         <h6 class="mt-5">
-                            Jika Belum Ingin Membeli, Anda dapat Klik Button "Tambah ke Wishlist"
-                        </h6>
+                            Pembayaran akan Diverifikasi oleh Team Tobazone. <br>
+                            Pembeli dapat Melihat Informasi pada Fitur Pesanan
                         <div class="imgwrapper" style="box-shadow: 0px 2px 9px #00000042;">
-                            <img src="/images/assets/clickwishlist.PNG" alt="">
+                            <img src="/images/assets/fiturpesanan.PNG" alt="">
                         </div>
+
                     </div>
                 </div>
             </div>
