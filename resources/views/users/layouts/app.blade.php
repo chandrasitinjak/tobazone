@@ -13,7 +13,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title> @yield('title', 'Tobazone')</title>
 
-  <link rel="shortcut icon" href="/images/assets/icon.ico">
+  <link rel="shortcut icon" href="/images/assets/icon_1.png">
 
   <!-- Core Style CSS -->
   <link rel="stylesheet" href="/user-assets/css/core-style.css">

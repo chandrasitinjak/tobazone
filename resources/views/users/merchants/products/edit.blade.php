@@ -227,9 +227,9 @@
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Berat </label>
-                                        <input class="form-control" type="number" min="1" max="3" name="weight" aria-describedby="warnadasar" placeholder="/kg" value="{{ json_decode($product->specification)->weight}}"/>
+                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/kg" value="{{ json_decode($product->specification)->weight}}"/>
                                         <small id="warnadasar" class="form-text text-muted">
-                                            Berat digenapkan ke kilogram
+                                            Berat digenapkan ke gram
                                         </small>
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4" style="display:none" id="vol">

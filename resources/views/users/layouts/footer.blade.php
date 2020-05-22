@@ -67,10 +67,10 @@
                 </ul>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12 mt-3">
                 <h6>Team Tobazone</h6>
             </div>
-        </div>
+        </div> -->
     </div>
 </footer>

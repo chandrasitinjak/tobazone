@@ -7,7 +7,7 @@
 
                     <div class="col-md-9 col-lg-9 col-9" style="margin:auto">
                         <h6>
-                            Cari Produk yang anda inginkan
+                            Cari Produk yang anda inginkan aklsjdlaksjdlks
                         </h6>
                         <div class="imgwrapper" style="box-shadow: 0px 2px 9px #00000042;">
                             <img src="/images/assets/search.PNG" alt="">
