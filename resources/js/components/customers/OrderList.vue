@@ -190,7 +190,7 @@
 
                               </a>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-3">
                                     <div v-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 0">  
                                       <label for=""> Pesanan telah sampai</label><br>
                                       <button class="btn small smallbtn" v-on:click="confirmByUser(transaction.id)">konfirmasi</button>
@@ -202,6 +202,7 @@
                                        <p>tidak dilakukan pengiriman, pembelian ditolak admin</p>
                                     </div>                                    
                               </div>
+                              
 
                             </div>
                           </div>

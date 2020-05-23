@@ -44,6 +44,7 @@ const ProductsAksesoris = require('./components/search/Aksesoris')
 const ProductsObat = require('./components/search/Obat')
 const AddToWishlistButton = require('./components/AddToWishlistButton')
 const UserRating = require('./components/merchants/UserRating')
+const UserRatingSecond = require('./components/merchants/UserRatingSecond')
     // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -52,6 +53,7 @@ const app = new Vue({
     el: '#app',
     components: {
         UserRating,
+        UserRatingSecond,
         // Test,
         AddToWishlistButton,
         Carousel,

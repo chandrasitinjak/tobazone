@@ -103,10 +103,10 @@
                                 <label for="utkbank" class="small">Bank Tujuan</label>
                                 <br>
                                 <select id="utkbank" class="form-control" v-model="selectedBank">
-                                  <option value="BRI">BRI</option>
+                                  <!-- <option value="BRI">BRI</option> -->
                                   <option value="MANDIRI">MANDIRI</option>
-                                  <option value="BNI">BNI</option>
-                                  <option value="BCA">BCA</option>
+                                  <!-- <option value="BNI">BNI</option>
+                                  <option value="BCA">BCA</option> -->
                                 </select>
                               </div>
                               <br>

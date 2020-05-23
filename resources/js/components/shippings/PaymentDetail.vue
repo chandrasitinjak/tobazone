@@ -7,8 +7,14 @@
       <div class="card-header">
         <h5>Ringkasan Belanja</h5>
       </div>
-      <div class="card-body">
+      <div class="card-body">        
         <div v-for="merchant in merchants">
+          
+          <div>
+            <span style="color : white">toko</span>
+            <span class="float-right font-weight-bold" style="color: #ff8415">{{ merchant.name }}</span>
+          </div>
+          <br>
           <div>
             <span>Total Harga Produk</span>
             <span class="float-right font-weight-bold">Rp. {{formatPrice( merchant.totalProductCost )}}</span>
@@ -34,11 +40,15 @@
 
           <div style="border-bottom: 1px #b4b4b4 solid; margin: 10px 0px 10px 0px"></div>Total Pembayaran
           <div
-            class="float-right h5"  
+            class="float-right"  
             style="color: #ff8415"
-          >Rp {{formatPrice( merchant.totalProductCost + merchant.totalShippingCost) }}</div>
+          >Rp {{formatPrice( merchant.totalProductCost + merchant.totalShippingCost) }}</div> 
+          <div v-if="merchants.length > 1">
+                <br>
+          </div>
         </div>
-        <div class="mt-5">
+        
+        <div class="mt-3">
           <button class="btn essence-btn btn-block" @click.prevent="createOrder" :disabled="disable">Bayar</button>
         </div>
       </div>
@@ -72,16 +82,20 @@ export default {
       EventBus.$on("FINAL_TRANSACTION_DETAIL", finalPaymentDetail => {
         this.finalPaymentDetail = finalPaymentDetail;        
       });
-
-      console.log(this.finalPaymentDetail);
+      
     },
+
     createOrder() {
       this.disable = true
       
       window.axios
         .post("/api/transactions", this.finalPaymentDetail)
-        .then(res => {
-          window.location = "/customer/transactions/" + res.data.id
+        .then(res => {      
+          if(this.finalPaymentDetail['merchants'].length == 1)     {
+            window.location = "/customer/transactions/" + res.data.id
+          } else {
+            window.location = "/customer/"+this.userId+"/orders" 
+          }
         })
         .catch(err => {
           // console.log(err);

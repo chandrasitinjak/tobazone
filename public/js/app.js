@@ -42108,7 +42108,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(148);
-module.exports = __webpack_require__(342);
+module.exports = __webpack_require__(347);
 
 
 /***/ }),
@@ -42167,6 +42167,7 @@ var ProductsAksesoris = __webpack_require__(324);
 var ProductsObat = __webpack_require__(329);
 var AddToWishlistButton = __webpack_require__(334);
 var UserRating = __webpack_require__(337);
+var UserRatingSecond = __webpack_require__(342);
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', __WEBPACK_IMPORTED_MODULE_0_vue_star_rating___default.a);
@@ -42175,6 +42176,7 @@ var app = new Vue({
     el: '#app',
     components: {
         UserRating: UserRating,
+        UserRatingSecond: UserRatingSecond,
         // Test,
         AddToWishlistButton: AddToWishlistButton,
         Carousel: Carousel,
@@ -69498,7 +69500,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -69510,6 +69512,16 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(5);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -69587,14 +69599,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on("FINAL_TRANSACTION_DETAIL", function (finalPaymentDetail) {
         _this.finalPaymentDetail = finalPaymentDetail;
       });
-
-      console.log(this.finalPaymentDetail);
     },
     createOrder: function createOrder() {
+      var _this2 = this;
+
       this.disable = true;
 
       window.axios.post("/api/transactions", this.finalPaymentDetail).then(function (res) {
-        window.location = "/customer/transactions/" + res.data.id;
+        if (_this2.finalPaymentDetail['merchants'].length == 1) {
+          window.location = "/customer/transactions/" + res.data.id;
+        } else {
+          window.location = "/customer/" + _this2.userId + "/orders";
+        }
       }).catch(function (err) {
         // console.log(err);
         alert(err);
@@ -69629,6 +69645,23 @@ var render = function() {
         [
           _vm._l(_vm.merchants, function(merchant) {
             return _c("div", [
+              _c("div", [
+                _c("span", { staticStyle: { color: "white" } }, [
+                  _vm._v("toko")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "float-right font-weight-bold",
+                    staticStyle: { color: "#ff8415" }
+                  },
+                  [_vm._v(_vm._s(merchant.name))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
               _c("div", [
                 _c("span", [_vm._v("Total Harga Produk")]),
                 _vm._v(" "),
@@ -69683,7 +69716,7 @@ var render = function() {
               _c(
                 "div",
                 {
-                  staticClass: "float-right h5",
+                  staticClass: "float-right",
                   staticStyle: { color: "#ff8415" }
                 },
                 [
@@ -69696,11 +69729,13 @@ var render = function() {
                       )
                   )
                 ]
-              )
+              ),
+              _vm._v(" "),
+              _vm.merchants.length > 1 ? _c("div", [_c("br")]) : _vm._e()
             ])
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "mt-5" }, [
+          _c("div", { staticClass: "mt-3" }, [
             _c(
               "button",
               {
@@ -71540,7 +71575,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -71551,6 +71586,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -72478,7 +72514,7 @@ var render = function() {
                                                     _c(
                                                       "div",
                                                       {
-                                                        staticClass: "col-md-6"
+                                                        staticClass: "col-md-3"
                                                       },
                                                       [
                                                         transaction.status ===
@@ -73585,28 +73621,10 @@ var render = function() {
                                               [
                                                 _c(
                                                   "option",
-                                                  { attrs: { value: "BRI" } },
-                                                  [_vm._v("BRI")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "option",
                                                   {
                                                     attrs: { value: "MANDIRI" }
                                                   },
                                                   [_vm._v("MANDIRI")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "option",
-                                                  { attrs: { value: "BNI" } },
-                                                  [_vm._v("BNI")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "option",
-                                                  { attrs: { value: "BCA" } },
-                                                  [_vm._v("BCA")]
                                                 )
                                               ]
                                             )
@@ -84199,6 +84217,562 @@ if (false) {
 
 /***/ }),
 /* 342 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(343)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(345)
+/* template */
+var __vue_template__ = __webpack_require__(346)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/merchants/UserRatingSecond.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5afc8c6b", Component.options)
+  } else {
+    hotAPI.reload("data-v-5afc8c6b", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 343 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(344);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("3881271a", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5afc8c6b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UserRatingSecond.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5afc8c6b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UserRatingSecond.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 344 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* Three column layout */\n.side {\r\n  float: left;\r\n  width: 15%;\r\n  margin-top: 10px;\n}\n.middle {\r\n  float: left;\r\n  width: 70%;\r\n  margin-top: 10px;\n}\r\n\r\n/* Place text to the right */\n.right {\r\n  text-align: right;\n}\r\n\r\n/* Clear floats after the columns */\n.row:after {\r\n  content: \"\";\r\n  display: table;\r\n  clear: both;\n}\r\n\r\n/* The bar container */\n.bar-container {\r\n  width: 100%;\r\n  background-color: #f1f1f1;\r\n  text-align: center;\r\n  color: white;\n}\r\n\r\n/* Individual bars */\n.bar-5 {height: 18px; background-color: #4CAF50;\n}\n.bar-4 {height: 18px; background-color: #2196F3;\n}\n.bar-3 {height: 18px; background-color: #00bcd4;\n}\n.bar-2 {height: 18px; background-color: #ff9800;\n}\n.bar-1 {height: 18px; background-color: #f44336;\n}\r\n\r\n/* Responsive layout - make the columns stack on top of each other instead of next to each other */\n@media (max-width: 400px) {\n.side, .middle {\r\n    width: 100%;\n}\r\n  /* Hide the right column on small screens */\n.right {\r\n    display: none;\n}\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 345 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ["product", "user", "rating"],
+    data: function data() {
+        return {
+            rating: 0,
+            totalrate: 0,
+            totaluser: 0,
+            bar1: 0,
+            bar2: 0,
+            bar3: 0,
+            bar4: 0,
+            bar5: 0
+        };
+    },
+    created: function created() {
+        this.getRating();
+        this.setDefaultRating();
+    },
+
+    methods: {
+        setDefaultRating: function setDefaultRating() {
+            rating = this.rating;
+        },
+        getRating: function getRating() {
+            var _this = this;
+
+            window.axios.get("/api/rating/" + this.product).then(function (response) {
+                var data = response.data;
+                _this.totaluser = data.length;
+
+                var sum = 0;
+                for (var i = 0; i < data.length; i++) {
+                    sum += parseFloat(data[i]['rating']);
+                }
+
+                var avg = sum / data.length;
+                _this.totalrate = parseFloat(avg.toFixed(1));
+
+                for (var j = 0; j < data.length; j++) {
+                    if (parseInt(data[j]['rating']) == '1') {
+                        _this.bar1 += 1;
+                    }
+                    if (parseInt(data[j]['rating']) == '2') {
+                        _this.bar2 += 1;
+                    }
+                    if (parseInt(data[j]['rating']) == '3') {
+                        _this.bar3 += 1;
+                    }
+                    if (parseInt(data[j]['rating']) == '4') {
+                        _this.bar4 += 1;
+                    }
+                    if (parseInt(data[j]['rating']) == '5') {
+                        _this.bar5 += 1;
+                    }
+                }
+                window.$('.bar-1').css('width', parseFloat((_this.bar1 / data.length).toFixed(1)) + '%');
+                window.$('.bar-2').css('width', parseFloat((_this.bar2 / data.length).toFixed(1)) + '%');
+                window.$('.bar-3').css('width', parseFloat((_this.bar3 / data.length).toFixed(1)) + '%');
+                window.$('.bar-4').css('width', parseFloat((_this.bar4 / data.length).toFixed(1)) + '%');
+                window.$('.bar-5').css('width', parseFloat((_this.bar5 / data.length).toFixed(1)) + '%');
+            }).catch(function (error) {
+                alert(error);
+                console.log(error);
+            });
+        },
+        setRating: function setRating() {
+            var _this2 = this;
+
+            var payload = {
+                product: this.product,
+                user: this.user,
+                rating: this.rating
+            };
+
+            window.axios.post("/api/rating", payload).then(function (response) {
+                if (response.status == 200) {
+                    alert("Terima kasih, penilaian Anda telah kami simpan");
+                    _this2.getRating();
+                }
+            }).catch(function (error) {
+                var errMessage = "Gagal memberikan penilaian, silahkan coba lagi";
+                if (error.response.data.message != "") {
+                    errMessage = error.response.data.message;
+                }
+                alert(errMessage);
+                console.log(error);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 346 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c(
+        "div",
+        { staticClass: "row", staticStyle: { "margin-bottom": "5px" } },
+        [
+          _c(
+            "div",
+            { staticClass: "col-md-6" },
+            [
+              _c("star-rating", {
+                attrs: {
+                  increment: 0.5,
+                  "star-size": 30,
+                  "text-class": "custom-text",
+                  "read-only": _vm.rating > 0
+                },
+                model: {
+                  value: _vm.rating,
+                  callback: function($$v) {
+                    _vm.rating = $$v
+                  },
+                  expression: "rating"
+                }
+              })
+            ],
+            1
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary btn-sm", on: { click: _vm.setRating } },
+        [_vm._v("Rate")]
+      ),
+      _vm._v(" "),
+      _c("hr", { staticStyle: { border: "3px solid #f1f1f1" } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-xs-12 col-md-2 text-center" }, [
+          _vm.totalrate > 0
+            ? _c("div", [
+                _c("h1", { staticClass: "rating-num" }, [
+                  _vm._v(_vm._s(_vm.totalrate))
+                ])
+              ])
+            : _c("div", [
+                _c("h1", { staticClass: "rating-num" }, [_vm._v("0")])
+              ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "rating" },
+            [
+              _c("star-rating", {
+                attrs: {
+                  inline: true,
+                  "read-only": true,
+                  "show-rating": false,
+                  "star-size": 20,
+                  increment: 0.1,
+                  "active-color": "#000000"
+                },
+                model: {
+                  value: _vm.totalrate,
+                  callback: function($$v) {
+                    _vm.totalrate = $$v
+                  },
+                  expression: "totalrate"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", [
+            _c("span", { staticClass: "fa fa-user" }),
+            _vm._v(" " + _vm._s(_vm.totaluser) + " total\n                ")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-xs-12 col-md-6" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "side right" }, [
+            _c("div", [_vm._v(_vm._s(_vm.bar5))])
+          ]),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3),
+          _vm._v(" "),
+          _c("div", { staticClass: "side right" }, [
+            _c("div", [_vm._v(_vm._s(_vm.bar4))])
+          ]),
+          _vm._v(" "),
+          _vm._m(4),
+          _vm._v(" "),
+          _vm._m(5),
+          _vm._v(" "),
+          _c("div", { staticClass: "side right" }, [
+            _c("div", [_vm._v(_vm._s(_vm.bar3))])
+          ]),
+          _vm._v(" "),
+          _vm._m(6),
+          _vm._v(" "),
+          _vm._m(7),
+          _vm._v(" "),
+          _c("div", { staticClass: "side right" }, [
+            _c("div", [_vm._v(_vm._s(_vm.bar2))])
+          ]),
+          _vm._v(" "),
+          _vm._m(8),
+          _vm._v(" "),
+          _vm._m(9),
+          _vm._v(" "),
+          _c("div", { staticClass: "side right" }, [
+            _c("div", [_vm._v(_vm._s(_vm.bar1))])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "side" }, [_c("div", [_vm._v("5 star")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "middle" }, [
+      _c("div", { staticClass: "bar-container" }, [
+        _c("div", { staticClass: "bar-5", staticStyle: { width: "0%" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "side" }, [_c("div", [_vm._v("4 star")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "middle" }, [
+      _c("div", { staticClass: "bar-container" }, [
+        _c("div", { staticClass: "bar-4", staticStyle: { width: "0%" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "side" }, [_c("div", [_vm._v("3 star")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "middle" }, [
+      _c("div", { staticClass: "bar-container" }, [
+        _c("div", { staticClass: "bar-3", staticStyle: { width: "0%" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "side" }, [_c("div", [_vm._v("2 star")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "middle" }, [
+      _c("div", { staticClass: "bar-container" }, [
+        _c("div", { staticClass: "bar-2", staticStyle: { width: "0%" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "side" }, [_c("div", [_vm._v("1 star")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "middle" }, [
+      _c("div", { staticClass: "bar-container" }, [
+        _c("div", { staticClass: "bar-1", staticStyle: { width: "0%" } })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5afc8c6b", module.exports)
+  }
+}
+
+/***/ }),
+/* 347 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
