@@ -174,7 +174,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
 Route::get('/products/{id}', 'ProductController@show');
 Route::get('/carabelanja', 'QnAController@show');
-Route::get('/carajual', 'QnAController@show');
+Route::get('/carajual', 'QnAController@showj');
 Route::get('/carabayar', 'QnAController@showi');
 
 // Route::get('/food', 'makananController@index');
