@@ -1,10 +1,11 @@
 <template>      
-    <div class="cart-fav-box d-flex align-items-center mt-4">
+    <div class="cart-fav-box d-flex align-items-center mt-4" v-if="user_id != null ">
       <div v-if="datas.length != 0">
           
       </div>
       <div v-if="datas.length == 0">
-      <button v-on:click="addToWishlist()" class="btn essence-btn">Tambah ke Wishlist</button>
+        <button v-on:click="addToWishlist()" class="btn essence-btn">Tambah ke Wishlist</button>
+        <i class="far fa-heart"></i>
       </div>
     </div>  
 </template>
@@ -18,6 +19,7 @@ export default {
     return {
       total: 1,
       datas: "",
+      user_id: "",
     };
   },
   methods: {

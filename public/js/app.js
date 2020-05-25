@@ -65734,6 +65734,71 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -65744,17 +65809,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   props: ["userId", "title"],
   data: function data() {
     return {
-      products: []
+      products: [],
+      datas: ""
     };
   },
 
   methods: {
-    formatPrice: function formatPrice(value) {
-      var val = (value / 1).toFixed().replace('.', ',');
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    },
-    getAllProducts: function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+    checkProduct: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(id_product) {
         var _this = this;
 
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
@@ -65762,10 +65824,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return window.axios.get("/api/products").then(function (res) {
-                  _this.products = res.data;
-                }).catch(function (err) {
-                  console.log(err);
+                return window.axios.get("/api/customer/" + this.userId + "/wishlists/" + id_product).then(function (res) {
+                  _this.datas = res.data;
+                  // console.log(this.datas);
                 });
 
               case 2:
@@ -65776,32 +65837,40 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }, _callee, this);
       }));
 
-      function getAllProducts() {
+      function checkProduct(_x) {
         return _ref.apply(this, arguments);
       }
 
-      return getAllProducts;
+      return checkProduct;
     }(),
-    addToCart: function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(id) {
-        var _this2 = this;
-
+    addToWishlist: function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(id_product) {
         var payload;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                payload = {
-                  productId: id,
-                  total: 1,
-                  userId: this.userId
-                };
-                _context2.next = 3;
-                return window.axios.post("/api/carts", payload).then(function (res) {
-                  _this2.emitEvent(res.data);
-                }).catch(function (err) {
-                  console.log(err);
-                });
+                _context2.next = 2;
+                return this.checkProduct(id_product);
+
+              case 2:
+
+                if (this.datas.length != 0) {
+                  alert("Sudah ada didaftar wishlist anda");
+                } else {
+                  payload = {
+                    productId: id_product,
+                    userId: this.userId
+                  };
+
+                  // await window.axios.post("/api/wishlists", payload).then(res => {
+
+                  window.axios.post("/api/wishlist", payload).then(function () {
+                    alert("berhasil menambahkan ke daftar wishlish anda");
+                  }).catch(function (error) {
+                    console.log(error);
+                  });
+                }
 
               case 3:
               case "end":
@@ -65811,8 +65880,76 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }, _callee2, this);
       }));
 
-      function addToCart(_x) {
+      function addToWishlist(_x2) {
         return _ref2.apply(this, arguments);
+      }
+
+      return addToWishlist;
+    }(),
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed().replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
+    getAllProducts: function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+        var _this2 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return window.axios.get("/api/products").then(function (res) {
+                  _this2.products = res.data;
+                }).catch(function (err) {
+                  console.log(err);
+                });
+
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function getAllProducts() {
+        return _ref3.apply(this, arguments);
+      }
+
+      return getAllProducts;
+    }(),
+    addToCart: function () {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(id) {
+        var _this3 = this;
+
+        var payload;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                payload = {
+                  productId: id,
+                  total: 1,
+                  userId: this.userId
+                };
+                _context4.next = 3;
+                return window.axios.post("/api/carts", payload).then(function (res) {
+                  _this3.emitEvent(res.data);
+                }).catch(function (err) {
+                  console.log(err);
+                });
+
+              case 3:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function addToCart(_x3) {
+        return _ref4.apply(this, arguments);
       }
 
       return addToCart;
@@ -66640,101 +66777,191 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row pt-4" }, [
-    _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "row" }, [
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "card globalcard",
+        staticStyle: { "min-height": "400px", "background-color": "#fffaf3" }
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
         _c(
           "div",
-          { staticClass: "col-md-12" },
-          [_c("center", [_c("h3", [_vm._v("Ragam Produk")])])],
-          1
+          { staticClass: "card-body", staticStyle: { padding: "0.7rem" } },
+          [
+            _vm.products.length > 0
+              ? _c("div", {}, [
+                  _c(
+                    "div",
+                    { staticClass: "row" },
+                    _vm._l(_vm.products, function(product) {
+                      return _c(
+                        "div",
+                        { staticClass: "col-6 col-md-2 col-lg-2 px-1" },
+                        [
+                          _c("div", { staticClass: "card products" }, [
+                            _c(
+                              "a",
+                              { attrs: { href: "/products/" + product.id } },
+                              [
+                                _c("div", { staticClass: "imgwrapper" }, [
+                                  _c("img", {
+                                    attrs: {
+                                      src:
+                                        "/images/" +
+                                        JSON.parse(product.images)[0],
+                                      alt: "Card image cap"
+                                    }
+                                  })
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "card-body" }, [
+                              _c(
+                                "p",
+                                {
+                                  staticClass: "card-title productname",
+                                  staticStyle: {
+                                    "white-space": "nowrap",
+                                    overflow: "hidden",
+                                    "text-overflow": "ellipsis",
+                                    "max-width": "20ex"
+                                  }
+                                },
+                                [_vm._v(_vm._s(product.name))]
+                              ),
+                              _vm._v(" "),
+                              _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                                _vm._v(
+                                  "Rp " + _vm._s(_vm.formatPrice(product.price))
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _vm.userId == null
+                                ? _c("div", [
+                                    _c(
+                                      "p",
+                                      { staticClass: "card-text float-right" },
+                                      [
+                                        _c(
+                                          "small",
+                                          { staticClass: "text-muted" },
+                                          [
+                                            _vm._v(
+                                              " " +
+                                                _vm._s(
+                                                  product.merchant.profile.name
+                                                )
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.userId != null
+                                ? _c("div", [
+                                    _c(
+                                      "p",
+                                      { staticClass: "card-text float-left" },
+                                      [
+                                        _c(
+                                          "small",
+                                          { staticClass: "text-muted" },
+                                          [
+                                            _vm._v(
+                                              " " +
+                                                _vm._s(
+                                                  product.merchant.profile.name
+                                                )
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("div", [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "float-right",
+                                          staticStyle: {
+                                            border: "0px",
+                                            "background-color": "white"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.addToWishlist(product.id)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-heart-o"
+                                          })
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                : _vm._e()
+                            ])
+                          ])
+                        ]
+                      )
+                    })
+                  )
+                ])
+              : _vm._e()
+          ]
         )
-      ]),
-      _vm._v(" "),
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
       _c(
         "div",
-        { staticClass: "row", staticStyle: { "background-color": "#d4cece" } },
-        _vm._l(_vm.products, function(product) {
-          return _c("div", { staticClass: "col-md-2 p-md-3" }, [
-            _c("a", { attrs: { href: "/products/" + product.id } }, [
-              _c("div", { staticClass: "card product " }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "imgwrapper",
-                    staticStyle: { padding: "0px" }
-                  },
-                  [
-                    _c("img", {
-                      attrs: {
-                        src: "/images/" + JSON.parse(product.images)[0],
-                        alt: "Card image cap"
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "card-body", staticStyle: { height: "2rem" } },
-                  [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "card-title productname",
-                        staticStyle: {
-                          "white-space": "nowrap",
-                          overflow: "hidden",
-                          "text-overflow": "ellipsis",
-                          "max-width": "20ex"
-                        }
-                      },
-                      [_vm._v(_vm._s(product.name))]
-                    ),
-                    _vm._v(" "),
-                    _c("h6", { staticStyle: { color: "#ff5205" } }, [
-                      _vm._v("Rp " + _vm._s(_vm.formatPrice(product.price)))
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text float-right" }, [
-                      _c("small", { staticClass: "text-muted" }, [
-                        _vm._v(_vm._s(product.merchant.profile.name))
-                      ])
-                    ])
-                  ]
-                )
-              ])
+        { staticClass: "col-md-12" },
+        [
+          _c("center", [
+            _c("a", { attrs: { href: "/search" } }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-toba",
+                  staticStyle: { "text-decoration-line": "unset" },
+                  attrs: { type: "button" }
+                },
+                [_vm._v(" Lihat Lebih Banyak\n                ")]
+              )
             ])
           ])
-        })
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "row p-4" }, [
-        _c(
-          "div",
-          { staticClass: "col-md-12" },
-          [
-            _c("center", [
-              _c("a", { attrs: { href: "/search" } }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-toba",
-                    staticStyle: { "text-decoration-line": "unset" },
-                    attrs: { type: "button" }
-                  },
-                  [_vm._v(" Lihat Lebih Banyak\n                 ")]
-                )
-              ])
-            ])
-          ],
-          1
-        )
-      ])
+        ],
+        1
+      )
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c(
+        "nav",
+        {
+          staticClass: "navbar navbar-expand-lg mproduct p-1",
+          staticStyle: { "background-color": "transparent", border: "none" }
+        },
+        [_c("h3", { staticClass: "m-auto" }, [_vm._v("Ragam Produk")])]
+      )
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -79122,7 +79349,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -79133,6 +79360,23 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -79232,39 +79476,111 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['keyword'],
+  props: ['keyword', 'userId'],
   data: function data() {
     return {
       products: [],
       orginalProductsData: [],
-      searchName: ""
+      searchName: "",
+      datas: ""
     };
   },
 
   methods: {
+    checkProduct: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(id_product) {
+        var _this = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return window.axios.get("/api/customer/" + this.userId + "/wishlists/" + id_product).then(function (res) {
+                  _this.datas = res.data;
+                  // console.log(this.datas);
+                });
+
+              case 2:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function checkProduct(_x) {
+        return _ref.apply(this, arguments);
+      }
+
+      return checkProduct;
+    }(),
+    addToWishlist: function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(id_product) {
+        var payload;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.checkProduct(id_product);
+
+              case 2:
+
+                if (this.datas.length != 0) {
+                  alert("Sudah ada didaftar wishlist anda");
+                } else {
+                  payload = {
+                    productId: id_product,
+                    userId: this.userId
+                  };
+
+                  // await window.axios.post("/api/wishlists", payload).then(res => {
+
+                  window.axios.post("/api/wishlist", payload).then(function () {
+                    alert("berhasil menambahkan ke daftar wishlish anda");
+                  }).catch(function (error) {
+                    console.log(error);
+                  });
+                }
+
+              case 3:
+              case 'end':
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function addToWishlist(_x2) {
+        return _ref2.apply(this, arguments);
+      }
+
+      return addToWishlist;
+    }(),
     formatPrice: function formatPrice(value) {
       var val = (value / 1).toFixed().replace('.', ',');
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
     getProducts: function getProducts() {
-      var _this = this;
+      var _this2 = this;
 
       var payload = {
         keyword: this.keyword
       };
 
       window.axios.get("/api/product/search?keyword=" + this.keyword).then(function (res) {
-        _this.orginalProductsData = res.data;
-        _this.products = _this.orginalProductsData;
+        _this2.orginalProductsData = res.data;
+        _this2.products = _this2.orginalProductsData;
       }).catch(function (err) {
         console.log(err);
       });
     },
     filterProductByName: function filterProductByName() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.products = this.orginalProductsData.filter(function (product) {
-        return product.name.toLowerCase().includes(_this2.searchName.toLowerCase());
+        return product.name.toLowerCase().includes(_this3.searchName.toLowerCase());
       });
     },
     filterProductByCategory: function filterProductByCategory(category) {
@@ -79324,7 +79640,12 @@ var render = function() {
               staticStyle: { "background-color": "transparent", border: "none" }
             },
             [
-              _c("h5", { staticClass: "mr-3" }, [_vm._v("Filter Produk")]),
+              _c(
+                "h5",
+                { staticClass: "mr-3" },
+                [_c("center", [_vm._v("    Filter Produk")])],
+                1
+              ),
               _vm._v(" "),
               _vm._m(0),
               _vm._v(" "),
@@ -79609,13 +79930,74 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _c("p", { staticClass: "card-text float-right" }, [
-                              _c("small", { staticClass: "text-muted" }, [
-                                _vm._v(
-                                  " " + _vm._s(product.merchant.profile.name)
-                                )
-                              ])
-                            ])
+                            _vm.userId == null
+                              ? _c("div", [
+                                  _c(
+                                    "p",
+                                    { staticClass: "card-text float-right" },
+                                    [
+                                      _c(
+                                        "small",
+                                        { staticClass: "text-muted" },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                product.merchant.profile.name
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.userId != null
+                              ? _c("div", [
+                                  _c(
+                                    "p",
+                                    { staticClass: "card-text float-left" },
+                                    [
+                                      _c(
+                                        "small",
+                                        { staticClass: "text-muted" },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                product.merchant.profile.name
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "float-right",
+                                        staticStyle: {
+                                          border: "0px",
+                                          "background-color": "white"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.addToWishlist(product.id)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa fa-heart-o"
+                                        })
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              : _vm._e()
                           ])
                         ])
                       ]
@@ -80489,7 +80871,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -80500,6 +80882,23 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -80599,39 +80998,111 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  //   props: ['keyword'],
+  props: ['userId'],
   data: function data() {
     return {
       products: [],
       orginalProductsData: [],
-      searchName: ""
+      searchName: "",
+      datas: ""
     };
   },
 
   methods: {
+    checkProduct: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(id_product) {
+        var _this = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return window.axios.get("/api/customer/" + this.userId + "/wishlists/" + id_product).then(function (res) {
+                  _this.datas = res.data;
+                  // console.log(this.datas);
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function checkProduct(_x) {
+        return _ref.apply(this, arguments);
+      }
+
+      return checkProduct;
+    }(),
+    addToWishlist: function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(id_product) {
+        var payload;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.checkProduct(id_product);
+
+              case 2:
+
+                if (this.datas.length != 0) {
+                  alert("Sudah ada didaftar wishlist anda");
+                } else {
+                  payload = {
+                    productId: id_product,
+                    userId: this.userId
+                  };
+
+                  // await window.axios.post("/api/wishlists", payload).then(res => {
+
+                  window.axios.post("/api/wishlist", payload).then(function () {
+                    alert("berhasil menambahkan ke daftar wishlish anda");
+                  }).catch(function (error) {
+                    console.log(error);
+                  });
+                }
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function addToWishlist(_x2) {
+        return _ref2.apply(this, arguments);
+      }
+
+      return addToWishlist;
+    }(),
     formatPrice: function formatPrice(value) {
       var val = (value / 1).toFixed().replace('.', ',');
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
     getProducts: function getProducts() {
-      var _this = this;
+      var _this2 = this;
 
       var payload = {
         keyword: this.keyword
       };
 
       window.axios.get("/api/product/ulos").then(function (res) {
-        _this.orginalProductsData = res.data;
-        _this.products = _this.orginalProductsData;
+        _this2.orginalProductsData = res.data;
+        _this2.products = _this2.orginalProductsData;
       }).catch(function (err) {
         console.log(err);
       });
     },
     filterProductByName: function filterProductByName() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.products = this.orginalProductsData.filter(function (product) {
-        return product.name.toLowerCase().includes(_this2.searchName.toLowerCase());
+        return product.name.toLowerCase().includes(_this3.searchName.toLowerCase());
       });
     },
     filterProductByCategory: function filterProductByCategory(category) {
@@ -80950,13 +81421,74 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _c("p", { staticClass: "card-text float-right" }, [
-                              _c("small", { staticClass: "text-muted" }, [
-                                _vm._v(
-                                  " " + _vm._s(product.merchant.profile.name)
-                                )
-                              ])
-                            ])
+                            _vm.userId == null
+                              ? _c("div", [
+                                  _c(
+                                    "p",
+                                    { staticClass: "card-text float-right" },
+                                    [
+                                      _c(
+                                        "small",
+                                        { staticClass: "text-muted" },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                product.merchant.profile.name
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.userId != null
+                              ? _c("div", [
+                                  _c(
+                                    "p",
+                                    { staticClass: "card-text float-left" },
+                                    [
+                                      _c(
+                                        "small",
+                                        { staticClass: "text-muted" },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                product.merchant.profile.name
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "float-right",
+                                        staticStyle: {
+                                          border: "0px",
+                                          "background-color": "white"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.addToWishlist(product.id)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa fa-heart-o"
+                                        })
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              : _vm._e()
                           ])
                         ])
                       ]
@@ -81123,7 +81655,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -81134,6 +81666,23 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -81229,39 +81778,111 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  //   props: ['keyword'],
+  props: ['userId'],
   data: function data() {
     return {
       products: [],
       orginalProductsData: [],
-      searchName: ""
+      searchName: "",
+      datas: ""
     };
   },
 
   methods: {
+    checkProduct: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(id_product) {
+        var _this = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return window.axios.get("/api/customer/" + this.userId + "/wishlists/" + id_product).then(function (res) {
+                  _this.datas = res.data;
+                  // console.log(this.datas);
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function checkProduct(_x) {
+        return _ref.apply(this, arguments);
+      }
+
+      return checkProduct;
+    }(),
+    addToWishlist: function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(id_product) {
+        var payload;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.checkProduct(id_product);
+
+              case 2:
+
+                if (this.datas.length != 0) {
+                  alert("Sudah ada didaftar wishlist anda");
+                } else {
+                  payload = {
+                    productId: id_product,
+                    userId: this.userId
+                  };
+
+                  // await window.axios.post("/api/wishlists", payload).then(res => {
+
+                  window.axios.post("/api/wishlist", payload).then(function () {
+                    alert("berhasil menambahkan ke daftar wishlish anda");
+                  }).catch(function (error) {
+                    console.log(error);
+                  });
+                }
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function addToWishlist(_x2) {
+        return _ref2.apply(this, arguments);
+      }
+
+      return addToWishlist;
+    }(),
     formatPrice: function formatPrice(value) {
       var val = (value / 1).toFixed().replace('.', ',');
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
     getProducts: function getProducts() {
-      var _this = this;
+      var _this2 = this;
 
       var payload = {
         keyword: this.keyword
       };
 
       window.axios.get("/api/product/pakaian").then(function (res) {
-        _this.orginalProductsData = res.data;
-        _this.products = _this.orginalProductsData;
+        _this2.orginalProductsData = res.data;
+        _this2.products = _this2.orginalProductsData;
       }).catch(function (err) {
         console.log(err);
       });
     },
     filterProductByName: function filterProductByName() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.products = this.orginalProductsData.filter(function (product) {
-        return product.name.toLowerCase().includes(_this2.searchName.toLowerCase());
+        return product.name.toLowerCase().includes(_this3.searchName.toLowerCase());
       });
     },
     filterProductByCategory: function filterProductByCategory(category) {
@@ -81565,13 +82186,74 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _c("p", { staticClass: "card-text float-right" }, [
-                              _c("small", { staticClass: "text-muted" }, [
-                                _vm._v(
-                                  " " + _vm._s(product.merchant.profile.name)
-                                )
-                              ])
-                            ])
+                            _vm.userId == null
+                              ? _c("div", [
+                                  _c(
+                                    "p",
+                                    { staticClass: "card-text float-right" },
+                                    [
+                                      _c(
+                                        "small",
+                                        { staticClass: "text-muted" },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                product.merchant.profile.name
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.userId != null
+                              ? _c("div", [
+                                  _c(
+                                    "p",
+                                    { staticClass: "card-text float-left" },
+                                    [
+                                      _c(
+                                        "small",
+                                        { staticClass: "text-muted" },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                product.merchant.profile.name
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "float-right",
+                                        staticStyle: {
+                                          border: "0px",
+                                          "background-color": "white"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.addToWishlist(product.id)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa fa-heart-o"
+                                        })
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              : _vm._e()
                           ])
                         ])
                       ]
@@ -81738,7 +82420,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -81749,6 +82431,23 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -81845,39 +82544,111 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  //   props: ['keyword'],
+  props: ['userId'],
   data: function data() {
     return {
       products: [],
       orginalProductsData: [],
-      searchName: ""
+      searchName: "",
+      datas: ""
     };
   },
 
   methods: {
+    checkProduct: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(id_product) {
+        var _this = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return window.axios.get("/api/customer/" + this.userId + "/wishlists/" + id_product).then(function (res) {
+                  _this.datas = res.data;
+                  // console.log(this.datas);
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function checkProduct(_x) {
+        return _ref.apply(this, arguments);
+      }
+
+      return checkProduct;
+    }(),
+    addToWishlist: function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(id_product) {
+        var payload;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.checkProduct(id_product);
+
+              case 2:
+
+                if (this.datas.length != 0) {
+                  alert("Sudah ada didaftar wishlist anda");
+                } else {
+                  payload = {
+                    productId: id_product,
+                    userId: this.userId
+                  };
+
+                  // await window.axios.post("/api/wishlists", payload).then(res => {
+
+                  window.axios.post("/api/wishlist", payload).then(function () {
+                    alert("berhasil menambahkan ke daftar wishlish anda");
+                  }).catch(function (error) {
+                    console.log(error);
+                  });
+                }
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function addToWishlist(_x2) {
+        return _ref2.apply(this, arguments);
+      }
+
+      return addToWishlist;
+    }(),
     formatPrice: function formatPrice(value) {
       var val = (value / 1).toFixed().replace('.', ',');
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
     getProducts: function getProducts() {
-      var _this = this;
+      var _this2 = this;
 
       var payload = {
         keyword: this.keyword
       };
 
       window.axios.get("/api/product/makanan").then(function (res) {
-        _this.orginalProductsData = res.data;
-        _this.products = _this.orginalProductsData;
+        _this2.orginalProductsData = res.data;
+        _this2.products = _this2.orginalProductsData;
       }).catch(function (err) {
         console.log(err);
       });
     },
     filterProductByName: function filterProductByName() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.products = this.orginalProductsData.filter(function (product) {
-        return product.name.toLowerCase().includes(_this2.searchName.toLowerCase());
+        return product.name.toLowerCase().includes(_this3.searchName.toLowerCase());
       });
     },
     filterProductByCategory: function filterProductByCategory(category) {
@@ -82183,13 +82954,74 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _c("p", { staticClass: "card-text float-right" }, [
-                              _c("small", { staticClass: "text-muted" }, [
-                                _vm._v(
-                                  " " + _vm._s(product.merchant.profile.name)
-                                )
-                              ])
-                            ])
+                            _vm.userId == null
+                              ? _c("div", [
+                                  _c(
+                                    "p",
+                                    { staticClass: "card-text float-right" },
+                                    [
+                                      _c(
+                                        "small",
+                                        { staticClass: "text-muted" },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                product.merchant.profile.name
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.userId != null
+                              ? _c("div", [
+                                  _c(
+                                    "p",
+                                    { staticClass: "card-text float-left" },
+                                    [
+                                      _c(
+                                        "small",
+                                        { staticClass: "text-muted" },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                product.merchant.profile.name
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "float-right",
+                                        staticStyle: {
+                                          border: "0px",
+                                          "background-color": "white"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.addToWishlist(product.id)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa fa-heart-o"
+                                        })
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              : _vm._e()
                           ])
                         ])
                       ]
@@ -82356,7 +83188,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -82367,6 +83199,23 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -82463,39 +83312,111 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  //   props: ['keyword'],
+  props: ['userId'],
   data: function data() {
     return {
       products: [],
       orginalProductsData: [],
-      searchName: ""
+      searchName: "",
+      datas: ""
     };
   },
 
   methods: {
+    checkProduct: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(id_product) {
+        var _this = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return window.axios.get("/api/customer/" + this.userId + "/wishlists/" + id_product).then(function (res) {
+                  _this.datas = res.data;
+                  // console.log(this.datas);
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function checkProduct(_x) {
+        return _ref.apply(this, arguments);
+      }
+
+      return checkProduct;
+    }(),
+    addToWishlist: function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(id_product) {
+        var payload;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.checkProduct(id_product);
+
+              case 2:
+
+                if (this.datas.length != 0) {
+                  alert("Sudah ada didaftar wishlist anda");
+                } else {
+                  payload = {
+                    productId: id_product,
+                    userId: this.userId
+                  };
+
+                  // await window.axios.post("/api/wishlists", payload).then(res => {
+
+                  window.axios.post("/api/wishlist", payload).then(function () {
+                    alert("berhasil menambahkan ke daftar wishlish anda");
+                  }).catch(function (error) {
+                    console.log(error);
+                  });
+                }
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function addToWishlist(_x2) {
+        return _ref2.apply(this, arguments);
+      }
+
+      return addToWishlist;
+    }(),
     formatPrice: function formatPrice(value) {
       var val = (value / 1).toFixed().replace('.', ',');
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
     getProducts: function getProducts() {
-      var _this = this;
+      var _this2 = this;
 
       var payload = {
         keyword: this.keyword
       };
 
       window.axios.get("/api/product/aksesoris").then(function (res) {
-        _this.orginalProductsData = res.data;
-        _this.products = _this.orginalProductsData;
+        _this2.orginalProductsData = res.data;
+        _this2.products = _this2.orginalProductsData;
       }).catch(function (err) {
         console.log(err);
       });
     },
     filterProductByName: function filterProductByName() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.products = this.orginalProductsData.filter(function (product) {
-        return product.name.toLowerCase().includes(_this2.searchName.toLowerCase());
+        return product.name.toLowerCase().includes(_this3.searchName.toLowerCase());
       });
     },
     filterProductByCategory: function filterProductByCategory(category) {
@@ -82801,13 +83722,74 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _c("p", { staticClass: "card-text float-right" }, [
-                              _c("small", { staticClass: "text-muted" }, [
-                                _vm._v(
-                                  " " + _vm._s(product.merchant.profile.name)
-                                )
-                              ])
-                            ])
+                            _vm.userId == null
+                              ? _c("div", [
+                                  _c(
+                                    "p",
+                                    { staticClass: "card-text float-right" },
+                                    [
+                                      _c(
+                                        "small",
+                                        { staticClass: "text-muted" },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                product.merchant.profile.name
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.userId != null
+                              ? _c("div", [
+                                  _c(
+                                    "p",
+                                    { staticClass: "card-text float-left" },
+                                    [
+                                      _c(
+                                        "small",
+                                        { staticClass: "text-muted" },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                product.merchant.profile.name
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "float-right",
+                                        staticStyle: {
+                                          border: "0px",
+                                          "background-color": "white"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.addToWishlist(product.id)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa fa-heart-o"
+                                        })
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              : _vm._e()
                           ])
                         ])
                       ]
@@ -82974,7 +83956,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -82985,6 +83967,23 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -83081,39 +84080,111 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  //   props: ['keyword'],
+  props: ['userId'],
   data: function data() {
     return {
       products: [],
       orginalProductsData: [],
-      searchName: ""
+      searchName: "",
+      datas: ""
     };
   },
 
   methods: {
+    checkProduct: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(id_product) {
+        var _this = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return window.axios.get("/api/customer/" + this.userId + "/wishlists/" + id_product).then(function (res) {
+                  _this.datas = res.data;
+                  // console.log(this.datas);
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function checkProduct(_x) {
+        return _ref.apply(this, arguments);
+      }
+
+      return checkProduct;
+    }(),
+    addToWishlist: function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(id_product) {
+        var payload;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.checkProduct(id_product);
+
+              case 2:
+
+                if (this.datas.length != 0) {
+                  alert("Sudah ada didaftar wishlist anda");
+                } else {
+                  payload = {
+                    productId: id_product,
+                    userId: this.userId
+                  };
+
+                  // await window.axios.post("/api/wishlists", payload).then(res => {
+
+                  window.axios.post("/api/wishlist", payload).then(function () {
+                    alert("berhasil menambahkan ke daftar wishlish anda");
+                  }).catch(function (error) {
+                    console.log(error);
+                  });
+                }
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function addToWishlist(_x2) {
+        return _ref2.apply(this, arguments);
+      }
+
+      return addToWishlist;
+    }(),
     formatPrice: function formatPrice(value) {
       var val = (value / 1).toFixed().replace('.', ',');
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
     getProducts: function getProducts() {
-      var _this = this;
+      var _this2 = this;
 
       var payload = {
         keyword: this.keyword
       };
 
       window.axios.get("/api/product/obat").then(function (res) {
-        _this.orginalProductsData = res.data;
-        _this.products = _this.orginalProductsData;
+        _this2.orginalProductsData = res.data;
+        _this2.products = _this2.orginalProductsData;
       }).catch(function (err) {
         console.log(err);
       });
     },
     filterProductByName: function filterProductByName() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.products = this.orginalProductsData.filter(function (product) {
-        return product.name.toLowerCase().includes(_this2.searchName.toLowerCase());
+        return product.name.toLowerCase().includes(_this3.searchName.toLowerCase());
       });
     },
     filterProductByCategory: function filterProductByCategory(category) {
@@ -83419,13 +84490,74 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _c("p", { staticClass: "card-text float-right" }, [
-                              _c("small", { staticClass: "text-muted" }, [
-                                _vm._v(
-                                  " " + _vm._s(product.merchant.profile.name)
-                                )
-                              ])
-                            ])
+                            _vm.userId == null
+                              ? _c("div", [
+                                  _c(
+                                    "p",
+                                    { staticClass: "card-text float-right" },
+                                    [
+                                      _c(
+                                        "small",
+                                        { staticClass: "text-muted" },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                product.merchant.profile.name
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.userId != null
+                              ? _c("div", [
+                                  _c(
+                                    "p",
+                                    { staticClass: "card-text float-left" },
+                                    [
+                                      _c(
+                                        "small",
+                                        { staticClass: "text-muted" },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                product.merchant.profile.name
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "float-right",
+                                        staticStyle: {
+                                          border: "0px",
+                                          "background-color": "white"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.addToWishlist(product.id)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa fa-heart-o"
+                                        })
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              : _vm._e()
                           ])
                         ])
                       ]
@@ -83571,6 +84703,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -83579,7 +84712,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       total: 1,
-      datas: ""
+      datas: "",
+      user_id: ""
     };
   },
 
@@ -83624,30 +84758,34 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "cart-fav-box d-flex align-items-center mt-4" },
-    [
-      _vm.datas.length != 0 ? _c("div") : _vm._e(),
-      _vm._v(" "),
-      _vm.datas.length == 0
-        ? _c("div", [
-            _c(
-              "button",
-              {
-                staticClass: "btn essence-btn",
-                on: {
-                  click: function($event) {
-                    _vm.addToWishlist()
-                  }
-                }
-              },
-              [_vm._v("Tambah ke Wishlist")]
-            )
-          ])
-        : _vm._e()
-    ]
-  )
+  return _vm.user_id != null
+    ? _c(
+        "div",
+        { staticClass: "cart-fav-box d-flex align-items-center mt-4" },
+        [
+          _vm.datas.length != 0 ? _c("div") : _vm._e(),
+          _vm._v(" "),
+          _vm.datas.length == 0
+            ? _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn essence-btn",
+                    on: {
+                      click: function($event) {
+                        _vm.addToWishlist()
+                      }
+                    }
+                  },
+                  [_vm._v("Tambah ke Wishlist")]
+                ),
+                _vm._v(" "),
+                _c("i", { staticClass: "far fa-heart" })
+              ])
+            : _vm._e()
+        ]
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true

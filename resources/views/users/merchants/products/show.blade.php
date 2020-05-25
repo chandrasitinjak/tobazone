@@ -185,11 +185,11 @@
               </div>
               </div>
 
-              <div class="col-md-6">              
+              <!-- <div class="col-md-6">              
               <div id="add-to-wishlist-button">
                 <add-to-wishlist-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />
               </div>
-              </div>
+              </div> -->
 
               </div>
               <!-- <div id="add-to-cart-button">

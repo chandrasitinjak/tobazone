@@ -69,9 +69,20 @@
                 <div class="card-body">
                   <p class="card-title productname" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20ex;">{{ product.name }}</p>
                   <h6 style="color: #ff5205">Rp {{formatPrice( product.price )}}</h6>
+                   <div v-if="userId == null">
                   <p class="card-text float-right">
-                    <small class="text-muted"> {{ product.merchant.profile.name }}</small>
-                  </p>
+                     <small class="text-muted"> {{ product.merchant.profile.name }}</small>
+                  </p> 
+                  </div> 
+                  
+                  <div v-if="userId != null">
+                    <p class="card-text float-left">
+                      <small class="text-muted"> {{ product.merchant.profile.name }}</small>
+                    </p> 
+                    <div>
+                    <button style="border : 0px; background-color: white" class="float-right" v-on:click="addToWishlist(product.id)"> <i class="fa fa-heart-o"></i> </button>                    
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -94,15 +105,51 @@
 
 <script>
 export default {
-//   props: ['keyword'],
+  props: ['userId'],
   data() {
     return {
       products: [],
       orginalProductsData: [],
-      searchName: ""
+      searchName: "",
+      datas: ""
     };
   },
   methods: { 
+
+    async checkProduct(id_product) {      
+      
+      await window.axios.get("/api/customer/"+this.userId+"/wishlists/"+id_product)
+        .then(res => {
+            this.datas = res.data;
+            // console.log(this.datas);
+        })
+      },
+
+       async addToWishlist(id_product){
+      
+      await this.checkProduct(id_product);      
+
+      if(this.datas.length != 0) {
+        alert("Sudah ada didaftar wishlist anda");
+      }
+       else {
+          let payload = {
+            productId: id_product,
+            userId: this.userId
+          };
+
+      // await window.axios.post("/api/wishlists", payload).then(res => {
+        window.axios.post("/api/wishlist", payload)          
+            .then(() => {       
+              alert("berhasil menambahkan ke daftar wishlish anda")                  
+            })
+
+          .catch(error => {
+            console.log(error);
+          });   
+        }   
+    },
+
       formatPrice(value) {
           let val = (value/1).toFixed().replace('.', ',')
           return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")

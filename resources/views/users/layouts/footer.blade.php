@@ -43,17 +43,17 @@
                         <p class="mb-0">uloszone@gmail.com</p>
                     </li>
                     <li>
-                        <p class="mb-0">+62851 0604 4870</p>
+                        <p class="mb-0">+62823 6148 0252</p>
                     </li>
 
                 </ul>
 
             </div>
             <div class="col-md-2">
-                <h6>Ikuti Kami</h6>
-                <ul>
+                <h6>Developed By </h6>
+                <h6>PAIII-04-2020 IT Del</h6>
+                <!-- <ul>
                     <li>
-
                         <a href="#" class="mr-3">
                             <i style="font-size: x-large" class="fa fa-instagram"></i>
                         </a>
@@ -64,7 +64,7 @@
                             <i style="font-size: x-large" class="fa fa-envelope-o"></i>
                         </a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </div>
         <!-- <div class="row">

@@ -19,8 +19,6 @@
   <link rel="stylesheet" href="/user-assets/css/core-style.css">
   <link rel="stylesheet" href="/user-assets/style.css">
 
-  <!-- <link rel="stylesheet" href="/user-assets/devke2.css"> -->
-
 </head>
 
 <body>
