@@ -29,7 +29,9 @@
                 <tr>
                 <th scope="row">{{ $i }}</th>
                 <td>{{ $dasa['product']->name }}</td>
-                <td><img src="{{ url('/images/'.json_decode($dasa['product']->images)[0]) }}" alt="" style="height:7rem;width:11rem"></td>            
+                <td>
+                    <img src="{{ url('/images/'.json_decode($dasa['product']->images)[0]) }}" alt="" style="height:7rem;width:11rem">
+                </td>            
                 <td><center><a href="{{ url('/products/'.$dasa['product']->id) }}"><button class="btn btn-info">Beli</button></center></a></td>
                 <td><center>
                     <form action="{{ url('/wishlist/'.$dasa->id.'/delete') }}" method="POST">

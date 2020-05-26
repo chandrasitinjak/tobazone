@@ -1,0 +1,6 @@
+.img-besidecar:hover {
+    opacity: 0.6;
+    background-color: black;
+    /* background-color: Black; */
+    z-index:10;
+}

@@ -3,60 +3,7 @@
     <div class="card globalcard" style="min-height: 400px; background-color: #fffaf3">
       <div class="card-header">
         <nav class="navbar navbar-expand-lg mproduct p-1" style="background-color: transparent; border:none">
-           <h3 class="m-auto">Ragam Produk</h3>
-          <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="fa fa-bars"></span>
-          </button> -->
-
-          <!-- <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li>
-                <a
-                    class="nav-link dropdown-toggle"
-                    id="navbarDropdown"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                >Kategori</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: 9rem;">
-                  <a class="dropdown-item" @click="filterProductByCategory('ulos')">Ulos</a>
-                  <a class="dropdown-item" @click="filterProductByCategory('pakaian')">Pakaian</a>
-                  <a class="dropdown-item" @click="filterProductByCategory('makanan')">Makanan</a>
-                  <a class="dropdown-item" @click="filterProductByCategory('obat')">Obat</a>
-                  <a class="dropdown-item" @click="filterProductByCategory('aksesoris')">Aksesoris</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" @click="filterProductByCategory('')">Semua kategori</a>
-                </div>
-              </li>
-              <li>
-                <a
-                    class="nav-link dropdown-toggle"
-                    id="navbarDropdown1"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                >Urutkan Berdasarkan</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="left: 13rem;">
-                  <a class="dropdown-item" @click="sortProductByName('asc')">Nama A-Z</a>
-                  <a class="dropdown-item" @click="sortProductByName('des')">Nama Z-A</a>
-                  <a class="dropdown-item" @click="sortProductByPrice('asc')">Harga Termurah</a>
-                  <a class="dropdown-item" @click="sortProductByPrice('des')">Harga Termahal</a>
-                </div>
-              </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <input
-                  class="form-control form-control-sm mr-sm-2"
-                  type="search"
-                  placeholder="Filter Nama"
-                  aria-label="Search"
-                  v-model="searchName"
-                  @input="filterProductByName"
-              >
-            </form>
-          </div> -->
+           <h3 class="m-auto">Ragam Produk</h3>          
         </nav>
       </div>
       <div class="card-body" style="padding : 0.7rem">
@@ -66,7 +13,7 @@
               <div class="card products">
                 <a :href="'/products/' + product.id">
                   <div class="imgwrapper">
-                    <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap">
+                    <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap" style="width: 180px; heigh: 168px">
                   </div>
                 </a>
                 <div class="card-body">

@@ -182,7 +182,7 @@
                             <button
                               type="button"
                               v-if="order.product.review === null"
-                              v-on: ="updateReview(selectedProduct.id)"
+                              v-on:click ="updateReview(selectedProduct.id)"
                               class="btn btn-primary btn-sm"
                             >Kirim Ulasan</button>
                           </div>

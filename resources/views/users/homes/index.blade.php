@@ -17,7 +17,9 @@
 
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="/user-assets/css/core-style.css">
-    <link rel="stylesheet" href="/user-assets/style.css">    
+    <link rel="stylesheet" href="/user-assets/style.css">   
+
+    <link rel="stylesheet" href="/user-assets/new-css.css">   
 
 </head>
 
@@ -36,13 +38,17 @@
                 <div class="col-md-4">
                     <div class="row">
                         <div class="col-md-12" style="padding-left:0.5rem">
-                            <img src="{{ url("/images/carousels/carouselsamping1.png" )}}" alt="Card image cap test" style="height:12.6em">
+                            <a href="/search">
+                            <img class="img-besidecar" src="{{ url("/images/carousels/carouselsamping1.png" )}}" alt="Card image cap test" style="height: 100%; width : 100%">
+                            </a>                          
                         </div>                        
                     </div>
 
                     <div class="row pt-2 pr-0">
                     <div class="col-md-12" style="padding-left:0.5rem">
-                            <img src="{{ url("/images/carousels/carouselsamping2.png" )}}" alt="Card image cap test" style="height:12.6em">
+                            <a href="/product/ulos">
+                            <img class="img-besidecar" src="{{ url("/images/carousels/carouselsamping2.png" )}}" alt="Card image cap test" style="height:100%; width : 100%;  background-color: black!important">
+                            </a>
                         </div>
                     </div>
                 </div>                
