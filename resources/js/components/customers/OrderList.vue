@@ -164,10 +164,9 @@
                         <div class="row singleorderprod" style=" padding-bottom: 10px">
                           <div class="col-md-12 col-sm-12 col-xs-6">
                             <div class="row">
-
                               <div class="col-md-6">
                               <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'">
-                                <div class="col-sm-2 col-xs-12">
+                                <div class="col-sm-6 col-xs-12">
                                   <div class="imgwrapper pesanan" style="padding: 0px; height: auto">
                                     <img
                                       :src="'/images/' + JSON.parse(order.product.images)[0]"
@@ -185,9 +184,6 @@
                                     <small>Jumlah {{ order.quantity }}</small>
                                   </div>
                                 </div>
-
-
-
                               </a>
                               </div>
                               <div class="col-md-3">
