@@ -37,7 +37,7 @@
 
         <div class="row">
             <p>Alamat</p>
-            {{ $data->name}}
+            <!-- {{ $data->name}} -->
         </div>
 
 

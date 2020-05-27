@@ -57,6 +57,16 @@
                                 <input type="number" class="form-control" value="{{ $product->price }}" aria-describedby="namaprodukhelp" min="1" name="price" required>
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Stok
+                                    <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
+                                </label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" value="{{ $product->stock }}" aria-describedby="namaprodukhelp" min="1" name="stock" required>
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-3 col-form-label">Deskripsi Produk
                                 <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>

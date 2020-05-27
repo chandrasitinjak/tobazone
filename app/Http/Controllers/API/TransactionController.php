@@ -9,6 +9,7 @@ use App\Profile;
 use App\Order;
 use App\Payment;
 use App\Cart;
+use App\Product;
 use Auth;
 use GuzzleHttp\Client;
 
@@ -52,10 +53,15 @@ class TransactionController extends Controller
                     'product_id' => $order['productId'],
                     'quantity' => $order['quantity']
                 ]);
-
+                
                 if($o) {
                     Cart::find($order['cartId'])->delete();
                 }
+                
+                // $data_product = Product::find($order['productId']);
+                // $data_product->stock = $data_product->stock - $order['quantity'];
+                // $data_product->sold = $order['quantity'];
+                // $data_product->update();
             }
 
             Payment::create([

@@ -31,8 +31,10 @@ export default {
         }, 500);
 
         const carts = res.data.carts
+        // console.log(carts);
+        
         let total = 0
-
+        
         carts.forEach(cart => {
           total += parseInt(cart.total)
         });

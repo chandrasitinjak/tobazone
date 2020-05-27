@@ -29,7 +29,7 @@
                 <tr v-for="(transaction, index) in transactions">                    
                     <th scope="col"> {{ index + 1 }}</th>
                     <td> {{ transaction.customer_info.name }}</td>
-                    <td style="width : 680px"> {{ transaction.address }}</td>
+                    <td style="width : 25rem"> {{ transaction.address }}</td>
                     <td>{{ transaction.updated_at }}</td>   
                     <!-- <td> <button class="btn btn-info" v-on:click="getDetailSuccesOrder(transaction.id)"> detail </button></td> -->
                     <td> <a :href="'/merchant/detail-transaction/'+transaction.id" class="btn btn-info">detail</a></td>

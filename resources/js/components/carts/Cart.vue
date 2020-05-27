@@ -22,7 +22,7 @@ w<template>
           </div>
         </div>
 
-        <div v-else class="col-12 text-center mt-3">
+        <div v-else-if="carts.length == 0" class="col-12 text-center mt-3">
           <img
             src="/images/assets/empty_cart.png"
             style="height: 120px; border: none; opacity: 0.5"
@@ -30,6 +30,7 @@ w<template>
           <p class="text font-bold mt-3">Keranjang belanja Anda kosong,</p>
           <a href="/" class="btn essence-btn">Ayo Lanjut Berbelanja</a>
         </div>
+            
 
         <div class="row" v-for="cart in carts">
           <div class="col-md-6 col-sm-12 col-xs-6">
@@ -43,6 +44,7 @@ w<template>
                 <div class="keranjang-desc-prod">
                   <h6>{{ cart.product.name }}</h6>
                   {{ cart.product.description }}
+                  <p> <b> stok tersedia : {{ cart.product.stock }} </b> </p>                  
                 </div>
               </div>
             </div>
@@ -64,7 +66,7 @@ w<template>
                 onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"            
                 class="form-control"
                 v-model="cart.total"
-                v-on:change="updateCart(cart)"
+                @change="updateCart(cart)"                
                 min="1"
                 :max="cart.product.stock"
               >
@@ -72,11 +74,13 @@ w<template>
               <div clascart.totals="input-group-prepend">
                 <div class="btn input-group-text" v-on:click="updateTotal(cart.id, 'plus')">+</div>
               </div>
+
+              <small style="color : red" v-if="cart.total >  cart.product.stock">Maksimal pembelian {{ cart.product.stock }},kurangi jumlah produk</small>                
             </div>
             <button
               type="button"
               v-on:click="deleteCart(cart.id)"
-              class="btn btn-outline-warning btn-sm mt-2" >
+              class="btn btn-outline-warning btn-sm mt-2" >                              
               <span>
                 <i class="fa fa-trash"></i> Hapus
               </span>
@@ -92,8 +96,13 @@ w<template>
             <h5>Rp. {{ formatPrice(getTotalPayment() )}}</h5>
           </div>
         </div>
-
+        <div v-if="this.cek == 1">
         <a href="/shipping" class="btn essence-btn float-right">Lanjut Pembayaran</a>
+        </div>
+
+        <div v-else-if="this.cek != 1"> 
+          <a class="btn essence-btn float-right" :disabled="true">Lanjut Pembayaran</a>
+        </div>
       </div>
     </div>
   </div>
@@ -106,7 +115,9 @@ export default {
   props: ["userId"],
   data() {
     return {
-      carts: []
+      carts: [],
+      cek : 1,
+      stok_produk : 0
     };
   },
   methods: {
@@ -128,11 +139,15 @@ export default {
             if (this.carts[i].total > 1) {
               this.carts[i].total--;
               this.updateCart(this.carts[i]);
+            } else {
+
             }
           } else {
             if (this.carts[i].product.stock > this.carts[i].total) {
               this.carts[i].total++;
-              this.updateCart(this.carts[i]);
+              this.updateCart(this.carts[i]);              
+            } else {              
+              this.cek = 0;
             }
           }
 
@@ -143,10 +158,17 @@ export default {
       this.emitEvent(null);
     },
     async updateCart(cart) {
-      await window.axios.put("/api/carts/" + cart.id, cart).then(res => {
-        console.log(res)
+
+      if(cart.product.stock < cart.total) {        
+        this.cek = 0;                
+      } else {
+      await window.axios.put("/api/carts/" + cart.id, cart).then(res => {                  
+        this.emitEvent(null);
+        this.cek = 1;
       });
+      }
     },
+
     async deleteCart(id) {
       await window.axios.delete("/api/carts/" + id).then(res => {
         this.getCart();

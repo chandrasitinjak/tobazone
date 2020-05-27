@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Transaction;
 use App\User;
+use App\Order;
+use App\Product;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -69,6 +71,21 @@ class TransactionController extends Controller
         $transaction->status = $request->status;
         $transaction->update();
 
+        $order = Order::all()->where('transaction_id', $id);    
+
+        $data_order;
+
+        // $i = 0;
+        foreach($order as $ordr) {
+            // $data_order[$i]['id_produk'] = $ordr['product_id'];
+            // $data_order[$i]['quantity'] = $ordr['quantity'];
+
+            $data_produk = Product::find($ordr['product_id']);
+            $data_produk->stock = $data_produk->stock - $ordr['quantity'];
+            $data_produk->sold =  $ordr['quantity'];
+            $data_produk->update();
+            // $i++;
+        }        
         return redirect('/admin/new-order');
     }
 
