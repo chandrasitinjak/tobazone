@@ -55,7 +55,8 @@ w<template>
               style="color: #ff8415"
             >Rp {{formatPrice( cart.product.price )}}</div>
           </div>
-          <div class="quantity col-5 col-md-2">
+          
+          <div class="quantity col-5 col-md-2" v-if="cart.product.stock > 0">
             <div class="input-group input-group-sm">
               <div class="input-group-prepend">
                 <div class="btn input-group-text" v-on:click="updateTotal(cart.id, 'minus')">-</div>
@@ -71,20 +72,58 @@ w<template>
                 :max="cart.product.stock"
               >
 
-              <div clascart.totals="input-group-prepend">
+              <div class="input-group-prepend">
                 <div class="btn input-group-text" v-on:click="updateTotal(cart.id, 'plus')">+</div>
               </div>
 
               <small style="color : red" v-if="cart.total >  cart.product.stock">Maksimal pembelian {{ cart.product.stock }},kurangi jumlah produk</small>                
             </div>
             <button
-              type="button"
-              v-on:click="deleteCart(cart.id)"
-              class="btn btn-outline-warning btn-sm mt-2" >                              
+              type="button"              
+              class="btn btn-outline-warning btn-sm mt-2" 
+              data-toggle="modal" 
+              v-on:click="parsingIdCart(cart.id)"  
+              data-target="#deleteConfirmation">                              
               <span>
                 <i class="fa fa-trash"></i> Hapus
               </span>
             </button>
+
+            <!-- Modal -->
+          <div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="deleteConfirmationLabel">Konfirmasi</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          <p>Apakah Anda Yakin Mau Menghapus?</p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                          <button v-on:click="deleteCart(key_produk)" class="btn btn-danger" data-dismiss="modal">Hapus</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+         
+
+          
+
+          <div class="quantity col-5 col-md-2" v-if="cart.product.stock == 0">
+              <small style="color : red">Stok Barang habis</small>          
+              <button
+              type="button"
+              v-on:click="deleteCart(cart.id)"
+              class="btn btn-outline-warning btn-sm mt-2" >                              
+              <span>
+                <i class="fa fa-trash"></i> Hapus dari keranjang
+              </span>
+            </button>      
           </div>
         </div>
       </div>
@@ -100,7 +139,7 @@ w<template>
         <a href="/shipping" class="btn essence-btn float-right">Lanjut Pembayaran</a>
         </div>
 
-        <div v-else-if="this.cek != 1"> 
+        <div v-else-if="this.cek != 1 || cart.product.stock == 0">
           <a class="btn essence-btn float-right" :disabled="true">Lanjut Pembayaran</a>
         </div>
       </div>
@@ -117,10 +156,16 @@ export default {
     return {
       carts: [],
       cek : 1,
-      stok_produk : 0
+      stok_produk : 0,
+      key_produk: ""
     };
   },
   methods: {
+
+    parsingIdCart(id_cart) {      
+      this.key_produk = id_cart;
+    },
+
     formatPrice(value) {
       let val = (value / 1).toFixed().replace(".", ",");
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -172,7 +217,7 @@ export default {
     async deleteCart(id) {
       await window.axios.delete("/api/carts/" + id).then(res => {
         this.getCart();
-        this.emitEvent(null);
+        this.emitEvent(null);        
       });
     },
     getTotalPayment() {

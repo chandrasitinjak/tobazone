@@ -15,7 +15,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return response()->json(Product::with(['merchant', 'merchant.profile'])->inRandomOrder()->limit(12)->get());
+        return response()->json(Product::with(['merchant', 'merchant.profile'])->where('stock','!=', 0)->inRandomOrder()->limit(12)->get());
     }
 
     public function getProducts($id) {
@@ -23,32 +23,32 @@ class ProductController extends Controller
     }
 
     public function searchProduct(Request $request) {
-        $products = Product::with('merchant.profile')->where('name', 'LIKE', '%'. $request->keyword .'%')->get();
+        $products = Product::with('merchant.profile')->where('stock','!=', 0)->where('name', 'LIKE', '%'. $request->keyword .'%')->get();
         return response()->json($products);
     }
 
     public function searchUlos() {
-        $products = Product::with('merchant.profile')->where('cat_product', 'ulos')->get();
+        $products = Product::with('merchant.profile')->where('stock','!=', 0)->where('cat_product', 'ulos')->get();
         return response()->json($products);
     }
 
     public function searchPakaian() {
-        $products = Product::with('merchant.profile')->where('cat_product', 'pakaian')->get();
+        $products = Product::with('merchant.profile')->where('stock','!=', 0)->where('cat_product', 'pakaian')->get();
         return response()->json($products);
     }
 
     public function searchMakanan() {
-        $products = Product::with('merchant.profile')->where('cat_product', 'makanan')->get();
+        $products = Product::with('merchant.profile')->where('stock','!=', 0)->where('cat_product', 'makanan')->get();
         return response()->json($products);
     }
 
     public function searchObat() {
-        $products = Product::with('merchant.profile')->where('cat_product', 'obat')->get();
+        $products = Product::with('merchant.profile')->where('stock','!=', 0)->where('cat_product', 'obat')->get();
         return response()->json($products);
     }
     
     public function searchAksesoris() {
-        $products = Product::with('merchant.profile')->where('cat_product', 'aksesoris')->get();
+        $products = Product::with('merchant.profile')->where('stock','!=', 0)->where('cat_product', 'aksesoris')->get();
         return response()->json($products);
     }
     

@@ -34,10 +34,36 @@
                 </td>            
                 <td><center><a href="{{ url('/products/'.$dasa['product']->id) }}"><button class="btn btn-info">Beli</button></center></a></td>
                 <td><center>
-                    <form action="{{ url('/wishlist/'.$dasa->id.'/delete') }}" method="POST">
+                   
+                <!-- <form action="{{ url('/wishlist/'.$dasa->id.'/delete') }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-danger">Hapus</button>
-                    </form>
+ </form> -->
+
+                    <button type="submit" class="btn btn-danger" onclick="parsingId({{$dasa->id}})" data-toggle="modal" data-target="#deleteConfirmation">Hapus</button>
+                   
+                    <div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteConfirmationLabel">Konfirmasi</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form action="{{ url('/wishlist/delete') }}" method="POST">
+                                @csrf
+                                <div class="modal-body">
+                                    <p>Apakah Anda Yakin Mau Menghapus?</p>
+                                </div>
+                                <input type="hidden" name="id_product" id="cat_prod" value="">
+                                <div class="modal-footer">                                    
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                     </center>
                 </td>                        
                 </tr>                                
@@ -49,5 +75,14 @@
         <div class="col-md-1">
         </div>
     </div>
+
+<script>
+    
+    function parsingId(id) {
+        var id_prod = id;
+        
+        $("#cat_prod").val(id_prod);
+    }
+</script>
     
 @endsection 

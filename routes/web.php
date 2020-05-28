@@ -134,7 +134,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/customer/{id}/editProfil', 'ProfileController@editProfile');
         Route::post('/customer/{id}/store', 'ProfileController@storeUpdate');
         Route::get('/customer/{id}/wishlist', 'CartController@myWishlist');
-        Route::post('/wishlist/{id}/delete', 'CartController@deleteWishlist');
+        Route::post('/wishlist/delete', 'CartController@deleteWishlist');
     });
 
     Route::middleware('role:costumer|admin')->group(function () {

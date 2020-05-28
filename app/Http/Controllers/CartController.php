@@ -26,9 +26,11 @@ class CartController extends Controller
         return view ('users.profiles.wishlist')->with('wishlist', $myWishList);
     }
 
-    public function deleteWishlist($id) {
-        $data = Wishlist::find($id)->delete();
+    public function deleteWishlist(Request $req) {
 
+        $id = $req->id_product;
+
+        $data = Wishlist::find($id)->delete();
         return redirect('/customer/'.Auth::user()->id.'/wishlist');
     }
 

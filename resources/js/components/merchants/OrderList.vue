@@ -75,6 +75,7 @@
                             style="width: 90px"
                             v-on:click="updateOrderStatus(transaction.id, 'rejectedByMerchant')"
                           >Tolak</button>
+                          
                         </div>
                       </div>
                     </div>

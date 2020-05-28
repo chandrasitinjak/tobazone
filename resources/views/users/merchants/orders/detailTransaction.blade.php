@@ -4,7 +4,7 @@
  
 @section('content')
 
-<div class="container mt-15">
+<div class="container mt-50">
   <div class="row mt-15">
     <div class="col-md-3">
         <h4 class="pb-3">Pembeli</h4>        

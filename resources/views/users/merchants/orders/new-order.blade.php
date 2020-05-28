@@ -48,9 +48,9 @@
 
     <!--content-->
 
-    <div id="order-list-merchant" class="col-12 col-md-9 col-lg-9">
+    <!-- <div id="order-list-merchant" class="col-12 col-md-9 col-lg-9">
       <order-list-merchant-page :user-id="{{ Auth::user()->id }}" />
-    </div>
+    </div> -->
 
   </div>
 </div>

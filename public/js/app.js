@@ -67606,6 +67606,45 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -67615,11 +67654,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     return {
       carts: [],
       cek: 1,
-      stok_produk: 0
+      stok_produk: 0,
+      key_produk: ""
     };
   },
 
   methods: {
+    parsingIdCart: function parsingIdCart(id_cart) {
+      this.key_produk = id_cart;
+    },
     formatPrice: function formatPrice(value) {
       var val = (value / 1).toFixed().replace(".", ",");
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -67905,98 +67948,180 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "quantity col-5 col-md-2" }, [
-                  _c("div", { staticClass: "input-group input-group-sm" }, [
-                    _c("div", { staticClass: "input-group-prepend" }, [
+                cart.product.stock > 0
+                  ? _c("div", { staticClass: "quantity col-5 col-md-2" }, [
+                      _c("div", { staticClass: "input-group input-group-sm" }, [
+                        _c("div", { staticClass: "input-group-prepend" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "btn input-group-text",
+                              on: {
+                                click: function($event) {
+                                  _vm.updateTotal(cart.id, "minus")
+                                }
+                              }
+                            },
+                            [_vm._v("-")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: cart.total,
+                              expression: "cart.total"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "number",
+                            onkeypress:
+                              "return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57",
+                            min: "1",
+                            max: cart.product.stock
+                          },
+                          domProps: { value: cart.total },
+                          on: {
+                            change: function($event) {
+                              _vm.updateCart(cart)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(cart, "total", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "input-group-prepend" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "btn input-group-text",
+                              on: {
+                                click: function($event) {
+                                  _vm.updateTotal(cart.id, "plus")
+                                }
+                              }
+                            },
+                            [_vm._v("+")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        cart.total > cart.product.stock
+                          ? _c("small", { staticStyle: { color: "red" } }, [
+                              _vm._v(
+                                "Maksimal pembelian " +
+                                  _vm._s(cart.product.stock) +
+                                  ",kurangi jumlah produk"
+                              )
+                            ])
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-warning btn-sm mt-2",
+                          attrs: {
+                            type: "button",
+                            "data-toggle": "modal",
+                            "data-target": "#deleteConfirmation"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.parsingIdCart(cart.id)
+                            }
+                          }
+                        },
+                        [_vm._m(2, true)]
+                      ),
+                      _vm._v(" "),
                       _c(
                         "div",
                         {
-                          staticClass: "btn input-group-text",
+                          staticClass: "modal fade",
+                          attrs: {
+                            id: "deleteConfirmation",
+                            tabindex: "-1",
+                            role: "dialog",
+                            "aria-labelledby": "deleteConfirmationLabel",
+                            "aria-hidden": "true"
+                          }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "modal-dialog",
+                              attrs: { role: "document" }
+                            },
+                            [
+                              _c("div", { staticClass: "modal-content" }, [
+                                _vm._m(3, true),
+                                _vm._v(" "),
+                                _vm._m(4, true),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "modal-footer" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-secondary",
+                                      attrs: {
+                                        type: "button",
+                                        "data-dismiss": "modal"
+                                      }
+                                    },
+                                    [_vm._v("Tutup")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-danger",
+                                      attrs: { "data-dismiss": "modal" },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.deleteCart(_vm.key_produk)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Hapus")]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                cart.product.stock == 0
+                  ? _c("div", { staticClass: "quantity col-5 col-md-2" }, [
+                      _c("small", { staticStyle: { color: "red" } }, [
+                        _vm._v("Stok Barang habis")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-warning btn-sm mt-2",
+                          attrs: { type: "button" },
                           on: {
                             click: function($event) {
-                              _vm.updateTotal(cart.id, "minus")
+                              _vm.deleteCart(cart.id)
                             }
                           }
                         },
-                        [_vm._v("-")]
+                        [_vm._m(5, true)]
                       )
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: cart.total,
-                          expression: "cart.total"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "number",
-                        onkeypress:
-                          "return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57",
-                        min: "1",
-                        max: cart.product.stock
-                      },
-                      domProps: { value: cart.total },
-                      on: {
-                        change: function($event) {
-                          _vm.updateCart(cart)
-                        },
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(cart, "total", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { attrs: { "clascart.totals": "input-group-prepend" } },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "btn input-group-text",
-                            on: {
-                              click: function($event) {
-                                _vm.updateTotal(cart.id, "plus")
-                              }
-                            }
-                          },
-                          [_vm._v("+")]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    cart.total > cart.product.stock
-                      ? _c("small", { staticStyle: { color: "red" } }, [
-                          _vm._v(
-                            "Maksimal pembelian " +
-                              _vm._s(cart.product.stock) +
-                              ",kurangi jumlah produk"
-                          )
-                        ])
-                      : _vm._e()
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-outline-warning btn-sm mt-2",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.deleteCart(cart.id)
-                        }
-                      }
-                    },
-                    [_vm._m(2, true)]
-                  )
-                ])
+                    ])
+                  : _vm._e()
               ])
             })
           ],
@@ -68028,7 +68153,7 @@ var render = function() {
                       [_vm._v("Lanjut Pembayaran")]
                     )
                   ])
-                : this.cek != 1
+                : this.cek != 1 || _vm.cart.product.stock == 0
                 ? _c("div", [
                     _c(
                       "a",
@@ -68096,6 +68221,51 @@ var staticRenderFns = [
     return _c("span", [
       _c("i", { staticClass: "fa fa-trash" }),
       _vm._v(" Hapus\n            ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        {
+          staticClass: "modal-title",
+          attrs: { id: "deleteConfirmationLabel" }
+        },
+        [_vm._v("Konfirmasi")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("p", [_vm._v("Apakah Anda Yakin Mau Menghapus?")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("i", { staticClass: "fa fa-trash" }),
+      _vm._v(" Hapus dari keranjang\n            ")
     ])
   }
 ]
@@ -70743,7 +70913,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -70754,6 +70924,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
