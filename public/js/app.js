@@ -65423,7 +65423,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -65469,6 +65469,11 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_carousel__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_carousel__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -65559,15 +65564,18 @@ var render = function() {
                 loop: true,
                 speed: 800,
                 paginationPadding: 3,
-                paginationEnabled: true,
-                perPageCustom: [[0, 1], [991.88, 1]]
+                paginationEnabled: false,
+                perPageCustom: [[0, 1], [991.88, 1]],
+                navigationEnabled: true,
+                navigationNextLabel: _vm.kanan,
+                navigationPrevLabel: _vm.kiri
               }
             },
             _vm._l(_vm.carousels, function(carousel) {
               return _c("slide", { staticClass: "px-0" }, [
                 _c("a", { attrs: { href: carousel.link } }, [
                   _c("img", {
-                    staticStyle: { height: "28em", width: "100%!important" },
+                    staticStyle: { height: "29em", width: "100%!important" },
                     attrs: { src: "/images/carousels/" + carousel.image }
                   })
                 ])
@@ -65590,7 +65598,7 @@ var render = function() {
                 nav: false,
                 loop: true,
                 speed: 800,
-                paginationEnabled: true,
+                paginationEnabled: false,
                 perPageCustom: [[0, 1], [991.88, 1]]
               }
             },

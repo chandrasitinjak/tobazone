@@ -7,12 +7,17 @@
       :loop="true"
       :speed="800"
       :paginationPadding="3"
-      :paginationEnabled="true"
+      :paginationEnabled="false"
       :perPageCustom="[[0, 1], [991.88, 1]]"
+      :navigationEnabled="true"
+      :navigationNextLabel="kanan"
+      :navigationPrevLabel="kiri"
+
+      
     >
       <slide class="px-0" v-for="carousel in carousels">
         <a :href="carousel.link">
-          <img :src="'/images/carousels/' + carousel.image" style="height : 28em; width : 100%!important">
+          <img :src="'/images/carousels/' + carousel.image" style="height : 29em; width : 100%!important">
         </a>
       </slide>
     </Carousel>
@@ -25,7 +30,7 @@
       :nav="false"
       :loop="true"
       :speed="800"
-      :paginationEnabled="true"
+      :paginationEnabled="false"
       :perPageCustom="[[0, 1], [991.88, 1]]"
     >
       <slide class="px-0">

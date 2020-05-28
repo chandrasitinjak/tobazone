@@ -31,7 +31,7 @@
     <div class="container-fluid">    
             
             <div class="row mt-3" style="background-color : white ">                
-                <div class="col-md-8" style="padding-right:0.8rem;">
+                <div class="col-md-8" style="padding-right:1.8rem;">
                     <carousel> </carousel>
                 </div>
 
