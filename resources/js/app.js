@@ -19,6 +19,7 @@ Vue.use(Vuelidate)
 
 const Carousel = require('./components/homes/Carousel')
 const NewProducts = require('./components/homes/NewProducts')
+const NewProductsSuggest = require('./components/homes/NewProductsSuggest')
 const Banner = require('./components/homes/Banner')
 const CartIcon = require('./components/carts/CartIcon')
 const AddToCartButton = require('./components/AddToCartButton')
@@ -58,6 +59,7 @@ const app = new Vue({
         AddToWishlistButton,
         Carousel,
         NewProducts,
+        NewProductsSuggest,
         Banner,
         SearchProduct,
         CartIcon,

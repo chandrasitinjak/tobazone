@@ -1,5 +1,5 @@
 @extends('users.layouts.app') 
-@section('title') {{ "Products Detail" }}
+@section('title') {{ "Product Detail" }}
 @endsection   
  
 @section('content')
@@ -269,8 +269,8 @@
 
 <div id="new-product">
   @if(Auth::check())
-  <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Lain'" /> @else
-  <new-products :title="'Produk Lain'" /> @endif
+  <new-products-suggest :product-id="'{{$product->id}}'" :user-id="{{Auth::user()->id}}" :title="'Produk Sejenis'" :suggest="'{{ $product['cat_product'] }}'"/> @else
+  <new-products-suggest :product-id="'{{$product->id}}'" :title="'Produk Lain'" :suggest="'{{ $product['cat_product'] }}'" /> @endif
 </div>
   @include('users.auth.login_modal')
 @endsection

@@ -111,11 +111,12 @@ async function login() {
             dataType: 'json',
 
             beforeSend: function () {
-
+                $("#loader").show();
             },
 
             complete: (xhr, error) => {
                 if (xhr.status == 200) {
+                    $("#loader").hide();
                     location.reload();
                 } else if (xhr.status == 422) {
                     document.getElementById("exampleModalLabel").innerHTML = "email atau password salah";
@@ -136,9 +137,15 @@ async function login() {
                     $('#exampleModalLabel').css({
                         'color': 'red'
                     });
+                    
+                    $("#loader").hide();
+                    
                 } else {
 
                 }
+            },            
+            error : function() {
+                $("#loader").hide();
             },
         })
     }

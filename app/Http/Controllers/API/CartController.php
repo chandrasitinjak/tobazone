@@ -61,6 +61,11 @@ class CartController extends Controller
         $data = Wishlist::all()->where('product_id', $productId)->where('user_id', $userId);
         return response()->json($data);
     }
+
+    public function myWishlist($userId) {
+        $data = Wishlist::all()->where('user_id', $userId);
+        return response()->json($data);
+    }
     /**
      * Display the specified resource.
      *

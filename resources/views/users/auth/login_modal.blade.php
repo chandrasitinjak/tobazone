@@ -12,6 +12,10 @@
       <div class="modal-body">        
         <h6 class=" font-light " id="exampleModalLabel">Masuk ke Akun Anda</h6>        
         <p id="test"></p>
+
+        <div id="loader" style="position: fixed;width: 100%;height: 100%;margin-left : 10rem;z-index:99;display:none"> 
+            <img src="{{ url("/images/assets/spinner.gif") }}" alt="">
+          </div>
         <form>
           <div class="form-group">
             <!-- <label for="recipient-name" class="col-form-label"></label> -->            
@@ -23,8 +27,7 @@
             </div>                                                      
             <label style="color: red; display:none" id="err_requiredEmail">email harus diisi</label>
             <label style="color: red; display:none" id="err_notValidEmail">harus bentuk email</label>
-          </div>                   
-
+          </div>                            
           <div class="form-group ">
             <div class="input-group ">
               <div class="input-group-prepend">

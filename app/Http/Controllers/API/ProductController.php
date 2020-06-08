@@ -18,6 +18,10 @@ class ProductController extends Controller
         return response()->json(Product::with(['merchant', 'merchant.profile'])->where('stock','!=', 0)->inRandomOrder()->limit(12)->get());
     }
 
+    public function getSuggest($catProduct, $productId) {
+        return response()->json(Product::with(['merchant', 'merchant.profile'])->where('id','!=', $productId)->where('stock','!=', 0)->where('cat_product', $catProduct)->get());
+    }
+
     public function getProducts($id) {
         return response()->json(Product::where('user_id', $id)->get());
     }

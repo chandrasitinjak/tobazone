@@ -9,10 +9,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>UlosZone</title>
+    <title>Tobazone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="/images/assets/icon.ico">
+    <!-- <link rel="shortcut icon" href="/images/assets/icon.ico"> -->
+    <link rel="shortcut icon" href="/images/assets/icon_1.png">
 
     <link rel="stylesheet" href="{{ url('/admin-assets/vendors/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('/admin-assets/vendors/font-awesome/css/font-awesome.min.css') }}">

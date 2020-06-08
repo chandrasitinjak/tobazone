@@ -27,7 +27,7 @@
                           <h6
                             style="color: green;"
                             v-if="transaction.payment.status === 'paid'"
-                          >Sudah dibayar</h6>
+                          >Sudah dibayar <span class="badge badge-info">{{ transaction.courier }}</span> </h6> 
                           <h6 style="color: red;" v-else>Belum dibayar</h6>
                           <small>
                             <b>Jumlah :</b>
@@ -52,7 +52,13 @@
                   <div>
                     <div>
                       <div>
+                        <!-- <span class="badge badge-info">kurir</span> -->
+                        <!-- <div class="row">
+                              <h5><span class="badge badge-info">{{ transaction.courier }}</span></h5>
+                          </div>             -->
                         <div class="quantity col-md-5" v-if="transaction.shipping_number === null">
+                                        
+                          <div class="row">
                           <button
                             class="btn btn-success btn-sm mb-2"
                             style="display: block; width: 90px"
@@ -60,6 +66,14 @@
                             data-target="#resiModal"
                             v-on:click="updateSelectedId(transaction.id)"
                           >Input Resi</button>
+                            </div>
+                          <div class="row">
+                          <button
+                            class="btn btn-danger btn-sm"
+                            style="width: 90px"
+                            v-on:click="updateOrderStatus(transaction.id, 'rejectedByMerchant')"
+                          >Tolak</button>
+                            </div>
                         </div>
                         <div
                           class="modal fade"
@@ -72,7 +86,7 @@
                           <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Upload Bukti Bayar</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Masukkan Nomor Resi</h5>
                                 <button
                                   type="button"
                                   class="close"
@@ -189,6 +203,19 @@ export default {
     updateSelectedId(id) {
       this.selectedId = id;
       console.log(this.selectedId);
+    },
+    updateOrderStatus(id, status) {
+      const payload = {
+        status: status
+      };
+      window.axios
+        .post("/api/merchant/orders/" + id, payload)
+        .then(res => {
+          this.getProducts();
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   },
   mounted() {

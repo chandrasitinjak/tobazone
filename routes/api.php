@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('products', 'API\ProductController');
+Route::get('product/{catProduct}/{productId}', 'API\ProductController@getSuggest');
 Route::get('/merchant/products/{id}', 'API\ProductController@getProducts');
 Route::resource('/transactions', 'API\TransactionController');
 Route::resource('carts', 'API\CartController');
@@ -56,3 +57,4 @@ Route::post('/transaction/{id}/confirmByUser', 'API\TransactionController@confir
 Route::get('/merchant/{id}/success-orders', 'API\OrderController@getSuccesOrdersByMerchant');
 // Route::get('/merchant/detail-transaction/{id}', 'API\OrderController@getDetailSuccesOrdersByMerchant');
 Route::get('/customer/{userId}/wishlists/{productId}', 'API\CartController@cekWishlist');
+Route::get('/customer/{userId}/wishlists', 'API\CartController@myWishlist');

@@ -53,7 +53,7 @@ export default {
   components: { Carousel, Slide },
   data() {
     return {
-      carousels: []
+      carousels: [],      
     };
   },
   methods: {
@@ -61,7 +61,7 @@ export default {
       window.axios.get("/get-carousels").then(res => {
         this.carousels = res.data;
       });
-    }
+    },
   },
   mounted() {
     this.getCarousels();

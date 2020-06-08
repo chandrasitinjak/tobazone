@@ -152,9 +152,9 @@
             <h5>Merchant Tobazone</h5>
         </a>
 
-        <a class="nav-link d-none d-sm-block" href="https://medium.com/uloszone" rel="noopener noreferrer"
+        <!-- <a class="nav-link d-none d-sm-block" href="https://medium.com/uloszone" rel="noopener noreferrer"
            target="_blank"
-           style="font-weight: 400; font-size: 1rem;">Blog Tobazone</a>
+           style="font-weight: 400; font-size: 1rem;">Blog Tobazone</a> -->
 
 
         <div class="collapse navbar-collapse" id="navbarResponsive">

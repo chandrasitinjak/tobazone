@@ -30,7 +30,7 @@
                     <p class="card-text float-left">
                       <small class="text-muted"> {{ product.merchant.profile.name }}</small>
                     </p> 
-                    <div>
+                    <div >
                     <button style="border : 0px; background-color: white" class="float-right" v-on:click="addToWishlist(product.id)"> <i class="fa fa-heart-o"></i> </button>                    
                     </div>
                   </div>
@@ -72,22 +72,19 @@ export default {
     return {
       products: [],
       datas: "",
+      data: "",
     };
   },
   methods: {
-
-
       async checkProduct(id_product) {      
       
       await window.axios.get("/api/customer/"+this.userId+"/wishlists/"+id_product)
         .then(res => {
-            this.datas = res.data;
-            // console.log(this.datas);
+            this.datas = res.data;            
         })
       },
 
-      async addToWishlist(id_product){
-      
+      async addToWishlist(id_product){              
       await this.checkProduct(id_product);      
 
       if(this.datas.length != 0) {
@@ -116,11 +113,20 @@ export default {
           return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
       },
 
+    async getAllMyWishList() {
+      await window.axios.get("/api/customer/"+this.userId+"/wishlists/")
+        .then(res => {
+            this.data = res.data;            
+            // console.log(data);
+        })
+    },
+    
     async getAllProducts() {
       await window.axios
         .get("/api/products")
         .then(res => {
           this.products = res.data;
+          // console.log(products);
         })
         .catch(err => {
           console.log(err);
@@ -147,7 +153,9 @@ export default {
     }
   },
   mounted() {
+    // this.getAllMyWishList();
     this.getAllProducts();    
+    
   }
 };
 </script>

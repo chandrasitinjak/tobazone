@@ -29,10 +29,10 @@
                 <li> <a href="{{ url('/banners')}}"> <i class="menu-icon fa fa-bookmark"></i> Banner </a> </li>
                 <li> <a href="{{ url('/admin/blogs')}}"> <i class="menu-icon fa fa-stack-exchange"></i> Blogs </a> </li>
 
-                <h3 class="menu-title">Role & Permissions</h3>
+                <!-- <h3 class="menu-title">Role & Permissions</h3>
 
                 <li> <a href="{{ url('/roles')}}"> <i class="menu-icon fa fa-users"></i> Roles </a> </li>
-                <li> <a href="{{ url('/permissions')}}"> <i class="menu-icon fa fa-user"></i> Permissions </a> </li>
+                <li> <a href="{{ url('/permissions')}}"> <i class="menu-icon fa fa-user"></i> Permissions </a> </li> -->
             </ul>
         </div>
     </nav>

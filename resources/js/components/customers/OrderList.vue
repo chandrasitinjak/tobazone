@@ -194,9 +194,9 @@
                                     <div v-else-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 1">  
                                       <p> Terimakasih sudah melakukan konfirmasi</p>                                      
                                     </div>
-                                    <div v-else> 
+                                    <!-- <div v-else> 
                                        <p>tidak dilakukan pengiriman, pembelian ditolak admin</p>
-                                    </div>                                    
+                                    </div>                                     -->
                               </div>
                               
 
