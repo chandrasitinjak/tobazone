@@ -1,11 +1,16 @@
 <template>
-  <div class="cart-area" style="width:41px">
+  <div class="cart-area" style="width:61px">
     <a href="/carts">
       <transition name="cart">
-        <img src="/user-assets/img/core-img/bag.svg" style="width: 23px" v-if="show">
+        <img src="/user-assets/img/core-img/bag.svg" style="width: 30px;heigh:30px" v-if="show">
       </transition>
-      <span style="display:inline-block;font-size: large;
-    color: #4b1815;">{{total}}</span>
+      <span  class="badge badge-light" style="background-color :black;; display:inline-block;font-size: 0.8rem; color: #4b1815; 
+      -webkit-border-radius: 9px;
+      margin-top : 14px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;  
+    vertical-align: top;
+    margin-left: -15px; color :  #FFFAF3">{{total}}</span>
     </a>
   </div>
 </template>

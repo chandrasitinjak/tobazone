@@ -65,7 +65,7 @@
         </div>
 
         <!-- Form Search -->
-        <div class="d-none d-lg-block" style="margin-right: 8rem">
+        <div class="d-none d-lg-block" style="margin-right: 16rem;">
 
             <div class="search-area">
                 <form class="example" action="/search">
@@ -88,7 +88,8 @@
 
         @auth
             <div class="user-login-info mr-2 d-none d-sm-block">
-                <a href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}" style="font-weight: 400;font-size: 1rem;">Pesanan</a>
+                <!-- <a href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}" style="font-weight: 400;font-size: 1rem;">Pesanan</a> -->
+                <!-- <p>{{ Auth::user()->name }}</p> -->
             </div>
         @endauth
 
@@ -112,18 +113,21 @@
                 <div class="classynav p-0">
                     <div class="dropdown float-right">
                         <a href="#" class="dropdown-toggle active mr-4" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false" style="    display: inherit;">
+                           aria-expanded="false" style="display: inherit;">
                             <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
                         </a>
                         <div class="user-menu dropdown-menu mt-2" style="border: 1px solid #e0e0e0; left: -70px;">
                             <ul class="dropdown">
-                                <li>
-                                    <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/myProfil') }}">My Profile</a>
+                                <li class="item">
+                                    <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/myProfil') }}">Profile</a> 
+                                </li>                                
+                                <li class="item">
+                                    <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/wishlist') }}" >My Wishlist</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/wishlist') }}">My Wishlist</a>
+                                    <a class="nav-link" href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}" style="font-weight: 400;font-size: 1rem;">Pesanan</a>
                                 </li>
-                                <li>
+                                <li class="item">
                                     <form method="POST" action="{{ url('/logout')}}">
                                         {{ csrf_field() }}
                                         <button type="submit" class="btn nav-link"

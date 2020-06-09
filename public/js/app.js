@@ -67530,6 +67530,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -67582,7 +67587,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "cart-area", staticStyle: { width: "41px" } },
+    { staticClass: "cart-area", staticStyle: { width: "61px" } },
     [
       _c(
         "a",
@@ -67591,7 +67596,7 @@ var render = function() {
           _c("transition", { attrs: { name: "cart" } }, [
             _vm.show
               ? _c("img", {
-                  staticStyle: { width: "23px" },
+                  staticStyle: { width: "30px", heigh: "30px" },
                   attrs: { src: "/user-assets/img/core-img/bag.svg" }
                 })
               : _vm._e()
@@ -67600,10 +67605,18 @@ var render = function() {
           _c(
             "span",
             {
+              staticClass: "badge badge-light",
               staticStyle: {
+                "background-color": "black",
                 display: "inline-block",
-                "font-size": "large",
-                color: "#4b1815"
+                "font-size": "0.8rem",
+                color: "#FFFAF3",
+                "-webkit-border-radius": "9px",
+                "margin-top": "14px",
+                "-moz-border-radius": "20px",
+                "border-radius": "20px",
+                "vertical-align": "top",
+                "margin-left": "-15px"
               }
             },
             [_vm._v(_vm._s(_vm.total))]
