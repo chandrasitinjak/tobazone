@@ -30,4 +30,21 @@ class RegionalController extends Controller
         
         return $result->getBody()->getContents();
     }
+
+    public function getCity() {
+                
+        $client = new Client([
+            'base_uri' => 'https://pro.rajaongkir.com/api/',
+            'headers' => [
+                "key" => env("RAJAONGKIR_API_KEY")
+            ]
+        ]);
+
+        $result = $client->request('GET', 'city');
+        
+        return $result->getBody()->getContents();
+
+    }
+
+
 }

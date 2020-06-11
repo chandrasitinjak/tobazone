@@ -154,4 +154,5 @@ class TransactionController extends Controller
         $result = $client->request('POST', 'waybill', ['form_params' => $payload]);
         return $result->getBody()->getContents();
     }
+        
 }

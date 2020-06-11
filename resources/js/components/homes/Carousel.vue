@@ -62,9 +62,10 @@ export default {
         this.carousels = res.data;
       });
     },
+    
   },
   mounted() {
-    this.getCarousels();
+    this.getCarousels();    
   }
 };
 </script>
