@@ -68835,7 +68835,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -68846,9 +68846,15 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddAddressModal__ = __webpack_require__(213);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddAddressModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__AddAddressModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__AddAddressModal__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__AddAddressModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__AddAddressModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__eventBus__ = __webpack_require__(5);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
 //
 //
 //
@@ -68909,28 +68915,52 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   components: {
-    Modal: __WEBPACK_IMPORTED_MODULE_0__AddAddressModal___default.a
+    Modal: __WEBPACK_IMPORTED_MODULE_1__AddAddressModal___default.a
   },
   methods: {
-    getAddress: function getAddress() {
-      var _this = this;
+    getAddress: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var _this = this;
 
-      window.axios.get("/profile/" + this.userId).then(function (res) {
-        _this.addresses = JSON.parse(res.data.address);
-        _this.buyer = res.data;
-      }).catch(function (err) {
-        console.log(err);
-      });
-    },
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return window.axios.get("/profile/" + this.userId).then(function (res) {
+                  _this.addresses = JSON.parse(res.data.address);
+                  _this.address = JSON.parse(_this.addresses[0]);
+                  _this.buyer = res.data;
+
+                  __WEBPACK_IMPORTED_MODULE_2__eventBus__["a" /* default */].$emit('ADDRESS_CHOOSEN', null);
+                  //  this.publishAddressChoosenEvent();          
+                }).catch(function (err) {
+                  console.log(err);
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function getAddress() {
+        return _ref.apply(this, arguments);
+      }
+
+      return getAddress;
+    }(),
     publishAddressChoosenEvent: function publishAddressChoosenEvent() {
-      __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit('ADDRESS_CHOOSEN', this.address);
+      __WEBPACK_IMPORTED_MODULE_2__eventBus__["a" /* default */].$emit('ADDRESS_CHOOSEN', this.address);
     }
   },
   mounted: function mounted() {
     var _this2 = this;
 
     this.getAddress();
-    __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$on("ADD_ADDRESS_MODAL_CLOSED", function () {
+    __WEBPACK_IMPORTED_MODULE_2__eventBus__["a" /* default */].$on("ADD_ADDRESS_MODAL_CLOSED", function () {
       _this2.showModal = false;
     });
   }
@@ -69713,7 +69743,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -69788,7 +69818,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     return {
       carts: [],
       merchants: [],
-      products: []
+      products: [],
+      addresses: [],
+      addres: null
     };
   },
 
@@ -69898,22 +69930,66 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
       return filterMerchants;
     }(),
-    countShippingPrice: function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(address) {
+    getAddress: function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
         var _this3 = this;
 
-        var transactionDetail;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                _context4.next = 2;
+                _context3.next = 2;
+                return window.axios.get("/profile/" + this.userId).then(function (res) {
+                  _this3.addresses = JSON.parse(res.data.address);
+                  _this3.addres = JSON.parse(_this3.addresses[0]);
+
+                  console.log("alamat : " + _this3.addres);
+                }).catch(function (err) {
+                  console.log(err);
+                });
+
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function getAddress() {
+        return _ref3.apply(this, arguments);
+      }
+
+      return getAddress;
+    }(),
+    countShippingPrice: function () {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(address) {
+        var _this4 = this;
+
+        var transactionDetail;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return this.getAddress();
+
+              case 2:
+
+                if (address == null) {
+                  address = this.addres;
+                  console.log(address);
+                } else {
+                  console.log(address);
+                }
+
+                _context5.next = 5;
                 return Promise.all(this.merchants.map(function () {
-                  var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3(merchant) {
+                  var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(merchant) {
                     var shippingCost, courier_used, estimasi_waktu, courier_code, payload;
-                    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+                    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
                       while (1) {
-                        switch (_context3.prev = _context3.next) {
+                        switch (_context4.prev = _context4.next) {
                           case 0:
                             shippingCost = 0;
                             courier_used = "";
@@ -69927,7 +70003,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                               weight: merchant.totalWeight,
                               courier: "jne:sicepat:pos:ninja"
                             };
-                            _context3.next = 7;
+
+
+                            console.log(payload);
+
+                            _context4.next = 8;
                             return window.axios.post("/api/shippingcost", payload).then(function (res) {
 
                               var len_data = res.data.rajaongkir.results.length;
@@ -69943,27 +70023,27 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                               }
                             });
 
-                          case 7:
+                          case 8:
 
                             merchant.totalShippingCost = shippingCost;
                             merchant.courier_used = courier_used;
                             merchant.estimate_waktu = estimasi_waktu;
                             merchant.courier_code = courier_code;
 
-                          case 11:
+                          case 12:
                           case "end":
-                            return _context3.stop();
+                            return _context4.stop();
                         }
                       }
-                    }, _callee3, _this3);
+                    }, _callee4, _this4);
                   }));
 
                   return function (_x3) {
-                    return _ref4.apply(this, arguments);
+                    return _ref5.apply(this, arguments);
                   };
                 }()));
 
-              case 2:
+              case 5:
                 transactionDetail = {
                   merchants: this.merchants,
                   customerAddress: address,
@@ -69973,16 +70053,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 };
                 this.publishFinalTransactionDetail(transactionDetail);
 
-              case 4:
+              case 7:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee5, this);
       }));
 
       function countShippingPrice(_x2) {
-        return _ref3.apply(this, arguments);
+        return _ref4.apply(this, arguments);
       }
 
       return countShippingPrice;
@@ -69994,33 +70074,34 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("FINAL_TRANSACTION_DETAIL", transactionDetail);
     }
   },
-  mounted: function () {
-    var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
-      var _this4 = this;
 
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+  mounted: function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6() {
+      var _this5 = this;
+
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
         while (1) {
-          switch (_context5.prev = _context5.next) {
+          switch (_context6.prev = _context6.next) {
             case 0:
-              _context5.next = 2;
+              _context6.next = 2;
               return this.getProducts();
 
             case 2:
 
               __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$on("ADDRESS_CHOOSEN", function (address) {
-                _this4.countShippingPrice(address);
+                _this5.countShippingPrice(address);
               });
 
             case 3:
             case "end":
-              return _context5.stop();
+              return _context6.stop();
           }
         }
-      }, _callee5, this);
+      }, _callee6, this);
     }));
 
     function mounted() {
-      return _ref5.apply(this, arguments);
+      return _ref6.apply(this, arguments);
     }
 
     return mounted;
@@ -70249,7 +70330,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -70320,6 +70401,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -70329,7 +70416,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       merchants: [],
       finalPaymentDetail: null,
-      disable: false
+      disable: false,
+      cek: 0
     };
   },
 
@@ -70343,27 +70431,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on("MERCHANT_LIST", function (merchants) {
         _this.merchants = merchants;
+        // console.log(this.merchants);
       });
 
       __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on("FINAL_TRANSACTION_DETAIL", function (finalPaymentDetail) {
         _this.finalPaymentDetail = finalPaymentDetail;
+        // console.log(this.finalPaymentDetail);      
       });
     },
     createOrder: function createOrder() {
       var _this2 = this;
 
-      this.disable = true;
+      //  this. registerListener();
 
-      window.axios.post("/api/transactions", this.finalPaymentDetail).then(function (res) {
-        if (_this2.finalPaymentDetail['merchants'].length == 1) {
-          window.location = "/customer/transactions/" + res.data.id;
-        } else {
-          window.location = "/customer/" + _this2.userId + "/orders";
-        }
-      }).catch(function (err) {
-        // console.log(err);
-        alert(err);
-      });
+      if (this.cek == 1) {} else {
+        this.disable = true;
+
+        window.axios.post("/api/transactions", this.finalPaymentDetail).then(function (res) {
+          if (_this2.finalPaymentDetail['merchants'].length == 1) {
+            window.location = "/customer/transactions/" + res.data.id;
+          } else {
+            window.location = "/customer/" + _this2.userId + "/orders";
+          }
+        }).catch(function (err) {
+          // console.log(err);
+          alert(err);
+        });
+      }
     }
   },
   mounted: function mounted() {
@@ -70412,7 +70506,7 @@ var render = function() {
               _c("br"),
               _vm._v(" "),
               _c("div", [
-                _c("span", [_vm._v("Total Harga Produk")]),
+                _c("span", [_vm._v("Total Belanja")]),
                 _vm._v(" "),
                 _c("span", { staticClass: "float-right font-weight-bold" }, [
                   _vm._v(
@@ -70422,7 +70516,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", [
-                _c("span", [_vm._v("Total Ongkos Kirim")]),
+                _c("span", [_vm._v("Ongkos Kirim")]),
                 _vm._v(" "),
                 _c("span", { staticClass: "float-right font-weight-bold" }, [
                   _vm._v(
@@ -70431,26 +70525,16 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              merchant.totalShippingCost != 0
+              merchant.totalShippingCost == 0
                 ? _c("div", [
-                    _c("div", [
-                      _c("span", [_vm._v("Kurir yang digunakan ")]),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        { staticClass: "float-right font-weight-bold" },
-                        [_vm._v(_vm._s(merchant.courier_used))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("span", [_vm._v("Estimasi waktu(hari)")]),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        { staticClass: "float-right font-weight-bold" },
-                        [_vm._v(_vm._s(merchant.estimate_waktu))]
-                      )
+                    _c("p", { staticStyle: { display: "none" } }, [
+                      _vm._v(_vm._s((_vm.cek = 1)) + " ")
+                    ])
+                  ])
+                : merchant.totalShippingCost != 0
+                ? _c("div", [
+                    _c("p", { staticStyle: { display: "none" } }, [
+                      _vm._v(_vm._s((_vm.cek = 11)) + " ")
                     ])
                   ])
                 : _vm._e(),

@@ -112,6 +112,7 @@ async function login() {
 
             beforeSend: function () {
                 $("#loader").show();
+                
             },
 
             complete: (xhr, error) => {

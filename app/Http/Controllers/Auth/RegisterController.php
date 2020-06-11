@@ -99,7 +99,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'address' => json_encode($address),
             'phone' => $data['phone'],
-            'photo' =>'no-image.jpg',
+            'photo' =>'profile.png',
             'gender' => $data['gender'],
             'birthday' => $data['birthday'],
         ]));

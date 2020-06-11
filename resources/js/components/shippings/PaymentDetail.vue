@@ -16,27 +16,33 @@
           </div>
           <br>
           <div>
-            <span>Total Harga Produk</span>
+            <span>Total Belanja</span>
             <span class="float-right font-weight-bold">Rp. {{formatPrice( merchant.totalProductCost )}}</span>
           </div>
 
         
           <div>
-            <span>Total Ongkos Kirim</span>
+            <span>Ongkos Kirim</span>
             <span class="float-right font-weight-bold">Rp. {{formatPrice (merchant.totalShippingCost) }}</span>
           </div>
 
-          <div v-if="merchant.totalShippingCost != 0">
+          <div v-if="merchant.totalShippingCost == 0">
+              <p style="display : none">{{ cek = 1 }} </p>
+          </div>
+          <div v-else-if="merchant.totalShippingCost != 0">
+              <p style="display : none">{{ cek = 11 }} </p>
+          </div>
+          <!-- <div v-if="merchant.totalShippingCost != 0">
           <div>
             <span>Kurir yang digunakan </span>
             <span class="float-right font-weight-bold">{{ (merchant.courier_used) }}</span>
-          </div>
+          </div> -->
 
-          <div>
+          <!-- <div>
             <span>Estimasi waktu(hari)</span>
             <span class="float-right font-weight-bold">{{ (merchant.estimate_waktu) }}</span>
-          </div>
-          </div>
+          </div> -->
+          <!-- </div> -->
 
           <div style="border-bottom: 1px #b4b4b4 solid; margin: 10px 0px 10px 0px"></div>Total Pembayaran
           <div
@@ -67,6 +73,7 @@ export default {
       merchants: [],
       finalPaymentDetail: null,
       disable: false,
+      cek : 0
     };
   },
   methods: {
@@ -76,16 +83,24 @@ export default {
       },
     registerListener() {
       EventBus.$on("MERCHANT_LIST", merchants => {
-        this.merchants = merchants;
+        this.merchants = merchants;         
+        // console.log(this.merchants);
       });
 
       EventBus.$on("FINAL_TRANSACTION_DETAIL", finalPaymentDetail => {
         this.finalPaymentDetail = finalPaymentDetail;        
+        // console.log(this.finalPaymentDetail);      
       });
       
     },
 
     createOrder() {
+
+    //  this. registerListener();
+
+      if(this.cek == 1) {
+
+      } else {
       this.disable = true
       
       window.axios
@@ -101,6 +116,7 @@ export default {
           // console.log(err);
           alert(err);
         });
+    }
     }
   },
   mounted() {

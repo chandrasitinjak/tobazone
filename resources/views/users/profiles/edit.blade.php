@@ -15,7 +15,7 @@
                             <input type="text" class="form-control form-control-sm" value="{{ $profiles->name }}" name="profile_name">
                         </div>
                         <div class="form-group">
-                            <label class="label">nomor hp</label>
+                            <label class="label">Nomor Hp</label>
                             <input type="text" class="form-control form-control-sm" value="{{ $profiles->phone }}" name="profile_phone">
                         </div>
                         @if($profiles->photo == null)
@@ -28,7 +28,7 @@
                     `      <img src="{{ url("/images/user_profiles/".$profiles->photo )}}" alt="Card image cap test" style="object-fit: scale-down">
                         </div>
 
-                            <p>ubah foto anda</p>
+                            <p>Ubah Foto Anda</p>
                             <label class="label label-a">upload foto</label>
                             <input class="form-control form-control-sm" type="file" name="profile_picture">
                         @endif

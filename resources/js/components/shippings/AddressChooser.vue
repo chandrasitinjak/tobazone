@@ -6,7 +6,7 @@
           <h5>Alamat Pengiriman</h5>
         </div>
         <div class="col-md-4 col-12">
-          <select v-model="address" class="form-control form-control-sm" @change="publishAddressChoosenEvent">
+          <select v-model="address" class="form-control form-control-sm" @change="publishAddressChoosenEvent">            
             <option v-for="address in addresses" :value="JSON.parse(address)"> {{ JSON.parse(address).name }}</option>
           </select>
         </div>
@@ -60,17 +60,22 @@ export default {
     Modal
   },
   methods: {
-    getAddress() {
-      window.axios
+    async getAddress() {
+     await window.axios
         .get("/profile/" + this.userId)
         .then(res => {
           this.addresses = JSON.parse(res.data.address);
-          this.buyer = res.data;
+          this.address = JSON.parse(this.addresses[0]);
+          this.buyer = res.data;      
+          
+          EventBus.$emit('ADDRESS_CHOOSEN', null);
+          //  this.publishAddressChoosenEvent();          
         })
         .catch(err => {
           console.log(err);
         });
     },
+
     publishAddressChoosenEvent() {
       EventBus.$emit('ADDRESS_CHOOSEN', this.address)
     }
@@ -79,7 +84,7 @@ export default {
     this.getAddress();
     EventBus.$on("ADD_ADDRESS_MODAL_CLOSED", () => {
       this.showModal = false;
-    }); 
+    });     
   }
 };
 </script>

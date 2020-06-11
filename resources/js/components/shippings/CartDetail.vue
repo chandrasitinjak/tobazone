@@ -55,7 +55,9 @@ export default {
     return {
       carts: [],
       merchants: [],
-      products: [],      
+      products: [], 
+      addresses: [],     
+      addres: null,
     };
   },
   methods: {
@@ -130,14 +132,38 @@ export default {
       this.publishMerchantsListEvent(this.merchants)
     },
 
+    async getAddress() {
+     await window.axios
+        .get("/profile/" + this.userId)
+        .then(res => {          
+          this.addresses = JSON.parse(res.data.address);
+          this.addres = JSON.parse(this.addresses[0]);        
+          
+          console.log("alamat : " + this.addres);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+
     async countShippingPrice(address) {
+
+      await this.getAddress();
+
+      if(address == null) {
+        address = this.addres;
+        console.log(address);
+      }else {             
+        console.log(address);
+      }
+       
       await Promise.all(
         this.merchants.map(async merchant => {
           let shippingCost = 0;
           let courier_used = "";
           let estimasi_waktu = "";
           let courier_code = "";
-
+          
           const payload = {
             origin: merchant.address.subdistrict_id,
             originType: "subdistrict",
@@ -146,7 +172,9 @@ export default {
             weight: merchant.totalWeight,
             courier: "jne:sicepat:pos:ninja"
           };          
-                    
+
+          console.log(payload);                    
+          
           await window.axios.post("/api/shippingcost", payload).then(res => {       
             
             var len_data = res.data.rajaongkir.results.length;
@@ -189,11 +217,12 @@ export default {
       EventBus.$emit("FINAL_TRANSACTION_DETAIL", transactionDetail);
     },    
   },
-  async mounted() {
+  
+  async mounted() {    
     await this.getProducts();
 
     EventBus.$on("ADDRESS_CHOOSEN", address => {
-      this.countShippingPrice(address);
+      this.countShippingPrice(address);      
     });
   }
 };
