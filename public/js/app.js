@@ -69743,7 +69743,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -69757,6 +69757,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Spinner__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Spinner__);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -69809,11 +69811,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["userId"],
+  components: {
+    spinner: __WEBPACK_IMPORTED_MODULE_2__Spinner___default.a
+  },
   data: function data() {
     return {
       carts: [],
@@ -70005,8 +70012,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                             };
 
 
-                            console.log(payload);
-
+                            __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
                             _context4.next = 8;
                             return window.axios.post("/api/shippingcost", payload).then(function (res) {
 
@@ -70021,6 +70027,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                   break;
                                 }
                               }
+
+                              __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
                             });
 
                           case 8:
@@ -70116,110 +70124,118 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card globalcard" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "card-body pt-0" },
-      _vm._l(_vm.carts, function(cart) {
-        return _c(
-          "div",
-          {
-            staticClass: "row mt-4 pb-1",
-            staticStyle: { "border-bottom": "1px solid #00000020" }
-          },
-          [
-            _c("div", { staticClass: "col-md-9 col-sm-12 col-xs-6" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-lg-4 col-sm-6 col-xs-12" }, [
-                  _c(
-                    "a",
-                    {
-                      staticStyle: { float: "left" },
-                      attrs: { href: "/products/" + cart.product.id }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "imgwrapper",
-                          staticStyle: { padding: "0px" }
-                        },
-                        [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/images/" + JSON.parse(cart.product.images)[0],
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-7 col-sm-6 col-xs-12" }, [
-                  _c("div", { staticClass: "mb-1" }, [
-                    _c("h6", [_vm._v(_vm._s(cart.product.name))])
+  return _c(
+    "div",
+    { staticClass: "card globalcard" },
+    [
+      _c("spinner"),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "card-body pt-0" },
+        _vm._l(_vm.carts, function(cart) {
+          return _c(
+            "div",
+            {
+              staticClass: "row mt-4 pb-1",
+              staticStyle: { "border-bottom": "1px solid #00000020" }
+            },
+            [
+              _c("div", { staticClass: "col-md-9 col-sm-12 col-xs-6" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-lg-4 col-sm-6 col-xs-12" }, [
+                    _c(
+                      "a",
+                      {
+                        staticStyle: { float: "left" },
+                        attrs: { href: "/products/" + cart.product.id }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "imgwrapper",
+                            staticStyle: { padding: "0px" }
+                          },
+                          [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "/images/" +
+                                  JSON.parse(cart.product.images)[0],
+                                alt: "Card image cap"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "medium" }, [
-                    _c("ul", [
-                      _c("li", [
-                        _vm._v(
-                          "\n                  Jumlah :\n                  "
-                        ),
-                        _c("b", [_vm._v(_vm._s(cart.total) + " buah")])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _vm._v(
-                          "\n                  Penjual :\n                  "
-                        ),
-                        _c("b", [
+                  _c("div", { staticClass: "col-lg-7 col-sm-6 col-xs-12" }, [
+                    _c("div", { staticClass: "mb-1" }, [
+                      _c("h6", [_vm._v(_vm._s(cart.product.name))])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "medium" }, [
+                      _c("ul", [
+                        _c("li", [
                           _vm._v(
-                            "\n                    " +
-                              _vm._s(cart.product.merchant.profile.name) +
-                              ",\n                    " +
-                              _vm._s(
-                                JSON.parse(
+                            "\n                  Jumlah :\n                  "
+                          ),
+                          _c("b", [_vm._v(_vm._s(cart.total) + " buah")])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _vm._v(
+                            "\n                  Penjual :\n                  "
+                          ),
+                          _c("b", [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(cart.product.merchant.profile.name) +
+                                ",\n                    " +
+                                _vm._s(
                                   JSON.parse(
-                                    cart.product.merchant.profile.address
-                                  )[0]
-                                ).city_name
-                              ) +
-                              "\n                  "
-                          )
+                                    JSON.parse(
+                                      cart.product.merchant.profile.address
+                                    )[0]
+                                  ).city_name
+                                ) +
+                                "\n                  "
+                            )
+                          ])
                         ])
                       ])
                     ])
                   ])
                 ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "float-right h6",
+                    staticStyle: { color: "#ff8415" }
+                  },
+                  [
+                    _vm._v(
+                      "Rp " +
+                        _vm._s(_vm.formatPrice(cart.product.price * cart.total))
+                    )
+                  ]
+                )
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "float-right h6",
-                  staticStyle: { color: "#ff8415" }
-                },
-                [
-                  _vm._v(
-                    "Rp " +
-                      _vm._s(_vm.formatPrice(cart.product.price * cart.total))
-                  )
-                ]
-              )
-            ])
-          ]
-        )
-      })
-    )
-  ])
+            ]
+          )
+        })
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {

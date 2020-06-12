@@ -1,5 +1,6 @@
 <template>
   <div class="card globalcard">
+    <spinner></spinner>
     <div class="card-header">
       <div class="row">
         <div class="col-12">
@@ -48,9 +49,13 @@
 
 <script>
 import EventBus from "../../eventBus";
+import spinner from "../Spinner";
 
 export default {
   props: ["userId"],
+   components: {
+    spinner
+  },
   data() {
     return {
       carts: [],
@@ -173,8 +178,7 @@ export default {
             courier: "jne:sicepat:pos:ninja"
           };          
 
-          console.log(payload);                    
-          
+          EventBus.$emit("SPINNER", true);                         
           await window.axios.post("/api/shippingcost", payload).then(res => {       
             
             var len_data = res.data.rajaongkir.results.length;
@@ -188,6 +192,8 @@ export default {
                 break;
                 }
               }            
+
+              EventBus.$emit("SPINNER", false);
           });
 
           merchant.totalShippingCost = shippingCost;
