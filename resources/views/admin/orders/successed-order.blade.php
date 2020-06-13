@@ -32,7 +32,7 @@
                                     <td>{{ $order->created_at }}</td>
                                     <td> <span class="address"> {{ $order->address }}</span> </td>
                                     <td>
-                                        <a href="{{ url('/admin/unpaid-order-detail', $order->id)}}">
+                                        <a href="{{ url('/admin/success-order-detail', $order->id)}}">
                                                 <button type="button" class="btn btn-primary btn-sm" title="Lihat Detail">
                                                     <i class="fa fa-eye"></i>
                                                 </button>

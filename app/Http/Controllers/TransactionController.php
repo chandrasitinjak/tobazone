@@ -66,6 +66,31 @@ class TransactionController extends Controller
         return view('admin.orders.onprocess-order')->with('transactions', $transactions);
     }
 
+    public function getRejectedOrder() {
+        $transactions = Transaction::with('orders')->where('status', 'rejectedByMerchant')->get();
+        return view('admin.orders.rejected-order')->with('transactions', $transactions);
+    }
+
+    public function getRejectedOrderDetail($id) {
+        $transaction = Transaction::with(['orders', 'customer', 'payment', 'customer.profile'])->where('id', $id)->first();        
+        return view('admin.orders.rejected-order-detail')->with('transaction', $transaction);
+    }
+
+    public function getInvalidOrderDetail($id) {
+        $transaction = Transaction::with(['orders', 'customer', 'payment', 'customer.profile'])->where('id', $id)->first();
+        return view('admin.orders.invalid-order-detail')->with('transaction', $transaction);
+    }
+
+    public function getSuccessOrderDetail($id) {
+        $transaction = Transaction::with(['orders', 'customer', 'payment', 'customer.profile'])->where('id', $id)->first();
+        return view('admin.orders.successed-order-detail')->with('transaction', $transaction);
+    }
+
+    public function getOnProcessOrderDetail($id) {
+        $transaction = Transaction::with(['orders', 'customer', 'payment', 'customer.profile'])->where('id', $id)->first();
+        return view('admin.orders.onprocess-order-detail')->with('transaction', $transaction);
+    }
+
     public function updateStatus(Request $request, $id) {
         $transaction = Transaction::find($id);
         $transaction->status = $request->status;
@@ -77,7 +102,7 @@ class TransactionController extends Controller
 
         // $i = 0;
         foreach($order as $ordr) {
-            // $data_order[$i]['id_produk'] = $ordr['product_id'];
+            // $data_order[$i]['id_produk'] = $ordr['product_id'];  
             // $data_order[$i]['quantity'] = $ordr['quantity'];
 
             $data_produk = Product::find($ordr['product_id']);

@@ -30,9 +30,6 @@ Route::get('/provincies', 'API\RegionalController@getProvinces');
 Route::get('/cities', 'API\RegionalController@getCities');
 Route::get('/subdistricts', 'API\RegionalController@getSubdistricts');
 
-Route::get('/city', 'API\RegionalController@getCity');
-
-
 Route::post('/shippingcost', 'API\RajaOngkirController@getShippingCost');
 Route::get('/merchant/{id}/new-orders', 'API\OrderController@getNewOrdersByMerchant');
 Route::get('/merchant/{id}/onprocess-orders', 'API\OrderController@getOnProcessOrdersByMerchant');

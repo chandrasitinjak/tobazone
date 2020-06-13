@@ -45,7 +45,7 @@
         </form>
       </div>
       <div class="modal-footer  py-0 " style="border: none">
-        <button type="submit" class="btn essence-btn btn-block" onclick="login()">Login</button>
+        <button type="submit" class="btn essence-btn btn-block" onclick="login() ">Login</button>
       </div>
 
       <div class="modal-footer border-0 justify-content-between px-5">

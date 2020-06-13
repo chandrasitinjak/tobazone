@@ -12,7 +12,7 @@ class OrderController extends Controller
         $transaction = Transaction::find($id);
         $transaction->status = $request->status;
         $transaction->update();
-    }
+    }        
 
     public function updateShippingNumber(Request $request, $id) {
         $transaction = Transaction::find($id);

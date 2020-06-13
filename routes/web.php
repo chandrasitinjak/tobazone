@@ -60,6 +60,15 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/invalid-order', 'TransactionController@getInvalidOrder');
         Route::get('/admin/successed-order', 'TransactionController@getSuccessedOrder');
         Route::get('/admin/onprocess-order', 'TransactionController@getOnProcessOrder');
+
+        Route::get('/admin/rejected-order', 'TransactionController@getRejectedOrder');
+        Route::get('/admin/rejected-order-detail/{id}', 'TransactionController@getRejectedOrderDetail');
+        Route::get('/admin/invalid-order-detail/{id}', 'TransactionController@getInvalidOrderDetail');
+        Route::get('/admin/success-order-detail/{id}', 'TransactionController@getSuccessOrderDetail');
+        Route::get('/admin/onprocess-order-detail/{id}', 'TransactionController@getOnProcessOrderDetail');
+        
+        
+
         Route::get('/admin/new-order/order-detail', 'OrderController@detailOrder');
         Route::get('/admin/list-merchant', 'MerchantController@listMerchant');
         Route::get('/admin/list-merchant/merchant-detail/{id}', 'MerchantController@detailMerchant');
