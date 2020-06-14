@@ -117,25 +117,35 @@
                             <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
                         </a>
                         <div class="user-menu dropdown-menu mt-2" style="border: 1px solid #e0e0e0; left: -70px;">
-                            <ul class="dropdown">
-                                <li class="item">
-                                    <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/myProfil') }}">Profile</a> 
-                                </li>                                
-                                <li class="item">
-                                    <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/wishlist') }}" >My Wishlist</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}" style="font-weight: 400;font-size: 1rem;">Pesanan</a>
-                                </li>
-                                <li class="item">
-                                    <form method="POST" action="{{ url('/logout')}}">
+                        <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/myProfil') }}">Profile</a>
+                        <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/wishlist') }}" >Wishlist</a> 
+                        <a class="nav-link" href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}">Pesanan</a>
+                        <ul class="dropdown">
+                        <li class="item">                                                                   
+                        <form method="POST" action="{{ url('/logout')}}">
                                         {{ csrf_field() }}
                                         <button type="submit" class="btn nav-link"
                                                 style="background-color: transparent;padding-left: 12px;">Logout
                                         </button>
                                     </form>
+                                    </li>
+                        </ul>
+                        <!-- <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                            <ul class="dropdown">
+                                <li class="item">
+                                    
+                                </li>                                
+                                <li class="item">
+                                    
                                 </li>
-                            </ul>
+                                <li>
+                                    
+                                </li>
+                                <li class="item">
+                                   
+                                </li>
+                            </ul> -->   
                         </div>
                     </div>
                 </div>
