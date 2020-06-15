@@ -89,7 +89,7 @@ class TransactionController extends Controller
 
     public function getCustomerTransaction($id) {
         $transaction = Transaction::with(['orders', 'orders.product', 'payment'])
-                                  ->withTrashed()
+                                //   ->withTrashed()
                                   ->where('customer_id', $id)
                                   ->orderBy('created_at', 'desc')
                                   ->get();
