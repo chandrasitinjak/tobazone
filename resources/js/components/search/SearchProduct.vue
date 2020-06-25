@@ -157,6 +157,7 @@ export default {
           let val = (value/1).toFixed().replace('.', ',')
           return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
       },
+    
     getProducts() {
       let payload = {
         keyword: this.keyword

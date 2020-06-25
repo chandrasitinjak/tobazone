@@ -34,11 +34,9 @@
                                     </td>
                                     <td>{{ $user->phone }}</td>
                                     <td>
-                                        <!-- <form action="/admin/list-merchant/merchant-detail/{{ $user->user_id }}" method="GET">
-                                           
-                                            <button type="Submit" class="btn btn-primary btn-sm" title="Lihat Detail"><i class="fa fa-eye"></i></button></a>
-                                            
-                                        </form> -->
+                                        <form action="/admin/list-merchant/merchant-detail/{{ $user->user_id }}" method="GET">                                           
+                                            <button type="Submit" class="btn btn-primary btn-sm" title="Lihat Detail"><i class="fa fa-eye"></i></button></a>                                            
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

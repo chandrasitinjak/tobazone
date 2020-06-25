@@ -30,8 +30,8 @@
             <li data-toggle="collapse" data-target="#pemesanan" class="collapsed">
               <a href="#">Pemesanan</a>
               <ul class="sub-menu collapse show" id="pemesanan">
-                <li><a href="{{ url('/merchant/' . Auth::user()->id . '/new-orders') }}">Order Masuk</a></li>
-                <li><a href="{{ url('/merchant/' . Auth::user()->id . '/ongoing-orders') }}">Order yang Sedang Diproses</a></li>
+                <!-- <li><a href="{{ url('/merchant/' . Auth::user()->id . '/new-orders') }}">Order Masuk</a></li> -->
+                <li><a href="{{ url('/merchant/' . Auth::user()->id . '/ongoing-orders') }}">Order Masuk</a></li>
                 <li><a href="{{ url('/merchant/' . Auth::user()->id . '/succes-orders') }}">Order Berhasil</a></li>
                 <!-- <li><a href="#">Order Dibatalkan</a></li>
                 <li><a href="#">Order Gagal</a></li> -->

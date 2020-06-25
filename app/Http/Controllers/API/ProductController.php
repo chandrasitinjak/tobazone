@@ -28,7 +28,7 @@ class ProductController extends Controller
 
     public function searchProduct(Request $request) {
         $products = Product::with('merchant.profile')->where('stock','!=', 0)->where('name', 'LIKE', '%'. $request->keyword .'%')->get();
-        return response()->json($products);
+        return response()->json($products);        
     }
 
     public function searchUlos() {

@@ -19,14 +19,9 @@
                     <img class="card-img-top" src="{{ url('/images/carousels/' . $carousel->image)}}" alt="Carousel image">
                     <div class="card-body">
                         <p class="card-text"> {{ $carousel->description }}</p>
-                        <a href="#"> 
-                            <span class="btn btn-link btn-sm"><i class="fa fa-link"></i>&nbsp; Link</span>
-                        </a>
-
-                        <label class="switch switch-3d switch-primary mr-3">
-                            <input type="checkbox" class="switch-input" checked="" /> 
-                            <span class="switch-label"></span> <span class="switch-handle"></span>
-                        </label>
+                        <a href="https://tobazone.com/{{ $carousel->link }}"> 
+                            <span class="btn btn-link btn-sm"><i class="fa fa-link"></i>&nbsp; {{ $carousel->link }}</span>
+                        </a>                        
 
                         <a href="{{ url('/carousels/show', $carousel->id)}}"><span class="badge badge-primary pull-right">Detail</span></a>
                     </div>

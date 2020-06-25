@@ -3,8 +3,14 @@
 @endsection
  
 @section('content')
-<div class="col-lg-12">
-  <div class="card">
+
+<div class="col-lg-12">              
+<a href="{{ url('/carousels/show/3') }}">
+             <button type="reset" class="btn btn-info btn-sm">
+                Kembali
+              </button>
+              </a>
+  <div class="card mt-2">
     <div class="card-header">
       <strong>Edit Carousel</strong>
     </div>
@@ -23,21 +29,26 @@
         </div>
 
         <div class="row form-group">
-          <div class="col col-md-3"><label for="file-input" class=" form-control-label"> Image </label></div>
-          <div class="col-12 col-md-9"><input type="file" id="file-input" name="image" class="form-control-file"></div>
+          <div class="imgwrapper imgwrapper-a mb-3 mr-3 ml-3" style="padding: 0px;">
+            <img src="/images/carousels/{{ $carousel->image }}" alt="" >
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col col-md-3"><label for="file-input" class=" form-control-label"> Change Image </label></div>
+          <div class="col-12 col-md-9">
+            <input type="file" name="image">
+          </div>
         </div>
 
         <div class="card-footer">
           <div class="pull-right">
             <button type="submit" class="btn btn-primary btn-sm">
                 <i class="fa fa-dot-circle-o"></i> Submit
-              </button>
-            <button type="reset" class="btn btn-danger btn-sm">
-                <i class="fa fa-ban"></i> Reset
-              </button>
+              </button>              
           </div>
         </div>
-      </form>
+      </form>            
     </div>
   </div>
 </div>

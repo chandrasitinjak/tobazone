@@ -61,25 +61,25 @@
               <h4 class="product-price" style="color: orange">Rp {{ number_format($product->price ,0) }}</h4>
               <p class="product-desc">{{$product->description}}</p>              
               <p class="product-desc">Ulos ini berasal dari daerah {{$product->asal}}</p>              
-              <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} gram</h6>
+              <h6 class="product-desc"> Berat: {{ json_decode($product->specification)->weight}} gram</h6>
 
 
-              @if($product['cat_product'] == "ulos")
-              <h6 class="product-desc"> Ukuran {{ json_decode($product->specification)->dimention }}</h6>
-              @elseif($product['cat_product'] == "pakaian")
-              <h6 class="product-desc"> Ukuran : {{ json_decode($product->specification)->size }}</h6>
-              @elseif($product['cat_product'] == "makanan")
-              <h6 class="product-desc"> Ukuran Pembungkus: {{ json_decode($product->specification)->size_pack }}</h6>
-              @elseif($product['cat_product'] == "aksesoris")
-              <h6 class="product-desc"> Ukuran : {{ json_decode($product->specification)->size }}, Warna : {{ $product->color }} </h6>
-              @elseif($product['cat_product'] == "obat")
+              <!-- @if($product['cat_product'] == "ulos") -->
+              <h6 class="product-desc"> Ukuran: {{ json_decode($product->specification)->dimention }}</h6>
+              <!-- @elseif($product['cat_product'] == "pakaian") -->
+              <!-- <h6 class="product-desc"> Ukuran : {{ json_decode($product->specification)->size }}</h6> -->
+              <!-- @elseif($product['cat_product'] == "makanan") -->
+              <!-- <h6 class="product-desc"> Ukuran Pembungkus: {{ json_decode($product->specification)->size_pack }}</h6> -->
+              <!-- @elseif($product['cat_product'] == "aksesoris") -->
+              <!-- <h6 class="product-desc"> Ukuran : {{ json_decode($product->specification)->size }}, Warna : {{ $product->color }} </h6> -->
+              <!-- @elseif($product['cat_product'] == "obat")
                   @if(json_decode($product->specification)->jenis == "Padat")
                     <h6 class="product-desc"> - </h6>
                   @elseif(json_decode($product->specification)->jenis == "Cair")
                   <h6 class="product-desc"> Volume : {{ $product->color }} </h6>
                   @endif
 
-              @endif
+              @endif -->
             @elseif($product['cat_product'] == "pakaian" )
             <div class="col-md-7">
               <button type="button" class="badge custom-badge font-weight-light" data-toggle="test" data-rigger="focus" data-content="<b>pakaian {{ $product->category }}"

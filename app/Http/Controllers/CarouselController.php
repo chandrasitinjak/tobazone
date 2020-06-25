@@ -86,7 +86,7 @@ class CarouselController extends Controller
     {
         $carousel = Carousel::find($id);
         $carousel->link = $request->link;
-        $carousel->description = $request->description;
+        $carousel->description = $request->description;                
 
         if($request->file('image')) {
             $image = $request->file('image');

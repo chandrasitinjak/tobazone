@@ -7,6 +7,18 @@
             <div class="card-header">
               <h6>Order yang Sedang Diproses</h6>
             </div>
+
+            <div v-if="transactions.length == 0" class="col-12 center center-block align-center text-center mt-15">              
+              <img src="/images/assets/search_result_empty.png" style="height: 120px; border: none; opacity: 0.5"/>
+              <p class="text font-bold">
+                <br>
+                belum ada order saat ini
+              </p>          
+            </div>
+
+            </div>
+
+            <div v-if="transactions.length != 0">
             <div v-for="transaction in transactions">
               <div class="card-body" style="border-bottom: 1px #c5c5c5 solid; padding-bottom: 10px">
                 <div class="row mt-2">
@@ -125,6 +137,8 @@
                 </div>
               </div>
             </div>
+            </div>
+
           </div>
           <!-- Pagination -->
           <!-- <nav aria-label="navigation">

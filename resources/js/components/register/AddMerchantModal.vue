@@ -161,10 +161,8 @@
                     v-model.trim="$v.userMerchant.selectedSubdistrict.$model"
                     :class="{'is-invalid':$v.userMerchant.selectedSubdistrict.$error, 'is-valid':!$v.userMerchant.selectedSubdistrict.$invalid }"
                   >
-                    <option
-                      v-for="subdistrict in subdistricts"
-                      :value="subdistrict"
-                    >{{ subdistrict.subdistrict_name }}</option>
+                    <option v-for="subdistrict in subdistricts":value="subdistrict">
+                      {{ subdistrict.subdistrict_name }}</option>
                   </select>
 
                   <div class="valid-feedback">Subdistrict is valid</div>
