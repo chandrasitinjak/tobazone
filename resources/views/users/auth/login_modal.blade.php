@@ -16,7 +16,7 @@
         <div id="loader" style="position: fixed;width: 100%;height: 100%;margin-left : 10rem;z-index:99;display:none"> 
             <img src="{{ url("/images/assets/spinner.gif") }}" alt="">
           </div>
-        <form>
+        <form id="form-login-submit">
           <div class="form-group">
             <!-- <label for="recipient-name" class="col-form-label"></label> -->            
             <div class="input-group" >            
@@ -45,7 +45,7 @@
         </form>
       </div>
       <div class="modal-footer  py-0 " style="border: none">
-        <button type="submit" class="btn essence-btn btn-block" onclick="login() ">Login</button>
+        <button type="submit" class="btn essence-btn btn-block" onclick="login() ">Login</button>        
       </div>
 
       <div class="modal-footer border-0 justify-content-between px-5">
@@ -56,3 +56,4 @@
     </div>
   </div>
 </div>
+

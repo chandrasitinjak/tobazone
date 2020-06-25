@@ -9,12 +9,12 @@
             </div>           
           </div>          
 
-        <div v-if="transactions.length == 0" class="col-12 center center-block align-center text-center mt-15">
+        <div v-if="transactions.length == 0" class="center center-block align-center text-center mt-15 ">            
             <img src="/images/assets/search_result_empty.png" style="height: 120px; border: none; opacity: 0.5"/>
               <p class="text font-bold">
                 <br>
                 belum ada order saat ini
-              </p>                        
+              </p>                                     
         </div>
 
         <div class="row"  v-else-if="transactions.length != 0">            

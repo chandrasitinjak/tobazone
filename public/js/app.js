@@ -81442,7 +81442,7 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "col-12 center center-block align-center text-center mt-15"
+                    "center center-block align-center text-center mt-15 "
                 },
                 [
                   _c("img", {
