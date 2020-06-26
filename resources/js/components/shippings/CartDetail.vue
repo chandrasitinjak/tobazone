@@ -175,8 +175,8 @@ export default {
             destination: address.subdistrict_id,
             destinationType: "subdistrict",
             weight: merchant.totalWeight,
-            // courier: "jne:sicepat:pos:ninja"
-            courier: "pos"
+            courier: "jne:sicepat:pos:ninja"
+            // courier: "pos"
 
           };          
 
@@ -200,6 +200,7 @@ export default {
           .catch(error => {
               console.log(error);
               EventBus.$emit("SPINNER", false);
+              alert("error gais");
           });
           
           

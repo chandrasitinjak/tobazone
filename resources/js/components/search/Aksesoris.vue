@@ -42,6 +42,27 @@
                   <a class="dropdown-item" @click="sortProductByPrice('des')">Harga Termahal</a>
                 </div>
               </li>
+              <li>
+                <a
+                    class="nav-link dropdown-toggle"
+                    id="navbarDropdown1"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >Kabupaten</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="left: 23.3rem;">
+                  <a class="dropdown-item" @click="sortProductByDistrict('Dairi')">Dairi</a>                  
+                  <a class="dropdown-item" @click="sortProductByDistrict('Humbang Hasundutan')">Humbang Hasundutan</a>                  
+                  <a class="dropdown-item" @click="sortProductByDistrict('Karo')">Karo</a>                  
+                  <a class="dropdown-item" @click="sortProductByDistrict('Pakpak Bharat')">Pakpak Bharat</a>                                                                                
+                  <a class="dropdown-item" @click="sortProductByDistrict('Samosir')">Samosir</a>
+                  <a class="dropdown-item" @click="sortProductByDistrict('Simalungun')">Simalungun</a>
+                  <a class="dropdown-item" @click="sortProductByDistrict('Tapanuli Utara')">Tapanuli Utara</a>
+                  <a class="dropdown-item" @click="sortProductByDistrict('Toba Samosir')">Toba Samosir</a>     
+                  <a class="dropdown-item" @click="sortProductByDistrict('')">Semua Kabupaten</a>     
+                </div>
+              </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
               <input
@@ -202,6 +223,23 @@ export default {
         });
       }
     },
+
+    sortProductByDistrict(distric) {
+      if(distric === "Samosir") {
+          this.products = this.orginalProductsData.filter(product => 
+            product.asal === "Samosir"
+          );
+      } else if(distric === "Toba Samosir") {
+          this.products = this.orginalProductsData.filter(product => 
+            product.asal === "Toba Samosir"
+          );
+      } else {
+          this.products = this.orginalProductsData.filter(product => 
+            product.asal.includes(distric)
+          );
+      }
+      
+    }
   },
   mounted() {
     this.getProducts();
