@@ -69743,7 +69743,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -69757,6 +69757,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Spinner__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Spinner__);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -69809,16 +69811,23 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["userId"],
+  components: {
+    spinner: __WEBPACK_IMPORTED_MODULE_2__Spinner___default.a
+  },
   data: function data() {
     return {
       carts: [],
       merchants: [],
-      products: []
+      products: [],
+      addresses: [],
+      addres: null
     };
   },
 
@@ -69868,7 +69877,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 name: merchantName,
                                 id: cart.product.merchant.id,
                                 address: JSON.parse(JSON.parse(merchantAddress)[0]),
-                                totalWeight: 1000 * cart.total * JSON.parse(cart.product.specification).weight,
+                                // totalWeight : 2200,
+                                // totalWeight: 1000 * cart.total * JSON.parse(cart.product.specification).weight,
+                                totalWeight: cart.total * JSON.parse(cart.product.specification).weight,
                                 totalProductCost: cart.product.price * cart.total,
                                 totalShippingCost: 0,
                                 courier_used: "",
@@ -69884,6 +69895,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                               _this2.merchants.forEach(function (merchant) {
                                 if (merchant.name === merchantName) {
                                   merchant.totalProductCost += cart.product.price * cart.total;
+                                  merchant.totalWeight += cart.total * JSON.parse(cart.product.specification).weight;
                                   merchant.products.push({
                                     productId: cart.product.id,
                                     quantity: cart.total,
@@ -69907,6 +69919,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 }()));
 
               case 3:
+                // console.log(this.merchants);
 
                 this.publishMerchantsListEvent(this.merchants);
 
@@ -69924,22 +69937,66 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
       return filterMerchants;
     }(),
-    countShippingPrice: function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(address) {
+    getAddress: function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
         var _this3 = this;
 
-        var transactionDetail;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                _context4.next = 2;
+                _context3.next = 2;
+                return window.axios.get("/profile/" + this.userId).then(function (res) {
+                  _this3.addresses = JSON.parse(res.data.address);
+                  _this3.addres = JSON.parse(_this3.addresses[0]);
+
+                  console.log("alamat : " + _this3.addres);
+                }).catch(function (err) {
+                  console.log(err);
+                });
+
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function getAddress() {
+        return _ref3.apply(this, arguments);
+      }
+
+      return getAddress;
+    }(),
+    countShippingPrice: function () {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(address) {
+        var _this4 = this;
+
+        var transactionDetail;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return this.getAddress();
+
+              case 2:
+
+                if (address == null) {
+                  address = this.addres;
+                  console.log(address);
+                } else {
+                  console.log(address);
+                }
+
+                _context5.next = 5;
                 return Promise.all(this.merchants.map(function () {
-                  var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3(merchant) {
+                  var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(merchant) {
                     var shippingCost, courier_used, estimasi_waktu, courier_code, payload;
-                    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+                    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
                       while (1) {
-                        switch (_context3.prev = _context3.next) {
+                        switch (_context4.prev = _context4.next) {
                           case 0:
                             shippingCost = 0;
                             courier_used = "";
@@ -69951,10 +70008,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                               destination: address.subdistrict_id,
                               destinationType: "subdistrict",
                               weight: merchant.totalWeight,
-                              courier: "jne:sicepat:pos:ninja"
+                              // courier: "jne:sicepat:pos:ninja"
+                              courier: "pos"
+
                             };
-                            _context3.next = 7;
+
+
+                            __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
+                            _context4.next = 8;
                             return window.axios.post("/api/shippingcost", payload).then(function (res) {
+
                               var len_data = res.data.rajaongkir.results.length;
                               var i;
                               for (i = 0; i < len_data; i++) {
@@ -69966,48 +70029,53 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                   break;
                                 }
                               }
+
+                              __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
+                            }).catch(function (error) {
+                              console.log(error);
+                              __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
                             });
 
-                          case 7:
+                          case 8:
 
                             merchant.totalShippingCost = shippingCost;
                             merchant.courier_used = courier_used;
                             merchant.estimate_waktu = estimasi_waktu;
                             merchant.courier_code = courier_code;
 
-                          case 11:
+                          case 12:
                           case "end":
-                            return _context3.stop();
+                            return _context4.stop();
                         }
                       }
-                    }, _callee3, _this3);
+                    }, _callee4, _this4);
                   }));
 
                   return function (_x3) {
-                    return _ref4.apply(this, arguments);
+                    return _ref5.apply(this, arguments);
                   };
                 }()));
 
-              case 2:
+              case 5:
                 transactionDetail = {
                   merchants: this.merchants,
                   customerAddress: address,
                   customerId: this.userId
+
+                  // console.log(transactionDetail);
                 };
-
-
                 this.publishFinalTransactionDetail(transactionDetail);
 
-              case 4:
+              case 7:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee5, this);
       }));
 
       function countShippingPrice(_x2) {
-        return _ref3.apply(this, arguments);
+        return _ref4.apply(this, arguments);
       }
 
       return countShippingPrice;
@@ -70019,33 +70087,34 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("FINAL_TRANSACTION_DETAIL", transactionDetail);
     }
   },
-  mounted: function () {
-    var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
-      var _this4 = this;
 
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+  mounted: function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6() {
+      var _this5 = this;
+
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
         while (1) {
-          switch (_context5.prev = _context5.next) {
+          switch (_context6.prev = _context6.next) {
             case 0:
-              _context5.next = 2;
+              _context6.next = 2;
               return this.getProducts();
 
             case 2:
 
               __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$on("ADDRESS_CHOOSEN", function (address) {
-                _this4.countShippingPrice(address);
+                _this5.countShippingPrice(address);
               });
 
             case 3:
             case "end":
-              return _context5.stop();
+              return _context6.stop();
           }
         }
-      }, _callee5, this);
+      }, _callee6, this);
     }));
 
     function mounted() {
-      return _ref5.apply(this, arguments);
+      return _ref6.apply(this, arguments);
     }
 
     return mounted;
@@ -70060,110 +70129,118 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card globalcard" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "card-body pt-0" },
-      _vm._l(_vm.carts, function(cart) {
-        return _c(
-          "div",
-          {
-            staticClass: "row mt-4 pb-1",
-            staticStyle: { "border-bottom": "1px solid #00000020" }
-          },
-          [
-            _c("div", { staticClass: "col-md-9 col-sm-12 col-xs-6" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-lg-4 col-sm-6 col-xs-12" }, [
-                  _c(
-                    "a",
-                    {
-                      staticStyle: { float: "left" },
-                      attrs: { href: "/products/" + cart.product.id }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "imgwrapper",
-                          staticStyle: { padding: "0px" }
-                        },
-                        [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/images/" + JSON.parse(cart.product.images)[0],
-                              alt: "Card image cap"
-                            }
-                          })
-                        ]
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-7 col-sm-6 col-xs-12" }, [
-                  _c("div", { staticClass: "mb-1" }, [
-                    _c("h6", [_vm._v(_vm._s(cart.product.name))])
+  return _c(
+    "div",
+    { staticClass: "card globalcard" },
+    [
+      _c("spinner"),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "card-body pt-0" },
+        _vm._l(_vm.carts, function(cart) {
+          return _c(
+            "div",
+            {
+              staticClass: "row mt-4 pb-1",
+              staticStyle: { "border-bottom": "1px solid #00000020" }
+            },
+            [
+              _c("div", { staticClass: "col-md-9 col-sm-12 col-xs-6" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-lg-4 col-sm-6 col-xs-12" }, [
+                    _c(
+                      "a",
+                      {
+                        staticStyle: { float: "left" },
+                        attrs: { href: "/products/" + cart.product.id }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "imgwrapper",
+                            staticStyle: { padding: "0px" }
+                          },
+                          [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "/images/" +
+                                  JSON.parse(cart.product.images)[0],
+                                alt: "Card image cap"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "medium" }, [
-                    _c("ul", [
-                      _c("li", [
-                        _vm._v(
-                          "\n                  Jumlah :\n                  "
-                        ),
-                        _c("b", [_vm._v(_vm._s(cart.total) + " buah")])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _vm._v(
-                          "\n                  Penjual :\n                  "
-                        ),
-                        _c("b", [
+                  _c("div", { staticClass: "col-lg-7 col-sm-6 col-xs-12" }, [
+                    _c("div", { staticClass: "mb-1" }, [
+                      _c("h6", [_vm._v(_vm._s(cart.product.name))])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "medium" }, [
+                      _c("ul", [
+                        _c("li", [
                           _vm._v(
-                            "\n                    " +
-                              _vm._s(cart.product.merchant.profile.name) +
-                              ",\n                    " +
-                              _vm._s(
-                                JSON.parse(
+                            "\n                  Jumlah :\n                  "
+                          ),
+                          _c("b", [_vm._v(_vm._s(cart.total) + " buah")])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _vm._v(
+                            "\n                  Penjual :\n                  "
+                          ),
+                          _c("b", [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(cart.product.merchant.profile.name) +
+                                ",\n                    " +
+                                _vm._s(
                                   JSON.parse(
-                                    cart.product.merchant.profile.address
-                                  )[0]
-                                ).city_name
-                              ) +
-                              "\n                  "
-                          )
+                                    JSON.parse(
+                                      cart.product.merchant.profile.address
+                                    )[0]
+                                  ).city_name
+                                ) +
+                                "\n                  "
+                            )
+                          ])
                         ])
                       ])
                     ])
                   ])
                 ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "float-right h6",
+                    staticStyle: { color: "#ff8415" }
+                  },
+                  [
+                    _vm._v(
+                      "Rp " +
+                        _vm._s(_vm.formatPrice(cart.product.price * cart.total))
+                    )
+                  ]
+                )
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "float-right h6",
-                  staticStyle: { color: "#ff8415" }
-                },
-                [
-                  _vm._v(
-                    "Rp " +
-                      _vm._s(_vm.formatPrice(cart.product.price * cart.total))
-                  )
-                ]
-              )
-            ])
-          ]
-        )
-      })
-    )
-  ])
+            ]
+          )
+        })
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -70173,7 +70250,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "card-header" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-12" }, [
-          _c("h5", [_vm._v("Barang yang Anda Pesan")])
+          _c("h5", [_vm._v("Barang yang Anda Pesan ")])
         ])
       ])
     ])

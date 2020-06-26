@@ -1,9 +1,10 @@
 <template>
   <div class="card globalcard">
+    <spinner></spinner>
     <div class="card-header">
       <div class="row">
         <div class="col-12">
-          <h5>Barang yang Anda Pesan</h5>
+          <h5>Barang yang Anda Pesan </h5>
         </div>
       </div>
     </div>
@@ -43,19 +44,25 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>    
 </template>
 
 <script>
 import EventBus from "../../eventBus";
+import spinner from "../Spinner";
 
 export default {
   props: ["userId"],
+   components: {
+    spinner
+  },
   data() {
     return {
       carts: [],
       merchants: [],
-        products: []
+      products: [], 
+      addresses: [],     
+      addres: null,
     };
   },
   methods: {
@@ -92,7 +99,9 @@ export default {
               name: merchantName,
               id: cart.product.merchant.id,
               address: JSON.parse(JSON.parse(merchantAddress)[0]),
-              totalWeight: 1000 * cart.total * JSON.parse(cart.product.specification).weight,
+              // totalWeight : 2200,
+              // totalWeight: 1000 * cart.total * JSON.parse(cart.product.specification).weight,
+              totalWeight: cart.total * JSON.parse(cart.product.specification).weight,
               totalProductCost: cart.product.price * cart.total,
               totalShippingCost: 0,
               courier_used: "",
@@ -109,7 +118,8 @@ export default {
           } else {
             this.merchants.forEach(merchant => {
               if(merchant.name === merchantName) {
-                merchant.totalProductCost += cart.product.price * cart.total
+                merchant.totalProductCost += cart.product.price * cart.total;
+                merchant.totalWeight += cart.total * JSON.parse(cart.product.specification).weight
                 merchant.products.push(
                   {
                     productId: cart.product.id,
@@ -120,29 +130,59 @@ export default {
               }
             });
           }
-        })
+        })        
       );
-
+      // console.log(this.merchants);
+      
       this.publishMerchantsListEvent(this.merchants)
     },
+
+    async getAddress() {
+     await window.axios
+        .get("/profile/" + this.userId)
+        .then(res => {          
+          this.addresses = JSON.parse(res.data.address);
+          this.addres = JSON.parse(this.addresses[0]);        
+          
+          console.log("alamat : " + this.addres);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+
     async countShippingPrice(address) {
+
+      await this.getAddress();
+
+      if(address == null) {
+        address = this.addres;
+        console.log(address);
+      }else {             
+        console.log(address);
+      }
+       
       await Promise.all(
         this.merchants.map(async merchant => {
           let shippingCost = 0;
           let courier_used = "";
           let estimasi_waktu = "";
           let courier_code = "";
-
+          
           const payload = {
             origin: merchant.address.subdistrict_id,
             originType: "subdistrict",
             destination: address.subdistrict_id,
             destinationType: "subdistrict",
             weight: merchant.totalWeight,
-            courier: "jne:sicepat:pos:ninja"
-          };
+            // courier: "jne:sicepat:pos:ninja"
+            courier: "pos"
 
-          await window.axios.post("/api/shippingcost", payload).then(res => {
+          };          
+
+          EventBus.$emit("SPINNER", true);                         
+          await window.axios.post("/api/shippingcost", payload).then(res => {       
+            
             var len_data = res.data.rajaongkir.results.length;
             var i;
             for(i=0; i<len_data; i++) {                 
@@ -154,7 +194,15 @@ export default {
                 break;
                 }
               }            
+
+              EventBus.$emit("SPINNER", false);
+          })
+          .catch(error => {
+              console.log(error);
+              EventBus.$emit("SPINNER", false);
           });
+          
+          
 
           merchant.totalShippingCost = shippingCost;
           merchant.courier_used = courier_used;
@@ -169,20 +217,26 @@ export default {
         customerId: this.userId,
       }
 
+
+      // console.log(transactionDetail);
       this.publishFinalTransactionDetail(transactionDetail);
     },
+
+    
     publishMerchantsListEvent(merchants) {
       EventBus.$emit("MERCHANT_LIST", merchants);
     },
+
     publishFinalTransactionDetail(transactionDetail) {
       EventBus.$emit("FINAL_TRANSACTION_DETAIL", transactionDetail);
-    }
+    },    
   },
-  async mounted() {
+  
+  async mounted() {    
     await this.getProducts();
 
     EventBus.$on("ADDRESS_CHOOSEN", address => {
-      this.countShippingPrice(address);
+      this.countShippingPrice(address);      
     });
   }
 };

@@ -18,7 +18,7 @@
                             <label class="label">Nomor Hp</label>
                             <input type="text" class="form-control form-control-sm" value="{{ $profiles->phone }}" name="profile_phone">
                         </div>
-                        @if($profiles->photo == null)
+                        @if($profiles->photo == "profile.png")
                         <div class="form-group">
                             <label class="label">upload foto</label>
                             <input class="form-control form-control-sm" type="file" name="profile_picture">

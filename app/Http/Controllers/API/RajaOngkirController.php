@@ -21,8 +21,6 @@ class RajaOngkirController extends Controller
 
         $result = $client->request('POST', 'cost', ['form_params' => $payload]);
         
-        return $result->getBody()->getContents();
-
-        // var_dump($result->getBody()->getContents());
+        return $result->getBody()->getContents();        
     }
 } 
