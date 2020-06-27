@@ -69743,7 +69743,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -69973,15 +69973,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(address) {
         var _this4 = this;
 
-        var transactionDetail;
+        var check, transactionDetail;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                _context5.next = 2;
+                check = 1;
+                _context5.next = 3;
                 return this.getAddress();
 
-              case 2:
+              case 3:
 
                 if (address == null) {
                   address = this.addres;
@@ -69990,7 +69991,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                   console.log(address);
                 }
 
-                _context5.next = 5;
+                _context5.next = 6;
                 return Promise.all(this.merchants.map(function () {
                   var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(merchant) {
                     var shippingCost, courier_used, estimasi_waktu, courier_code, payload;
@@ -70029,8 +70030,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                   break;
                                 }
                               }
-
-                              __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
                             }).catch(function (error) {
                               console.log(error);
                               __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
@@ -70057,7 +70056,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                   };
                 }()));
 
-              case 5:
+              case 6:
+
+                __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
+
                 transactionDetail = {
                   merchants: this.merchants,
                   customerAddress: address,
@@ -70067,7 +70069,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 };
                 this.publishFinalTransactionDetail(transactionDetail);
 
-              case 7:
+              case 9:
               case "end":
                 return _context5.stop();
             }

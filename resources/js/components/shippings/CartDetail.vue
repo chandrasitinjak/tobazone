@@ -153,6 +153,8 @@ export default {
 
     async countShippingPrice(address) {
 
+      var check = 1;
+
       await this.getAddress();
 
       if(address == null) {
@@ -193,24 +195,23 @@ export default {
                 courier_code = res.data.rajaongkir.results[i].code;
                 break;
                 }
-              }            
-
-              EventBus.$emit("SPINNER", false);
+              }                          
           })
           .catch(error => {
               console.log(error);
               EventBus.$emit("SPINNER", false);
               alert("error gais");
-          });
-          
+          });                    
           
 
           merchant.totalShippingCost = shippingCost;
           merchant.courier_used = courier_used;
           merchant.estimate_waktu = estimasi_waktu;
           merchant.courier_code = courier_code;
-        })
+        })        
       );
+
+      EventBus.$emit("SPINNER", false);
 
       const transactionDetail = {
         merchants: this.merchants,
