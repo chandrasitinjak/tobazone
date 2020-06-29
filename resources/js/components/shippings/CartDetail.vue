@@ -200,7 +200,7 @@ export default {
           .catch(error => {
               console.log(error);
               EventBus.$emit("SPINNER", false);
-              alert("error gais");
+              alert("Terjadi Kesalahan, Reload Halaman");
           });                    
           
 

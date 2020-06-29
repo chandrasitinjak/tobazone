@@ -51,19 +51,20 @@
                           <div class="col-sm-3 small">Tanggal Pemesanan</div>
                           <div class="col-sm-3 small">Total pembayaran</div>
                           <div class="col-sm-3 small">Status</div>
+                          <div class="col-sm-3 small">Action</div>
                         </div>
                         <div class="row detail">
+
                           <div class="col-sm-3">{{ transaction.created_at }}</div>
-                          <div
-                            class="col-sm-3 bold"
+
+                          <div class="col-sm-3 bold"
                             style="color: orangered"
                           >Rp {{formatPrice( getTotalPayment(transaction.payment))}}</div>
-                          <div class="col-sm-6">
+
+                          <div class="col-sm-3">
                             <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedByAdmin'">
                               Menunggu Pembayaran
-                              <a :href="'/customer/transactions/' + transaction.id" class="alert-link">
-                                Upload bukti pembayaran
-                              </a>
+
                             </div>
 
                             <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'readyForProcess' && transaction.shipping_number !== null">
@@ -81,6 +82,14 @@
                               Sudah dibayar, menunggu diproses penjual
                             </div>
                           </div>
+
+                          <div class="col-sm-3">
+                            <a :href="'/customer/transactions/' + transaction.id" class="btn btn-sm btn-outline-action" >
+                              UPLOAD BUKTI PEMBAYARAN
+                            </a>
+                          </div>
+
+
                         </div>
                       </div>
                       <div class="card-body" v-for="order in transaction.orders">
@@ -187,18 +196,18 @@
                               </a>
                               </div>
                               <div class="col-md-3">
-                                    <div v-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 0">  
+                                    <div v-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 0">
                                       <label for=""> Pesanan telah sampai</label><br>
                                       <button class="btn small smallbtn" v-on:click="confirmByUser(transaction.id)">konfirmasi</button>
                                     </div>
-                                    <div v-else-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 1">  
-                                      <p> Terimakasih sudah melakukan konfirmasi</p>                                      
+                                    <div v-else-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 1">
+                                      <p> Terimakasih sudah melakukan konfirmasi</p>
                                     </div>
-                                    <!-- <div v-else> 
+                                    <!-- <div v-else>
                                        <p>tidak dilakukan pengiriman, pembelian ditolak admin</p>
                                     </div>                                     -->
                               </div>
-                              
+
 
                             </div>
                           </div>
@@ -220,7 +229,7 @@
 export default {
   props: ["userId"],
   data() {
-    return {      
+    return {
       transactions: []
     };
   },
@@ -233,8 +242,8 @@ export default {
       }
 
       window.axios
-        .post("/api/transaction/" + id_transaksi + "/confirmByUser", confirmByUser)       
-        .then(() => {          
+        .post("/api/transaction/" + id_transaksi + "/confirmByUser", confirmByUser)
+        .then(() => {
           alert("berhasil mengkonfirmasi");
           window.location.reload(true);
         })

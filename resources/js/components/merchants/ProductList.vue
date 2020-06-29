@@ -75,7 +75,7 @@
                 <p class="card-title productname" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20ex;">{{ product.name }}</p>
                 <h6 style="color: #ff5205">Rp {{ formatPrice(product.price) }}</h6>
                 <p class="card-text float-right">
-                  <small class="text-muted">Stock {{ product.stock }}</small>
+                  <small class="text-muted">Stok {{ product.stock }}</small>
                 </p>
               </div>
               </a>

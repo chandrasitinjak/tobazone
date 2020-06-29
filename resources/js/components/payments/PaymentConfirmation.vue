@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container">    
     <div class="col-md-12 payment globalcard">
       <div class="row justify-content-md-center">
         <div class="card col-md-12">
@@ -49,21 +49,21 @@
                     <br>a/n Ruth Elvin Harianja
                     <div class="mt-3 text-muted">Jumlah yang harus dibayar :</div>
                     <h5 style="color: #ff5205">Rp {{ formatPrice( getTotalPayment(transaction.payment) )}}</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row justify-content-md-center">
-              <div class="card col-12 col-md-6 col-lg-6 my-3">
-                <div>
-                  <div class="card-body">
-                    <div class="text-muted mb-2">Upload Bukti Pembayaran</div>
-                    <button
-                      type="button"
-                      class="btn btn-block btn-primary"
-                      data-toggle="modal"
-                      data-target="#exampleModal"
-                    >Upload Bukti Pembayaran</button>
+
+                    <br><div class="text-muted mb-2">Upload Bukti Pembayaran</div>
+
+                    <center>
+                    <div align-center justify-center>
+                      <button
+                          type="button"
+                          class="btn essence-btn"
+                          data-toggle="modal"
+                          data-target="#exampleModal"
+                        >UPLOAD PEMBAYARAN
+                      </button>
+                    </div>
+                    </center>
+
                     <!-- Modal -->
                     <div
                       class="modal fade"
@@ -75,6 +75,7 @@
                     >
                       <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
+                          <spinner></spinner>
                           <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Upload Bukti Bayar</h5>
                             <button
@@ -131,7 +132,7 @@
                           <div class="modal-footer">
                             <button
                               type="button"
-                              class="btn btn-primary"
+                              class="btn essence-btn"
                               v-on:click="uploadProofOfPayment"
                             >Upload</button>
                           </div>
@@ -151,9 +152,14 @@
 
 <script>
 import moment from "moment";
+import EventBus from "../../eventBus";
+import spinner from "../Spinner";
 
 export default {
   props: ["userId", "transactionId"],
+  components: {
+    spinner
+  },
   data() {
     return {
       transaction: {},
@@ -239,12 +245,19 @@ export default {
       formData.append("bank", this.selectedBank);
       formData.append("name", this.senderName);
 
+      EventBus.$emit("SPINNER", true);
       window.axios.post(
         "/api/transaction/" + this.transactionId + "/proof-of-payment",
         formData
       ).then(() => {
+        EventBus.$emit("SPINNER", false);
         window.location = "/customer/" + this.userId + "/orders";
-      });
+      })
+      .catch(error => {
+              console.log(error);
+              EventBus.$emit("SPINNER", false);
+              alert("Terjadi Kesalahan, Reload Halaman");
+      }); 
     },
     onFileChanged(event) {
       this.selectedFile = event.target.files[0];
