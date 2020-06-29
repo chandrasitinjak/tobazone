@@ -270,6 +270,16 @@ form.example::after {
     padding: 0.5em;
 }
 
+.imgwrapper-duplicate {
+    position: relative;
+    border-radius: 0.2rem 0.2rem 0 0;
+    overflow: hidden;
+    height: auto;
+    width: auto;
+    text-align: center;
+    padding: 0.5em;
+}
+
 .imgwrapper img {
     width: 180px;        
     height: 180px;

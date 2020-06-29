@@ -9,7 +9,7 @@
                         <h6>
                             Daftar sebagai Penjual dengan Mengisi Form yang Tersedia
                         </h6>
-                        <div class="imgwrapper" style="box-shadow: 0px 2px 9px #00000042;">
+                        <div class="imgwrapper-duplicate" style="box-shadow: 0px 2px 9px #00000042;">
                             <img src="/images/assets/daftar.PNG" alt="">
                         </div>
                         <br>
@@ -17,7 +17,7 @@
                         <h6>
                             Setelah Selesai Melakukan Register, Lakukan Login
                         </h6>
-                        <div class="imgwrapper" style="box-shadow: 0px 2px 9px #00000042;">
+                        <div class="imgwrapper-duplicate" style="box-shadow: 0px 2px 9px #00000042;">
                             <img src="/images/assets/login.PNG" alt="">
                         </div>
 
@@ -25,14 +25,14 @@
                             Klik "Produk", kemudian "Tambah Produk" <br>
                             Pilih Kategori Produk yang Sesuai dengan Produk yang akan Ditambahkan
                         </h6>
-                        <div class="imgwrapper" style="box-shadow: 0px 2px 9px #00000042;">
+                        <div class="imgwrapper-duplicate" style="box-shadow: 0px 2px 9px #00000042;">
                             <img src="/images/assets/tambahproduk.PNG" alt="">
                         </div>
 
                         <h6 class="mt-5">
                             Isi Form Produk yang Tertera 
                         </h6>
-                        <div class="imgwrapper" style="box-shadow: 0px 2px 9px #00000042;">
+                        <div class="imgwrapper-duplicate" style="box-shadow: 0px 2px 9px #00000042;">
                             <img src="/images/assets/formtambah.PNG" alt="">
                         </div>
 
