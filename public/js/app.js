@@ -71452,7 +71452,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -71463,6 +71463,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -72648,7 +72649,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -72860,32 +72861,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["userId"],
@@ -72896,17 +72871,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
-    confirmByUser: function confirmByUser(id_transaksi) {
-
-      var confirmByUser = {
-        data: 1
-      };
-
-      window.axios.post("/api/transaction/" + id_transaksi + "/confirmByUser", confirmByUser).then(function () {
-        alert("berhasil mengkonfirmasi");
-        window.location.reload(true);
-      });
-    },
     formatPrice: function formatPrice(value) {
       var val = (value / 1).toFixed().replace('.', ',');
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -73021,7 +72985,7 @@ var render = function() {
                                           ]
                                         ),
                                         _vm._v(" "),
-                                        _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("div", { staticClass: "col-sm-6" }, [
                                           transaction.status === "pending" ||
                                           transaction.status ===
                                             "acceptedByMerchant" ||
@@ -73039,7 +73003,24 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                            Menunggu Pembayaran\n\n                          "
+                                                    "\n                            Menunggu Pembayaran\n                            "
+                                                  ),
+                                                  _c(
+                                                    "a",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-sm btn-outline-action ml-30",
+                                                      attrs: {
+                                                        href:
+                                                          "/customer/transactions/" +
+                                                          transaction.id
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                              Upload bukti pembayaran\n                            "
+                                                      )
+                                                    ]
                                                   )
                                                 ]
                                               )
@@ -73064,7 +73045,8 @@ var render = function() {
                                                   _c(
                                                     "a",
                                                     {
-                                                      staticClass: "alert-link",
+                                                      staticClass:
+                                                        "btn btn-sm btn-outline-action ml-30",
                                                       attrs: {
                                                         href:
                                                           "/customer/" +
@@ -73121,26 +73103,6 @@ var render = function() {
                                                 ]
                                               )
                                             : _vm._e()
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "col-sm-3" }, [
-                                          _c(
-                                            "a",
-                                            {
-                                              staticClass:
-                                                "btn btn-sm btn-outline-action",
-                                              attrs: {
-                                                href:
-                                                  "/customer/transactions/" +
-                                                  transaction.id
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                            UPLOAD BUKTI PEMBAYARAN\n                          "
-                                              )
-                                            ]
-                                          )
                                         ])
                                       ])
                                     ]
@@ -73467,192 +73429,117 @@ var render = function() {
                                                   { staticClass: "row" },
                                                   [
                                                     _c(
-                                                      "div",
+                                                      "a",
                                                       {
-                                                        staticClass: "col-md-6"
+                                                        attrs: {
+                                                          href:
+                                                            "/customer/" +
+                                                            _vm.userId +
+                                                            "/transactions/" +
+                                                            transaction.id +
+                                                            "/tracking"
+                                                        }
                                                       },
                                                       [
                                                         _c(
-                                                          "a",
+                                                          "div",
                                                           {
-                                                            attrs: {
-                                                              href:
-                                                                "/customer/" +
-                                                                _vm.userId +
-                                                                "/transactions/" +
-                                                                transaction.id +
-                                                                "/tracking"
-                                                            }
+                                                            staticClass:
+                                                              "col-sm-2 col-xs-12"
                                                           },
                                                           [
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "col-sm-6 col-xs-12"
+                                                                  "imgwrapper pesanan",
+                                                                staticStyle: {
+                                                                  padding:
+                                                                    "0px",
+                                                                  height: "auto"
+                                                                }
                                                               },
                                                               [
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "imgwrapper pesanan",
-                                                                    staticStyle: {
-                                                                      padding:
-                                                                        "0px",
-                                                                      height:
-                                                                        "auto"
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _c("img", {
-                                                                      attrs: {
-                                                                        src:
-                                                                          "/images/" +
-                                                                          JSON.parse(
-                                                                            order
-                                                                              .product
-                                                                              .images
-                                                                          )[0],
-                                                                        alt:
-                                                                          "Card image cap"
-                                                                      }
-                                                                    })
-                                                                  ]
-                                                                )
+                                                                _c("img", {
+                                                                  attrs: {
+                                                                    src:
+                                                                      "/images/" +
+                                                                      JSON.parse(
+                                                                        order
+                                                                          .product
+                                                                          .images
+                                                                      )[0],
+                                                                    alt:
+                                                                      "Card image cap"
+                                                                  }
+                                                                })
                                                               ]
-                                                            ),
-                                                            _vm._v(" "),
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-sm-6 col-xs-12"
+                                                          },
+                                                          [
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "col-sm-6 col-xs-12"
+                                                                  "keranjang-desc-prod"
                                                               },
                                                               [
+                                                                _c("h6", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      order
+                                                                        .product
+                                                                        .name
+                                                                    )
+                                                                  )
+                                                                ]),
+                                                                _vm._v(" "),
                                                                 _c(
-                                                                  "div",
+                                                                  "h6",
                                                                   {
-                                                                    staticClass:
-                                                                      "keranjang-desc-prod"
+                                                                    staticStyle: {
+                                                                      color:
+                                                                        "#FF5205",
+                                                                      display:
+                                                                        "inline"
+                                                                    }
                                                                   },
                                                                   [
-                                                                    _c("h6", [
-                                                                      _vm._v(
+                                                                    _vm._v(
+                                                                      "Rp " +
                                                                         _vm._s(
-                                                                          order
-                                                                            .product
-                                                                            .name
+                                                                          _vm.formatPrice(
+                                                                            order
+                                                                              .product
+                                                                              .price
+                                                                          )
                                                                         )
-                                                                      )
-                                                                    ]),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "h6",
-                                                                      {
-                                                                        staticStyle: {
-                                                                          color:
-                                                                            "#FF5205",
-                                                                          display:
-                                                                            "inline"
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _vm._v(
-                                                                          "Rp " +
-                                                                            _vm._s(
-                                                                              _vm.formatPrice(
-                                                                                order
-                                                                                  .product
-                                                                                  .price
-                                                                              )
-                                                                            )
-                                                                        )
-                                                                      ]
-                                                                    ),
-                                                                    _vm._v(" "),
-                                                                    _c("br"),
-                                                                    _vm._v(" "),
-                                                                    _c(
-                                                                      "small",
-                                                                      [
-                                                                        _vm._v(
-                                                                          "Jumlah " +
-                                                                            _vm._s(
-                                                                              order.quantity
-                                                                            )
-                                                                        )
-                                                                      ]
                                                                     )
                                                                   ]
-                                                                )
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c("br"),
+                                                                _vm._v(" "),
+                                                                _c("small", [
+                                                                  _vm._v(
+                                                                    "Jumlah " +
+                                                                      _vm._s(
+                                                                        order.quantity
+                                                                      )
+                                                                  )
+                                                                ])
                                                               ]
                                                             )
                                                           ]
                                                         )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass: "col-md-3"
-                                                      },
-                                                      [
-                                                        transaction.status ===
-                                                          "orderSuccessed" &&
-                                                        transaction.confirm_user ===
-                                                          0
-                                                          ? _c("div", [
-                                                              _c(
-                                                                "label",
-                                                                {
-                                                                  attrs: {
-                                                                    for: ""
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    " Pesanan telah sampai"
-                                                                  )
-                                                                ]
-                                                              ),
-                                                              _c("br"),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "button",
-                                                                {
-                                                                  staticClass:
-                                                                    "btn small smallbtn",
-                                                                  on: {
-                                                                    click: function(
-                                                                      $event
-                                                                    ) {
-                                                                      _vm.confirmByUser(
-                                                                        transaction.id
-                                                                      )
-                                                                    }
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "konfirmasi"
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ])
-                                                          : transaction.status ===
-                                                              "orderSuccessed" &&
-                                                            transaction.confirm_user ===
-                                                              1
-                                                          ? _c("div", [
-                                                              _c("p", [
-                                                                _vm._v(
-                                                                  " Terimakasih sudah melakukan konfirmasi"
-                                                                )
-                                                              ])
-                                                            ])
-                                                          : _vm._e()
                                                       ]
                                                     )
                                                   ]
@@ -73757,9 +73644,7 @@ var staticRenderFns = [
         _vm._v("Total pembayaran")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3 small" }, [_vm._v("Status")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3 small" }, [_vm._v("Action")])
+      _c("div", { staticClass: "col-sm-3 small" }, [_vm._v("Status")])
     ])
   },
   function() {
@@ -73874,7 +73759,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -74129,11 +74014,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
       window.axios.post("/api/transaction/" + this.transactionId + "/proof-of-payment", formData).then(function () {
         __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
+        alert("berhasil mengupload bukti pembayaran");
         window.location = "/customer/" + _this3.userId + "/orders";
       }).catch(function (error) {
         console.log(error);
         __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
-        alert("Terjadi Kesalahan, Reload Halaman");
+        alert("Terjadi Kesalahan, Ulangi Halaman");
       });
     },
     onFileChanged: function onFileChanged(event) {
@@ -74573,6 +74459,8 @@ var render = function() {
                             _c("div", { staticClass: "text-muted mb-2" }, [
                               _vm._v("Upload Bukti Pembayaran")
                             ]),
+                            _vm._v(" "),
+                            _c("br"),
                             _vm._v(" "),
                             _c("center", [
                               _c(
@@ -81819,15 +81707,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("No")]),
         _vm._v(" "),
-        _c("td", [_vm._v("nama customer")]),
+        _c("td", [_vm._v("Nama")]),
         _vm._v(" "),
-        _c("td", [_vm._v("address")]),
+        _c("td", [_vm._v("Alamat")]),
         _vm._v(" "),
-        _c("td", [_vm._v("tanggal konfirmasi")]),
+        _c("td", [_vm._v("Tanggal Konfirmasi")]),
         _vm._v(" "),
-        _c("td", [_vm._v("detail")])
+        _c("td", [_vm._v("Rincian")])
       ])
     ])
   }

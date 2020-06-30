@@ -57,7 +57,7 @@
                                 </div>
                                 <input type="hidden" name="id_product" id="cat_prod" value="">
                                 <div class="modal-footer">                                    
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                                     <button type="submit" class="btn btn-danger">Hapus</button>
                                 </div>
                                 </form>

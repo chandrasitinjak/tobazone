@@ -170,11 +170,36 @@
               @role('merchant')
               <div class="cart-fav-box d-flex align-items-center mt-4">
                 <a href="{{ url('/products/edit', $product->id) }}" class="btn essence-btn">Edit</a>
-                <form action="{{ url('/products/delete', $product->id)}}" method="POST">
-                  {{ csrf_field() }}
-                  <button type="submit" class="btn essence-btn ml-4">Delete</button>
-                </form>
+                <!-- <form action="{{ url('/products/delete', $product->id)}}" method="POST">
+                  {{ csrf_field() }} -->
+                  <button type="submit" class="btn essence-btn ml-4" data-toggle="modal" data-target="#deleteConfirmation">Delete</button>
+                <!-- </form> -->
               </div>
+
+
+              <div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteConfirmationLabel">Konfirmasi</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form action="{{ url('/products/delete', $product->id)}}" method="POST">
+                                @csrf
+                                <div class="modal-body">
+                                    <p>Apakah Anda Yakin Mau Menghapus?</p>
+                                </div>
+                                <!-- <input type="hidden" name="id_product" id="cat_prod" value=""> -->
+                                <div class="modal-footer">                                    
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
               @else @if(Auth::check())
               <div class="row">

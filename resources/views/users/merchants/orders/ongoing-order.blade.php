@@ -20,11 +20,15 @@
                 <div class="col-10 col-sm-8 col-md-10">
                   <h5 class="mb-0"> {{ $merchant->profile->name }}</h5>
                 </div>
+                
                 <div class="col-2 ">
+                  <a href="{{ url('/merchant/'.$merchant->id.'/editProfile') }}">
                   <button type="submit" class="btn btn-primary btn-sm float-right">
                       <i class="fa fa-gear"></i> Edit
                     </button>
+                    </a>
                 </div>
+
               </div>
 
               <p> Horas Mamangke Mangomo Partiga-tiga </p>

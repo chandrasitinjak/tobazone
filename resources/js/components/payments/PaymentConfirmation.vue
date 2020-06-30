@@ -51,7 +51,7 @@
                     <h5 style="color: #ff5205">Rp {{ formatPrice( getTotalPayment(transaction.payment) )}}</h5>
 
                     <br><div class="text-muted mb-2">Upload Bukti Pembayaran</div>
-
+                    <br>
                     <center>
                     <div align-center justify-center>
                       <button
@@ -251,12 +251,13 @@ export default {
         formData
       ).then(() => {
         EventBus.$emit("SPINNER", false);
+        alert("berhasil mengupload bukti pembayaran");
         window.location = "/customer/" + this.userId + "/orders";
       })
       .catch(error => {
               console.log(error);
               EventBus.$emit("SPINNER", false);
-              alert("Terjadi Kesalahan, Reload Halaman");
+              alert("Terjadi Kesalahan, Ulangi Halaman");
       }); 
     },
     onFileChanged(event) {

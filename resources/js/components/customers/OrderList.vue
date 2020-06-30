@@ -34,7 +34,6 @@
               >Pesanan Selesai</a>
             </li>
           </ul>
-
           <div class="tab-content" id="myTabContent">
             <div
               class="tab-pane fade show active"
@@ -51,25 +50,24 @@
                           <div class="col-sm-3 small">Tanggal Pemesanan</div>
                           <div class="col-sm-3 small">Total pembayaran</div>
                           <div class="col-sm-3 small">Status</div>
-                          <div class="col-sm-3 small">Action</div>
                         </div>
                         <div class="row detail">
-
                           <div class="col-sm-3">{{ transaction.created_at }}</div>
-
-                          <div class="col-sm-3 bold"
+                          <div
+                            class="col-sm-3 bold"
                             style="color: orangered"
                           >Rp {{formatPrice( getTotalPayment(transaction.payment))}}</div>
-
-                          <div class="col-sm-3">
+                          <div class="col-sm-6">
                             <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedByAdmin'">
                               Menunggu Pembayaran
-
+                              <a :href="'/customer/transactions/' + transaction.id" class="btn btn-sm btn-outline-action ml-30">
+                                Upload bukti pembayaran
+                              </a>
                             </div>
 
                             <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'readyForProcess' && transaction.shipping_number !== null">
                               Barang dalam pengirima
-                              <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'" class="alert-link">
+                              <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'" class="btn btn-sm btn-outline-action ml-30">
                                 Lacak Pengiriman
                               </a>
                             </div>
@@ -82,14 +80,6 @@
                               Sudah dibayar, menunggu diproses penjual
                             </div>
                           </div>
-
-                          <div class="col-sm-3">
-                            <a :href="'/customer/transactions/' + transaction.id" class="btn btn-sm btn-outline-action" >
-                              UPLOAD BUKTI PEMBAYARAN
-                            </a>
-                          </div>
-
-
                         </div>
                       </div>
                       <div class="card-body" v-for="order in transaction.orders">
@@ -173,9 +163,8 @@
                         <div class="row singleorderprod" style=" padding-bottom: 10px">
                           <div class="col-md-12 col-sm-12 col-xs-6">
                             <div class="row">
-                              <div class="col-md-6">
                               <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'">
-                                <div class="col-sm-6 col-xs-12">
+                                <div class="col-sm-2 col-xs-12">
                                   <div class="imgwrapper pesanan" style="padding: 0px; height: auto">
                                     <img
                                       :src="'/images/' + JSON.parse(order.product.images)[0]"
@@ -194,21 +183,6 @@
                                   </div>
                                 </div>
                               </a>
-                              </div>
-                              <div class="col-md-3">
-                                    <div v-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 0">
-                                      <label for=""> Pesanan telah sampai</label><br>
-                                      <button class="btn small smallbtn" v-on:click="confirmByUser(transaction.id)">konfirmasi</button>
-                                    </div>
-                                    <div v-else-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 1">
-                                      <p> Terimakasih sudah melakukan konfirmasi</p>
-                                    </div>
-                                    <!-- <div v-else>
-                                       <p>tidak dilakukan pengiriman, pembelian ditolak admin</p>
-                                    </div>                                     -->
-                              </div>
-
-
                             </div>
                           </div>
                         </div>
@@ -234,21 +208,6 @@ export default {
     };
   },
   methods: {
-
-    confirmByUser(id_transaksi) {
-
-      let confirmByUser =  {
-        data : 1
-      }
-
-      window.axios
-        .post("/api/transaction/" + id_transaksi + "/confirmByUser", confirmByUser)
-        .then(() => {
-          alert("berhasil mengkonfirmasi");
-          window.location.reload(true);
-        })
-
-    },
       formatPrice(value) {
           let val = (value/1).toFixed().replace('.', ',')
           return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")

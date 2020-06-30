@@ -22,11 +22,11 @@
             <table class="table">
                 <thead>
                 <tr>   
-                    <th scope="col">#</th>                 
-                    <td>nama customer</td>
-                    <td>address</td>
-                    <td>tanggal konfirmasi</td>                                        
-                    <td>detail</td>
+                    <th scope="col">No</th>                 
+                    <td>Nama</td>
+                    <td>Alamat</td>
+                    <td>Tanggal Konfirmasi</td>                                        
+                    <td>Rincian</td>
                 </tr>                
                 </thead>
                 <tbody>
