@@ -15,12 +15,12 @@
                             <input type="text" class="form-control form-control-sm" value="{{ $profiles->name }}" name="profile_name">
                         </div>
                         <div class="form-group">
-                            <label class="label">Nomor Hp</label>
+                            <label class="label">Nomor HP</label>
                             <input type="text" class="form-control form-control-sm" value="{{ $profiles->phone }}" name="profile_phone">
                         </div>
                         @if($profiles->photo == "profile.png")
                         <div class="form-group">
-                            <label class="label">upload foto</label>
+                            <label class="label">Unggah Foto</label>
                             <input class="form-control form-control-sm" type="file" name="profile_picture">
                         </div>
                         @else
@@ -29,7 +29,7 @@
                         </div>
 
                             <p>Ubah Foto Anda</p>
-                            <label class="label label-a">upload foto</label>
+                            <label class="label label-a">Unggah Foto</label>
                             <input class="form-control form-control-sm" type="file" name="profile_picture">
                         @endif
 

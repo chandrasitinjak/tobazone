@@ -44,7 +44,7 @@ w<template>
                 <div class="keranjang-desc-prod">
                   <h6>{{ cart.product.name }}</h6>
                   {{ cart.product.description }}
-                  <p> <b> stok tersedia : {{ cart.product.stock }} </b> </p>                  
+                  <p> <b> Stok Tersedia : {{ cart.product.stock }} </b> </p>                  
                 </div>
               </div>
             </div>

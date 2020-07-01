@@ -59,7 +59,7 @@
                           class="btn essence-btn"
                           data-toggle="modal"
                           data-target="#exampleModal"
-                        >UPLOAD PEMBAYARAN
+                        >Unggah Pembayaran
                       </button>
                     </div>
                     </center>
@@ -77,7 +77,7 @@
                         <div class="modal-content">
                           <spinner></spinner>
                           <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Upload Bukti Bayar</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Unggah Bukti Bayar</h5>
                             <button
                               type="button"
                               class="close"
@@ -134,7 +134,7 @@
                               type="button"
                               class="btn essence-btn"
                               v-on:click="uploadProofOfPayment"
-                            >Upload</button>
+                            >Unggah</button>
                           </div>
                         </div>
                       </div>
@@ -251,7 +251,7 @@ export default {
         formData
       ).then(() => {
         EventBus.$emit("SPINNER", false);
-        alert("berhasil mengupload bukti pembayaran");
+        alert("berhasil mengunggah bukti pembayaran");
         window.location = "/customer/" + this.userId + "/orders";
       })
       .catch(error => {

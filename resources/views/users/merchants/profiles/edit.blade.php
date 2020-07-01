@@ -15,12 +15,12 @@
                             <input type="text" class="form-control form-control-sm" value="{{ $profiles->name }}" name="profile_name">
                         </div>
                         <div class="form-group">
-                            <label class="label">nomor hp</label>
+                            <label class="label">Nomor HP</label>
                             <input type="text" class="form-control form-control-sm" value="{{ $profiles->phone }}" name="profile_phone">
                         </div>
                         @if($profiles->photo == null)
                         <div class="form-group">
-                            <label class="label">upload foto</label>
+                            <label class="label">Unggah Foto</label>
                             <input class="form-control form-control-sm" type="file" name="profile_picture">
                         </div>
                         @else
@@ -28,13 +28,13 @@
                     `      <img src="{{ url("/images/user_profiles/".$profiles->photo )}}" alt="Card image cap test" style="object-fit: scale-down">
                         </div>
 
-                            <p>ubah foto anda</p>
-                            <label class="label label-a">upload foto</label>
+                            <p>Ubah Foto Anda</p>
+                            <label class="label label-a">Unggah Foto</label>
                             <input class="form-control form-control-sm" type="file" name="profile_picture">
                         @endif
 
                        <center>
-                          <button type="submit" class="btn essence-btn col-md-4" style="margin-top: 0.5rem;margin-bottom: 2rem">ubah</button>
+                          <button type="submit" class="btn essence-btn col-md-4" style="margin-top: 0.5rem;margin-bottom: 2rem">Ubah</button>
                        </center>
 
                     </form>

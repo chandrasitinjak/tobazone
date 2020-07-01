@@ -68259,7 +68259,7 @@ var render = function() {
                         _c("p", [
                           _c("b", [
                             _vm._v(
-                              " stok tersedia : " +
+                              " Stok Tersedia : " +
                                 _vm._s(cart.product.stock) +
                                 " "
                             )
@@ -74014,7 +74014,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
       window.axios.post("/api/transaction/" + this.transactionId + "/proof-of-payment", formData).then(function () {
         __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
-        alert("berhasil mengupload bukti pembayaran");
+        alert("berhasil mengunggah bukti pembayaran");
         window.location = "/customer/" + _this3.userId + "/orders";
       }).catch(function (error) {
         console.log(error);
@@ -74484,7 +74484,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "UPLOAD PEMBAYARAN\n                    "
+                                        "Unggah Pembayaran\n                    "
                                       )
                                     ]
                                   )
@@ -74779,7 +74779,7 @@ var render = function() {
                                                     _vm.uploadProofOfPayment
                                                 }
                                               },
-                                              [_vm._v("Upload")]
+                                              [_vm._v("Unggah")]
                                             )
                                           ]
                                         )
@@ -74813,7 +74813,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Upload Bukti Bayar")]
+        [_vm._v("Unggah Bukti Bayar")]
       ),
       _vm._v(" "),
       _c(
