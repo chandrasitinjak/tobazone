@@ -48,7 +48,7 @@
                             <form class="nav-link " method="POST" action="{{ url('/logout')}}">
                                 {{ csrf_field() }}
                                 <button type="submit " class="btn nav-link pt-0" style="background-color: white"
-                                        >Logout
+                                        >Keluar
                                 </button>
                             </form>
                         @endguest
@@ -117,15 +117,15 @@
                             <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
                         </a>
                         <div class="user-menu dropdown-menu mt-2" style="border: 1px solid #e0e0e0; left: -70px;">
-                        <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/myProfil') }}">Profile</a>
-                        <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/wishlist') }}" >Wishlist</a> 
+                        <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/myProfil') }}">Profil Saya</a>
+                        <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/wishlist') }}" >Favorit</a> 
                         <a class="nav-link" href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}">Pesanan</a>
                         <ul class="dropdown">
                         <li class="item">                                                                   
                         <form method="POST" action="{{ url('/logout')}}">
                                         {{ csrf_field() }}
                                         <button type="submit" class="btn nav-link"
-                                                style="background-color: transparent;padding-left: 12px;">Logout
+                                                style="background-color: transparent;padding-left: 12px;">Keluar
                                         </button>
                                     </form>
                                     </li>
@@ -236,7 +236,7 @@
                     <form class="nav-link " method="POST" action="{{ url('/logout')}}">
                         {{ csrf_field() }}
                         <button type="submit " class="btn nav-link pt-0"
-                                style="background-color: transparent">Logout
+                                style="background-color: transparent">Keluar
                         </button>
                     </form>
                 </li>
@@ -271,13 +271,13 @@
                         <div class="user-menu dropdown-menu mt-2" style="border: 1px solid #e0e0e0; left: -70px;">
                             <ul class="dropdown">
                                 <li>
-                                    <a class="nav-link" href="{{ url('/merchant/'.Auth::user()->id.'/myProfile') }}">My Profile</a>
+                                    <a class="nav-link" href="{{ url('/merchant/'.Auth::user()->id.'/myProfile') }}">Profil Saya</a>
                                 </li>
                                 <li>
                                     <form method="POST" action="{{ url('/logout')}}">
                                         {{ csrf_field() }}
                                         <button type="submit" class="btn nav-link"
-                                                style="background-color: transparent;padding-left: 12px;">Logout
+                                                style="background-color: transparent;padding-left: 12px;">Keluar
                                         </button>
                                     </form>
                                 </li>
