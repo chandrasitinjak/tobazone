@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-12">
                 <form>
-                    <label class="label text-muted">Pemilik Toko (Merchant)</label>
+                    <label class="label text-muted">Pemilik Tokosss (Merchant)</label>
                     <br />
                     <div class="row">
                         <div class="col-6">
