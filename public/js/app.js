@@ -75643,6 +75643,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }).catch(function (err) {
                     console.log(err);
                     __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
+                    console.log(err);
                     alert("Terjadi Kesalahan, silahkan reload kembali");
                 });
             }

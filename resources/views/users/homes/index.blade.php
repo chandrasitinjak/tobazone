@@ -17,9 +17,13 @@
 
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="/user-assets/css/core-style.css">
-    <link rel="stylesheet" href="/user-assets/style.css">   
+    <link rel="stylesheet" href="/user-assets/style.css">
 
-    <link rel="stylesheet" href="/user-assets/new-css.css">   
+    <link rel="stylesheet" href="/user-assets/new-css.css">
+
+    <!-- <link rel="stylesheet" href="/user-assets/normalize.css"> -->
+    <!-- <link rel="stylesheet" href="/user-assets/webflow.css"> -->
+    <link rel="stylesheet" href="/user-assets/test-page-gridstyle.css">
 
 </head>
 
@@ -27,10 +31,10 @@
 
 
 <div id="app">
-    @include('users.layouts.header')    
-    <div class="container-fluid">    
-            
-            <div class="row mt-3" style="background-color : white ">                
+    @include('users.layouts.header')
+    <div class="container-fluid">
+
+            <div class="row mt-3" style="background-color : white ">
                 <div class="col-md-8" style="padding-right:1.8rem;">
                     <carousel> </carousel>
                 </div>
@@ -40,8 +44,8 @@
                         <div class="col-md-12" style="padding-left:0.5rem">
                             <a href="/search">
                             <img class="img-besidecar" src="{{ url("/images/carousels/carouselsamping1.png" )}}" alt="Card image cap test" style="height: 100%; width : 100%">
-                            </a>                          
-                        </div>                        
+                            </a>
+                        </div>
                     </div>
 
                     <div class="row pt-2 pr-0">
@@ -51,20 +55,20 @@
                             </a>
                         </div>
                     </div>
-                </div>                
-            </div>            
-            
+                </div>
+            </div>
 
-        
+
+
               <div id="new-product">
                 @if(Auth::check())
                     <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Terbaru'"/>
                 @else
                     <new-products :title="'Produk Terbaru'"/>
                 @endif
-              </div>  
-              
-            
+              </div>
+
+
               <div class="row" style="padding-top: 2rem; position:center" >
                 <div class="col-md-12">
                   <center>
@@ -74,88 +78,47 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12" style="padding: 2rem 7rem 2rem 7rem">
-                        <div class="row">
-                            <div class="col-md-4" style="padding-left : 4rem">
+                    <div class="col-md-12" >
+                      <div class="image-wrapper">
+                        <div class="w-layout-grid image-grid">
+
+                          <div id="w-node-29f467322595-cecc6f8b" class="image-container">
                             <a href="{{ url('/product/pakaian') }}">
-                              <div class="card card-test bg-dark text-white" style="width:250px; height:250px;">
-                                <img src="{{ url("/images/kategori/pakaian.png" )}}" alt="Card image cap test" style="width:250px; height:250px;">
-                                    <div class="card-img-overlay card-img-overlay-a">
-                                        <center>
-                                          <p class="card-title card-title-a" style="color: #fff;">PAKAIAN</p>
-                                        </center>
-                                    </div>
-                              </div>
+                              <div class="text-block">PAKAIAN</div>
                             </a>
-                            </div>
+                          </div>
 
-                            <div class="col-md-4">
+                          <div id="w-node-d4886159c096-cecc6f8b" class="image-container _2">
                             <a href="{{ url('/product/obat') }}">
-                              <div class="card card-test bg-dark text-white" style="width:250px; height:250px;">
-                                <img src="{{ url("/images/kategori/obat.png" )}}" alt="Card image cap test" style="size: 100%;">
-                                    <div class="card-img-overlay card-img-overlay-a">
-                                        <center>
-                                          <p class="card-title card-title-a" style="color: #fff;">OBAT</p>
-                                        </center>
-                                    </div>
-                              </div>
-                              </a>
-                            </div>
-
-                            <div class="col-md-4" style="padding-right: 4rem!important">
-                            <a href="{{ url('/product/ulos') }}">
-                              <div class="card card-test bg-dark text-white" style="width:250px; height:250px;">
-                                <img src="{{ url("/images/kategori/ulos.png" )}}" alt="Card image cap test" style="size: 100%;">
-                                    <div class="card-img-overlay card-img-overlay-a">
-                                        <center>
-                                          <p class="card-title card-title-a" style="color: #fff;">ULOS</p>
-                                        </center>
-                                    </div>
-                              </div>
+                              <div class="text-block">OBAT</div>
                             </a>
-                            </div>
-                        </div>
+                          </div>
 
-                        <div class="row p-5">
-                            <div class="col-md-2">
+                          <div id="w-node-60cd9d4111ae-cecc6f8b" class="image-container _3">
+                            <a href="{{ url('/product/ulos') }}">
+                              <div class="text-block">ULOS</div>
+                            </a>
+                          </div>
 
-                            </div>
-
-                            <div class="col-md-4">
+                          <div id="w-node-12ffc40a2e90-cecc6f8b" class="image-container _4">
                             <a href="{{ url('/product/aksesoris') }}">
-                              <div class="card card-test bg-dark text-white" style="width:250px; height:250px;">
-                                <img src="{{ url("/images/kategori/aksesoris.png" )}}" alt="Card image cap test" style="size: 100%;">
-                                    <div class="card-img-overlay card-img-overlay-a">
-                                        <center>
-                                          <p class="card-title card-title-a" style="color: #fff;">AKSESORIS</p>
-                                        </center>
-                                    </div>
-                              </div>
-                              </a>
-                            </div>
+                              <div class="text-block">AKSESORIS</div>
+                            </a>
+                          </div>
 
-                            <div class="col-md-4">
+                          <div id="w-node-2d179ca0bff4-cecc6f8b" class="image-container _5">
                             <a href="{{ url('/product/makanan') }}">
-                              <div class="card card-test bg-dark text-white" style="width:250px; height:250px;">
-                                <img src="{{ url("/images/kategori/makanan.png" )}}" alt="Card image cap test" style="size: 100%;">
-                                    <div class="card-img-overlay card-img-overlay-a">
-                                        <center>
-                                          <p class="card-title card-title-a" style="color: #fff;">MAKANAN</p>
-                                        </center>
-                                    </div>
-                              </div>
-                              </a>
-                            </div>
+                              <div class="text-block">MAKANAN</div>
+                            </a>
+                          </div>
 
-                            <div class="col-md-2">
-
-                            </div>
                         </div>
+                      </div>
                     </div>
                   </center>
                 </div>
             </div>
-    
+
 
     <!-- <div id="banner">
         <banner/>
