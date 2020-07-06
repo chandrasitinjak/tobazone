@@ -112,7 +112,7 @@
                               </div>
                               <br>
                               <div class="form-group">
-                                <label class="col-form-label">Bukti Pembayaran</label>
+                                <label class="col-form-label">Bukti Pembayaran ( jpg/jpeg/png )</label>
                                 <div class="col-sm-9">
                                   <div class="upload-btn-wrapper">
                                     <button class="btn-upcus" style="margin: auto" v-if="selectedFile === null">
