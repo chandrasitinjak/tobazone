@@ -38,7 +38,7 @@
             <label style="color: red;display:none" id="Err_requiredPassword">password harus diisi </label>
              <p class=" lupas">
               <a class="small" href="{{ route('password.request') }}" style="color: black">
-                {{ __('Forgot Your Password?') }}
+                {{ __('Lupa Password') }}
               </a>
             </p> 
           </div>
