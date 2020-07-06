@@ -4,7 +4,7 @@ w<template>
       <div class="card-header" v-if="carts.length > 0">
         <div class="row">
           <div class="col-5">
-            <a href="/" role="button" class="btn btn-sm btn-outline-primary">Belanja lagi</a>
+            <a href="/search" role="button" class="btn btn-toba">Belanja lagi</a>
           </div>
           <div class="col-7">
             <h5>Keranjang Belanja Anda</h5>
@@ -103,7 +103,7 @@ w<template>
                           <p>Apakah Anda Yakin Mau Menghapus?</p>
                       </div>
                       <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                           <button v-on:click="deleteCart(key_produk)" class="btn btn-danger" data-dismiss="modal">Hapus</button>
                       </div>
                   </div>

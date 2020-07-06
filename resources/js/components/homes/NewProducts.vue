@@ -3,13 +3,13 @@
     <div class="card globalcard" style="min-height: 400px; background-color: #fffaf3">
       <div class="card-header">
         <nav class="navbar navbar-expand-lg mproduct p-1" style="background-color: transparent; border:none">
-           <h3 class="m-auto">Ragam Produk</h3>          
+           <h3 class="m-auto">Ragam Produk</h3>
         </nav>
       </div>
       <div class="card-body" style="padding : 0.7rem">
         <div class="" v-if="products.length>0">
           <div class="row">
-            <div v-for="product in products" class="col-6 col-md-2 col-lg-2 px-1">              
+            <div v-for="product in products" class="col-6 col-md-2 col-lg-2 px-1">
               <div class="card products">
                 <a :href="'/products/' + product.id">
                   <div class="imgwrapper">
@@ -23,40 +23,39 @@
                   <div v-if="userId == null">
                   <p class="card-text float-right">
                      <small class="text-muted"> {{ product.merchant.profile.name }}</small>
-                  </p> 
-                  </div> 
-                  
+                  </p>
+                  </div>
+
                   <div v-if="userId != null">
                     <p class="card-text float-left">
                       <small class="text-muted"> {{ product.merchant.profile.name }}</small>
-                    </p> 
+                    </p>
                     <div >
-                    <button style="border : 0px; background-color: white" class="float-right" v-on:click="addToWishlist(product.id)"> <i class="fa fa-heart-o"></i> </button>                    
+                    <button style="border : 0px; background-color: white" class="float-right" v-on:click="addToWishlist(product.id)"> <i class="fa fa-heart-o"></i> </button>
                     </div>
                   </div>
                     <!-- <div >
                       <i class="fas fa-heart"></i>
                         <i class="far fa-heart"></i>
                     </div>                     -->
-                    
+
                 </div>
-              </div>              
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row" style="">
-        <div class="col-md-12">
-            <center>
-              <a href="/search">
-                  <button class="btn btn-toba" type="button"
-                    style="text-decoration-line: unset; "> Lihat Lebih Banyak
-                  </button>
-              </a>
-            </center>
-        </div>
+      <div class="col-md-12">
+          <center>
+            <a href="/search">
+                <button class="btn essence-btn" type="button"
+                  style="text-decoration-line: unset; "> Lihat Lebih Banyak
+                </button>
+            </a>
+          </center>
+          <br><br>
       </div>
+    </div>
   </div>
 </template>
 
@@ -76,16 +75,16 @@ export default {
     };
   },
   methods: {
-      async checkProduct(id_product) {      
-      
+      async checkProduct(id_product) {
+
       await window.axios.get("/api/customer/"+this.userId+"/wishlists/"+id_product)
         .then(res => {
-            this.datas = res.data;            
+            this.datas = res.data;
         })
       },
 
-      async addToWishlist(id_product){              
-      await this.checkProduct(id_product);      
+      async addToWishlist(id_product){
+      await this.checkProduct(id_product);
 
       if(this.datas.length != 0) {
         alert("Sudah ada didaftar wishlist anda");
@@ -97,17 +96,17 @@ export default {
           };
 
       // await window.axios.post("/api/wishlists", payload).then(res => {
-        window.axios.post("/api/wishlist", payload)          
-            .then(() => {       
-              alert("berhasil menambahkan ke daftar wishlish anda")                  
+        window.axios.post("/api/wishlist", payload)
+            .then(() => {
+              alert("berhasil menambahkan ke daftar wishlish anda")
             })
 
           .catch(error => {
             console.log(error);
-          });   
-        }   
+          });
+        }
     },
-    
+
       formatPrice(value) {
           let val = (value/1).toFixed().replace('.', ',')
           return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
@@ -116,11 +115,11 @@ export default {
     async getAllMyWishList() {
       await window.axios.get("/api/customer/"+this.userId+"/wishlists/")
         .then(res => {
-            this.data = res.data;            
+            this.data = res.data;
             // console.log(data);
         })
     },
-    
+
     async getAllProducts() {
       await window.axios
         .get("/api/products")
@@ -138,7 +137,7 @@ export default {
         total: 1,
         userId: this.userId
       };
-    
+
       await window.axios
         .post("/api/carts", payload)
         .then(res => {
@@ -154,8 +153,8 @@ export default {
   },
   mounted() {
     // this.getAllMyWishList();
-    this.getAllProducts();    
-    
+    this.getAllProducts();
+
   }
 };
 </script>

@@ -33,7 +33,7 @@
                                                 <th scope="col">Product Name</th>
                                                 <th scope="col">Jumlah</th>
                                                 <th scope="col">Harga</th>
-                                                <th scope="col">Diskon (%)</th>
+                                                <!-- <th scope="col">Diskon (%)</th> -->
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
@@ -45,7 +45,7 @@
                                                 <td>{{ $order->product->name }}</td>
                                                 <td>{{ $order->quantity }}</td>
                                                 <td>IDR {{ $order->product->price }}</td>
-                                                <td>0%</td>
+                                                <!-- <td>0%</td> -->
                                                 <td>IDR {{ $order->product->price * $order->quantity}}</td>
                                                 <?php $jumlah_total = $jumlah_total + ($order->product->price * $order->quantity) ?>
                                             </tr>

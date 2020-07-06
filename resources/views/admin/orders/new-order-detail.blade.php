@@ -33,7 +33,7 @@
                                                 <th scope="col">Product Name</th>
                                                 <th scope="col">Qty</th>
                                                 <th scope="col">Price</th>
-                                                <th scope="col">Discount (%)</th>
+                                                <!-- <th scope="col">Discount (%)</th> -->
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
@@ -44,7 +44,7 @@
                                                 <td>{{ $order->product->name }}</td>
                                                 <td>{{ $order->quantity }}</td>
                                                 <td>IDR {{ $order->product->price }}</td>
-                                                <td>0%</td>
+                                                <!-- <td>0%</td> -->
                                                 <td>IDR {{ $order->product->price * $order->quantity}}</td>
                                             </tr>
                                             @endforeach
@@ -79,7 +79,22 @@
                             </div>
                         </div>
 
-                        <div class="card-body">
+                        <form action="{{ url('/transaction/update-status', $transaction->id)}}" method="POST">
+                            {{ csrf_field() }}
+                            <div class="form-row">
+                                <div class="col-md-8 my-1"></div>
+                                <div class="col-sm-2 my-1">                           
+                                    <input type="hidden" name="status" value="acceptedByAdmin" />
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">Terima</button>
+                                </div>
+                                <div class="col-sm-2 my-1">
+                                    <input type="hidden" name="status" value="rejectedByAdmin" />
+                                    <button type="submit" class="btn btn-danger btn-lg btn-block">Batal</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- <div class="card-body">
                             <form action="{{ url('/transaction/update-status', $transaction->id)}}" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="status" value="acceptedByAdmin" />
@@ -92,7 +107,7 @@
                                 <input type="hidden" name="status" value="rejectedByAdmin" />
                                 <button type="submit" class="btn btn-danger btn-lg btn-block">Reject</button>
                             </form>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
