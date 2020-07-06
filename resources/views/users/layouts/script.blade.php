@@ -35,10 +35,26 @@
             $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
             $('#enlargeImageModal').modal('show');
         });
+        
 
-    });    
-    
-    
+        $('#email').keypress(function(e){
+            if(e.which == 13){  //Enter is key 13
+                login();
+            }
+        });
+
+        $('#email').keypress(function(e){
+            if(e.which == 13){  //Enter is key 13
+                login();
+            }
+        });
+
+        $('#password').keypress(function(e){
+            if(e.which == 13){  //Enter is key 13
+                login();
+            }
+        });
+    });            
 </script>
 
 

@@ -29,8 +29,8 @@
 
                 <div class="col-2 ">
                   <a href="{{ url('/merchant/'.$merchant->id.'/editProfile') }}">
-                  <button type="submit" class="btn btn-primary btn-sm float-right">
-                      <i class="fa fa-gear"></i> Edit
+                  <button type="submit" class="button essence-btn btn-sm float-right">
+                      <i class="fa fa-gear"></i> &nbsp; UBAH
                     </button>
                     </a>
                 </div>
