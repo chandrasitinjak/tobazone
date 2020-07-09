@@ -28,7 +28,7 @@ w<template>
             style="height: 120px; border: none; opacity: 0.5"
           >
           <p class="text font-bold mt-3">Keranjang belanja Anda kosong,</p>
-          <a href="/" class="btn essence-btn">Ayo Lanjut Berbelanja</a>
+          <a href="/search" class="btn essence-btn">Ayo Lanjut Berbelanja</a>
         </div>
             
 
@@ -64,8 +64,8 @@ w<template>
 
               <input
                 type="number"
-                onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"            
-                class="form-control"
+                onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"                            
+                class="form-control"                
                 v-model="cart.total"
                 @change="updateCart(cart)"                
                 min="1"
@@ -139,7 +139,7 @@ w<template>
         <a href="/shipping" class="btn essence-btn float-right">Lanjut Pembayaran</a>
         </div>
 
-        <div v-else-if="this.cek != 1 || cart.product.stock == 0">
+        <div v-else-if="this.cek != 1">
           <a class="btn essence-btn float-right" :disabled="true">Lanjut Pembayaran</a>
         </div>
       </div>
@@ -157,7 +157,8 @@ export default {
       carts: [],
       cek : 1,
       stok_produk : 0,
-      key_produk: ""
+      key_produk: "",
+      input_stock : 1,
     };
   },
   methods: {
@@ -225,6 +226,12 @@ export default {
 
       this.carts.forEach(cart => {
         total += cart.total * cart.product.price;
+
+        if(cart.total > cart.product.stock ) {
+          this.cek = 0;
+        } else if(cart.total <= cart.product.stock ) {
+          this.cek = 1;        
+        }
       });
 
       return total;
