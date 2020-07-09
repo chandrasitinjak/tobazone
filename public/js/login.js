@@ -119,7 +119,7 @@ async function login() {
                     
                     location.reload();
                 } else if (xhr.status == 422) {
-                    document.getElementById("exampleModalLabel").innerHTML = "email atau password salah";
+                    document.getElementById("exampleModalLabel").innerHTML = "E-mail atau Kata Sandi salah";
                     $('#password').css({
                         'border': '1px solid #ff3333',
                         'border-radius': '2px',
