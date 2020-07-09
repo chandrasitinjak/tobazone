@@ -10,10 +10,10 @@
     <div>
       <div class="card globalcard" style="min-height: 400px">
         <div class="card-header">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
+          <nav class="tabbable">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
               <a
-                class="nav-link active"
+                class="nav-item nav-link active"
                 id="pesananbaru-tab"
                 data-toggle="tab"
                 href="#pesanansaatini"
@@ -21,10 +21,8 @@
                 aria-controls="home"
                 aria-selected="true"
               >Pesanan Saat Ini</a>
-            </li>
-            <li class="nav-item">
               <a
-                class="nav-link"
+                class="nav-item nav-link"
                 id="Konfirmasi-tab"
                 data-toggle="tab"
                 href="#konfirmasi"
@@ -32,9 +30,9 @@
                 aria-controls="profile"
                 aria-selected="false"
               >Pesanan Selesai</a>
-            </li>
-          </ul>
-          <div class="tab-content" id="myTabContent">
+            </div>
+          </nav>
+          <div class="tab-content pt-2" id="myTabContent">
             <div
               class="tab-pane fade show active"
               id="pesanansaatini"
@@ -240,4 +238,22 @@ export default {
 </script>
 
 <style>
+.tabbable .nav-tabs {
+   overflow-x: auto;
+   overflow-y:hidden;
+   flex-wrap: nowrap;
+}
+
+.tabbable .nav-tabs .nav-link {
+  white-space: nowrap;
+}
+/* .nav-tabs {
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: -webkit-box;
+  display: -moz-box;
+}
+.nav-tabs>li {
+  float: none;
+} */
 </style>
