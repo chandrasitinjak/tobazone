@@ -76410,7 +76410,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.tabbable .nav-tabs {\r\n   overflow-x: auto;\r\n   overflow-y:hidden;\r\n   -ms-flex-wrap: nowrap;\r\n       flex-wrap: nowrap;\n}\n.tabbable .nav-tabs .nav-link {\r\n  white-space: nowrap;\n}\r\n/* .nav-tabs {\r\n  overflow-x: auto;\r\n  overflow-y: hidden;\r\n  display: -webkit-box;\r\n  display: -moz-box;\r\n}\r\n.nav-tabs>li {\r\n  float: none;\r\n} */\r\n", ""]);
 
 // exports
 
@@ -76421,8 +76421,6 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
 //
 //
 //
@@ -76685,7 +76683,10 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "tab-content", attrs: { id: "myTabContent" } },
+              {
+                staticClass: "tab-content pt-2",
+                attrs: { id: "myTabContent" }
+              },
               [
                 _c(
                   "div",
@@ -77350,15 +77351,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "ul",
-      { staticClass: "nav nav-tabs", attrs: { id: "myTab", role: "tablist" } },
-      [
-        _c("li", { staticClass: "nav-item" }, [
+    return _c("nav", { staticClass: "tabbable" }, [
+      _c(
+        "div",
+        {
+          staticClass: "nav nav-tabs",
+          attrs: { id: "nav-tab", role: "tablist" }
+        },
+        [
           _c(
             "a",
             {
-              staticClass: "nav-link active",
+              staticClass: "nav-item nav-link active",
               attrs: {
                 id: "pesananbaru-tab",
                 "data-toggle": "tab",
@@ -77369,14 +77373,12 @@ var staticRenderFns = [
               }
             },
             [_vm._v("Pesanan Saat Ini")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "nav-item" }, [
+          ),
+          _vm._v(" "),
           _c(
             "a",
             {
-              staticClass: "nav-link",
+              staticClass: "nav-item nav-link",
               attrs: {
                 id: "Konfirmasi-tab",
                 "data-toggle": "tab",
@@ -77388,9 +77390,9 @@ var staticRenderFns = [
             },
             [_vm._v("Pesanan Selesai")]
           )
-        ])
-      ]
-    )
+        ]
+      )
+    ])
   },
   function() {
     var _vm = this

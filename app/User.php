@@ -8,10 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use App\Notifications\EmailRegistration;
 
+
 class User extends Authenticatable implements MustVerifyEmailContract
 {
-    use Notifiable, HasRoles;
-
+    use Notifiable, HasRoles;    
 
     /**
      * The attributes that are mass assignable.

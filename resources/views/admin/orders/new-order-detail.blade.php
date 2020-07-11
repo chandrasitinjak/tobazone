@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="col-sm-2 my-1">
                                     <input type="hidden" name="status" value="rejectedByAdmin" />
-                                    <button type="submit" class="btn btn-danger btn-lg btn-block">Batal</button>
+                                    <button type="submit" class="btn btn-danger btn-lg btn-block">Tolak</button>
                                 </div>
                             </div>
                         </form>
