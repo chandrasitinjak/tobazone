@@ -72234,7 +72234,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("h5", [
                     _vm._v(
-                      "Rp. " + _vm._s(_vm.formatPrice(_vm.getTotalPayment()))
+                      "Rp " + _vm._s(_vm.formatPrice(_vm.getTotalPayment()))
                     )
                   ])
                 ])

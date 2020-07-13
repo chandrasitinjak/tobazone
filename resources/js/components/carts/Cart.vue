@@ -132,7 +132,7 @@ w<template>
         <div class="row justify-content-end">
           <div class="col-md-3 text-right">
             <h6>Total Bayar</h6>
-            <h5>Rp. {{ formatPrice(getTotalPayment() )}}</h5>
+            <h5>Rp {{ formatPrice(getTotalPayment() )}}</h5>
           </div>
         </div>
         <div v-if="this.cek == 1">
