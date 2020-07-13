@@ -174,8 +174,8 @@
                                   <div class="keranjang-desc-prod">
                                     <h6>{{ order.product.name }}</h6>
                                     <h6
-                                      style="color: #FF5205; display: inline;"
-                                    >Rp {{formatPrice(order.product.price)}}</h6>
+                                      style="color: #FF5205; display: inline;"                                    
+                                    >Rp {{formatPrice( order.product.price )}}</h6>
                                     <br>
                                     <small>Jumlah {{ order.quantity }}</small>
                                   </div>
