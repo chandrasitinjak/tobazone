@@ -32,7 +32,7 @@ class OrderController extends Controller
     public function getOnProcessOrdersByMerchant($id) {
         $trasactions = Transaction::with(['orders', 'orders.product', 'payment'])
                                   ->where('merchant_id', $id)                                  
-                                  ->whereIn('status', ['readyForProcess'])
+                                  ->whereIn('status', ['readyForProcess', 'acceptedByAdmin'])
                                   ->get();
 
         return response()->json($trasactions);

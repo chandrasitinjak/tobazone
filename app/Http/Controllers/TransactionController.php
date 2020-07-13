@@ -67,7 +67,7 @@ class TransactionController extends Controller
     }
 
     public function getRejectedOrder() {
-        $transactions = Transaction::with('orders')->where('status', 'rejectedByMerchant')->get();
+        $transactions = Transaction::with('orders')->where('status', 'rejectedByMerchant')->where('status', 'rejectedByMerchant')->get();
         return view('admin.orders.rejected-order')->with('transactions', $transactions);
     }
 

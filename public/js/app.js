@@ -76410,7 +76410,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.tabbable .nav-tabs {\r\n   overflow-x: auto;\r\n   overflow-y:hidden;\r\n   -ms-flex-wrap: nowrap;\r\n       flex-wrap: nowrap;\n}\n.tabbable .nav-tabs .nav-link {\r\n  white-space: nowrap;\n}\r\n/* .nav-tabs {\r\n  overflow-x: auto;\r\n  overflow-y: hidden;\r\n  display: -webkit-box;\r\n  display: -moz-box;\r\n}\r\n.nav-tabs>li {\r\n  float: none;\r\n} */\r\n", ""]);
+exports.push([module.i, "\n.tabbable .nav-tabs {\r\n   overflow-x: auto;\r\n   overflow-y:hidden;\r\n   -ms-flex-wrap: nowrap;\r\n       flex-wrap: nowrap;\n}\n.tabbable .nav-tabs .nav-link {\r\n  white-space: nowrap;\n}\r\n", ""]);
 
 // exports
 
@@ -76421,6 +76421,8 @@ exports.push([module.i, "\n.tabbable .nav-tabs {\r\n   overflow-x: auto;\r\n   o
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -77060,8 +77062,10 @@ var render = function() {
                                             _vm._v(
                                               "Rp " +
                                                 _vm._s(
-                                                  _vm.getTotalPayment(
-                                                    transaction.payment
+                                                  _vm.formatPrice(
+                                                    _vm.getTotalPayment(
+                                                      transaction.payment
+                                                    )
                                                   )
                                                 )
                                             )
@@ -77187,21 +77191,21 @@ var render = function() {
                                               },
                                               [
                                                 _c(
-                                                  "div",
-                                                  { staticClass: "row" },
+                                                  "a",
+                                                  {
+                                                    attrs: {
+                                                      href:
+                                                        "/customer/" +
+                                                        _vm.userId +
+                                                        "/transactions/" +
+                                                        transaction.id +
+                                                        "/tracking"
+                                                    }
+                                                  },
                                                   [
                                                     _c(
-                                                      "a",
-                                                      {
-                                                        attrs: {
-                                                          href:
-                                                            "/customer/" +
-                                                            _vm.userId +
-                                                            "/transactions/" +
-                                                            transaction.id +
-                                                            "/tracking"
-                                                        }
-                                                      },
+                                                      "div",
+                                                      { staticClass: "row" },
                                                       [
                                                         _c(
                                                           "div",

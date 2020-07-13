@@ -79,20 +79,25 @@
                             </div>
                         </div>
 
-                        <form action="{{ url('/transaction/update-status', $transaction->id)}}" method="POST">
-                            {{ csrf_field() }}
+                       
                             <div class="form-row">
                                 <div class="col-md-8 my-1"></div>
-                                <div class="col-sm-2 my-1">                           
+                                <div class="col-sm-2 my-1">         
+                                    <form action="{{ url('/transaction/update-status', $transaction->id)}}" method="POST">
+                                     {{ csrf_field() }}                  
                                     <input type="hidden" name="status" value="acceptedByAdmin" />
                                     <button type="submit" class="btn btn-primary btn-lg btn-block">Terima</button>
+                                    </form>
                                 </div>
                                 <div class="col-sm-2 my-1">
+                                <form action="{{ url('/transaction/update-status', $transaction->id)}}" method="POST">
+                                     {{ csrf_field() }}  
                                     <input type="hidden" name="status" value="rejectedByAdmin" />
                                     <button type="submit" class="btn btn-danger btn-lg btn-block">Tolak</button>
+                                    </form>
                                 </div>
                             </div>
-                        </form>
+                        <!-- </form> -->
 
                         
 

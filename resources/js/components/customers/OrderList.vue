@@ -133,7 +133,7 @@
                           <div
                             class="col-sm-3 bold"
                             style="color: orangered"
-                          >Rp {{ getTotalPayment(transaction.payment)}}</div>
+                          >Rp {{ formatPrice ( getTotalPayment(transaction.payment))}}</div>
                           <div class="col-sm-6">
                             <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-if="transaction.status === 'rejectedByAdmin'">
                               Ditolak oleh Admin
@@ -160,8 +160,9 @@
                       <div class="card-body" v-for="order in transaction.orders">
                         <div class="row singleorderprod" style=" padding-bottom: 10px">
                           <div class="col-md-12 col-sm-12 col-xs-6">
+                            <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'">
                             <div class="row">
-                              <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'">
+                              
                                 <div class="col-sm-2 col-xs-12">
                                   <div class="imgwrapper pesanan" style="padding: 0px; height: auto">
                                     <img
@@ -174,14 +175,15 @@
                                   <div class="keranjang-desc-prod">
                                     <h6>{{ order.product.name }}</h6>
                                     <h6
-                                      style="color: #FF5205; display: inline;"                                    
-                                    >Rp {{formatPrice( order.product.price )}}</h6>
+                                      style="color: #FF5205; display: inline;"
+                                    >Rp {{formatPrice(order.product.price)}}</h6>
                                     <br>
                                     <small>Jumlah {{ order.quantity }}</small>
                                   </div>
                                 </div>
-                              </a>
+                              
                             </div>
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -247,13 +249,4 @@ export default {
 .tabbable .nav-tabs .nav-link {
   white-space: nowrap;
 }
-/* .nav-tabs {
-  overflow-x: auto;
-  overflow-y: hidden;
-  display: -webkit-box;
-  display: -moz-box;
-}
-.nav-tabs>li {
-  float: none;
-} */
 </style>
