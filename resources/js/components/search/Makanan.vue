@@ -116,7 +116,8 @@
             <br>
             Oops, produk tidak ditemukan :(
           </p>
-          <div class="btn essence-btn " id="searchagain">Lakukan Pencarian Baru</div>
+          <!-- <div class="btn essence-btn " id="searchagain">Lakukan Pencarian Baru</div> -->
+          <a href="/search" class="btn essence-btn " id="searchagain">Lakukan Pencarian Baru</a>
         </div>
 
       </div>
