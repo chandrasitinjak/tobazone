@@ -77522,7 +77522,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -77533,11 +77533,13 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__eventBus__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Spinner__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Spinner__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__eventBus__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Spinner__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Spinner__);
 //
 //
 //
@@ -77690,6 +77692,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -77698,7 +77716,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["userId", "transactionId"],
   components: {
-    spinner: __WEBPACK_IMPORTED_MODULE_2__Spinner___default.a
+    spinner: __WEBPACK_IMPORTED_MODULE_3__Spinner___default.a
   },
   data: function data() {
     return {
@@ -77715,7 +77733,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       senderName: "",
       selectedBank: "",
       statusUpdated: false,
-      image: null
+      image: null,
+      check: 0
     };
   },
 
@@ -77729,7 +77748,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       window.axios.get("/api/customer/" + this.userId + "/transaction/" + this.transactionId).then(function (res) {
         _this.transaction = res.data;
-        _this.deadline = __WEBPACK_IMPORTED_MODULE_0_moment___default()(_this.transaction.created_at).add(1, "days");
+        _this.deadline = __WEBPACK_IMPORTED_MODULE_1_moment___default()(_this.transaction.created_at).add(1, "days");
       }).catch(function (err) {
         console.log(err);
       });
@@ -77744,14 +77763,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return total;
     },
     updateDuration: function updateDuration() {
-      this.duration = __WEBPACK_IMPORTED_MODULE_0_moment___default.a.duration(this.deadline.diff(__WEBPACK_IMPORTED_MODULE_0_moment___default()()));
+      this.duration = __WEBPACK_IMPORTED_MODULE_1_moment___default.a.duration(this.deadline.diff(__WEBPACK_IMPORTED_MODULE_1_moment___default()()));
       if (this.duration._data.hours <= 0 && this.duration._data.minutes <= 0 && this.duration._data.seconds <= 0 && this.statusUpdated == false) {
         this.updateStatusCanceled();
       }
     },
     getDeatline: function getDeatline() {
-      __WEBPACK_IMPORTED_MODULE_0_moment___default.a.locale("id");
-      return __WEBPACK_IMPORTED_MODULE_0_moment___default()(this.transaction.created_at).add(1, "days").format("dddd, MMMM Do YYYY, h:mm:ss a");
+      __WEBPACK_IMPORTED_MODULE_1_moment___default.a.locale("id");
+      return __WEBPACK_IMPORTED_MODULE_1_moment___default()(this.transaction.created_at).add(1, "days").format("dddd, MMMM Do YYYY, h:mm:ss a");
     },
     updateStatusCanceled: function updateStatusCanceled() {
       var _this2 = this;
@@ -77769,25 +77788,49 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     uploadProofOfPayment: function uploadProofOfPayment() {
       var _this3 = this;
 
-      var formData = new FormData();
-      formData.append("image", this.selectedFile);
-      formData.append("bank", this.selectedBank);
-      formData.append("name", this.senderName);
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
 
-      __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
-      window.axios.post("/api/transaction/" + this.transactionId + "/proof-of-payment", formData).then(function () {
-        __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
-        alert("berhasil mengunggah bukti pembayaran");
-        window.location = "/customer/" + _this3.userId + "/orders";
-      }).catch(function (error) {
-        console.log(error);
-        __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
-        alert("Terjadi Kesalahan, Ulangi Halaman");
-      });
+        if (this.image === null) {
+          check = 0;
+        } else {
+
+          var formData = new FormData();
+          formData.append("image", this.selectedFile);
+          formData.append("bank", this.selectedBank);
+          formData.append("name", this.senderName);
+
+          __WEBPACK_IMPORTED_MODULE_2__eventBus__["a" /* default */].$emit("SPINNER", true);
+          window.axios.post("/api/transaction/" + this.transactionId + "/proof-of-payment", formData).then(function () {
+            __WEBPACK_IMPORTED_MODULE_2__eventBus__["a" /* default */].$emit("SPINNER", false);
+            alert("berhasil mengunggah bukti pembayaran");
+            window.location = "/customer/" + _this3.userId + "/orders";
+          }).catch(function (error) {
+            console.log(error);
+            __WEBPACK_IMPORTED_MODULE_2__eventBus__["a" /* default */].$emit("SPINNER", false);
+            alert("Terjadi Kesalahan, Ulangi Halaman");
+          });
+        }
+      }
     },
     onFileChanged: function onFileChanged(event) {
       this.selectedFile = event.target.files[0];
       this.image = URL.createObjectURL(this.selectedFile);
+      if (this.image == null) {
+        this.check = 0;
+      } else {
+        this.check = 1;
+      }
+    }
+  },
+
+  validations: {
+    senderName: {
+      required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+    },
+
+    selectedBank: {
+      required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
     }
   },
   created: function created() {
@@ -78311,10 +78354,29 @@ var render = function() {
                                                         rawName: "v-model",
                                                         value: _vm.senderName,
                                                         expression: "senderName"
+                                                      },
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model.trim",
+                                                        value:
+                                                          _vm.$v.senderName
+                                                            .$model,
+                                                        expression:
+                                                          "$v.senderName.$model",
+                                                        modifiers: {
+                                                          trim: true
+                                                        }
                                                       }
                                                     ],
                                                     staticClass:
                                                       "form-control form-control-sm",
+                                                    class: {
+                                                      "is-invalid":
+                                                        _vm.$v.senderName
+                                                          .$error,
+                                                      "is-valid": !_vm.$v
+                                                        .senderName.$invalid
+                                                    },
                                                     attrs: {
                                                       type: "text",
                                                       id: "namapengirim",
@@ -78324,21 +78386,68 @@ var render = function() {
                                                         "Nama Pengirim"
                                                     },
                                                     domProps: {
-                                                      value: _vm.senderName
+                                                      value: _vm.senderName,
+                                                      value:
+                                                        _vm.$v.senderName.$model
                                                     },
                                                     on: {
-                                                      input: function($event) {
-                                                        if (
-                                                          $event.target
-                                                            .composing
-                                                        ) {
-                                                          return
+                                                      input: [
+                                                        function($event) {
+                                                          if (
+                                                            $event.target
+                                                              .composing
+                                                          ) {
+                                                            return
+                                                          }
+                                                          _vm.$set(
+                                                            _vm.$v.senderName,
+                                                            "$model",
+                                                            $event.target.value.trim()
+                                                          )
+                                                        },
+                                                        function($event) {
+                                                          if (
+                                                            $event.target
+                                                              .composing
+                                                          ) {
+                                                            return
+                                                          }
+                                                          _vm.senderName =
+                                                            $event.target.value
                                                         }
-                                                        _vm.senderName =
-                                                          $event.target.value
+                                                      ],
+                                                      blur: function($event) {
+                                                        _vm.$forceUpdate()
                                                       }
                                                     }
-                                                  })
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "valid-feedback"
+                                                    },
+                                                    [_vm._v("sudah valid")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "invalid-feedback"
+                                                    },
+                                                    [
+                                                      !_vm.$v.senderName
+                                                        .required
+                                                        ? _c("span", [
+                                                            _vm._v(
+                                                              "tidak boleh kosong"
+                                                            )
+                                                          ])
+                                                        : _vm._e()
+                                                    ]
+                                                  )
                                                 ]
                                               ),
                                               _vm._v(" "),
@@ -78368,35 +78477,81 @@ var render = function() {
                                                             _vm.selectedBank,
                                                           expression:
                                                             "selectedBank"
+                                                        },
+                                                        {
+                                                          name: "model",
+                                                          rawName:
+                                                            "v-model.trim",
+                                                          value:
+                                                            _vm.$v.selectedBank
+                                                              .$model,
+                                                          expression:
+                                                            "$v.selectedBank.$model",
+                                                          modifiers: {
+                                                            trim: true
+                                                          }
                                                         }
                                                       ],
                                                       staticClass:
                                                         "form-control",
+                                                      class: {
+                                                        "is-invalid":
+                                                          _vm.$v.selectedBank
+                                                            .$error,
+                                                        "is-valid": !_vm.$v
+                                                          .selectedBank.$invalid
+                                                      },
                                                       attrs: { id: "utkbank" },
                                                       on: {
-                                                        change: function(
-                                                          $event
-                                                        ) {
-                                                          var $$selectedVal = Array.prototype.filter
-                                                            .call(
+                                                        change: [
+                                                          function($event) {
+                                                            var $$selectedVal = Array.prototype.filter
+                                                              .call(
+                                                                $event.target
+                                                                  .options,
+                                                                function(o) {
+                                                                  return o.selected
+                                                                }
+                                                              )
+                                                              .map(function(o) {
+                                                                var val =
+                                                                  "_value" in o
+                                                                    ? o._value
+                                                                    : o.value
+                                                                return val
+                                                              })
+                                                            _vm.$set(
+                                                              _vm.$v
+                                                                .selectedBank,
+                                                              "$model",
                                                               $event.target
-                                                                .options,
-                                                              function(o) {
-                                                                return o.selected
-                                                              }
+                                                                .multiple
+                                                                ? $$selectedVal
+                                                                : $$selectedVal[0]
                                                             )
-                                                            .map(function(o) {
-                                                              var val =
-                                                                "_value" in o
-                                                                  ? o._value
-                                                                  : o.value
-                                                              return val
-                                                            })
-                                                          _vm.selectedBank = $event
-                                                            .target.multiple
-                                                            ? $$selectedVal
-                                                            : $$selectedVal[0]
-                                                        }
+                                                          },
+                                                          function($event) {
+                                                            var $$selectedVal = Array.prototype.filter
+                                                              .call(
+                                                                $event.target
+                                                                  .options,
+                                                                function(o) {
+                                                                  return o.selected
+                                                                }
+                                                              )
+                                                              .map(function(o) {
+                                                                var val =
+                                                                  "_value" in o
+                                                                    ? o._value
+                                                                    : o.value
+                                                                return val
+                                                              })
+                                                            _vm.selectedBank = $event
+                                                              .target.multiple
+                                                              ? $$selectedVal
+                                                              : $$selectedVal[0]
+                                                          }
+                                                        ]
                                                       }
                                                     },
                                                     [
@@ -78409,6 +78564,33 @@ var render = function() {
                                                         },
                                                         [_vm._v("MANDIRI")]
                                                       )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "valid-feedback"
+                                                    },
+                                                    [_vm._v("sudah valid")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "invalid-feedback"
+                                                    },
+                                                    [
+                                                      !_vm.$v.selectedBank
+                                                        .required
+                                                        ? _c("span", [
+                                                            _vm._v(
+                                                              "tidak boleh kosong"
+                                                            )
+                                                          ])
+                                                        : _vm._e()
                                                     ]
                                                   )
                                                 ]
@@ -78519,11 +78701,20 @@ var render = function() {
                                                         ]
                                                       ),
                                                       _vm._v(" "),
-                                                      _c("small", {
-                                                        staticClass:
-                                                          "form-text text-muted",
-                                                        attrs: { id: "" }
-                                                      })
+                                                      _vm.selectedFile === null
+                                                        ? _c(
+                                                            "small",
+                                                            {
+                                                              staticClass:
+                                                                "form-text text-muted"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "gambar tidak boleh kosong"
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _vm._e()
                                                     ]
                                                   )
                                                 ]

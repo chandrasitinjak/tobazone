@@ -97,18 +97,32 @@
                                   id="namapengirim"
                                   aria-describedby="emailHelp"
                                   placeholder="Nama Pengirim"
-                                  v-model="senderName"                                  
+                                  v-model="senderName"                
+                                  v-model.trim="$v.senderName.$model"                  
+                                  :class="{'is-invalid':$v.senderName.$error, 'is-valid':!$v.senderName.$invalid }"
                                 >
+                                <div class="valid-feedback">sudah valid</div>
+                                <div class="invalid-feedback">
+                                    <span v-if="!$v.senderName.required">tidak boleh kosong</span>
+                                    <!-- <span v-if="!$v.senderName.required">tidak boleh kosong</span> -->
+                                </div>
                               </div>
                               <div class="form-group">
                                 <label for="utkbank" class="small">Bank Tujuan</label>
                                 <br>
-                                <select id="utkbank" class="form-control" v-model="selectedBank">
+                                <select id="utkbank" class="form-control" v-model="selectedBank" 
+                                v-model.trim="$v.selectedBank.$model"                  
+                                :class="{'is-invalid':$v.selectedBank.$error, 'is-valid':!$v.selectedBank.$invalid }">
                                   <!-- <option value="BRI">BRI</option> -->
                                   <option value="MANDIRI">MANDIRI</option>
                                   <!-- <option value="BNI">BNI</option>
                                   <option value="BCA">BCA</option> -->
                                 </select>
+                                 <div class="valid-feedback">sudah valid</div>
+                                  <div class="invalid-feedback">
+                                      <span v-if="!$v.selectedBank.required">tidak boleh kosong</span>
+                                      <!-- <span v-if="!$v.senderName.required">tidak boleh kosong</span> -->
+                                  </div>
                               </div>
                               <br>
                               <div class="form-group">
@@ -124,7 +138,7 @@
                                       <img id="uploaded_image" :src="image" />
                                     </div>
                                   </div>
-                                  <small id class="form-text text-muted"></small>
+                                  <small v-if="selectedFile === null" class="form-text text-muted">gambar tidak boleh kosong</small>
                                 </div>
                               </div>
                             </form>
@@ -151,6 +165,13 @@
 </template>
 
 <script>
+    import {
+        required,
+        minLength,
+        email,
+        sameAs
+    } from "vuelidate/lib/validators"
+
 import moment from "moment";
 import EventBus from "../../eventBus";
 import spinner from "../Spinner";
@@ -175,7 +196,8 @@ export default {
       senderName: "",
       selectedBank: "",
       statusUpdated: false,
-      image: null
+      image: null,
+      check : 0
     };
   },
   methods: {
@@ -240,7 +262,15 @@ export default {
         });
     },
     uploadProofOfPayment() {
-      const formData = new FormData();
+      
+      this.$v.$touch()
+      if (!this.$v.$invalid) {
+      
+      if(this.image === null) {
+          check = 0;
+      } else {
+
+      const formData = new FormData();      
       formData.append("image", this.selectedFile);
       formData.append("bank", this.selectedBank);
       formData.append("name", this.senderName);
@@ -259,11 +289,29 @@ export default {
               EventBus.$emit("SPINNER", false);
               alert("Terjadi Kesalahan, Ulangi Halaman");
       }); 
+      }
+      }
     },
     onFileChanged(event) {
       this.selectedFile = event.target.files[0];
       this.image = URL.createObjectURL(this.selectedFile);
+      if(this.image == null) {
+        this.check = 0;
+      } else {
+        this.check = 1;
+      }
     }
+    
+  },
+
+  validations: {
+    senderName : {
+      required,
+    },
+
+    selectedBank : {
+      required,
+    },    
   },
   created() {
     this.getTransaction();
