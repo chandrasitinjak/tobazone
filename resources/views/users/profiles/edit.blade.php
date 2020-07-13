@@ -5,23 +5,20 @@
                 </div>
 
                 <div class="col-md-8">
-
-
-
                     <form method="POST" action="{{ url('/customer/'.$profiles->user_id.'/store') }}" enctype="multipart/form-data" style="margin-top: 2rem">
                         @csrf
                         <div class="form-group">
                             <label class="label">Nama</label>
-                            <input type="text" class="form-control form-control-sm" value="{{ $profiles->name }}" name="profile_name">
+                            <input type="text" class="form-control form-control-sm" value="{{ $profiles->name }}" name="profile_name" required>
                         </div>
                         <div class="form-group">
                             <label class="label">Nomor HP</label>
-                            <input type="text" class="form-control form-control-sm" value="{{ $profiles->phone }}" name="profile_phone">
+                            <input type="text" class="form-control form-control-sm" value="{{ $profiles->phone }}" name="profile_phone" required>
                         </div>
                         @if($profiles->photo == "profile.png")
                         <div class="form-group">
                             <label class="label">Unggah Foto</label>
-                            <input class="form-control form-control-sm" type="file" name="profile_picture">
+                            <input class="form-control form-control-sm" type="file" name="profile_picture" required>
                         </div>
                         @else
                         <div class="imgwrapper mb-3" style="padding: 0px;">
@@ -30,7 +27,7 @@
 
                             <p>Ubah Foto Anda</p>
                             <label class="label label-a">Unggah Foto</label>
-                            <input class="form-control form-control-sm" type="file" name="profile_picture">
+                            <input class="form-control form-control-sm" type="file" name="profile_picture" required>
                         @endif
 
                        <center>

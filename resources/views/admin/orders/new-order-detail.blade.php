@@ -94,6 +94,8 @@
                             </div>
                         </form>
 
+                        
+
                         <!-- <div class="card-body">
                             <form action="{{ url('/transaction/update-status', $transaction->id)}}" method="POST">
                                 {{ csrf_field() }}
