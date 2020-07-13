@@ -69583,7 +69583,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               case 2:
 
                 if (this.datas.length != 0) {
-                  alert("Sudah ada didaftar wishlist anda");
+                  alert("Sudah ada di daftar produk favorit Anda");
                 } else {
                   payload = {
                     productId: id_product,
@@ -69593,7 +69593,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                   // await window.axios.post("/api/wishlists", payload).then(res => {
 
                   window.axios.post("/api/wishlist", payload).then(function () {
-                    alert("berhasil menambahkan ke daftar wishlish anda");
+                    alert("Berhasil ditambahkan ke daftar produk favorit Anda");
                   }).catch(function (error) {
                     console.log(error);
                   });

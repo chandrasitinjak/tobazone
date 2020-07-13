@@ -97,7 +97,7 @@
                                   id="namapengirim"
                                   aria-describedby="emailHelp"
                                   placeholder="Nama Pengirim"
-                                  v-model="senderName"
+                                  v-model="senderName"                                  
                                 >
                               </div>
                               <div class="form-group">

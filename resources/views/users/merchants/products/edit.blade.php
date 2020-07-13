@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <div class="mt-4">
-                            <label class="label"> Specification </label>
+                            <label class="label"> Spesifikasi </label>
                             @if($product['cat_product'] == "ulos")
                             <div class="row">                                
                                 <div class="col-4">

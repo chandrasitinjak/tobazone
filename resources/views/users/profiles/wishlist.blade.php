@@ -6,12 +6,12 @@
         </div>
         <div class="col-md-10">
         @if(count($wishlist) == 0)
-            <center><h3 class="mt-100">Wishlist Anda Kosong</h3></center>
+            <center><h3 class="mt-100">Favorit Anda Kosong</h3></center>
             <div style="height : 15rem">
 
             </div>
         @else
-        <center><h3 class="mt-5">Wishlist Saya</h3></center>
+        <center><h3 class="mt-5">Favorit Saya</h3></center>
 
         <table class="table mt-3">
             <thead>

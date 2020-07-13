@@ -87,7 +87,7 @@ export default {
       await this.checkProduct(id_product);
 
       if(this.datas.length != 0) {
-        alert("Sudah ada didaftar wishlist anda");
+        alert("Sudah ada di daftar produk favorit Anda");
       }
        else {
           let payload = {
@@ -98,7 +98,7 @@ export default {
       // await window.axios.post("/api/wishlists", payload).then(res => {
         window.axios.post("/api/wishlist", payload)
             .then(() => {
-              alert("berhasil menambahkan ke daftar wishlish anda")
+              alert("Berhasil ditambahkan ke daftar produk favorit Anda")
             })
 
           .catch(error => {
