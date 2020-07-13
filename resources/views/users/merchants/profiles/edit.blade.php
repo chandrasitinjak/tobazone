@@ -12,11 +12,11 @@
                         @csrf
                         <div class="form-group">
                             <label class="label">Nama</label>
-                            <input type="text" class="form-control form-control-sm" value="{{ $profiles->name }}" name="profile_name">
+                            <input type="text" class="form-control form-control-sm" value="{{ $profiles->name }}" name="profile_name" required>
                         </div>
                         <div class="form-group">
                             <label class="label">Nomor HP</label>
-                            <input type="text" class="form-control form-control-sm" value="{{ $profiles->phone }}" name="profile_phone">
+                            <input type="text" class="form-control form-control-sm" value="{{ $profiles->phone }}" name="profile_phone" required>
                         </div>
                         @if($profiles->photo == null)
                         <div class="form-group">

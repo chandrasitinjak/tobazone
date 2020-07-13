@@ -18,7 +18,7 @@
                         @if($profiles->photo == "profile.png")
                         <div class="form-group">
                             <label class="label">Unggah Foto</label>
-                            <input class="form-control form-control-sm" type="file" name="profile_picture" required>
+                            <input class="form-control form-control-sm" type="file" name="profile_picture">
                         </div>
                         @else
                         <div class="imgwrapper mb-3" style="padding: 0px;">
@@ -27,7 +27,7 @@
 
                             <p>Ubah Foto Anda</p>
                             <label class="label label-a">Unggah Foto</label>
-                            <input class="form-control form-control-sm" type="file" name="profile_picture" required>
+                            <input class="form-control form-control-sm" type="file" name="profile_picture">
                         @endif
 
                        <center>

@@ -25,13 +25,13 @@
                                 <div class="col-12 col-md-9">
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama Lengkap</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="name" name="name" value="{{$user->profile->name}}" class="form-control">
+                                        <div class="col-12 col-md-9"><input type="text" id="name" name="name" value="{{$user->profile->name}}" class="form-control" required>
                                         </div>
                                     </div>
 
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="disabled-input" class=" form-control-label">Phone</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="phone" name="phone" value="{{$user->profile->phone}}" class="form-control"></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="phone" name="phone" value="{{$user->profile->phone}}" class="form-control" required></div>
                                     </div>
 
                                     <div class="row form-group">
