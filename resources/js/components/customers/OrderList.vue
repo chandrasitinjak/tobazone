@@ -159,10 +159,10 @@
                       </div>
                       <div class="card-body" v-for="order in transaction.orders">
                         <div class="row singleorderprod" style=" padding-bottom: 10px">
-                          <div class="col-md-12 col-sm-12 col-xs-6">
+                          
+                          <div class="col-md-8">
                             <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'">
-                            <div class="row">
-                              
+                            <div class="row">                              
                                 <div class="col-sm-2 col-xs-12">
                                   <div class="imgwrapper pesanan" style="padding: 0px; height: auto">
                                     <img
@@ -180,10 +180,18 @@
                                     <br>
                                     <small>Jumlah {{ order.quantity }}</small>
                                   </div>
-                                </div>
-                              
+                                </div>                              
                             </div>
                             </a>
+                          </div>
+                          <div class="col-md-3">
+                              <div v-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 0">
+                                      <label for=""> Pesanan telah sampai</label><br>
+                                      <button class="btn small smallbtn" v-on:click="confirmByUser(transaction.id)">konfirmasi</button>
+                                    </div>
+                                    <div v-else-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 1">
+                                      <p> Terimakasih sudah melakukan konfirmasi</p>
+                                    </div>
                           </div>
                         </div>
                       </div>
@@ -208,6 +216,19 @@ export default {
     };
   },
   methods: {
+
+    confirmByUser(id_transaksi) {
+      let confirmByUser =  {
+        data : 1
+      }
+      window.axios
+        .post("/api/transaction/" + id_transaksi + "/confirmByUser", confirmByUser)
+        .then(() => {
+          alert("berhasil mengkonfirmasi");
+          window.location.reload(true);
+        })
+    },
+
       formatPrice(value) {
           let val = (value/1).toFixed().replace('.', ',')
           return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")

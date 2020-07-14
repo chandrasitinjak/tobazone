@@ -76622,6 +76622,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["userId"],
@@ -76632,6 +76640,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
+    confirmByUser: function confirmByUser(id_transaksi) {
+      var confirmByUser = {
+        data: 1
+      };
+      window.axios.post("/api/transaction/" + id_transaksi + "/confirmByUser", confirmByUser).then(function () {
+        alert("berhasil mengkonfirmasi");
+        window.location.reload(true);
+      });
+    },
     formatPrice: function formatPrice(value) {
       var val = (value / 1).toFixed().replace('.', ',');
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -77185,10 +77202,7 @@ var render = function() {
                                           [
                                             _c(
                                               "div",
-                                              {
-                                                staticClass:
-                                                  "col-md-12 col-sm-12 col-xs-6"
-                                              },
+                                              { staticClass: "col-md-8" },
                                               [
                                                 _c(
                                                   "a",
@@ -77310,6 +77324,58 @@ var render = function() {
                                                     )
                                                   ]
                                                 )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "col-md-3" },
+                                              [
+                                                transaction.status ===
+                                                  "orderSuccessed" &&
+                                                transaction.confirm_user === 0
+                                                  ? _c("div", [
+                                                      _c(
+                                                        "label",
+                                                        { attrs: { for: "" } },
+                                                        [
+                                                          _vm._v(
+                                                            " Pesanan telah sampai"
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _c("br"),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "button",
+                                                        {
+                                                          staticClass:
+                                                            "btn small smallbtn",
+                                                          on: {
+                                                            click: function(
+                                                              $event
+                                                            ) {
+                                                              _vm.confirmByUser(
+                                                                transaction.id
+                                                              )
+                                                            }
+                                                          }
+                                                        },
+                                                        [_vm._v("konfirmasi")]
+                                                      )
+                                                    ])
+                                                  : transaction.status ===
+                                                      "orderSuccessed" &&
+                                                    transaction.confirm_user ===
+                                                      1
+                                                  ? _c("div", [
+                                                      _c("p", [
+                                                        _vm._v(
+                                                          " Terimakasih sudah melakukan konfirmasi"
+                                                        )
+                                                      ])
+                                                    ])
+                                                  : _vm._e()
                                               ]
                                             )
                                           ]
