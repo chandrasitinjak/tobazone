@@ -263,8 +263,8 @@
                     });
             },
             addMerchant() {
-                // this.$v.$touch()
-                // if (!this.$v.$invalid) {
+                this.$v.$touch()
+                if (!this.$v.$invalid) {
                     let payload = {
                         provinceId: this.userMerchant.selectedProvince.id,
                         cityId: this.userMerchant.selectedCity.id,
@@ -289,64 +289,64 @@
 
                     console.log(payload);
 
-                //     EventBus.$emit("SPINNER", true);
-                //     window.axios
-                //         .post("/register", payload)
-                //         .then(() => {
-                //             EventBus.$emit("SPINNER", false);
-                //             this.$swal({
-                //                 title: "Pendaftaran Berhasil",
-                //                 icon: "success"
-                //             });
-                //             window.location = "/";
-                //         })
-                //         .catch(err => {
-                //             console.log(err);
-                //             EventBus.$emit("SPINNER", false);
+                    EventBus.$emit("SPINNER", true);
+                    window.axios
+                        .post("/register", payload)
+                        .then(() => {
+                            EventBus.$emit("SPINNER", false);
+                            this.$swal({
+                                title: "Pendaftaran Berhasil",
+                                icon: "success"
+                            });
+                            window.location = "/";
+                        })
+                        .catch(err => {
+                            console.log(err);
+                            EventBus.$emit("SPINNER", false);
 
-                //             let customerAttributes = {
-                //                 "selectedCity": "Kota/Kabupaten",
-                //                 "selectedProvince": "Provinsi",
-                //                 "selectedSubdistrict": "Kecamatan",
-                //                 "addressDetail": "Alamat Rinci Toko",
-                //                 "username": "Username",
-                //                 "email": "E-mail",
-                //                 "name": "Nama Toko",
-                //                 "phone": "Nomor Telepon",
-                //                 "photo": "Foto",
-                //                 "gender": "Jenis Kelamin",
-                //                 "birthday": "Tanggal Lahir",
-                //                 "password": "Kata Sandi",
-                //                 "passwordconfirm": "Konfirmasi Kata Sandi"
-                //             };
+                            let customerAttributes = {
+                                "selectedCity": "Kota/Kabupaten",
+                                "selectedProvince": "Provinsi",
+                                "selectedSubdistrict": "Kecamatan",
+                                "addressDetail": "Alamat Rinci Toko",
+                                "username": "Username",
+                                "email": "E-mail",
+                                "name": "Nama Toko",
+                                "phone": "Nomor Telepon",
+                                "photo": "Foto",
+                                "gender": "Jenis Kelamin",
+                                "birthday": "Tanggal Lahir",
+                                "password": "Kata Sandi",
+                                "passwordconfirm": "Konfirmasi Kata Sandi"
+                            };
 
-                //             let errMessage = "Terjadi kesalahan.";
-                //             if (err.response.status == 422) {
-                //                 let errKeys = Object.keys(err.response.data.errors);
-                //                 let errKey = "";
-                //                 if (errKeys.length > 0) {
-                //                     errKey = errKeys[0];
-                //                 }
+                            let errMessage = "Terjadi kesalahan.";
+                            if (err.response.status == 422) {
+                                let errKeys = Object.keys(err.response.data.errors);
+                                let errKey = "";
+                                if (errKeys.length > 0) {
+                                    errKey = errKeys[0];
+                                }
 
-                //                 errMessage = "Data yang diberikan tidak valid.";
-                //                 if (errKey != "") {
-                //                     if (errKey == "email" || errKey == "username") {
-                //                         errMessage = errMessage + " " + customerAttributes[errKey] +
-                //                             " tidak valid atau telah terdaftar.";
-                //                     } else {
-                //                         errMessage = customerAttributes[errKey] +
-                //                             " tidak valid.";
-                //                     }
-                //                 }
-                //             }
+                                errMessage = "Data yang diberikan tidak valid.";
+                                if (errKey != "") {
+                                    if (errKey == "email" || errKey == "username") {
+                                        errMessage = errMessage + " " + customerAttributes[errKey] +
+                                            " tidak valid atau telah terdaftar.";
+                                    } else {
+                                        errMessage = customerAttributes[errKey] +
+                                            " tidak valid.";
+                                    }
+                                }
+                            }
 
-                //             this.$swal({
-                //                 title: "Pendaftaran Gagal",
-                //                 icon: "error",
-                //                 text: errMessage
-                //             });
-                //         });
-                // }
+                            this.$swal({
+                                title: "Pendaftaran Gagal",
+                                icon: "error",
+                                text: errMessage
+                            });
+                        });
+                }
             }
         },
 

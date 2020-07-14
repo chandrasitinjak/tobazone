@@ -81754,90 +81754,87 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         addMerchant: function addMerchant() {
-            // this.$v.$touch()
-            // if (!this.$v.$invalid) {
-            var payload = {
-                provinceId: this.userMerchant.selectedProvince.id,
-                cityId: this.userMerchant.selectedCity.id,
-                subdistrictId: this.userMerchant.selectedSubdistrict.subdistrict_id,
-                provinceName: this.userMerchant.selectedProvince.name,
-                cityName: this.userMerchant.selectedCity.name,
-                subdistrictName: this.userMerchant.selectedSubdistrict.subdistrict_name,
-                addressDetail: this.userMerchant.addressDetail,
-                addressName: "",
-                username: this.userMerchant.username,
-                email: this.userMerchant.email,
-                name: this.userMerchant.name,
-                photo: "",
-                phone: this.userMerchant.phone,
-                gender: this.userMerchant.gender,
-                birthday: this.userMerchant.birthday,
-                postalCode: this.userMerchant.selectedCity.postal_code,
-                password: this.userMerchant.password,
-                password_confirmation: this.userMerchant.passwordconfirm,
-                role: "merchant"
-            };
+            var _this4 = this;
 
-            console.log(payload);
+            this.$v.$touch();
+            if (!this.$v.$invalid) {
+                var payload = {
+                    provinceId: this.userMerchant.selectedProvince.id,
+                    cityId: this.userMerchant.selectedCity.id,
+                    subdistrictId: this.userMerchant.selectedSubdistrict.subdistrict_id,
+                    provinceName: this.userMerchant.selectedProvince.name,
+                    cityName: this.userMerchant.selectedCity.name,
+                    subdistrictName: this.userMerchant.selectedSubdistrict.subdistrict_name,
+                    addressDetail: this.userMerchant.addressDetail,
+                    addressName: "",
+                    username: this.userMerchant.username,
+                    email: this.userMerchant.email,
+                    name: this.userMerchant.name,
+                    photo: "",
+                    phone: this.userMerchant.phone,
+                    gender: this.userMerchant.gender,
+                    birthday: this.userMerchant.birthday,
+                    postalCode: this.userMerchant.selectedCity.postal_code,
+                    password: this.userMerchant.password,
+                    password_confirmation: this.userMerchant.passwordconfirm,
+                    role: "merchant"
+                };
 
-            //     EventBus.$emit("SPINNER", true);
-            //     window.axios
-            //         .post("/register", payload)
-            //         .then(() => {
-            //             EventBus.$emit("SPINNER", false);
-            //             this.$swal({
-            //                 title: "Pendaftaran Berhasil",
-            //                 icon: "success"
-            //             });
-            //             window.location = "/";
-            //         })
-            //         .catch(err => {
-            //             console.log(err);
-            //             EventBus.$emit("SPINNER", false);
+                console.log(payload);
 
-            //             let customerAttributes = {
-            //                 "selectedCity": "Kota/Kabupaten",
-            //                 "selectedProvince": "Provinsi",
-            //                 "selectedSubdistrict": "Kecamatan",
-            //                 "addressDetail": "Alamat Rinci Toko",
-            //                 "username": "Username",
-            //                 "email": "E-mail",
-            //                 "name": "Nama Toko",
-            //                 "phone": "Nomor Telepon",
-            //                 "photo": "Foto",
-            //                 "gender": "Jenis Kelamin",
-            //                 "birthday": "Tanggal Lahir",
-            //                 "password": "Kata Sandi",
-            //                 "passwordconfirm": "Konfirmasi Kata Sandi"
-            //             };
+                __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
+                window.axios.post("/register", payload).then(function () {
+                    __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
+                    _this4.$swal({
+                        title: "Pendaftaran Berhasil",
+                        icon: "success"
+                    });
+                    window.location = "/";
+                }).catch(function (err) {
+                    console.log(err);
+                    __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
 
-            //             let errMessage = "Terjadi kesalahan.";
-            //             if (err.response.status == 422) {
-            //                 let errKeys = Object.keys(err.response.data.errors);
-            //                 let errKey = "";
-            //                 if (errKeys.length > 0) {
-            //                     errKey = errKeys[0];
-            //                 }
+                    var customerAttributes = {
+                        "selectedCity": "Kota/Kabupaten",
+                        "selectedProvince": "Provinsi",
+                        "selectedSubdistrict": "Kecamatan",
+                        "addressDetail": "Alamat Rinci Toko",
+                        "username": "Username",
+                        "email": "E-mail",
+                        "name": "Nama Toko",
+                        "phone": "Nomor Telepon",
+                        "photo": "Foto",
+                        "gender": "Jenis Kelamin",
+                        "birthday": "Tanggal Lahir",
+                        "password": "Kata Sandi",
+                        "passwordconfirm": "Konfirmasi Kata Sandi"
+                    };
 
-            //                 errMessage = "Data yang diberikan tidak valid.";
-            //                 if (errKey != "") {
-            //                     if (errKey == "email" || errKey == "username") {
-            //                         errMessage = errMessage + " " + customerAttributes[errKey] +
-            //                             " tidak valid atau telah terdaftar.";
-            //                     } else {
-            //                         errMessage = customerAttributes[errKey] +
-            //                             " tidak valid.";
-            //                     }
-            //                 }
-            //             }
+                    var errMessage = "Terjadi kesalahan.";
+                    if (err.response.status == 422) {
+                        var errKeys = Object.keys(err.response.data.errors);
+                        var errKey = "";
+                        if (errKeys.length > 0) {
+                            errKey = errKeys[0];
+                        }
 
-            //             this.$swal({
-            //                 title: "Pendaftaran Gagal",
-            //                 icon: "error",
-            //                 text: errMessage
-            //             });
-            //         });
-            // }
+                        errMessage = "Data yang diberikan tidak valid.";
+                        if (errKey != "") {
+                            if (errKey == "email" || errKey == "username") {
+                                errMessage = errMessage + " " + customerAttributes[errKey] + " tidak valid atau telah terdaftar.";
+                            } else {
+                                errMessage = customerAttributes[errKey] + " tidak valid.";
+                            }
+                        }
+                    }
+
+                    _this4.$swal({
+                        title: "Pendaftaran Gagal",
+                        icon: "error",
+                        text: errMessage
+                    });
+                });
+            }
         }
     },
 
