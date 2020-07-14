@@ -129,7 +129,7 @@
                                 <select class="form-control form-control-sm" v-model="userMerchant.selectedSubdistrict"
                                     v-model.trim="$v.userMerchant.selectedSubdistrict.$model"
                                     :class="{'is-invalid':$v.userMerchant.selectedSubdistrict.$error, 'is-valid':!$v.userMerchant.selectedSubdistrict.$invalid }">
-                                    <option v-for="subdistrict in subdistricts" :key="subdistrict.subdistrict_name">
+                                    <option v-for="subdistrict in subdistricts" :key="subdistrict.subdistrict_name" :value="subdistrict">
                                         {{ subdistrict.subdistrict_name }}</option>
                                 </select>
                                 <div class="valid-feedback">Kecamatan sudah valid</div>
@@ -263,12 +263,12 @@
                     });
             },
             addMerchant() {
-                this.$v.$touch()
-                if (!this.$v.$invalid) {
+                // this.$v.$touch()
+                // if (!this.$v.$invalid) {
                     let payload = {
                         provinceId: this.userMerchant.selectedProvince.id,
                         cityId: this.userMerchant.selectedCity.id,
-                        subdistrictId: this.userMerchant.selectedSubdistrict.subdistrict_id,
+                        subdistrictId: this.userMerchant.selectedSubdistrict.subdistrict_id,                                                                             
                         provinceName: this.userMerchant.selectedProvince.name,
                         cityName: this.userMerchant.selectedCity.name,
                         subdistrictName: this.userMerchant.selectedSubdistrict.subdistrict_name,
@@ -287,64 +287,66 @@
                         role: "merchant"
                     };
 
-                    EventBus.$emit("SPINNER", true);
-                    window.axios
-                        .post("/register", payload)
-                        .then(() => {
-                            EventBus.$emit("SPINNER", false);
-                            this.$swal({
-                                title: "Pendaftaran Berhasil",
-                                icon: "success"
-                            });
-                            window.location = "/";
-                        })
-                        .catch(err => {
-                            console.log(err);
-                            EventBus.$emit("SPINNER", false);
+                    console.log(payload);
 
-                            let customerAttributes = {
-                                "selectedCity": "Kota/Kabupaten",
-                                "selectedProvince": "Provinsi",
-                                "selectedSubdistrict": "Kecamatan",
-                                "addressDetail": "Alamat Rinci Toko",
-                                "username": "Username",
-                                "email": "E-mail",
-                                "name": "Nama Toko",
-                                "phone": "Nomor Telepon",
-                                "photo": "Foto",
-                                "gender": "Jenis Kelamin",
-                                "birthday": "Tanggal Lahir",
-                                "password": "Kata Sandi",
-                                "passwordconfirm": "Konfirmasi Kata Sandi"
-                            };
+                //     EventBus.$emit("SPINNER", true);
+                //     window.axios
+                //         .post("/register", payload)
+                //         .then(() => {
+                //             EventBus.$emit("SPINNER", false);
+                //             this.$swal({
+                //                 title: "Pendaftaran Berhasil",
+                //                 icon: "success"
+                //             });
+                //             window.location = "/";
+                //         })
+                //         .catch(err => {
+                //             console.log(err);
+                //             EventBus.$emit("SPINNER", false);
 
-                            let errMessage = "Terjadi kesalahan.";
-                            if (err.response.status == 422) {
-                                let errKeys = Object.keys(err.response.data.errors);
-                                let errKey = "";
-                                if (errKeys.length > 0) {
-                                    errKey = errKeys[0];
-                                }
+                //             let customerAttributes = {
+                //                 "selectedCity": "Kota/Kabupaten",
+                //                 "selectedProvince": "Provinsi",
+                //                 "selectedSubdistrict": "Kecamatan",
+                //                 "addressDetail": "Alamat Rinci Toko",
+                //                 "username": "Username",
+                //                 "email": "E-mail",
+                //                 "name": "Nama Toko",
+                //                 "phone": "Nomor Telepon",
+                //                 "photo": "Foto",
+                //                 "gender": "Jenis Kelamin",
+                //                 "birthday": "Tanggal Lahir",
+                //                 "password": "Kata Sandi",
+                //                 "passwordconfirm": "Konfirmasi Kata Sandi"
+                //             };
 
-                                errMessage = "Data yang diberikan tidak valid.";
-                                if (errKey != "") {
-                                    if (errKey == "email" || errKey == "username") {
-                                        errMessage = errMessage + " " + customerAttributes[errKey] +
-                                            " tidak valid atau telah terdaftar.";
-                                    } else {
-                                        errMessage = customerAttributes[errKey] +
-                                            " tidak valid.";
-                                    }
-                                }
-                            }
+                //             let errMessage = "Terjadi kesalahan.";
+                //             if (err.response.status == 422) {
+                //                 let errKeys = Object.keys(err.response.data.errors);
+                //                 let errKey = "";
+                //                 if (errKeys.length > 0) {
+                //                     errKey = errKeys[0];
+                //                 }
 
-                            this.$swal({
-                                title: "Pendaftaran Gagal",
-                                icon: "error",
-                                text: errMessage
-                            });
-                        });
-                }
+                //                 errMessage = "Data yang diberikan tidak valid.";
+                //                 if (errKey != "") {
+                //                     if (errKey == "email" || errKey == "username") {
+                //                         errMessage = errMessage + " " + customerAttributes[errKey] +
+                //                             " tidak valid atau telah terdaftar.";
+                //                     } else {
+                //                         errMessage = customerAttributes[errKey] +
+                //                             " tidak valid.";
+                //                     }
+                //                 }
+                //             }
+
+                //             this.$swal({
+                //                 title: "Pendaftaran Gagal",
+                //                 icon: "error",
+                //                 text: errMessage
+                //             });
+                //         });
+                // }
             }
         },
 
