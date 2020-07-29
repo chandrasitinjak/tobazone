@@ -69538,11 +69538,23 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     return {
       products: [],
       datas: "",
-      data: ""
+      data: "",
+      id_producs: []
     };
   },
 
   methods: {
+    check_idProd: function check_idProd(id_product) {
+      var len = this.id_producs.length;
+      var i = 0;
+
+      for (i = 0; i < len; i++) {
+        if (id_product == this.id_producs.length[i]) {
+          return 1;
+          break;
+        }
+      }
+    },
     checkProduct: function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(id_product) {
         var _this = this;
@@ -69628,7 +69640,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 _context3.next = 2;
                 return window.axios.get("/api/customer/" + this.userId + "/wishlists/").then(function (res) {
                   _this2.data = res.data;
-                  // console.log(data);
+                  var i;
+                  for (i = 0; i < _this2.data.length; i++) {
+                    _this2.id_producs[i] = _this2.data[i].product_id;
+                  }
                 });
 
               case 2:
@@ -69656,7 +69671,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 _context4.next = 2;
                 return window.axios.get("/api/products").then(function (res) {
                   _this3.products = res.data;
-                  // console.log(products);
+                  // console.log(this.products);
                 }).catch(function (err) {
                   console.log(err);
                 });
@@ -69715,7 +69730,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     }
   },
   mounted: function mounted() {
-    // this.getAllMyWishList();
+    this.getAllMyWishList();
     this.getAllProducts();
   }
 });

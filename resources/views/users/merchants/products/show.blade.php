@@ -168,6 +168,7 @@
             @endif
 
               @role('merchant')
+              @if(Auth::user()->id == $product->user_id)
               <div class="cart-fav-box d-flex align-items-center mt-4">
                 <a href="{{ url('/products/edit', $product->id) }}" class="btn essence-btn">Ubah</a>
                 <!-- <form action="{{ url('/products/delete', $product->id)}}" method="POST">
@@ -175,6 +176,7 @@
                   <button type="submit" class="btn essence-btn ml-4" data-toggle="modal" data-target="#deleteConfirmation">Hapus</button>
                 <!-- </form> -->
               </div>
+              @endif
 
 
               <div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
@@ -206,7 +208,7 @@
               
               <div class="col-md-5">                
               <div id="add-to-cart-button">
-                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />~
+                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />
               </div>
               </div>
 
@@ -243,12 +245,14 @@
                       <span>Deskripsi</span>
                     </a>
                   </li>
+                  @role('customer')
                   <li class="nav-item">
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
                       <i class="fa fa-thumbs-o-up mr-2"></i>
                       <span>Ulasan</span></a>
                     </a>
                   </li>
+                  @endrole
 
                 </ul>
                 <div class="tab-content mt-3" id="myTabContent">
@@ -291,11 +295,12 @@
     </div>
   </div>
 </div>
-
+@role('customer')
 <div id="new-product">
   @if(Auth::check())
   <new-products-suggest :product-id="'{{$product->id}}'" :user-id="{{Auth::user()->id}}" :title="'Produk Sejenis'" :suggest="'{{ $product['cat_product'] }}'"/> @else
   <new-products-suggest :product-id="'{{$product->id}}'" :title="'Produk Lain'" :suggest="'{{ $product['cat_product'] }}'" /> @endif
 </div>
-  @include('users.auth.login_modal')
+@endrole
+@include('users.auth.login_modal')
 @endsection
