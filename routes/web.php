@@ -105,7 +105,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/carousels/show/{id}', 'CarouselController@show');
         Route::get('/carousels/create', 'CarouselController@create');
         Route::get('/carousels/edit/{id}', 'CarouselController@edit');
-        Route::post('/carousels/delete/{id}', ' CarouselController@destroy');
+        Route::post('/carousels/delete/{id}', 'CarouselController@destroy');
         Route::post('/carousels/update/{id}', 'CarouselController@update');
         Route::post('/carousels/store', 'CarouselController@store');
 
