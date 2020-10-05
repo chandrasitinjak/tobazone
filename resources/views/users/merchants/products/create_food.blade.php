@@ -69,6 +69,14 @@
                                     <textarea type="text" rows="5" class="form-control" aria-describedby="namaprodukhelp" name="description"></textarea>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Asal Produk
+                                        <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
+                                    </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" aria-describedby="namaprodukhelp" min="1" name="product_origin" required>
+                                </div>
+                            </div>
                             <div class="mt-4">
                                 <label class="label"> Spesifikasi </label>
                                 <div class="row">

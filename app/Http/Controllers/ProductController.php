@@ -136,7 +136,8 @@ class ProductController extends Controller
         $product->description = $request->description;
         
         $product->images = json_encode($imageNames);
-        $product->asal = $address_merchant;
+        // $product->asal = $address_merchant;
+        $product->asal = $request->product_origin;
 
         $product->save();
 

@@ -15,7 +15,7 @@
                         
                         <div class="row mt-3">
                             <div class="col-md-6" >
-                            @if($profiles->photo != null)
+                            @if($profiles->photo != "profile.png")
                             <div class="imgwrapper imgwrapper-a mb-3 img-circle" style="padding: 0px;">
                                 <img src="{{ url("/images/user_profiles/".$profiles->photo )}}" alt="Card image cap test" style="object-fit: scale-down">
                             </div>
