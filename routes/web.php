@@ -18,7 +18,11 @@ Route::get('/', function () {
         return redirect('/home');        
     }    
 
-    return view('users.homes.index');    
+    //maintenance
+    return view('maintenance.index');    
+
+    //not maintenance
+    // return view('users.homes.index');    
 });
 
 Route::get('/login', function() {
@@ -67,8 +71,6 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/success-order-detail/{id}', 'TransactionController@getSuccessOrderDetail');
         Route::get('/admin/onprocess-order-detail/{id}', 'TransactionController@getOnProcessOrderDetail');
         
-        
-
         Route::get('/admin/new-order/order-detail', 'OrderController@detailOrder');
         Route::get('/admin/list-merchant', 'MerchantController@listMerchant');
         Route::get('/admin/list-merchant/merchant-detail/{id}', 'MerchantController@detailMerchant');
@@ -99,7 +101,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/banners/edit/{id}', 'BannerController@edit');
         Route::post('/banners/delete/{id}', 'BannerController@destroy');
         Route::post('/banners/update/{id}', 'BannerController@update');
-    Route::post('/banners/store', 'BannerController@store');
+        Route::post('/banners/store', 'BannerController@store');
 
         Route::get('/carousels', 'CarouselController@index');
         Route::get('/carousels/show/{id}', 'CarouselController@show');
