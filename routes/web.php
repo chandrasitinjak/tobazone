@@ -19,10 +19,10 @@ Route::get('/', function () {
     }    
 
     //maintenance
-    return view('maintenance.index');    
+    // return view('maintenance.index');    
 
     //not maintenance
-    // return view('users.homes.index');    
+    return view('users.homes.index');    
 });
 
 Route::get('/login', function() {
