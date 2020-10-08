@@ -20,3 +20,13 @@
 ## Run
 - Run `php artisan serve` to start the PHP server
 - Run `npm run watch` to start the Node JS server to compile the Vue JS components
+
+## Create branch
+- Run `git branch nama-branch`
+- Run `git checkout nama-branch`
+
+## Push to Github
+- Run `git status`
+- Run `git add .`
+- Run `git commit -m "comment perubahan"`
+- Run `git push origin nama-branch`
