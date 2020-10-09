@@ -69380,7 +69380,7 @@ var render = function() {
               return _c("slide", { staticClass: "px-0" }, [
                 _c("a", { attrs: { href: carousel.link } }, [
                   _c("img", {
-                    staticStyle: { height: "29em", width: "100%!important" },
+                    staticClass: "empty-slide",
                     attrs: { src: "/images/carousels/" + carousel.image }
                   })
                 ])

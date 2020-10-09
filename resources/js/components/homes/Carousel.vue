@@ -17,7 +17,7 @@
     >
       <slide class="px-0" v-for="carousel in carousels">
         <a :href="carousel.link">
-          <img :src="'/images/carousels/' + carousel.image" style="height : 29em; width : 100%!important">
+          <img :src="'/images/carousels/' + carousel.image" style="" class="empty-slide">
         </a>
       </slide>
     </Carousel>
