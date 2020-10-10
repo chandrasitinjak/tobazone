@@ -25,7 +25,7 @@
     <!-- <link rel="stylesheet" href="/user-assets/webflow.css"> -->
     <link rel="stylesheet" href="/user-assets/test-page-gridstyle.css">
 
-    
+
 
     <link rel="stylesheet" href="/user-assets/css/header.css">
 
@@ -47,9 +47,9 @@
                     <carousel> </carousel>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 col-sm-12">
                     <div class="row">
-                        <div class="col-md-12" style="padding-left:0.5rem">
+                        <div class="col-md-12"  style="padding-left:0.5rem">
                             <a href="/search">
                             <img class="img-besidecar" src="{{ url("/images/carousels/carouselsamping1.png" )}}" alt="Card image cap test" style="height: 100%; width : 100%">
                             </a>
