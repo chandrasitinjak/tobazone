@@ -23,17 +23,18 @@
   <link rel="stylesheet" href="/user-assets/css/header.css">
   <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
   <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    @yield('style')
 </head>
 
 <body>
-  
+
   <div id="app">
-    @include('users.layouts.header')    
+    @include('users.layouts.header')
     <div class="container-fluid">
     @include('users.layouts.cart')
     @yield('content')
     </div>
-    @include('users.layouts.footer')      
+    @include('users.layouts.footer')
     <div class="modal fade" id="enlargeImageModal" tabindex="-1" role="dialog" aria-labelledby="enlargeImageModal" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -47,7 +48,7 @@
         </div>
       </div>
     </div>
-  <!-- </div> -->  
+  <!-- </div> -->
   </div>
   @include('users.layouts.script')
   <script>
