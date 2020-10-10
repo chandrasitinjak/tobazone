@@ -49,7 +49,7 @@
             </div>
             <div class="form-group">
               <label class="label">Alamat Rinci</label>
-              <textarea v-model="addressDetail" aria-describedby="alamatrinci" class="form-control" 
+              <textarea v-model="addressDetail" aria-describedby="alamatrinci" class="form-control" rows="3"
                         placeholder="Cantumkan patokan alamat, nama panggilan penerima, dan no. telp alternatif (contoh: Rumah sebelah minimarket 'Fruit Mart', panggilan penerima: Pak Budi, no. telp lain:  081234567890, kode pos : 22313)."></textarea>
               <small id="alamatrinci" class="form-text text-muted"> Diisi dengan petunjuk lokasi untuk kurir</small>
             </div>

@@ -73226,6 +73226,7 @@ var render = function() {
                   staticClass: "form-control",
                   attrs: {
                     "aria-describedby": "alamatrinci",
+                    rows: "3",
                     placeholder:
                       "Cantumkan patokan alamat, nama panggilan penerima, dan no. telp alternatif (contoh: Rumah sebelah minimarket 'Fruit Mart', panggilan penerima: Pak Budi, no. telp lain:  081234567890, kode pos : 22313)."
                   },
