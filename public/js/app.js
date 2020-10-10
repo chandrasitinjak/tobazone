@@ -69196,7 +69196,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\n.empty-slide[data-v-85180974]{\n        width: 0%;\n        height: 0px;\n}\n}\n@media (min-width:450px) and (max-width: 767px){\n.empty-slide[data-v-85180974]{\n        width: 0%;\n        height: 0px;\n}\n}\n@media (min-width:768px) and (max-width: 990px){\n.empty-slide[data-v-85180974]{\n        height: 180px;\n        width: 100%!important;\n}\n}\n@media (min-width:991px) and (max-width: 1199px){\n.empty-slide[data-v-85180974]{\n        margin-top: 5px;\n        height: 23em;\n        width: 100%!important;\n}\n}\n@media (min-width:1200px){\n.empty-slide[data-v-85180974]{\n        margin-top: 20px;\n        height: 25em;\n        width: 100%!important;\n}\n}\n", ""]);
 
 // exports
 
@@ -69242,6 +69242,38 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_carousel__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_carousel__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -69348,7 +69380,7 @@ var render = function() {
               return _c("slide", { staticClass: "px-0" }, [
                 _c("a", { attrs: { href: carousel.link } }, [
                   _c("img", {
-                    staticStyle: { height: "29em", width: "100%!important" },
+                    staticClass: "empty-slide",
                     attrs: { src: "/images/carousels/" + carousel.image }
                   })
                 ])
@@ -69379,7 +69411,7 @@ var render = function() {
               _c("slide", { staticClass: "px-0" }, [
                 _c("a", { attrs: { href: "/register" } }, [
                   _c("img", {
-                    staticStyle: { height: "28em", width: "100%!important" },
+                    staticClass: "empty-slide",
                     attrs: { src: "/images/assets/empty_carousel.gif" }
                   })
                 ])
@@ -71406,17 +71438,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(358)
+}
 var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(206)
 /* template */
-var __vue_template__ = __webpack_require__(207)
+var __vue_template__ = __webpack_require__(360)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-600e081a"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -71463,6 +71499,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -71501,43 +71559,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 207 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "cart-fav-box d-flex align-items-center mt-4" },
-    [
-      _c(
-        "button",
-        {
-          staticClass: "btn essence-btn",
-          on: {
-            click: function($event) {
-              _vm.addToCart()
-            }
-          }
-        },
-        [_vm._v("Tambah ke keranjang")]
-      )
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-600e081a", module.exports)
-  }
-}
-
-/***/ }),
+/* 207 */,
 /* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -92017,6 +92039,84 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 357 */,
+/* 358 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(359);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("64146ef5", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-600e081a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AddToCartButton.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-600e081a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AddToCartButton.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 359 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nbutton[data-v-600e081a]{\r\n    font-size: 13px;\n}\n@media (min-width:219px) and (max-width: 449px){\n}\n@media (min-width:450px) and (max-width: 767px){\n}\n@media (min-width:768px) and (max-width: 990px){\nbutton[data-v-600e081a]{\r\n        font-size: 10px;\n}\n}\n@media (min-width:991px) and (max-width: 1230px){\nbutton[data-v-600e081a]{\r\n        font-size: 10px;\n}\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 360 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "cart-fav-box d-flex align-items-center mt-4" },
+    [
+      _c(
+        "button",
+        {
+          staticClass: "btn essence-btn w-100",
+          on: {
+            click: function($event) {
+              _vm.addToCart()
+            }
+          }
+        },
+        [_vm._v("Tambah ke keranjang")]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-600e081a", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
