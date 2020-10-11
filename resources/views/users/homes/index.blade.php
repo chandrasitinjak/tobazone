@@ -139,22 +139,36 @@
 $(document).ready(function() {
   $("#sidebar1Collapse").on("click", function() {
     $("#sidebar1").addClass("active");
+    console.log("a!");
   });
 
   $("#sidebar1CollapseX").on("click", function() {
     $("#sidebar1").removeClass("active");
+    console.log("b!");
   });
 
   $("#sidebar1Collapse").on("click", function() {
     if ($("#sidebar1").hasClass("active")) {
       $(".overlay").addClass("visible");
-      console.log("berhasil!");
+      console.log("c!");
     }
   });
 
   $("#sidebar1CollapseX").on("click", function() {
     $(".overlay").removeClass("visible");
+    console.log("d!");
   });
+
+  $("#butMasuk").on("click", function() {
+    $("#sidebar1").removeClass("active");
+    $(".overlay").removeClass("visible");
+  });
+
+  $("#butDaftar").on("click", function() {
+    $("#sidebar1").removeClass("active");
+    $(".overlay").removeClass("visible");
+  });
+
 });
 
 </script>

@@ -1,8 +1,8 @@
 <div class="overlay"></div>
 <nav class="navbar navbar-expand-md navbar-light main-menu" style="box-shadow:none; background-color: #FFFAF4">
    <div class="container">
-      <button type="button" id="sidebar1Collapse" class="btn btn-link d-block d-md-none" onclick="fungsi()">
-      <i class="bx bx-menu icon-single"></i>
+      <button type="button" id="sidebar1Collapse" class="btn btn-link d-block d-md-none">
+      <i class="bx bx-menu icon-single" style="color:black"></i>
       </button>
       <a class="navbar-brand" href="/">
          <h4 class="font-weight-bold">Tobazone</h4>
@@ -98,12 +98,12 @@
                @guest
                 <div class="user-login-info align-content-end">
                     <a href="#">
-                        <button class="btn btn-toba" type="button" data-toggle="modal" data-target="#loginModal"
+                        <button class="btn btn-toba" id="butMasuk" type="button" data-toggle="modal" data-target="#loginModal"
                                 style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
                         </button>
                     </a>
                     <a href="{{ url('/register') }}">
-                        <button class="btn btn-toba" type="button"
+                        <button class="btn btn-toba" id="butDaftar" type="button"
                                 style="text-decoration-line: unset;"> Daftar
                         </button>
                     </a>
@@ -139,7 +139,7 @@
             </div>
             <div class="col-2 text-left">
                <button type="button" id="sidebar1CollapseX" class="btn btn-link">
-               <i class="bx bx-x icon-single"></i>
+               <i class="bx bx-x icon-single" style="color:black"></i>
                </button>
             </div>
          </div>
