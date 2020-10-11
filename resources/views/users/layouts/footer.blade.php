@@ -50,8 +50,7 @@
 
             </div>
             <div class="col-md-2">
-                <h6>Developed By </h6>
-                <h6>PAIII-04-2020 IT Del</h6>
+                <h6>CV.Komunitas Pariwisata Toba </h6>
                 <!-- <ul>
                     <li>
                         <a href="#" class="mr-3">

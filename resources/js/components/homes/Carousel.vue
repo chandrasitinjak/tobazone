@@ -13,11 +13,11 @@
       :navigationNextLabel="kanan"
       :navigationPrevLabel="kiri"
 
-      
+
     >
       <slide class="px-0" v-for="carousel in carousels">
         <a :href="carousel.link">
-          <img :src="'/images/carousels/' + carousel.image" style="height : 29em; width : 100%!important">
+          <img :src="'/images/carousels/' + carousel.image" style="" class="empty-slide">
         </a>
       </slide>
     </Carousel>
@@ -34,15 +34,47 @@
       :perPageCustom="[[0, 1], [991.88, 1]]"
     >
       <slide class="px-0">
-        <a href="/register"><img src="/images/assets/empty_carousel.gif" style="height : 28em; width : 100%!important"></a>
+        <a href="/register"><img src="/images/assets/empty_carousel.gif" style="" class="empty-slide"></a>
       </slide>
     </Carousel>
   </div>
 </template>
 
 <style scoped>
-</style>
+    @media (min-width:219px) and (max-width: 449px){
+        .empty-slide{
+            width: 0%;
+            height: 0px;
+        }
+    }
+    @media (min-width:450px) and (max-width: 767px){
+        .empty-slide{
+            width: 0%;
+            height: 0px;
+        }
+    }
+    @media (min-width:768px) and (max-width: 990px){
+        .empty-slide{
+            height: 180px;
+            width: 100%!important;
+        }
 
+    }
+    @media (min-width:991px) and (max-width: 1199px){
+        .empty-slide{
+            margin-top: 5px;
+            height: 23em;
+            width: 100%!important;
+        }
+    }
+    @media (min-width:1200px){
+        .empty-slide{
+            margin-top: 20px;
+            height: 25em;
+            width: 100%!important;
+        }
+    }
+</style>
 
 <script>
 // import carousel from "vue-owl-carousel";
@@ -53,7 +85,7 @@ export default {
   components: { Carousel, Slide },
   data() {
     return {
-      carousels: [],      
+      carousels: [],
     };
   },
   methods: {
@@ -62,10 +94,10 @@ export default {
         this.carousels = res.data;
       });
     },
-    
+
   },
   mounted() {
-    this.getCarousels();    
+    this.getCarousels();
   }
 };
 </script>
