@@ -284,8 +284,9 @@ export default {
             Vue.swal.fire({
               icon: 'warning',
               title: 'Oops...',
-              text: 'Something went wrong!',
-              footer: '<a href="/customer/"'+this.customerId+'"/orders"/>Kembali</a>'
+              text: 'Something went wrong!',              
+            }).then(function() {                
+                window.history.back();                
             })
           }
           EventBus.$emit("SPINNER", false);
