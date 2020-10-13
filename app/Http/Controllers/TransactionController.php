@@ -38,8 +38,10 @@ class TransactionController extends Controller
 
     public function getNewOrder() {
         // $transactions = Transaction::with(['orders', 'merchant', 'customer', 'customer.profile'])->where('status', 'pending')->get();
+        //test
         $transactions = Transaction::with('orders')->where('status', 'pending')->get();
-        return view('admin.orders.new-order')->with('transactions', $transactions);
+        return response()->json($transactions);
+        // return view('admin.orders.new-order')->with('transactions', $transactions);
     }
 
     public function getPaidOrder() {
