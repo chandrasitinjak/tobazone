@@ -28,6 +28,7 @@
                                                 color: black;
                                                 padding-left: 0;"
                                 type="submit"><i class="fa fa-power-off"></i>&nbsp;Logout</a>
+                        </button>
                     </form>
                 </div>
             </div>

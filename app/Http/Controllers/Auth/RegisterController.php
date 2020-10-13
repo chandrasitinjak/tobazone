@@ -6,6 +6,7 @@ use App\Mail\VerifyMail;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -52,7 +53,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -67,7 +68,7 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \App\User
      */
 
@@ -77,11 +78,11 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'status' => $data['role'] === 'customer' ? 'verifiedByAdmin' : "-" 
+            'status' => $data['role'] === 'customer' ? 'verifiedByAdmin' : "-"
         ]);
-        
+
         $address = [];
-   
+
         array_push($address, json_encode([
             'name' => $data['addressName'],
             'province_id' => $data['provinceId'],
@@ -93,39 +94,41 @@ class RegisterController extends Controller
             'postal_code' => $data['postalCode'],
             'detail' => $data['addressDetail']
         ]));
-        
+
         $user->profile()->save(Profile::create([
             'user_id' => $user->id,
             'name' => $data['name'],
             'address' => json_encode($address),
             'phone' => $data['phone'],
-            'photo' =>'profile.png',
+            'photo' => 'profile.png',
             'gender' => $data['gender'],
             'birthday' => $data['birthday'],
         ]));
-        
-        if($data['role'] === 'merchant'){
+
+        if ($data['role'] === 'merchant') {
             $user->assignRole('merchant');
         } else {
             $user->assignRole('customer');
         }
-            
+
         return $user;
     }
 
     public function verifyUser($token)
     {
         $verifyUser = VerifyUser::where('token', $token)->first();
-        if(isset($verifyUser) ){
+        $status = "";
+        if (isset($verifyUser)) {
             $user = $verifyUser->user;
-            if(!$user->verified) {
+            Auth::attempt(["email" => $user->email, "password" => $user->password]);
+            if (!$user->verified) {
                 $verifyUser->user->verified = 1;
                 $verifyUser->user->save();
                 $status = "Your e-mail is verified. You can now login.";
-            }else{
+            } else {
                 $status = "Your e-mail is already verified. You can now login.";
             }
-        }else{
+        } else {
             return redirect('/')->with('warning', "Sorry your email cannot be identified.");
         }
 
@@ -134,15 +137,13 @@ class RegisterController extends Controller
 
     public function confirm($confirmation_code)
     {
-        if( ! $confirmation_code)
-        {
+        if (!$confirmation_code) {
             throw new InvalidConfirmationCodeException;
         }
 
         $user = User::whereConfirmationCode($confirmation_code)->first();
 
-        if( ! $user)
-        {
+        if (!$user) {
             throw new InvalidConfirmationCodeException;
         }
 

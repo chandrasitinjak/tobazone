@@ -51,13 +51,13 @@ class EmailRegistration extends Notification
                 'Verifikasi Email',
                 $this->verificationUrl($notifiable)
             )
-            ->line('Jika Anda tidak merasa mendaftar di https://tobazone.com/, Anda tidak perlu memverifikasi email.');        
+            ->line('Jika Anda tidak merasa mendaftar di https://tobazone.com/, Anda tidak perlu memverifikasi email.');
     }
 
     protected function verificationUrl($notifiable)
     {
         return URL::temporarySignedRoute(
-            'verification.verify', Carbon::now()->addMinutes(60), ['id' => $notifiable->getKey()]
+            'verif.verify', Carbon::now()->addMinutes(60), ['id' => $notifiable->getKey()]
         );
     }
     /**
