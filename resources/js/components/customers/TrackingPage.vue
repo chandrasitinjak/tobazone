@@ -280,7 +280,15 @@ export default {
           EventBus.$emit("SPINNER", false);
         })
         .catch(err => {
-          console.log(err);
+          if(err.response.status === 500) {             
+            Vue.swal.fire({
+              icon: 'warning',
+              title: 'Oops...',
+              text: 'Something went wrong!',              
+            }).then(function() {                
+                window.history.back();                
+            })
+          }
           EventBus.$emit("SPINNER", false);
         });
     },

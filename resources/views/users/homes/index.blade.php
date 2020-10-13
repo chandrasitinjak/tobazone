@@ -25,6 +25,14 @@
     <!-- <link rel="stylesheet" href="/user-assets/webflow.css"> -->
     <link rel="stylesheet" href="/user-assets/test-page-gridstyle.css">
 
+
+
+    <link rel="stylesheet" href="/user-assets/css/header.css">
+
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 
 <body>
@@ -39,9 +47,9 @@
                     <carousel> </carousel>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 col-sm-12">
                     <div class="row">
-                        <div class="col-md-12" style="padding-left:0.5rem">
+                        <div class="col-md-12"  style="padding-left:0.5rem">
                             <a href="/search">
                             <img class="img-besidecar" src="{{ url("/images/carousels/carouselsamping1.png" )}}" alt="Card image cap test" style="height: 100%; width : 100%">
                             </a>
@@ -127,6 +135,43 @@
 @include('users.layouts.footer')
 </div>
 @include('users.layouts.script')
+<script>
+$(document).ready(function() {
+  $("#sidebar1Collapse").on("click", function() {
+    $("#sidebar1").addClass("active");
+    console.log("a!");
+  });
+
+  $("#sidebar1CollapseX").on("click", function() {
+    $("#sidebar1").removeClass("active");
+    console.log("b!");
+  });
+
+  $("#sidebar1Collapse").on("click", function() {
+    if ($("#sidebar1").hasClass("active")) {
+      $(".overlay").addClass("visible");
+      console.log("c!");
+    }
+  });
+
+  $("#sidebar1CollapseX").on("click", function() {
+    $(".overlay").removeClass("visible");
+    console.log("d!");
+  });
+
+  $("#butMasuk").on("click", function() {
+    $("#sidebar1").removeClass("active");
+    $(".overlay").removeClass("visible");
+  });
+
+  $("#butDaftar").on("click", function() {
+    $("#sidebar1").removeClass("active");
+    $(".overlay").removeClass("visible");
+  });
+
+});
+
+</script>
 </body>
 
 </html>

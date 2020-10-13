@@ -1,15 +1,17 @@
-w<template>
-  <div class="col-md-12 keranjang">
+<template>
+  <div class="col-md-12 col-sm-12 keranjang">
     <div class="card globalcard" style="min-height: 400px">
       <div class="card-header" v-if="carts.length > 0">
-        <div class="row">
-          <div class="col-5">
-            <a href="/search" role="button" class="btn btn-toba">Belanja lagi</a>
+          <div class="row mb-2">
+              <div class="col-auto">
+                  <a href="/search" role="button" class="ysearch-button btn btn-sm btn-toba">Belanja lagi</a>
+              </div>
           </div>
-          <div class="col-7">
-            <h5>Keranjang Belanja Anda</h5>
-          </div>
-        </div>
+            <div class="row text-center">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <h2 class="yjudul">Keranjang Belanja Anda</h2>
+              </div>
+            </div>
       </div>
       <div class="card-body">
         <div class="row" v-if="carts.length > 0">
@@ -30,21 +32,21 @@ w<template>
           <p class="text font-bold mt-3">Keranjang belanja Anda kosong,</p>
           <a href="/search" class="btn essence-btn">Ayo Lanjut Berbelanja</a>
         </div>
-            
 
-        <div class="row" v-for="cart in carts">
-          <div class="col-md-6 col-sm-12 col-xs-6">
+
+        <div class="row mb-5" v-for="cart in carts">
+          <div class="col-md-6 col-sm-12 col-xs-12">
             <div class="row">
               <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="imgwrapper" style="padding: 0px">
-                  <img :src="'/images/' + JSON.parse(cart.product.images)[0]" alt="Card image cap">
+                  <img :src="'/images/' + JSON.parse(cart.product.images)[0]" alt="Card image cap" class="ygambar-produk">
                 </div>
               </div>
               <div class="col-lg-8 col-sm-6 col-xs-12">
                 <div class="keranjang-desc-prod">
                   <h6>{{ cart.product.name }}</h6>
                   {{ cart.product.description }}
-                  <p> <b> Stok Tersedia : {{ cart.product.stock }} </b> </p>                  
+                  <p> <b> Stok Tersedia : {{ cart.product.stock }} </b> </p>
                 </div>
               </div>
             </div>
@@ -55,7 +57,6 @@ w<template>
               style="color: #ff8415"
             >Rp {{formatPrice( cart.product.price )}}</div>
           </div>
-          
           <div class="quantity col-5 col-md-2" v-if="cart.product.stock > 0">
             <div class="input-group input-group-sm">
               <div class="input-group-prepend">
@@ -64,10 +65,10 @@ w<template>
 
               <input
                 type="number"
-                onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"                            
-                class="form-control"                
+                onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                class="form-control"
                 v-model="cart.total"
-                @change="updateCart(cart)"                
+                @change="updateCart(cart)"
                 min="1"
                 :max="cart.product.stock"
               >
@@ -76,14 +77,14 @@ w<template>
                 <div class="btn input-group-text" v-on:click="updateTotal(cart.id, 'plus')">+</div>
               </div>
 
-              <small style="color : red" v-if="cart.total >  cart.product.stock">Maksimal pembelian {{ cart.product.stock }},kurangi jumlah produk</small>                
+              <small style="color : red" v-if="cart.total >  cart.product.stock">Maksimal pembelian {{ cart.product.stock }},kurangi jumlah produk</small>
             </div>
             <button
-              type="button"              
-              class="btn btn-outline-warning btn-sm mt-2" 
-              data-toggle="modal" 
-              v-on:click="parsingIdCart(cart.id)"  
-              data-target="#deleteConfirmation">                              
+              type="button"
+              class="btn btn-outline-warning btn-sm mt-2"
+              data-toggle="modal"
+              v-on:click="parsingIdCart(cart.id)"
+              data-target="#deleteConfirmation">
               <span>
                 <i class="fa fa-trash"></i> Hapus
               </span>
@@ -110,20 +111,20 @@ w<template>
               </div>
           </div>
           </div>
-         
 
-          
+
+
 
           <div class="quantity col-5 col-md-2" v-if="cart.product.stock == 0">
-              <small style="color : red">Stok Barang habis</small>          
+              <small style="color : red">Stok Barang habis</small>
               <button
               type="button"
               v-on:click="deleteCart(cart.id)"
-              class="btn btn-outline-warning btn-sm mt-2" >                              
+              class="btn btn-outline-warning btn-sm mt-2" >
               <span>
                 <i class="fa fa-trash"></i> Hapus dari keranjang
               </span>
-            </button>      
+            </button>
           </div>
         </div>
       </div>
@@ -147,6 +148,39 @@ w<template>
   </div>
 </template>
 
+<style scoped>
+@media (min-width:219px) and (max-width: 449px){
+    /*.ysearch-button{*/
+    /*    font-size: 13px;*/
+    /*    margin-left: -20px;*/
+    /*}*/
+    .yjudul{
+        margin-left: -20px;
+        margin-right: -20px;
+        font-size: 25px;
+    }
+
+    .ygambar-produk{
+        margin-bottom: 20px;
+    }
+}
+@media (min-width:450px) and (max-width: 767px) {
+}
+
+
+@media (min-width:768px) and (max-width: 990px){
+
+
+}
+@media (min-width:991px) and (max-width: 1199px){
+
+}
+@media (min-width:1200px){
+
+}
+</style>
+
+
 <script>
 import EventBus from "../../eventBus";
 
@@ -163,7 +197,7 @@ export default {
   },
   methods: {
 
-    parsingIdCart(id_cart) {      
+    parsingIdCart(id_cart) {
       this.key_produk = id_cart;
     },
 
@@ -191,8 +225,8 @@ export default {
           } else {
             if (this.carts[i].product.stock > this.carts[i].total) {
               this.carts[i].total++;
-              this.updateCart(this.carts[i]);              
-            } else {              
+              this.updateCart(this.carts[i]);
+            } else {
               this.cek = 0;
             }
           }
@@ -205,10 +239,10 @@ export default {
     },
     async updateCart(cart) {
 
-      if(cart.product.stock < cart.total) {        
-        this.cek = 0;                
+      if(cart.product.stock < cart.total) {
+        this.cek = 0;
       } else {
-      await window.axios.put("/api/carts/" + cart.id, cart).then(res => {                  
+      await window.axios.put("/api/carts/" + cart.id, cart).then(res => {
         this.emitEvent(null);
         this.cek = 1;
       });
@@ -218,7 +252,7 @@ export default {
     async deleteCart(id) {
       await window.axios.delete("/api/carts/" + id).then(res => {
         this.getCart();
-        this.emitEvent(null);        
+        this.emitEvent(null);
       });
     },
     getTotalPayment() {
@@ -230,7 +264,7 @@ export default {
         if(cart.total > cart.product.stock ) {
           this.cek = 0;
         } else if(cart.total <= cart.product.stock ) {
-          this.cek = 1;        
+          this.cek = 1;
         }
       });
 
