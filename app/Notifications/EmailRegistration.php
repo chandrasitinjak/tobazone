@@ -57,7 +57,7 @@ class EmailRegistration extends Notification
     protected function verificationUrl($notifiable)
     {
         return URL::temporarySignedRoute(
-            'verif.verify', Carbon::now()->addMinutes(60), ['id' => $notifiable->getKey()]
+            'verification.verify', Carbon::now()->addMinutes(60), ['id' => $notifiable->getKey()]
         );
     }
     /**
