@@ -120,7 +120,7 @@ class RegisterController extends Controller
         $status = "";
         if (isset($verifyUser)) {
             $user = $verifyUser->user;
-            Auth::attempt(["email" => $user->email, "password" => $user->password]);
+//            Auth::attempt(["email" => $user->email, "password" => $user->password]);
             if (!$user->verified) {
                 $verifyUser->user->verified = 1;
                 $verifyUser->user->save();
