@@ -26,15 +26,15 @@ class TransactionController extends Controller
 
         $customerAddress = $request->all()['customerAddress'];
         $shippingAddress = $profile->name . ", " .
-                           $profile->phone . "\n" .
-                           $customerAddress['detail'] . ", " .
-                           $customerAddress['subdistrict_name'] . ", " .
-                           $customerAddress['city_name'] . ", " .
-                           $customerAddress['province_name'] . " (" .
-                           $customerAddress['postal_code'] . ")";
- 
+            $profile->phone . "\n" .
+            $customerAddress['detail'] . ", " .
+            $customerAddress['subdistrict_name'] . ", " .
+            $customerAddress['city_name'] . ", " .
+            $customerAddress['province_name'] . " (" .
+            $customerAddress['postal_code'] . ")";
+
         $merchants = $request->all()['merchants'];
-        
+
         foreach($merchants as $merchant) {
             $transaction = Transaction::create([
                 'customer_id' => $request->all()['customerId'],
@@ -42,22 +42,23 @@ class TransactionController extends Controller
                 'courier' => $merchant['courier_code'],
                 'address' => $shippingAddress,
                 'additional_info' => "",
-                'status' => "pending",                
+                'status' => "pending",
             ]);
 
             $orders = $merchant['products'];
-            
+
             foreach($orders as $order) {
                 $o = Order::create([
                     'transaction_id' => $transaction->id,
                     'product_id' => $order['productId'],
-                    'quantity' => $order['quantity']
+                    'quantity' => $order['quantity'],
+                    'price' => $order['price']
                 ]);
-                
+
                 if($o) {
                     Cart::find($order['cartId'])->delete();
                 }
-                
+
                 // $data_product = Product::find($order['productId']);
                 // $data_product->stock = $data_product->stock - $order['quantity'];
                 // $data_product->sold = $order['quantity'];
@@ -89,19 +90,19 @@ class TransactionController extends Controller
 
     public function getCustomerTransaction($id) {
         $transaction = Transaction::with(['orders', 'orders.product', 'payment'])
-                                //   ->withTrashed()
-                                  ->where('customer_id', $id)
-                                  ->orderBy('created_at', 'desc')
-                                  ->get();
+            //   ->withTrashed()
+            ->where('customer_id', $id)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return response()->json($transaction);
     }
 
     public function getTransaction($userId, $tranId) {
         $transaction = Transaction::with(['customer', 'customer.profile', 'payment'])
-                                  ->where('customer_id', $userId)
-                                  ->where('id', $tranId)
-                                  ->first();
+            ->where('customer_id', $userId)
+            ->where('id', $tranId)
+            ->first();
         return response()->json($transaction);
     }
 
@@ -127,8 +128,8 @@ class TransactionController extends Controller
 
     public function getTrackingStatus($id) {
         $transaction = Transaction::with(['orders.product.review', 'orders.product.merchant.profile', 'payment'])
-                                  ->where('id', $id)
-                                  ->first();
+            ->where('id', $id)
+            ->first();
 
         $tracking = $this->getTracking($transaction->shipping_number, $transaction->courier);
 
@@ -155,5 +156,5 @@ class TransactionController extends Controller
         $result = $client->request('POST', 'waybill', ['form_params' => $payload]);
         return $result->getBody()->getContents();
     }
-        
+
 }
