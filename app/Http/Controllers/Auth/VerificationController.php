@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
@@ -35,6 +37,22 @@ class VerificationController extends Controller
      *
      * @return void
      */
+    public function verify(Request $request)
+    {
+        if ($request->route('id') != $request->user()->getKey()) {
+            throw new AuthorizationException;
+        }
+
+        if ($request->user()->hasVerifiedEmail()) {
+            return redirect($this->redirectPath());
+        }
+
+        if ($request->user()->markEmailAsVerified()) {
+            event(new Verified($request->user()));
+        }
+
+        return redirect($this->redirectPath())->with('verified', true);
+    }
     public function __construct()
     {
         $this->middleware('auth');
