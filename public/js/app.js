@@ -72896,7 +72896,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                   _this.buyer = res.data;
 
                   __WEBPACK_IMPORTED_MODULE_2__eventBus__["a" /* default */].$emit('ADDRESS_CHOOSEN', null);
-                  //  this.publishAddressChoosenEvent();          
+                  _this.publishAddressChoosenEvent();
                 }).catch(function (err) {
                   console.log(err);
                 });

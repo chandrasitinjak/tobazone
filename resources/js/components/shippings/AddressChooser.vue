@@ -69,7 +69,7 @@ export default {
           this.buyer = res.data;      
           
           EventBus.$emit('ADDRESS_CHOOSEN', null);
-          //  this.publishAddressChoosenEvent();          
+           this.publishAddressChoosenEvent();          
         })
         .catch(err => {
           console.log(err);
