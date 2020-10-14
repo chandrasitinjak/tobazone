@@ -43,9 +43,9 @@
                                                     <th scope="row"> {{$idx + 1}}</th>
                                                     <td>{{ $order->product->name }}</td>
                                                     <td>{{ $order->quantity }}</td>
-                                                    <td>IDR {{ number_format($order->product->price) }}</td>
+                                                    <td>IDR {{ number_format($order->price) }}</td>
                                                     <!-- <td>0%</td> -->
-                                                    <td>IDR {{ number_format($order->product->price * $order->quantity) }}</td>
+                                                    <td>IDR {{ number_format($order->price * $order->quantity) }}</td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
