@@ -218,8 +218,6 @@ export default {
         customerAddress: address,
         customerId: this.userId,
       }
-
-
       // console.log(transactionDetail);
       this.publishFinalTransactionDetail(transactionDetail);
     },
