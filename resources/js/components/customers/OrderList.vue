@@ -102,7 +102,7 @@
                                                                     <h6>{{ order.product.name }}</h6>
                                                                     <h6
                                                                         style="color: #FF5205; display: inline;"
-                                                                    >Rp {{formatPrice( order.product.price )}}</h6>
+                                                                    >Rp {{formatPrice( order.price )}}</h6>
                                                                     <br>
                                                                     <small>Jumlah {{ order.quantity }}</small>
                                                                 </div>
@@ -143,7 +143,7 @@
                                                         style="color: orangered"
                                                     >Rp {{ formatPrice ( getTotalPayment(transaction.payment))}}</div>
                                                     <div class="col-sm-1">{{transaction.courier}}</div>
-                                                   <div class="col-sm-2">{{transaction.shipping_number}}</div>
+                                                    <div class="col-sm-2">{{transaction.shipping_number}}</div>
                                                     <div class="col-sm-3">
                                                         <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-if="transaction.status === 'rejectedByAdmin'">
                                                             Ditolak oleh Admin
@@ -186,7 +186,7 @@
                                                                         <h6>{{ order.product.name }}</h6>
                                                                         <h6
                                                                             style="color: #FF5205; display: inline;"
-                                                                        >Rp {{formatPrice(order.product.price)}}</h6>
+                                                                        >Rp {{formatPrice(order.price)}}</h6>
                                                                         <br>
                                                                         <small>Jumlah {{ order.quantity }}</small>
                                                                     </div>
