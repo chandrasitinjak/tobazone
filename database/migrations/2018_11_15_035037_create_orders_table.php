@@ -17,7 +17,8 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('product_id')->unsigned();
             $table->integer('transaction_id')->unsigned();
-            $table->integer('quantity')->unsigned();    
+            $table->string('price')->nullable();
+            $table->integer('quantity')->unsigned();
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products');
