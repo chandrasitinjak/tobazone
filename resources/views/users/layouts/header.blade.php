@@ -75,7 +75,7 @@
       </div>
    </div>
 </nav>
-<div class="search-bar d-block d-md-none">
+<div class="search-bar d-block d-md-none" id="coba">
    <div class="container">
       <div class="row">
          <div class="col-12">
