@@ -110,7 +110,7 @@ export default {
             productId: id_product,
             userId: this.userId
           };
-
+        
       // await window.axios.post("/api/wishlists", payload).then(res => {
         window.axios.post("/api/wishlist", payload)
             .then(() => {
