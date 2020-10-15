@@ -10,9 +10,9 @@
 
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li class="d-lg-none">
+              <!-- <li class="d-lg-none">
                 <a :href="'/products/create'" class="btn btn-sm btn-success">Tambah produk</a>
-              </li>
+              </li> -->
               <li>
                 <a
                    class="nav-link dropdown-toggle"

@@ -75,7 +75,7 @@
       </div>
    </div>
 </nav>
-<div class="search-bar d-block d-md-none">
+<div class="search-bar d-block d-md-none" id="coba">
    <div class="container">
       <div class="row">
          <div class="col-12">
@@ -166,91 +166,16 @@
 @role('merchant')
 <nav class="navbar navbar-expand-lg navbar-white bg-white fixed-top main">
    <div class="container custom-container">
-      <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="fa fa-th"></span>
-      </button>
+      <button type="button" id="sidebar2Collapse" class="btn btn-link d-block d-md-none">
+      <i class="bx bx-menu icon-single" style="color:black"></i>
+      </button>   
       <a class="navbar-brand mr-5" href="/">
          <h5>Merchant Tobazone</h5>
       </a>
       <!-- <a class="nav-link d-none d-sm-block" href="https://medium.com/uloszone" rel="noopener noreferrer"
          target="_blank"
          style="font-weight: 400; font-size: 1rem;">Blog Tobazone</a> -->
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-         <ul class="navbar-nav ml-start">
-            <li class="nav-item d-lg-none dropdown">
-               <a href="{{ url('/products/create') }}" class="btn btn-sm btn-success">Tambah produk</a>
-            </li>
-            <li class="nav-item d-lg-none dropdown">
-               <div class="loginbutton ">
-                  @guest
-                  <div class="user-login-info align-content-end">
-                     <a href="#">
-                     <button class="btn btn-link " type="button" data-toggle="modal"
-                        data-target="#loginModal"
-                        style="color: black;text-decoration-line: unset; padding: 0"> Masuk
-                     </button>
-                     </a>
-                  </div>
-                  @else
-                  <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                     data-toggle="dropdown" style="font-size: 1rem">Profile</a>
-                  <div class="dropdown-menu">
-                     {{--<a href="#" class="dropdown-toggle active mr-4" data-toggle="dropdown"--}}
-                     {{--aria-haspopup="true" aria-expanded="false">--}}
-                     {{--<img width="25" src="/user-assets/img/core-img/user.svg" alt="">--}}
-                     {{--</a>--}}
-                     <a class="dropdown-item" href="{{ url('/merchant/'.Auth::user()->id.'/myProfile') }}"></i>My Profile</a>
-                  </div>
-                  @endguest
-               </div>
-            </li>
-            <li class="nav-item d-lg-none dropdown">
-               <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                  data-toggle="dropdown" style="font-size: 1rem">Produk</a>
-               <div class="dropdown-menu">
-                  <ul class="dropdown-item">
-                     <li><a href="{{ url('/merchant') }}">All</a></li>
-                     <li><a href="{{ url('/products/create') }}">Tambah produk</a></li>
-                     <li><a href="">Produk terjual</a></li>
-                  </ul>
-               </div>
-            </li>
-            <li class="nav-item d-lg-none dropdown">
-               <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownpe" role="button"
-                  data-toggle="dropdown" style="font-size: 1rem">Pemesanan</a>
-               <div class="dropdown-menu" aria-labelledby="navbarDropdownpe">
-                  <ul class="dropdown-item">
-                     <li><a href="{{ url('/merchant/' . Auth::user()->id . '/new-orders') }}">Order Masuk</a>
-                     </li>
-                     <li><a href="{{ url('/merchant/' . Auth::user()->id . '/ongoing-orders') }}">Order yang
-                        Sedang Diproses</a>
-                     </li>
-                     <li><a href="">Order Berhasil</a></li>
-                     <li><a href="">Order Dibatalkan</a></li>
-                     <li><a href="">Order Gagal</a></li>
-                  </ul>
-               </div>
-            </li>
-            <li class="nav-item d-lg-none dropdown">
-               <form class="nav-link " method="POST" action="{{ url('/logout')}}">
-                  {{ csrf_field() }}
-                  <button type="submit " class="btn nav-link pt-0"
-                     style="background-color: transparent">Keluar
-                  </button>
-               </form>
-            </li>
-            {{--
-            <li class="nav-item">--}}
-               {{--<a class="nav-link" href="#">Kategori</a>--}}
-               {{--
-            </li>
-            --}}
-         </ul>
-         <div class="d-sm-none d-md-block d-lg-block search">
-            <input type="text" class="" placeholder="asdasd" >
-         </div>
-      </div>
+      
       <div class="loginbutton d-none d-lg-block">
          @guest
          <div class="user-login-info align-content-end">
@@ -288,6 +213,99 @@
       </div>
    </div>
 </nav>
+
+<nav id="sidebar2">
+   <div class=
+      "sidebar1-header">
+      <div class="container">
+         <div class="row align-items-center">
+            <div class="col-10 pl-0">
+               @guest
+                <div class="user-login-info align-content-end">
+                    <a href="#">
+                        <button class="btn btn-toba" id="butMasuk" type="button" data-toggle="modal" data-target="#loginModal"
+                                style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
+                        </button>
+                    </a>
+                    <a href="{{ url('/register') }}">
+                        <button class="btn btn-toba" id="butDaftar" type="button"
+                                style="text-decoration-line: unset;"> Daftar
+                        </button>
+                    </a>
+                </div>
+                @else
+                     <ul class="list-unstyled components links">
+                        <li>
+                          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bx bx-user mr-3"></i>
+                                        Profil</a>
+                          <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                              <a href="{{ url('/merchant/'.Auth::user()->id.'/myProfile') }}">Profil Saya</a>
+                            </li>
+                            <li>
+                              <form method="POST" action="{{ url('/logout')}}">
+                                {{ csrf_field() }}
+                                <button type="submit" class="btn nav-link"
+                                    style="background-color: transparent;padding-left: 12px;">Keluar
+                              </button>
+                              </form>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bx bx-store-alt mr-3"></i>
+                                        Produk</a>
+                          <ul class="collapse list-unstyled" id="pageSubmenu1">
+                            <li>
+                              <a href="{{ url('/merchant') }}"><i class="bx bx-blanket mr-3" style="margin-left: 20px"></i>Semua Produk</a>
+                            </li>
+                            <li>
+                              <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bx bx-store-alt mr-3" style="margin-left: 20px"></i>
+                                        Tambah Produk</a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu3">
+                                  <li>
+                                    <a href="{{ url('/products/ulos/create') }}"><i class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah Ulos</a>
+                                  </li>
+                                  <li>
+                                    <a href="{{ url('/products/clothes/create') }}"><i class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah Pakaian</a>
+                                  </li>
+                                  <li>
+                                    <a href="{{ url('/products/food/create') }}"><i class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah Makanan</a>
+                                  </li>
+                                  <li>
+                                    <a href="{{ url('/products/accessories/create') }}"><i class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah Aksesoris</a>
+                                  </li>
+                                  <li>
+                                    <a href="{{ url('/products/medicine/create') }}"><i class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah Obat</a>
+                                  </li>
+                                </ul>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bx bx-cart mr-3"></i>
+                                        Pemesanan</a>
+                          <ul class="collapse list-unstyled" id="pageSubmenu2">
+                            <li>
+                              <a href="{{ url('/merchant/' . Auth::user()->id . '/ongoing-orders') }}">Order masuk</a>
+                              <a href="{{ url('/merchant/' . Auth::user()->id . '/succes-orders') }}">Order Keluar</a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                @endguest
+
+            </div>
+            <div class="col-2 text-left">
+               <button type="button" id="sidebar2CollapseX" class="btn btn-link">
+               <i class="bx bx-x icon-single" style="color:black"></i>
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>
+</nav>
+
 @else 
 <nav class="navbar2 navbar-expand-lg navbar-white main">
    <div class="container-fluid custom-container">
@@ -330,4 +348,5 @@
    <div class="container-fluid custom-container">
 </nav>
 @endrole
+
 @include('users.auth.login_modal')

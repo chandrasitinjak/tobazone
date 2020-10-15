@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="/user-assets/test-page-gridstyle.css">
 
   <link rel="stylesheet" href="/user-assets/css/header.css">
+  <link rel="stylesheet" href="/user-assets/css/header_merchant.css">
   <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
   <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     @yield('style')
@@ -53,6 +54,7 @@
   @include('users.layouts.script')
   <script>
 $(document).ready(function() {
+  //untuk customer
   $("#sidebar1Collapse").on("click", function() {
     $("#sidebar1").addClass("active");
     console.log("a!");
@@ -85,6 +87,24 @@ $(document).ready(function() {
     $(".overlay").removeClass("visible");
   });
 
+  //untuk merchant
+  $("#sidebar2Collapse").on("click", function() {
+    $("#sidebar2").addClass("active");
+  });
+
+  $("#sidebar2CollapseX").on("click", function() {
+    $("#sidebar2").removeClass("active");
+  });
+
+  $("#sidebar2Collapse").on("click", function() {
+    if ($("#sidebar2").hasClass("active")) {
+      $(".overlay").addClass("visible");
+    }
+  });
+
+  $("#sidebar2CollapseX").on("click", function() {
+    $(".overlay").removeClass("visible");
+  });
 });
 
 </script>
