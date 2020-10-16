@@ -34,11 +34,11 @@
             <li class="nav-item ml-md-3">
                @guest
                <div class="user-login-info align-content-end">
-                  <a href="#">
+{{--                  <a href="#">--}}
                   <button class="btn btn-toba" type="button" data-toggle="modal" data-target="#loginModal"
                      style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
                   </button>
-                  </a>
+{{--                  </a>--}}
                   <a href="{{ url('/register') }}">
                   <button class="btn btn-toba" type="button"
                      style="text-decoration-line: unset;"> Daftar
@@ -54,7 +54,7 @@
                      </a>
                      <div class="user-menu dropdown-menu mt-2" style="border: 1px solid #e0e0e0; left: -70px;">
                         <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/myProfil') }}">Profil Saya</a>
-                        <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/wishlist') }}" >Favorit</a> 
+                        <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/wishlist') }}" >Favorit</a>
                         <a class="nav-link" href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}">Pesanan</a>
                         <ul class="dropdown">
                            <li class="item">
@@ -168,14 +168,14 @@
    <div class="container custom-container">
       <button type="button" id="sidebar2Collapse" class="btn btn-link d-block d-md-none">
       <i class="bx bx-menu icon-single" style="color:black"></i>
-      </button>   
+      </button>
       <a class="navbar-brand mr-5" href="/">
          <h5>Merchant Tobazone</h5>
       </a>
       <!-- <a class="nav-link d-none d-sm-block" href="https://medium.com/uloszone" rel="noopener noreferrer"
          target="_blank"
          style="font-weight: 400; font-size: 1rem;">Blog Tobazone</a> -->
-      
+
       <div class="loginbutton d-none d-lg-block">
          @guest
          <div class="user-login-info align-content-end">
@@ -306,7 +306,7 @@
    </div>
 </nav>
 
-@else 
+@else
 <nav class="navbar2 navbar-expand-lg navbar-white main">
    <div class="container-fluid custom-container">
    <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -344,7 +344,7 @@
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       </li>
    </ul>
-   </div> 
+   </div>
    <div class="container-fluid custom-container">
 </nav>
 @endrole

@@ -69196,7 +69196,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\n.empty-slide[data-v-85180974]{\n        width: 0%;\n        height: 0px;\n}\n}\n@media (min-width:450px) and (max-width: 767px){\n.empty-slide[data-v-85180974]{\n        width: 0%;\n        height: 0px;\n}\n}\n@media (min-width:768px) and (max-width: 990px){\n.empty-slide[data-v-85180974]{\n        height: 180px;\n        width: 100%!important;\n}\n}\n@media (min-width:991px) and (max-width: 1199px){\n.empty-slide[data-v-85180974]{\n        margin-top: 5px;\n        height: 23em;\n        width: 100%!important;\n}\n}\n@media (min-width:1200px){\n.empty-slide[data-v-85180974]{\n        margin-top: 20px;\n        height: 25em;\n        width: 100%!important;\n}\n}\n", ""]);
+exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\n.empty-slide[data-v-85180974]{\n        width: 0%;\n        height: 0px;\n}\n}\n@media (min-width:450px) and (max-width: 767px){\n.empty-slide[data-v-85180974]{\n        width: 0%;\n        height: 0px;\n}\n}\n@media (min-width:768px) and (max-width: 990px){\n.empty-slide[data-v-85180974]{\n        height: 180px;\n        width: 100%!important;\n}\n}\n@media (min-width:991px) and (max-width: 1199px){\n}\n@media (min-width:1200px){\n.empty-slide[data-v-85180974]{\n        height: 100%;\n        width: 100%;\n}\n}\n", ""]);
 
 // exports
 
@@ -69242,11 +69242,6 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_carousel__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_carousel__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -69412,7 +69407,7 @@ var render = function() {
                 _c("a", { attrs: { href: "/register" } }, [
                   _c("img", {
                     staticClass: "empty-slide",
-                    attrs: { src: "/images/assets/empty_carousel.gif" }
+                    attrs: { src: "/images/carousels/carousel-tobazone-4.png" }
                   })
                 ])
               ])
