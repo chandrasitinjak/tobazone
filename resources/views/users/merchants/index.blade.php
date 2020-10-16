@@ -63,7 +63,10 @@
   </div>
 </div>
 
-
-
+<script>
+  console.log(screen.width);
+  if(screen.width > 200 && screen.width <1000){
+    document.getElementById("product-list").style.display = "none";
+  }
 </script>
 @endsection
