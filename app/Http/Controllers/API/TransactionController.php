@@ -120,7 +120,7 @@ class TransactionController extends Controller
             "senderName" => $request->name,
         ]);
         $payment->status = 'paid';
-        $transaction->status = 'acceptedBySystem';
+        $transaction->status = 'waitForVerified';
 
         $payment->update();
         $transaction->update();
