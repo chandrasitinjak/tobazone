@@ -15,10 +15,28 @@ class HomestayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function findAll()
     {
         $homestays = Homestay::All();
-        return $homestays;
+        $data = [
+            'code' => 200,
+            'status' => 'OK',
+            'data' => [
+                $homestays
+            ]
+        ];
+        return view('users.merchants.homestays.index')->with('homestays', $homestays);
+    }
+
+    public function store(Request $request){
+        $this->validate($request, [
+            'job' => 'required',
+            'machine' => 'required'
+        ]); 
+    }
+
+    public function createDataPage(){
+     return view('users.merchants.homestays.index');
     }
 
 
