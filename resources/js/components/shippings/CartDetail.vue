@@ -165,9 +165,9 @@
 
                 if (address == null) {
                     address = this.addres;
-                    console.log(address);
+                    // console.log(address);
                 } else {
-                    console.log(address);
+                    // console.log(address);
                 }
 
                 await Promise.all(

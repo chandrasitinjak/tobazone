@@ -141,7 +141,7 @@
                         })
                         .catch(err => {
                             // console.log(err);
-                            alert(err);
+                            alert("Transaction Error");
                         });
                 }
             }
