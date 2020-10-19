@@ -84758,6 +84758,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ["userId"],
@@ -84851,7 +84855,8 @@ var render = function() {
                       transaction.status === "acceptedByAdmin" ||
                       transaction.status === "acceptedByMerchant" ||
                       transaction.status === "acceptedBySystem" ||
-                      transaction.status === "readyForProcess"
+                      transaction.status === "readyForProcess" ||
+                      transaction.status === "waitForVerified"
                         ? _c("div", { staticClass: "row" }, [
                             _c("div", { staticClass: "col-12" }, [
                               _c(
@@ -84959,7 +84964,7 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                                        Barang dalam pengirima\n                                                        "
+                                                    "\n                                                        Barang dalam pengiriman\n                                                        "
                                                   ),
                                                   _c(
                                                     "a",
@@ -84980,6 +84985,24 @@ var render = function() {
                                                         "\n                                                            Lacak Pengiriman\n                                                        "
                                                       )
                                                     ]
+                                                  )
+                                                ]
+                                              )
+                                            : transaction.status ===
+                                              "waitForVerified"
+                                            ? _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "alert alert-warning p-1",
+                                                  staticStyle: {
+                                                    "font-size": "x-small"
+                                                  },
+                                                  attrs: { role: "alert" }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                                        Sudah mengirim bukti pembayaran, menunggu verifikasi\n                                                    "
                                                   )
                                                 ]
                                               )
@@ -86101,7 +86124,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var withParams = Object({"NODE_ENV":"development"}).BUILD === 'web' ? __webpack_require__(282).withParams : __webpack_require__(23).withParams;
+var withParams = Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).BUILD === 'web' ? __webpack_require__(282).withParams : __webpack_require__(23).withParams;
 var _default = withParams;
 exports.default = _default;
 

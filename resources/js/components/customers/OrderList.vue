@@ -40,7 +40,7 @@
                             aria-labelledby="pesananbaru-tab"
                         >
                             <div class="detailorder mt-2" v-for="transaction in transactions">
-                                <div class="row" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByAdmin' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedBySystem' || transaction.status === 'readyForProcess'">
+                                <div class="row" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByAdmin' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedBySystem' || transaction.status === 'readyForProcess' || transaction.status === 'waitForVerified'">
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header" style="background-color: #f1f1f1">
@@ -69,10 +69,14 @@
                                                         </div>
 
                                                         <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'readyForProcess' && transaction.shipping_number !== null">
-                                                            Barang dalam pengirima
+                                                            Barang dalam pengiriman
                                                             <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'" class="btn btn-sm btn-outline-action ml-30">
                                                                 Lacak Pengiriman
                                                             </a>
+                                                        </div>
+
+                                                        <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'waitForVerified'">
+                                                            Sudah mengirim bukti pembayaran, menunggu verifikasi
                                                         </div>
 
                                                         <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'acceptedByMerchant'">
