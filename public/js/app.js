@@ -83298,6 +83298,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ["userId"],
@@ -83411,14 +83426,22 @@ var render = function() {
                                       _vm._m(2, true),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "row detail" }, [
-                                        _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("div", { staticClass: "col-sm-2" }, [
                                           _vm._v(_vm._s(transaction.created_at))
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "col-sm-1" }, [
+                                          _vm._v(
+                                            _vm._s(
+                                              transaction.merchant.profile.name
+                                            )
+                                          )
                                         ]),
                                         _vm._v(" "),
                                         _c(
                                           "div",
                                           {
-                                            staticClass: "col-sm-3 bold",
+                                            staticClass: "col-sm-2 bold",
                                             staticStyle: { color: "orangered" }
                                           },
                                           [
@@ -83445,7 +83468,7 @@ var render = function() {
                                           )
                                         ]),
                                         _vm._v(" "),
-                                        _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("div", { staticClass: "col-sm-4" }, [
                                           transaction.status === "pending" ||
                                           transaction.status ===
                                             "acceptedByMerchant" ||
@@ -83463,7 +83486,7 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                                        Menunggu Pembayaran\n                                                        "
+                                                    "\n                                                        MenunggUnu Pembayaran\n                                                        "
                                                   ),
                                                   _c(
                                                     "a",
@@ -83691,6 +83714,14 @@ var render = function() {
                                                                 )
                                                               ]
                                                             ),
+                                                            _vm._v(
+                                                              "\n                                                  pesanan               >Rp " +
+                                                                _vm._s(
+                                                                  _vm.formatPrice(
+                                                                    order.price
+                                                                  )
+                                                                )
+                                                            ),
                                                             _vm._v(" "),
                                                             _c("br"),
                                                             _vm._v(" "),
@@ -83700,6 +83731,36 @@ var render = function() {
                                                                   _vm._s(
                                                                     order.quantity
                                                                   )
+                                                              )
+                                                            ])
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-sm-3 col-xs-12"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "address"
+                                                          },
+                                                          [
+                                                            _c("h6", [
+                                                              _vm._v("Alamat ")
+                                                            ]),
+                                                            _vm._v(" "),
+                                                            _c("p", [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  transaction.address
+                                                                )
                                                               )
                                                             ])
                                                           ]
@@ -83761,14 +83822,22 @@ var render = function() {
                                       _vm._m(3, true),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "row detail" }, [
-                                        _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("div", { staticClass: "col-sm-2" }, [
                                           _vm._v(_vm._s(transaction.created_at))
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "col-sm-1" }, [
+                                          _vm._v(
+                                            _vm._s(
+                                              transaction.merchant.profile.name
+                                            )
+                                          )
                                         ]),
                                         _vm._v(" "),
                                         _c(
                                           "div",
                                           {
-                                            staticClass: "col-sm-3 bold",
+                                            staticClass: "col-sm-2 bold",
                                             staticStyle: { color: "orangered" }
                                           },
                                           [
@@ -83795,7 +83864,7 @@ var render = function() {
                                           )
                                         ]),
                                         _vm._v(" "),
-                                        _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("div", { staticClass: "col-sm-4" }, [
                                           transaction.status ===
                                           "rejectedByAdmin"
                                             ? _c(
@@ -84023,6 +84092,38 @@ var render = function() {
                                                               ]
                                                             )
                                                           ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-sm-4 col-xs-12"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "address"
+                                                              },
+                                                              [
+                                                                _c("h6", [
+                                                                  _vm._v(
+                                                                    "Alamat "
+                                                                  )
+                                                                ]),
+                                                                _vm._v(" "),
+                                                                _c("p", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      transaction.address
+                                                                    )
+                                                                  )
+                                                                ])
+                                                              ]
+                                                            )
+                                                          ]
                                                         )
                                                       ]
                                                     )
@@ -84174,21 +84275,23 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row text-muted" }, [
-      _c("div", { staticClass: "col-sm-3 small" }, [
+      _c("div", { staticClass: "col-sm-2 small" }, [
         _vm._v("Tanggal Transaksi")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3 small" }, [
+      _c("div", { staticClass: "col-sm-1 small" }, [_vm._v("Nama Toko")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2 small" }, [
         _vm._v("Total pembayaran")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-1 deta" }, [_vm._v("Kurir")]),
+      _c("div", { staticClass: "col-sm-1 small" }, [_vm._v("Kurir")]),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-2 small" }, [
-        _vm._v("No Resi Pembayaran")
+        _vm._v("No Resi Pengiriman")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3 small" }, [_vm._v("Status")])
+      _c("div", { staticClass: "col-sm-4 small" }, [_vm._v("Status")])
     ])
   },
   function() {
@@ -84196,21 +84299,23 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row text-muted" }, [
-      _c("div", { staticClass: "col-sm-3 small" }, [
+      _c("div", { staticClass: "col-sm-2 small" }, [
         _vm._v("Tanggal Transaksi")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3 small" }, [
+      _c("div", { staticClass: "col-sm-1 small" }, [_vm._v("Nama Toko")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2 small" }, [
         _vm._v("Total pembayaran")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-1 deta" }, [_vm._v("Kurir")]),
+      _c("div", { staticClass: "col-sm-1 small" }, [_vm._v("Kurir")]),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-2 small" }, [
-        _vm._v("No Resi Pembayaran")
+        _vm._v("No Resi Pengiriman")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3 small" }, [_vm._v("Status")])
+      _c("div", { staticClass: "col-sm-4 small" }, [_vm._v("Status")])
     ])
   }
 ]
@@ -84309,7 +84414,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -84327,6 +84432,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__eventBus__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Spinner__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Spinner__);
+//
+//
+//
+//
 //
 //
 //
@@ -85631,6 +85740,27 @@ var render = function() {
                             _vm._v(" "),
                             _c("h4", { staticStyle: { display: "inline" } }, [
                               _vm._v("1060012275478")
+                            ]),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(
+                              "a/n Ruth Elvin Harianja\n                    "
+                            ),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c("img", {
+                              staticStyle: {
+                                height: "70px",
+                                display: "inline"
+                              },
+                              attrs: {
+                                src: "/images/assets/gopaydanaovo.png",
+                                alt: ""
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("h4", { staticStyle: { display: "inline" } }, [
+                              _vm._v("081264866529")
                             ]),
                             _vm._v(" "),
                             _c("br"),
