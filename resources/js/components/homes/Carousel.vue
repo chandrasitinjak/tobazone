@@ -34,7 +34,7 @@
       :perPageCustom="[[0, 1], [991.88, 1]]"
     >
       <slide class="px-0">
-        <a href="/register"><img src="/images/assets/empty_carousel.gif" style="" class="empty-slide"></a>
+        <a href="/register"><img src="/images/carousels/carousel-tobazone-4.png" style="" class="empty-slide"></a>
       </slide>
     </Carousel>
   </div>
@@ -61,17 +61,12 @@
 
     }
     @media (min-width:991px) and (max-width: 1199px){
-        .empty-slide{
-            margin-top: 5px;
-            height: 23em;
-            width: 100%!important;
-        }
+
     }
     @media (min-width:1200px){
         .empty-slide{
-            margin-top: 20px;
-            height: 25em;
-            width: 100%!important;
+            height: 100%;
+            width: 100%;
         }
     }
 </style>

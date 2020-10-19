@@ -42,7 +42,7 @@ class TransactionController extends Controller
     }
 
     public function getPaidOrder() {
-        $transactions = Transaction::with('orders')->whereIn('status', ['paid', 'acceptedBySystem'])->get();
+        $transactions = Transaction::with('orders')->whereIn('status', ['paid', 'acceptedBySystem', 'waitForVerified'])->get();
         return view('admin.orders.paid-order')->with('transactions', $transactions);
     }
 

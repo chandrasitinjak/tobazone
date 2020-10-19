@@ -33,12 +33,8 @@
                     <img src="{{ url('/images/'.json_decode($dasa['product']->images)[0]) }}" alt="" style="height:7rem;width:11rem">
                 </td>            
                 <td><center><a href="{{ url('/products/'.$dasa['product']->id) }}"><button class="btn btn-info">Beli</button></center></a></td>
-                <td><center>
-                   
-                <!-- <form action="{{ url('/wishlist/'.$dasa->id.'/delete') }}" method="POST">
-                    @csrf
- </form> -->
-
+                
+                <td><center>                   
                     <button type="submit" class="btn btn-danger" onclick="parsingId({{$dasa->id}})" data-toggle="modal" data-target="#deleteConfirmation">Hapus</button>
                    
                     <div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
