@@ -76035,7 +76035,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -76046,6 +76046,22 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -76450,7 +76466,7 @@ var render = function() {
                                 transaction.shipping_number === null
                                   ? _c(
                                       "div",
-                                      { staticClass: "quantity col-md-5" },
+                                      { staticClass: "quantity col-md-12" },
                                       [
                                         _c("div", { staticClass: "row" }, [
                                           _c(
@@ -76495,6 +76511,46 @@ var render = function() {
                                               }
                                             },
                                             [_vm._v("Tolak")]
+                                          )
+                                        ])
+                                      ]
+                                    )
+                                  : transaction.shipping_number != null
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "quantity col-md-12" },
+                                      [
+                                        _c("div", { staticClass: "row" }, [
+                                          _c("p", [
+                                            _vm._v(
+                                              " " +
+                                                _vm._s(
+                                                  transaction.shipping_number
+                                                ) +
+                                                " "
+                                            )
+                                          ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "row" }, [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-success btn-sm mb-2",
+                                              attrs: {
+                                                "data-toggle": "modal",
+                                                "data-target": "#resiModal"
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  _vm.updateSelectedId(
+                                                    transaction.id
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [_vm._v("Ubah no resi")]
                                           )
                                         ])
                                       ]
