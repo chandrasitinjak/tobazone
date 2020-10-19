@@ -28,6 +28,11 @@ class HomestayController extends Controller
         return view('users.merchants.homestays.index')->with('homestays', $homestays);
     }
 
+    public function findById($id){
+        $detail = Homestay::find($id);
+        return view('users.merchants.homestays.detail')->with('homestays', $detail);
+    }
+
     public function store(Request $request){
         $this->validate($request, [
             'job' => 'required',

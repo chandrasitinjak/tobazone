@@ -195,3 +195,4 @@ Route::get('/carabayar', 'QnAController@showi');
 //homestays
 
 Route::get('/homestays', 'HomestayController@findAll');
+Route::get('/homestays/{id}', 'HomestayController@findById');
