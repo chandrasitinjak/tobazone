@@ -119,6 +119,9 @@
                                 :class="{'is-invalid':$v.selectedBank.$error, 'is-valid':!$v.selectedBank.$invalid }">
                                   <!-- <option value="BRI">BRI</option> -->
                                   <option value="MANDIRI">MANDIRI</option>
+                                    <option value="OVO">OVO</option>
+                                    <option value="DANA">DANA</option>
+                                    <option value="GOPAY">GOPAY</option>
                                   <!-- <option value="BNI">BNI</option>
                                   <option value="BCA">BCA</option> -->
                                 </select>
