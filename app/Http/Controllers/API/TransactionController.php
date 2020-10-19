@@ -89,7 +89,7 @@ class TransactionController extends Controller
     }
 
     public function getCustomerTransaction($id) {
-        $transaction = Transaction::with(['orders', 'orders.product', 'payment'])
+        $transaction = Transaction::with(['orders', 'orders.product', 'payment','merchant.profile'])
             //   ->withTrashed()
             ->where('customer_id', $id)
             ->orderBy('created_at', 'desc')
@@ -99,12 +99,14 @@ class TransactionController extends Controller
     }
 
     public function getTransaction($userId, $tranId) {
-        $transaction = Transaction::with(['customer', 'customer.profile', 'payment'])
+            $transaction = Transaction::with(['customer', 'customer.profile', 'payment'])
+
             ->where('customer_id', $userId)
             ->where('id', $tranId)
             ->first();
         return response()->json($transaction);
     }
+
 
     public function updateProofOfPayment(Request $request, $id) {
         $image = $request->file('image');
