@@ -1,4 +1,4 @@
-@extends('users.layouts.app') 
+@extends('users.layouts.appPenginapan') 
 @section('title') {{ "Homestays" }}
 @endsection
  
