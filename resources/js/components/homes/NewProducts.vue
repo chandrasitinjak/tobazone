@@ -22,6 +22,7 @@
 
                   <div v-if="userId == null">
                   <p class="card-text float-right">
+
                      <small class="text-muted"> {{ product.merchant.profile.name }}</small>
                   </p>
                   </div>
@@ -110,7 +111,7 @@ export default {
             productId: id_product,
             userId: this.userId
           };
-        
+
       // await window.axios.post("/api/wishlists", payload).then(res => {
         window.axios.post("/api/wishlist", payload)
             .then(() => {
@@ -131,11 +132,11 @@ export default {
     async getAllMyWishList() {
       await window.axios.get("/api/customer/"+this.userId+"/wishlists/")
         .then(res => {
-            this.data = res.data;            
+            this.data = res.data;
             var i;
-            for(i=0; i<this.data.length; i++) {                
+            for(i=0; i<this.data.length; i++) {
                 this.id_producs[i] = this.data[i].product_id;
-            }            
+            }
         })
     },
 
