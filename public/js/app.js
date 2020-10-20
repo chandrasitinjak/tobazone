@@ -83649,7 +83649,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -83941,8 +83941,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("SPINNER", true);
       window.axios.get("/api/transaction/" + this.transactionId + "/tracking").then(function (res) {
         _this.transaction = res.data.transaction;
-        _this.trackings = res.data.tracking.rajaongkir.result.manifest;
-        _this.updateStatus(res.data.tracking.rajaongkir.result.delivered);
+        // this.trackings = res.data.tracking.rajaongkir.result.manifest;          
+        // this.updateStatus(res.data.tracking.rajaongkir.result.delivered);
+
+        _this.trackings = res.data.tracking.data.history;
+
+        if (res.data.tracking.data.summary.status === "DELIVERED") {
+          var delivered = true;
+          _this.updateStatus(delivered);
+        }
+
         __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("SPINNER", false);
       }).catch(function (err) {
         if (err.response.status === 500) {
@@ -84674,19 +84682,9 @@ var render = function() {
                                   "tbody",
                                   _vm._l(_vm.trackings, function(tracking) {
                                     return _c("tr", { staticClass: "light" }, [
-                                      _c("td", [
-                                        _vm._v(
-                                          _vm._s(tracking.manifest_description)
-                                        )
-                                      ]),
+                                      _c("td", [_vm._v(_vm._s(tracking.desc))]),
                                       _vm._v(" "),
-                                      _c("td", [
-                                        _vm._v(
-                                          _vm._s(tracking.manifest_date) +
-                                            " " +
-                                            _vm._s(tracking.manifest_time)
-                                        )
-                                      ])
+                                      _c("td", [_vm._v(_vm._s(tracking.date))])
                                     ])
                                   })
                                 )
