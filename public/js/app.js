@@ -81627,7 +81627,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -81647,6 +81647,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -81872,15 +81876,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                                 if (address == null) {
                                     address = this.addres;
-                                    console.log(address);
+                                    // console.log(address);
                                 } else {
-                                    console.log(address);
-                                }
+                                        // console.log(address);
+
+                                    }
 
                                 _context5.next = 6;
                                 return Promise.all(this.merchants.map(function () {
                                     var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(merchant) {
-                                        var shippingCost, courier_used, estimasi_waktu, courier_code, payload;
+                                        var shippingCost, courier_used, estimasi_waktu, courier_code, all_shipping, payload;
                                         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
                                             while (1) {
                                                 switch (_context4.prev = _context4.next) {
@@ -81889,6 +81894,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                                         courier_used = "";
                                                         estimasi_waktu = "";
                                                         courier_code = "";
+                                                        all_shipping = [];
                                                         payload = {
                                                             origin: merchant.address.subdistrict_id,
                                                             originType: "subdistrict",
@@ -81902,18 +81908,90 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
                                                         __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
-                                                        _context4.next = 8;
+                                                        _context4.next = 9;
                                                         return window.axios.post("/api/shippingcost", payload).then(function (res) {
 
                                                             var len_data = res.data.rajaongkir.results.length;
                                                             var i;
+                                                            var check_1 = false;
                                                             for (i = 0; i < len_data; i++) {
-                                                                if (res.data.rajaongkir.results[i].costs.length != 0) {
-                                                                    shippingCost = res.data.rajaongkir.results[i].costs[0].cost[0].value;
-                                                                    estimasi_waktu = res.data.rajaongkir.results[i].costs[0].cost[0].etd;
-                                                                    courier_used = res.data.rajaongkir.results[i].name;
-                                                                    courier_code = res.data.rajaongkir.results[i].code;
-                                                                    break;
+                                                                var temp = res.data.rajaongkir.results[i];
+                                                                if (temp.costs.length !== 0) {
+                                                                    if (!check_1) {
+                                                                        shippingCost = temp.costs[0].cost[0].value;
+                                                                        estimasi_waktu = temp.costs[0].cost[0].etd;
+                                                                        courier_used = temp.name;
+                                                                        courier_code = temp.code;
+                                                                        check_1 = true;
+                                                                    }
+                                                                    var cost = function cost() {
+                                                                        var chose = false;
+                                                                        var cst = 0;
+                                                                        var etd = "";
+                                                                        var _iteratorNormalCompletion = true;
+                                                                        var _didIteratorError = false;
+                                                                        var _iteratorError = undefined;
+
+                                                                        try {
+                                                                            for (var _iterator = temp.costs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                                                                                var _i = _step.value;
+                                                                                var _iteratorNormalCompletion2 = true;
+                                                                                var _didIteratorError2 = false;
+                                                                                var _iteratorError2 = undefined;
+
+                                                                                try {
+                                                                                    for (var _iterator2 = _i.cost[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                                                                                        var j = _step2.value;
+
+                                                                                        if (!chose) {
+                                                                                            chose = true;
+                                                                                            cst = j.value;
+                                                                                            etd = j.etd;
+                                                                                            continue;
+                                                                                        }
+                                                                                        if (cst > j.value) {
+                                                                                            cst = j.value;
+                                                                                            etd = j.etd;
+                                                                                        }
+                                                                                    }
+                                                                                } catch (err) {
+                                                                                    _didIteratorError2 = true;
+                                                                                    _iteratorError2 = err;
+                                                                                } finally {
+                                                                                    try {
+                                                                                        if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                                                                                            _iterator2.return();
+                                                                                        }
+                                                                                    } finally {
+                                                                                        if (_didIteratorError2) {
+                                                                                            throw _iteratorError2;
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        } catch (err) {
+                                                                            _didIteratorError = true;
+                                                                            _iteratorError = err;
+                                                                        } finally {
+                                                                            try {
+                                                                                if (!_iteratorNormalCompletion && _iterator.return) {
+                                                                                    _iterator.return();
+                                                                                }
+                                                                            } finally {
+                                                                                if (_didIteratorError) {
+                                                                                    throw _iteratorError;
+                                                                                }
+                                                                            }
+                                                                        }
+
+                                                                        return { cost: cst, etd: etd };
+                                                                    };
+
+                                                                    all_shipping.push({
+                                                                        cost_shipping: cost(),
+                                                                        shipping_name: temp.name,
+                                                                        shipping_code: temp.code
+                                                                    });
                                                                 }
                                                             }
                                                         }).catch(function (error) {
@@ -81922,14 +82000,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                                             alert("Terjadi Kesalahan, Reload Halaman");
                                                         });
 
-                                                    case 8:
+                                                    case 9:
 
                                                         merchant.totalShippingCost = shippingCost;
                                                         merchant.courier_used = courier_used;
                                                         merchant.estimate_waktu = estimasi_waktu;
                                                         merchant.courier_code = courier_code;
+                                                        merchant.all_shipping = all_shipping;
 
-                                                    case 12:
+                                                    case 14:
                                                     case "end":
                                                         return _context4.stop();
                                                 }
@@ -82211,7 +82290,10 @@ var render = function() {
                   [
                     _vm._v(
                       "Rp " +
-                        _vm._s(_vm.formatPrice(cart.product.price * cart.total))
+                        _vm._s(
+                          _vm.formatPrice(cart.product.price * cart.total)
+                        ) +
+                        "\n                "
                     )
                   ]
                 )
@@ -82334,7 +82416,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -82411,62 +82493,90 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["userId"],
-  data: function data() {
-    return {
-      merchants: [],
-      finalPaymentDetail: null,
-      disable: false,
-      cek: 0
-    };
-  },
-
-  methods: {
-    formatPrice: function formatPrice(value) {
-      var val = (value / 1).toFixed().replace('.', ',');
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    props: ["userId"],
+    data: function data() {
+        return {
+            merchants: [],
+            finalPaymentDetail: null,
+            disable: false,
+            cek: 0,
+            kurir: []
+        };
     },
-    registerListener: function registerListener() {
-      var _this = this;
 
-      __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on("MERCHANT_LIST", function (merchants) {
-        _this.merchants = merchants;
-        // console.log(this.merchants);
-      });
+    methods: {
+        formatPrice: function formatPrice(value) {
+            var val = (value / 1).toFixed().replace('.', ',');
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        },
+        registerListener: function registerListener() {
+            var _this = this;
 
-      __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on("FINAL_TRANSACTION_DETAIL", function (finalPaymentDetail) {
-        _this.finalPaymentDetail = finalPaymentDetail;
-        // console.log(this.finalPaymentDetail);      
-      });
+            __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on("MERCHANT_LIST", function (merchants) {
+                _this.merchants = merchants;
+                // console.log(this.merchants);
+            });
+
+            __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on("FINAL_TRANSACTION_DETAIL", function (finalPaymentDetail) {
+                _this.finalPaymentDetail = finalPaymentDetail;
+            });
+        },
+        changeKurir: function changeKurir(id, idx) {
+            this.merchants[id].totalShippingCost = this.merchants[id].all_shipping[idx].cost_shipping.cost;
+            this.merchants[id].estimate_waktu = this.merchants[id].all_shipping[idx].cost_shipping.etd;
+            this.merchants[id].courier_code = this.merchants[id].all_shipping[idx].shipping_code;
+            this.merchants[id].courier_used = this.merchants[id].all_shipping[idx].shipping_name;
+            this.finalPaymentDetail.merchants[id] = this.merchants[id];
+            // console.log(this.finalPaymentDetail.merchants[id])
+        },
+        createOrder: function createOrder() {
+            var _this2 = this;
+
+            //  this. registerListener();
+
+            if (this.cek === 1) {} else {
+                this.disable = true;
+
+                window.axios.post("/api/transactions", this.finalPaymentDetail).then(function (res) {
+                    if (_this2.finalPaymentDetail['merchants'].length == 1) {
+                        window.location = "/customer/transactions/" + res.data.id;
+                    } else {
+                        window.location = "/customer/" + _this2.userId + "/orders";
+                    }
+                }).catch(function (err) {
+                    // console.log(err);
+                    alert("Transaction Error");
+                });
+            }
+        }
     },
-    createOrder: function createOrder() {
-      var _this2 = this;
-
-      //  this. registerListener();
-
-      if (this.cek == 1) {} else {
-        this.disable = true;
-
-        window.axios.post("/api/transactions", this.finalPaymentDetail).then(function (res) {
-          if (_this2.finalPaymentDetail['merchants'].length == 1) {
-            window.location = "/customer/transactions/" + res.data.id;
-          } else {
-            window.location = "/customer/" + _this2.userId + "/orders";
-          }
-        }).catch(function (err) {
-          // console.log(err);
-          alert(err);
-        });
-      }
+    mounted: function mounted() {
+        this.registerListener();
     }
-  },
-  mounted: function mounted() {
-    this.registerListener();
-  }
 });
 
 /***/ }),
@@ -82490,7 +82600,7 @@ var render = function() {
         "div",
         { staticClass: "card-body" },
         [
-          _vm._l(_vm.merchants, function(merchant) {
+          _vm._l(_vm.merchants, function(merchant, id) {
             return _c("div", [
               _c("div", [
                 _c("span", { staticStyle: { color: "white" } }, [
@@ -82516,6 +82626,63 @@ var render = function() {
                   _vm._v(
                     "Rp. " + _vm._s(_vm.formatPrice(merchant.totalProductCost))
                   )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("span", {}, [
+                  _c("div", { staticClass: "btn-group btn-block" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "btn btn-sm btn-block btn-primary dropdown-toggle",
+                        attrs: {
+                          type: "button",
+                          "data-toggle": "dropdown",
+                          "aria-haspopup": "true",
+                          "aria-expanded": "false"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Pilih Kurir\n                        "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "dropdown-menu" },
+                      _vm._l(merchant.all_shipping, function(cost, idx) {
+                        return _c(
+                          "button",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeKurir(id, idx)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(cost.shipping_name) +
+                                ": Rp." +
+                                _vm._s(
+                                  _vm.formatPrice(cost.cost_shipping.cost)
+                                ) +
+                                " (" +
+                                _vm._s(cost.cost_shipping.etd) +
+                                ")"
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ])
                 ])
               ]),
               _vm._v(" "),
@@ -82549,7 +82716,7 @@ var render = function() {
                   margin: "10px 0px 10px 0px"
                 }
               }),
-              _vm._v("Total Pembayaran\n      "),
+              _vm._v("\n            Total Pembayaran\n            "),
               _c(
                 "div",
                 {
@@ -82563,10 +82730,24 @@ var render = function() {
                         _vm.formatPrice(
                           merchant.totalProductCost + merchant.totalShippingCost
                         )
-                      )
+                      ) +
+                      "\n            "
                   )
                 ]
               ),
+              _vm._v(" "),
+              _c("div", [
+                _c("span", [_vm._v("Kurir")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "float-right font-weight-bold" }, [
+                  _vm._v(
+                    _vm._s(merchant.courier_used) +
+                      "(" +
+                      _vm._s(merchant.estimate_waktu) +
+                      ")"
+                  )
+                ])
+              ]),
               _vm._v(" "),
               _vm.merchants.length > 1 ? _c("div", [_c("br")]) : _vm._e()
             ])
@@ -82585,7 +82766,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Bayar")]
+              [_vm._v("Bayar\n            ")]
             )
           ])
         ],
@@ -83790,7 +83971,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -83801,6 +83982,22 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -84206,7 +84403,7 @@ var render = function() {
                                 transaction.shipping_number === null
                                   ? _c(
                                       "div",
-                                      { staticClass: "quantity col-md-5" },
+                                      { staticClass: "quantity col-md-12" },
                                       [
                                         _c("div", { staticClass: "row" }, [
                                           _c(
@@ -84251,6 +84448,46 @@ var render = function() {
                                               }
                                             },
                                             [_vm._v("Tolak")]
+                                          )
+                                        ])
+                                      ]
+                                    )
+                                  : transaction.shipping_number != null
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "quantity col-md-12" },
+                                      [
+                                        _c("div", { staticClass: "row" }, [
+                                          _c("p", [
+                                            _vm._v(
+                                              " " +
+                                                _vm._s(
+                                                  transaction.shipping_number
+                                                ) +
+                                                " "
+                                            )
+                                          ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "row" }, [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-success btn-sm mb-2",
+                                              attrs: {
+                                                "data-toggle": "modal",
+                                                "data-target": "#resiModal"
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.updateSelectedId(
+                                                    transaction.id
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [_vm._v("Ubah no resi")]
                                           )
                                         ])
                                       ]
@@ -84762,6 +84999,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ["userId"],
@@ -84875,14 +85127,22 @@ var render = function() {
                                       _vm._m(2, true),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "row detail" }, [
-                                        _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("div", { staticClass: "col-sm-2" }, [
                                           _vm._v(_vm._s(transaction.created_at))
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "col-sm-1" }, [
+                                          _vm._v(
+                                            _vm._s(
+                                              transaction.merchant.profile.name
+                                            )
+                                          )
                                         ]),
                                         _vm._v(" "),
                                         _c(
                                           "div",
                                           {
-                                            staticClass: "col-sm-3 bold",
+                                            staticClass: "col-sm-2 bold",
                                             staticStyle: { color: "orangered" }
                                           },
                                           [
@@ -84909,7 +85169,7 @@ var render = function() {
                                           )
                                         ]),
                                         _vm._v(" "),
-                                        _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("div", { staticClass: "col-sm-4" }, [
                                           transaction.status === "pending" ||
                                           transaction.status ===
                                             "acceptedByMerchant" ||
@@ -84927,7 +85187,7 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                                        Menunggu Pembayaran\n                                                        "
+                                                    "\n                                                        MenunggUnu Pembayaran\n                                                        "
                                                   ),
                                                   _c(
                                                     "a",
@@ -85155,6 +85415,14 @@ var render = function() {
                                                                 )
                                                               ]
                                                             ),
+                                                            _vm._v(
+                                                              "\n                                                  pesanan               >Rp " +
+                                                                _vm._s(
+                                                                  _vm.formatPrice(
+                                                                    order.price
+                                                                  )
+                                                                )
+                                                            ),
                                                             _vm._v(" "),
                                                             _c("br"),
                                                             _vm._v(" "),
@@ -85164,6 +85432,36 @@ var render = function() {
                                                                   _vm._s(
                                                                     order.quantity
                                                                   )
+                                                              )
+                                                            ])
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "col-sm-3 col-xs-12"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "address"
+                                                          },
+                                                          [
+                                                            _c("h6", [
+                                                              _vm._v("Alamat ")
+                                                            ]),
+                                                            _vm._v(" "),
+                                                            _c("p", [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  transaction.address
+                                                                )
                                                               )
                                                             ])
                                                           ]
@@ -85225,14 +85523,22 @@ var render = function() {
                                       _vm._m(3, true),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "row detail" }, [
-                                        _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("div", { staticClass: "col-sm-2" }, [
                                           _vm._v(_vm._s(transaction.created_at))
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "col-sm-1" }, [
+                                          _vm._v(
+                                            _vm._s(
+                                              transaction.merchant.profile.name
+                                            )
+                                          )
                                         ]),
                                         _vm._v(" "),
                                         _c(
                                           "div",
                                           {
-                                            staticClass: "col-sm-3 bold",
+                                            staticClass: "col-sm-2 bold",
                                             staticStyle: { color: "orangered" }
                                           },
                                           [
@@ -85259,7 +85565,7 @@ var render = function() {
                                           )
                                         ]),
                                         _vm._v(" "),
-                                        _c("div", { staticClass: "col-sm-3" }, [
+                                        _c("div", { staticClass: "col-sm-4" }, [
                                           transaction.status ===
                                           "rejectedByAdmin"
                                             ? _c(
@@ -85487,6 +85793,38 @@ var render = function() {
                                                               ]
                                                             )
                                                           ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-sm-4 col-xs-12"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "address"
+                                                              },
+                                                              [
+                                                                _c("h6", [
+                                                                  _vm._v(
+                                                                    "Alamat "
+                                                                  )
+                                                                ]),
+                                                                _vm._v(" "),
+                                                                _c("p", [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      transaction.address
+                                                                    )
+                                                                  )
+                                                                ])
+                                                              ]
+                                                            )
+                                                          ]
                                                         )
                                                       ]
                                                     )
@@ -85638,21 +85976,23 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row text-muted" }, [
-      _c("div", { staticClass: "col-sm-3 small" }, [
+      _c("div", { staticClass: "col-sm-2 small" }, [
         _vm._v("Tanggal Transaksi")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3 small" }, [
+      _c("div", { staticClass: "col-sm-1 small" }, [_vm._v("Nama Toko")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2 small" }, [
         _vm._v("Total pembayaran")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-1 deta" }, [_vm._v("Kurir")]),
+      _c("div", { staticClass: "col-sm-1 small" }, [_vm._v("Kurir")]),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-2 small" }, [
-        _vm._v("No Resi Pembayaran")
+        _vm._v("No Resi Pengiriman")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3 small" }, [_vm._v("Status")])
+      _c("div", { staticClass: "col-sm-4 small" }, [_vm._v("Status")])
     ])
   },
   function() {
@@ -85660,21 +86000,23 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row text-muted" }, [
-      _c("div", { staticClass: "col-sm-3 small" }, [
+      _c("div", { staticClass: "col-sm-2 small" }, [
         _vm._v("Tanggal Transaksi")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3 small" }, [
+      _c("div", { staticClass: "col-sm-1 small" }, [_vm._v("Nama Toko")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2 small" }, [
         _vm._v("Total pembayaran")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-1 deta" }, [_vm._v("Kurir")]),
+      _c("div", { staticClass: "col-sm-1 small" }, [_vm._v("Kurir")]),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-2 small" }, [
-        _vm._v("No Resi Pembayaran")
+        _vm._v("No Resi Pengiriman")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-3 small" }, [_vm._v("Status")])
+      _c("div", { staticClass: "col-sm-4 small" }, [_vm._v("Status")])
     ])
   }
 ]
@@ -85773,7 +86115,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -85791,6 +86133,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__eventBus__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Spinner__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Spinner__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -87099,6 +87448,27 @@ var render = function() {
                             _vm._v(" "),
                             _c("br"),
                             _vm._v(
+                              "a/n Ruth Elvin Harianja\n                    "
+                            ),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c("img", {
+                              staticStyle: {
+                                height: "70px",
+                                display: "inline"
+                              },
+                              attrs: {
+                                src: "/images/assets/gopaydanaovo.png",
+                                alt: ""
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("h4", { staticStyle: { display: "inline" } }, [
+                              _vm._v("081264866529")
+                            ]),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(
                               "a/n Ruth Elvin Harianja\n                  "
                             ),
                             _c("div", { staticClass: "mt-3 text-muted" }, [
@@ -87420,6 +87790,36 @@ var render = function() {
                                                           }
                                                         },
                                                         [_vm._v("MANDIRI")]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "option",
+                                                        {
+                                                          attrs: {
+                                                            value: "OVO"
+                                                          }
+                                                        },
+                                                        [_vm._v("OVO")]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "option",
+                                                        {
+                                                          attrs: {
+                                                            value: "DANA"
+                                                          }
+                                                        },
+                                                        [_vm._v("DANA")]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "option",
+                                                        {
+                                                          attrs: {
+                                                            value: "GOPAY"
+                                                          }
+                                                        },
+                                                        [_vm._v("GOPAY")]
                                                       )
                                                     ]
                                                   ),

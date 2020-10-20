@@ -31,7 +31,9 @@
                                         Penjual :
                                         <b>
                                             {{ cart.product.merchant.profile.name }},
-                                            {{ JSON.parse(JSON.parse(cart.product.merchant.profile.address)[0]).city_name }}
+                                            {{
+                                            JSON.parse(JSON.parse(cart.product.merchant.profile.address)[0]).city_name
+                                            }}
                                         </b>
                                     </li>
                                 </ul>
@@ -40,7 +42,9 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="float-right h6" style="color: #ff8415">Rp {{formatPrice( cart.product.price * cart.total)}}</div>
+                    <div class="float-right h6" style="color: #ff8415">Rp {{formatPrice( cart.product.price *
+                        cart.total)}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -67,7 +71,7 @@
         },
         methods: {
             formatPrice(value) {
-                let val = (value/1).toFixed().replace('.', ',')
+                let val = (value / 1).toFixed().replace('.', ',')
                 return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
             },
             getProducts() {
@@ -89,7 +93,7 @@
                         let merchantName = cart.product.merchant.profile.name;
                         let merchantAddress = cart.product.merchant.profile.address;
 
-                        let found = merchantNames.find(function(element) {
+                        let found = merchantNames.find(function (element) {
                             return element === merchantName;
                         });
 
@@ -118,7 +122,7 @@
                             });
                         } else {
                             this.merchants.forEach(merchant => {
-                                if(merchant.name === merchantName) {
+                                if (merchant.name === merchantName) {
                                     merchant.totalProductCost += cart.product.price * cart.total;
                                     merchant.totalWeight += cart.total * JSON.parse(cart.product.specification).weight
                                     merchant.products.push(
@@ -159,11 +163,12 @@
 
                 await this.getAddress();
 
-                if(address == null) {
+                if (address == null) {
                     address = this.addres;
-                    console.log(address);
-                }else {
-                    console.log(address);
+                    // console.log(address);
+                } else {
+                    // console.log(address);
+
                 }
 
                 await Promise.all(
@@ -172,6 +177,7 @@
                         let courier_used = "";
                         let estimasi_waktu = "";
                         let courier_code = "";
+                        let all_shipping = []
 
                         const payload = {
                             origin: merchant.address.subdistrict_id,
@@ -189,13 +195,43 @@
 
                             var len_data = res.data.rajaongkir.results.length;
                             var i;
-                            for(i=0; i<len_data; i++) {
-                                if(res.data.rajaongkir.results[i].costs.length != 0) {
-                                    shippingCost = res.data.rajaongkir.results[i].costs[0].cost[0].value;
-                                    estimasi_waktu = res.data.rajaongkir.results[i].costs[0].cost[0].etd;
-                                    courier_used = res.data.rajaongkir.results[i].name;
-                                    courier_code = res.data.rajaongkir.results[i].code;
-                                    break;
+                            var check_1 = false;
+                            for (i = 0; i < len_data; i++) {
+                                var temp = res.data.rajaongkir.results[i];
+                                if (temp.costs.length !== 0) {
+                                    if (!check_1) {
+                                        shippingCost = temp.costs[0].cost[0].value;
+                                        estimasi_waktu = temp.costs[0].cost[0].etd;
+                                        courier_used = temp.name;
+                                        courier_code = temp.code;
+                                        check_1 = true
+                                    }
+                                    var cost = () => {
+                                        var chose = false
+                                        var cst = 0
+                                        var etd = ""
+                                        for (let i of temp.costs) {
+                                            for (let j of i.cost) {
+                                                if (!chose) {
+                                                    chose = true;
+                                                    cst = j.value
+                                                    etd = j.etd
+                                                    continue;
+                                                }
+                                                if (cst > j.value) {
+                                                    cst = j.value
+                                                    etd = j.etd
+                                                }
+                                            }
+                                        }
+                                        return {cost: cst, etd: etd}
+                                    }
+
+                                    all_shipping.push({
+                                        cost_shipping: cost(),
+                                        shipping_name: temp.name,
+                                        shipping_code: temp.code
+                                    })
                                 }
                             }
                         })
@@ -210,6 +246,7 @@
                         merchant.courier_used = courier_used;
                         merchant.estimate_waktu = estimasi_waktu;
                         merchant.courier_code = courier_code;
+                        merchant.all_shipping = all_shipping;
                     })
                 );
 

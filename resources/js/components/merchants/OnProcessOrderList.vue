@@ -68,7 +68,7 @@
                         <!-- <div class="row">
                               <h5><span class="badge badge-info">{{ transaction.courier }}</span></h5>
                           </div>             -->
-                        <div class="quantity col-md-5" v-if="transaction.shipping_number === null">
+                        <div class="quantity col-md-12" v-if="transaction.shipping_number === null">
                                         
                           <div class="row">
                           <button
@@ -87,6 +87,22 @@
                           >Tolak</button>
                             </div>
                         </div>
+
+                        <div class="quantity col-md-12" v-else-if="transaction.shipping_number != null">
+
+                          <div class="row">
+                              <p> {{ transaction.shipping_number }} </p>
+                          </div>      
+                          <div class="row">
+                          <button
+                            class="btn btn-success btn-sm mb-2"                            
+                            data-toggle="modal"
+                            data-target="#resiModal"
+                            v-on:click="updateSelectedId(transaction.id)"
+                          >Ubah no resi</button>
+                            </div>                          
+                        </div>
+
                         <div
                           class="modal fade"
                           id="resiModal"
@@ -115,7 +131,7 @@
                                     <input
                                       type="text"
                                       class="form-control form-control-sm"
-                                      placeholder="Nomor Resi"
+                                      placeholder="Nomor Resi"                                      
                                       v-model="shippingNumber"
                                     >
                                   </div>
