@@ -77473,6 +77473,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
 
 
 
@@ -97544,7 +97545,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\nimg {\n    max-width: 100%;\n    max-height: 100%;\n}\n.portrait {\n    height: 80px;\n    width: 30px;\n}\n.landscape {\n    height: 30px;\n    width: 80px;\n}\n.square {\n    height: 175px;\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -98237,8 +98238,13 @@ var render = function() {
                             "a",
                             { attrs: { href: "/products/" + product.id } },
                             [
-                              _c("div", { staticClass: "imgwrapper" }, [
+                              _c("div", { staticStyle: { height: "250px" } }, [
                                 _c("img", {
+                                  staticStyle: {
+                                    height: "100%",
+                                    width: "100%",
+                                    "object-fit": "cover"
+                                  },
                                   attrs: {
                                     src:
                                       "/images/" +
