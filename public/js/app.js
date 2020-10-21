@@ -69554,213 +69554,216 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: { carousel2: __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default.a, Carousel: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Slide"] },
-  props: ["userId", "title"],
-  data: function data() {
-    return {
-      products: [],
-      datas: "",
-      data: "",
-      id_producs: []
-    };
-  },
-
-  methods: {
-    check_idProd: function check_idProd(id_product) {
-      var len = this.id_producs.length;
-      var i = 0;
-
-      for (i = 0; i < len; i++) {
-        if (id_product == this.id_producs.length[i]) {
-          return 1;
-          break;
-        }
-      }
+    components: { carousel2: __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default.a, Carousel: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Slide"] },
+    props: ["userId", "title"],
+    data: function data() {
+        return {
+            products: [],
+            datas: "",
+            data: "",
+            id_producs: []
+        };
     },
-    checkProduct: function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(id_product) {
-        var _this = this;
 
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return window.axios.get("/api/customer/" + this.userId + "/wishlists/" + id_product).then(function (res) {
-                  _this.datas = res.data;
-                });
+    methods: {
+        check_idProd: function check_idProd(id_product) {
+            var len = this.id_producs.length;
+            var i = 0;
 
-              case 2:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function checkProduct(_x) {
-        return _ref.apply(this, arguments);
-      }
-
-      return checkProduct;
-    }(),
-    addToWishlist: function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(id_product) {
-        var payload;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return this.checkProduct(id_product);
-
-              case 2:
-
-                if (this.datas.length != 0) {
-                  alert("Sudah ada di daftar produk favorit Anda");
-                } else {
-                  payload = {
-                    productId: id_product,
-                    userId: this.userId
-                  };
-
-                  // await window.axios.post("/api/wishlists", payload).then(res => {
-
-                  window.axios.post("/api/wishlist", payload).then(function () {
-                    alert("Berhasil ditambahkan ke daftar produk favorit Anda");
-                  }).catch(function (error) {
-                    console.log(error);
-                  });
+            for (i = 0; i < len; i++) {
+                if (id_product == this.id_producs.length[i]) {
+                    return 1;
+                    break;
                 }
-
-              case 3:
-              case "end":
-                return _context2.stop();
             }
-          }
-        }, _callee2, this);
-      }));
+        },
+        checkProduct: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(id_product) {
+                var _this = this;
 
-      function addToWishlist(_x2) {
-        return _ref2.apply(this, arguments);
-      }
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _context.next = 2;
+                                return window.axios.get("/api/customer/" + this.userId + "/wishlists/" + id_product).then(function (res) {
+                                    _this.datas = res.data;
+                                });
 
-      return addToWishlist;
-    }(),
-    formatPrice: function formatPrice(value) {
-      var val = (value / 1).toFixed().replace('.', ',');
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                            case 2:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkProduct(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkProduct;
+        }(),
+        addToWishlist: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(id_product) {
+                var payload;
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _context2.next = 2;
+                                return this.checkProduct(id_product);
+
+                            case 2:
+
+                                if (this.datas.length != 0) {
+                                    alert("Sudah ada di daftar produk favorit Anda");
+                                } else {
+                                    payload = {
+                                        productId: id_product,
+                                        userId: this.userId
+                                    };
+
+                                    // await window.axios.post("/api/wishlists", payload).then(res => {
+
+                                    window.axios.post("/api/wishlist", payload).then(function () {
+                                        alert("Berhasil ditambahkan ke daftar produk favorit Anda");
+                                    }).catch(function (error) {
+                                        console.log(error);
+                                    });
+                                }
+
+                            case 3:
+                            case "end":
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function addToWishlist(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return addToWishlist;
+        }(),
+        formatPrice: function formatPrice(value) {
+            var val = (value / 1).toFixed().replace('.', ',');
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        },
+        getAllMyWishList: function () {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+                var _this2 = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _context3.next = 2;
+                                return window.axios.get("/api/customer/" + this.userId + "/wishlists/").then(function (res) {
+                                    _this2.data = res.data;
+                                    var i;
+                                    for (i = 0; i < _this2.data.length; i++) {
+                                        _this2.id_producs[i] = _this2.data[i].product_id;
+                                    }
+                                });
+
+                            case 2:
+                            case "end":
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function getAllMyWishList() {
+                return _ref3.apply(this, arguments);
+            }
+
+            return getAllMyWishList;
+        }(),
+        getAllProducts: function () {
+            var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
+                var _this3 = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+                    while (1) {
+                        switch (_context4.prev = _context4.next) {
+                            case 0:
+                                _context4.next = 2;
+                                return window.axios.get("/api/products").then(function (res) {
+                                    _this3.products = res.data;
+                                    // console.log(this.products);
+                                }).catch(function (err) {
+                                    console.log(err);
+                                });
+
+                            case 2:
+                            case "end":
+                                return _context4.stop();
+                        }
+                    }
+                }, _callee4, this);
+            }));
+
+            function getAllProducts() {
+                return _ref4.apply(this, arguments);
+            }
+
+            return getAllProducts;
+        }(),
+        addToCart: function () {
+            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(id) {
+                var _this4 = this;
+
+                var payload;
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+                    while (1) {
+                        switch (_context5.prev = _context5.next) {
+                            case 0:
+                                payload = {
+                                    productId: id,
+                                    total: 1,
+                                    userId: this.userId
+                                };
+                                _context5.next = 3;
+                                return window.axios.post("/api/carts", payload).then(function (res) {
+                                    _this4.emitEvent(res.data);
+                                }).catch(function (err) {
+                                    console.log(err);
+                                });
+
+                            case 3:
+                            case "end":
+                                return _context5.stop();
+                        }
+                    }
+                }, _callee5, this);
+            }));
+
+            function addToCart(_x3) {
+                return _ref5.apply(this, arguments);
+            }
+
+            return addToCart;
+        }(),
+        emitEvent: function emitEvent(data) {
+            __WEBPACK_IMPORTED_MODULE_3__eventBus__["a" /* default */].$emit("CART_UPDATED", data);
+        }
     },
-    getAllMyWishList: function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-        var _this2 = this;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.next = 2;
-                return window.axios.get("/api/customer/" + this.userId + "/wishlists/").then(function (res) {
-                  _this2.data = res.data;
-                  var i;
-                  for (i = 0; i < _this2.data.length; i++) {
-                    _this2.id_producs[i] = _this2.data[i].product_id;
-                  }
-                });
-
-              case 2:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this);
-      }));
-
-      function getAllMyWishList() {
-        return _ref3.apply(this, arguments);
-      }
-
-      return getAllMyWishList;
-    }(),
-    getAllProducts: function () {
-      var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
-        var _this3 = this;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                _context4.next = 2;
-                return window.axios.get("/api/products").then(function (res) {
-                  _this3.products = res.data;
-                  // console.log(this.products);
-                }).catch(function (err) {
-                  console.log(err);
-                });
-
-              case 2:
-              case "end":
-                return _context4.stop();
-            }
-          }
-        }, _callee4, this);
-      }));
-
-      function getAllProducts() {
-        return _ref4.apply(this, arguments);
-      }
-
-      return getAllProducts;
-    }(),
-    addToCart: function () {
-      var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(id) {
-        var _this4 = this;
-
-        var payload;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                payload = {
-                  productId: id,
-                  total: 1,
-                  userId: this.userId
-                };
-                _context5.next = 3;
-                return window.axios.post("/api/carts", payload).then(function (res) {
-                  _this4.emitEvent(res.data);
-                }).catch(function (err) {
-                  console.log(err);
-                });
-
-              case 3:
-              case "end":
-                return _context5.stop();
-            }
-          }
-        }, _callee5, this);
-      }));
-
-      function addToCart(_x3) {
-        return _ref5.apply(this, arguments);
-      }
-
-      return addToCart;
-    }(),
-    emitEvent: function emitEvent(data) {
-      __WEBPACK_IMPORTED_MODULE_3__eventBus__["a" /* default */].$emit("CART_UPDATED", data);
+    mounted: function mounted() {
+        this.getAllMyWishList();
+        this.getAllProducts();
     }
-  },
-  mounted: function mounted() {
-    this.getAllMyWishList();
-    this.getAllProducts();
-  }
 });
 
 /***/ }),
@@ -70603,7 +70606,12 @@ var render = function() {
                                     "max-width": "20ex"
                                   }
                                 },
-                                [_vm._v(_vm._s(product.name))]
+                                [
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(product.name)
+                                  )
+                                ]
                               ),
                               _vm._v(" "),
                               _c("h6", { staticStyle: { color: "#ff5205" } }, [
@@ -70700,11 +70708,11 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn essence-btn",
+                    staticClass: "btn",
                     staticStyle: { "text-decoration-line": "unset" },
                     attrs: { type: "button" }
                   },
-                  [_vm._v(" Lihat Lebih Banyak\n              ")]
+                  [_vm._v(" Muat Lebih Banyak\n                    ")]
                 )
               ])
             ]),
@@ -70724,14 +70732,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c(
-        "nav",
-        {
-          staticClass: "navbar navbar-expand-lg mproduct p-1",
-          staticStyle: { "background-color": "transparent", border: "none" }
-        },
-        [_c("h3", { staticClass: "m-auto" }, [_vm._v("Ragam Produk")])]
-      )
+      _c("h5", { staticClass: "m-auto" }, [_vm._v("Terlaris Bulan Ini")])
     ])
   }
 ]
