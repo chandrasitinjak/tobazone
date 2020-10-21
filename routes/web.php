@@ -133,6 +133,8 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/merchant/{id}/view-profile', 'ProfileController@getMerchantProfile');
 
         Route::get('/merchant/detail-transaction/{id}', 'OrderController@getDetailSuccesOrdersByMerchant');
+        
+        //Homestays
     });
 
     Route::middleware('role:customer')->group(function () {
@@ -189,3 +191,8 @@ Route::get('/carajual', 'QnAController@showj');
 Route::get('/carabayar', 'QnAController@showi');
 
 // Route::get('/food', 'makananController@index');
+
+//homestays
+
+Route::get('/homestays', 'HomestayController@findAll');
+Route::get('/homestays/{id}', 'HomestayController@findById');
