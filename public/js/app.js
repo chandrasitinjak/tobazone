@@ -97689,6 +97689,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['userId'],
@@ -98243,7 +98245,7 @@ var render = function() {
                                   staticStyle: {
                                     height: "100%",
                                     width: "100%",
-                                    "object-fit": "cover"
+                                    "object-fit": "fill"
                                   },
                                   attrs: {
                                     src:
@@ -98413,7 +98415,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "text font-bold" }, [
       _c("br"),
-      _vm._v("\n          Oops, produk tidak ditemukan :(\n        ")
+      _vm._v("\n            Oops, produk tidak ditemukan :(\n          ")
     ])
   }
 ]

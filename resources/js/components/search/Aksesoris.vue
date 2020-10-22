@@ -81,10 +81,12 @@
         <div class="" v-if="products.length>0">
           <div class="row">
             <div v-for="product in products" class="col-6 col-md-2 col-lg-2 px-1">
+<!--                <p>{{JSON.parse(product.images)[0]}}</p>-->
               <div class="card products">
                 <a :href="'/products/' + product.id">
                   <div style="height: 250px">
-                    <img :src="'/images/' + JSON.parse(product.images)[0]" style='height: 100%; width: 100%; object-fit: cover' alt="Card image cap">
+
+                    <img :src="'/images/' + JSON.parse(product.images)[0]" style='height: 100%; width: 100%; object-fit: fill' alt="Card image cap">
                   </div>
                 </a>
                 <div class="card-body">
