@@ -19,9 +19,9 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                 >Kategori</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: 9rem;">                  
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: 9rem;">
                   <a class="dropdown-item" @click="filterProductByCategory('Pria')">Pria</a>
-                  <a class="dropdown-item" @click="filterProductByCategory('Wanita')">Wanita</a>                  
+                  <a class="dropdown-item" @click="filterProductByCategory('Wanita')">Wanita</a>
                   <a class="dropdown-item" @click="filterProductByCategory('')">Semua kategori</a>
                 </div>
               </li>
@@ -51,14 +51,14 @@
                     aria-expanded="false"
                 >Kabupaten</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="left: 22rem;">
-                  <a class="dropdown-item" @click="sortProductByDistrict('Dairi')">Dairi</a>                  
-                  <a class="dropdown-item" @click="sortProductByDistrict('Humbang Hasundutan')">Humbang Hasundutan</a>                  
-                  <a class="dropdown-item" @click="sortProductByDistrict('Karo')">Karo</a>                  
-                  <a class="dropdown-item" @click="sortProductByDistrict('Pakpak Bharat')">Pakpak Bharat</a>                                                                                
+                  <a class="dropdown-item" @click="sortProductByDistrict('Dairi')">Dairi</a>
+                  <a class="dropdown-item" @click="sortProductByDistrict('Humbang Hasundutan')">Humbang Hasundutan</a>
+                  <a class="dropdown-item" @click="sortProductByDistrict('Karo')">Karo</a>
+                  <a class="dropdown-item" @click="sortProductByDistrict('Pakpak Bharat')">Pakpak Bharat</a>
                   <a class="dropdown-item" @click="sortProductByDistrict('Samosir')">Samosir</a>
                   <a class="dropdown-item" @click="sortProductByDistrict('Simalungun')">Simalungun</a>
                   <a class="dropdown-item" @click="sortProductByDistrict('Tapanuli Utara')">Tapanuli Utara</a>
-                  <a class="dropdown-item" @click="sortProductByDistrict('Toba Samosir')">Toba Samosir</a>         
+                  <a class="dropdown-item" @click="sortProductByDistrict('Toba Samosir')">Toba Samosir</a>
                   <a class="dropdown-item" @click="sortProductByDistrict('')">Semua Kabupaten</a>
 
                 </div>
@@ -84,7 +84,7 @@
               <div class="card products">
                 <a :href="'/products/' + product.id">
                   <div class="imgwrapper">
-                    <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap">
+                    <img :src="'/images/' + JSON.parse(product.images)[0]" style='height: 100%; width: 100%; object-fit: cover' alt="Card image cap">
                   </div>
                 </a>
                 <div class="card-body">
@@ -93,15 +93,15 @@
                   <div v-if="userId == null">
                   <p class="card-text float-right">
                      <small class="text-muted"> {{ product.merchant.profile.name }}</small>
-                  </p> 
-                  </div> 
-                  
+                  </p>
+                  </div>
+
                   <div v-if="userId != null">
                     <p class="card-text float-left">
                       <small class="text-muted"> {{ product.merchant.profile.name }}</small>
-                    </p> 
+                    </p>
                     <div>
-                    <button style="border : 0px; background-color: white" class="float-right" v-on:click="addToWishlist(product.id)"> <i class="fa fa-heart-o"></i> </button>                    
+                    <button style="border : 0px; background-color: white" class="float-right" v-on:click="addToWishlist(product.id)"> <i class="fa fa-heart-o"></i> </button>
                     </div>
                   </div>
                 </div>
@@ -136,11 +136,11 @@ export default {
       datas: ""
     };
   },
-  methods: { 
+  methods: {
 
 
-    async checkProduct(id_product) {      
-      
+    async checkProduct(id_product) {
+
       await window.axios.get("/api/customer/"+this.userId+"/wishlists/"+id_product)
         .then(res => {
             this.datas = res.data;
@@ -149,8 +149,8 @@ export default {
       },
 
        async addToWishlist(id_product){
-      
-      await this.checkProduct(id_product);      
+
+      await this.checkProduct(id_product);
 
       if(this.datas.length != 0) {
         alert("Sudah ada didaftar wishlist anda");
@@ -162,15 +162,15 @@ export default {
           };
 
       // await window.axios.post("/api/wishlists", payload).then(res => {
-        window.axios.post("/api/wishlist", payload)          
-            .then(() => {       
-              alert("berhasil menambahkan ke daftar wishlish anda")                  
+        window.axios.post("/api/wishlist", payload)
+            .then(() => {
+              alert("berhasil menambahkan ke daftar wishlish anda")
             })
 
           .catch(error => {
             console.log(error);
-          });   
-        }   
+          });
+        }
     },
       formatPrice(value) {
           let val = (value/1).toFixed().replace('.', ',')
@@ -226,19 +226,19 @@ export default {
 
     sortProductByDistrict(distric) {
       if(distric === "Samosir") {
-          this.products = this.orginalProductsData.filter(product => 
+          this.products = this.orginalProductsData.filter(product =>
             product.asal === "Samosir"
           );
       } else if(distric === "Toba Samosir") {
-          this.products = this.orginalProductsData.filter(product => 
+          this.products = this.orginalProductsData.filter(product =>
             product.asal === "Toba Samosir"
           );
       } else {
-          this.products = this.orginalProductsData.filter(product => 
+          this.products = this.orginalProductsData.filter(product =>
             product.asal.includes(distric)
           );
       }
-      
+
     }
   },
   mounted() {
