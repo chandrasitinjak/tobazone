@@ -78176,7 +78176,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -78464,12 +78464,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           __WEBPACK_IMPORTED_MODULE_2__eventBus__["a" /* default */].$emit("SPINNER", true);
           window.axios.post("/api/transaction/" + this.transactionId + "/proof-of-payment", formData).then(function () {
             __WEBPACK_IMPORTED_MODULE_2__eventBus__["a" /* default */].$emit("SPINNER", false);
-            alert("berhasil mengunggah bukti pembayaran");
+            // alert("berhasil mengunggah bukti pembayaran");
+            Vue.swal.fire({
+              icon: 'success',
+              title: 'Berhasil Upload Bukti Pembayaran',
+              showConfirmButton: false,
+              timer: 4000
+            });
             window.location = "/customer/" + _this3.userId + "/orders";
           }).catch(function (error) {
-            console.log(error);
-            __WEBPACK_IMPORTED_MODULE_2__eventBus__["a" /* default */].$emit("SPINNER", false);
-            alert("Terjadi Kesalahan, Ulangi Halaman");
+            Vue.swal.fire({
+              icon: 'warning',
+              title: 'Oops...',
+              text: 'Something went wrong!'
+            }).then(function () {
+              // window.history.back();                
+              window.location.reload();
+            });
           });
         }
       }
@@ -79595,425 +79606,408 @@ var render = function() {
                                           "div",
                                           { staticClass: "modal-body" },
                                           [
-                                            _c("form", [
-                                              _c(
-                                                "div",
-                                                { staticClass: "form-group" },
-                                                [
-                                                  _c(
-                                                    "label",
+                                            _c(
+                                              "div",
+                                              { staticClass: "form-group" },
+                                              [
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass: "small",
+                                                    attrs: {
+                                                      for: "namapengirim"
+                                                    }
+                                                  },
+                                                  [_vm._v("Nama Pengirim")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c("input", {
+                                                  directives: [
                                                     {
-                                                      staticClass: "small",
-                                                      attrs: {
-                                                        for: "namapengirim"
-                                                      }
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value: _vm.senderName,
+                                                      expression: "senderName"
                                                     },
-                                                    [_vm._v("Nama Pengirim")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("input", {
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model.trim",
+                                                      value:
+                                                        _vm.$v.senderName
+                                                          .$model,
+                                                      expression:
+                                                        "$v.senderName.$model",
+                                                      modifiers: { trim: true }
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-control form-control-sm",
+                                                  class: {
+                                                    "is-invalid":
+                                                      _vm.$v.senderName.$error,
+                                                    "is-valid": !_vm.$v
+                                                      .senderName.$invalid
+                                                  },
+                                                  attrs: {
+                                                    type: "text",
+                                                    id: "namapengirim",
+                                                    "aria-describedby":
+                                                      "emailHelp",
+                                                    placeholder: "Nama Pengirim"
+                                                  },
+                                                  domProps: {
+                                                    value: _vm.senderName,
+                                                    value:
+                                                      _vm.$v.senderName.$model
+                                                  },
+                                                  on: {
+                                                    input: [
+                                                      function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
+                                                        }
+                                                        _vm.$set(
+                                                          _vm.$v.senderName,
+                                                          "$model",
+                                                          $event.target.value.trim()
+                                                        )
+                                                      },
+                                                      function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
+                                                        }
+                                                        _vm.senderName =
+                                                          $event.target.value
+                                                      }
+                                                    ],
+                                                    blur: function($event) {
+                                                      _vm.$forceUpdate()
+                                                    }
+                                                  }
+                                                }),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "valid-feedback"
+                                                  },
+                                                  [_vm._v("sudah valid")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "invalid-feedback"
+                                                  },
+                                                  [
+                                                    !_vm.$v.senderName.required
+                                                      ? _c("span", [
+                                                          _vm._v(
+                                                            "tidak boleh kosong"
+                                                          )
+                                                        ])
+                                                      : _vm._e()
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "form-group" },
+                                              [
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass: "small",
+                                                    attrs: { for: "utkbank" }
+                                                  },
+                                                  [_vm._v("Bank Tujuan")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c("br"),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "select",
+                                                  {
                                                     directives: [
                                                       {
                                                         name: "model",
                                                         rawName: "v-model",
-                                                        value: _vm.senderName,
-                                                        expression: "senderName"
+                                                        value: _vm.selectedBank,
+                                                        expression:
+                                                          "selectedBank"
                                                       },
                                                       {
                                                         name: "model",
                                                         rawName: "v-model.trim",
                                                         value:
-                                                          _vm.$v.senderName
+                                                          _vm.$v.selectedBank
                                                             .$model,
                                                         expression:
-                                                          "$v.senderName.$model",
+                                                          "$v.selectedBank.$model",
                                                         modifiers: {
                                                           trim: true
                                                         }
                                                       }
                                                     ],
-                                                    staticClass:
-                                                      "form-control form-control-sm",
+                                                    staticClass: "form-control",
                                                     class: {
                                                       "is-invalid":
-                                                        _vm.$v.senderName
+                                                        _vm.$v.selectedBank
                                                           .$error,
                                                       "is-valid": !_vm.$v
-                                                        .senderName.$invalid
+                                                        .selectedBank.$invalid
                                                     },
-                                                    attrs: {
-                                                      type: "text",
-                                                      id: "namapengirim",
-                                                      "aria-describedby":
-                                                        "emailHelp",
-                                                      placeholder:
-                                                        "Nama Pengirim"
-                                                    },
-                                                    domProps: {
-                                                      value: _vm.senderName,
-                                                      value:
-                                                        _vm.$v.senderName.$model
-                                                    },
+                                                    attrs: { id: "utkbank" },
                                                     on: {
-                                                      input: [
+                                                      change: [
                                                         function($event) {
-                                                          if (
-                                                            $event.target
-                                                              .composing
-                                                          ) {
-                                                            return
-                                                          }
+                                                          var $$selectedVal = Array.prototype.filter
+                                                            .call(
+                                                              $event.target
+                                                                .options,
+                                                              function(o) {
+                                                                return o.selected
+                                                              }
+                                                            )
+                                                            .map(function(o) {
+                                                              var val =
+                                                                "_value" in o
+                                                                  ? o._value
+                                                                  : o.value
+                                                              return val
+                                                            })
                                                           _vm.$set(
-                                                            _vm.$v.senderName,
+                                                            _vm.$v.selectedBank,
                                                             "$model",
-                                                            $event.target.value.trim()
+                                                            $event.target
+                                                              .multiple
+                                                              ? $$selectedVal
+                                                              : $$selectedVal[0]
                                                           )
                                                         },
                                                         function($event) {
-                                                          if (
-                                                            $event.target
-                                                              .composing
-                                                          ) {
-                                                            return
-                                                          }
-                                                          _vm.senderName =
-                                                            $event.target.value
-                                                        }
-                                                      ],
-                                                      blur: function($event) {
-                                                        _vm.$forceUpdate()
-                                                      }
-                                                    }
-                                                  }),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "valid-feedback"
-                                                    },
-                                                    [_vm._v("sudah valid")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "invalid-feedback"
-                                                    },
-                                                    [
-                                                      !_vm.$v.senderName
-                                                        .required
-                                                        ? _c("span", [
-                                                            _vm._v(
-                                                              "tidak boleh kosong"
-                                                            )
-                                                          ])
-                                                        : _vm._e()
-                                                    ]
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                { staticClass: "form-group" },
-                                                [
-                                                  _c(
-                                                    "label",
-                                                    {
-                                                      staticClass: "small",
-                                                      attrs: { for: "utkbank" }
-                                                    },
-                                                    [_vm._v("Bank Tujuan")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("br"),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "select",
-                                                    {
-                                                      directives: [
-                                                        {
-                                                          name: "model",
-                                                          rawName: "v-model",
-                                                          value:
-                                                            _vm.selectedBank,
-                                                          expression:
-                                                            "selectedBank"
-                                                        },
-                                                        {
-                                                          name: "model",
-                                                          rawName:
-                                                            "v-model.trim",
-                                                          value:
-                                                            _vm.$v.selectedBank
-                                                              .$model,
-                                                          expression:
-                                                            "$v.selectedBank.$model",
-                                                          modifiers: {
-                                                            trim: true
-                                                          }
-                                                        }
-                                                      ],
-                                                      staticClass:
-                                                        "form-control",
-                                                      class: {
-                                                        "is-invalid":
-                                                          _vm.$v.selectedBank
-                                                            .$error,
-                                                        "is-valid": !_vm.$v
-                                                          .selectedBank.$invalid
-                                                      },
-                                                      attrs: { id: "utkbank" },
-                                                      on: {
-                                                        change: [
-                                                          function($event) {
-                                                            var $$selectedVal = Array.prototype.filter
-                                                              .call(
-                                                                $event.target
-                                                                  .options,
-                                                                function(o) {
-                                                                  return o.selected
-                                                                }
-                                                              )
-                                                              .map(function(o) {
-                                                                var val =
-                                                                  "_value" in o
-                                                                    ? o._value
-                                                                    : o.value
-                                                                return val
-                                                              })
-                                                            _vm.$set(
-                                                              _vm.$v
-                                                                .selectedBank,
-                                                              "$model",
+                                                          var $$selectedVal = Array.prototype.filter
+                                                            .call(
                                                               $event.target
-                                                                .multiple
-                                                                ? $$selectedVal
-                                                                : $$selectedVal[0]
+                                                                .options,
+                                                              function(o) {
+                                                                return o.selected
+                                                              }
                                                             )
-                                                          },
-                                                          function($event) {
-                                                            var $$selectedVal = Array.prototype.filter
-                                                              .call(
-                                                                $event.target
-                                                                  .options,
-                                                                function(o) {
-                                                                  return o.selected
+                                                            .map(function(o) {
+                                                              var val =
+                                                                "_value" in o
+                                                                  ? o._value
+                                                                  : o.value
+                                                              return val
+                                                            })
+                                                          _vm.selectedBank = $event
+                                                            .target.multiple
+                                                            ? $$selectedVal
+                                                            : $$selectedVal[0]
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "option",
+                                                      {
+                                                        attrs: {
+                                                          value: "MANDIRI"
+                                                        }
+                                                      },
+                                                      [_vm._v("MANDIRI")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "option",
+                                                      {
+                                                        attrs: { value: "OVO" }
+                                                      },
+                                                      [_vm._v("OVO")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "option",
+                                                      {
+                                                        attrs: { value: "DANA" }
+                                                      },
+                                                      [_vm._v("DANA")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "option",
+                                                      {
+                                                        attrs: {
+                                                          value: "GOPAY"
+                                                        }
+                                                      },
+                                                      [_vm._v("GOPAY")]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "valid-feedback"
+                                                  },
+                                                  [_vm._v("sudah valid")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "invalid-feedback"
+                                                  },
+                                                  [
+                                                    !_vm.$v.selectedBank
+                                                      .required
+                                                      ? _c("span", [
+                                                          _vm._v(
+                                                            "tidak boleh kosong"
+                                                          )
+                                                        ])
+                                                      : _vm._e()
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("br"),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "form-group" },
+                                              [
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "col-form-label"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "Bukti Pembayaran ( jpg/jpeg/png )"
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "col-sm-9" },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "upload-btn-wrapper"
+                                                      },
+                                                      [
+                                                        _vm.selectedFile ===
+                                                        null
+                                                          ? _c(
+                                                              "button",
+                                                              {
+                                                                staticClass:
+                                                                  "btn-upcus",
+                                                                staticStyle: {
+                                                                  margin: "auto"
                                                                 }
-                                                              )
-                                                              .map(function(o) {
-                                                                var val =
-                                                                  "_value" in o
-                                                                    ? o._value
-                                                                    : o.value
-                                                                return val
-                                                              })
-                                                            _vm.selectedBank = $event
-                                                              .target.multiple
-                                                              ? $$selectedVal
-                                                              : $$selectedVal[0]
-                                                          }
-                                                        ]
-                                                      }
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "option",
-                                                        {
-                                                          attrs: {
-                                                            value: "MANDIRI"
-                                                          }
-                                                        },
-                                                        [_vm._v("MANDIRI")]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "option",
-                                                        {
-                                                          attrs: {
-                                                            value: "OVO"
-                                                          }
-                                                        },
-                                                        [_vm._v("OVO")]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "option",
-                                                        {
-                                                          attrs: {
-                                                            value: "DANA"
-                                                          }
-                                                        },
-                                                        [_vm._v("DANA")]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "option",
-                                                        {
-                                                          attrs: {
-                                                            value: "GOPAY"
-                                                          }
-                                                        },
-                                                        [_vm._v("GOPAY")]
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "valid-feedback"
-                                                    },
-                                                    [_vm._v("sudah valid")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "invalid-feedback"
-                                                    },
-                                                    [
-                                                      !_vm.$v.selectedBank
-                                                        .required
-                                                        ? _c("span", [
-                                                            _vm._v(
-                                                              "tidak boleh kosong"
+                                                              },
+                                                              [
+                                                                _c("img", {
+                                                                  staticStyle: {
+                                                                    height:
+                                                                      "100px"
+                                                                  },
+                                                                  attrs: {
+                                                                    src:
+                                                                      "/images/assets/addimage.png"
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c("input", {
+                                                                  attrs: {
+                                                                    type:
+                                                                      "file",
+                                                                    name:
+                                                                      "myfile"
+                                                                  },
+                                                                  on: {
+                                                                    change:
+                                                                      _vm.onFileChanged
+                                                                  }
+                                                                })
+                                                              ]
                                                             )
-                                                          ])
-                                                        : _vm._e()
-                                                    ]
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c("br"),
-                                              _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                { staticClass: "form-group" },
-                                                [
-                                                  _c(
-                                                    "label",
-                                                    {
-                                                      staticClass:
-                                                        "col-form-label"
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "Bukti Pembayaran ( jpg/jpeg/png )"
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    { staticClass: "col-sm-9" },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "upload-btn-wrapper"
-                                                        },
-                                                        [
-                                                          _vm.selectedFile ===
-                                                          null
-                                                            ? _c(
+                                                          : _c("div", [
+                                                              _c(
                                                                 "button",
                                                                 {
                                                                   staticClass:
-                                                                    "btn-upcus",
-                                                                  staticStyle: {
-                                                                    margin:
-                                                                      "auto"
+                                                                    "btn btn-danger btn-sm",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "button"
+                                                                  },
+                                                                  on: {
+                                                                    click: function(
+                                                                      $event
+                                                                    ) {
+                                                                      _vm.selectedFile = null
+                                                                    }
                                                                   }
                                                                 },
                                                                 [
-                                                                  _c("img", {
-                                                                    staticStyle: {
-                                                                      height:
-                                                                        "100px"
-                                                                    },
-                                                                    attrs: {
-                                                                      src:
-                                                                        "/images/assets/addimage.png"
-                                                                    }
-                                                                  }),
-                                                                  _vm._v(" "),
-                                                                  _c("input", {
-                                                                    attrs: {
-                                                                      type:
-                                                                        "file",
-                                                                      name:
-                                                                        "myfile"
-                                                                    },
-                                                                    on: {
-                                                                      change:
-                                                                        _vm.onFileChanged
-                                                                    }
-                                                                  })
+                                                                  _vm._v(
+                                                                    " Ganti Gambar "
+                                                                  )
                                                                 ]
-                                                              )
-                                                            : _c("div", [
-                                                                _c(
-                                                                  "button",
-                                                                  {
-                                                                    staticClass:
-                                                                      "btn btn-danger btn-sm",
-                                                                    attrs: {
-                                                                      type:
-                                                                        "button"
-                                                                    },
-                                                                    on: {
-                                                                      click: function(
-                                                                        $event
-                                                                      ) {
-                                                                        _vm.selectedFile = null
-                                                                      }
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      " Ganti Gambar "
-                                                                    )
-                                                                  ]
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _c("img", {
-                                                                  attrs: {
-                                                                    id:
-                                                                      "uploaded_image",
-                                                                    src:
-                                                                      _vm.image
-                                                                  }
-                                                                })
-                                                              ])
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _vm.selectedFile === null
-                                                        ? _c(
-                                                            "small",
-                                                            {
-                                                              staticClass:
-                                                                "form-text text-muted"
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                "gambar tidak boleh kosong"
-                                                              )
-                                                            ]
-                                                          )
-                                                        : _vm._e()
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            ])
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c("img", {
+                                                                attrs: {
+                                                                  id:
+                                                                    "uploaded_image",
+                                                                  src: _vm.image
+                                                                }
+                                                              })
+                                                            ])
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _vm.selectedFile === null
+                                                      ? _c(
+                                                          "small",
+                                                          {
+                                                            staticClass:
+                                                              "form-text text-muted"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "gambar tidak boleh kosong"
+                                                            )
+                                                          ]
+                                                        )
+                                                      : _vm._e()
+                                                  ]
+                                                )
+                                              ]
+                                            )
                                           ]
                                         ),
                                         _vm._v(" "),
