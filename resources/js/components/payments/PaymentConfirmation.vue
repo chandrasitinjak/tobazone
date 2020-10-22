@@ -92,7 +92,7 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            <form>
+                            <!-- <form> -->
                               <div class="form-group">
                                 <label for="namapengirim" class="small">Nama Pengirim</label>
                                 <input
@@ -148,7 +148,7 @@
                                   <small v-if="selectedFile === null" class="form-text text-muted">gambar tidak boleh kosong</small>
                                 </div>
                               </div>
-                            </form>
+                            <!-- </form> -->
                           </div>
                           <div class="modal-footer">
                             <button
@@ -288,13 +288,24 @@ export default {
         formData
       ).then(() => {
         EventBus.$emit("SPINNER", false);
-        alert("berhasil mengunggah bukti pembayaran");
+        // alert("berhasil mengunggah bukti pembayaran");
+        Vue.swal.fire({            
+            icon: 'success',
+            title: 'Berhasil Upload Bukti Pembayaran',
+            showConfirmButton: false,
+            timer: 4000,    
+          });
         window.location = "/customer/" + this.userId + "/orders";
       })
       .catch(error => {
-              console.log(error);
-              EventBus.$emit("SPINNER", false);
-              alert("Terjadi Kesalahan, Ulangi Halaman");
+          Vue.swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: 'Something went wrong!',              
+          }).then(function() {                
+              // window.history.back();                
+              window.location.reload();
+          })    
       });
       }
       }

@@ -133,7 +133,7 @@ class TransactionController extends Controller
             ->where('id', $id)
             ->first();
 
-        $tracking = $this->getTracking($transaction->shipping_number, $transaction->courier);
+        $tracking = $this->getTrackingV2($transaction->shipping_number, $transaction->courier);
 
         return response()->json([
             "transaction" => $transaction,
@@ -156,6 +156,17 @@ class TransactionController extends Controller
         ];
 
         $result = $client->request('POST', 'waybill', ['form_params' => $payload]);
+        return $result->getBody()->getContents();
+    }
+
+    private function getTrackingV2($shippingNumber, $courier)
+    {
+        $client = new Client([
+            'base_uri' => 'https://api.binderbyte.com/v1/track?api_key=b6ca0ecb8ba7a9d1481fa9ef04e3448b3113b0e8c62c7da0ae1a7e4c1976c783&courier='.$courier.'&awb='.$shippingNumber,
+        ]);
+
+
+        $result = $client->request('GET');
         return $result->getBody()->getContents();
     }
 
