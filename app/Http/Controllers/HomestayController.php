@@ -37,11 +37,11 @@ class HomestayController extends Controller
         $this->validate($request, [
             'job' => 'required',
             'machine' => 'required'
-        ]); 
+        ]);
     }
 
     public function createDataPage(){
-     return view('users.merchants.homestays.index');
+     return view('users.merchants.homestays.create_homestay');
     }
 
 
