@@ -80,7 +80,7 @@
 
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col">
+                            <div class="col-md-2">
                                 <a href="{{ url('/product/pakaian') }}">
                                     <div class="card btn-block">
                                         <img class="img-thumbnail rounded-circle" src="/images/kategori/pakaian.png"
@@ -94,7 +94,7 @@
                                 <!--                                    </a>-->
                                 <!--                                </div>-->
                             </div>
-                            <div class="col">
+                            <div class="col-md-2">
                                 <a href="{{ url('/product/obat') }}">
                                     <div class="card btn-block">
                                         <img class="img-thumbnail rounded-circle" src="/images/kategori/obat.png"
@@ -108,7 +108,7 @@
                                 <!--                                    </a>-->
                                 <!--                                </div>-->
                             </div>
-                            <div class="col">
+                            <div class="col-md-2">
                                 <a href="{{ url('/product/ulos') }}">
                                     <div class="card btn-block">
                                         <img class="img-thumbnail rounded-circle" src="/images/kategori/ulos.png"
@@ -122,7 +122,7 @@
                                 <!--                                    </a>-->
                                 <!--                                </div>-->
                             </div>
-                            <div class="col">
+                            <div class="col-md-2">
                                 <a href="{{ url('/product/aksesoris') }}">
                                     <div class="card btn-block">
                                         <img class="img-thumbnail rounded-circle" src="/images/kategori/aksesoris.png"
@@ -136,7 +136,7 @@
                                 <!--                                    </a>-->
                                 <!--                                </div>-->
                             </div>
-                            <div class="col">
+                            <div class="col-md-2">
                                 <a href="{{ url('/product/makanan') }}">
                                     <div class="card btn-block">
                                         <img class="img-thumbnail rounded-circle" src="/images/kategori/makanan.png"
