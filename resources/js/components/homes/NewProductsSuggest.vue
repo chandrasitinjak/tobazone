@@ -21,7 +21,7 @@
             <div class="card product ">
 
                 <div class="imgwrapper">
-                  <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap">
+                  <img :src="'/images/' + JSON.parse(product.images)[0]"  style='height: 100%; width: 100%; object-fit: cover' alt="Card image cap">
                 </div>
 
 
@@ -53,10 +53,10 @@ export default {
   props: ["userId", "title", "suggest", "productId"],
   data() {
     return {
-      products: [],      
+      products: [],
     };
   },
-  methods: {      
+  methods: {
       formatPrice(value) {
           let val = (value/1).toFixed().replace('.', ',')
           return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
@@ -77,7 +77,7 @@ export default {
         total: 1,
         userId: this.userId
       };
-    
+
       await window.axios
         .post("/api/carts", payload)
         .then(res => {

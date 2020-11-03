@@ -1,4 +1,4 @@
-const env = require.resolve('babel-preset-env');
+const env = require.resolve('babel-preset-.env');
 const stage2 = require.resolve('babel-preset-stage-2');
 const externalHelpers = require.resolve('babel-plugin-external-helpers');
 
