@@ -2,7 +2,9 @@
     <div>
         <div class="card globalcard" style="min-height: 400px; background-color: #fffaf3">
             <div class="card-header">
-                <h5 class="m-auto">Terlaris Bulan Ini</h5>
+                <nav class="navbar navbar-expand-lg mproduct p-1" style="background-color: transparent; border:none">
+                    <h3 class="m-auto">Terlaris bulan ini</h3>
+                </nav>
             </div>
             <div class="card-body" style="padding : 0.7rem">
                 <div class="" v-if="products.length>0">
