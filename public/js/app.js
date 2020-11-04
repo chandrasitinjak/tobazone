@@ -36194,6 +36194,7 @@ var ProductsObat = __webpack_require__(354);
 var AddToWishlistButton = __webpack_require__(359);
 var UserRating = __webpack_require__(362);
 var UserRatingSecond = __webpack_require__(367);
+var ProdukTerlaris = __webpack_require__(374);
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', __WEBPACK_IMPORTED_MODULE_2_vue_star_rating___default.a);
@@ -36230,7 +36231,14 @@ var app = new Vue({
         ProductsPakaian: ProductsPakaian,
         ProductsMakanan: ProductsMakanan,
         ProductsAksesoris: ProductsAksesoris,
-        ProductsObat: ProductsObat
+        ProductsObat: ProductsObat,
+        ProdukTerlaris: ProdukTerlaris
+
+    },
+    data: function data() {
+        return {
+            message: ''
+        };
     }
 });
 
@@ -77477,6 +77485,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
 
 
 
@@ -78656,7 +78666,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h5", { staticClass: "m-auto" }, [_vm._v("Terlaris Bulan Ini")])
+      _c(
+        "nav",
+        {
+          staticClass: "navbar navbar-expand-lg mproduct p-1",
+          staticStyle: { "background-color": "transparent", border: "none" }
+        },
+        [_c("h3", { staticClass: "m-auto" }, [_vm._v("Terlaris bulan ini")])]
+      )
     ])
   }
 ]
@@ -79496,7 +79513,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["userId", "productId", "maxUnit"],
+  props: ["userId", "productId", "maxUnit", "message"],
   data: function data() {
     return {
       total: 1
@@ -79511,7 +79528,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var payload = {
         productId: this.productId,
         total: 1,
-        userId: this.userId
+        userId: this.userId,
+        message: this.message
       };
 
       // await window.axios.post("/api/carts", payload).then(res => {
@@ -83979,7 +83997,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -83990,6 +84008,14 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -84398,7 +84424,25 @@ var render = function() {
                                           ])
                                         ]
                                       )
-                                    : _vm._e()
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "keranjang-desc-prod" },
+                                    [
+                                      _c("small", [
+                                        _vm._v(
+                                          "pesan pembeli:\n                          "
+                                        ),
+                                        _c("br"),
+                                        _vm._v(
+                                          "\n                          " +
+                                            _vm._s(order.message) +
+                                            "\n                        "
+                                        )
+                                      ])
+                                    ]
+                                  )
                                 ])
                               ])
                             }),
@@ -100799,6 +100843,309 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 373 */,
+/* 374 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(375)
+/* template */
+var __vue_template__ = __webpack_require__(376)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/homes/ProdukTerlaris.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-01a1858e", Component.options)
+  } else {
+    hotAPI.reload("data-v-01a1858e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 375 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_carousel__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_carousel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__eventBus__ = __webpack_require__(5);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { carousel2: __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default.a, Carousel: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Slide"] },
+    props: ["userId", "title"],
+    data: function data() {
+        return {
+            products: []
+        };
+    },
+
+    methods: {
+        formatPrice: function formatPrice(value) {
+            var val = (value / 1).toFixed().replace('.', ',');
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        },
+        getAllProducts: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+                var _this = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _context.next = 2;
+                                return window.axios.get("/api/product/get-product-terlaris").then(function (res) {
+                                    _this.products = res.data;
+                                }).catch(function (err) {
+                                    console.log(err);
+                                });
+
+                            case 2:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function getAllProducts() {
+                return _ref.apply(this, arguments);
+            }
+
+            return getAllProducts;
+        }(),
+        addToCart: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(id) {
+                var _this2 = this;
+
+                var payload;
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                payload = {
+                                    productId: id,
+                                    total: 1,
+                                    userId: this.userId
+                                };
+                                _context2.next = 3;
+                                return window.axios.post("/api/carts", payload).then(function (res) {
+                                    _this2.emitEvent(res.data);
+                                }).catch(function (err) {
+                                    console.log(err);
+                                });
+
+                            case 3:
+                            case "end":
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function addToCart(_x) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return addToCart;
+        }(),
+        emitEvent: function emitEvent(data) {
+            __WEBPACK_IMPORTED_MODULE_3__eventBus__["a" /* default */].$emit("CART_UPDATED", data);
+        }
+    },
+    mounted: function mounted() {
+        this.getAllProducts();
+    }
+});
+
+/***/ }),
+/* 376 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-md-12" }, [
+    _c("br"),
+    _c("br"),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "card globalcard" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "card-body globalcardbody" },
+        [
+          _c(
+            "carousel",
+            {
+              attrs: {
+                "mouse-drag": true,
+                scrollPerPage: true,
+                spacePadding: 20,
+                speed: 800,
+                paginationEnabled: false,
+                perPageCustom: [
+                  [0, 1],
+                  [991.88, 6]
+                ]
+              }
+            },
+            _vm._l(_vm.products, function(product) {
+              return _c("slide", { staticClass: "px-2" }, [
+                _c("a", { attrs: { href: "/products/" + product.id } }, [
+                  _c("div", { staticClass: "card product " }, [
+                    _c("div", { staticClass: "imgwrapper" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/" + JSON.parse(product.images)[0],
+                          alt: "Card image cap"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("p", { staticClass: "card-title productname" }, [
+                        _vm._v(_vm._s(product.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                        _vm._v("Rp " + _vm._s(_vm.formatPrice(product.price)))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text float-right" }, [
+                        _c("small", { staticClass: "text-muted" }, [
+                          _vm._v(_vm._s(product.merchant_name))
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            }),
+            1
+          )
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c(
+        "nav",
+        {
+          staticClass: "navbar navbar-expand-lg mproduct p-1",
+          staticStyle: { "background-color": "transparent", border: "none" }
+        },
+        [_c("h3", { staticClass: "m-auto" }, [_vm._v("Produk Terlaris")])]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-01a1858e", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

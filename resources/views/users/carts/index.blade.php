@@ -9,7 +9,6 @@
       <cart />
   </div>
   @endif
-  
 @endsection
 
 
