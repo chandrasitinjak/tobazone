@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return response()->json(Product::with(['merchant', 'merchant.profile'])->where('stock', '>=', 0)->inRandomOrder()->limit(12)->get());
+        return response()->json(Product::with(['merchant', 'merchant.profile'])->where('stock', '>=', 0)->orderBy("products.created_at","desc")->limit(12)->get());
     }
 
     public function getSuggest($catProduct, $productId)
