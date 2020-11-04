@@ -6,6 +6,7 @@ use App\Product;
 use App\ProductReview;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -64,6 +65,15 @@ class ProductController extends Controller
             'body' => $request->feedback
         ]);
     }
+
+    public function getProductTerlaris(){
+        $data = DB::table('products')
+            ->leftJoin('orders', 'products.id', '=', 'orders.product_id')->groupBy('products.id')
+            ->get();
+
+        return response()->json($data);
+    }
+
 
     
 }

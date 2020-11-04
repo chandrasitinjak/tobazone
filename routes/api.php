@@ -59,3 +59,5 @@ Route::get('/merchant/{id}/success-orders', 'API\OrderController@getSuccesOrders
 // Route::get('/merchant/detail-transaction/{id}', 'API\OrderController@getDetailSuccesOrdersByMerchant');
 Route::get('/customer/{userId}/wishlists/{productId}', 'API\CartController@cekWishlist');
 Route::get('/customer/{userId}/wishlists', 'API\CartController@myWishlist');
+
+Route::get('/product/get-product-terlaris', 'API\ProductController@getProductTerlaris');

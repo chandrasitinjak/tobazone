@@ -67,7 +67,9 @@
             </div>
 
 
-
+              <div id="product-terlaris">
+                  <produk-terlaris/>
+              </div>
               <div id="new-product">
                 @if(Auth::check())
                     <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Terbaru'"/>
@@ -175,3 +177,9 @@ $(document).ready(function() {
 </body>
 
 </html>
+<script>
+    import ProdukTerlaris from "../../../js/components/homes/ProdukTerlaris";
+    export default {
+        components: {ProdukTerlaris}
+    }
+</script>

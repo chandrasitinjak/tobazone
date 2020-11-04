@@ -48,11 +48,13 @@ class TransactionController extends Controller
             $orders = $merchant['products'];
 
             foreach($orders as $order) {
+                $cart1 = Cart::where('id', $order['cartId'])->first();
                 $o = Order::create([
                     'transaction_id' => $transaction->id,
                     'product_id' => $order['productId'],
                     'quantity' => $order['quantity'],
-                    'price' => $order['price']
+                    'price' => $order['price'],
+                    'message' => $cart1->message
                 ]);
 
                 if($o) {
