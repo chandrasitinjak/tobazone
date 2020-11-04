@@ -58,6 +58,14 @@
                             {{ transaction.address }}
                           </small>
                         </div>
+                        <div
+                                class="keranjang-desc-prod"
+                        >
+                          <small>pesan pembeli:
+                            <br>
+                            {{ order.message }}
+                          </small>
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -69,105 +69,8 @@
         </div>
 
 
-        <div class="row" style="padding-top: 2rem; position:center">
-            <div class="col-md-12">
-                <center>
-                    <!--                    <div class="row">-->
-                    <!--                        <div class="col-md-12">-->
-                    <!--                            <h3>Kategori</h3>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-2">
-                                <a href="{{ url('/product/pakaian') }}">
-                                    <div class="card btn-block">
-                                        <img class="img-thumbnail rounded-circle" src="/images/kategori/pakaian.png"
-                                             alt="Card image cap">
-                                        <h5 class="card-title">Pakaian</h5>
-                                    </div>
-                                </a>
-                                <!--                                <div id="w-node-29f467322595-cecc6f8b" class="image-container">-->
-                                <!--                                    <a href="{{ url('/product/pakaian') }}">-->
-                                <!--                                        <div class="text-block">PAKAIAN</div>-->
-                                <!--                                    </a>-->
-                                <!--                                </div>-->
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{{ url('/product/obat') }}">
-                                    <div class="card btn-block">
-                                        <img class="img-thumbnail rounded-circle" src="/images/kategori/obat.png"
-                                             alt="Card image cap">
-                                        <h5 class="card-title">Obat</h5>
-                                    </div>
-                                </a>
-                                <!--                                <div id="w-node-d4886159c096-cecc6f8b" class="image-container _2">-->
-                                <!--                                    <a href="{{ url('/product/obat') }}">-->
-                                <!--                                        <div class="text-block">OBAT</div>-->
-                                <!--                                    </a>-->
-                                <!--                                </div>-->
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{{ url('/product/ulos') }}">
-                                    <div class="card btn-block">
-                                        <img class="img-thumbnail rounded-circle" src="/images/kategori/ulos.png"
-                                             alt="Card image cap">
-                                        <h5 class="card-title">Ulos</h5>
-                                    </div>
-                                </a>
-                                <!--                                <div id="w-node-60cd9d4111ae-cecc6f8b" class="image-container _3">-->
-                                <!--                                    <a href="{{ url('/product/ulos') }}">-->
-                                <!--                                        <div class="text-block">ULOS</div>-->
-                                <!--                                    </a>-->
-                                <!--                                </div>-->
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{{ url('/product/aksesoris') }}">
-                                    <div class="card btn-block">
-                                        <img class="img-thumbnail rounded-circle" src="/images/kategori/aksesoris.png"
-                                             alt="Card image cap">
-                                        <h5 class="card-title">Aksesoris</h5>
-                                    </div>
-                                </a>
-                                <!--                                <div id="w-node-12ffc40a2e90-cecc6f8b" class="image-container _4">-->
-                                <!--                                    <a href="{{ url('/product/aksesoris') }}">-->
-                                <!--                                        <div class="text-block">AKSESORIS</div>-->
-                                <!--                                    </a>-->
-                                <!--                                </div>-->
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{{ url('/product/makanan') }}">
-                                    <div class="card btn-block">
-                                        <img class="img-thumbnail rounded-circle" src="/images/kategori/makanan.png"
-                                             alt="Card image cap">
-                                        <h5 class="card-title">Makanan</h5>
-                                    </div>
-                                </a>
-                                <!--                                <div id="w-node-2d179ca0bff4-cecc6f8b" class="image-container _5">-->
-                                <!--                                    <a href="{{ url('/product/makanan') }}">-->
-                                <!--                                        <div class="text-block">MAKANAN</div>-->
-                                <!--                                    </a>-->
-                                <!--                                </div>-->
-                            </div>
-                            <!--                            <div class="col-md-12">-->
-                            <!--                                <div class="image-wrapper">-->
-                            <!--                                    <div class="w-layout-grid image-grid">-->
-                            <!--                                        -->
-                            <!---->
-                            <!--                                        -->
-                            <!---->
-                            <!--                                        -->
-                            <!---->
-                            <!---->
-                            <!---->
-                            <!--                                    </div>-->
-                            <!--                                </div>-->
-                            <!--                            </div>-->
-                        </div>
-                    </div>
-                </center>
-            </div>
+        <div class="row" id="product-terlaris">
+            <produk-terlaris/>
         </div>
 
         <div id="new-product">
@@ -226,3 +129,10 @@
 </body>
 
 </html>
+<script>
+    import ProdukTerlaris from "../../../js/components/homes/ProdukTerlaris";
+
+    export default {
+        components: {ProdukTerlaris}
+    }
+</script>

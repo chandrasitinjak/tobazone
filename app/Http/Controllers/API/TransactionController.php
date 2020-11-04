@@ -48,11 +48,13 @@ class TransactionController extends Controller
             $orders = $merchant['products'];
 
             foreach($orders as $order) {
+                $cart1 = Cart::where('id', $order['cartId'])->first();
                 $o = Order::create([
                     'transaction_id' => $transaction->id,
                     'product_id' => $order['productId'],
                     'quantity' => $order['quantity'],
-                    'price' => $order['price']
+                    'price' => $order['price'],
+                    'message' => $cart1->message
                 ]);
 
                 if($o) {
@@ -161,6 +163,7 @@ class TransactionController extends Controller
 
     private function getTrackingV2($shippingNumber, $courier)
     {
+        
         $client = new Client([
             'base_uri' => 'https://api.binderbyte.com/v1/track?api_key=b6ca0ecb8ba7a9d1481fa9ef04e3448b3113b0e8c62c7da0ae1a7e4c1976c783&courier='.$courier.'&awb='.$shippingNumber,
         ]);
