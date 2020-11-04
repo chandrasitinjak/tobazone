@@ -176,7 +176,6 @@
         mounted() {
             this.getAllMyWishList();
             this.getAllProducts();
-
         }
     };
 </script>
