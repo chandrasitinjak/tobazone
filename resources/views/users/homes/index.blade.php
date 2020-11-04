@@ -164,6 +164,10 @@
                             <!--                                    </div>-->
                             <!--                                </div>-->
                             <!--                            </div>-->
+
+                            <div class="row" id="product-terlaris">
+                                <produk-terlaris/>
+                            </div>
                         </div>
                     </div>
                 </center>
@@ -226,3 +230,10 @@
 </body>
 
 </html>
+<script>
+    import ProdukTerlaris from "../../../js/components/homes/ProdukTerlaris";
+
+    export default {
+        components: {ProdukTerlaris}
+    }
+</script>
