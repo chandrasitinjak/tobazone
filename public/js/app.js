@@ -92904,6 +92904,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
 
 
 
@@ -93034,6 +93037,11 @@ var render = function() {
                   _c("div", { staticClass: "card product " }, [
                     _c("div", { staticClass: "imgwrapper" }, [
                       _c("img", {
+                        staticStyle: {
+                          height: "100%",
+                          width: "100%",
+                          "object-fit": "cover"
+                        },
                         attrs: {
                           src: "/images/" + JSON.parse(product.images)[0],
                           alt: "Card image cap"
@@ -93042,9 +93050,24 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "card-body" }, [
-                      _c("p", { staticClass: "card-title productname" }, [
-                        _vm._v(_vm._s(product.name))
-                      ]),
+                      _c(
+                        "p",
+                        {
+                          staticClass: "card-title productname",
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            overflow: "hidden",
+                            "text-overflow": "ellipsis",
+                            "max-width": "20ex"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(product.name)
+                          )
+                        ]
+                      ),
                       _vm._v(" "),
                       _c("h6", { staticStyle: { color: "#ff5205" } }, [
                         _vm._v("Rp " + _vm._s(_vm.formatPrice(product.price)))

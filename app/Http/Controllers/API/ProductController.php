@@ -87,7 +87,7 @@ class ProductController extends Controller
             " from products ".
             " LEFT OUTER JOIN orders on products.id = orders.product_id ".
             " INNER JOIN profiles on profiles.user_id = products.user_id ".
-            " Where products.deleted_at IS NOT null ".
+            " Where products.deleted_at IS null ".
             " GROUP by products.id, products.images, products.name, products.price, profiles.name ORDER BY ord DESC LIMIT 10";
         $data = DB::select($query);
 
