@@ -29,7 +29,19 @@ Route::get('/login', function() {
     return redirect('/');
 })->name('login');
 
-Auth::routes(['verify' => true]);
+//Auth::routes(['verify' => true]);
+//login
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login/{role}', 'Auth\LoginController@login');
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+
+
+//register
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
 
 Route::get('/profile', function () {
     return 'This is Profile';
@@ -197,3 +209,7 @@ Route::get('/carabayar', 'QnAController@showi');
 Route::get('/homestays', 'HomestayController@findAll');
 Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
+
+
+// Sistem Informasi Pariwisata
+Route::get('/home-informasi-pariwisata', 'HomeController@homeInformasiPariwisata');

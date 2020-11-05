@@ -97,10 +97,10 @@ async function login() {
     if (cek_depan === 1) {
 
         await jQuery.ajax({
-            url: '/login',
+            url: '/login/CBT',
             type: 'POST',
             headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
             },
 
             data: {
@@ -117,7 +117,7 @@ async function login() {
             complete: (xhr, error) => {
                 if (xhr.status == 200) {
                     
-                    location.reload();
+                    // location.reload();
                 } else if (xhr.status == 422) {
                     document.getElementById("exampleModalLabel").innerHTML = "E-mail atau Kata Sandi salah";
                     $('#password').css({
