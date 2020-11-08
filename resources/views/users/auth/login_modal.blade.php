@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header ">
-        <h3 class="modal-title" style="margin: auto">Tobazone</h3>        
+        <h3 class="modal-title" style="margin: auto">Tobazone1</h3>
         <button type="button" class="close p-0 m-0" data-dismiss="modal" aria-label="Close" style="">
           <span aria-hidden="true">&times;</span>
         </button>        

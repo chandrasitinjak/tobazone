@@ -29,6 +29,9 @@ Route::get('/login', function() {
     return redirect('/');
 })->name('login');
 
+Route::get('/listlogin', function(){
+   return view('users.auth.listlogin');
+});
 //Auth::routes(['verify' => true]);
 //login
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
