@@ -1,6 +1,6 @@
 // package metadata file for Meteor.js
 
-/* eslint-env meteor */
+/* eslint-.env meteor */
 
 Package.describe({
   name: 'twbs:bootstrap',  // https://atmospherejs.com/twbs/bootstrap

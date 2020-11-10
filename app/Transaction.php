@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     // use SoftDeletes;
-    protected $fillable = ['customer_id', 'merchant_id', 'address', 'status', 'courier'];
+    protected $fillable = ['customer_id', 'merchant_id', 'address', 'status', 'courier', 'message'];
 
     public function merchant() {
         return $this->belongsTo('App\User', 'merchant_id');

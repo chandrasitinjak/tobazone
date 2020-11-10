@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/.env node
 
 /*!
  * Script to find unused Sass variables.

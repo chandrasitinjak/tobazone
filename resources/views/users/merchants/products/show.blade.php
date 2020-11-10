@@ -15,6 +15,9 @@
             .product-desc{
                 text-align: justify;
             }
+            #message{
+                height: 100px;
+            }
         }
         @media (min-width:450px) and (max-width: 767px){
             .ybutton-category{
@@ -27,16 +30,28 @@
             .product-desc{
                 text-align: justify;
             }
+            #message{
+                height: 100px;
+            }
         }
         @media (min-width:768px) and (max-width: 990px){
-
+            #message{
+                width: 300px;
+                height: 100px;
+            }
 
         }
         @media (min-width:991px) and (max-width: 1199px){
-
+            #message{
+                width: 400px;
+                height: 100px;
+            }
         }
         @media (min-width:1200px){
-
+            #message{
+                width: 400px;
+                height: 100px;
+            }
         }
     </style>
 @endsection
@@ -205,7 +220,11 @@
                 <h6 class="product-desc"> Volume : {{ $product->color }}ml </h6>
               @endif
             @endif
+                <label for="message">Pesan untuk penjual</label>
+                <textarea class="form-control" id="message1" v-model="message"></textarea>
 
+
+                <br>
               @role('merchant')
               @if(Auth::user()->id == $product->user_id)
               <div class="cart-fav-box d-flex align-items-center mt-4">
@@ -247,7 +266,7 @@
 
               <div class="col-md-5">
               <div id="add-to-cart-button">
-                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />
+                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" :message="message" />
               </div>
               </div>
 
