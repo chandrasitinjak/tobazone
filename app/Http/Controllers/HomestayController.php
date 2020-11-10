@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Homestay;
-use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-
+use App\HomestayOrders;
 class HomestayController extends Controller
 {
     /**
@@ -50,37 +48,47 @@ class HomestayController extends Controller
     public function store(Request $request, $id)
     {
         $uploadedImages = $request->file('images');
-        $imageNames = [];
-
         $imageName = time() . $uploadedImages->getClientOriginalName();
-
-
         $destinationPath = public_path('/images');
         $uploadedImages->move($destinationPath, $imageName);
 
+        $homestay = new Homestay();
+        $homestay->user_id = Auth::user()->id;
 
-        $address = Profile::all()->where('user_id', Auth::user()->id)->first();
-        $data = json_decode($address->address);
-        $real_address = json_decode($data[0]);
-        $address_merchant = $real_address->city_name;
+        $homestay->name = $request->name;
+        $homestay->price = $request->price;
+        $homestay->total_room = $request->totalRoom;
+        $homestay->room_available = $request->roomAvailable;
+        $homestay->description = $request->description;
+        $homestay->image = json_encode($imageName);
+        $homestay->address = $request->address;
+        $homestay->status = 1;
+        $homestay->kabupaten = $request->kabupaten;
+        $homestay->kecamatan = $request->kecamatan;
+        $homestay->desa = $request->desa;
+        $homestay->merchant_id = $request->merchantId;
 
-        $product = new Product();
-        $product->user_id = Auth::user()->id;
-
-        $product->name = $request->name;
-        $product->price = $request->price;
-        $product->stock = $request->stock;
-        $product->sold = 0;
-        $product->description = $request->description;
-
-        $product->images = json_encode($imageNames);
-        // $product->asal = $address_merchant;
-        $product->asal = $request->product_origin;
-
-        $product->save();
+        $homestay->save();
 
         return redirect('/merchant')->with('success', 'Product created successfully.');
     }
 
+
+    public function bookHomestay(Request $request)
+    {
+            $orderHomestay = new HomestayOrders();
+            $orderHomestay->id_customer = $request->idCustomer;
+            $orderHomestay->id_homestay = $request->idHomestay;
+            $orderHomestay->total_price = $request->totalPrice;
+            $orderHomestay->check_in = $request->checkIn;
+            $orderHomestay->duration = $request->duration;
+            $orderHomestay->payment_method = $request->paymentMethod;
+            $orderHomestay->is_paid = false;
+            $orderHomestay->resi = "";
+            $orderHomestay->status = "Active";
+
+            $orderHomestay->save();
+            return "Pesan penginapan berhasil";
+    }
 
 }
