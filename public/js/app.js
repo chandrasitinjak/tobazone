@@ -36124,7 +36124,7 @@ function withParams(paramsOrClosure, maybeValidator) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(161);
-module.exports = __webpack_require__(375);
+module.exports = __webpack_require__(379);
 
 
 /***/ }),
@@ -36195,7 +36195,7 @@ var AddToWishlistButton = __webpack_require__(359);
 var UserRating = __webpack_require__(362);
 var UserRatingSecond = __webpack_require__(367);
 var ProdukTerlaris = __webpack_require__(372);
-var ListLogin = __webpack_require__(377);
+var ListLogin = __webpack_require__(375);
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', __WEBPACK_IMPORTED_MODULE_2_vue_star_rating___default.a);
@@ -101167,19 +101167,12 @@ if (false) {
 
 /***/ }),
 /* 375 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 376 */,
-/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(379)
+  __webpack_require__(376)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -101224,6 +101217,46 @@ module.exports = Component.exports
 
 
 /***/ }),
+/* 376 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(377);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("27270e9e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6b84b5e8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ListLogin.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6b84b5e8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ListLogin.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 377 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nbody {\n    background-color: #F1F1F1;\n}\n.card-login{\n    width: 500px;\n}\n#arrow{\n    width: 20px;\n}\n@media screen and (max-width: 600px) {\n.card-login{\n        width: 300px;\n        height: 200px;\n}\n#arrow{\n        width: 20px;\n}\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
 /* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -101244,80 +101277,209 @@ var render = function() {
       _vm._v(" "),
       _c("center", [
         _c("div", { staticClass: "card-login" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-body" }, [
-              _c("div", { staticClass: "col-md-12" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-2" }, [
-                    _c("img", {
-                      attrs: {
-                        src:
-                          "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-8" }, [
-                    _c("div", { staticClass: "row d-flex flex-row" }, [
-                      _c("div", { staticClass: "col" }, [
-                        _c("h4", [_vm._v("Customer")])
+          _c(
+            "div",
+            {
+              staticClass: "card",
+              attrs: {
+                "data-toggle": "modal",
+                onclick: "setCustomer()",
+                "data-target": "#loginModal1"
+              }
+            },
+            [
+              _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "col-xs-12 col-md-12" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-xs-2 col-md-2" }, [
+                      _c("img", {
+                        attrs: {
+                          src:
+                            "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
+                          alt: ""
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-xs-8 col-md-8" }, [
+                      _c("div", { staticClass: "row d-flex flex-row" }, [
+                        _c("div", { staticClass: "col" }, [
+                          _c("h4", [_vm._v("Customer")])
+                        ])
                       ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-xs-2 col-md-2" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "https://img.icons8.com/metro/344/arrow.png",
+                          id: "arrow"
+                        }
+                      })
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-2" }, [
-                    _c("img", {
-                      attrs: {
-                        src: "https://img.icons8.com/metro/344/arrow.png",
-                        alt: ""
-                      }
-                    })
                   ])
                 ])
               ])
-            ])
-          ])
+            ]
+          )
         ]),
         _c("br"),
         _c("br"),
         _vm._v(" "),
         _c("div", { staticClass: "card-login" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-body" }, [
-              _c("div", { staticClass: "col-md-12" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-2" }, [
-                    _c("img", {
-                      attrs: {
-                        src:
-                          "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-8" }, [
-                    _c("div", { staticClass: "row d-flex flex-row" }, [
-                      _c("div", { staticClass: "col" }, [
-                        _c("h4", [_vm._v("Merchant")])
+          _c(
+            "div",
+            {
+              staticClass: "card",
+              attrs: {
+                "data-toggle": "modal",
+                onclick: "setMerchant()",
+                "data-target": "#loginModal2"
+              }
+            },
+            [
+              _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "col-xs-12 col-md-12" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-xs-2 col-md-2" }, [
+                      _c("img", {
+                        attrs: {
+                          src:
+                            "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
+                          alt: ""
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-xs-8 col-md-8" }, [
+                      _c("div", { staticClass: "row d-flex flex-row" }, [
+                        _c("div", { staticClass: "col" }, [
+                          _c("h4", [_vm._v("Merchant")])
+                        ])
                       ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-xs-2 col-md-2" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "https://img.icons8.com/metro/344/arrow.png",
+                          id: "arrow"
+                        }
+                      })
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-2" }, [
-                    _c("img", {
-                      attrs: {
-                        src: "https://img.icons8.com/metro/344/arrow.png",
-                        alt: ""
-                      }
-                    })
                   ])
                 ])
               ])
-            ])
-          ])
-        ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-login" }, [
+          _c(
+            "div",
+            {
+              staticClass: "card",
+              attrs: {
+                "data-toggle": "modal",
+                onclick: "setCbt()",
+                "data-target": "#loginModal3"
+              }
+            },
+            [
+              _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "col-xs-12 col-md-12" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-xs-2 col-md-2" }, [
+                      _c("img", {
+                        attrs: {
+                          src:
+                            "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
+                          alt: ""
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-xs-8 col-md-8" }, [
+                      _c("div", { staticClass: "row d-flex flex-row" }, [
+                        _c("div", { staticClass: "col" }, [
+                          _c("h4", [_vm._v("CBT")])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-xs-2 col-md-2" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "https://img.icons8.com/metro/344/arrow.png",
+                          id: "arrow"
+                        }
+                      })
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-login" }, [
+          _c(
+            "div",
+            {
+              staticClass: "card",
+              attrs: {
+                "data-toggle": "modal",
+                onclick: "setAdmin()",
+                "data-target": "#loginModal4"
+              }
+            },
+            [
+              _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "col-xs-12 col-md-12" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-xs-2 col-md-2" }, [
+                      _c("img", {
+                        attrs: {
+                          src:
+                            "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
+                          alt: ""
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-xs-8 col-md-8" }, [
+                      _c("div", { staticClass: "row d-flex flex-row" }, [
+                        _c("div", { staticClass: "col" }, [
+                          _c("h4", [_vm._v("Admin")])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-xs-2 col-md-2" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "https://img.icons8.com/metro/344/arrow.png",
+                          id: "arrow"
+                        }
+                      })
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _c("br"),
+        _c("br")
       ])
     ],
     1
@@ -101353,43 +101515,9 @@ if (false) {
 
 /***/ }),
 /* 379 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(380);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("27270e9e", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6b84b5e8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ListLogin.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6b84b5e8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ListLogin.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 380 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\nbody {\n    background-color: #F1F1F1;\n}\n.card-login{\n    width: 500px;\n}\n", ""]);
-
-// exports
-
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

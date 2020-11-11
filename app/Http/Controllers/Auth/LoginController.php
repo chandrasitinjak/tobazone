@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -27,7 +29,7 @@ class LoginController extends Controller
     |
     */
 
-    //use AuthenticatesUsers;
+//    use AuthenticatesUsers;
     use RedirectsUsers, ThrottlesLogins;
     /**
      * Where to redirect users after login.
@@ -46,30 +48,112 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function login(Request $request,$role)
+    public function login(Request $request, $role)
     {
-//        $this->validateLogin($request);
-//
-//        // If the class is using the ThrottlesLogins trait, we can automatically throttle
-//        // the login attempts for this application. We'll key this by the username and
-//        // the IP address of the client making these requests into this application.
-//        if ($this->hasTooManyLoginAttempts($request)) {
-//            $this->fireLockoutEvent($request);
-//
-//            return $this->sendLockoutResponse($request);
-//        }
-//
-//        if ($this->attemptLogin($request)) {
-//            return $this->sendLoginResponse($request);
-//        }
+        if ($role == "cbt") {
+            $this->validateLogin($request);
 
-        if($role == 'CBT'){
-            return "pasti berhasil";
+            // If the class is using the ThrottlesLogins trait, we can automatically throttle
+            // the login attempts for this application. We'll key this by the username and
+            // the IP address of the client making these requests into this application.
+
+            if ($this->hasTooManyLoginAttempts($request)) {
+                $this->fireLockoutEvent($request);
+
+                return $this->sendLockoutResponse($request);
+            }
+
+            if ($this->attemptLogin($request)) {
+                return $this->sendLoginResponse($request);
+            }
+        }else if($role == "customer"){
+            $this->validateLogin($request);
+
+            // If the class is using the ThrottlesLogins trait, we can automatically throttle
+            // the login attempts for this application. We'll key this by the username and
+            // the IP address of the client making these requests into this application.
+
+            if ($this->hasTooManyLoginAttempts($request)) {
+                $this->fireLockoutEvent($request);
+
+                return $this->sendLockoutResponse($request);
+            }
+
+            if ($this->attemptLogin($request)) {
+                return $this->sendLoginResponse($request);
+            }
+
+        }else if($role == "merchant"){
+            $this->validateLogin($request);
+
+            // If the class is using the ThrottlesLogins trait, we can automatically throttle
+            // the login attempts for this application. We'll key this by the username and
+            // the IP address of the client making these requests into this application.
+
+            if ($this->hasTooManyLoginAttempts($request)) {
+                $this->fireLockoutEvent($request);
+
+                return $this->sendLockoutResponse($request);
+            }
+
+            if ($this->attemptLogin($request)) {
+                return $this->sendLoginResponse($request);
+            }
+
+        }else if($role == "admin"){
+            $this->validateLogin($request);
+
+            // If the class is using the ThrottlesLogins trait, we can automatically throttle
+            // the login attempts for this application. We'll key this by the username and
+            // the IP address of the client making these requests into this application.
+
+            if ($this->hasTooManyLoginAttempts($request)) {
+                $this->fireLockoutEvent($request);
+
+                return $this->sendLockoutResponse($request);
+            }
+
+            if ($this->attemptLogin($request)) {
+                return $this->sendLoginResponse($request);
+            }
+
         }
 
 
-
     }
+
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        return $this->authenticated($request, $this->guard()->user())
+            ?: redirect()->intended($this->redirectPath());
+    }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            $this->username() => [trans('auth.failed')],
+        ]);
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        //
+    }
+
+    public function username()
+    {
+        return 'email';
+    }
+
+    protected function guard()
+    {
+        return Auth::guard();
+    }
+
 
     protected function validateLogin(Request $request)
     {
@@ -79,10 +163,30 @@ class LoginController extends Controller
         ]);
     }
 
+    protected function credentials(Request $request)
+    {
+        return $request->only($this->username(), 'password');
+    }
+
     protected function attemptLogin(Request $request)
     {
         return $this->guard()->attempt(
             $this->credentials($request), $request->filled('remember')
         );
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect('/');
+    }
+
+
+    protected function loggedOut(Request $request)
+    {
+        //
     }
 }

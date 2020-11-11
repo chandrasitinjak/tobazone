@@ -1,3 +1,5 @@
+
+var hidden;
 async function login() {
 
     const email = document.getElementById('email').value
@@ -97,7 +99,7 @@ async function login() {
     if (cek_depan === 1) {
 
         await jQuery.ajax({
-            url: '/login/CBT',
+            url: '/login/'+hidden,
             type: 'POST',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
@@ -116,8 +118,7 @@ async function login() {
 
             complete: (xhr, error) => {
                 if (xhr.status == 200) {
-                    
-                    // location.reload();
+                    window.location.href="/home"
                 } else if (xhr.status == 422) {
                     document.getElementById("exampleModalLabel").innerHTML = "E-mail atau Kata Sandi salah";
                     $('#password').css({
@@ -149,4 +150,21 @@ async function login() {
             },
         })
     }
+}
+
+function setCustomer(){
+    hidden = document.getElementById('hidden-customer').value
+    console.log(hidden);
+}
+function setMerchant(){
+    hidden = document.getElementById('hidden-merchant').value
+    console.log(hidden);
+}
+function setCbt(){
+    hidden = document.getElementById('hidden-cbt').value
+    console.log(hidden);
+}
+function setAdmin(){
+    hidden = document.getElementById('hidden-admin').value
+    console.log(hidden);
 }
