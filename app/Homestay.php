@@ -10,16 +10,18 @@ class Homestay extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'name', 
+        'name',
         'price',
         'total_room',
-        'room_available', 
+        'room_available',
         'description',
         'image',
         'address',
         'status',
+        'kabupaten',
+        'kecamatan',
+        'desa',
         'merchant_id'
     ];
     protected $dates = ['deleted_at'];
 }
-	
