@@ -70751,7 +70751,7 @@ var staticRenderFns = [
           staticClass: "navbar navbar-expand-lg mproduct p-1",
           staticStyle: { "background-color": "transparent", border: "none" }
         },
-        [_c("h3", { staticClass: "m-auto" }, [_vm._v("Terlaris bulan ini")])]
+        [_c("h3", { staticClass: "m-auto" }, [_vm._v("Produk Terbaru")])]
       )
     ])
   }
