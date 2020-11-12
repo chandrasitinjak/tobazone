@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBudayasTable extends Migration
+class CreateLayananWisatasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,18 @@ class CreateBudayasTable extends Migration
      */
     public function up()
     {
-        Schema::create('budayas', function (Blueprint $table) {
+        Schema::create('layanan_wisata', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('member_id');
+            $table->string('nama_layanan');
+            $table->unsignedBigInteger('jenisLayanan_id');
             $table->unsignedBigInteger('kabupaten_id');
-            $table->string('nama_budaya');
-            $table->text('deskripsi')->nullable();
-            $table->string('foto');
-            $table->string('lokasi');
-            $table->string('status');
+            $table->unsignedBigInteger('member_id');
+            $table->text('deskripsi_layanan')->nullable();
             $table->timestamps();
 
+            $table->foreign('jenislayanan_id')->references('id')->on('jenis_layanan');
+            $table->foreign('kabupaten_id')->references('id_kabupaten')->on('kabupatens');
             $table->foreign('member_id')->references('id')->on('member');
-            $table->foreign('kabupaten_id')->references('id')->on('kabupatens');
         });
     }
 
@@ -36,6 +35,6 @@ class CreateBudayasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('budayas');
+        Schema::dropIfExists('layanan_wisata');
     }
 }
