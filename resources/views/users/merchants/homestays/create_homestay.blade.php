@@ -1,5 +1,5 @@
 @extends('users.layouts.app')
-@section('title') {{ "Products" }}
+@section('title') {{ "Homestays" }}
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
                         <h6>Tambah Homestay Baru </h6>
                     </div>
                     <div class="card-body">
-                        <form class="form-group" method="POST" action="{{ url('/products/store', 4) }}" enctype="multipart/form-data">
+                        <form class="form-group" method="POST" action="{{ url('/homestays/save') }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group row">
                                 <div class="input-group mb-3">
