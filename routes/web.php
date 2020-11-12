@@ -198,3 +198,10 @@ Route::get('/homestays', 'HomestayController@findAll');
 Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::get('/homestays/save', 'HomestayController@store');
+
+//Approval Penginapan Backend
+Route::post('/homestay/approvePenginapan/{id}', 'HomestayController@approvePenginapan');
+Route::post('/homestay/rejectedPenginapan/{id}', 'HomestayController@rejectedPenginapan');
+
+//Approval Penginapan Frontend
+Route::get('/homestay/ListPesanan', 'HomestayController@listPesananPenginapan');
