@@ -158,11 +158,11 @@ class RegisterController extends Controller
         return Redirect::route('login_path');
     }
     
-    public function registerCbt(Request $data){
-        $email_cbt = $data->email;
+    // public function registerCbt(Request $data){
+    //     $email_cbt = $data->email;
 
-        Mail::to($email_cbt)->send(new RegisterCbt());
+    //     Mail::to($email_cbt)->send(new RegisterCbt());
 
-        return response()->json($email_cbt);
-    }
+    //     return response()->json($email_cbt);
+    // }
 }
