@@ -101284,7 +101284,7 @@ var render = function() {
               attrs: {
                 "data-toggle": "modal",
                 onclick: "setCustomer()",
-                "data-target": "#loginModal1"
+                "data-target": "#loginModal"
               }
             },
             [
@@ -101334,7 +101334,7 @@ var render = function() {
               attrs: {
                 "data-toggle": "modal",
                 onclick: "setMerchant()",
-                "data-target": "#loginModal2"
+                "data-target": "#loginModal"
               }
             },
             [
@@ -101385,7 +101385,7 @@ var render = function() {
               attrs: {
                 "data-toggle": "modal",
                 onclick: "setCbt()",
-                "data-target": "#loginModal3"
+                "data-target": "#loginModal2"
               }
             },
             [
@@ -101436,7 +101436,7 @@ var render = function() {
               attrs: {
                 "data-toggle": "modal",
                 onclick: "setAdmin()",
-                "data-target": "#loginModal4"
+                "data-target": "#loginModal"
               }
             },
             [

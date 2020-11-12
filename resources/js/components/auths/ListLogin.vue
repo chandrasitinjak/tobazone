@@ -9,7 +9,7 @@
        </div>
        <center>
        <div class="card-login">
-           <div class="card"  data-toggle="modal" onclick="setCustomer()" data-target="#loginModal1">
+           <div class="card"  data-toggle="modal" onclick="setCustomer()" data-target="#loginModal">
                <div class="card-body">
                    <div class="col-xs-12 col-md-12">
                        <div class="row">
@@ -30,7 +30,7 @@
            </div>
        </div><br><br>
            <div class="card-login">
-               <div class="card"  data-toggle="modal" onclick="setMerchant()" data-target="#loginModal2">
+               <div class="card"  data-toggle="modal" onclick="setMerchant()" data-target="#loginModal">
                    <div class="card-body">
                        <div class="col-xs-12 col-md-12">
                            <div class="row">
@@ -52,7 +52,7 @@
            </div>
            <br><br>
            <div class="card-login">
-               <div class="card"  data-toggle="modal" onclick="setCbt()" data-target="#loginModal3">
+               <div class="card"  data-toggle="modal" onclick="setCbt()" data-target="#loginModal2">
                    <div class="card-body">
                        <div class="col-xs-12 col-md-12">
                            <div class="row">
@@ -74,7 +74,7 @@
            </div>
            <br><br>
            <div class="card-login">
-               <div class="card"  data-toggle="modal" onclick="setAdmin()" data-target="#loginModal4">
+               <div class="card"  data-toggle="modal" onclick="setAdmin()" data-target="#loginModal">
                    <div class="card-body">
                        <div class="col-xs-12 col-md-12">
                            <div class="row">
