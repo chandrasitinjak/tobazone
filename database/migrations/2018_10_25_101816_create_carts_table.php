@@ -19,6 +19,7 @@ class CreateCartsTable extends Migration
             $table->integer('product_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->integer('total');
+            $table->text('message')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

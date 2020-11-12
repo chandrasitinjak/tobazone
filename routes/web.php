@@ -197,3 +197,4 @@ Route::get('/carabayar', 'QnAController@showi');
 Route::get('/homestays', 'HomestayController@findAll');
 Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
+Route::get('/homestays/save', 'HomestayController@store');
