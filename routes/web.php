@@ -229,3 +229,12 @@ Route::get('/homestays/save', 'HomestayController@store');
 
 // Sistem Informasi Pariwisata
 Route::get('/home-informasi-pariwisata', 'HomeController@homeInformasiPariwisata');
+
+
+Route::get('/homestays/approvalPesananPenginapan', function () {
+    return view ('homestay.merchant.ApprovalPesananPenginapan');
+});
+
+
+Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
+

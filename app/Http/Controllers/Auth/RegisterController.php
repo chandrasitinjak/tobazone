@@ -18,6 +18,8 @@ use App\roles;
 use App\VerifyUser;
 use Illuminate\Auth\Events\Registered;
 
+use App\Mail\RegisterCbt;
+
 class RegisterController extends Controller
 {
     /*
@@ -155,5 +157,12 @@ class RegisterController extends Controller
 
         return Redirect::route('login_path');
     }
+    
+    public function registerCbt(Request $data){
+        $email_cbt = $data->email;
 
+        Mail::to($email_cbt)->send(new RegisterCbt());
+
+        return response()->json($email_cbt);
+    }
 }

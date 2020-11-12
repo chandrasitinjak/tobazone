@@ -33,8 +33,10 @@ class RoleAndPermissionSeeder extends Seeder
         $user = User::find(3);
         $user->assignRole('customer');
 
+
         Role::create(['name' => 'member_cbt']);
         $user = User::find(4);
         $user->assignRole('member_cbt');
+
     }
 }
