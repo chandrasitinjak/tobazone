@@ -24,6 +24,9 @@ class HomestaysTable extends Migration
             $table->string('address');
             $table->string('image');
             $table->integer('status');
+            $table->integer('kabupaten');
+            $table->integer('kecamatan');
+            $table->integer('desa');
             $table->string('longitude');
             $table->string('latitude');
 
