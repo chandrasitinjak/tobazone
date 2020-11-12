@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Komunitas extends Model
 {
+
     protected $table = 'komunitas';
 
     protected $primaryKey = 'id';
@@ -14,7 +15,7 @@ class Komunitas extends Model
 
 
     public function getKabupaten(){
-        return $this->belongsTo( City::class, 'kabupaten_id','id');
+        return $this->belongsTo( Kabupaten::class, 'kabupaten_id','id_kabupaten');
     }
 
     public function getKomunitasMember(){

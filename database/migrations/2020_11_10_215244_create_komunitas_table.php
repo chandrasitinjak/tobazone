@@ -15,14 +15,14 @@ class CreateKomunitasTable extends Migration
     {
         Schema::create('komunitas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('kabupaten_id');
+            $table->unsignedBigInteger('kabupaten_id');
             $table->string('nama_komunitas');
             $table->text('deskripsi');
             $table->string('gambar');
             $table->string('link');
             $table->timestamps();
 
-            $table->foreign('kabupaten_id')->references('id')->on('cities');
+            $table->foreign('kabupaten_id')->references('id_kabupaten')->on('kabupatens');
         });
     }
 

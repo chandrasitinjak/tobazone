@@ -19,16 +19,16 @@ class CreateAkomodasisTable extends Migration
             $table->string('longitude');
             $table->string('latitude');
             $table->string('foto');
-            $table->unsignedBigInteger('cbt_id');
+            $table->unsignedBigInteger('member_id');
             $table->unsignedBigInteger('kabupaten_id');
             $table->unsignedBigInteger('category_akomodasi_id');
             $table->string('nama_akomodasi');
             $table->string('lokasi');
+            $table->string('status');
             $table->text('deskripsi')->nullable();
             $table->timestamps();
 
-
-            $table->foreign('cbt_id')->references('id')->on('cbts');
+            $table->foreign('member_id')->references('id')->on('member');
             $table->foreign('kabupaten_id')->references('id')->on('kabupatens');
             $table->foreign('category_akomodasi_id')->references('id')->on('akomodasis');
         });

@@ -5,8 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class PaketWisata extends Model
-{
-    protected $table = 'paket_wisata';
+{protected $table = 'paket_wisata';
     protected $primaryKey = 'id_paket';
     protected $fillable =['nama_paket','jenis_paket','status','harga_paket','availability','durasi','deskripsi_paket','rencana_perjalanan','tambahan','gambar','kabupaten_id'];
 
@@ -17,7 +16,7 @@ class PaketWisata extends Model
         return $this->hasMany(Sesi::class,'paket_id','id_paket');
     }
     public function getKabupaten(){
-        return $this->belongsTo(City::class,'kabupaten_id','id');
+        return $this->belongsTo(Kabupaten::class,'kabupaten_id','id_kabupaten');
     }
     public function getPaketLayanan(){
         return $this->belongsToMany(LayananWisata::class,'paket_layanans','paket_wisata_id','layanan_wisata_id','id_paket','id');
@@ -53,5 +52,4 @@ class PaketWisata extends Model
         }else{
             return "dark";
         }
-    }
-}
+    }}

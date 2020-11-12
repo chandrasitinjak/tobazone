@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sesi extends Model
 {
-    protected $table = 'sesis';
+    protected $table = 'sesi';
     protected $primaryKey = 'id_sesi';
     protected $fillable =['paket_id','kuota_peserta','jadwal','status'];
 

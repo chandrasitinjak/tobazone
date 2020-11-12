@@ -12,6 +12,16 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
+/*
+    Visit Toba
+*/
+
+//Route::get('/paket',)->name('paket');
+
+/*
+    End Visit Toba
+*/
+
 
 Route::get('/', function () {
     if (Auth::user()) {
