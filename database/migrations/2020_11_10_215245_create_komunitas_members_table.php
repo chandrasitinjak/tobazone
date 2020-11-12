@@ -20,7 +20,7 @@ class CreateKomunitasMembersTable extends Migration
             $table->timestamps();
 
             $table->foreign('komunitas_id')->references('id')->on('komunitas');
-            $table->foreign('member_id')->references('id')->on('members');
+            $table->foreign('member_id')->references('id')->on('member');
         });
     }
 

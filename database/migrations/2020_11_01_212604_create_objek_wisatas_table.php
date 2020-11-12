@@ -30,7 +30,7 @@ class CreateObjekWisatasTable extends Migration
 
             $table->foreign('category_id')->references('id')->on('category_wisatas');
             $table->foreign('member_id')->references('id')->on('member');
-            $table->foreign('kabupaten_id')->references('id')->on('kabupatens');
+            $table->foreign('kabupaten_id')->references('id_kabupaten')->on('kabupatens');
         });
     }
 
