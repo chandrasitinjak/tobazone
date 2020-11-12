@@ -201,3 +201,6 @@ Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::get('/homestays/approvalPesananPenginapan', function () {
     return view ('homestay.merchant.ApprovalPesananPenginapan');
 });
+
+
+Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');

@@ -9,101 +9,53 @@
 
                     <div class="form-group">
                         <label class="label">nama Lengkap</label>
-                        <input type="text" class="form-control form-control-sm" v-model="userMerchant.phone"
-                            v-model.trim="$v.userMerchant.phone.$model"
-                            :class="{'is-invalid':$v.userMerchant.phone.$error, 'is-valid':!$v.userMerchant.phone.$invalid }" />
-                        <div class="valid-feedback">Nomor Telepon sudah valid</div>
-                        <div class="invalid-feedback">
-                            <span v-if="!$v.userMerchant.phone.required">Nomor Telepon tidak boleh kosong</span>
-                        </div>
+                        <input type="text" class="form-control form-control-sm" v-model="nama_lengkap"/>                        
                     </div>                                        
 
                     <div class="form-group">
                         <label class="label">nomor WA</label>
-                        <input type="number" class="form-control form-control-sm" v-model="userMerchant.name"
-                            v-model.trim="$v.userMerchant.name.$model"
-                            :class="{'is-invalid':$v.userMerchant.name.$error, 'is-valid':!$v.userMerchant.name.$invalid }" />
-                        <div class="valid-feedback">Nama Toko sudah valid</div>
-                        <div class="invalid-feedback">
-                            <span v-if="!$v.userMerchant.name.required">Nama Toko tidak boleh kosong</span>
-                        </div>
+                        <input type="number" class="form-control form-control-sm" v-model="nomor_wa"/>                                                    
                     </div>                                        
 
                     <div class="form-group">
                         <label class="label">nomor Handphone</label>
-                        <input type="number" class="form-control form-control-sm" v-model="userMerchant.name"
-                            v-model.trim="$v.userMerchant.name.$model"
-                            :class="{'is-invalid':$v.userMerchant.name.$error, 'is-valid':!$v.userMerchant.name.$invalid }" />
-                        <div class="valid-feedback">Nama Toko sudah valid</div>
-                        <div class="invalid-feedback">
-                            <span v-if="!$v.userMerchant.name.required">Nama Toko tidak boleh kosong</span>
-                        </div>
+                        <input type="number" class="form-control form-control-sm" v-model="nomor_hp"/>                                                                            
                     </div>                                        
 
                     <div class="form-group">
                         <label class="label">Email</label>
-                        <input type="email" class="form-control form-control-sm" v-model="userMerchant.name"
-                            v-model.trim="$v.userMerchant.name.$model"
-                            :class="{'is-invalid':$v.userMerchant.name.$error, 'is-valid':!$v.userMerchant.name.$invalid }" />
-                        <div class="valid-feedback">Nama Toko sudah valid</div>
-                        <div class="invalid-feedback">
-                            <span v-if="!$v.userMerchant.name.required">Nama Toko tidak boleh kosong</span>
-                        </div>
+                        <input type="email" class="form-control form-control-sm" v-model="email" />                                                 
                     </div>    
 
                     <div class="form-group">
                         <label class="label">Kata Sandi</label>
-                        <input type="password" class="form-control form-control-sm" v-model="userMerchant.password"
-                            v-model.trim="$v.userMerchant.password.$model" :class="{'is-invalid':$v.userMerchant.password.$error,
-                            'is-valid':!$v.userMerchant.password.$invalid}" />
-                        <div class="valid-feedback">Kata Sandi sudah valid</div>
-                        <div class="invalid-feedback">
-                            <span v-if="!$v.userMerchant.password.required">Kata Sandi tidak boleh kosong</span>
-                            <span v-if="!$v.userMerchant.password.mingLength">Kata Sandi minimal 8 karakter</span>
-                        </div>
+                        <input type="password" class="form-control form-control-sm" v-model="kata_sandi"/>                                                   
                     </div>
 
                     <div class="form-group">
                         <label class="label">Konfirmasi Kata Sandi</label>
-                        <input type="password" class="form-control form-control-sm"
-                            v-model="userMerchant.passwordconfirm" v-model.trim="$v.userMerchant.passwordconfirm.$model"
-                            :class="{'is-invalid':$v.userMerchant.passwordconfirm.$error, 
-                            'is-valid':(userMerchant.password!='')?!$v.userMerchant.passwordconfirm.$invalid:''}">
-                        <div class="valid-feedback">Konfirmasi Kata Sandi sudah valid</div>
-                        <div class="invalid-feedback">
-                            <span v-if="!$v.userMerchant.passwordconfirm.sameAsPassword">Kata Sandi dan Konfirmasi Kata
-                                Sandi tidak sesuai</span>
-                        </div>
+                        <input type="password" class="form-control form-control-sm" v-model="kata_sandi_konfirmasi" />                                                     
                     </div>
                     
                     <div class="form-group">
                         <label class="label">Nomor KTP</label>
-                        <input type="number" class="form-control form-control-sm" v-model="userMerchant.name"
-                            v-model.trim="$v.userMerchant.name.$model"
-                            :class="{'is-invalid':$v.userMerchant.name.$error, 'is-valid':!$v.userMerchant.name.$invalid }" />
-                        <div class="valid-feedback">Nama Toko sudah valid</div>
-                        <div class="invalid-feedback">
-                            <span v-if="!$v.userMerchant.name.required">Nama Toko tidak boleh kosong</span>
-                        </div>
+                        <input type="number" class="form-control form-control-sm" v-model="nomor_ktp"/>                                                    
                     </div>   
 
 
                     <div class="form-group">
                         <label class="label">Foto KTP</label>
-                        <input type="file" class="form-control form-control-sm" />                        
+                        <input type="file" class="form-control form-control-sm" name="myfile"/>                        
                     </div>   
 
                     <div class="form-group">
-                                <label class="label">Provinsi</label>
-                                <select class="form-control form-control-lg">                                   
+                                <label class="label">Komunitas</label>
+                                <select class="form-control form-control-lg" v-model="komunitas">                                   
                                     <option>Komunitas Test 1</option>
                                 </select>                                
 
-                            </div>
-                     
-
-
-                    <button type="button" class="btn essence-btn btn-block" v-on:click="addMerchant">Daftar</button>
+                            </div>                     
+                    <button type="button" class="btn essence-btn btn-block" v-on:click="addCbt">Daftar</button>
                 </form>
             </div>
         </div>
@@ -126,199 +78,39 @@
         },
         data() {
             return {
-                provicies: [],
-                cities: [],
-                subdistricts: [],
-                userMerchant: {
-                    selectedCity: "",
-                    selectedProvince: "",
-                    selectedSubdistrict: "",
-                    addressDetail: "",
-                    username: "",
-                    email: "",
-                    name: "",
-                    phone: "",
-                    photo: "",
-                    gender: "",
-                    birthday: "",
-                    password: "",
-                    passwordconfirm: ""
-                }
-            };
+                nama_lengkap: "",
+                nomor_wa: "",
+                nomor_hp: "",
+                email: "",
+                kata_sandi: "",
+                kata_sandi_konfirmasi: "",
+                nomor_ktp: "",
+                foto_ktp: "",
+                komunitas: "",
+            };  
         },
         methods: {
-            dismiss() {
-                EventBus.$emit("ADD_MERCHANT_MODAL_CLOSED", null);
-            },
-            getProvincies() {
+            addCbt() {
+                let payload = {
+                    email: this.email
+                };
+                console.log(payload);
                 window.axios
-                    .get("/api/provincies")
-                    .then(res => {
-                        this.provicies = res.data;
+                    .post("/register-cbt", payload)
+                    .then(rest => {
+                        console.log("hello world");
                     })
                     .catch(err => {
-                        console.log(err);
-                    });
-            },
-            getCities() {
-                EventBus.$emit("SPINNER", true);
-                window.axios
-                    .get("/api/cities?pro_id=" + this.userMerchant.selectedProvince.id)
-                    .then(res => {
-                        this.cities = res.data;
-                        EventBus.$emit("SPINNER", false);
+                         console.log(err);
                     })
-                    .catch(err => {
-                        console.log(err);
-                        EventBus.$emit("SPINNER", false);
-                    });
-            },
-            getSubdistricts() {
-                EventBus.$emit("SPINNER", true);
-                window.axios
-                    .get("/api/subdistricts?city_id=" + this.userMerchant.selectedCity.id)
-                    .then(res => {
-                        this.subdistricts = res.data.rajaongkir.results;
-                        EventBus.$emit("SPINNER", false);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                        EventBus.$emit("SPINNER", false);
-                    });
-            },
-            addMerchant() {
-                this.$v.$touch()
-                if (!this.$v.$invalid) {
-                    let payload = {
-                        provinceId: this.userMerchant.selectedProvince.id,
-                        cityId: this.userMerchant.selectedCity.id,
-                        subdistrictId: this.userMerchant.selectedSubdistrict.subdistrict_id,                                                                             
-                        provinceName: this.userMerchant.selectedProvince.name,
-                        cityName: this.userMerchant.selectedCity.name,
-                        subdistrictName: this.userMerchant.selectedSubdistrict.subdistrict_name,
-                        addressDetail: this.userMerchant.addressDetail,
-                        addressName: "",
-                        username: this.userMerchant.username,
-                        email: this.userMerchant.email,
-                        name: this.userMerchant.name,
-                        photo: "",
-                        phone: this.userMerchant.phone,
-                        gender: this.userMerchant.gender,
-                        birthday: this.userMerchant.birthday,
-                        postalCode: this.userMerchant.selectedCity.postal_code,
-                        password: this.userMerchant.password,
-                        password_confirmation: this.userMerchant.passwordconfirm,
-                        role: "merchant"
-                    };
-
-                    console.log(payload);
-
-                    EventBus.$emit("SPINNER", true);
-                    window.axios
-                        .post("/register", payload)
-                        .then(() => {
-                            EventBus.$emit("SPINNER", false);
-                            this.$swal({
-                                title: "Pendaftaran Berhasil",
-                                icon: "success"
-                            });
-                            window.location = "/";
-                        })
-                        .catch(err => {
-                            console.log(err);
-                            EventBus.$emit("SPINNER", false);
-
-                            let customerAttributes = {
-                                "selectedCity": "Kota/Kabupaten",
-                                "selectedProvince": "Provinsi",
-                                "selectedSubdistrict": "Kecamatan",
-                                "addressDetail": "Alamat Rinci Toko",
-                                "username": "Username",
-                                "email": "E-mail",
-                                "name": "Nama Toko",
-                                "phone": "Nomor Telepon",
-                                "photo": "Foto",
-                                "gender": "Jenis Kelamin",
-                                "birthday": "Tanggal Lahir",
-                                "password": "Kata Sandi",
-                                "passwordconfirm": "Konfirmasi Kata Sandi"
-                            };
-
-                            let errMessage = "Terjadi kesalahan.";
-                            if (err.response.status == 422) {
-                                let errKeys = Object.keys(err.response.data.errors);
-                                let errKey = "";
-                                if (errKeys.length > 0) {
-                                    errKey = errKeys[0];
-                                }
-
-                                errMessage = "Data yang diberikan tidak valid.";
-                                if (errKey != "") {
-                                    if (errKey == "email" || errKey == "username") {
-                                        errMessage = errMessage + " " + customerAttributes[errKey] +
-                                            " tidak valid atau telah terdaftar.";
-                                    } else {
-                                        errMessage = customerAttributes[errKey] +
-                                            " tidak valid.";
-                                    }
-                                }
-                            }
-
-                            this.$swal({
-                                title: "Pendaftaran Gagal",
-                                icon: "error",
-                                text: errMessage
-                            });
-                        });
-                }
             }
         },
 
-        validations: {
-            userMerchant: {
-                username: {
-                    required,
-                    minLength: minLength(8)
-                },
-                email: {
-                    required,
-                    email
-                },
-                name: {
-                    required
-                },
-                phone: {
-                    required
-                },
-                addressDetail: {
-                    required
-                },
-                birthday: {
-                    required
-                },
-                selectedProvince: {
-                    required
-                },
-                selectedCity: {
-                    required
-                },
-                selectedSubdistrict: {
-                    required
-                },
-                gender: {
-                    required
-                },
-                password: {
-                    required,
-                    minLength: minLength(8)
-                },
-                passwordconfirm: {
-                    sameAsPassword: sameAs("password")
-                }
-            }
+        validations: {            
+
         },
         mounted() {
-            this.getProvincies();
+            
         }
     };
 

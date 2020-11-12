@@ -83733,54 +83733,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -83792,195 +83744,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            provicies: [],
-            cities: [],
-            subdistricts: [],
-            userMerchant: {
-                selectedCity: "",
-                selectedProvince: "",
-                selectedSubdistrict: "",
-                addressDetail: "",
-                username: "",
-                email: "",
-                name: "",
-                phone: "",
-                photo: "",
-                gender: "",
-                birthday: "",
-                password: "",
-                passwordconfirm: ""
-            }
+            nama_lengkap: "",
+            nomor_wa: "",
+            nomor_hp: "",
+            email: "",
+            kata_sandi: "",
+            kata_sandi_konfirmasi: "",
+            nomor_ktp: "",
+            foto_ktp: "",
+            komunitas: ""
         };
     },
 
     methods: {
-        dismiss: function dismiss() {
-            __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("ADD_MERCHANT_MODAL_CLOSED", null);
-        },
-        getProvincies: function getProvincies() {
-            var _this = this;
-
-            window.axios.get("/api/provincies").then(function (res) {
-                _this.provicies = res.data;
+        addCbt: function addCbt() {
+            var payload = {
+                email: this.email
+            };
+            console.log(payload);
+            window.axios.post("/register-cbt", payload).then(function (rest) {
+                console.log("hello world");
             }).catch(function (err) {
                 console.log(err);
             });
-        },
-        getCities: function getCities() {
-            var _this2 = this;
-
-            __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
-            window.axios.get("/api/cities?pro_id=" + this.userMerchant.selectedProvince.id).then(function (res) {
-                _this2.cities = res.data;
-                __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
-            }).catch(function (err) {
-                console.log(err);
-                __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
-            });
-        },
-        getSubdistricts: function getSubdistricts() {
-            var _this3 = this;
-
-            __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
-            window.axios.get("/api/subdistricts?city_id=" + this.userMerchant.selectedCity.id).then(function (res) {
-                _this3.subdistricts = res.data.rajaongkir.results;
-                __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
-            }).catch(function (err) {
-                console.log(err);
-                __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
-            });
-        },
-        addMerchant: function addMerchant() {
-            var _this4 = this;
-
-            this.$v.$touch();
-            if (!this.$v.$invalid) {
-                var payload = {
-                    provinceId: this.userMerchant.selectedProvince.id,
-                    cityId: this.userMerchant.selectedCity.id,
-                    subdistrictId: this.userMerchant.selectedSubdistrict.subdistrict_id,
-                    provinceName: this.userMerchant.selectedProvince.name,
-                    cityName: this.userMerchant.selectedCity.name,
-                    subdistrictName: this.userMerchant.selectedSubdistrict.subdistrict_name,
-                    addressDetail: this.userMerchant.addressDetail,
-                    addressName: "",
-                    username: this.userMerchant.username,
-                    email: this.userMerchant.email,
-                    name: this.userMerchant.name,
-                    photo: "",
-                    phone: this.userMerchant.phone,
-                    gender: this.userMerchant.gender,
-                    birthday: this.userMerchant.birthday,
-                    postalCode: this.userMerchant.selectedCity.postal_code,
-                    password: this.userMerchant.password,
-                    password_confirmation: this.userMerchant.passwordconfirm,
-                    role: "merchant"
-                };
-
-                console.log(payload);
-
-                __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
-                window.axios.post("/register", payload).then(function () {
-                    __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
-                    _this4.$swal({
-                        title: "Pendaftaran Berhasil",
-                        icon: "success"
-                    });
-                    window.location = "/";
-                }).catch(function (err) {
-                    console.log(err);
-                    __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
-
-                    var customerAttributes = {
-                        "selectedCity": "Kota/Kabupaten",
-                        "selectedProvince": "Provinsi",
-                        "selectedSubdistrict": "Kecamatan",
-                        "addressDetail": "Alamat Rinci Toko",
-                        "username": "Username",
-                        "email": "E-mail",
-                        "name": "Nama Toko",
-                        "phone": "Nomor Telepon",
-                        "photo": "Foto",
-                        "gender": "Jenis Kelamin",
-                        "birthday": "Tanggal Lahir",
-                        "password": "Kata Sandi",
-                        "passwordconfirm": "Konfirmasi Kata Sandi"
-                    };
-
-                    var errMessage = "Terjadi kesalahan.";
-                    if (err.response.status == 422) {
-                        var errKeys = Object.keys(err.response.data.errors);
-                        var errKey = "";
-                        if (errKeys.length > 0) {
-                            errKey = errKeys[0];
-                        }
-
-                        errMessage = "Data yang diberikan tidak valid.";
-                        if (errKey != "") {
-                            if (errKey == "email" || errKey == "username") {
-                                errMessage = errMessage + " " + customerAttributes[errKey] + " tidak valid atau telah terdaftar.";
-                            } else {
-                                errMessage = customerAttributes[errKey] + " tidak valid.";
-                            }
-                        }
-                    }
-
-                    _this4.$swal({
-                        title: "Pendaftaran Gagal",
-                        icon: "error",
-                        text: errMessage
-                    });
-                });
-            }
         }
     },
 
-    validations: {
-        userMerchant: {
-            username: {
-                required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"],
-                minLength: Object(__WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["minLength"])(8)
-            },
-            email: {
-                required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"],
-                email: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["email"]
-            },
-            name: {
-                required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
-            },
-            phone: {
-                required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
-            },
-            addressDetail: {
-                required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
-            },
-            birthday: {
-                required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
-            },
-            selectedProvince: {
-                required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
-            },
-            selectedCity: {
-                required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
-            },
-            selectedSubdistrict: {
-                required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
-            },
-            gender: {
-                required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
-            },
-            password: {
-                required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"],
-                minLength: Object(__WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["minLength"])(8)
-            },
-            passwordconfirm: {
-                sameAsPassword: Object(__WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["sameAs"])("password")
-            }
-        }
-    },
-    mounted: function mounted() {
-        this.getProvincies();
-    }
+    validations: {},
+    mounted: function mounted() {}
 });
 
 /***/ }),
@@ -84012,61 +83803,22 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.userMerchant.phone,
-                    expression: "userMerchant.phone"
-                  },
-                  {
-                    name: "model",
-                    rawName: "v-model.trim",
-                    value: _vm.$v.userMerchant.phone.$model,
-                    expression: "$v.userMerchant.phone.$model",
-                    modifiers: { trim: true }
+                    value: _vm.nama_lengkap,
+                    expression: "nama_lengkap"
                   }
                 ],
                 staticClass: "form-control form-control-sm",
-                class: {
-                  "is-invalid": _vm.$v.userMerchant.phone.$error,
-                  "is-valid": !_vm.$v.userMerchant.phone.$invalid
-                },
                 attrs: { type: "text" },
-                domProps: {
-                  value: _vm.userMerchant.phone,
-                  value: _vm.$v.userMerchant.phone.$model
-                },
+                domProps: { value: _vm.nama_lengkap },
                 on: {
-                  input: [
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.$v.userMerchant.phone,
-                        "$model",
-                        $event.target.value.trim()
-                      )
-                    },
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.userMerchant, "phone", $event.target.value)
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  ],
-                  blur: function($event) {
-                    _vm.$forceUpdate()
+                    _vm.nama_lengkap = $event.target.value
                   }
                 }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "valid-feedback" }, [
-                _vm._v("Nomor Telepon sudah valid")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "invalid-feedback" }, [
-                !_vm.$v.userMerchant.phone.required
-                  ? _c("span", [_vm._v("Nomor Telepon tidak boleh kosong")])
-                  : _vm._e()
-              ])
+              })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -84077,61 +83829,22 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.userMerchant.name,
-                    expression: "userMerchant.name"
-                  },
-                  {
-                    name: "model",
-                    rawName: "v-model.trim",
-                    value: _vm.$v.userMerchant.name.$model,
-                    expression: "$v.userMerchant.name.$model",
-                    modifiers: { trim: true }
+                    value: _vm.nomor_wa,
+                    expression: "nomor_wa"
                   }
                 ],
                 staticClass: "form-control form-control-sm",
-                class: {
-                  "is-invalid": _vm.$v.userMerchant.name.$error,
-                  "is-valid": !_vm.$v.userMerchant.name.$invalid
-                },
                 attrs: { type: "number" },
-                domProps: {
-                  value: _vm.userMerchant.name,
-                  value: _vm.$v.userMerchant.name.$model
-                },
+                domProps: { value: _vm.nomor_wa },
                 on: {
-                  input: [
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.$v.userMerchant.name,
-                        "$model",
-                        $event.target.value.trim()
-                      )
-                    },
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.userMerchant, "name", $event.target.value)
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  ],
-                  blur: function($event) {
-                    _vm.$forceUpdate()
+                    _vm.nomor_wa = $event.target.value
                   }
                 }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "valid-feedback" }, [
-                _vm._v("Nama Toko sudah valid")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "invalid-feedback" }, [
-                !_vm.$v.userMerchant.name.required
-                  ? _c("span", [_vm._v("Nama Toko tidak boleh kosong")])
-                  : _vm._e()
-              ])
+              })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -84144,61 +83857,22 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.userMerchant.name,
-                    expression: "userMerchant.name"
-                  },
-                  {
-                    name: "model",
-                    rawName: "v-model.trim",
-                    value: _vm.$v.userMerchant.name.$model,
-                    expression: "$v.userMerchant.name.$model",
-                    modifiers: { trim: true }
+                    value: _vm.nomor_hp,
+                    expression: "nomor_hp"
                   }
                 ],
                 staticClass: "form-control form-control-sm",
-                class: {
-                  "is-invalid": _vm.$v.userMerchant.name.$error,
-                  "is-valid": !_vm.$v.userMerchant.name.$invalid
-                },
                 attrs: { type: "number" },
-                domProps: {
-                  value: _vm.userMerchant.name,
-                  value: _vm.$v.userMerchant.name.$model
-                },
+                domProps: { value: _vm.nomor_hp },
                 on: {
-                  input: [
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.$v.userMerchant.name,
-                        "$model",
-                        $event.target.value.trim()
-                      )
-                    },
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.userMerchant, "name", $event.target.value)
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  ],
-                  blur: function($event) {
-                    _vm.$forceUpdate()
+                    _vm.nomor_hp = $event.target.value
                   }
                 }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "valid-feedback" }, [
-                _vm._v("Nama Toko sudah valid")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "invalid-feedback" }, [
-                !_vm.$v.userMerchant.name.required
-                  ? _c("span", [_vm._v("Nama Toko tidak boleh kosong")])
-                  : _vm._e()
-              ])
+              })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -84209,61 +83883,22 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.userMerchant.name,
-                    expression: "userMerchant.name"
-                  },
-                  {
-                    name: "model",
-                    rawName: "v-model.trim",
-                    value: _vm.$v.userMerchant.name.$model,
-                    expression: "$v.userMerchant.name.$model",
-                    modifiers: { trim: true }
+                    value: _vm.email,
+                    expression: "email"
                   }
                 ],
                 staticClass: "form-control form-control-sm",
-                class: {
-                  "is-invalid": _vm.$v.userMerchant.name.$error,
-                  "is-valid": !_vm.$v.userMerchant.name.$invalid
-                },
                 attrs: { type: "email" },
-                domProps: {
-                  value: _vm.userMerchant.name,
-                  value: _vm.$v.userMerchant.name.$model
-                },
+                domProps: { value: _vm.email },
                 on: {
-                  input: [
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.$v.userMerchant.name,
-                        "$model",
-                        $event.target.value.trim()
-                      )
-                    },
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.userMerchant, "name", $event.target.value)
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  ],
-                  blur: function($event) {
-                    _vm.$forceUpdate()
+                    _vm.email = $event.target.value
                   }
                 }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "valid-feedback" }, [
-                _vm._v("Nama Toko sudah valid")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "invalid-feedback" }, [
-                !_vm.$v.userMerchant.name.required
-                  ? _c("span", [_vm._v("Nama Toko tidak boleh kosong")])
-                  : _vm._e()
-              ])
+              })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -84274,69 +83909,22 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.userMerchant.password,
-                    expression: "userMerchant.password"
-                  },
-                  {
-                    name: "model",
-                    rawName: "v-model.trim",
-                    value: _vm.$v.userMerchant.password.$model,
-                    expression: "$v.userMerchant.password.$model",
-                    modifiers: { trim: true }
+                    value: _vm.kata_sandi,
+                    expression: "kata_sandi"
                   }
                 ],
                 staticClass: "form-control form-control-sm",
-                class: {
-                  "is-invalid": _vm.$v.userMerchant.password.$error,
-                  "is-valid": !_vm.$v.userMerchant.password.$invalid
-                },
                 attrs: { type: "password" },
-                domProps: {
-                  value: _vm.userMerchant.password,
-                  value: _vm.$v.userMerchant.password.$model
-                },
+                domProps: { value: _vm.kata_sandi },
                 on: {
-                  input: [
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.$v.userMerchant.password,
-                        "$model",
-                        $event.target.value.trim()
-                      )
-                    },
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.userMerchant,
-                        "password",
-                        $event.target.value
-                      )
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  ],
-                  blur: function($event) {
-                    _vm.$forceUpdate()
+                    _vm.kata_sandi = $event.target.value
                   }
                 }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "valid-feedback" }, [
-                _vm._v("Kata Sandi sudah valid")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "invalid-feedback" }, [
-                !_vm.$v.userMerchant.password.required
-                  ? _c("span", [_vm._v("Kata Sandi tidak boleh kosong")])
-                  : _vm._e(),
-                _vm._v(" "),
-                !_vm.$v.userMerchant.password.mingLength
-                  ? _c("span", [_vm._v("Kata Sandi minimal 8 karakter")])
-                  : _vm._e()
-              ])
+              })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -84349,72 +83937,22 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.userMerchant.passwordconfirm,
-                    expression: "userMerchant.passwordconfirm"
-                  },
-                  {
-                    name: "model",
-                    rawName: "v-model.trim",
-                    value: _vm.$v.userMerchant.passwordconfirm.$model,
-                    expression: "$v.userMerchant.passwordconfirm.$model",
-                    modifiers: { trim: true }
+                    value: _vm.kata_sandi_konfirmasi,
+                    expression: "kata_sandi_konfirmasi"
                   }
                 ],
                 staticClass: "form-control form-control-sm",
-                class: {
-                  "is-invalid": _vm.$v.userMerchant.passwordconfirm.$error,
-                  "is-valid":
-                    _vm.userMerchant.password != ""
-                      ? !_vm.$v.userMerchant.passwordconfirm.$invalid
-                      : ""
-                },
                 attrs: { type: "password" },
-                domProps: {
-                  value: _vm.userMerchant.passwordconfirm,
-                  value: _vm.$v.userMerchant.passwordconfirm.$model
-                },
+                domProps: { value: _vm.kata_sandi_konfirmasi },
                 on: {
-                  input: [
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.$v.userMerchant.passwordconfirm,
-                        "$model",
-                        $event.target.value.trim()
-                      )
-                    },
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.userMerchant,
-                        "passwordconfirm",
-                        $event.target.value
-                      )
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  ],
-                  blur: function($event) {
-                    _vm.$forceUpdate()
+                    _vm.kata_sandi_konfirmasi = $event.target.value
                   }
                 }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "valid-feedback" }, [
-                _vm._v("Konfirmasi Kata Sandi sudah valid")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "invalid-feedback" }, [
-                !_vm.$v.userMerchant.passwordconfirm.sameAsPassword
-                  ? _c("span", [
-                      _vm._v(
-                        "Kata Sandi dan Konfirmasi Kata\n                            Sandi tidak sesuai"
-                      )
-                    ])
-                  : _vm._e()
-              ])
+              })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -84425,73 +83963,67 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.userMerchant.name,
-                    expression: "userMerchant.name"
-                  },
-                  {
-                    name: "model",
-                    rawName: "v-model.trim",
-                    value: _vm.$v.userMerchant.name.$model,
-                    expression: "$v.userMerchant.name.$model",
-                    modifiers: { trim: true }
+                    value: _vm.nomor_ktp,
+                    expression: "nomor_ktp"
                   }
                 ],
                 staticClass: "form-control form-control-sm",
-                class: {
-                  "is-invalid": _vm.$v.userMerchant.name.$error,
-                  "is-valid": !_vm.$v.userMerchant.name.$invalid
-                },
                 attrs: { type: "number" },
-                domProps: {
-                  value: _vm.userMerchant.name,
-                  value: _vm.$v.userMerchant.name.$model
-                },
+                domProps: { value: _vm.nomor_ktp },
                 on: {
-                  input: [
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.$v.userMerchant.name,
-                        "$model",
-                        $event.target.value.trim()
-                      )
-                    },
-                    function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.userMerchant, "name", $event.target.value)
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  ],
-                  blur: function($event) {
-                    _vm.$forceUpdate()
+                    _vm.nomor_ktp = $event.target.value
                   }
                 }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "valid-feedback" }, [
-                _vm._v("Nama Toko sudah valid")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "invalid-feedback" }, [
-                !_vm.$v.userMerchant.name.required
-                  ? _c("span", [_vm._v("Nama Toko tidak boleh kosong")])
-                  : _vm._e()
-              ])
+              })
             ]),
             _vm._v(" "),
             _vm._m(0),
             _vm._v(" "),
-            _vm._m(1),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("Komunitas")]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.komunitas,
+                      expression: "komunitas"
+                    }
+                  ],
+                  staticClass: "form-control form-control-lg",
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.komunitas = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [_c("option", [_vm._v("Komunitas Test 1")])]
+              )
+            ]),
             _vm._v(" "),
             _c(
               "button",
               {
                 staticClass: "btn essence-btn btn-block",
                 attrs: { type: "button" },
-                on: { click: _vm.addMerchant }
+                on: { click: _vm.addCbt }
               },
               [_vm._v("Daftar")]
             )
@@ -84512,20 +84044,8 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control form-control-sm",
-        attrs: { type: "file" }
+        attrs: { type: "file", name: "myfile" }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { staticClass: "label" }, [_vm._v("Provinsi")]),
-      _vm._v(" "),
-      _c("select", { staticClass: "form-control form-control-lg" }, [
-        _c("option", [_vm._v("Komunitas Test 1")])
-      ])
     ])
   }
 ]
