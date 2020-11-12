@@ -118,7 +118,16 @@ async function login() {
 
             complete: (xhr, error) => {
                 if (xhr.status == 200) {
-                    window.location.href="/home"
+
+                    if(hidden=="customer"){
+                        window.location.href="/home"
+                    }else if(hidden=="cbt"){
+                        window.location.href="/home"
+                    }else if(hidden=="admin"){
+                        window.location.href="/home"
+                    }else if(hidden=="merchant"){
+                        window.location.href="/home"
+                    }
                 } else if (xhr.status == 422) {
                     document.getElementById("exampleModalLabel").innerHTML = "E-mail atau Kata Sandi salah";
                     $('#password').css({
