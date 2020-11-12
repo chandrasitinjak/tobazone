@@ -37,12 +37,12 @@ class TransactionController extends Controller
     }
 
     public function getNewOrder() {
-        $transactions = Transaction::with(['orders', 'merchant', 'customer', 'customer.profile'])->where('status', 'pending')->get();
+        $transactions = Transaction::with(['orders', 'merchant', 'customer', 'customer.profile', 'merchant.profile'])->where('status', 'pending')->get();
         return view('admin.orders.new-order')->with('transactions', $transactions);
     }
 
     public function getPaidOrder() {
-        $transactions = Transaction::with('orders')->whereIn('status', ['paid', 'acceptedBySystem'])->get();
+        $transactions = Transaction::with('orders')->whereIn('status', ['paid', 'acceptedBySystem', 'waitForVerified'])->get();
         return view('admin.orders.paid-order')->with('transactions', $transactions);
     }
 

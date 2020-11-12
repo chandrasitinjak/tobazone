@@ -1,7 +1,61 @@
-@extends('users.layouts.app') 
+@extends('users.layouts.app')
 @section('title') {{ "Product Detail" }}
-@endsection   
- 
+@endsection
+
+@section('style')
+    <style>
+        @media (min-width:219px) and (max-width: 449px){
+            .ybutton-category{
+                margin-top: 15px;
+            }
+            .yjudul{
+                margin-top: 10px;
+                font-size: 28px;
+            }
+            .product-desc{
+                text-align: justify;
+            }
+            #message{
+                height: 100px;
+            }
+        }
+        @media (min-width:450px) and (max-width: 767px){
+            .ybutton-category{
+                margin-top: 15px;
+            }
+            .yjudul{
+                margin-top: 10px;
+                font-size: 28px;
+            }
+            .product-desc{
+                text-align: justify;
+            }
+            #message{
+                height: 100px;
+            }
+        }
+        @media (min-width:768px) and (max-width: 990px){
+            #message{
+                width: 300px;
+                height: 100px;
+            }
+
+        }
+        @media (min-width:991px) and (max-width: 1199px){
+            #message{
+                width: 400px;
+                height: 100px;
+            }
+        }
+        @media (min-width:1200px){
+            #message{
+                width: 400px;
+                height: 100px;
+            }
+        }
+    </style>
+@endsection
+
 @section('content')
 <div class="col-md-12">
   <div class="row">
@@ -14,7 +68,7 @@
               <div class="detailproduct">
                 <div class="row">
 
-                  <div class="col-md-2 pr-0 smallimageholder">
+                  <div class="col-lg-auto col-md-auto col-sm-auto pr-0 smallimageholder">
                     <ul class="nav nav-pills nav-justified smallimage ">
                       @foreach (json_decode($product->images) as $idx => $image) @if ($loop->first)
                       <li class="mb-2" data-target="#myCarousel" data-slide-to="{{ $idx }}" class="active">
@@ -27,7 +81,7 @@
                       @endif @endforeach
                     </ul>
                   </div>
-                  <div class="imagesliderholder col-md-10 ml-0 ">
+                  <div class="imagesliderholder col-md-10 col-lg-8 col-auto  ml-0 ">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
 
@@ -51,16 +105,16 @@
             </div>
 
             @if($product->cat_product == "ulos")
-            <div class="col-md-7">
-              <button type="button" class="badge custom-badge font-weight-light" data-toggle="test" data-rigger="focus" data-content="Produk ini dibuat dengan metode {{ $product->category }}"
+            <div class="col-md-6">
+              <button type="button" class="badge custom-badge font-weight-light ybutton-category" data-toggle="test" data-rigger="focus" data-content="Produk ini dibuat dengan metode {{ $product->category }}"
                 data-html="true">
                 {{$product->category}}
               </button>
 
-              <h2>{{ $product->name }} </h2>
+              <h2 class="yjudul">{{ $product->name }} </h2>
               <h4 class="product-price" style="color: orange">Rp {{ number_format($product->price ,0) }}</h4>
-              <p class="product-desc">{{$product->description}}</p>              
-              <p class="product-desc">Ulos ini berasal dari daerah {{$product->asal}}</p>              
+              <p class="product-desc">{{$product->description}}</p>
+              <p class="product-desc">Ulos ini berasal dari daerah {{$product->asal}}</p>
               <h6 class="product-desc"> Berat: {{ json_decode($product->specification)->weight}} gram</h6>
 
 
@@ -82,17 +136,17 @@
               @endif -->
             @elseif($product['cat_product'] == "pakaian" )
             <div class="col-md-7">
-              <button type="button" class="badge custom-badge font-weight-light" data-toggle="test" data-rigger="focus" data-content="<b>pakaian {{ $product->category }}"
+              <button type="button" class="ybutton-category badge custom-badge font-weight-light" data-toggle="test" data-rigger="focus" data-content="<b>pakaian {{ $product->category }}"
                 data-html="true">
                 {{$product->category}}
               </button>
 
-              <h3>{{ $product->name }} </h3>
+              <h3 class="yjudul">{{ $product->name }} </h3>
               <h4 class="product-price" style="color: orange">Rp {{ number_format($product->price ,0) }}</h4>
-              <p class="product-desc">{{$product->description}}</p>              
-              <p class="product-desc">Dibuat di {{ $product->asal }}</p>              
-              <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} gram</h6>              
-              <h6 class="product-desc"> Ukuran Tersedia : {{ json_decode($product->specification)->size }}</h6>              
+              <p class="product-desc">{{$product->description}}</p>
+              <p class="product-desc">Dibuat di {{ $product->asal }}</p>
+              <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} gram</h6>
+              <h6 class="product-desc"> Ukuran Tersedia : {{ json_decode($product->specification)->size }}</h6>
             @elseif($product['cat_product'] == "makanan" )
             <div class="col-md-7">
               <button type="button" class="badge custom-badge font-weight-light" data-toggle="test" data-rigger="focus" data-content="<b>Makanan {{ $product->category }}</b>"
@@ -114,7 +168,7 @@
               @elseif($product['cat_product'] == "obat")
               <p class="product-desc">Obat ini merupakan obat {{$product->category}}</p>
               @endif
-              
+
               <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} gram</h6>
 
 
@@ -134,39 +188,43 @@
                   @endif
 
               @endif
-            @elseif($product['cat_product'] == "aksesoris" )              
+            @elseif($product['cat_product'] == "aksesoris" )
             <div class="col-md-7">
-              <button type="button" class="badge custom-badge font-weight-light" data-toggle="test" data-rigger="focus" data-content="Aksesoris ini merupakan {{ $product->category }}"
+              <button type="button" class="ybutton-category badge custom-badge font-weight-light" data-toggle="test" data-rigger="focus" data-content="Aksesoris ini merupakan {{ $product->category }}"
                 data-html="true">
                 {{$product->category}}
               </button>
 
-              <h2>{{ $product->name }} </h2>
+              <h2 class="yjudul">{{ $product->name }} </h2>
               <h4 class="product-price" style="color: orange">Rp {{ number_format($product->price ,0) }}</h4>
-              <p class="product-desc">{{$product->description}}</p>                            
-              <p class="product-desc">Aksesoris berasal dari {{$product->asal}}</p>              
-              <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} gram</h6>                            
+              <p class="product-desc">{{$product->description}}</p>
+              <p class="product-desc">Aksesoris berasal dari {{$product->asal}}</p>
+              <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} gram</h6>
               <h6 class="product-desc"> Ukuran : {{ json_decode($product->specification)->size }}, Warna Dominan : {{ $product->color }} </h6>
-              
+
             @elseif($product['cat_product'] == "obat" )
             <div class="col-md-7">
-              <button type="button" class="badge custom-badge font-weight-light" data-toggle="test" data-rigger="focus" data-content="<b> Wujud obat adalah {{ json_decode($product->specification)->jenis }} </b>"
+              <button type="button" class="ybutton-category badge custom-badge font-weight-light" data-toggle="test" data-rigger="focus" data-content="<b> Wujud obat adalah {{ json_decode($product->specification)->jenis }} </b>"
                 data-html="true" >
                 {{ json_decode($product->specification)->jenis}}
               </button>
 
-              <h2>{{ $product->name }} </h2>
+              <h2 class="yjudul">{{ $product->name }} </h2>
               <h4 class="product-price" style="color: orange">Rp {{ number_format($product->price ,0) }}</h4>
               <p class="product-desc">{{$product->description}}</p>
-              <p class="product-desc">Obat ini merupakan obat khas dari {{$product->asal}}</p>                            
+              <p class="product-desc">Obat ini merupakan obat khas dari {{$product->asal}}</p>
               <h6 class="product-desc"> Berat {{ json_decode($product->specification)->weight}} gram</h6>
               @if(json_decode($product->specification)->jenis == "Padat")
                 <h6 class="product-desc"> ukuran kemasan : {{ $product->color }} </h6>
               @elseif(json_decode($product->specification)->jenis == "Cair")
                 <h6 class="product-desc"> Volume : {{ $product->color }}ml </h6>
-              @endif              
+              @endif
             @endif
+                <label for="message">Pesan untuk penjual</label>
+                <textarea class="form-control" id="message1" v-model="message"></textarea>
 
+
+                <br>
               @role('merchant')
               @if(Auth::user()->id == $product->user_id)
               <div class="cart-fav-box d-flex align-items-center mt-4">
@@ -194,7 +252,7 @@
                                     <p>Apakah Anda Yakin Mau Menghapus?</p>
                                 </div>
                                 <!-- <input type="hidden" name="id_product" id="cat_prod" value=""> -->
-                                <div class="modal-footer">                                    
+                                <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                                     <button type="submit" class="btn btn-danger">Hapus</button>
                                 </div>
@@ -205,14 +263,14 @@
 
               @else @if(Auth::check())
               <div class="row">
-              
-              <div class="col-md-5">                
+
+              <div class="col-md-5">
               <div id="add-to-cart-button">
-                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />
+                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" :message="message" />
               </div>
               </div>
 
-              <!-- <div class="col-md-6">              
+              <!-- <div class="col-md-6">
               <div id="add-to-wishlist-button">
                 <add-to-wishlist-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />
               </div>
@@ -220,7 +278,7 @@
 
               </div>
               <!-- <div id="add-to-cart-button">
-                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />~                
+                <add-to-cart-button :max-unit="{{$product->stock}}" :user-id="{{Auth::user()->id}}" :product-id="{{$product->id}}" />~
               </div> -->
 
 

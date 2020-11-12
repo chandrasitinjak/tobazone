@@ -13,16 +13,16 @@
 |
  */
 
-Route::get('/', function () {            
+Route::get('/', function () {
     if (Auth::user()) {
-        return redirect('/home');        
-    }    
+        return redirect('/home');
+    }
 
     //maintenance
-    // return view('maintenance.index');    
+    // return view('maintenance.index');
 
     //not maintenance
-    return view('users.homes.index');    
+    return view('users.homes.index');
 });
 
 Route::get('/login', function() {
@@ -70,7 +70,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/invalid-order-detail/{id}', 'TransactionController@getInvalidOrderDetail');
         Route::get('/admin/success-order-detail/{id}', 'TransactionController@getSuccessOrderDetail');
         Route::get('/admin/onprocess-order-detail/{id}', 'TransactionController@getOnProcessOrderDetail');
-        
+
         Route::get('/admin/new-order/order-detail', 'OrderController@detailOrder');
         Route::get('/admin/list-merchant', 'MerchantController@listMerchant');
         Route::get('/admin/list-merchant/merchant-detail/{id}', 'MerchantController@detailMerchant');
@@ -117,7 +117,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::post('/blogs/delete/{id}', 'BlogController@destroy');
         Route::post('/blogs/update/{id}', 'BlogController@update');
         Route::post('/blogs/store', 'BlogController@store');
-        
+
         Route::post('/orderconfirm/{id}', 'OrderController@orderconfirm');
     });
 
@@ -133,6 +133,8 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/merchant/{id}/view-profile', 'ProfileController@getMerchantProfile');
 
         Route::get('/merchant/detail-transaction/{id}', 'OrderController@getDetailSuccesOrdersByMerchant');
+
+        //Homestays
     });
 
     Route::middleware('role:customer')->group(function () {
@@ -154,13 +156,13 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
     Route::middleware('role:merchant|admin')->group(function () {
         Route::get('/products', 'ProductController@index');
-        
+
         Route::get('/products/ulos/create', 'ProductController@createUlos');
         Route::get('/products/food/create', 'ProductController@createFood');
         Route::get('/products/clothes/create', 'ProductController@createClothes');
         Route::get('/products/accessories/create', 'ProductController@createAccessories');
         Route::get('/products/medicine/create', 'ProductController@createMedicine');
-        
+
         Route::get('/products/edit/{id}', 'ProductController@edit');
         Route::post('/products/delete/{id}', 'ProductController@destroy');
         Route::post('/products/update/{id}', 'ProductController@update');
@@ -169,7 +171,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/merchant/{id}/editProfile', 'ProfileController@merchantEditProfile');
         Route::get('/merchant/{id}/myProfile', 'ProfileController@merchantProfile');
         Route::post('/merchant/{id}/store', 'ProfileController@storeUpdateMerchant');
-        
+
 
         Route::prefix('/orders')->group(function () {
             Route::get('/', 'TransactionController@index');
@@ -189,3 +191,10 @@ Route::get('/carajual', 'QnAController@showj');
 Route::get('/carabayar', 'QnAController@showi');
 
 // Route::get('/food', 'makananController@index');
+
+//homestays
+
+Route::get('/homestays', 'HomestayController@findAll');
+Route::get('/homestays/find/{id}', 'HomestayController@findById');
+Route::get('/homestays/create', 'HomestayController@createDataPage');
+Route::get('/homestays/save', 'HomestayController@store');

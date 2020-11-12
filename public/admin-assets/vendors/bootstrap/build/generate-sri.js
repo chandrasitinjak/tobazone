@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/.env node
 
 /*!
  * Script to generate SRI hashes for use in our docs.

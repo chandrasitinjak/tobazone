@@ -1,5 +1,5 @@
 <template>
-  <div class="container">    
+  <div class="container">
     <div class="col-md-12 payment globalcard">
       <div class="row justify-content-md-center">
         <div class="card col-md-12">
@@ -47,6 +47,10 @@
                     <img src="/images/assets/mandiri.jpg" style="height: 30px; display: inline" alt>
                     <h4 style="display: inline">1060012275478</h4>
                     <br>a/n Ruth Elvin Harianja
+                      <br>
+                      <img src="/images/assets/gopaydanaovo.png" style="height: 70px; display: inline" alt>
+                      <h4 style="display: inline">081264866529</h4>
+                      <br>a/n Ruth Elvin Harianja
                     <div class="mt-3 text-muted">Jumlah yang harus dibayar :</div>
                     <h5 style="color: #ff5205">Rp {{ formatPrice( getTotalPayment(transaction.payment) )}}</h5>
 
@@ -88,7 +92,7 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            <form>
+                            <!-- <form> -->
                               <div class="form-group">
                                 <label for="namapengirim" class="small">Nama Pengirim</label>
                                 <input
@@ -97,8 +101,8 @@
                                   id="namapengirim"
                                   aria-describedby="emailHelp"
                                   placeholder="Nama Pengirim"
-                                  v-model="senderName"                
-                                  v-model.trim="$v.senderName.$model"                  
+                                  v-model="senderName"
+                                  v-model.trim="$v.senderName.$model"
                                   :class="{'is-invalid':$v.senderName.$error, 'is-valid':!$v.senderName.$invalid }"
                                 >
                                 <div class="valid-feedback">sudah valid</div>
@@ -110,11 +114,14 @@
                               <div class="form-group">
                                 <label for="utkbank" class="small">Bank Tujuan</label>
                                 <br>
-                                <select id="utkbank" class="form-control" v-model="selectedBank" 
-                                v-model.trim="$v.selectedBank.$model"                  
+                                <select id="utkbank" class="form-control" v-model="selectedBank"
+                                v-model.trim="$v.selectedBank.$model"
                                 :class="{'is-invalid':$v.selectedBank.$error, 'is-valid':!$v.selectedBank.$invalid }">
                                   <!-- <option value="BRI">BRI</option> -->
                                   <option value="MANDIRI">MANDIRI</option>
+                                    <option value="OVO">OVO</option>
+                                    <option value="DANA">DANA</option>
+                                    <option value="GOPAY">GOPAY</option>
                                   <!-- <option value="BNI">BNI</option>
                                   <option value="BCA">BCA</option> -->
                                 </select>
@@ -141,7 +148,7 @@
                                   <small v-if="selectedFile === null" class="form-text text-muted">gambar tidak boleh kosong</small>
                                 </div>
                               </div>
-                            </form>
+                            <!-- </form> -->
                           </div>
                           <div class="modal-footer">
                             <button
@@ -262,15 +269,15 @@ export default {
         });
     },
     uploadProofOfPayment() {
-      
+
       this.$v.$touch()
       if (!this.$v.$invalid) {
-      
+
       if(this.image === null) {
           check = 0;
       } else {
 
-      const formData = new FormData();      
+      const formData = new FormData();
       formData.append("image", this.selectedFile);
       formData.append("bank", this.selectedBank);
       formData.append("name", this.senderName);
@@ -281,14 +288,25 @@ export default {
         formData
       ).then(() => {
         EventBus.$emit("SPINNER", false);
-        alert("berhasil mengunggah bukti pembayaran");
+        // alert("berhasil mengunggah bukti pembayaran");
+        Vue.swal.fire({            
+            icon: 'success',
+            title: 'Berhasil Upload Bukti Pembayaran',
+            showConfirmButton: false,
+            timer: 4000,    
+          });
         window.location = "/customer/" + this.userId + "/orders";
       })
       .catch(error => {
-              console.log(error);
-              EventBus.$emit("SPINNER", false);
-              alert("Terjadi Kesalahan, Ulangi Halaman");
-      }); 
+          Vue.swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: 'Something went wrong!',              
+          }).then(function() {                
+              // window.history.back();                
+              window.location.reload();
+          })    
+      });
       }
       }
     },
@@ -301,7 +319,7 @@ export default {
         this.check = 1;
       }
     }
-    
+
   },
 
   validations: {
@@ -311,7 +329,7 @@ export default {
 
     selectedBank : {
       required,
-    },    
+    },
   },
   created() {
     this.getTransaction();

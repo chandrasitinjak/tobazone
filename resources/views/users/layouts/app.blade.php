@@ -21,19 +21,21 @@
   <link rel="stylesheet" href="/user-assets/test-page-gridstyle.css">
 
   <link rel="stylesheet" href="/user-assets/css/header.css">
+  <link rel="stylesheet" href="/user-assets/css/header_merchant.css">
   <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
   <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    @yield('style')
 </head>
 
 <body>
-  
+
   <div id="app">
-    @include('users.layouts.header')    
+    @include('users.layouts.header')
     <div class="container-fluid">
     @include('users.layouts.cart')
     @yield('content')
     </div>
-    @include('users.layouts.footer')      
+    @include('users.layouts.footer')
     <div class="modal fade" id="enlargeImageModal" tabindex="-1" role="dialog" aria-labelledby="enlargeImageModal" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -47,31 +49,65 @@
         </div>
       </div>
     </div>
-  <!-- </div> -->  
+  <!-- </div> -->
   </div>
   @include('users.layouts.script')
   <script>
 $(document).ready(function() {
+  //untuk customer
   $("#sidebar1Collapse").on("click", function() {
     $("#sidebar1").addClass("active");
+    console.log("a!");
   });
 
   $("#sidebar1CollapseX").on("click", function() {
     $("#sidebar1").removeClass("active");
+    console.log("b!");
   });
 
   $("#sidebar1Collapse").on("click", function() {
     if ($("#sidebar1").hasClass("active")) {
       $(".overlay").addClass("visible");
-      console.log("berhasil!");
+      console.log("c!");
     }
   });
 
   $("#sidebar1CollapseX").on("click", function() {
     $(".overlay").removeClass("visible");
+    console.log("d!");
+  });
+
+  $("#butMasuk").on("click", function() {
+    $("#sidebar1").removeClass("active");
+    $(".overlay").removeClass("visible");
+  });
+
+  $("#butDaftar").on("click", function() {
+    $("#sidebar1").removeClass("active");
+    $(".overlay").removeClass("visible");
+  });
+
+  //untuk merchant
+  $("#sidebar2Collapse").on("click", function() {
+    $("#sidebar2").addClass("active");
+  });
+
+  $("#sidebar2CollapseX").on("click", function() {
+    $("#sidebar2").removeClass("active");
+  });
+
+  $("#sidebar2Collapse").on("click", function() {
+    if ($("#sidebar2").hasClass("active")) {
+      $(".overlay").addClass("visible");
+    }
+  });
+
+  $("#sidebar2CollapseX").on("click", function() {
+    $(".overlay").removeClass("visible");
   });
 });
 
 </script>
+
 </body>
 </html>

@@ -40,39 +40,44 @@
                             aria-labelledby="pesananbaru-tab"
                         >
                             <div class="detailorder mt-2" v-for="transaction in transactions">
-                                <div class="row" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByAdmin' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedBySystem' || transaction.status === 'readyForProcess'">
+                                <div class="row" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByAdmin' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedBySystem' || transaction.status === 'readyForProcess' || transaction.status === 'waitForVerified'">
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header" style="background-color: #f1f1f1">
                                                 <div class="row text-muted">
-                                                    <div class="col-sm-3 small">Tanggal Transaksi</div>
-                                                    <div class="col-sm-3 small">Total pembayaran</div>
-                                                    <div class="col-sm-1 deta">Kurir</div>
-                                                    <div class="col-sm-2 small">No Resi Pembayaran</div>
-
-                                                    <div class="col-sm-3 small">Status</div>
+                                                    <div class="col-sm-2 small">Tanggal Transaksi</div>
+                                                    <div class="col-sm-1 small">Nama Toko</div>
+                                                    <div class="col-sm-2 small">Total pembayaran</div>
+                                                    <div class="col-sm-1 small">Kurir</div>
+                                                    <div class="col-sm-2 small">No Resi Pengiriman</div>
+                                                    <div class="col-sm-4 small">Status</div>
                                                 </div>
                                                 <div class="row detail">
-                                                    <div class="col-sm-3">{{ transaction.created_at }}</div>
+                                                    <div class="col-sm-2">{{transaction.created_at }}</div>
+                                                    <div class="col-sm-1">{{transaction.merchant.profile.name}}</div>
                                                     <div
-                                                        class="col-sm-3 bold"
+                                                        class="col-sm-2 bold"
                                                         style="color: orangered"
                                                     >Rp {{ formatPrice ( getTotalPayment(transaction.payment))}}</div>
                                                     <div class="col-sm-1">{{transaction.courier}}</div>
                                                     <div class="col-sm-2">{{transaction.shipping_number}}</div>
-                                                    <div class="col-sm-3">
+                                                    <div class="col-sm-4">
                                                         <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedByAdmin'">
-                                                            Menunggu Pembayaran
+                                                            MenunggUnu Pembayaran
                                                             <a :href="'/customer/transactions/' + transaction.id" class="btn btn-sm btn-outline-action ml-30">
                                                                 Upload bukti pembayaran
                                                             </a>
                                                         </div>
 
                                                         <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'readyForProcess' && transaction.shipping_number !== null">
-                                                            Barang dalam pengirima
+                                                            Barang dalam pengiriman
                                                             <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'" class="btn btn-sm btn-outline-action ml-30">
                                                                 Lacak Pengiriman
                                                             </a>
+                                                        </div>
+
+                                                        <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'waitForVerified'">
+                                                            Sudah mengirim bukti pembayaran, menunggu verifikasi
                                                         </div>
 
                                                         <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'acceptedByMerchant'">
@@ -102,9 +107,16 @@
                                                                     <h6>{{ order.product.name }}</h6>
                                                                     <h6
                                                                         style="color: #FF5205; display: inline;"
-                                                                    >Rp {{formatPrice( order.product.price )}}</h6>
+                                                                    >Rp {{formatPrice( order.price )}}</h6>
+                                                      pesanan               >Rp {{formatPrice( order.price )}}</h6>
                                                                     <br>
                                                                     <small>Jumlah {{ order.quantity }}</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3 col-xs-12">
+                                                                <div class="address">
+                                                                    <h6>Alamat </h6>
+                                                                    <p>{{transaction.address}}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -129,22 +141,23 @@
                                         <div class="card">
                                             <div class="card-header" style="background-color: #f1f1f1">
                                                 <div class="row text-muted">
-                                                    <div class="col-sm-3 small">Tanggal Transaksi</div>
-                                                    <div class="col-sm-3 small">Total pembayaran</div>
-                                                    <div class="col-sm-1 deta">Kurir</div>
-                                                    <div class="col-sm-2 small">No Resi Pembayaran</div>
-
-                                                    <div class="col-sm-3 small">Status</div>
+                                                    <div class="col-sm-2 small">Tanggal Transaksi</div>
+                                                    <div class="col-sm-1 small">Nama Toko</div>
+                                                    <div class="col-sm-2 small">Total pembayaran</div>
+                                                    <div class="col-sm-1 small">Kurir</div>
+                                                    <div class="col-sm-2 small">No Resi Pengiriman</div>
+                                                    <div class="col-sm-4 small">Status</div>
                                                 </div>
                                                 <div class="row detail">
-                                                    <div class="col-sm-3">{{ transaction.created_at }}</div>
+                                                    <div class="col-sm-2">{{ transaction.created_at }}</div>
+                                                    <div class="col-sm-1">{{transaction.merchant.profile.name}}</div>
                                                     <div
-                                                        class="col-sm-3 bold"
+                                                        class="col-sm-2 bold"
                                                         style="color: orangered"
                                                     >Rp {{ formatPrice ( getTotalPayment(transaction.payment))}}</div>
                                                     <div class="col-sm-1">{{transaction.courier}}</div>
-                                                   <div class="col-sm-2">{{transaction.shipping_number}}</div>
-                                                    <div class="col-sm-3">
+                                                    <div class="col-sm-2">{{transaction.shipping_number}}</div>
+                                                    <div class="col-sm-4">
                                                         <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-if="transaction.status === 'rejectedByAdmin'">
                                                             Ditolak oleh Admin
                                                         </div>
@@ -186,9 +199,15 @@
                                                                         <h6>{{ order.product.name }}</h6>
                                                                         <h6
                                                                             style="color: #FF5205; display: inline;"
-                                                                        >Rp {{formatPrice(order.product.price)}}</h6>
+                                                                        >Rp {{formatPrice(order.price)}}</h6>
                                                                         <br>
                                                                         <small>Jumlah {{ order.quantity }}</small>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4 col-xs-12">
+                                                                    <div class="address">
+                                                                        <h6>Alamat </h6>
+                                                                        <p>{{transaction.address}}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>

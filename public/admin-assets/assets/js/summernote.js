@@ -699,7 +699,7 @@
    * Object which check platform and agent
    *
    * @singleton
-   * @alternateClassName env
+   * @alternateClassName .env
    */
   var env = {
       isMac: navigator.appVersion.indexOf('Mac') > -1,

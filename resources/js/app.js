@@ -12,6 +12,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.use(VueSweetalert2);
 
+
 import StarRating from 'vue-star-rating'
 
 import Vuelidate from 'vuelidate'
@@ -52,6 +53,7 @@ const ProductsObat = require('./components/search/Obat')
 const AddToWishlistButton = require('./components/AddToWishlistButton')
 const UserRating = require('./components/merchants/UserRating')
 const UserRatingSecond = require('./components/merchants/UserRatingSecond')
+const ProdukTerlaris = require('./components/homes/ProdukTerlaris')
     // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -88,6 +90,14 @@ const app = new Vue({
         ProductsPakaian,
         ProductsMakanan,
         ProductsAksesoris,
-        ProductsObat
+        ProductsObat,
+        ProdukTerlaris
+
+    },
+    data(){
+        return {
+            message: ''
+        }
     }
+
 });

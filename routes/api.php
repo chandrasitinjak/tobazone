@@ -59,3 +59,23 @@ Route::get('/merchant/{id}/success-orders', 'API\OrderController@getSuccesOrders
 // Route::get('/merchant/detail-transaction/{id}', 'API\OrderController@getDetailSuccesOrdersByMerchant');
 Route::get('/customer/{userId}/wishlists/{productId}', 'API\CartController@cekWishlist');
 Route::get('/customer/{userId}/wishlists', 'API\CartController@myWishlist');
+
+
+// Homestay routes
+
+
+Route::middleware('role:merchant')->group(function () {
+    Route::get('/homestay/create', 'HomestayController@index');
+    Route::prefix('/merchant/products')->group(function () {
+        Route::get('/', 'MerchantController@products');
+    });
+
+    Route::get('/merchant/{id}/new-orders', 'MerchantController@getNewOrders');
+    Route::get('/merchant/{id}/ongoing-orders', 'MerchantController@getOngoingOrders');
+    Route::get('/merchant/{id}/succes-orders', 'MerchantController@getSuccesOrder');
+    Route::get('/merchant/{id}/view-profile', 'ProfileController@getMerchantProfile');
+
+    Route::get('/merchant/detail-transaction/{id}', 'OrderController@getDetailSuccesOrdersByMerchant');
+});
+Route::get('/homestay/all', 'HomestayController@findAll');
+Route::get('/product/get-product-terlaris', 'API\ProductController@getProductTerlaris');

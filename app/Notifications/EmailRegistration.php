@@ -51,7 +51,7 @@ class EmailRegistration extends Notification
                 'Verifikasi Email',
                 $this->verificationUrl($notifiable)
             )
-            ->line('Jika Anda tidak merasa mendaftar di https://tobazone.com/, Anda tidak perlu memverifikasi email.');        
+            ->line('Jika Anda tidak merasa mendaftar di https://tobazone.com/, Anda tidak perlu memverifikasi email.');
     }
 
     protected function verificationUrl($notifiable)
