@@ -45,7 +45,7 @@
 
                     <div class="form-group">
                         <label class="label">Foto KTP</label>
-                        <input type="file" class="form-control form-control-sm" name="myfile"/>                        
+                        <input type="file" class="form-control form-control-sm" v-on:change="onImageChange"/>                        
                     </div>   
 
                     <div class="form-group">
@@ -85,20 +85,44 @@
                 kata_sandi: "",
                 kata_sandi_konfirmasi: "",
                 nomor_ktp: "",
-                foto_ktp: "",
+                foto_ktp: null,
                 komunitas: "",
+                image: null
             };  
         },
         methods: {
+
+            onImageChange(e) {                
+                this.foto_ktp = e.target.files[0];
+                this.image = URL.createObjectURL(this.foto_ktp);
+            },
+
             addCbt() {
-                let payload = {
-                    email: this.email
+
+                let payload = {                    
+                    nama_lengkap: this.nama_lengkap,                    
+                    nomor_wa: this.nomor_wa,
+                    nomor_hp: this.nomor_hp,
+                    email: this.email,                                        
+                    kata_sandi: this.kata_sandi,
+                    kata_sandi_konfirmasi: this.kata_sandi,                    
+                    komunitas: this.komunitas,
+                    nomor_ktp: this.nomor_ktp,
                 };
-                console.log(payload);
+
+                const formData = new FormData();
+                formData.append("image", this.foto_ktp);
+                formData.append("nama_lengkap", this.nama_lengkap);
+                formData.append("nomor_wa", this.nomor_wa);
+                formData.append("nomor_hp", this.nomor_hp);
+                formData.append("email", this.email);
+                formData.append("kata_sandi", this.kata_sandi);
+                formData.append("komunitas", this.komunitas);
+                                                
                 window.axios
-                    .post("/register-cbt", payload)
+                    .post("/register-cbt", formData)
                     .then(rest => {
-                        console.log("hello world");
+                        
                     })
                     .catch(err => {
                          console.log(err);

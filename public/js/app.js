@@ -83753,20 +83753,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             kata_sandi: "",
             kata_sandi_konfirmasi: "",
             nomor_ktp: "",
-            foto_ktp: "",
-            komunitas: ""
+            foto_ktp: null,
+            komunitas: "",
+            image: null
         };
     },
 
     methods: {
+        onImageChange: function onImageChange(e) {
+            this.foto_ktp = e.target.files[0];
+            this.image = URL.createObjectURL(this.foto_ktp);
+        },
         addCbt: function addCbt() {
+
             var payload = {
-                email: this.email
+                nama_lengkap: this.nama_lengkap,
+                nomor_wa: this.nomor_wa,
+                nomor_hp: this.nomor_hp,
+                email: this.email,
+                kata_sandi: this.kata_sandi,
+                kata_sandi_konfirmasi: this.kata_sandi,
+                komunitas: this.komunitas,
+                nomor_ktp: this.nomor_ktp
             };
-            console.log(payload);
-            window.axios.post("/register-cbt", payload).then(function (rest) {
-                console.log("hello world");
-            }).catch(function (err) {
+
+            var formData = new FormData();
+            formData.append("image", this.foto_ktp);
+            formData.append("nama_lengkap", this.nama_lengkap);
+            formData.append("nomor_wa", this.nomor_wa);
+            formData.append("nomor_hp", this.nomor_hp);
+            formData.append("email", this.email);
+            formData.append("kata_sandi", this.kata_sandi);
+            formData.append("komunitas", this.komunitas);
+
+            window.axios.post("/register-cbt", formData).then(function (rest) {}).catch(function (err) {
                 console.log(err);
             });
         }
@@ -83983,7 +84003,15 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _vm._m(0),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("Foto KTP")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control form-control-sm",
+                attrs: { type: "file" },
+                on: { change: _vm.onImageChange }
+              })
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
               _c("label", { staticClass: "label" }, [_vm._v("Komunitas")]),
@@ -84036,21 +84064,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { staticClass: "label" }, [_vm._v("Foto KTP")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control form-control-sm",
-        attrs: { type: "file", name: "myfile" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
