@@ -27,6 +27,19 @@ class HomestayController extends Controller
         return view('users.merchants.homestays.index')->with('homestays', $homestays);
     }
 
+    public function findAllCustomer()
+    {
+        $homestays = Homestay::All();
+        $data = [
+            'code' => 200,
+            'status' => 'OK',
+            'data' => [
+                $homestays
+            ]
+        ];
+        return view('users.homestay.index')->with('homestays', $homestays);
+    }
+
     public function findById($id)
     {
         $detail = Homestay::find($id);

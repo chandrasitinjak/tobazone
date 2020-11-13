@@ -194,10 +194,14 @@ Route::get('/carabayar', 'QnAController@showi');
 
 //homestays
 
+Route::get('/homestay/get-carousels', 'HomestayCarouselController@getCarousels');
+
+
 Route::post('/homestay/create', 'HomestayController@store');
 
 
 Route::get('/homestays', 'HomestayController@findAll');
+Route::get('/user/homestays', 'HomestayController@findAllCustomer');
 Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::get('/homestays/save', 'HomestayController@store');
