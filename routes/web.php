@@ -1,6 +1,6 @@
 <?php
 
-    use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ Route::get('/', function () {
     return view('users.homes.index');
 });
 
-Route::get('/login', function() {
+Route::get('/login', function () {
     return redirect('/');
 })->name('login');
 
@@ -55,7 +55,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::get('/unverified', 'HomeController@showUnverifiedPage');
 
     Route::middleware('role:admin')->group(function () {
-    Route::get('/admin', 'AdminController@index');
+        Route::get('/admin', 'AdminController@index');
         Route::post('/merchantconfirmed/{id}', 'MerchantController@updateConfirm');
         Route::get('/admin/new-merchant', 'MerchantController@newMerchant');
         Route::get('/admin/new-order', 'TransactionController@getNewOrder');
@@ -82,7 +82,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/edit-profile', 'AdminController@editProfile');
         Route::get('/admin/show-password', 'AdminController@showChangePassword');
         Route::post('/admin/update-profile', 'AdminController@updateProfile');
-        Route::post('/admin/edit-password','AdminController@editPassword');
+        Route::post('/admin/edit-password', 'AdminController@editPassword');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
@@ -194,10 +194,20 @@ Route::get('/carabayar', 'QnAController@showi');
 
 //homestays
 
+Route::get('/homestay/get-carousels', 'HomestayCarouselController@getCarousels');
+
+
+Route::post('/homestay/create', 'HomestayController@store');
+
+
 Route::get('/homestays', 'HomestayController@findAll');
+Route::get('/user/homestays', 'HomestayController@findAllCustomer');
 Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::get('/homestays/save', 'HomestayController@store');
+
+//orderHomestay
+Route::post('/homestay/pesan', 'HomestayController@bookHomestay');
 
 //Approval Penginapan Backend
 Route::post('/homestay/approvePenginapan/{id}', 'HomestayController@approvePenginapan');
