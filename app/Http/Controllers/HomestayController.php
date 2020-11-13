@@ -105,4 +105,31 @@ class HomestayController extends Controller
         return "Pesan penginapan berhasil";
     }
 
+    public function approvePenginapan(Request $request, $id) {        
+        
+        $homestay_id = HomestayOrders::find($id);
+        $homestay_id->status = "accepted";
+        
+        $homestay_id->update();
+
+        return "pesanan diterima";
+    }    
+
+    public function rejectedPenginapan(Request $request, $id) {        
+        
+        $homestay_id = HomestayOrders::find($id);
+        $homestay_id->status = "rejected";
+        
+        $homestay_id->update();
+
+        return "pesanan ditolak";
+    }
+
+    public function listPesananPenginapan() {
+
+        $data = HomestayOrders::all();
+                
+        return view('users.merchants.homestays.ListPesananPenginapan')->with('data', $data);
+    }
+
 }
