@@ -24,7 +24,7 @@ class HomestayController extends Controller
                 $homestays
             ]
         ];
-        return view('users.merchants.homestays.index')->with('homestays', $homestays);
+        return view('users.merchants.homestays.AfterSearchPage')->with('homestays', $homestays);
     }
 
     public function findAllCustomer()
@@ -37,6 +37,13 @@ class HomestayController extends Controller
                 $homestays
             ]
         ];
+        return view('users.homestay.index')->with('homestays', $homestays);
+    }
+
+
+    public function search(Request $request)
+    {
+        $homestays = Homestay::All();
         return view('users.homestay.index')->with('homestays', $homestays);
     }
 
@@ -105,21 +112,21 @@ class HomestayController extends Controller
         return "Pesan penginapan berhasil";
     }
 
-    public function approvePenginapan(Request $request, $id) {        
-        
+    public function approvePenginapan(Request $request, $id) {
+
         $homestay_id = HomestayOrders::find($id);
         $homestay_id->status = "accepted";
-        
+
         $homestay_id->update();
 
         return "pesanan diterima";
-    }    
+    }
 
-    public function rejectedPenginapan(Request $request, $id) {        
-        
+    public function rejectedPenginapan(Request $request, $id) {
+
         $homestay_id = HomestayOrders::find($id);
         $homestay_id->status = "rejected";
-        
+
         $homestay_id->update();
 
         return "pesanan ditolak";
@@ -128,7 +135,7 @@ class HomestayController extends Controller
     public function listPesananPenginapan() {
 
         $data = HomestayOrders::all();
-                
+
         return view('users.merchants.homestays.ListPesananPenginapan')->with('data', $data);
     }
 
