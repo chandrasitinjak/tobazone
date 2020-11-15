@@ -7,7 +7,8 @@
                     <label for="lokasi">Destinasi Penginapan</label>
                     <div id="lokasi" class="input-container">
                         <i class="fa fa-map-marker icon fa-lg" style="color:#000000;"></i>
-                        <input class="form-control" type="text" placeholder="Lokasi" name="usrnm">
+                        <input class="form-control" type="text" placeholder="Lokasi"
+                               name="usrnm">
                     </div>
                     <label for="check">Check In</label>
                     <div class="row" id="check">
@@ -27,7 +28,10 @@
                     </div>
                     <br>
                     <div>
-                        <button class="form-control" style="background-color:#000000; color:#ffffff;"  type="button">Cari</button>
+                        <button class="form-control"
+                                style="background-color:#000000; color:#ffffff;" type="button"
+                                v-on:click="search">Cari
+                        </button>
                     </div>
                     <br><br>
                 </div>
@@ -41,7 +45,27 @@
 
 <script>
     export default {
-        name: "MainPage"
+        name: "MainPage",
+        data() {
+
+        },
+        methods: {
+            test(){
+              alert("test");
+            },
+            search() {
+                window.axios
+                    .post("/homestays/search")
+                    .then(res => {
+                        console.log(res)
+                    })
+                    .catch(err => {
+                        if (err.response.status === 500) {
+                            console.log(err.response);
+                        }
+                    });
+            }
+        }
     }
 </script>
 
