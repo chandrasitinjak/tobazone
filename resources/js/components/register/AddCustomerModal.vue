@@ -164,7 +164,7 @@
                     <div class="form-group">
                         <label class="label">Kata Sandi</label>
                         <input type="password" class="form-control form-control-sm" v-model="userCustomer.password"
-                            v-model.trim="$v.userCustomer.password.$model" :class="{'is-invalid':$v.userCustomer.password.$error, 
+                            v-model.trim="$v.userCustomer.password.$model" :class="{'is-invalid':$v.userCustomer.password.$error,
                             'is-valid':!$v.userCustomer.password.$invalid}">
                         <div class="valid-feedback">Kata Sandi sudah valid</div>
                         <div class="invalid-feedback">
@@ -177,7 +177,7 @@
                         <label class="label">Konfirmasi Kata Sandi</label>
                         <input type="password" class="form-control form-control-sm"
                             v-model="userCustomer.passwordconfirm" v-model.trim="$v.userCustomer.passwordconfirm.$model"
-                            :class="{'is-invalid':$v.userCustomer.passwordconfirm.$error, 
+                            :class="{'is-invalid':$v.userCustomer.passwordconfirm.$error,
                             'is-valid':(userCustomer.password!='')?!$v.userCustomer.passwordconfirm.$invalid:''}">
                         <div class="valid-feedback">Konfirmasi Kata Sandi sudah valid</div>
                         <div class="invalid-feedback">

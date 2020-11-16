@@ -241,3 +241,4 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
 
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
 
+
