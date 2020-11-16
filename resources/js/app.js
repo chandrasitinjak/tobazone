@@ -40,6 +40,7 @@ const PaymentConfirmation = require('./components/payments/PaymentConfirmation')
 const BlogList = require('./components/blogs/BlogList')
 const RegCustomer = require('./components/register/AddCustomerModal')
 const RegMerchant = require('./components/register/AddMerchantModal')
+const RegCebt = require('./components/register/AddCbtModal')
 const TrackingPage = require('./components/customers/TrackingPage')
 const SearchProduct = require('./components/search/SearchProduct')
 const LoginModal = require('./components/auths/LoginModal')
@@ -54,6 +55,7 @@ const AddToWishlistButton = require('./components/AddToWishlistButton')
 const UserRating = require('./components/merchants/UserRating')
 const UserRatingSecond = require('./components/merchants/UserRatingSecond')
 const ProdukTerlaris = require('./components/homes/ProdukTerlaris')
+const ListLogin = require('./components/auths/ListLogin')
     // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -91,7 +93,9 @@ const app = new Vue({
         ProductsMakanan,
         ProductsAksesoris,
         ProductsObat,
-        ProdukTerlaris
+        ProdukTerlaris,
+        ListLogin,
+        RegCebt
 
     },
     data(){
