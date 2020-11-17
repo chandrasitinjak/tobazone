@@ -24,7 +24,7 @@
                     <div class="row">
                         @foreach ($homestays as $product)
                         <div class="col-md-12">
-                            <div class="card">
+                            <div class="card" style="background-color: #F5F5F5">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <a href="{{ '../images/assets/no-image.jpg'}}">
