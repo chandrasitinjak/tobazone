@@ -21,14 +21,15 @@ class CreateEventsTable extends Migration
             $table->string('tgl_akhir');
             $table->string('lokasi');
             $table->string('foto');
-            $table->unsignedBigInteger('cbt_id');
+            $table->string('status');
+            $table->unsignedBigInteger('member_id');
             $table->unsignedBigInteger('kabupaten_id');
             $table->text('deskripsi')->nullable();
             $table->timestamps();
 
 
-            $table->foreign('cbt_id')->references('id')->on('cbts');
-            $table->foreign('kabupaten_id')->references('id')->on('kabupatens');
+            $table->foreign('member_id')->references('id')->on('member');
+            $table->foreign('kabupaten_id')->references('id_kabupaten')->on('kabupatens');
         });
     }
 

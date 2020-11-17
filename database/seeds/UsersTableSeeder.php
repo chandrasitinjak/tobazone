@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use App\Profile;
+use App\Member;
 use Carbon\Carbon;
 
 class UsersTableSeeder extends Seeder
@@ -39,6 +40,21 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('customer123'),
             'status' => 'verifiedByAdmin',
             'email_verified_at' => Carbon::now(),
+        ]);
+
+        $CBT = User::create([
+            'id' => 4,
+            'username' => 'cbt',
+            'email' => 'cbt@uloszone.com',
+            'password' => bcrypt('cbt123'),
+            'status' => 'verifiedByAdmin',
+            'email_verified_at' => Carbon::now(),        
+        ]);
+        
+
+        Member::create([
+            'user_id' => $CBT->id,            
+            'no_KTP' => "nomor ktp"
         ]);
 
         Profile::create([
