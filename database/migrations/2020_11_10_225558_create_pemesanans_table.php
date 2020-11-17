@@ -14,7 +14,7 @@ class CreatePemesanansTable extends Migration
     public function up()
     {
         Schema::create('pemesanan', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_pemesanan');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('sesi_id');

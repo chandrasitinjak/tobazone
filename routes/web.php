@@ -44,6 +44,10 @@ Route::get('/listlogin', function(){
 });
 //Auth::routes(['verify' => true]);
 //login
+Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login/{role}', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -234,7 +238,6 @@ Route::get('/home-informasi-pariwisata', 'HomeController@homeInformasiPariwisata
 Route::get('/homestays/approvalPesananPenginapan', function () {
     return view ('homestay.merchant.ApprovalPesananPenginapan');
 });
-
 
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
 

@@ -74,6 +74,30 @@ class RegisterController extends Controller
      * @return \App\User
      */
 
+    public function registerCbt(Request $request){
+        
+        $image = $request->file('image');
+        $imageName = time() . $image->getClientOriginalName();
+        $destinationPath = public_path('/images/ktp-cbt');
+        $image->move($destinationPath, $imageName);
+
+        $user = User::create([
+            'name' => $request->nama_lengkap,
+            'no_WA' => $request->nomor_wa,
+            'no_HP' => $request->nomor_hp,
+            'email' => $request->email,
+            'password' => Hash::make($request->kata_sandi),
+            'status' => "-",
+            'username'=> $request->email,
+        ]);
+        
+        $user->assignRole('member_cbt');
+
+        $email_cbt = $request->email;
+
+        Mail::to($email_cbt)->send(new RegisterCbt());        
+    }
+
     protected function create(array $data)
     {
         $user = User::create([
@@ -158,11 +182,5 @@ class RegisterController extends Controller
         return Redirect::route('login_path');
     }
     
-    public function registerCbt(Request $data){
-        $email_cbt = $data->email;
-
-        Mail::to($email_cbt)->send(new RegisterCbt());
-
-        return response()->json($email_cbt);
-    }
+    
 }

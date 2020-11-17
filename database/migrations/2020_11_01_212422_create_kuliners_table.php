@@ -29,7 +29,7 @@ class CreateKulinersTable extends Migration
             $table->timestamps();
 
             $table->foreign('member_id')->references('id')->on('member');
-            $table->foreign('kabupaten_id')->references('id')->on('kabupatens');
+            $table->foreign('kabupaten_id')->references('id_kabupaten')->on('kabupatens');
         });
     }
 

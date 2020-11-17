@@ -16,9 +16,9 @@ class CreatePaketLayanansTable extends Migration
         Schema::create('paket_layanans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('paket_wisata_id');
-            $table->foreign('paket_wisata_id')->references('id_paket')->on('paket_wisatas');
+            $table->foreign('paket_wisata_id')->references('id_paket')->on('paket_wisata');
             $table->unsignedBigInteger('layanan_wisata_id');
-            $table->foreign('layanan_wisata_id')->references('id')->on('layanan_wisatas');
+            $table->foreign('layanan_wisata_id')->references('id')->on('layanan_wisata');
             $table->timestamps();
         });
     }
