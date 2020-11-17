@@ -47,6 +47,11 @@ class HomestayController extends Controller
         return view('users.homestay.index')->with('homestays', $homestays);
     }
 
+    public function searchTest(){
+        $homestays = Homestay::All();
+        return view('users.homestay.after_search_page')->with('homestays', $homestays);
+    }
+
     public function findById($id)
     {
         $detail = Homestay::find($id);

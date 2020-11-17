@@ -207,6 +207,7 @@ Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::get('/homestays/save', 'HomestayController@store');
 
 Route::post('/homestays/search', 'HomestayController@search');
+Route::get('/homestays/searchPage', 'HomestayController@searchTest');
 
 //orderHomestay
 Route::post('/homestay/pesan', 'HomestayController@bookHomestay');
