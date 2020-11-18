@@ -40,11 +40,13 @@
                                         <br>
                                         <p>{{$product->address}}</p>
                                         <br>
-                                        <p style="color: #FF8311; font-size: 20px" class="product-price"> IDR {{ $product->price }}</p>
+                                        <p style="color: #FF8311; font-size: 20px"
+                                           class="product-price"> IDR {{ $product->price }}</p>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="product-description">
-                                            <p class="product-price" style="margin: 20px"> {{ $product->description
+                                            <p class="product-price" style="margin: 20px"> {{
+                                                $product->description
                                                 }}</p>
                                         </div>
                                     </div>
@@ -61,6 +63,44 @@
                         </div>
                         @endforeach
                     </div>
+
+                    <div class="row">
+                        @foreach ($homestays as $product)
+                        <div class="col-12 col-sm-6 col-lg-4 card">
+                            <div class="single-product-wrapper">
+                                <a href="{{ '../images/assets/no-image.jpg'}}">
+                                    <div class="product-img">
+
+                                        <img src="{{ '../images/assets/no-image.jpg'}}" alt="">
+
+                                    </div>
+                                </a>
+                                <div class="product-description">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <a href="{{ url('/homestays/find', $product->id)}}"><h6>
+                                                    {{
+                                                    $product->name }}</h6></a>
+                                        </div>
+                                        <div class="col-md-4" style="alignment: right">
+                                            <p class="product-price" style="color: #FF8311; "> IDR {{ $product->price }}</p>
+                                        </div>
+                                    </div>
+                                    <p class="product-price"> {{ $product->address }}</p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button class="btn" style="background-color: #222757; color: white">Ubah</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button class="btn" style="background-color: #6D0000; color: white">Hapus</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+
                 </div>
                 <!-- Pagination -->
                 <nav aria-label="navigation">
