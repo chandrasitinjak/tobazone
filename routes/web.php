@@ -197,3 +197,19 @@ Route::get('/carabayar', 'QnAController@showi');
 Route::get('/homestays', 'HomestayController@findAll');
 Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
+Route::get('/homestays/recordPenginapan', function(){
+    return view('users.homestay.recordPenginapan');
+});
+Route::get('/homestays/recordPenginapan', function(){
+    return view('users.homestay.daftarPesananCustomer');
+});
+// Route::get('/homestays/detailPesanan', function(){
+//     return view('users.homestay.detailPesanan');
+// });
+
+// Koperasi
+
+Route::get('/koperasis/koperasiaktif', function(){
+    return view('users.Koperasi.koperasiaktif');
+});
+
