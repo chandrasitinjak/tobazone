@@ -15,7 +15,9 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Profile;
 use App\roles;
+use App\Member;
 use App\VerifyUser;
+use App\KomunitasMember;
 use Illuminate\Auth\Events\Registered;
 
 use App\Mail\RegisterCbt;
@@ -91,6 +93,18 @@ class RegisterController extends Controller
             'username'=> $request->email,
         ]);
         
+        $member = Member::create([
+            'user_id' => $user->id,
+            'photo' => $imageName,
+            'no_KTP' => $request->nomor_ktp,                        
+        ]);
+              
+        $komunitas_member = new KomunitasMember();
+        $komunitas_member->komunitas_id = $request->komunitas;
+        $komunitas_member->member_id = $member->id;
+        $komunitas_member->save();
+
+
         $user->assignRole('member_cbt');
 
         $email_cbt = $request->email;
