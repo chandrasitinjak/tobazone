@@ -1,5 +1,5 @@
-/* eslint-env node */
-/* eslint no-process-env: 0 */
+/* eslint-.env node */
+/* eslint no-process-.env: 0 */
 const path = require('path')
 const jsCoveragePath = path.resolve(__dirname, '../coverage')
 

@@ -236,8 +236,8 @@
                     </thead>
                     <tbody>
                       <tr v-for="tracking in trackings" class="light">
-                        <td>{{ tracking.manifest_description}}</td>
-                        <td>{{ tracking.manifest_date }} {{ tracking.manifest_time }}</td>
+                        <td>{{ tracking.desc}}</td>
+                        <td>{{ tracking.date}}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -275,8 +275,16 @@ export default {
         .get("/api/transaction/" + this.transactionId + "/tracking")
         .then(res => {
           this.transaction = res.data.transaction;
-          this.trackings = res.data.tracking.rajaongkir.result.manifest;
-          this.updateStatus(res.data.tracking.rajaongkir.result.delivered);
+          // this.trackings = res.data.tracking.rajaongkir.result.manifest;          
+          // this.updateStatus(res.data.tracking.rajaongkir.result.delivered);
+
+          this.trackings = res.data.tracking.data.history;
+
+          if(res.data.tracking.data.summary.status === "DELIVERED") {
+            let delivered = true;
+            this.updateStatus(delivered);
+          }
+          
           EventBus.$emit("SPINNER", false);
         })
         .catch(err => {

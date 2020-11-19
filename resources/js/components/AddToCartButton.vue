@@ -32,7 +32,7 @@ button{
 import EventBus from "../eventBus";
 
 export default {
-  props: ["userId", "productId", "maxUnit"],
+  props: ["userId", "productId", "maxUnit", "message"],
   data() {
     return {
       total: 1,
@@ -44,11 +44,14 @@ export default {
       let payload = {
         productId: this.productId,
         total: 1,
-        userId: this.userId
+        userId: this.userId,
+        message: this.message
       };
 
       // await window.axios.post("/api/carts", payload).then(res => {
-      window.axios.post("/api/carts", payload).then(res => {
+      window.axios
+      .post("/api/carts", payload)
+      .then(res => {
         this.emitEvent(res.data);
       });
 

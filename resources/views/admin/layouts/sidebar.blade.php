@@ -43,8 +43,10 @@
                 <li> <a href="{{ url('/roles')}}"> <i class="menu-icon fa fa-users"></i> Roles </a> </li>
                 <li> <a href="{{ url('/permissions')}}"> <i class="menu-icon fa fa-user"></i> Permissions </a> </li> -->
                 <h3 class="menu-title">Koperasi</h3>
-                <li><a href="{{ url('/carousels')}}"> <i class="menu-icon"></i>Koperasi Aktif</a></li>
-                <li><a href="{{ url('/carousels')}}"> <i class="menu-icon"></i>Koperasi Tidak Aktif</a></li>
+                <li><a href="{{ url('/admin/koperasi-aktif')}}"> <i class="menu-icon"></i>Koperasi Aktif</a></li>
+                <li><a href="{{ url('/admin/koperasi-tidak-aktif')}}"> <i class="menu-icon"></i>Koperasi Tidak Aktif</a>
+                </li>
+                <li><a href="{{ url('/admin/akun-koperasi-pending')}}"> <i class="menu-icon"></i>Akun Pending</a></li>
             </ul>
         </div>
     </nav>
