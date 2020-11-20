@@ -55,7 +55,12 @@ const AddToWishlistButton = require('./components/AddToWishlistButton')
 const UserRating = require('./components/merchants/UserRating')
 const UserRatingSecond = require('./components/merchants/UserRatingSecond')
 const ProdukTerlaris = require('./components/homes/ProdukTerlaris')
+<<<<<<< HEAD
 const ListLogin = require('./components/auths/ListLogin')
+=======
+const MainPage = require('./components/homestay/MainPage')
+const CarouselHomestay = require('./components/homestay/CarouselHomestay')
+>>>>>>> bb6dc4b28ed4b0a5f0620e7c0f1e91a0a97826bf
     // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -94,8 +99,13 @@ const app = new Vue({
         ProductsAksesoris,
         ProductsObat,
         ProdukTerlaris,
+<<<<<<< HEAD
         ListLogin,
         RegCebt
+=======
+        MainPage,
+        CarouselHomestay
+>>>>>>> bb6dc4b28ed4b0a5f0620e7c0f1e91a0a97826bf
 
     },
     data(){
