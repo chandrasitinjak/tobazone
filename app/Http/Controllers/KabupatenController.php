@@ -18,6 +18,6 @@ class KabupatenController extends Controller
     	$akomodasis = Akomodasi::where('kabupaten_id', $id)->paginate(6);
     	$budayas = Budaya::where('kabupaten_id', $id)->paginate(6);
     	$events = Event::where('kabupaten_id', $id)->paginate(6);
-    	return view('wisatawan.kabupaten.kabupaten',compact('kabupaten','objekWisatas','kuliners','akomodasis','budayas','events'));
+    	return view('informasi-pariwisata.wisatawan.kabupaten.kabupaten',compact('kabupaten','objekWisatas','kuliners','akomodasis','budayas','events'));
     }
 }

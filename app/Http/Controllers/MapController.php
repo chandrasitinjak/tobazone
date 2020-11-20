@@ -14,23 +14,23 @@ class MapController extends Controller
         	$akomodasis = Akomodasi::all();
         	$kuliners = Kuliner::all();
 
-        	return view('wisatawan.Map.index',compact('objekWisatas','akomodasis','kuliners'));
+        	return view('informasi-pariwisata.wisatawan.Map.index',compact('objekWisatas','akomodasis','kuliners'));
         }
 
         public function displayObjek(){
         	$objekWisatas = ObjekWisata::all();
 
-        	return view('wisatawan.Map.objek_map',compact('objekWisatas'));
+        	return view('informasi-pariwisata.wisatawan.Map.objek_map',compact('objekWisatas'));
         }
 
     	public function displayAkomodasi(){
         	$akomodasis = Akomodasi::all();
 
-        	return view('wisatawan.Map.akomodasi_map',compact('akomodasis'));
+        	return view('informasi-pariwisata.wisatawan.Map.akomodasi_map',compact('akomodasis'));
         }
     	public function displayKuliner(){
         	$kuliners = Kuliner::all();
 
-        	return view('wisatawan.Map.kuliner_map',compact('kuliners'));
+        	return view('informasi-pariwisata.wisatawan.Map.kuliner_map',compact('kuliners'));
         }
 }
