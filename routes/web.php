@@ -241,3 +241,5 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
 
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');    
 
+Route::get('/admin/new-member', 'MemberController@index');
+Route::get('/admin/member/detail', 'MemberController@show');
