@@ -214,7 +214,11 @@ Route::post('/homestay/pesan', 'HomestayController@bookHomestay');
 
 //Approval Penginapan Backend
 Route::post('/homestay/approvePenginapan/{id}', 'HomestayController@approvePenginapan');
-Route::post('/homestay/rejectedPenginapan/{id}', 'HomestayController@rejectedPenginapan');
+Route::post('/homestay/rejectedPrenginapan/{id}', 'HomestayController@rejectedPenginapan');
 
 //Approval Penginapan Frontend
 Route::get('/homestay/ListPesanan', 'HomestayController@listPesananPenginapan');
+
+
+//Homestay Merchant
+Route::get('/merchant/homestay/create', 'HomestayController@createHomestayPage');

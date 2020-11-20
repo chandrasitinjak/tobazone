@@ -7,6 +7,9 @@
     <div class="row">
         <div class="col-md-12 crudproduk mt-3" style="display: grid">
             <div class="pull-right">
+                <div>
+                    <Create-Homestay/>
+                </div>
                 <div class="card globalcard mt-0">
                     <div class="card-header">
                         <h6>Tambah Homestay Baru </h6>
@@ -95,18 +98,9 @@
 @endsection
 
 <script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+    import CreateHomestay from "../../../../js/components/homestay/merchant/CreateHomestay";
 
-            reader.onload = function (e) {
-                $('#blah')
-                    .attr('src', e.target.result)
-                    .width(150)
-                    .height(200);
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
+    export default {
+        components : {CreateHomestay}
     }
 </script>

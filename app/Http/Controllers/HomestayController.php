@@ -144,4 +144,10 @@ class HomestayController extends Controller
         return view('users.merchants.homestays.ListPesananPenginapan')->with('data', $data);
     }
 
+
+    //Merchant
+    public function createHomestayPage(){
+        return view('users.merchants.homestays.create_homestay');
+    }
+
 }
