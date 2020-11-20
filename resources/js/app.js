@@ -9,6 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import VueSweetalert2 from 'vue-sweetalert2';
+
 import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.use(VueSweetalert2);
 
@@ -33,6 +34,7 @@ const AddToCartButton = require('./components/AddToCartButton')
 const Cart = require('./components/carts/Cart')
 const ShippingPage = require('./components/shippings/Container')
 const ProductListMerchantPage = require('./components/merchants/ProductList')
+const HistoryIncomePage = require('./components/merchants/HistoryIncome')
 const OrderListMerchantPage = require('./components/merchants/OrderList')
 const OnProcessOrderListMerchantPage = require('./components/merchants/OnProcessOrderList')
 const OrderListCustomerPage = require('./components/customers/OrderList')
@@ -73,6 +75,7 @@ const app = new Vue({
         CartIcon,
         OrderListCustomerPage,
         Cart,
+        HistoryIncomePage,
         AddToCartButton,
         ShippingPage,
         TrackingPage,

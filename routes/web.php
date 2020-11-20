@@ -122,7 +122,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     });
 
     Route::middleware('role:merchant')->group(function () {
-        Route::get('/merchant', 'MerchantController@index');
+        Route::get('/merchant', 'HistoryIncomeController@index');
         Route::prefix('/merchant/products')->group(function () {
             Route::get('/', 'MerchantController@products');
         });
