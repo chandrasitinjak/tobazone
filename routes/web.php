@@ -237,7 +237,7 @@ Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::get('/homestays/save', 'HomestayController@store');
 
-<<<<<<< HEAD
+
 
 // Sistem Informasi Pariwisata
 Route::get('/home-informasi-pariwisata', 'HomeController@homeInformasiPariwisata');
@@ -250,7 +250,6 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
 
 
-=======
 Route::post('/homestays/search', 'HomestayController@search');
 
 //orderHomestay
@@ -262,4 +261,6 @@ Route::post('/homestay/rejectedPenginapan/{id}', 'HomestayController@rejectedPen
 
 //Approval Penginapan Frontend
 Route::get('/homestay/ListPesanan', 'HomestayController@listPesananPenginapan');
->>>>>>> bb6dc4b28ed4b0a5f0620e7c0f1e91a0a97826bf
+
+Route::delete(
+    '/merchant/homestay/deleete')
