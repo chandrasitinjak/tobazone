@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <form>
                     <label class="label text-muted">Pemilik Toko (Merchant)</label>
-                    <br />
+                    <br/>
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">

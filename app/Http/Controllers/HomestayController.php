@@ -24,7 +24,7 @@ class HomestayController extends Controller
                 $homestays
             ]
         ];
-        return view('users.merchants.homestays.AfterSearchPage')->with('homestays', $homestays);
+        return view('users.homestays.AfterSearchPage')->with('homestays', $homestays);
     }
 
     public function findAllCustomer()
@@ -55,7 +55,7 @@ class HomestayController extends Controller
     public function findById($id)
     {
         $detail = Homestay::find($id);
-        return view('users.merchants.homestays.detail')->with('homestays', $detail);
+        return view('users.homestay.detail_homestay_page')->with('homestays', $detail);
     }
 
     public function stores(Request $request)
