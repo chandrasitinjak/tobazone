@@ -103,8 +103,8 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::put('/admin/paket/edit/{id_paket}/layanan/update', 'PaketWisataController@updateLayanan')->name('admin.paket.update.layanan');
 
 
-        Route::get('/admin/paket','PaketWisataController@index')->name('admin.paket');
-        Route::post('/admin/paket','PaketWisataController@indexFilter')->name('admin.paket.filter');
+        Route::get('/admin/paket', 'PaketWisataController@index')->name('admin.paket');
+        Route::post('/admin/paket', 'PaketWisataController@indexFilter')->name('admin.paket.filter');
         Route::get('/admin/paket/show/{id_paket}', 'PaketWisataController@show')->name('admin.paket.show');
 
         //sesi
@@ -118,7 +118,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
 
 //craete new paket
-        Route::get('/admin/paket/add','PaketWisataController@create')->name('admin.paket.tambah');
+        Route::get('/admin/paket/add', 'PaketWisataController@create')->name('admin.paket.tambah');
         Route::post('/admin/paket/add', 'PaketWisataController@store')->name('admin.paket.store');
 //hapus
         Route::delete('/admin/paket/delete/{id_paket}', 'PaketWisataController@destroy')->name('admin.paket.hapus');
@@ -126,6 +126,33 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::put('/admin/paket/nonaktif/{id_paket}', 'PaketWisataController@nonaktifkanPaket')->name('admin.paket.nonaktif');
         Route::put('/admin/paket/aktifkan/{id_paket}', 'PaketWisataController@aktifkanPaket')->name('admin.paket.aktifkan');
 
+//Komunitas
+        Route::get('/admin/komunitas','KomunitasController@index')->name('data_komunitas.admin');
+        Route::post('/admin/komunitas/create','KomunitasController@create')->name('tambah_komunitas');
+        Route::get('/admin/komunitas/{id}/show','KomunitasController@show')->name('show_komunitas');
+        Route::get('/admin/komunitas/{id}/edit', 'KomunitasController@edit')->name('edit_komunitas');
+        Route::post('/admin/komunitas/{id}/update', 'KomunitasController@update')->name('update_komunitas');
+        Route::get('/admin/komunitas/{id}/hapus','KomunitasController@hapus')->name('hapus_komunitas');
+
+//Akhir Komunitas
+
+//Member
+//member
+        Route::get('/admin/member','MemberController@index')->name('member');
+        Route::post('/admin/member','MemberController@indexFilterM')->name('member.filter');
+        Route::get('/admin/member/request','MemberController@index')->name('member.request');
+        Route::post('/admin/member/request','MemberController@indexFilterR')->name('member.request.filter');
+        Route::get('/admin/member/request/terima/{id_member}','MemberController@terima')->name('member.request.terima');
+        Route::get('/admin/member/request/tolak/{id_member}','MemberController@tolak')->name('member.request.tolak');
+        Route::get('/admin/member/request/hapus/{id_member}','MemberController@hapus')->name('member.request.hapus');
+        Route::get('/admin/member/request/detail/{id_member}','MemberController@showRequest')->name('member.request.detail');
+        Route::get('/admin/member/detail/{id_member}','MemberController@show')->name('member.detail');
+        Route::post('/admin/member/add','MemberController@store')->name('member.tambah');
+        Route::get('/admin/member/aktif/{id_member}','MemberController@aktifkanStatus')->name('member.aktifkan');
+        Route::get('/admin/member/non-aktif/{id_member}','MemberController@nonAktif')->name('member.nonaktifkan');
+        Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}','MemberController@keluarkan')->name('member.keluarkan');
+
+//Akhir Member
 
 //akhir visit toba
         Route::get('/admin', 'AdminController@index');
