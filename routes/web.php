@@ -136,23 +136,6 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
 //Akhir Komunitas
 
-//Member
-//member
-        Route::get('/admin/member','MemberController@index')->name('member');
-        Route::post('/admin/member','MemberController@indexFilterM')->name('member.filter');
-        Route::get('/admin/member/request','MemberController@index')->name('member.request');
-        Route::post('/admin/member/request','MemberController@indexFilterR')->name('member.request.filter');
-        Route::get('/admin/member/request/terima/{id_member}','MemberController@terima')->name('member.request.terima');
-        Route::get('/admin/member/request/tolak/{id_member}','MemberController@tolak')->name('member.request.tolak');
-        Route::get('/admin/member/request/hapus/{id_member}','MemberController@hapus')->name('member.request.hapus');
-        Route::get('/admin/member/request/detail/{id_member}','MemberController@showRequest')->name('member.request.detail');
-        Route::get('/admin/member/detail/{id_member}','MemberController@show')->name('member.detail');
-        Route::post('/admin/member/add','MemberController@store')->name('member.tambah');
-        Route::get('/admin/member/aktif/{id_member}','MemberController@aktifkanStatus')->name('member.aktifkan');
-        Route::get('/admin/member/non-aktif/{id_member}','MemberController@nonAktif')->name('member.nonaktifkan');
-        Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}','MemberController@keluarkan')->name('member.keluarkan');
-
-//Akhir Member
 
 //akhir visit toba
         Route::get('/admin', 'AdminController@index');
@@ -308,8 +291,8 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
     return view('homestay.merchant.ApprovalPesananPenginapan');
 });
 
-Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');    
-Route::post('/register-cbtAdmin', 'Auth\RegisterController@registerCbtAdmin')->name('registerCbtAdmin');    
+Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
+Route::post('/register-cbtAdmin', 'Auth\RegisterController@registerCbtAdmin')->name('registerCbtAdmin');
 
 Route::get('/admin/new-member', 'MemberController@index')->name('member');
 Route::get('/admin/new-member/request', 'MemberController@index')->name('member.request');
