@@ -241,4 +241,7 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
 
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
 
-
+//Maintenance
+Route::get('/reqkoperasiaktif', function(){
+    return view('maintenance.reqkoperasiaktif');
+});
