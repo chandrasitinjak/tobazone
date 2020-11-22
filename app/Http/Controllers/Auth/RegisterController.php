@@ -80,7 +80,7 @@ class RegisterController extends Controller
         
         $image = $request->file('image');
         $imageName = time() . $image->getClientOriginalName();
-        $destinationPath = public_path('/images/ktp-cbt');
+        $destinationPath = public_path('/images/ktp-cbt/');
         $image->move($destinationPath, $imageName);
 
         $user = User::create([
@@ -111,6 +111,11 @@ class RegisterController extends Controller
 
         Mail::to($email_cbt)->send(new RegisterCbt());        
     }
+    
+    public function registerCbtAdmin(Request $request){                     
+        return redirect(route('member'));
+    }
+    
 
     protected function create(array $data)
     {
