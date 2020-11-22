@@ -39,6 +39,8 @@
                 <li> <a href="{{ url('/admin/paket')}}"> <i class="menu-icon fa fa-book"></i>List Paket</a> </li>
                 <li> <a href="{{ url('/admin/paket/add')}}"> <i class="menu-icon fa fa-plus"></i>Tambah Paket Wisata</a> </li>
 
+                <h3 class="menu-title">Pemesanan</h3>
+                <li> <a href="{{ route('admin.pemesanan')}}"> <i class="menu-icon fa fa-book"></i>List Pemesanan</a> </li>
                 {{--                the end of paket--}}
 
                 <h3 class="menu-title">View</h3>

@@ -135,7 +135,19 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/komunitas/{id}/hapus','KomunitasController@hapus')->name('hapus_komunitas');
 
 //Akhir Komunitas
-
+//pemesanan
+        Route::get('/admin/pemesanan', 'PemesananController@index')->name('admin.pemesanan');
+        Route::get('/admin/pemesanan/show/{id_pemesanan}', 'PemesananController@show')->name('admin.pemesanan.show');
+        Route::post('/admin/pemesanan', 'PemesananController@indexFilter')->name('admin.pemesanan.filter');
+        Route::put('/admin/pemesanan/transaksi/konfirmasi/{id_pemesanan}', 'PemesananController@konfirmasiPembayaran')->name('admin.pemesanan.konfirmasi');
+        Route::put('/admin/pemesanan/transaksi/tolak/{id_pemesanan}', 'PemesananController@tolakPembayaran')->name('admin.pemesanan.tolak');
+        Route::put('/admin/pemesanan/transaksi/upload/{id_pemesanan}', 'PemesananController@uploadUlangPembayaran')->name('admin.pemesanan.upload');
+        Route::put('/admin/pemesanan/ubahPesan/{id_pemesanan}', 'PemesananController@ubahPesan')->name('admin.pemesanan.ubahPesan');
+        Route::post('/admin/rekening','PemesananController@tambahRekening')->name('admin.rekening.tambah');
+        Route::get('/admin/rekening/edit/{id_rekening}','PemesananController@editRekening')->name('admin.rekening.edit');
+        Route::put('/admin/rekening/update/{id_rekening}','PemesananController@updateRekening')->name('admin.rekening.update');
+        Route::delete('/admin/rekening/delete/{id_rekening}','PemesananController@destroyRekening')->name('admin.rekening.hapus');
+//akhir pemesanan
 
 //akhir visit toba
         Route::get('/admin', 'AdminController@index');
