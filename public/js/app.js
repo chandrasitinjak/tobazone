@@ -91732,28 +91732,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             kata_sandi_konfirmasi: "",
             nomor_ktp: "",
             foto_ktp: null,
-            komunitas: "",
+            komunitas: [],
+            selected_komunitas: "",
             image: null
         };
     },
 
     methods: {
+        getCbt: function getCbt() {
+            var _this = this;
+
+            window.axios.get("/api/get-cbt").then(function (res) {
+                _this.komunitas = res.data;
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
         onImageChange: function onImageChange(e) {
             this.foto_ktp = e.target.files[0];
             this.image = URL.createObjectURL(this.foto_ktp);
         },
         addCbt: function addCbt() {
-
-            var payload = {
-                nama_lengkap: this.nama_lengkap,
-                nomor_wa: this.nomor_wa,
-                nomor_hp: this.nomor_hp,
-                email: this.email,
-                kata_sandi: this.kata_sandi,
-                kata_sandi_konfirmasi: this.kata_sandi,
-                komunitas: this.komunitas,
-                nomor_ktp: this.nomor_ktp
-            };
+            // let payload = {                    
+            //     nama_lengkap: this.nama_lengkap,                    
+            //     nomor_wa: this.nomor_wa,
+            //     nomor_hp: this.nomor_hp,
+            //     email: this.email,                                        
+            //     kata_sandi: this.kata_sandi,
+            //     kata_sandi_konfirmasi: this.kata_sandi,                    
+            //     komunitas: this.komunitas,
+            //     nomor_ktp: this.nomor_ktp,
+            // };
 
             var formData = new FormData();
             formData.append("image", this.foto_ktp);
@@ -91762,7 +91771,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             formData.append("nomor_hp", this.nomor_hp);
             formData.append("email", this.email);
             formData.append("kata_sandi", this.kata_sandi);
-            formData.append("komunitas", this.komunitas);
+            formData.append("komunitas", this.selected_komunitas);
+            formData.append("nomor_ktp", this.nomor_ktp);
 
             window.axios.post("/register-cbt", formData).then(function (rest) {}).catch(function (err) {
                 console.log(err);
@@ -91771,7 +91781,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     validations: {},
-    mounted: function mounted() {}
+    mounted: function mounted() {
+        this.getCbt();
+    }
 });
 
 /***/ }),
@@ -92001,8 +92013,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.komunitas,
-                      expression: "komunitas"
+                      value: _vm.selected_komunitas,
+                      expression: "selected_komunitas"
                     }
                   ],
                   staticClass: "form-control form-control-lg",
@@ -92016,13 +92028,23 @@ var render = function() {
                           var val = "_value" in o ? o._value : o.value
                           return val
                         })
-                      _vm.komunitas = $event.target.multiple
+                      _vm.selected_komunitas = $event.target.multiple
                         ? $$selectedVal
                         : $$selectedVal[0]
                     }
                   }
                 },
-                [_c("option", [_vm._v("Komunitas Test 1")])]
+                _vm._l(_vm.komunitas, function(community) {
+                  return _c(
+                    "option",
+                    {
+                      key: community.nama_komunitas,
+                      domProps: { value: community.id }
+                    },
+                    [_vm._v(_vm._s(community.nama_komunitas))]
+                  )
+                }),
+                0
               )
             ]),
             _vm._v(" "),
@@ -101840,7 +101862,7 @@ var render = function() {
               attrs: {
                 "data-toggle": "modal",
                 onclick: "setCbt()",
-                "data-target": "#loginModal2"
+                "data-target": "#loginModal3"
               }
             },
             [

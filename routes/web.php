@@ -308,5 +308,14 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
     return view('homestay.merchant.ApprovalPesananPenginapan');
 });
 
-Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
+Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');    
+Route::post('/register-cbtAdmin', 'Auth\RegisterController@registerCbtAdmin')->name('registerCbtAdmin');    
 
+Route::get('/admin/new-member', 'MemberController@index')->name('member');
+Route::get('/admin/new-member/request', 'MemberController@index')->name('member.request');
+Route::post('/admin/new-member', 'MemberController@indexFilterM')->name('member.filter');
+Route::get('/admin/member/detail', 'MemberController@show');
+Route::get('/admin/member/non-aktif/{id_member}', 'MemberController@nonAktif')->name('member.nonaktifkan');
+Route::get('/admin/member/aktif/{id_member}', 'MemberController@aktifkanStatus')->name('member.aktifkan');
+Route::get('/admin/member/detail/{id_member}', 'MemberController@detailMember')->name('member.detail');
+Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}', 'MemberController@keluarkan')->name('member.keluarkan');
