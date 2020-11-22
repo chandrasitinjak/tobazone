@@ -1,6 +1,6 @@
 <?php
 
-    use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,12 +35,12 @@ Route::get('/', function () {
     return view('users.homes.index');
 });
 
-Route::get('/login', function() {
+Route::get('/login', function () {
     return redirect('/');
 })->name('login');
 
-Route::get('/listlogin', function(){
-   return view('users.auth.listlogin');
+Route::get('/listlogin', function () {
+    return view('users.auth.listlogin');
 });
 //Auth::routes(['verify' => true]);
 //login
@@ -86,7 +86,59 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::get('/unverified', 'HomeController@showUnverifiedPage');
 
     Route::middleware('role:admin')->group(function () {
-    Route::get('/admin', 'AdminController@index');
+
+//visit toba
+
+        Route::get('/admin/paket/edit/{id_paket}/choice', 'PaketWisataController@editChoice')->name('admin.paket.editChoice');
+
+        Route::get('/admin/paket/edit/{id_paket}/utama', 'PaketWisataController@edit')->name('admin.paket.edit');
+        Route::put('/admin/paket/edit/{id_paket}/utama/update', 'PaketWisataController@update')->name('admin.paket.update');
+
+        Route::get('/admin/paket/edit/{id_paket}/ini', 'PaketWisataController@editIni')->name('admin.paket.ini');
+        Route::get('/admin/paket/edit/{id_ini}/ini/hapus', 'PaketWisataController@hapusIni')->name('admin.paket.hapus.ini');
+        Route::put('/admin/paket/edit/{id_paket}/ini/update', 'PaketWisataController@updateIni')->name('admin.paket.update.ini');
+
+        Route::get('/admin/paket/edit/{id_paket}/layanan', 'PaketWisataController@editLayanan')->name('admin.paket.layanan');
+        Route::get('/admin/paket/edit/{id_layanan}/{id_paket}/layanan/hapus', 'PaketWisataController@hapusLayanan')->name('admin.paket.hapus.layanan');
+        Route::put('/admin/paket/edit/{id_paket}/layanan/update', 'PaketWisataController@updateLayanan')->name('admin.paket.update.layanan');
+
+
+        Route::get('/admin/paket', 'PaketWisataController@index')->name('admin.paket');
+        Route::post('/admin/paket', 'PaketWisataController@indexFilter')->name('admin.paket.filter');
+        Route::get('/admin/paket/show/{id_paket}', 'PaketWisataController@show')->name('admin.paket.show');
+
+        //sesi
+        Route::get('/admin/sesi/add/{id_paket}', 'PaketWisataController@createSesi')->name('admin.sesi.create');
+        Route::put('/admin/sesi/{id_paket}', 'PaketWisataController@storeSesi')->name('admin.sesi.store');
+        Route::get('/admin/sesi/edit/{id_sesi}', 'PaketWisataController@editSesi')->name('admin.sesi.edit');
+        Route::put('/admin/sesi/edit/{id_sesi}/update', 'PaketWisataController@updateSesi')->name('admin.sesi.update');
+        Route::delete('/admin/sesi/delete/{id_sesi}', 'PaketWisataController@destroySesi')->name('admin.sesi.delete');
+        Route::delete('/admin/sesi/nonaktif/{id_sesi}', 'PaketWisataController@nonaktifSesi')->name('admin.sesi.nonaktif');
+        Route::put('/admin/sesi/aktif/{id_sesi}', 'PaketWisataController@aktifSesi')->name('admin.sesi.aktif');
+
+
+//craete new paket
+        Route::get('/admin/paket/add', 'PaketWisataController@create')->name('admin.paket.tambah');
+        Route::post('/admin/paket/add', 'PaketWisataController@store')->name('admin.paket.store');
+//hapus
+        Route::delete('/admin/paket/delete/{id_paket}', 'PaketWisataController@destroy')->name('admin.paket.hapus');
+        Route::put('/admin/paket/recycle/{id_paket}', 'PaketWisataController@recycle')->name('admin.paket.recycle');
+        Route::put('/admin/paket/nonaktif/{id_paket}', 'PaketWisataController@nonaktifkanPaket')->name('admin.paket.nonaktif');
+        Route::put('/admin/paket/aktifkan/{id_paket}', 'PaketWisataController@aktifkanPaket')->name('admin.paket.aktifkan');
+
+//Komunitas
+        Route::get('/admin/komunitas','KomunitasController@index')->name('data_komunitas.admin');
+        Route::post('/admin/komunitas/create','KomunitasController@create')->name('tambah_komunitas');
+        Route::get('/admin/komunitas/{id}/show','KomunitasController@show')->name('show_komunitas');
+        Route::get('/admin/komunitas/{id}/edit', 'KomunitasController@edit')->name('edit_komunitas');
+        Route::post('/admin/komunitas/{id}/update', 'KomunitasController@update')->name('update_komunitas');
+        Route::get('/admin/komunitas/{id}/hapus','KomunitasController@hapus')->name('hapus_komunitas');
+
+//Akhir Komunitas
+
+
+//akhir visit toba
+        Route::get('/admin', 'AdminController@index');
         Route::post('/merchantconfirmed/{id}', 'MerchantController@updateConfirm');
         Route::get('/admin/new-merchant', 'MerchantController@newMerchant');
         Route::get('/admin/new-order', 'TransactionController@getNewOrder');
@@ -113,7 +165,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/edit-profile', 'AdminController@editProfile');
         Route::get('/admin/show-password', 'AdminController@showChangePassword');
         Route::post('/admin/update-profile', 'AdminController@updateProfile');
-        Route::post('/admin/edit-password','AdminController@editPassword');
+        Route::post('/admin/edit-password', 'AdminController@editPassword');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
@@ -236,11 +288,11 @@ Route::get('/home-informasi-pariwisata', 'HomeController@homeInformasiPariwisata
 
 
 Route::get('/homestays/approvalPesananPenginapan', function () {
-    return view ('homestay.merchant.ApprovalPesananPenginapan');
+    return view('homestay.merchant.ApprovalPesananPenginapan');
 });
 
-Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');    
-Route::post('/register-cbtAdmin', 'Auth\RegisterController@registerCbtAdmin')->name('registerCbtAdmin');    
+Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
+Route::post('/register-cbtAdmin', 'Auth\RegisterController@registerCbtAdmin')->name('registerCbtAdmin');
 
 Route::get('/admin/new-member', 'MemberController@index')->name('member');
 Route::get('/admin/new-member/request', 'MemberController@index')->name('member.request');

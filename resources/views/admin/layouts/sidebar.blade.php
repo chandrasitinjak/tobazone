@@ -31,6 +31,16 @@
                 <li> <a href="{{ url('/admin/successed-order')}}"> <i class="menu-icon fa fa-check-circle"></i> Successed Order </a> </li>
                 <li> <a href="{{ url('/admin/rejected-order')}}"> <i class="menu-icon fa fa-exclamation-triangle"></i> Rejected Order</a> </li>
 
+                {{--                Paket wisata--}}
+                <h3 class="menu-title">Komunitas</h3>
+                <li> <a href="{{ url('/admin/komunitas')}}"> <i class="menu-icon fa fa-users"></i>List Komunitas</a> </li>
+
+                <h3 class="menu-title">Paket Wisata</h3>
+                <li> <a href="{{ url('/admin/paket')}}"> <i class="menu-icon fa fa-book"></i>List Paket</a> </li>
+                <li> <a href="{{ url('/admin/paket/add')}}"> <i class="menu-icon fa fa-plus"></i>Tambah Paket Wisata</a> </li>
+
+                {{--                the end of paket--}}
+
                 <h3 class="menu-title">View</h3>
                 <li> <a href="{{ url('/carousels')}}"> <i class="menu-icon fa fa-star"></i> Carousel </a> </li>
                 <!-- <li> <a href="{{ url('/banners')}}"> <i class="menu-icon fa fa-bookmark"></i> Banner </a> </li>
