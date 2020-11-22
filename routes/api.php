@@ -49,6 +49,7 @@ Route::get('/product/aksesoris', 'API\ProductController@searchAksesoris');
 Route::post('/product/{id}/review', 'API\ProductController@addReview');
 Route::post('/rating', 'API\RatingController@setRating')->name('setRating');
 Route::get('/rating/{id}', 'API\RatingController@getRating')->name('getRating');
+Route::get('/rating/{userid}/{productid}', 'API\RatingController@showRating')->name('showRating');
 
 
 // Route::post('/transaction/{id}/update-status', 'API\TransactionController@updateTransactionStatus');
