@@ -18,7 +18,7 @@
 
                 <h3 class="menu-title">Member</h3>
                 <li> <a href="{{ url('/admin/new-member')}}"> <i class="menu-icon fa fa-user"></i>Daftar Member</a> </li>
-                <li> <a href="{{ url('#')}}"> <i class="menu-icon fa fa-user"></i>Request Member</a> </li>
+                <li> <a href="{{ url('/admin/new-member/request')}}"> <i class="menu-icon fa fa-user"></i>Request Member</a> </li>
 
 
 
