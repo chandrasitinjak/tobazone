@@ -56,6 +56,8 @@ const UserRatingSecond = require('./components/merchants/UserRatingSecond')
 const ProdukTerlaris = require('./components/homes/ProdukTerlaris')
 const MainPage = require('./components/homestay/MainPage')
 const CarouselHomestay = require('./components/homestay/CarouselHomestay')
+const CreateHomestay = require('./components/homestay/merchant/CreateHomestay')
+const UpdateHomestay = require('./components/homestay/merchant/UpdateHomestay')
     // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -95,7 +97,9 @@ const app = new Vue({
         ProductsObat,
         ProdukTerlaris,
         MainPage,
-        CarouselHomestay
+        CarouselHomestay,
+        CreateHomestay,
+        UpdateHomestay
 
     },
     data(){
