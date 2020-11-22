@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Homestay;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\HomestayOrders;
@@ -47,7 +48,8 @@ class HomestayController extends Controller
         return view('users.homestay.index')->with('homestays', $homestays);
     }
 
-    public function searchTest(){
+    public function searchTest()
+    {
         $homestays = Homestay::All();
         return view('users.homestay.after_search_page')->with('homestays', $homestays);
     }
@@ -60,10 +62,24 @@ class HomestayController extends Controller
 
     public function stores(Request $request)
     {
-        $this->validate($request, [
-            'job' => 'required',
-            'machine' => 'required'
-        ]);
+        if ($request->file('images')) {
+            $image = $request->file('images');
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $id.'.png');
+        }
+
+        $homestay = Homestay::find($id);
+        $homestay->name = $request->name;
+        $homestay->total_room = $request->stock;
+        $homestay->room_available = $request->stock_available;
+        $homestay->price = $request->price;
+        $homestay->description = $request->description;
+        $homestay->address = $request->address;
+
+        $homestay->image = $id.".png";
+        $homestay->update();
+
+        return "Sukses";
     }
 
     public function createDataPage()
@@ -71,13 +87,16 @@ class HomestayController extends Controller
         return view('users.merchants.homestays.create_homestay');
     }
 
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-        $uploadedImages = $request->file('images');
-        $imageName = time() . $uploadedImages->getClientOriginalName();
-        $destinationPath = public_path('/images');
-        $uploadedImages->move($destinationPath, $imageName);
-
+        $length =15;
+        $rand =substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+        if ($request->file('images')) {
+            $image = $request->file('images');
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $rand.'.png');
+        }
+        dd("test");
         $homestay = new Homestay();
         $homestay->user_id = Auth::user()->id;
 
@@ -86,7 +105,7 @@ class HomestayController extends Controller
         $homestay->total_room = $request->totalRoom;
         $homestay->room_available = $request->roomAvailable;
         $homestay->description = $request->description;
-        $homestay->image = json_encode($imageName);
+        $homestay->image = $rand.'.png';
         $homestay->address = $request->address;
         $homestay->status = 1;
         $homestay->kabupaten = $request->kabupaten;
@@ -117,7 +136,8 @@ class HomestayController extends Controller
         return "Pesan penginapan berhasil";
     }
 
-    public function approvePenginapan(Request $request, $id) {
+    public function approvePenginapan(Request $request, $id)
+    {
 
         $homestay_id = HomestayOrders::find($id);
         $homestay_id->status = "accepted";
@@ -127,7 +147,8 @@ class HomestayController extends Controller
         return "pesanan diterima";
     }
 
-    public function rejectedPenginapan(Request $request, $id) {
+    public function rejectedPenginapan(Request $request, $id)
+    {
 
         $homestay_id = HomestayOrders::find($id);
         $homestay_id->status = "rejected";
@@ -137,7 +158,8 @@ class HomestayController extends Controller
         return "pesanan ditolak";
     }
 
-    public function listPesananPenginapan() {
+    public function listPesananPenginapan()
+    {
 
         $data = HomestayOrders::all();
 
@@ -146,8 +168,92 @@ class HomestayController extends Controller
 
 
     //Merchant
-    public function createHomestayPage(){
-        return view('users.merchants.homestays.create_homestay');
+    public function createHomestayPage()
+    {
+        $merchant = $this->getAuthincatedMerchant();
+        return view('users.merchants.homestays.create_homestay')->with('result', $merchant);
     }
 
+    private function getAuthincatedMerchant()
+    {
+        $merchant = User::with('profile')->find(Auth::user()->id);
+        $address = json_decode(json_decode($merchant->profile->address)[0]);
+        $merchant->profile->address = $address;
+
+        return $merchant;
+    }
+
+    public function getAllMerchantHomestay()
+    {
+        $merchant = $this->getAuthincatedMerchant();
+        $homestays = Homestay::All();
+        $result = [
+            "merchant" => $merchant,
+            "homestay" => $homestays
+        ];
+//        dd($result['merchant']->profile->photo);
+        return view('users.merchants.homestays.all_homestay')->with('result', $result);
+    }
+
+    public function deleteById($id)
+    {
+        DB::table('homestays')->where('id', id)->delete();
+        $merchant = $this->getAuthincatedMerchant();
+        $homestays = Homestay::All();
+        $result = [
+            "merchant" => $merchant,
+            "homestay" => $homestays
+        ];
+        return view('users.merchants.homestays.all_homestay')->with('result', $result);
+    }
+
+    public function updateHomestay($id)
+    {
+        $merchant = $this->getAuthincatedMerchant();
+        $homestay = Homestay::find($id);
+        $result = [
+            "merchant" => $merchant,
+            "homestay" => $homestay
+        ];
+        return view('users.merchants.homestays.update_homestay')->with('result', $result);
+
+    }
+
+    public function update(Request $request, $id)
+    {
+        $homestay = Homestay::find($id);
+        if ($request->file('images')) {
+            $image = $request->file('images');
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $homestay->image);
+        }
+
+        $homestay->name = $request->name;
+        $homestay->total_room = $request->stock;
+        $homestay->room_available = $request->stock_available;
+        $homestay->price = $request->price;
+        $homestay->description = $request->description;
+        $homestay->address = $request->address;
+
+        $homestay->image = $homestay->image;
+        $homestay->update();
+
+        return redirect('/merchant/homestay/findAll')->with('success', 'Product created successfully.');
+    }
+
+    public function findHomestayById($id)
+    {
+        $homestay = Homestay::find($id);
+        return $homestay;
+    }
+
+    public function findAllMerchantOrders(){
+        $orders = HomestayOrders::all();
+        $merchant = $this->getAuthincatedMerchant();
+        $result = [
+            "merchant" => $merchant,
+            "orders" => $orders
+        ];
+        return view('users.merchants.homestays.record_pesanan_penginapan')->with('result', $result);
+    }
 }

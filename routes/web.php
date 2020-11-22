@@ -204,7 +204,7 @@ Route::get('/homestays', 'HomestayController@findAll');
 Route::get('/user/homestays', 'HomestayController@findAllCustomer');
 Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
-Route::get('/homestays/save', 'HomestayController@store');
+Route::post('/homestays/save', 'HomestayController@store');
 
 Route::post('/homestays/search', 'HomestayController@search');
 Route::get('/homestays/searchPage', 'HomestayController@searchTest');
@@ -222,3 +222,9 @@ Route::get('/homestay/ListPesanan', 'HomestayController@listPesananPenginapan');
 
 //Homestay Merchant
 Route::get('/merchant/homestay/create', 'HomestayController@createHomestayPage');
+Route::get('/merchant/homestay/findAll', 'HomestayController@getAllMerchantHomestay');
+Route::delete('/merchant/homestay/delete/{id}', 'HomestayController@deleteById');
+Route::get('/merchant/homestay/update/{id}', 'HomestayController@updateHomestay');
+Route::post('/merchant/homestay/updateHomestay/{id}', 'HomestayController@update');
+Route::get('/merchant/homestay/findHomestayById/{id}', 'HomestayController@findHomestayById');
+Route::get('/merchant/homestay/orders', 'HomestayController@findAllMerchantOrders');

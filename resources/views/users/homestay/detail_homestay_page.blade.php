@@ -36,17 +36,28 @@
                 <div class="col-md-4">
                     <br>
                     <p>Check-in</p>
-                    <input style="background-color: #F5F5F5" type="text" class="form-control">
+                    <div class="input-container">
+                        <i class="fa fa-calendar icon fa-lg" style="color:#000000;"></i>
+                        <input style="background-color: #F5F5F5" type="date" class="form-control">
+                    </div>
                     <p>Durasi</p>
-                    <input style="background-color: #F5F5F5" type="text"  class="form-control">
-                    <p>Tamu dan Kamar</p>
-                    <input style="background-color: #F5F5F5" type="text" class="form-control">
+                    <div class="input-container">
+                        <i class="fa fa-moon-o icon fa-lg" style="color:#000000;"></i>
+                        <input style="background-color: #F5F5F5" type="number" min="1" class="form-control">
+                    </div>
+                    <p>Jumlah Kamar</p>
+                    <div class="input-container">
+                        <i class="fa fa-bed icon fa-lg" style="color:#000000;"></i>
+                        <input style="background-color: #F5F5F5" type="number" min="1" max="{{$homestays->room_available}}" class="form-control">
+                    </div>
                     <br>
                     <br>
                     <button class="btn form-control" style="background-color: #0b0b0b; color: white">Pesan Homestay</button>
-                    <p>{{$homestays->description}}</p>
+                    <br><br>
                 </div>
             </div>
+            <br><br>
+            <p>{{$homestays->description}}</p>
             <br><br><br><br>
         </div>
     </div>
@@ -64,25 +75,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-12 col-sm-6 col-lg-4">
-                            <div class="single-product-wrapper">
-                                <a href="{{ '../images/assets/no-image.jpg'}}">
-                                    <div class="product-img">
-
-                                        <img src="{{ '../images/assets/no-image.jpg'}}" alt="">
-
-                                    </div>
-                                </a>
-                                <div class="product-description">
-                                    <a > <h6>{{ $homestays->name }}</h6> </a>
-                                    <p class="product-price"> IDR {{ $homestays->price }}</p>
-                                </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -90,3 +82,22 @@
 </section>
 <!-- ##### Shop Grid Area End ##### -->
 @endsection
+
+<style scoped>
+    /* Style the input container */
+    .input-container {
+        display: flex;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* Style the form icons */
+    .icon {
+        padding: 10px;
+        background: #F5F5F5;
+        color: white;
+        min-width: 50px;
+        text-align: center;
+    }
+
+</style>

@@ -4,9 +4,9 @@
         <div class="row">
             <div class="container">
                 <br><br>
-                <h4>Tambah Homestay</h4>
+                <h4>Ubah Homestay</h4>
                 <hr>
-                <form class="form-group" @submit="save">
+                <form class="form-group" method="POST"  enctype="multipart/form-data">
                     <div class="form-group row">
                         <div class="input-group mb-3">
                             <label class="col-sm-3 col-form-label">
@@ -28,7 +28,7 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control"
+                            <input type="text" class="form-control" :placeholder="homestay.name"
                                    aria-describedby="namaprodukhelp" name="name">
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control"
+                            <input type="number" class="form-control" :placeholder="homestay.total_room"
                                    aria-describedby="namaprodukhelp" min="1" name="stock" required>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control"
+                            <input type="number" class="form-control" :placeholder="homestay.room_available"
                                    aria-describedby="namaprodukhelp" min="0" name="stock" required>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control"
+                            <input type="number" class="form-control" :placeholder="homestay.price"
                                    aria-describedby="namaprodukhelp" min="1" name="price" required>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <textarea rows="10" class="form-control"
+                            <textarea rows="10" class="form-control" :placeholder="homestay.description"
                                       aria-describedby="namaprodukhelp"
                                       name="description"></textarea>
                         </div>
@@ -79,7 +79,7 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control"
+                            <input type="text" class="form-control" :placeholder="homestay.address"
                                    aria-describedby="namaprodukhelp" min="1" name="product_origin"
                                    required>
                         </div>
@@ -165,12 +165,27 @@
                     birthday: "",
                     password: "",
                     passwordconfirm: ""
-                }
+                },
+                homestay:""
             };
         },
         methods: {
             dismiss() {
                 EventBus.$emit("ADD_MERCHANT_MODAL_CLOSED", null);
+            },
+            getHomestay(){
+                var url = window.location.href;
+                var id = url.substring(url.lastIndexOf('/') + 1);
+                window.axios
+                    .get("/merchant/homestay/findHomestayById/" +id)
+                    .then(res => {
+                        this.homestay= res.data;
+                        this.userMerchant.selectedCity = res.data.kabupaten
+                       console.log(res.data)
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
             },
             getCities() {
                 EventBus.$emit("SPINNER", true);
@@ -198,9 +213,101 @@
                         EventBus.$emit("SPINNER", false);
                     });
             },
-            save() {
+            save(){
+                window.axios
+                    .post("/merchant/homestay/update/" +id)
+                    .then(res => {
+                        console.log(res);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            },
+            addMerchant() {
+                this.$v.$touch()
+                if (!this.$v.$invalid) {
+                    let payload = {
+                        provinceId: this.userMerchant.selectedProvince.id,
+                        cityId: this.userMerchant.selectedCity.id,
+                        subdistrictId: this.userMerchant.selectedSubdistrict.subdistrict_id,
+                        provinceName: this.userMerchant.selectedProvince.name,
+                        cityName: this.userMerchant.selectedCity.name,
+                        subdistrictName: this.userMerchant.selectedSubdistrict.subdistrict_name,
+                        addressDetail: this.userMerchant.addressDetail,
+                        addressName: "",
+                        username: this.userMerchant.username,
+                        email: this.userMerchant.email,
+                        name: this.userMerchant.name,
+                        photo: "",
+                        phone: this.userMerchant.phone,
+                        gender: this.userMerchant.gender,
+                        birthday: this.userMerchant.birthday,
+                        postalCode: this.userMerchant.selectedCity.postal_code,
+                        password: this.userMerchant.password,
+                        password_confirmation: this.userMerchant.passwordconfirm,
+                        role: "merchant"
+                    };
+
                     console.log(payload);
-                    alert("tester");
+
+                    EventBus.$emit("SPINNER", true);
+                    window.axios
+                        .post("/register", payload)
+                        .then(() => {
+                            EventBus.$emit("SPINNER", false);
+                            this.$swal({
+                                title: "Pendaftaran Berhasil",
+                                icon: "success"
+                            });
+                            window.location = "/";
+                        })
+                        .catch(err => {
+                            console.log(err);
+                            EventBus.$emit("SPINNER", false);
+
+                            let customerAttributes = {
+                                "selectedCity": "Kota/Kabupaten",
+                                "selectedProvince": "Provinsi",
+                                "selectedSubdistrict": "Kecamatan",
+                                "addressDetail": "Alamat Rinci Toko",
+                                "username": "Username",
+                                "email": "E-mail",
+                                "name": "Nama Toko",
+                                "phone": "Nomor Telepon",
+                                "photo": "Foto",
+                                "gender": "Jenis Kelamin",
+                                "birthday": "Tanggal Lahir",
+                                "password": "Kata Sandi",
+                                "passwordconfirm": "Konfirmasi Kata Sandi"
+                            };
+
+                            let errMessage = "Terjadi kesalahan.";
+                            if (err.response.status == 422) {
+                                let errKeys = Object.keys(err.response.data.errors);
+                                let errKey = "";
+                                if (errKeys.length > 0) {
+                                    errKey = errKeys[0];
+                                }
+
+                                errMessage = "Data yang diberikan tidak valid.";
+                                if (errKey != "") {
+                                    if (errKey == "email" || errKey == "username") {
+                                        errMessage = errMessage + " " + customerAttributes[errKey] +
+                                            " tidak valid atau telah terdaftar.";
+                                    } else {
+                                        errMessage = customerAttributes[errKey] +
+                                            " tidak valid.";
+                                    }
+                                }
+                            }
+
+                            this.$swal({
+                                title: "Pendaftaran Gagal",
+                                icon: "error",
+                                text: errMessage
+                            });
+                        });
+                }
             }
         },
 
@@ -249,6 +356,7 @@
         },
         mounted() {
             this.getCities();
+            this.getHomestay();
         }
     };
 
