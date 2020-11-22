@@ -79,6 +79,8 @@ Route::get('/product/makanan', 'ProductController@searchProductByMakanan');
 Route::get('/product/aksesoris', 'ProductController@searchProductByAksesoris');
 Route::get('/product/obat', 'ProductController@searchProductByObat');
 
+Route::get('cbt/dashboard','DashboardCBTController@index');
+
 
 Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::post('/profile/edit/{id}', 'ProfileController@updateAddress');
@@ -324,7 +326,6 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
 
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
 Route::post('/register-cbtAdmin', 'Auth\RegisterController@registerCbtAdmin')->name('registerCbtAdmin');
-
 Route::get('/admin/new-member', 'MemberController@index')->name('member');
 Route::get('/admin/new-member/request', 'MemberController@index')->name('member.request');
 Route::post('/admin/new-member', 'MemberController@indexFilterM')->name('member.filter');
