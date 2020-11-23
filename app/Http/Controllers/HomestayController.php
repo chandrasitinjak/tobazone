@@ -55,12 +55,20 @@ class HomestayController extends Controller
     }
 
     /**
-     * Display a list of homestay orders by user_id
+     * Display a list of homestay orders by user id.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function findAllCustomerOrder()
     {
         $user = Auth::user();
+        if (!$user) {
+            // Redirect to login page if user is not logged in.
+            return redirect('/listlogin');
+        }
+
         $homestayOrders = HomestayOrders::where('id_customer', $user->id)->get();
+
         return view('users.customers.homestays.index')->with('homestayOrders', $homestayOrders);
     }
 
