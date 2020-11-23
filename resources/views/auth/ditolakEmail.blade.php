@@ -1,4 +1,4 @@
-<h1><b>Visit Toba</b></h1>
+<h1><b>Tobazone</b></h1>
 <hr>
 Mohon maaf, pengajuan keanggotaan anda ditolak karena tidak memenuhi syarat tertentu.
 <br>
@@ -8,4 +8,4 @@ Terima Kasih atas pengajuan keanggotaan anda!<br>
 Salam,
 <br>
 <br>
-Visit Toba
+Tobazone
