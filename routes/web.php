@@ -84,6 +84,14 @@ Route::get('/product/makanan', 'ProductController@searchProductByMakanan');
 Route::get('/product/aksesoris', 'ProductController@searchProductByAksesoris');
 Route::get('/product/obat', 'ProductController@searchProductByObat');
 
+Route::get('/cbt/dashboard','DashboardCBTController@index');
+//Layanan Wisata
+Route::get('anggotacbt/layananwisata', 'LayananWisataController@index')->name('anggotacbt.layanan');
+Route::post('anggotacbt/layananwisata/create', 'LayananWisataController@create')->name('anggotacbt.layanan.tambah');
+Route::get('anggotacbt/layananwisata/{id}/edit', 'LayananWisataController@edit')->name('anggotacbt.layanan.edit');
+Route::put('anggotacbt/layanan_wisata/{id}/update', 'LayananWisataController@update')->name('anggotacbt.layanan.update');
+Route::get('anggotacbt/layanan_wisata/{id}/delete', 'LayananWisataController@delete')->name('anggotacbt.layanan.delete');
+
 
 Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::post('/profile/edit/{id}', 'ProfileController@updateAddress');
@@ -140,7 +148,19 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/komunitas/{id}/hapus','KomunitasController@hapus')->name('hapus_komunitas');
 
 //Akhir Komunitas
-
+//pemesanan
+        Route::get('/admin/pemesanan', 'PemesananController@index')->name('admin.pemesanan');
+        Route::get('/admin/pemesanan/show/{id_pemesanan}', 'PemesananController@show')->name('admin.pemesanan.show');
+        Route::post('/admin/pemesanan', 'PemesananController@indexFilter')->name('admin.pemesanan.filter');
+        Route::put('/admin/pemesanan/transaksi/konfirmasi/{id_pemesanan}', 'PemesananController@konfirmasiPembayaran')->name('admin.pemesanan.konfirmasi');
+        Route::put('/admin/pemesanan/transaksi/tolak/{id_pemesanan}', 'PemesananController@tolakPembayaran')->name('admin.pemesanan.tolak');
+        Route::put('/admin/pemesanan/transaksi/upload/{id_pemesanan}', 'PemesananController@uploadUlangPembayaran')->name('admin.pemesanan.upload');
+        Route::put('/admin/pemesanan/ubahPesan/{id_pemesanan}', 'PemesananController@ubahPesan')->name('admin.pemesanan.ubahPesan');
+        Route::post('/admin/rekening','PemesananController@tambahRekening')->name('admin.rekening.tambah');
+        Route::get('/admin/rekening/edit/{id_rekening}','PemesananController@editRekening')->name('admin.rekening.edit');
+        Route::put('/admin/rekening/update/{id_rekening}','PemesananController@updateRekening')->name('admin.rekening.update');
+        Route::delete('/admin/rekening/delete/{id_rekening}','PemesananController@destroyRekening')->name('admin.rekening.hapus');
+//akhir pemesanan
 
 //akhir visit toba
         Route::get('/admin', 'AdminController@index');
@@ -317,7 +337,6 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
 
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
 Route::post('/register-cbtAdmin', 'Auth\RegisterController@registerCbtAdmin')->name('registerCbtAdmin');
-
 Route::get('/admin/new-member', 'MemberController@index')->name('member');
 Route::get('/admin/new-member/request', 'MemberController@index')->name('member.request');
 Route::post('/admin/new-member', 'MemberController@indexFilterM')->name('member.filter');

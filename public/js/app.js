@@ -100463,7 +100463,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             bar2: 0,
             bar3: 0,
             bar4: 0,
-            bar5: 0
+            bar5: 0,
+            showRating: false
         };
     },
     created: function created() {
@@ -100471,16 +100472,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.setDefaultRating();
     },
 
+
     methods: {
+        showRating: function showRating() {
+            var _this = this;
+
+            window.axios.get("api/rating/" + this.user + "/" + this.product).then(function (response) {
+                _this.showRating = response.data;
+            }).catch(function (error) {
+                alert(error);
+                console.log(error);
+            });
+        },
         setDefaultRating: function setDefaultRating() {
             rating = this.rating;
         },
         getRating: function getRating() {
-            var _this = this;
+            var _this2 = this;
 
             window.axios.get("/api/rating/" + this.product).then(function (response) {
                 var data = response.data;
-                _this.totaluser = data.length;
+                _this2.totaluser = data.length;
 
                 var sum = 0;
                 for (var i = 0; i < data.length; i++) {
@@ -100488,37 +100500,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
 
                 var avg = sum / data.length;
-                _this.totalrate = parseFloat(avg.toFixed(1));
+                _this2.totalrate = parseFloat(avg.toFixed(1));
 
                 for (var j = 0; j < data.length; j++) {
                     if (parseInt(data[j]['rating']) == '1') {
-                        _this.bar1 += 1;
+                        _this2.bar1 += 1;
                     }
                     if (parseInt(data[j]['rating']) == '2') {
-                        _this.bar2 += 1;
+                        _this2.bar2 += 1;
                     }
                     if (parseInt(data[j]['rating']) == '3') {
-                        _this.bar3 += 1;
+                        _this2.bar3 += 1;
                     }
                     if (parseInt(data[j]['rating']) == '4') {
-                        _this.bar4 += 1;
+                        _this2.bar4 += 1;
                     }
                     if (parseInt(data[j]['rating']) == '5') {
-                        _this.bar5 += 1;
+                        _this2.bar5 += 1;
                     }
                 }
-                window.$('.bar-1').css('width', parseFloat((_this.bar1 / data.length).toFixed(1)) + '%');
-                window.$('.bar-2').css('width', parseFloat((_this.bar2 / data.length).toFixed(1)) + '%');
-                window.$('.bar-3').css('width', parseFloat((_this.bar3 / data.length).toFixed(1)) + '%');
-                window.$('.bar-4').css('width', parseFloat((_this.bar4 / data.length).toFixed(1)) + '%');
-                window.$('.bar-5').css('width', parseFloat((_this.bar5 / data.length).toFixed(1)) + '%');
+                window.$('.bar-1').css('width', parseFloat((_this2.bar1 / data.length).toFixed(1)) + '%');
+                window.$('.bar-2').css('width', parseFloat((_this2.bar2 / data.length).toFixed(1)) + '%');
+                window.$('.bar-3').css('width', parseFloat((_this2.bar3 / data.length).toFixed(1)) + '%');
+                window.$('.bar-4').css('width', parseFloat((_this2.bar4 / data.length).toFixed(1)) + '%');
+                window.$('.bar-5').css('width', parseFloat((_this2.bar5 / data.length).toFixed(1)) + '%');
             }).catch(function (error) {
                 alert(error);
                 console.log(error);
             });
         },
         setRating: function setRating() {
-            var _this2 = this;
+            var _this3 = this;
 
             var payload = {
                 product: this.product,
@@ -100529,7 +100541,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             window.axios.post("/api/rating", payload).then(function (response) {
                 if (response.status == 200) {
                     alert("Terima kasih, penilaian Anda telah kami simpan");
-                    _this2.getRating();
+                    _this3.getRating();
                 }
             }).catch(function (error) {
                 var errMessage = "Gagal memberikan penilaian, silahkan coba lagi";
@@ -100540,6 +100552,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error);
             });
         }
+    },
+
+    mounted: function mounted() {
+        this.showRating();
     }
 });
 
@@ -100562,6 +100578,14 @@ var render = function() {
             { staticClass: "col-md-6" },
             [
               _c("star-rating", {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.showRating,
+                    expression: "showRating"
+                  }
+                ],
                 attrs: {
                   increment: 0.5,
                   "star-size": 30,
@@ -100584,7 +100608,18 @@ var render = function() {
       _vm._v(" "),
       _c(
         "button",
-        { staticClass: "btn btn-primary btn-sm", on: { click: _vm.setRating } },
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showRating,
+              expression: "showRating"
+            }
+          ],
+          staticClass: "btn btn-primary btn-sm",
+          on: { click: _vm.setRating }
+        },
         [_vm._v("Rate")]
       ),
       _vm._v(" "),
