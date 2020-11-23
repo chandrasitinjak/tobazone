@@ -84,6 +84,7 @@ Route::get('/product/makanan', 'ProductController@searchProductByMakanan');
 Route::get('/product/aksesoris', 'ProductController@searchProductByAksesoris');
 Route::get('/product/obat', 'ProductController@searchProductByObat');
 
+//CBT
 Route::get('/cbt/dashboard','DashboardCBTController@index');
 //Layanan Wisata
 Route::get('anggotacbt/layananwisata', 'LayananWisataController@index')->name('anggotacbt.layanan');
@@ -91,7 +92,8 @@ Route::post('anggotacbt/layananwisata/create', 'LayananWisataController@create')
 Route::get('anggotacbt/layananwisata/{id}/edit', 'LayananWisataController@edit')->name('anggotacbt.layanan.edit');
 Route::put('anggotacbt/layanan_wisata/{id}/update', 'LayananWisataController@update')->name('anggotacbt.layanan.update');
 Route::get('anggotacbt/layanan_wisata/{id}/delete', 'LayananWisataController@delete')->name('anggotacbt.layanan.delete');
-
+// Manajemen objek wisata
+Route::get('cbt/objek', 'ObjekWisataController@index')->name('cbt.objek');
 
 Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::post('/profile/edit/{id}', 'ProfileController@updateAddress');

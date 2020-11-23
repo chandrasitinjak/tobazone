@@ -9,13 +9,13 @@ use App\ObjekWisata;
 
 class ObjekWisataController extends Controller
 {
-     public function index(){
-        	$kabupaten_id = session('kabupaten_id');
-        	$kabupaten = Kabupaten::findOrFail($kabupaten_id);
-        	$categorys = CategoryWisata::all();
-        	$objekWisatas = ObjekWisata::where('kabupaten_id', $kabupaten_id)->paginate(5);
+        public function index(){
+        	//$kabupaten_id = session('kabupaten_id');
+        	//$kabupaten = Kabupaten::findOrFail($kabupaten_id);
+//        	$categorys = CategoryWisata::all();
+//        	$objekWisatas = ObjekWisata::where('kabupaten_id', $kabupaten_id)->paginate(5);
 
-        	return view('CBT.ObjekWisata.index',compact('objekWisatas','categorys','kabupaten'));
+        	return view('informasi-pariwisata.CBT.ObjekWisata.index');
         }
 
         public function store(Request $request){
