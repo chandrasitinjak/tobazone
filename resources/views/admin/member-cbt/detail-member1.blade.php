@@ -1,4 +1,4 @@
-@extends('admin.layouts.app') 
+@extends('admin.layouts.app')
 @section('title') {{ "Detail Member" }}
 @endsection
 
@@ -31,7 +31,7 @@
                             <div class="text-center">
                                 <button type="button" class="btn btn-default" data-toggle="modal"
                                         data-target="#modal-default">
-                                    <img src="{{asset('/storage/img/member/'.$member->photo)}}" class="img-fluid mb-2"
+                                    <img src="{{asset('/images/ktp-cbt/'.$member->photo)}}" class="img-fluid mb-2"
                                          alt="white sample"/>
                                 </button>
                                 <div class="modal fade" id="modal-default">
@@ -46,7 +46,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="ekko-lightbox-container">
-                                                    <img src="{{asset('/storage/img/member/'.$member->photo)}}"
+                                                    <img src="{{asset('/images/ktp-cbt/'.$member->photo)}}"
                                                         class="img-fluid" style="width: 100%;">
                                                 </div>
                                             </div>
