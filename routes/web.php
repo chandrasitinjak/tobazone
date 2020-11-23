@@ -254,12 +254,13 @@ Route::get('/homestay/ListPesanan', 'HomestayController@listPesananPenginapan');
 //Homestay Merchant
 Route::get('/merchant/homestay/create', 'HomestayController@createHomestayPage');
 Route::get('/merchant/homestay/findAll', 'HomestayController@getAllMerchantHomestay');
-Route::delete('/merchant/homestay/delete/{id}', 'HomestayController@deleteById');
+Route::get('/merchant/homestay/delete/{id}', 'HomestayController@deleteById');
 Route::get('/merchant/homestay/update/{id}', 'HomestayController@updateHomestay');
 Route::post('/merchant/homestay/updateHomestay/{id}', 'HomestayController@update');
 Route::get('/merchant/homestay/findHomestayById/{id}', 'HomestayController@findHomestayById');
 Route::get('/merchant/homestay/orders', 'HomestayController@findAllMerchantOrders');
 Route::get('/homestays/save', 'HomestayController@store');
+Route::get('/homestays/findAllMyHomestay', 'HomestayController@findAllMerchantHomestay');
 
 // Display all homestay orders of a customer.
 Route::get('/user/homestay/order/findAll', 'HomestayController@findAllCustomerOrder');
