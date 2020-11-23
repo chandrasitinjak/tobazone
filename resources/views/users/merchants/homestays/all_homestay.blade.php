@@ -107,7 +107,7 @@
                             </div>
                             <div class="col-md-6" align="right">
                                 <button class="btn" style="background-color: #6D0000; color: white"
-                                        onclick="deletes()">Hapus
+                                        onclick="deletes({{$product->id }})">Hapus
                                 </button>
                             </div>
                         </div>
@@ -122,13 +122,11 @@
 @endsection
 
 <script>
-    function deletes() {
+    function deletes(id) {
         var txt;
         var r = confirm("Press a button!");
         if (r == true) {
-            $.delete('//merchant/homestay/delete/' + 2, function (res) {
-                alert(res)
-            });
+            window.location.href="{{url('/merchant/homestay/delete/'+id)";
             alert("You pressed OK!");
         } else {
             alert("You pressed Cancel!");

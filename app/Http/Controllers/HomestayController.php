@@ -92,22 +92,6 @@ class HomestayController extends Controller
 
     public function stores(Request $request)
     {
-        if ($request->file('images')) {
-            $image = $request->file('images');
-            $destinationPath = public_path('/images');
-            $image->move($destinationPath, $id . '.png');
-        }
-
-        $homestay = Homestay::find($id);
-        $homestay->name = $request->name;
-        $homestay->total_room = $request->stock;
-        $homestay->room_available = $request->stock_available;
-        $homestay->price = $request->price;
-        $homestay->description = $request->description;
-        $homestay->address = $request->address;
-
-        $homestay->image = $id . ".png";
-        $homestay->update();
 
         return "Sukses";
     }
@@ -119,18 +103,16 @@ class HomestayController extends Controller
 
     public function store(Request $request)
     {
-        $length = 15;
-        $rand = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
-        if ($request->file('images')) {
-            $image = $request->file('images');
-            $destinationPath = public_path('/images');
-            $image->move($destinationPath, $rand . '.png');
+        $length =15;
+        $rand =substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+        if ($request->image) {
+            $data = explode( ',', $request->image );
+            file_put_contents('images/'. $rand.'.png', base64_decode($data[1]));
         }
-        dd("test");
-        $homestay = new Homestay();
-        $homestay->user_id = Auth::user()->id;
 
-        $homestay->name = $request->name;
+
+        $homestay = new Homestay();
+        $homestay->name = ($request->get('name'));
         $homestay->price = $request->price;
         $homestay->total_room = $request->totalRoom;
         $homestay->room_available = $request->roomAvailable;
@@ -138,13 +120,10 @@ class HomestayController extends Controller
         $homestay->image = $rand . '.png';
         $homestay->address = $request->address;
         $homestay->status = 1;
-        $homestay->kabupaten = $request->kabupaten;
-        $homestay->kecamatan = $request->kecamatan;
-        $homestay->desa = $request->desa;
-        $homestay->merchant_id = $request->merchantId;
-
+        $homestay->kabupaten = $request->kabupaten['name'];
+        $homestay->kecamatan = $request->kecamatan['city'];
+        $homestay->merchant_id = Auth::user()->id;
         $homestay->save();
-
         return redirect('/merchant')->with('success', 'Product created successfully.');
     }
 
@@ -225,9 +204,15 @@ class HomestayController extends Controller
         return view('users.merchants.homestays.all_homestay')->with('result', $result);
     }
 
+    public function findAllMerchantHomestay(){
+        $homestays = Homestay::where('merchant_id', Auth::user()->id)->get();
+
+        return $homestays;
+    }
+
     public function deleteById($id)
     {
-        DB::table('homestays')->where('id', id)->delete();
+        Homestay::find($id)->delete();
         $merchant = $this->getAuthincatedMerchant();
         $homestays = Homestay::All();
         $result = [

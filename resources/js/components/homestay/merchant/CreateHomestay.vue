@@ -15,8 +15,11 @@
                                     class="formbadge badge badge-secondary font-weight-light text-muted">Wajib</span>
                             </label>
                             <div class="col-sm-9">
-                                <div>
-                                    <input type='file' alt="Input" onchange="readURL(this);"/>
+                                <div class="col-md-3" v-if="image">
+                                    <img :src="image" class="img-responsive" height="70" width="90">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="file" v-on:change="onImageChange" class="form-control">
                                 </div>
                                 <br>
                             </div>
@@ -28,7 +31,7 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control"
+                            <input type="text" class="form-control" v-model="name"
                                    aria-describedby="namaprodukhelp" name="name">
                         </div>
                     </div>
@@ -38,8 +41,8 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control"
-                                   aria-describedby="namaprodukhelp" min="1" name="stock" required>
+                            <input type="number" class="form-control" v-model="totalRoom"
+                                   aria-describedby="namaprodukhelp" min="1" name="stock">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -48,8 +51,8 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control"
-                                   aria-describedby="namaprodukhelp" min="0" name="stock" required>
+                            <input type="number" class="form-control" v-model="roomAvailable"
+                                   aria-describedby="namaprodukhelp" min="0" name="stock">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -58,8 +61,8 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control"
-                                   aria-describedby="namaprodukhelp" min="1" name="price" required>
+                            <input type="number" class="form-control" v-model="price"
+                                   aria-describedby="namaprodukhelp" min="1" name="price">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -68,7 +71,7 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <textarea rows="10" class="form-control"
+                            <textarea rows="10" class="form-control" v-model="description"
                                       aria-describedby="namaprodukhelp"
                                       name="description"></textarea>
                         </div>
@@ -79,9 +82,9 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control"
+                            <input type="text" class="form-control" v-model="address"
                                    aria-describedby="namaprodukhelp" min="1" name="product_origin"
-                                   required>
+                            >
                         </div>
                     </div>
 
@@ -122,11 +125,13 @@
 
                     <div class="form-group row">
                         <div class="col-md-12 mt-4">
-                            <button type="submit" style="background-color: black" class="btn btn-primary float-right">Simpan
-                            </button>
+
                         </div>
                     </div>
                 </form>
+                <button @click="save" type="submit" style="background-color: black"
+                        class="btn btn-primary float-right">Simpan
+                </button>
             </div>
         </div>
     </div>
@@ -151,20 +156,20 @@
                 provicies: [],
                 cities: [],
                 subdistricts: [],
+                image:'',
+                name: '',
+                price:'',
+                totalRoom:'',
+                roomAvailable:'',
+                description:'',
+                address:'',
+                kabupaten:'',
+                kecamatan:'',
+                desa:'',
                 userMerchant: {
                     selectedCity: "",
                     selectedProvince: "",
                     selectedSubdistrict: "",
-                    addressDetail: "",
-                    username: "",
-                    email: "",
-                    name: "",
-                    phone: "",
-                    photo: "",
-                    gender: "",
-                    birthday: "",
-                    password: "",
-                    passwordconfirm: ""
                 }
             };
         },
@@ -175,7 +180,7 @@
             getCities() {
                 EventBus.$emit("SPINNER", true);
                 window.axios
-                    .get("/api/cities?pro_id=" +34)
+                    .get("/api/cities?pro_id=" + 34)
                     .then(res => {
                         this.cities = res.data;
                         EventBus.$emit("SPINNER", false);
@@ -198,53 +203,56 @@
                         EventBus.$emit("SPINNER", false);
                     });
             },
+            onImageChange(e) {
+                let files = e.target.files || e.dataTransfer.files;
+                if (!files.length)
+                    return;
+                this.createImage(files[0]);
+            },
+            createImage(file) {
+                let reader = new FileReader();
+                let vm = this;
+                reader.onload = (e) => {
+                    vm.image = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            },
             save() {
-                    console.log(payload);
-                    alert("tester");
+                console.log(this.image)
+                window.axios
+                    .post("/homestays/save",{
+                        'name': this.name,
+                        'price':this.price,
+                        'totalRoom':this.totalRoom,
+                        'roomAvailable':this.roomAvailable,
+                        'description':this.description,
+                        'address':this.address,
+                        'kabupaten':this.userMerchant.selectedCity,
+                        'kecamatan':this.userMerchant.selectedSubdistrict,
+                        'desa':'',
+                        'image': this.image
+                    })
+                    .then(res => {
+                        alert("Tambah Penginapan Sukses");
+                        window.location.href="/merchant/homestay/findAll";
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
             }
         },
 
         validations: {
             userMerchant: {
                 username: {
-                    required,
                     minLength: minLength(8)
                 },
                 email: {
-                    required,
                     email
                 },
-                name: {
-                    required
-                },
-                phone: {
-                    required
-                },
-                addressDetail: {
-                    required
-                },
-                birthday: {
-                    required
-                },
-                selectedProvince: {
-                    required
-                },
-                selectedCity: {
-                    required
-                },
-                selectedSubdistrict: {
-                    required
-                },
-                gender: {
-                    required
-                },
-                password: {
-                    required,
-                    minLength: minLength(8)
-                },
-                passwordconfirm: {
-                    sameAsPassword: sameAs("password")
-                }
+                addressDetail: {},
+                selectedCity: {},
+                selectedSubdistrict: {}
             }
         },
         mounted() {

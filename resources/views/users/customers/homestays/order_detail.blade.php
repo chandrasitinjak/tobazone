@@ -49,7 +49,9 @@
                         <table class="table table-borderless">
                             <tbody>
                                 <tr>
+                                    {{-- TODO: add link for Hapus button --}}
                                     <td><p class="h6 text-right"><a href="#" class="btn btn-outline-warning">Hapus</a></p></td>
+                                    {{-- add link for Bayar button --}}
                                     <td><p class="h6 text-left"><a href="#" class="btn btn-dark">Bayar</a></p></td>
                                 </tr>
                             </tbody>
