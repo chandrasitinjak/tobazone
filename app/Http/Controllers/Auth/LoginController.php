@@ -51,6 +51,7 @@ class LoginController extends Controller
     public function login(Request $request, $role)
     {
         if ($role == "cbt") {
+
             $this->validateLogin($request);
 
             // If the class is using the ThrottlesLogins trait, we can automatically throttle
@@ -65,6 +66,10 @@ class LoginController extends Controller
 
             if ($this->attemptLogin($request)) {
                 return $this->sendLoginResponse($request);
+            }else{
+                return Response::json([
+                    'hello' => "halo"
+                ], 422);
             }
         }else if($role == "customer"){
             $this->validateLogin($request);
@@ -81,6 +86,10 @@ class LoginController extends Controller
 
             if ($this->attemptLogin($request)) {
                 return $this->sendLoginResponse($request);
+            }else{
+                return Response::json([
+                    'hello' => "halo"
+                ], 422);
             }
 
         }else if($role == "merchant"){
@@ -98,6 +107,10 @@ class LoginController extends Controller
 
             if ($this->attemptLogin($request)) {
                 return $this->sendLoginResponse($request);
+            }else{
+                return Response::json([
+                    'hello' => "halo"
+                ], 422);
             }
 
         }else if($role == "admin"){
@@ -115,6 +128,10 @@ class LoginController extends Controller
 
             if ($this->attemptLogin($request)) {
                 return $this->sendLoginResponse($request);
+            }else{
+                return Response::json([
+                    'hello' => "halo"
+                ], 422);
             }
 
         }

@@ -14,7 +14,7 @@
                    <div class="col-xs-12 col-md-12">
                        <div class="row">
                            <div class="col-xs-2 col-md-2">
-                               <img src="https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png" alt="">
+                               <img src="images/icon-login/customer.jpeg" id="icon-login1">
                            </div>
                            <div class="col-xs-8 col-md-8">
                                <div class="row d-flex flex-row">
@@ -35,7 +35,7 @@
                        <div class="col-xs-12 col-md-12">
                            <div class="row">
                                <div class="col-xs-2 col-md-2">
-                                   <img src="https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png" alt="">
+                                   <img src="images/icon-login/merchant.jpeg" id="icon-login1">
                                </div>
                                <div class="col-xs-8 col-md-8">
                                    <div class="row d-flex flex-row">
@@ -52,12 +52,12 @@
            </div>
            <br><br>
            <div class="card-login">
-               <div class="card"  data-toggle="modal" onclick="setCbt()" data-target="#loginModal3">
+               <div class="card"  data-toggle="modal" onclick="setCbt()" data-target="#loginModal">
                    <div class="card-body">
                        <div class="col-xs-12 col-md-12">
                            <div class="row">
                                <div class="col-xs-2 col-md-2">
-                                   <img src="https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png" alt="">
+                                   <img src="images/icon-login/cbt.jpeg" id="icon-login1">
                                </div>
                                <div class="col-xs-8 col-md-8">
                                    <div class="row d-flex flex-row">
@@ -79,7 +79,7 @@
                        <div class="col-xs-12 col-md-12">
                            <div class="row">
                                <div class="col-xs-2 col-md-2">
-                                   <img src="https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png" alt="">
+                                   <img src="images/icon-login/admin.png" id="icon-login1">
                                </div>
                                <div class="col-xs-8 col-md-8">
                                    <div class="row d-flex flex-row">
@@ -118,6 +118,9 @@
         }
         #arrow{
             width: 20px;
+        }
+        #icon-login1{
+            width: 50px;
         }
     }
 </style>
