@@ -101,14 +101,16 @@
                         <br>
                         <div class="row">
                             <div class="col-md-6" align="left">
-                                <a class="btn" style="background-color: #222757; color: white" href="{{ url('/merchant/homestay/update',$product->id)}}">
+                                <a class="btn" style="background-color: #222757; color: white"
+                                   href="{{ url('/merchant/homestay/update',$product->id)}}">
                                     Ubah
                                 </a>
                             </div>
                             <div class="col-md-6" align="right">
-                                <button class="btn" style="background-color: #6D0000; color: white"
-                                        onclick="deletes({{$product->id }})">Hapus
-                                </button>
+                                <a class="btn" style="background-color: #6D0000; color: white"
+                                   onclick="return confirm('delete homestay?')"
+                                   href="{{route('deleteHomestay',$product->id)}}">Hapus
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -126,10 +128,8 @@
         var txt;
         var r = confirm("Press a button!");
         if (r == true) {
-            window.location.href="{{url('/merchant/homestay/delete/'+id)";
+            window.location.href = "/merchant/homestay/delete/" + id;
             alert("You pressed OK!");
-        } else {
-            alert("You pressed Cancel!");
         }
     }
 
