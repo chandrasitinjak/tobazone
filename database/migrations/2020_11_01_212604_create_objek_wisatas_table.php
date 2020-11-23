@@ -18,18 +18,19 @@ class CreateObjekWisatasTable extends Migration
             $table->string('nama_objek_wisata');
             $table->string('lokasi');
             $table->string('foto');
+            $table->string('status');
             $table->string('longitude');
             $table->string('latitude');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('kabupaten_id');
             $table->text('deskripsi')->nullable();
-            $table->unsignedBigInteger('cbt_id');
+            $table->unsignedBigInteger('member_id');
             $table->timestamps();
 
 
             $table->foreign('category_id')->references('id')->on('category_wisatas');
-            $table->foreign('cbt_id')->references('id')->on('cbts');
-            $table->foreign('kabupaten_id')->references('id')->on('kabupatens');
+            $table->foreign('member_id')->references('id')->on('member');
+            $table->foreign('kabupaten_id')->references('id_kabupaten')->on('kabupatens');
         });
     }
 

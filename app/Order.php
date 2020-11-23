@@ -11,4 +11,9 @@ class Order extends Model
     public function product() {
         return $this->belongsTo('App\Product')->withTrashed();
     }
+
+    public function transaction() {
+        return $this->belongsTo('App\Transaction');
+    }
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Cart;
+use App\Order;
 use App\User;
 use App\Wishlist;
 use Illuminate\Http\Request;
@@ -27,12 +28,13 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         $cart = Cart::where('product_id', $request->productId)
                     ->where('user_id', $request->userId)
                     ->first();
-        
+
         if($cart !== null) {
             $cart->total += $request->total;
             $cart->update();
@@ -48,7 +50,7 @@ class CartController extends Controller
         return response()->json($cart);
     }
 
-    
+
     public function addToWishlist(Request $request)
     {
         $newData = new Wishlist();
@@ -57,7 +59,7 @@ class CartController extends Controller
         $newData->save();
     }
 
-    public function cekWishlist($userId, $productId) {        
+    public function cekWishlist($userId, $productId) {
 
         $data = Wishlist::all()->where('product_id', $productId)->where('user_id', $userId);
         return response()->json($data);
@@ -108,7 +110,7 @@ class CartController extends Controller
         // if(Auth::check()) {
             $carts = Cart::with(['product', 'product.merchant', 'product.merchant.profile'])->where('user_id', $id)->get();
             $buyer = User::with('profile')->find($id);
-        
+
             return response()->json([
                 'carts' => $carts,
                 'buyer' => $buyer

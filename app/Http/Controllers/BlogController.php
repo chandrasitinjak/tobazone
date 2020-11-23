@@ -83,6 +83,8 @@ class BlogController extends Controller
         return redirect('/admin/blogs')->with('success', 'Blog berhasil ditambah');
     }
 
+    
+
     /**
      * Display the specified resource.
      *

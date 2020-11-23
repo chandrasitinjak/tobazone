@@ -54,6 +54,16 @@ class HomestayController extends Controller
         return view('users.homestay.after_search_page')->with('homestays', $homestays);
     }
 
+    /**
+     * Display a list of homestay orders by user_id
+     */
+    public function findAllCustomerOrder()
+    {
+        $user = Auth::user();
+        $homestayOrders = HomestayOrders::where('id_customer', $user->id)->get();
+        return view('users.customers.homestays.index')->with('homestayOrders', $homestayOrders);
+    }
+
     public function findById($id)
     {
         $detail = Homestay::find($id);
