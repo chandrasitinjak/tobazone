@@ -89,6 +89,11 @@ class HomestayController extends Controller
             ->where('id_customer', $user->id)
             ->first();
 
+        // Handle if request is not found.
+        if (!$orderDetail) {
+            abort(404, 'Page not found.');
+        }
+
         return view('users.customers.homestays.order_detail')->with('orderDetail', $orderDetail);
     }
 
