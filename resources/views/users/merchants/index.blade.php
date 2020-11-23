@@ -1,7 +1,7 @@
-@extends('users.layouts.app') 
-@section('title') {{ "Dashboard" }}
+@extends('users.layouts.app')
+@section('title') {{ "penginapan" }}
 @endsection
- 
+
 @section('content')
 
 <div class="container">
