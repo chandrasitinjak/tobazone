@@ -79,9 +79,22 @@ class HomestayController extends Controller
      */
     public function findCustomerOrderByID($idOrder)
     {
-        // TODO: imeplement detail findCustomerOrderByID.
-        print("Under construct");
-        die();
+        $user = Auth::user();
+        if (!$user) {
+            // Redirect to login page if user is not logged in.
+            return redirect('/listlogin');
+        }
+
+        $orderDetail = HomestayOrders::where('id', $idOrder)
+            ->where('id_customer', $user->id)
+            ->first();
+
+        // Handle if request is not found.
+        if (!$orderDetail) {
+            abort(404, 'Page not found.');
+        }
+
+        return view('users.customers.homestays.order_detail')->with('orderDetail', $orderDetail);
     }
 
     public function findById($id)
