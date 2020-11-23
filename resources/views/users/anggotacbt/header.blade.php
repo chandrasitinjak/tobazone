@@ -13,7 +13,7 @@
     <ul class="navbar-nav ml-auto">
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-user-circle"></i>
 
                 <i class="fa fa-angle-down"></i>
@@ -29,7 +29,7 @@
                       style="display: none;">
 
                 </form>
-            </div>
+            </div> 
         </li>
         <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
@@ -38,3 +38,5 @@
         </li>
     </ul>
 </nav>
+
+

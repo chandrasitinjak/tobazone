@@ -21,7 +21,7 @@
                         <div class="tab-content">
                             <div class="tab-pane {{((Request::segment(2) === 'new-member')&&(Request::segment(3) == null)) ? 'active' : null}} " id="member">
                                 <div class="card-body">                                    
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
                                         <i class="fa fa-plus"> </i> Tambah Member
                                     </button>     
                                 </div>
