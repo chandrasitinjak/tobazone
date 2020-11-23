@@ -1,5 +1,5 @@
 @extends('users.layouts.app')
-@section('title') {{ "Dashboard" }}
+@section('title') {{ "Record Pesanan Penginapan" }}
 @endsection
 
 @section('content')
