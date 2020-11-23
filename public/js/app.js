@@ -101903,7 +101903,7 @@ var render = function() {
               attrs: {
                 "data-toggle": "modal",
                 onclick: "setCbt()",
-                "data-target": "#loginModal3"
+                "data-target": "#loginModal"
               }
             },
             [
