@@ -194,6 +194,36 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function store(Request $request)
+    {
+        $image = $request->file('image');
+        $imageName = time() . $image->getClientOriginalName();
+        $destinationPath = public_path('/images/ktp-cbt/');
+        $image->move($destinationPath, $imageName);
+
+        $user = User::create([
+            'name' => $request->nama_lengkap,
+            'no_WA' => $request->nomor_wa,
+            'no_HP' => $request->nomor_hp,
+            'email' => $request->email,
+            'password' => Hash::make($request->kata_sandi),
+            'email_verified_at'=>Carbon::now(),
+            'status' => "verifiedByAdmin",
+            'username'=> $request->email,
+        ]);
+
+        $member = Member::create([
+            'user_id' => $user->id,
+            'photo' => $imageName,
+            'no_KTP' => $request->nomor_ktp,
+        ]);
+
+        $user->assignRole('member_cbt');
+
+    return redirect(route('member'));
+    }
+
     public function tolakMember($id)
     {
         $users = User::find($id);
