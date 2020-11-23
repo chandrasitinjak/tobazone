@@ -42,6 +42,11 @@ Route::get('/login', function () {
 Route::get('/listlogin', function () {
     return view('users.auth.listlogin');
 });
+
+Route::get('/cbt', function () {
+    return view('users.auth.listlogin');
+});
+
 //Auth::routes(['verify' => true]);
 //login
 Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');

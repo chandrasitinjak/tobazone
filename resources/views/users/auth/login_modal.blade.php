@@ -46,7 +46,7 @@
       </div>
       <div class="modal-footer  py-0 " style="border: none">
         <input type="hidden" id="hidden-customer" value="customer">
-        <button type="submit" class="btn essence-btn btn-block" onclick="login() ">Masuk</button>
+        <button type="submit" class="btn essence-btn btn-block" onclick="login()">Masuk</button>
       </div>
 
       <div class="modal-footer border-0 justify-content-between px-5">
