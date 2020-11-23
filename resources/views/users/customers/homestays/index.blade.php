@@ -1,9 +1,8 @@
 @extends('users.layouts.app')
-@section('title') {{ "Homestays" }}
+@section('title') {{ "Homestay Orders" }}
 @endsection
 
 @section('content')
-
 <section class="shop_grid_area section-padding-80">
     <h2>Daftar Pesanan Penginapan Customer</h2>
     <hr>

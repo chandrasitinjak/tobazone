@@ -34,12 +34,12 @@ class HomestayController extends Controller
      */
     public function findAllCustomerOrder()
     {
-        if (!Auth::user()) {
+        $user = Auth::user();
+        if (!$user) {
             // Redirect to login page if user is not logged in.
             return redirect('/listlogin');
         }
 
-        $user = Auth::user();
         $homestayOrders = HomestayOrders::where('id_customer', $user->id)->get();
 
         return view('users.customers.homestays.index')->with('homestayOrders', $homestayOrders);
