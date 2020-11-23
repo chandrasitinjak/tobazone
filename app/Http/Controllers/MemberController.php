@@ -121,9 +121,11 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function listRequest()
     {
-        return view('admin.member-cbt.create');
+        // $users = DB::table('users')->get();
+        $users = User::where('status','-')->get();
+        return view('admin/cbt/request-member',['users'=>$users]);
     }
 
     /**
@@ -132,33 +134,18 @@ class MemberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function terimaMember(Request $request,$id)
     {
-        $image = $request->file('image');
-        $imageName = time() . $image->getClientOriginalName();
-        $destinationPath = public_path('/images/ktp-cbt/');
-        $image->move($destinationPath, $imageName);
+        $users = User::find($id);
+        $users->email_verified_at = now();
+        $users->status = 'verifiedByAdmin';
+        $users->token = NULL;
+        $users->save();
+        $users = User::find($users->id);
 
-        $user = User::create([
-            'name' => $request->nama_lengkap,
-            'no_WA' => $request->nomor_wa,
-            'no_HP' => $request->nomor_hp,
-            'email' => $request->email,
-            'password' => Hash::make($request->kata_sandi),
-            'email_verified_at'=>Carbon::now(),
-            'status' => "verifiedByAdmin",
-            'username'=> $request->email,
-        ]);
+        Mail::to($users['email'])->send(new TerkonfirmasiEmail());
 
-        $member = Member::create([
-            'user_id' => $user->id,
-            'photo' => $imageName,
-            'no_KTP' => $request->nomor_ktp,
-        ]);
-
-        $user->assignRole('member_cbt');
-
-    return redirect(route('member'));
+        return redirect(route('admin/cbt/request-member'));
     }
 
     /**
@@ -207,8 +194,25 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function tolakMember($id)
     {
-        //
+        $users = User::find($id);
+        $users->email_verified_at = now();
+        // $users->status = '-';
+        $users->token = NULL;
+        $users->save();
+        $users = User::find($users->id);
+        Mail::to($users['email'])->send(new DitolakEmail());
+
+
+        // delete member
+        // $users = User::find($id);
+        $id = $users->id;
+        $users->delete();
+        $users = User::find($id)->delete();
+        return redirect(route('admin/cbt/request-member'));
+        //delete member close
+
+        return redirect(route('admin/cbt/request-member'));
     }
 }
