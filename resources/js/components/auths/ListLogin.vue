@@ -52,7 +52,7 @@
            </div>
            <br><br>
            <div class="card-login">
-               <div class="card"  data-toggle="modal" onclick="setCbt()" data-target="#loginModal3">
+               <div class="card"  data-toggle="modal" onclick="setCbt()" data-target="#loginModal">
                    <div class="card-body">
                        <div class="col-xs-12 col-md-12">
                            <div class="row">

@@ -39,7 +39,7 @@ class HomeController extends Controller
             } else if ($role === 'merchant') {
                 return redirect('/merchant');
             } else if($role === 'member_cbt') {
-                return redirect ('/cbt');
+                return redirect ('/anggotacbt/layananwisata');
             }
             
         }        
