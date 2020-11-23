@@ -120,13 +120,13 @@ async function login() {
                 if (xhr.status == 200) {
 
                     if(hidden=="customer"){
-                        window.location.href="/home"
+                        window.location.href="/"
                     }else if(hidden=="cbt"){
-                        window.location.href="/home"
+                        window.location.href="/"
                     }else if(hidden=="admin"){
-                        window.location.href="/home"
+                        window.location.href="/"
                     }else if(hidden=="merchant"){
-                        window.location.href="/home"
+                        window.location.href="/"
                     }
                 } else if (xhr.status == 422) {
                     document.getElementById("exampleModalLabel").innerHTML = "E-mail atau Kata Sandi salah";

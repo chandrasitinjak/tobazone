@@ -93723,7 +93723,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\nbody {\n    background-color: #F1F1F1;\n}\n.card-login{\n    width: 500px;\n}\n#arrow{\n    width: 20px;\n}\n@media screen and (max-width: 600px) {\n.card-login{\n        width: 300px;\n        height: 200px;\n}\n#arrow{\n        width: 20px;\n}\n}\n", ""]);
+exports.push([module.i, "\nbody {\n    background-color: #F1F1F1;\n}\n.card-login{\n    width: 500px;\n}\n#arrow{\n    width: 20px;\n}\n@media screen and (max-width: 600px) {\n.card-login{\n        width: 300px;\n        height: 200px;\n}\n#arrow{\n        width: 20px;\n}\n#icon-login1{\n        width: 50px;\n}\n}\n", ""]);
 
 // exports
 
@@ -93766,9 +93766,8 @@ var render = function() {
                     _c("div", { staticClass: "col-xs-2 col-md-2" }, [
                       _c("img", {
                         attrs: {
-                          src:
-                            "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
-                          alt: ""
+                          src: "images/icon-login/customer.jpeg",
+                          id: "icon-login1"
                         }
                       })
                     ]),
@@ -93816,9 +93815,8 @@ var render = function() {
                     _c("div", { staticClass: "col-xs-2 col-md-2" }, [
                       _c("img", {
                         attrs: {
-                          src:
-                            "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
-                          alt: ""
+                          src: "images/icon-login/merchant.jpeg",
+                          id: "icon-login1"
                         }
                       })
                     ]),
@@ -93867,9 +93865,8 @@ var render = function() {
                     _c("div", { staticClass: "col-xs-2 col-md-2" }, [
                       _c("img", {
                         attrs: {
-                          src:
-                            "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
-                          alt: ""
+                          src: "images/icon-login/cbt.jpeg",
+                          id: "icon-login1"
                         }
                       })
                     ]),
@@ -93918,9 +93915,8 @@ var render = function() {
                     _c("div", { staticClass: "col-xs-2 col-md-2" }, [
                       _c("img", {
                         attrs: {
-                          src:
-                            "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
-                          alt: ""
+                          src: "images/icon-login/admin.png",
+                          id: "icon-login1"
                         }
                       })
                     ]),
