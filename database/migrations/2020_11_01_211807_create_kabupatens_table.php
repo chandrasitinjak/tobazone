@@ -14,10 +14,11 @@ class CreateKabupatensTable extends Migration
     public function up()
     {
         Schema::create('kabupatens', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_kabupaten');
             $table->string('alamat');
             $table->string('nama_kabupaten');
             $table->string('gambar_kabupaten');
+            $table->string('area');
             $table->string('longitude');
             $table->string('latitude');
             $table->timestamps();

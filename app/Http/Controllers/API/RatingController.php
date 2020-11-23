@@ -2,12 +2,40 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Order;
+use App\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Rating;
 
 class RatingController extends Controller
 {
+    public function showRating($userID, $productID)
+    {
+        $show = false;
+        $transactions = Transaction::where('status', 'orderSuccessed')
+            ->where('customer_id', $userID)
+            ->get();
+        if($transactions != null)
+        {
+            foreach ($transactions as $transaction)
+            {
+                $orders = Order::where('transaction_id', $transaction->id)
+                    ->where('product_id', $productID)
+                    ->first();
+
+                if($orders != null)
+                {
+                    $show = true;
+                    break;
+                }
+
+            }
+        }
+
+        return response()->json($show);
+    }
+
     public function setRating(Request $request) {
         if ($request->get('user') != null && $request->get('user') != "") {
             if ($this->getPersonalRating($request->get('user'), $request->get('product')) != null) {
@@ -30,7 +58,7 @@ class RatingController extends Controller
             ->where('product_id', $productID)
             ->first();
     }
-    
+
     public function getRating($productID) {
         return Rating::where('product_id', $productID)
             ->get();

@@ -18,6 +18,8 @@ use App\roles;
 use App\VerifyUser;
 use Illuminate\Auth\Events\Registered;
 
+use App\Mail\RegisterCbt;
+
 class RegisterController extends Controller
 {
     /*
@@ -71,6 +73,30 @@ class RegisterController extends Controller
      * @param array $data
      * @return \App\User
      */
+
+    public function registerCbt(Request $request){
+        
+        $image = $request->file('image');
+        $imageName = time() . $image->getClientOriginalName();
+        $destinationPath = public_path('/images/ktp-cbt');
+        $image->move($destinationPath, $imageName);
+
+        $user = User::create([
+            'name' => $request->nama_lengkap,
+            'no_WA' => $request->nomor_wa,
+            'no_HP' => $request->nomor_hp,
+            'email' => $request->email,
+            'password' => Hash::make($request->kata_sandi),
+            'status' => "-",
+            'username'=> $request->email,
+        ]);
+        
+        $user->assignRole('member_cbt');
+
+        $email_cbt = $request->email;
+
+        Mail::to($email_cbt)->send(new RegisterCbt());        
+    }
 
     protected function create(array $data)
     {
@@ -155,5 +181,6 @@ class RegisterController extends Controller
 
         return Redirect::route('login_path');
     }
-
+    
+    
 }
