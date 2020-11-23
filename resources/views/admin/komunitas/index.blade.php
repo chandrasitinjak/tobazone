@@ -61,6 +61,8 @@
                                                 </i>
                                                 Hapus
                                             </button>
+                                            <div class="row">
+                                            <div class="col-md-12">
                                             <div class="modal fade" id="delete_{{$komunitas->id}}" tabindex="-1" role="dialog"
                                                  aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -86,6 +88,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            </div>
                                             </div>
                                         </td>
                                     </tr>
