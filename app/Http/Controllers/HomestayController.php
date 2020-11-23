@@ -72,6 +72,26 @@ class HomestayController extends Controller
         return view('users.customers.homestays.index')->with('homestayOrders', $homestayOrders);
     }
 
+    /**
+     * Display the detail of a homestay order by order id.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function findCustomerOrderByID($idOrder)
+    {
+        $user = Auth::user();
+        if (!$user) {
+            // Redirect to login page if user is not logged in.
+            return redirect('/listlogin');
+        }
+
+        $orderDetail = HomestayOrders::where('id', $idOrder)
+            ->where('id_customer', $user->id)
+            ->first();
+
+        return view('users.customers.homestays.order_detail')->with('orderDetail', $orderDetail);
+    }
+
     public function findById($id)
     {
         $detail = Homestay::find($id);
@@ -83,7 +103,7 @@ class HomestayController extends Controller
         if ($request->file('images')) {
             $image = $request->file('images');
             $destinationPath = public_path('/images');
-            $image->move($destinationPath, $id.'.png');
+            $image->move($destinationPath, $id . '.png');
         }
 
         $homestay = Homestay::find($id);
@@ -94,7 +114,7 @@ class HomestayController extends Controller
         $homestay->description = $request->description;
         $homestay->address = $request->address;
 
-        $homestay->image = $id.".png";
+        $homestay->image = $id . ".png";
         $homestay->update();
 
         return "Sukses";
@@ -107,12 +127,12 @@ class HomestayController extends Controller
 
     public function store(Request $request)
     {
-        $length =15;
-        $rand =substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+        $length = 15;
+        $rand = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
         if ($request->file('images')) {
             $image = $request->file('images');
             $destinationPath = public_path('/images');
-            $image->move($destinationPath, $rand.'.png');
+            $image->move($destinationPath, $rand . '.png');
         }
         dd("test");
         $homestay = new Homestay();
@@ -123,7 +143,7 @@ class HomestayController extends Controller
         $homestay->total_room = $request->totalRoom;
         $homestay->room_available = $request->roomAvailable;
         $homestay->description = $request->description;
-        $homestay->image = $rand.'.png';
+        $homestay->image = $rand . '.png';
         $homestay->address = $request->address;
         $homestay->status = 1;
         $homestay->kabupaten = $request->kabupaten;
@@ -209,7 +229,7 @@ class HomestayController extends Controller
             "merchant" => $merchant,
             "homestay" => $homestays
         ];
-//        dd($result['merchant']->profile->photo);
+        //        dd($result['merchant']->profile->photo);
         return view('users.merchants.homestays.all_homestay')->with('result', $result);
     }
 
@@ -234,7 +254,6 @@ class HomestayController extends Controller
             "homestay" => $homestay
         ];
         return view('users.merchants.homestays.update_homestay')->with('result', $result);
-
     }
 
     public function update(Request $request, $id)
@@ -265,7 +284,8 @@ class HomestayController extends Controller
         return $homestay;
     }
 
-    public function findAllMerchantOrders(){
+    public function findAllMerchantOrders()
+    {
         $orders = HomestayOrders::all();
         $merchant = $this->getAuthincatedMerchant();
         $result = [
