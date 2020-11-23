@@ -28,12 +28,20 @@ class HomestayController extends Controller
     }
 
     /**
-     * Display a list of homestay orders by user_id
+     * Display a list of homestay orders by user id.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function findAllCustomerOrder()
     {
+        if (!Auth::user()) {
+            // Redirect to login page if user is not logged in.
+            return redirect('/listlogin');
+        }
+
         $user = Auth::user();
         $homestayOrders = HomestayOrders::where('id_customer', $user->id)->get();
+
         return view('users.customers.homestays.index')->with('homestayOrders', $homestayOrders);
     }
 
@@ -87,19 +95,18 @@ class HomestayController extends Controller
 
     public function bookHomestay(Request $request)
     {
-            $orderHomestay = new HomestayOrders();
-            $orderHomestay->id_customer = $request->idCustomer;
-            $orderHomestay->id_homestay = $request->idHomestay;
-            $orderHomestay->total_price = $request->totalPrice;
-            $orderHomestay->check_in = $request->checkIn;
-            $orderHomestay->duration = $request->duration;
-            $orderHomestay->payment_method = $request->paymentMethod;
-            $orderHomestay->is_paid = false;
-            $orderHomestay->resi = "";
-            $orderHomestay->status = "Active";
+        $orderHomestay = new HomestayOrders();
+        $orderHomestay->id_customer = $request->idCustomer;
+        $orderHomestay->id_homestay = $request->idHomestay;
+        $orderHomestay->total_price = $request->totalPrice;
+        $orderHomestay->check_in = $request->checkIn;
+        $orderHomestay->duration = $request->duration;
+        $orderHomestay->payment_method = $request->paymentMethod;
+        $orderHomestay->is_paid = false;
+        $orderHomestay->resi = "";
+        $orderHomestay->status = "Active";
 
-            $orderHomestay->save();
-            return "Pesan penginapan berhasil";
+        $orderHomestay->save();
+        return "Pesan penginapan berhasil";
     }
-
 }
