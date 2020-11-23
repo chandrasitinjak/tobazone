@@ -28,34 +28,41 @@
         </div>
         <br><br>
         <div class="container card" style="background-color: #FFFAF4">
-            <div class="row">
-                <div class="col-md-8">
-                    <br>
-                    <img src="{{ '../../images/assets/no-image.jpg'}}" alt="">
+            <form method="POST" action="{{url('/homestay/pesan')}}">
+                <div class="row">
+                    <div class="col-md-8">
+                        <br>
+                        <img src="{{ '../../images/'.$homestays->image}}" alt="">
+                    </div>
+                    <div class="col-md-4">
+                        <br>
+                        <p>Check-in</p>
+                        <div class="input-container">
+                            <i class="fa fa-calendar icon fa-lg" style="color:#000000;"></i>
+                            <input style="background-color: #F5F5F5" type="date"
+                                   class="form-control">
+                        </div>
+                        <p>Durasi</p>
+                        <div class="input-container">
+                            <i class="fa fa-moon-o icon fa-lg" style="color:#000000;"></i>
+                            <input style="background-color: #F5F5F5" type="number" min="1"
+                                   class="form-control">
+                        </div>
+                        <p>Jumlah Kamar</p>
+                        <div class="input-container">
+                            <i class="fa fa-bed icon fa-lg" style="color:#000000;"></i>
+                            <input style="background-color: #F5F5F5" type="number" min="1"
+                                   max="{{$homestays->room_available}}" class="form-control">
+                        </div>
+                        <br>
+                        <br>
+                        <button class="btn form-control"
+                                style="background-color: #0b0b0b; color: white">Pesan Homestay
+                        </button>
+                        <br><br>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <br>
-                    <p>Check-in</p>
-                    <div class="input-container">
-                        <i class="fa fa-calendar icon fa-lg" style="color:#000000;"></i>
-                        <input style="background-color: #F5F5F5" type="date" class="form-control">
-                    </div>
-                    <p>Durasi</p>
-                    <div class="input-container">
-                        <i class="fa fa-moon-o icon fa-lg" style="color:#000000;"></i>
-                        <input style="background-color: #F5F5F5" type="number" min="1" class="form-control">
-                    </div>
-                    <p>Jumlah Kamar</p>
-                    <div class="input-container">
-                        <i class="fa fa-bed icon fa-lg" style="color:#000000;"></i>
-                        <input style="background-color: #F5F5F5" type="number" min="1" max="{{$homestays->room_available}}" class="form-control">
-                    </div>
-                    <br>
-                    <br>
-                    <button class="btn form-control" style="background-color: #0b0b0b; color: white">Pesan Homestay</button>
-                    <br><br>
-                </div>
-            </div>
+            </form>
             <br><br>
             <p>{{$homestays->description}}</p>
             <br><br><br><br>
@@ -68,7 +75,8 @@
                 <div class="shop_grid_product_area">
                     <div class="row">
                         <div class="col-12">
-                            <div class="product-topbar d-flex align-items-center justify-content-between">
+                            <div
+                                class="product-topbar d-flex align-items-center justify-content-between">
                                 <!-- Total Products -->
                                 <div class="total-products">
                                 </div>

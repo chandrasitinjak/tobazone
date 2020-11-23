@@ -86,6 +86,7 @@
                                             </button>
                                             <input id="files" name="images" type="file"/>
                                         </div>
+                                        <img src="{{ '/images/'. $result['homestay']->image}}">
                                         <small id="passwordHelpBlock" class="form-text text-muted">
                                             Format gambar .jpg .jpeg .png dan ukuran minimum 300 x
                                             300px

@@ -140,7 +140,7 @@ class HomestayController extends Controller
         $orderHomestay->is_paid = false;
         $orderHomestay->resi = "";
         $orderHomestay->status = "Active";
-
+dd("test");
         $orderHomestay->save();
         return "Pesan penginapan berhasil";
     }
@@ -219,7 +219,7 @@ class HomestayController extends Controller
             "merchant" => $merchant,
             "homestay" => $homestays
         ];
-        return view('users.merchants.homestays.all_homestay')->with('result', $result);
+        return redirect('merchant/homestay/findAll');
     }
 
     public function updateHomestay($id)

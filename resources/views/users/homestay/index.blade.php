@@ -10,7 +10,7 @@
             <Main-Page/>
         </div>
         <div class="col-md-4">
-            <img src="{{ '../images/assets/no-image.jpg'}}" width="100%" alt="">
+            <img src="{{ '../images/'.$homestays[0]->image}}" width="100%" alt="">
         </div>
     </div>
     <hr>
@@ -32,10 +32,10 @@
             @foreach ($homestays as $product)
             <div class="col-12 col-sm-6 col-lg-4">
               <div class="single-product-wrapper">
-                <a href="{{ '../images/assets/no-image.jpg'}}">
+                <a href="{{ '../images/'. $product->images}}">
                   <div class="product-img">
 
-                      <img src="{{ '../images/assets/no-image.jpg'}}" alt="">
+                      <img src="{{ '../images/'. $product->image}}" alt="">
 
                   </div>
                 </a>
