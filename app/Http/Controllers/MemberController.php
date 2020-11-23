@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Komunitas;
 use App\Member;
 use App\User;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class MemberController extends Controller
 {
@@ -21,7 +23,7 @@ class MemberController extends Controller
         $req = $this->defineMember(null, "-");
         $komunitas = Komunitas::all();
         $status = "verifiedByAdmin";
-        $status_req = "-";        
+        $status_req = "-";
         return view('admin.member-cbt.index',  compact('req', 'status_req', 'member', 'komunitas', 'status'));
     }
 
@@ -40,7 +42,7 @@ class MemberController extends Controller
                     if ($row->getUser->status == $status) {
                         array_push($member, $row);
                     }
-                }                
+                }
             }
         } else {
             if ($status === null || $status === 'semua') {
@@ -121,7 +123,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.member-cbt.create');
     }
 
     /**
@@ -132,7 +134,31 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image = $request->file('image');
+        $imageName = time() . $image->getClientOriginalName();
+        $destinationPath = public_path('/images/ktp-cbt/');
+        $image->move($destinationPath, $imageName);
+
+        $user = User::create([
+            'name' => $request->nama_lengkap,
+            'no_WA' => $request->nomor_wa,
+            'no_HP' => $request->nomor_hp,
+            'email' => $request->email,
+            'password' => Hash::make($request->kata_sandi),
+            'email_verified_at'=>Carbon::now(),
+            'status' => "verifiedByAdmin",
+            'username'=> $request->email,
+        ]);
+
+        $member = Member::create([
+            'user_id' => $user->id,
+            'photo' => $imageName,
+            'no_KTP' => $request->nomor_ktp,
+        ]);
+
+        $user->assignRole('member_cbt');
+
+    return redirect(route('member'));
     }
 
     /**

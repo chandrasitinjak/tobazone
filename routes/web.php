@@ -161,7 +161,10 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::put('/admin/rekening/update/{id_rekening}','PemesananController@updateRekening')->name('admin.rekening.update');
         Route::delete('/admin/rekening/delete/{id_rekening}','PemesananController@destroyRekening')->name('admin.rekening.hapus');
 //akhir pemesanan
-
+//Awal pengelolaan member
+        Route::post('/admin/member/store','MemberController@store')->name('member.store');
+//        Route::get('/admin/member/add','Auth\RegisterController@create')->name('member.tambah');
+//akhir pengelolaan member
 //akhir visit toba
         Route::get('/admin', 'AdminController@index');
         Route::post('/merchantconfirmed/{id}', 'MerchantController@updateConfirm');
