@@ -264,7 +264,8 @@ Route::get('/homestays/findAllMyHomestay', 'HomestayController@findAllMerchantHo
 
 // Display all homestay orders of a customer.
 Route::get('/user/homestay/order/findAll', 'HomestayController@findAllCustomerOrder');
-
+// Display detail of a customer's homestay order.
+Route::get('/user/homestay/order/findById/{idOrder}', 'HomestayController@findCustomerOrderByID');
 
 
 
