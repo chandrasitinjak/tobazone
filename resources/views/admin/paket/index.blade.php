@@ -32,7 +32,14 @@
                                 @foreach($pakets as $index => $paket)
                                     <tr>
                                         <th scope="row">{{$index+1}}</th>
-                                        <td>Gambar</td>
+                                        <td>
+                                            <ul class="list-inline" style="max-width: 100px">
+                                                <li class="list-inline-item">
+                                                    <img alt="Avatar" class="table-avatar"
+                                                         src="{{asset('/storage/img/paket/'.$paket->gambar)}}">
+                                                </li>
+                                            </ul>
+                                        </td>
                                         <td>{{$paket->nama_paket}}</td>
                                         <td>{{$paket->harga_paket}}</td>
                                         <td><span class="address">{{$paket->getKabupaten->nama_kabupaten}}</span></td>
