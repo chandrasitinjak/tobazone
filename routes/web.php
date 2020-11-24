@@ -227,6 +227,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::post('/orderconfirm/{id}', 'OrderController@orderconfirm');
     });
 
+
     Route::middleware('role:merchant')->group(function () {
         Route::get('/merchant', 'MerchantController@index');
         Route::prefix('/merchant/products')->group(function () {
@@ -343,3 +344,7 @@ Route::get('/admin/member/non-aktif/{id_member}', 'MemberController@nonAktif')->
 Route::get('/admin/member/aktif/{id_member}', 'MemberController@aktifkanStatus')->name('member.aktifkan');
 Route::get('/admin/member/detail/{id_member}', 'MemberController@detailMember')->name('member.detail');
 Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}', 'MemberController@keluarkan')->name('member.keluarkan');
+
+
+//menampilkan paket wisata di sisi customer
+Route::get('/paket-wisata','PaketWisataController@index_customer');
