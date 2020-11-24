@@ -334,3 +334,6 @@ Route::get('/admin/member/non-aktif/{id_member}', 'MemberController@nonAktif')->
 Route::get('/admin/member/aktif/{id_member}', 'MemberController@aktifkanStatus')->name('member.aktifkan');
 Route::get('/admin/member/detail/{id_member}', 'MemberController@detailMember')->name('member.detail');
 Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}', 'MemberController@keluarkan')->name('member.keluarkan');
+
+
+Route::get('/paket/details/{id_paket}', 'PaketWisataCustomerController@show')->name('paket.detail');
