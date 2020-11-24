@@ -91,6 +91,9 @@ Route::post('anggotacbt/layananwisata/create', 'LayananWisataController@create')
 Route::get('anggotacbt/layananwisata/{id}/edit', 'LayananWisataController@edit')->name('anggotacbt.layanan.edit');
 Route::put('anggotacbt/layanan_wisata/{id}/update', 'LayananWisataController@update')->name('anggotacbt.layanan.update');
 Route::get('anggotacbt/layanan_wisata/{id}/delete', 'LayananWisataController@delete')->name('anggotacbt.layanan.delete');
+Route::get('anggotacbt/komunitas/','KomunitasCBTController@index')->name('anggotacbt.komunitas');
+Route::get('anggotacbt/komunitas/pendaftar','PendaftarController@index')->name('view_anggota');
+Route::post('anggotacbt/komunitas/pendaftar/create','PendaftarController@daftar')->name('gabung_daftar');
 
 
 Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
