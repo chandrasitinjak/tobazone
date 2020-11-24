@@ -44,7 +44,7 @@ class HomestayController extends Controller
 
     public function search(Request $request)
     {
-        $homestays = Homestay::All();
+        $homestays = Homestay::where('kecamatan', 'like', '%' . $request->get('kecamatan'))->get();
         return view('users.homestay.index')->with('homestays', $homestays);
     }
 
@@ -116,21 +116,23 @@ class HomestayController extends Controller
     }
 
 
-    public function bookHomestay(Request $request)
+    public function bookHomestay(Request $request,$id)
     {
+        $homestay=Homestay::find($id);
+
+        $total= $request->get('jumlahKamar');
         $orderHomestay = new HomestayOrders();
-        $orderHomestay->id_customer = $request->idCustomer;
-        $orderHomestay->id_homestay = $request->idHomestay;
-        $orderHomestay->total_price = $request->totalPrice;
-        $orderHomestay->check_in = $request->checkIn;
-        $orderHomestay->duration = $request->duration;
-        $orderHomestay->payment_method = $request->paymentMethod;
+        $orderHomestay->total_price = $total * $homestay->price;
+        $orderHomestay->id_homestay = $id;
+        $orderHomestay->id_customer = Auth::user()->id;
+        $orderHomestay->check_in = $request->get('checkIn');
+        $orderHomestay->duration = $request->get('durasi');
+        $orderHomestay->payment_method = "test";
         $orderHomestay->is_paid = false;
         $orderHomestay->resi = "";
         $orderHomestay->status = "Active";
-dd("test");
         $orderHomestay->save();
-        return "Pesan penginapan berhasil";
+        return redirect('/homestay/ListPesanan');
     }
 
     public function approvePenginapan(Request $request, $id)

@@ -101766,7 +101766,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Style the input container */\n.input-container[data-v-072c7e44] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    margin-bottom: 15px;\n}\n\n/* Style the form icons */\n.icon[data-v-072c7e44] {\n    padding: 10px;\n    background: #F5F5F5;\n    color: white;\n    min-width: 50px;\n    text-align: center;\n}\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Style the input container */\n.input-container[data-v-072c7e44] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    margin-bottom: 15px;\n}\n\n/* Style the form icons */\n.icon[data-v-072c7e44] {\n    padding: 10px;\n    background: #F5F5F5;\n    color: white;\n    min-width: 50px;\n    text-align: center;\n}\n\n", ""]);
 
 // exports
 
@@ -101825,14 +101825,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "MainPage",
-    data: function data() {},
+    data: function data() {
+        return {
+            kecamatan: ''
+        };
+    },
 
     methods: {
         test: function test() {
             alert("test");
         },
         search: function search() {
-            window.axios.post("/homestays/search").then(function (res) {
+            window.axios.post("/homestays/search", {
+                'kecamatan': this.kecamatan
+            }).then(function (res) {
                 console.log(res);
             }).catch(function (err) {
                 if (err.response.status === 500) {
@@ -101865,15 +101871,46 @@ var render = function() {
               _vm._v("Destinasi Penginapan")
             ]),
             _vm._v(" "),
-            _vm._m(0),
+            _c(
+              "div",
+              { staticClass: "input-container", attrs: { id: "lokasi" } },
+              [
+                _c("i", {
+                  staticClass: "fa fa-map-marker icon fa-lg",
+                  staticStyle: { color: "#000000" }
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.kecamatan,
+                      expression: "kecamatan"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", placeholder: "Lokasi", name: "usrnm" },
+                  domProps: { value: _vm.kecamatan },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.kecamatan = $event.target.value
+                    }
+                  }
+                })
+              ]
+            ),
             _vm._v(" "),
             _c("label", { attrs: { for: "check" } }, [_vm._v("Check In")]),
             _vm._v(" "),
-            _vm._m(1),
+            _vm._m(0),
             _vm._v(" "),
             _c("label", { attrs: { for: "tamu" } }, [_vm._v("Tamu dan Kamar")]),
             _vm._v(" "),
-            _vm._m(2),
+            _vm._m(1),
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
@@ -101902,26 +101939,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-container", attrs: { id: "lokasi" } },
-      [
-        _c("i", {
-          staticClass: "fa fa-map-marker icon fa-lg",
-          staticStyle: { color: "#000000" }
-        }),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", placeholder: "Lokasi", name: "usrnm" }
-        })
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
