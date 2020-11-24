@@ -20,27 +20,6 @@
                                             <img src="{{asset('/storage/img/komunitas/'.$komunitas->gambar)}}" class="img-fluid mb-2"
                                                  alt="white sample"/>
                                         </button>
-                                        <div class="modal fade" id="modal-default">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Gambar</h4>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="ekko-lightbox-container">
-                                                            <img src="{{asset('/storage/img/komunitas/'.$komunitas->gambar)}}"
-                                                                 class="img-fluid" style="width: 100%;">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- /.modal-content -->
-                                            </div>
-                                            <!-- /.modal-dialog -->
-                                        </div>
                                     </div>
 
                                     <h3 class="profile-username text-center">{{$komunitas->nama_komunitas}}</h3>
@@ -109,5 +88,26 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Gambar</h4>
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="ekko-lightbox-container">
+                        <img src="{{asset('/storage/img/komunitas/'.$komunitas->gambar)}}"
+                             class="img-fluid" style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
     </div>
 @endsection

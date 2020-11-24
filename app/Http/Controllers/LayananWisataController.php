@@ -19,6 +19,7 @@ class LayananWisataController extends Controller
         $kabupaten = Kabupaten::all();
         $jenis = JenisLayanan::all();
 
+
         return view('cbt.layanan.index',compact('data_layanan_wisata','kabupaten','jenis'));
     }
     public function create(Request $request)

@@ -42,6 +42,11 @@ Route::get('/login', function () {
 Route::get('/listlogin', function () {
     return view('users.auth.listlogin');
 });
+
+Route::get('/cbt', function () {
+    return view('users.auth.listlogin');
+});
+
 //Auth::routes(['verify' => true]);
 //login
 Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
@@ -159,7 +164,10 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::put('/admin/rekening/update/{id_rekening}','PemesananController@updateRekening')->name('admin.rekening.update');
         Route::delete('/admin/rekening/delete/{id_rekening}','PemesananController@destroyRekening')->name('admin.rekening.hapus');
 //akhir pemesanan
-
+//Awal pengelolaan member
+        Route::post('/admin/member/store','MemberController@store')->name('member.store');
+//        Route::get('/admin/member/add','Auth\RegisterController@create')->name('member.tambah');
+//akhir pengelolaan member
 //akhir visit toba
         Route::get('/admin', 'AdminController@index');
         Route::post('/merchantconfirmed/{id}', 'MerchantController@updateConfirm');
@@ -338,6 +346,11 @@ Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
 Route::post('/register-cbtAdmin', 'Auth\RegisterController@registerCbtAdmin')->name('registerCbtAdmin');
 Route::get('/admin/new-member', 'MemberController@index')->name('member');
 Route::get('/admin/new-member/request', 'MemberController@index')->name('member.request');
+Route::post('/admin/new-member/request','MemberController@indexFilterR')->name('member.request.filter');
+Route::get('/admin/member/request/tolak/{id_member}','MemberController@tolak')->name('member.request.tolak');
+Route::get('/admin/member/request/terima/{id_member}','MemberController@terima')->name('member.request.terima');
+Route::get('/admin/member/request/detail/{id_member}','MemberController@showRequest')->name('member.request.detail');
+Route::get('/admin/member/request/hapus/{id_member}','MemberController@hapus')->name('member.request.hapus');
 Route::post('/admin/new-member', 'MemberController@indexFilterM')->name('member.filter');
 Route::get('/admin/member/detail', 'MemberController@show');
 Route::get('/admin/member/non-aktif/{id_member}', 'MemberController@nonAktif')->name('member.nonaktifkan');
@@ -348,3 +361,5 @@ Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}', 'MemberControll
 
 //menampilkan paket wisata di sisi customer
 Route::get('/paket-wisata','PaketWisataController@index_customer');
+Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiemail')->name('konfirmasiemail');
+

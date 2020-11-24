@@ -310,6 +310,15 @@ class PaketWisataController extends Controller
         return redirect(route('admin.paket.editChoice', $id_paket));
     }
 
+    public function recycle($id_paket)
+    {
+        $paket = paketWisata::find($id_paket);
+        $paket->status = 0;
+        $paket->save();
+
+        return redirect(route('admin.paket'));
+    }
+
     public function hapusLayanan($id_layanan, $id_paket)
     {
 
