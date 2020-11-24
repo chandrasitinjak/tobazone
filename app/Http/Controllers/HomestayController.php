@@ -91,18 +91,14 @@ class HomestayController extends Controller
             return "Pesan penginapan berhasil";
     }
 
-    public function getPenginapanBelumBayar($id){
-        $homestay = Homestay::where('id_customer', $id)->where('status', 'pending');
+    public function getPemesananPortalDesa($id){
+        $homestay = HomestayOrders::where('id_customer', $id);
 
         return $homestay;
 
     }
 
-    public function getPenginapanSudahBayar($id){
-        $homestay = Homestay::where('id_customer', $id)->where('status', 'accepted');
 
-        return $homestay;
-    }
 
 
 

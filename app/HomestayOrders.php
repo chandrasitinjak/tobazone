@@ -22,4 +22,6 @@ class HomestayOrders extends Model{
         'status'
     ];
     protected $dates = ['deleted_at'];
+
+    protected $table = 'homestay_orders';
 }

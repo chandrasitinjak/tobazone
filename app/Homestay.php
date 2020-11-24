@@ -24,4 +24,6 @@ class Homestay extends Model
         'merchant_id'
     ];
     protected $dates = ['deleted_at'];
+
+
 }

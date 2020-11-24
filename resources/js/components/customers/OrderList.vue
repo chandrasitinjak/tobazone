@@ -13,34 +13,44 @@
                     <nav class="tabbable">
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <a
-                                class="nav-item nav-link active"
-                                id="pesananbaru-tab"
-                                data-toggle="tab"
-                                href="#pesanansaatini"
-                                role="tab"
-                                aria-controls="home"
-                                aria-selected="true"
+                                    class="nav-item nav-link active"
+                                    id="pesananbaru-tab"
+                                    data-toggle="tab"
+                                    href="#pesanansaatini"
+                                    role="tab"
+                                    aria-controls="home"
+                                    aria-selected="true"
                             >Pesanan Saat Ini</a>
                             <a
-                                class="nav-item nav-link"
-                                id="Konfirmasi-tab"
-                                data-toggle="tab"
-                                href="#konfirmasi"
-                                role="tab"
-                                aria-controls="profile"
-                                aria-selected="false"
+                                    class="nav-item nav-link"
+                                    id="Konfirmasi-tab"
+                                    data-toggle="tab"
+                                    href="#konfirmasi"
+                                    role="tab"
+                                    aria-controls="profile"
+                                    aria-selected="false"
                             >Pesanan Selesai</a>
+                            <a
+                                    class="nav-item nav-link"
+                                    id="pemesanan-portal-desa-tab"
+                                    data-toggle="tab"
+                                    href="#pemesanan-portal-desa"
+                                    role="tab"
+                                    aria-controls="profile"
+                                    aria-selected="false"
+                            >Pesanan Portal Desa</a>
                         </div>
                     </nav>
                     <div class="tab-content pt-2" id="myTabContent">
                         <div
-                            class="tab-pane fade show active"
-                            id="pesanansaatini"
-                            role="tabpanel"
-                            aria-labelledby="pesananbaru-tab"
+                                class="tab-pane fade show active"
+                                id="pesanansaatini"
+                                role="tabpanel"
+                                aria-labelledby="pesananbaru-tab"
                         >
                             <div class="detailorder mt-2" v-for="transaction in transactions">
-                                <div class="row" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByAdmin' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedBySystem' || transaction.status === 'readyForProcess' || transaction.status === 'waitForVerified'">
+                                <div class="row"
+                                     v-if="transaction.status === 'pending' || transaction.status === 'acceptedByAdmin' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedBySystem' || transaction.status === 'readyForProcess' || transaction.status === 'waitForVerified'">
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header" style="background-color: #f1f1f1">
@@ -56,35 +66,48 @@
                                                     <div class="col-sm-2">{{transaction.created_at }}</div>
                                                     <div class="col-sm-1">{{transaction.merchant.profile.name}}</div>
                                                     <div
-                                                        class="col-sm-2 bold"
-                                                        style="color: orangered"
-                                                    >Rp {{ formatPrice ( getTotalPayment(transaction.payment))}}</div>
+                                                            class="col-sm-2 bold"
+                                                            style="color: orangered"
+                                                    >Rp {{ formatPrice ( getTotalPayment(transaction.payment))}}
+                                                    </div>
                                                     <div class="col-sm-1">{{transaction.courier}}</div>
                                                     <div class="col-sm-2">{{transaction.shipping_number}}</div>
                                                     <div class="col-sm-4">
-                                                        <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedByAdmin'">
+                                                        <div class="alert alert-warning p-1" role="alert"
+                                                             style="font-size: x-small"
+                                                             v-if="transaction.status === 'pending' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedByAdmin'">
                                                             MenunggUnu Pembayaran
-                                                            <a :href="'/customer/transactions/' + transaction.id" class="btn btn-sm btn-outline-action ml-30">
+                                                            <a :href="'/customer/transactions/' + transaction.id"
+                                                               class="btn btn-sm btn-outline-action ml-30">
                                                                 Upload bukti pembayaran
                                                             </a>
                                                         </div>
 
-                                                        <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'readyForProcess' && transaction.shipping_number !== null">
+                                                        <div class="alert alert-warning p-1" role="alert"
+                                                             style="font-size: x-small"
+                                                             v-else-if="transaction.status === 'readyForProcess' && transaction.shipping_number !== null">
                                                             Barang dalam pengiriman
-                                                            <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'" class="btn btn-sm btn-outline-action ml-30">
+                                                            <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'"
+                                                               class="btn btn-sm btn-outline-action ml-30">
                                                                 Lacak Pengiriman
                                                             </a>
                                                         </div>
 
-                                                        <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'waitForVerified'">
+                                                        <div class="alert alert-warning p-1" role="alert"
+                                                             style="font-size: x-small"
+                                                             v-else-if="transaction.status === 'waitForVerified'">
                                                             Sudah mengirim bukti pembayaran, menunggu verifikasi
                                                         </div>
 
-                                                        <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'acceptedByMerchant'">
+                                                        <div class="alert alert-warning p-1" role="alert"
+                                                             style="font-size: x-small"
+                                                             v-else-if="transaction.status === 'acceptedByMerchant'">
                                                             Sudah diterima penjual
                                                         </div>
 
-                                                        <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'acceptedBySystem' || transaction.shipping_number === null">
+                                                        <div class="alert alert-warning p-1" role="alert"
+                                                             style="font-size: x-small"
+                                                             v-else-if="transaction.status === 'acceptedBySystem' || transaction.shipping_number === null">
                                                             Sudah dibayar, menunggu diproses penjual
                                                         </div>
                                                     </div>
@@ -95,10 +118,11 @@
                                                     <div class="col-md-12 col-sm-12 col-xs-6">
                                                         <div class="row">
                                                             <div class="col-sm-2 col-xs-12">
-                                                                <div class="imgwrapper pesanan" style="padding: 0px; height: auto">
+                                                                <div class="imgwrapper pesanan"
+                                                                     style="padding: 0px; height: auto">
                                                                     <img
-                                                                        :src="'/images/' + JSON.parse(order.product.images)[0]"
-                                                                        alt="Card image cap"
+                                                                            :src="'/images/' + JSON.parse(order.product.images)[0]"
+                                                                            alt="Card image cap"
                                                                     >
                                                                 </div>
                                                             </div>
@@ -106,9 +130,9 @@
                                                                 <div class="keranjang-desc-prod">
                                                                     <h6>{{ order.product.name }}</h6>
                                                                     <h6
-                                                                        style="color: #FF5205; display: inline;"
+                                                                            style="color: #FF5205; display: inline;"
                                                                     >Rp {{formatPrice( order.price )}}</h6>
-                                                      pesanan               >Rp {{formatPrice( order.price )}}</h6>
+                                                                    <h6>pesanan >Rp {{formatPrice( order.price )}}</h6>
                                                                     <br>
                                                                     <small>Jumlah {{ order.quantity }}</small>
                                                                 </div>
@@ -130,13 +154,14 @@
                         </div>
 
                         <div
-                            class="tab-pane fade"
-                            id="konfirmasi"
-                            role="tabpanel"
-                            aria-labelledby="Konfirmasi-tab"
+                                class="tab-pane fade"
+                                id="konfirmasi"
+                                role="tabpanel"
+                                aria-labelledby="Konfirmasi-tab"
                         >
                             <div class="detailorder mt-2" v-for="transaction in transactions">
-                                <div class="row" v-if="transaction.status === 'orderSuccessed' || transaction.status === 'rejectedByAdmin' || transaction.status === 'rejectedByMerchant' || transaction.status === 'canceledBySistem' || transaction.status === 'invalidProofOfPayment'">
+                                <div class="row"
+                                     v-if="transaction.status === 'orderSuccessed' || transaction.status === 'rejectedByAdmin' || transaction.status === 'rejectedByMerchant' || transaction.status === 'canceledBySistem' || transaction.status === 'invalidProofOfPayment'">
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header" style="background-color: #f1f1f1">
@@ -152,29 +177,40 @@
                                                     <div class="col-sm-2">{{ transaction.created_at }}</div>
                                                     <div class="col-sm-1">{{transaction.merchant.profile.name}}</div>
                                                     <div
-                                                        class="col-sm-2 bold"
-                                                        style="color: orangered"
-                                                    >Rp {{ formatPrice ( getTotalPayment(transaction.payment))}}</div>
+                                                            class="col-sm-2 bold"
+                                                            style="color: orangered"
+                                                    >Rp {{ formatPrice ( getTotalPayment(transaction.payment))}}
+                                                    </div>
                                                     <div class="col-sm-1">{{transaction.courier}}</div>
                                                     <div class="col-sm-2">{{transaction.shipping_number}}</div>
                                                     <div class="col-sm-4">
-                                                        <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-if="transaction.status === 'rejectedByAdmin'">
+                                                        <div class="alert alert-warning p-1" role="alert"
+                                                             style="font-size: x-small"
+                                                             v-if="transaction.status === 'rejectedByAdmin'">
                                                             Ditolak oleh Admin
                                                         </div>
 
-                                                        <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'rejectedByMerchant'">
+                                                        <div class="alert alert-warning p-1" role="alert"
+                                                             style="font-size: x-small"
+                                                             v-else-if="transaction.status === 'rejectedByMerchant'">
                                                             Ditolak oleh Penjual
                                                         </div>
 
-                                                        <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'invalidProofOfPayment'">
+                                                        <div class="alert alert-warning p-1" role="alert"
+                                                             style="font-size: x-small"
+                                                             v-else-if="transaction.status === 'invalidProofOfPayment'">
                                                             Ditolak oleh Admin karena bukti pembayaran tidak valid
                                                         </div>
 
-                                                        <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'canceledBySistem'">
+                                                        <div class="alert alert-warning p-1" role="alert"
+                                                             style="font-size: x-small"
+                                                             v-else-if="transaction.status === 'canceledBySistem'">
                                                             Tidak melakukan pembayaran melewati batas waktu pembayaran
                                                         </div>
 
-                                                        <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-else-if="transaction.status === 'orderSuccessed'">
+                                                        <div class="alert alert-warning p-1" role="alert"
+                                                             style="font-size: x-small"
+                                                             v-else-if="transaction.status === 'orderSuccessed'">
                                                             Transaksi Sukses
                                                         </div>
                                                     </div>
@@ -187,10 +223,11 @@
                                                         <a :href="'/customer/' + userId + '/transactions/' + transaction.id + '/tracking'">
                                                             <div class="row">
                                                                 <div class="col-sm-2 col-xs-12">
-                                                                    <div class="imgwrapper pesanan" style="padding: 0px; height: auto">
+                                                                    <div class="imgwrapper pesanan"
+                                                                         style="padding: 0px; height: auto">
                                                                         <img
-                                                                            :src="'/images/' + JSON.parse(order.product.images)[0]"
-                                                                            alt="Card image cap"
+                                                                                :src="'/images/' + JSON.parse(order.product.images)[0]"
+                                                                                alt="Card image cap"
                                                                         >
                                                                     </div>
                                                                 </div>
@@ -198,7 +235,7 @@
                                                                     <div class="keranjang-desc-prod">
                                                                         <h6>{{ order.product.name }}</h6>
                                                                         <h6
-                                                                            style="color: #FF5205; display: inline;"
+                                                                                style="color: #FF5205; display: inline;"
                                                                         >Rp {{formatPrice(order.price)}}</h6>
                                                                         <br>
                                                                         <small>Jumlah {{ order.quantity }}</small>
@@ -216,7 +253,10 @@
                                                     <div class="col-md-3">
                                                         <div v-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 0">
                                                             <label for=""> Pesanan telah sampai</label><br>
-                                                            <button class="btn small smallbtn" v-on:click="confirmByUser(transaction.id)">konfirmasi</button>
+                                                            <button class="btn small smallbtn"
+                                                                    v-on:click="confirmByUser(transaction.id)">
+                                                                konfirmasi
+                                                            </button>
                                                         </div>
                                                         <div v-else-if="transaction.status === 'orderSuccessed' && transaction.confirm_user === 1">
                                                             <p> Terimakasih sudah melakukan konfirmasi</p>
@@ -227,6 +267,31 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div
+                                class="tab-pane fade"
+                                id="pemesanan-portal-desa"
+                                role="tabpanel"
+                                aria-labelledby="pemesanan-portal-desa-tab"
+                        >
+                            <div class="detailorder mt-2">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Penginapan tujuan</th>
+                                        <th scope="col">Lama Menginap</th>
+                                        <th scope="col">Metode Pembayaran</th>
+                                        <th scope="col">Harga</th>
+                                        <th scope="col">status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -241,14 +306,15 @@
         props: ["userId"],
         data() {
             return {
-                transactions: []
+                transactions: [],
+                pemesananPortalDesa: []
             };
         },
         methods: {
 
             confirmByUser(id_transaksi) {
-                let confirmByUser =  {
-                    data : 1
+                let confirmByUser = {
+                    data: 1
                 }
                 window.axios
                     .post("/api/transaction/" + id_transaksi + "/confirmByUser", confirmByUser)
@@ -259,7 +325,7 @@
             },
 
             formatPrice(value) {
-                let val = (value/1).toFixed().replace('.', ',')
+                let val = (value / 1).toFixed().replace('.', ',')
                 return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
             },
             getTransactions() {
@@ -281,10 +347,21 @@
                 total -= parseInt(payment.shipping_discount, 10)
 
                 return total;
+            },
+            getPemesananPortalDesa(){
+                window.axios
+                    .get("/api/homestay/get-pemesanan-portal-desa/" + this.userId)
+                    .then(res => {
+                        this.pemesananPortalDesa = res.data;
+                        console.log(this.pemesananPortalDesa);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
             }
         },
         mounted() {
-            this.getTransactions();
+            this.getTransactions(), this.getPemesananPortalDesa();
         }
     };
 </script>
@@ -292,7 +369,7 @@
 <style>
     .tabbable .nav-tabs {
         overflow-x: auto;
-        overflow-y:hidden;
+        overflow-y: hidden;
         flex-wrap: nowrap;
     }
 

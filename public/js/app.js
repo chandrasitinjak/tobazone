@@ -84817,7 +84817,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.tabbable .nav-tabs {\n    overflow-x: auto;\n    overflow-y:hidden;\n    -ms-flex-wrap: nowrap;\n        flex-wrap: nowrap;\n}\n.tabbable .nav-tabs .nav-link {\n    white-space: nowrap;\n}\n", ""]);
+exports.push([module.i, "\n.tabbable .nav-tabs {\n    overflow-x: auto;\n    overflow-y: hidden;\n    -ms-flex-wrap: nowrap;\n        flex-wrap: nowrap;\n}\n.tabbable .nav-tabs .nav-link {\n    white-space: nowrap;\n}\n", ""]);
 
 // exports
 
@@ -85066,12 +85066,78 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ["userId"],
     data: function data() {
         return {
-            transactions: []
+            transactions: [],
+            pemesananPortalDesa: []
         };
     },
 
@@ -85107,10 +85173,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             total -= parseInt(payment.shipping_discount, 10);
 
             return total;
+        },
+        getPemesananPortalDesa: function getPemesananPortalDesa() {
+            var _this2 = this;
+
+            window.axios.get("/api/homestay/get-pemesanan-portal-desa/" + this.userId).then(function (res) {
+                _this2.pemesananPortalDesa = res.data;
+                console.log(_this2.pemesananPortalDesa);
+            }).catch(function (err) {
+                console.log(err);
+            });
         }
     },
     mounted: function mounted() {
-        this.getTransactions();
+        this.getTransactions(), this.getPemesananPortalDesa();
     }
 });
 
@@ -85206,7 +85282,8 @@ var render = function() {
                                                       transaction.payment
                                                     )
                                                   )
-                                                )
+                                                ) +
+                                                "\n                                                "
                                             )
                                           ]
                                         ),
@@ -85467,14 +85544,17 @@ var render = function() {
                                                                 )
                                                               ]
                                                             ),
-                                                            _vm._v(
-                                                              "\n                                                  pesanan               >Rp " +
-                                                                _vm._s(
-                                                                  _vm.formatPrice(
-                                                                    order.price
+                                                            _vm._v(" "),
+                                                            _c("h6", [
+                                                              _vm._v(
+                                                                "pesanan >Rp " +
+                                                                  _vm._s(
+                                                                    _vm.formatPrice(
+                                                                      order.price
+                                                                    )
                                                                   )
-                                                                )
-                                                            ),
+                                                              )
+                                                            ]),
                                                             _vm._v(" "),
                                                             _c("br"),
                                                             _vm._v(" "),
@@ -85602,7 +85682,8 @@ var render = function() {
                                                       transaction.payment
                                                     )
                                                   )
-                                                )
+                                                ) +
+                                                "\n                                                "
                                             )
                                           ]
                                         ),
@@ -85919,7 +86000,11 @@ var render = function() {
                                                             }
                                                           }
                                                         },
-                                                        [_vm._v("konfirmasi")]
+                                                        [
+                                                          _vm._v(
+                                                            "\n                                                            konfirmasi\n                                                        "
+                                                          )
+                                                        ]
                                                       )
                                                     ])
                                                   : transaction.status ===
@@ -85950,7 +86035,9 @@ var render = function() {
                     ])
                   }),
                   0
-                )
+                ),
+                _vm._v(" "),
+                _vm._m(4)
               ]
             )
           ])
@@ -86018,6 +86105,22 @@ var staticRenderFns = [
               }
             },
             [_vm._v("Pesanan Selesai")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "nav-item nav-link",
+              attrs: {
+                id: "pemesanan-portal-desa-tab",
+                "data-toggle": "tab",
+                href: "#pemesanan-portal-desa",
+                role: "tab",
+                "aria-controls": "profile",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("Pesanan Portal Desa")]
           )
         ]
       )
@@ -86070,6 +86173,51 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-4 small" }, [_vm._v("Status")])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "tab-pane fade",
+        attrs: {
+          id: "pemesanan-portal-desa",
+          role: "tabpanel",
+          "aria-labelledby": "pemesanan-portal-desa-tab"
+        }
+      },
+      [
+        _c("div", { staticClass: "detailorder mt-2" }, [
+          _c("table", { staticClass: "table" }, [
+            _c("thead", [
+              _c("tr", [
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [
+                  _vm._v("Penginapan tujuan")
+                ]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [
+                  _vm._v("Lama Menginap")
+                ]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [
+                  _vm._v("Metode Pembayaran")
+                ]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Harga")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("status")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tbody")
+          ])
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
