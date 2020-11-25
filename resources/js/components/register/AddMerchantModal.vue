@@ -5,43 +5,43 @@
             <div class="col-md-12">
                 <form>
                     <label class="label text-muted">Pemilik Toko (Merchant)</label>
-                    <br />
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label class="label">Username</label>
-                                <input type="text" class="form-control form-control-sm" v-model="userMerchant.username"
-                                    v-model.trim="$v.userMerchant.username.$model"
-                                    :class="{'is-invalid':$v.userMerchant.username.$error, 'is-valid':!$v.userMerchant.username.$invalid }" />
-                                <div class="valid-feedback">Username sudah valid</div>
-                                <div class="invalid-feedback">
-                                    <span v-if="!$v.userMerchant.username.required">Username tidak boleh kosong</span>
-                                    <span v-if="!$v.userMerchant.username.minLength">Username minimal 8 karakter</span>
-                                </div>
-                            </div>
-                        </div>
+                    <br/>
+                    <!--                    <div class="row">-->
+                    <!--                        <div class="col-6">-->
+                    <!--                            <div class="form-group">-->
+                    <!--                                <label class="label">Username</label>-->
+                    <!--                                <input type="text" class="form-control form-control-sm" v-model="userMerchant.username"-->
+                    <!--                                    v-model.trim="$v.userMerchant.username.$model"-->
+                    <!--                                    :class="{'is-invalid':$v.userMerchant.username.$error, 'is-valid':!$v.userMerchant.username.$invalid }" />-->
+                    <!--                                <div class="valid-feedback">Username sudah valid</div>-->
+                    <!--                                <div class="invalid-feedback">-->
+                    <!--                                    <span v-if="!$v.userMerchant.username.required">Username tidak boleh kosong</span>-->
+                    <!--                                    <span v-if="!$v.userMerchant.username.minLength">Username minimal 8 karakter</span>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
 
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label class="label">E-mail</label>
-                                <input type="text" class="form-control form-control-sm" v-model="userMerchant.email"
-                                    v-model.trim="$v.userMerchant.email.$model"
-                                    :class="{'is-invalid':$v.userMerchant.email.$error, 'is-valid':!$v.userMerchant.email.$invalid }" />
-                                <div class="valid-feedback">E-mail sudah valid</div>
-                                <div class="invalid-feedback">
-                                    <span v-if="!$v.userMerchant.email.required">E-mail tidak boleh kosong</span>
-                                    <span v-if="!$v.userMerchant.email.email">Masukkan email dengan format
+                    <!--                        <div class="col-6">-->
+                    <div class="form-group">
+                        <label class="label">E-mail</label>
+                        <input type="text" class="form-control form-control-sm" v-model="userMerchant.email"
+                               v-model.trim="$v.userMerchant.email.$model"
+                               :class="{'is-invalid':$v.userMerchant.email.$error, 'is-valid':!$v.userMerchant.email.$invalid }"/>
+                        <div class="valid-feedback">E-mail sudah valid</div>
+                        <div class="invalid-feedback">
+                            <span v-if="!$v.userMerchant.email.required">E-mail tidak boleh kosong</span>
+                            <span v-if="!$v.userMerchant.email.email">Masukkan email dengan format
                                         example@mail.com</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
+                    <!--                        </div>-->
+                    <!--                    </div>-->
 
                     <div class="form-group">
                         <label class="label">Nomor Telepon</label>
                         <input type="number" class="form-control form-control-sm" v-model="userMerchant.phone"
-                            v-model.trim="$v.userMerchant.phone.$model"
-                            :class="{'is-invalid':$v.userMerchant.phone.$error, 'is-valid':!$v.userMerchant.phone.$invalid }" />
+                               v-model.trim="$v.userMerchant.phone.$model"
+                               :class="{'is-invalid':$v.userMerchant.phone.$error, 'is-valid':!$v.userMerchant.phone.$invalid }"/>
                         <div class="valid-feedback">Nomor Telepon sudah valid</div>
                         <div class="invalid-feedback">
                             <span v-if="!$v.userMerchant.phone.required">Nomor Telepon tidak boleh kosong</span>
@@ -52,23 +52,23 @@
                         <label class="label">Jenis Kelamin</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="male" value="Male"
-                                v-model="userMerchant.gender" v-model.trim="$v.userMerchant.gender.$model"
-                                :class="{'is-invalid':$v.userMerchant.gender.$error, 'is-valid':!$v.userMerchant.gender.$invalid }">
-                            <label class="form-check-label" for="male">Laki-laki</label>
+                                   v-model="userMerchant.gender" v-model.trim="$v.userMerchant.gender.$model"
+                                   :class="{'is-invalid':$v.userMerchant.gender.$error, 'is-valid':!$v.userMerchant.gender.$invalid }">
+                            <label class="form-check-label">Laki-laki</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="female" value="Female"
-                                v-model="userMerchant.gender" v-model.trim="$v.userMerchant.gender.$model"
-                                :class="{'is-invalid':$v.userMerchant.gender.$error, 'is-valid':!$v.userMerchant.gender.$invalid }">
-                            <label class="form-check-label" for="female">Perempuan</label>
+                                   v-model="userMerchant.gender" v-model.trim="$v.userMerchant.gender.$model"
+                                   :class="{'is-invalid':$v.userMerchant.gender.$error, 'is-valid':!$v.userMerchant.gender.$invalid }">
+                            <label class="form-check-label">Perempuan</label>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="label">Tanggal Lahir</label>
                         <input type="date" class="form-control form-control-sm" v-model="userMerchant.birthday"
-                            v-model.trim="$v.userMerchant.birthday.$model"
-                            :class="{'is-invalid':$v.userMerchant.birthday.$error, 'is-valid':!$v.userMerchant.birthday.$invalid }" />
+                               v-model.trim="$v.userMerchant.birthday.$model"
+                               :class="{'is-invalid':$v.userMerchant.birthday.$error, 'is-valid':!$v.userMerchant.birthday.$invalid }"/>
                         <div class="valid-feedback">Tanggal Lahir sudah valid</div>
                         <div class="invalid-feedback">
                             <span v-if="!$v.userMerchant.birthday.required">Tanggal Lahir tidak boleh kosong</span>
@@ -78,8 +78,8 @@
                     <div class="form-group">
                         <label class="label">Nama Toko</label>
                         <input type="text" class="form-control form-control-sm" v-model="userMerchant.name"
-                            v-model.trim="$v.userMerchant.name.$model"
-                            :class="{'is-invalid':$v.userMerchant.name.$error, 'is-valid':!$v.userMerchant.name.$invalid }" />
+                               v-model.trim="$v.userMerchant.name.$model"
+                               :class="{'is-invalid':$v.userMerchant.name.$error, 'is-valid':!$v.userMerchant.name.$invalid }"/>
                         <div class="valid-feedback">Nama Toko sudah valid</div>
                         <div class="invalid-feedback">
                             <span v-if="!$v.userMerchant.name.required">Nama Toko tidak boleh kosong</span>
@@ -144,9 +144,9 @@
                     <div class="form-group">
                         <label class="label">Alamat Rinci Toko</label>
                         <textarea v-model="userMerchant.addressDetail" class="form-control form-control-sm" rows="3"
-                            placeholder="Contoh: Jalan Melati Nomor 23"
-                            v-model.trim="$v.userMerchant.addressDetail.$model"
-                            :class="{'is-invalid':$v.userMerchant.addressDetail.$error, 'is-valid':!$v.userMerchant.addressDetail.$invalid }"></textarea>
+                                  placeholder="Contoh: Jalan Melati Nomor 23"
+                                  v-model.trim="$v.userMerchant.addressDetail.$model"
+                                  :class="{'is-invalid':$v.userMerchant.addressDetail.$error, 'is-valid':!$v.userMerchant.addressDetail.$invalid }"></textarea>
                         <div class="valid-feedback">Alamat Rinci Toko sudah valid</div>
                         <div class="invalid-feedback">
                             <span v-if="!$v.userMerchant.addressDetail.required">Alamat Rinci Toko tidak boleh
@@ -157,8 +157,8 @@
                     <div class="form-group">
                         <label class="label">Kata Sandi</label>
                         <input type="password" class="form-control form-control-sm" v-model="userMerchant.password"
-                            v-model.trim="$v.userMerchant.password.$model" :class="{'is-invalid':$v.userMerchant.password.$error,
-                            'is-valid':!$v.userMerchant.password.$invalid}" />
+                               v-model.trim="$v.userMerchant.password.$model" :class="{'is-invalid':$v.userMerchant.password.$error,
+                            'is-valid':!$v.userMerchant.password.$invalid}"/>
                         <div class="valid-feedback">Kata Sandi sudah valid</div>
                         <div class="invalid-feedback">
                             <span v-if="!$v.userMerchant.password.required">Kata Sandi tidak boleh kosong</span>
@@ -169,8 +169,9 @@
                     <div class="form-group">
                         <label class="label">Konfirmasi Kata Sandi</label>
                         <input type="password" class="form-control form-control-sm"
-                            v-model="userMerchant.passwordconfirm" v-model.trim="$v.userMerchant.passwordconfirm.$model"
-                            :class="{'is-invalid':$v.userMerchant.passwordconfirm.$error,
+                               v-model="userMerchant.passwordconfirm"
+                               v-model.trim="$v.userMerchant.passwordconfirm.$model"
+                               :class="{'is-invalid':$v.userMerchant.passwordconfirm.$error,
                             'is-valid':(userMerchant.password!='')?!$v.userMerchant.passwordconfirm.$invalid:''}">
                         <div class="valid-feedback">Konfirmasi Kata Sandi sudah valid</div>
                         <div class="invalid-feedback">
@@ -210,7 +211,7 @@
                     selectedProvince: "",
                     selectedSubdistrict: "",
                     addressDetail: "",
-                    username: "",
+                    // username: "",
                     email: "",
                     name: "",
                     phone: "",
@@ -274,7 +275,7 @@
                         subdistrictName: this.userMerchant.selectedSubdistrict.subdistrict_name,
                         addressDetail: this.userMerchant.addressDetail,
                         addressName: "",
-                        username: this.userMerchant.username,
+                        // username: this.userMerchant.username,
                         email: this.userMerchant.email,
                         name: this.userMerchant.name,
                         photo: "",
@@ -309,7 +310,7 @@
                                 "selectedProvince": "Provinsi",
                                 "selectedSubdistrict": "Kecamatan",
                                 "addressDetail": "Alamat Rinci Toko",
-                                "username": "Username",
+                                // "username": "Username",
                                 "email": "E-mail",
                                 "name": "Nama Toko",
                                 "phone": "Nomor Telepon",
@@ -330,7 +331,7 @@
 
                                 errMessage = "Data yang diberikan tidak valid.";
                                 if (errKey != "") {
-                                    if (errKey == "email" || errKey == "username") {
+                                    if (errKey == "email" /*|| errKey == "username"*/) {
                                         errMessage = errMessage + " " + customerAttributes[errKey] +
                                             " tidak valid atau telah terdaftar.";
                                     } else {
@@ -352,10 +353,10 @@
 
         validations: {
             userMerchant: {
-                username: {
-                    required,
-                    minLength: minLength(8)
-                },
+                // username: {
+                //     required,
+                //     minLength: minLength(8)
+                // },
                 email: {
                     required,
                     email

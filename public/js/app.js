@@ -79692,7 +79692,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\r\n    /*.ysearch-button{*/\r\n    /*    font-size: 13px;*/\r\n    /*    margin-left: -20px;*/\r\n    /*}*/\n.yjudul[data-v-5e4e7507]{\r\n        margin-left: -20px;\r\n        margin-right: -20px;\r\n        font-size: 25px;\n}\n.ygambar-produk[data-v-5e4e7507]{\r\n        margin-bottom: 20px;\n}\n}\n@media (min-width:450px) and (max-width: 767px) {\n}\n@media (min-width:768px) and (max-width: 990px){\n}\n@media (min-width:991px) and (max-width: 1199px){\n}\n@media (min-width:1200px){\n}\r\n", ""]);
+exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\n    /*.ysearch-button{*/\n    /*    font-size: 13px;*/\n    /*    margin-left: -20px;*/\n    /*}*/\n.yjudul[data-v-5e4e7507]{\n        margin-left: -20px;\n        margin-right: -20px;\n        font-size: 25px;\n}\n.ygambar-produk[data-v-5e4e7507]{\n        margin-bottom: 20px;\n}\n}\n@media (min-width:450px) and (max-width: 767px) {\n}\n@media (min-width:768px) and (max-width: 990px){\n}\n@media (min-width:991px) and (max-width: 1199px){\n}\n@media (min-width:1200px){\n}\n", ""]);
 
 // exports
 
@@ -80166,6 +80166,11 @@ var render = function() {
                         [
                           _c("img", {
                             staticClass: "ygambar-produk",
+                            staticStyle: {
+                              height: "100%",
+                              width: "100%",
+                              "object-fit": "cover"
+                            },
                             attrs: {
                               src:
                                 "/images/" + JSON.parse(cart.product.images)[0],
@@ -88826,6 +88831,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -88846,7 +88854,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 selectedSubdistrict: "",
                 addressDetail: "",
                 addressName: "",
-                username: "",
+                // username: "",
                 email: "",
                 name: "",
                 phone: "",
@@ -88907,7 +88915,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     subdistrictName: this.userCustomer.selectedSubdistrict.subdistrict_name,
                     addressDetail: this.userCustomer.addressDetail,
                     addressName: this.userCustomer.addressName,
-                    username: this.userCustomer.username,
+                    // username: this.userCustomer.username,
                     email: this.userCustomer.email,
                     name: this.userCustomer.name,
                     phone: this.userCustomer.phone,
@@ -88938,7 +88946,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         "selectedSubdistrict": "Kecamatan",
                         "addressDetail": "Alamat Rinci Toko",
                         "addressName": "Alamat",
-                        "username": "Username",
+                        // "username": "Username",
                         "email": "E-mail",
                         "name": "Nama Lengkap",
                         "phone": "Nomor Telepon",
@@ -88959,9 +88967,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                         errMessage = "Data yang diberikan tidak valid.";
                         if (errKey != "") {
-                            if (errKey == "email" || errKey == "username") {
-                                errMessage = errMessage + " " + customerAttributes[errKey] + " tidak valid atau telah terdaftar.";
-                            } else {
+                            if (errKey == "email" /*|| errKey == "username"*/) {
+                                    errMessage = errMessage + " " + customerAttributes[errKey] + " tidak valid atau telah terdaftar.";
+                                } else {
                                 errMessage = customerAttributes[errKey] + " tidak valid.";
                             }
                         }
@@ -88979,10 +88987,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     validations: {
         userCustomer: {
-            username: {
-                required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"],
-                minLength: Object(__WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["minLength"])(8)
-            },
+            // username: {
+            //     required,
+            //     minLength: minLength(8)
+            // },
             email: {
                 required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"],
                 email: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["email"]
@@ -89045,159 +89053,76 @@ var render = function() {
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-12" }, [
           _c("form", [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-6" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { staticClass: "label" }, [_vm._v("Username")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.userCustomer.username,
-                        expression: "userCustomer.username"
-                      },
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.$v.userCustomer.username.$model,
-                        expression: "$v.userCustomer.username.$model",
-                        modifiers: { trim: true }
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("E-mail")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.userCustomer.email,
+                    expression: "userCustomer.email"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.userCustomer.email.$model,
+                    expression: "$v.userCustomer.email.$model",
+                    modifiers: { trim: true }
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.userCustomer.email.$error,
+                  "is-valid": !_vm.$v.userCustomer.email.$invalid
+                },
+                attrs: { type: "text" },
+                domProps: {
+                  value: _vm.userCustomer.email,
+                  value: _vm.$v.userCustomer.email.$model
+                },
+                on: {
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ],
-                    staticClass: "form-control form-control-sm",
-                    class: {
-                      "is-invalid": _vm.$v.userCustomer.username.$error,
-                      "is-valid": !_vm.$v.userCustomer.username.$invalid
+                      _vm.$set(
+                        _vm.$v.userCustomer.email,
+                        "$model",
+                        $event.target.value.trim()
+                      )
                     },
-                    attrs: { type: "text" },
-                    domProps: {
-                      value: _vm.userCustomer.username,
-                      value: _vm.$v.userCustomer.username.$model
-                    },
-                    on: {
-                      input: [
-                        function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.$v.userCustomer.username,
-                            "$model",
-                            $event.target.value.trim()
-                          )
-                        },
-                        function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.userCustomer,
-                            "username",
-                            $event.target.value
-                          )
-                        }
-                      ],
-                      blur: function($event) {
-                        return _vm.$forceUpdate()
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
+                      _vm.$set(_vm.userCustomer, "email", $event.target.value)
                     }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "valid-feedback" }, [
-                    _vm._v("Username sudah valid")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "invalid-feedback" }, [
-                    !_vm.$v.userCustomer.username.required
-                      ? _c("span", [_vm._v("Username tidak boleh kosong")])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    !_vm.$v.userCustomer.username.minLength
-                      ? _c("span", [_vm._v("Username minimal 8 karakter")])
-                      : _vm._e()
-                  ])
-                ])
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("E-mail sudah valid")
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-6" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { staticClass: "label" }, [_vm._v("E-mail")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.userCustomer.email,
-                        expression: "userCustomer.email"
-                      },
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.$v.userCustomer.email.$model,
-                        expression: "$v.userCustomer.email.$model",
-                        modifiers: { trim: true }
-                      }
-                    ],
-                    staticClass: "form-control form-control-sm",
-                    class: {
-                      "is-invalid": _vm.$v.userCustomer.email.$error,
-                      "is-valid": !_vm.$v.userCustomer.email.$invalid
-                    },
-                    attrs: { type: "text" },
-                    domProps: {
-                      value: _vm.userCustomer.email,
-                      value: _vm.$v.userCustomer.email.$model
-                    },
-                    on: {
-                      input: [
-                        function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.$v.userCustomer.email,
-                            "$model",
-                            $event.target.value.trim()
-                          )
-                        },
-                        function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.userCustomer,
-                            "email",
-                            $event.target.value
-                          )
-                        }
-                      ],
-                      blur: function($event) {
-                        return _vm.$forceUpdate()
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "valid-feedback" }, [
-                    _vm._v("E-mail sudah valid")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "invalid-feedback" }, [
-                    !_vm.$v.userCustomer.email.required
-                      ? _c("span", [_vm._v("E-mail tidak boleh kosong")])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    !_vm.$v.userCustomer.email.email
-                      ? _c("span", [
-                          _vm._v(
-                            "Masukkan email dengan format\n                                    example@mail.com"
-                          )
-                        ])
-                      : _vm._e()
-                  ])
-                ])
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.userCustomer.email.required
+                  ? _c("span", [_vm._v("E-mail tidak boleh kosong")])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.$v.userCustomer.email.email
+                  ? _c("span", [
+                      _vm._v(
+                        "Masukkan email dengan format\n                                    example@mail.com"
+                      )
+                    ])
+                  : _vm._e()
               ])
             ]),
             _vm._v(" "),
@@ -89527,7 +89452,7 @@ var render = function() {
                           modifiers: { trim: true }
                         }
                       ],
-                      staticClass: "form-control ",
+                      staticClass: "form-control",
                       class: {
                         "is-invalid":
                           _vm.$v.userCustomer.selectedProvince.$error,
@@ -89581,7 +89506,8 @@ var render = function() {
                         [
                           _vm._v(
                             "\n                                    " +
-                              _vm._s(province.name)
+                              _vm._s(province.name) +
+                              "\n                                "
                           )
                         ]
                       )
@@ -89781,7 +89707,12 @@ var render = function() {
                           key: subdistrict.subdistrict_name,
                           domProps: { value: subdistrict }
                         },
-                        [_vm._v(_vm._s(subdistrict.subdistrict_name))]
+                        [
+                          _vm._v(
+                            _vm._s(subdistrict.subdistrict_name) +
+                              "\n                                "
+                          )
+                        ]
                       )
                     }),
                     0
@@ -90368,6 +90299,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -90387,7 +90319,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 selectedProvince: "",
                 selectedSubdistrict: "",
                 addressDetail: "",
-                username: "",
+                // username: "",
                 email: "",
                 name: "",
                 phone: "",
@@ -90451,7 +90383,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     subdistrictName: this.userMerchant.selectedSubdistrict.subdistrict_name,
                     addressDetail: this.userMerchant.addressDetail,
                     addressName: "",
-                    username: this.userMerchant.username,
+                    // username: this.userMerchant.username,
                     email: this.userMerchant.email,
                     name: this.userMerchant.name,
                     photo: "",
@@ -90483,7 +90415,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         "selectedProvince": "Provinsi",
                         "selectedSubdistrict": "Kecamatan",
                         "addressDetail": "Alamat Rinci Toko",
-                        "username": "Username",
+                        // "username": "Username",
                         "email": "E-mail",
                         "name": "Nama Toko",
                         "phone": "Nomor Telepon",
@@ -90504,9 +90436,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                         errMessage = "Data yang diberikan tidak valid.";
                         if (errKey != "") {
-                            if (errKey == "email" || errKey == "username") {
-                                errMessage = errMessage + " " + customerAttributes[errKey] + " tidak valid atau telah terdaftar.";
-                            } else {
+                            if (errKey == "email" /*|| errKey == "username"*/) {
+                                    errMessage = errMessage + " " + customerAttributes[errKey] + " tidak valid atau telah terdaftar.";
+                                } else {
                                 errMessage = customerAttributes[errKey] + " tidak valid.";
                             }
                         }
@@ -90524,10 +90456,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     validations: {
         userMerchant: {
-            username: {
-                required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"],
-                minLength: Object(__WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["minLength"])(8)
-            },
+            // username: {
+            //     required,
+            //     minLength: minLength(8)
+            // },
             email: {
                 required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"],
                 email: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["email"]
@@ -90593,159 +90525,76 @@ var render = function() {
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-6" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { staticClass: "label" }, [_vm._v("Username")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.userMerchant.username,
-                        expression: "userMerchant.username"
-                      },
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.$v.userMerchant.username.$model,
-                        expression: "$v.userMerchant.username.$model",
-                        modifiers: { trim: true }
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("E-mail")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.userMerchant.email,
+                    expression: "userMerchant.email"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.userMerchant.email.$model,
+                    expression: "$v.userMerchant.email.$model",
+                    modifiers: { trim: true }
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.userMerchant.email.$error,
+                  "is-valid": !_vm.$v.userMerchant.email.$invalid
+                },
+                attrs: { type: "text" },
+                domProps: {
+                  value: _vm.userMerchant.email,
+                  value: _vm.$v.userMerchant.email.$model
+                },
+                on: {
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ],
-                    staticClass: "form-control form-control-sm",
-                    class: {
-                      "is-invalid": _vm.$v.userMerchant.username.$error,
-                      "is-valid": !_vm.$v.userMerchant.username.$invalid
+                      _vm.$set(
+                        _vm.$v.userMerchant.email,
+                        "$model",
+                        $event.target.value.trim()
+                      )
                     },
-                    attrs: { type: "text" },
-                    domProps: {
-                      value: _vm.userMerchant.username,
-                      value: _vm.$v.userMerchant.username.$model
-                    },
-                    on: {
-                      input: [
-                        function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.$v.userMerchant.username,
-                            "$model",
-                            $event.target.value.trim()
-                          )
-                        },
-                        function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.userMerchant,
-                            "username",
-                            $event.target.value
-                          )
-                        }
-                      ],
-                      blur: function($event) {
-                        return _vm.$forceUpdate()
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
+                      _vm.$set(_vm.userMerchant, "email", $event.target.value)
                     }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "valid-feedback" }, [
-                    _vm._v("Username sudah valid")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "invalid-feedback" }, [
-                    !_vm.$v.userMerchant.username.required
-                      ? _c("span", [_vm._v("Username tidak boleh kosong")])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    !_vm.$v.userMerchant.username.minLength
-                      ? _c("span", [_vm._v("Username minimal 8 karakter")])
-                      : _vm._e()
-                  ])
-                ])
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("E-mail sudah valid")
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-6" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { staticClass: "label" }, [_vm._v("E-mail")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.userMerchant.email,
-                        expression: "userMerchant.email"
-                      },
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.$v.userMerchant.email.$model,
-                        expression: "$v.userMerchant.email.$model",
-                        modifiers: { trim: true }
-                      }
-                    ],
-                    staticClass: "form-control form-control-sm",
-                    class: {
-                      "is-invalid": _vm.$v.userMerchant.email.$error,
-                      "is-valid": !_vm.$v.userMerchant.email.$invalid
-                    },
-                    attrs: { type: "text" },
-                    domProps: {
-                      value: _vm.userMerchant.email,
-                      value: _vm.$v.userMerchant.email.$model
-                    },
-                    on: {
-                      input: [
-                        function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.$v.userMerchant.email,
-                            "$model",
-                            $event.target.value.trim()
-                          )
-                        },
-                        function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.userMerchant,
-                            "email",
-                            $event.target.value
-                          )
-                        }
-                      ],
-                      blur: function($event) {
-                        return _vm.$forceUpdate()
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "valid-feedback" }, [
-                    _vm._v("E-mail sudah valid")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "invalid-feedback" }, [
-                    !_vm.$v.userMerchant.email.required
-                      ? _c("span", [_vm._v("E-mail tidak boleh kosong")])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    !_vm.$v.userMerchant.email.email
-                      ? _c("span", [
-                          _vm._v(
-                            "Masukkan email dengan format\n                                    example@mail.com"
-                          )
-                        ])
-                      : _vm._e()
-                  ])
-                ])
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.userMerchant.email.required
+                  ? _c("span", [_vm._v("E-mail tidak boleh kosong")])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.$v.userMerchant.email.email
+                  ? _c("span", [
+                      _vm._v(
+                        "Masukkan email dengan format\n                                    example@mail.com"
+                      )
+                    ])
+                  : _vm._e()
               ])
             ]),
             _vm._v(" "),
@@ -90860,11 +90709,9 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _c(
-                  "label",
-                  { staticClass: "form-check-label", attrs: { for: "male" } },
-                  [_vm._v("Laki-laki")]
-                )
+                _c("label", { staticClass: "form-check-label" }, [
+                  _vm._v("Laki-laki")
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-check" }, [
@@ -90910,11 +90757,9 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _c(
-                  "label",
-                  { staticClass: "form-check-label", attrs: { for: "female" } },
-                  [_vm._v("Perempuan")]
-                )
+                _c("label", { staticClass: "form-check-label" }, [
+                  _vm._v("Perempuan")
+                ])
               ])
             ]),
             _vm._v(" "),
