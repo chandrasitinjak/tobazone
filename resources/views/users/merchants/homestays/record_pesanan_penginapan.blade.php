@@ -67,7 +67,7 @@
             <br>
             <div class="row">
                 @foreach ($result['orders'] as $product)
-                <div class="col-lg-12 card" style="background-color: #F5F5F5">
+                <div class="col-lg-12 card" style="background-color: #F5F5F5; margin: 10px">
                     <div class="row container">
                         <br>
                         <div class="col-md-6">
@@ -82,11 +82,11 @@
                                 </div>
                                 <div class="col-md-6">
                                     <p>--</p>
-                                    <p>Check in : </p>
-                                    <p>Durasi : </p>
-                                    <p>Homestay : </p>
-                                    <p>Lokasi : </p>
-                                    <p>Total : </p>
+                                    <p>{{$product->check_in}}</p>
+                                    <p>{{$product->duration}}</p>
+                                    <p>Homestay {{$product->duration}}</p>
+                                    <p>Jl.pelajar no </p>
+                                    <p>{{$product->duration}}0000</p>
                                 </div>
                             </div>
                         </div>

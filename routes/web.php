@@ -241,7 +241,7 @@ Route::post('/homestays/search', 'HomestayController@search');
 Route::get('/homestays/searchPage', 'HomestayController@searchTest');
 
 //orderHomestay
-Route::post('/homestay/pesan', 'HomestayController@bookHomestay');
+Route::post('/homestay/pesan/{id}', 'HomestayController@bookHomestay');
 
 //Approval Penginapan Backend
 Route::post('/homestay/approvePenginapan/{id}', 'HomestayController@approvePenginapan');

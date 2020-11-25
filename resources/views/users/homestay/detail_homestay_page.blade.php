@@ -28,7 +28,8 @@
         </div>
         <br><br>
         <div class="container card" style="background-color: #FFFAF4">
-            <form method="POST" action="{{url('/homestay/pesan')}}">
+            <form method="POST" action="{{url('/homestay/pesan/'. $homestays->id)}}">
+                {{ csrf_field() }}
                 <div class="row">
                     <div class="col-md-8">
                         <br>
@@ -39,21 +40,29 @@
                         <p>Check-in</p>
                         <div class="input-container">
                             <i class="fa fa-calendar icon fa-lg" style="color:#000000;"></i>
-                            <input style="background-color: #F5F5F5" type="date"
+                            <input style="background-color: #F5F5F5" type="date" name="checkIn"
                                    class="form-control">
                         </div>
                         <p>Durasi</p>
                         <div class="input-container">
                             <i class="fa fa-moon-o icon fa-lg" style="color:#000000;"></i>
-                            <input style="background-color: #F5F5F5" type="number" min="1"
+                            <input style="background-color: #F5F5F5" name="durasi" type="number" min="1"
                                    class="form-control">
                         </div>
                         <p>Jumlah Kamar</p>
                         <div class="input-container">
                             <i class="fa fa-bed icon fa-lg" style="color:#000000;"></i>
-                            <input style="background-color: #F5F5F5" type="number" min="1"
-                                   max="{{$homestays->room_available}}" class="form-control">
+                            <input style="background-color: #F5F5F5" type="number" name="jumlahKamar" min="1" class="form-control">
                         </div>
+<!--                        <p>Metode Pembayaran</p>-->
+<!--                        <div class="input-container">-->
+<!--                            <input type="radio" id="male" name="gender" value="male">-->
+<!--                            <label for="male">Ovo</label><br>-->
+<!--                            <input type="radio" id="female" name="gender" value="female">-->
+<!--                            <label for="female">Gopay</label><br>-->
+<!--                            <input type="radio" id="other" name="gender" value="other">-->
+<!--                            <label for="other">BNI</label>-->
+<!--                        </div>-->
                         <br>
                         <br>
                         <button class="btn form-control"

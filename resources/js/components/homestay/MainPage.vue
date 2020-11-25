@@ -8,7 +8,7 @@
                     <div id="lokasi" class="input-container">
                         <i class="fa fa-map-marker icon fa-lg" style="color:#000000;"></i>
                         <input class="form-control" type="text" placeholder="Lokasi"
-                               name="usrnm">
+                               name="usrnm"  v-model="kecamatan">
                     </div>
                     <label for="check">Check In</label>
                     <div class="row" id="check">
@@ -47,7 +47,9 @@
     export default {
         name: "MainPage",
         data() {
-
+            return{
+                kecamatan:''
+            }
         },
         methods: {
             test(){
@@ -55,7 +57,9 @@
             },
             search() {
                 window.axios
-                    .post("/homestays/search")
+                    .post("/homestays/search",{
+                        'kecamatan': this.kecamatan
+                    })
                     .then(res => {
                         console.log(res)
                     })

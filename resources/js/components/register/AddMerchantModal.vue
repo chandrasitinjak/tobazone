@@ -91,7 +91,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="label">Provinsi</label>
-                                <select class="form-control form-control-sm" v-on:change="getCities"
+                                <select class="form-control " v-on:change="getCities"
                                     v-model="userMerchant.selectedProvince"
                                     v-model.trim="$v.userMerchant.selectedProvince.$model"
                                     :class="{'is-invalid':$v.userMerchant.selectedProvince.$error, 'is-valid':!$v.userMerchant.selectedProvince.$invalid }">
@@ -109,7 +109,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="label">Kota/Kabupaten</label>
-                                <select class="form-control form-control-sm" @change="getSubdistricts"
+                                <select class="form-control " @change="getSubdistricts"
                                     v-model="userMerchant.selectedCity"
                                     v-model.trim="$v.userMerchant.selectedCity.$model"
                                     :class="{'is-invalid':$v.userMerchant.selectedCity.$error, 'is-valid':!$v.userMerchant.selectedCity.$invalid }">
@@ -126,7 +126,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="label">Kecamatan</label>
-                                <select class="form-control form-control-sm" v-model="userMerchant.selectedSubdistrict"
+                                <select class="form-control" v-model="userMerchant.selectedSubdistrict"
                                     v-model.trim="$v.userMerchant.selectedSubdistrict.$model"
                                     :class="{'is-invalid':$v.userMerchant.selectedSubdistrict.$error, 'is-valid':!$v.userMerchant.selectedSubdistrict.$invalid }">
                                     <option v-for="subdistrict in subdistricts" :key="subdistrict.subdistrict_name" :value="subdistrict">
@@ -170,7 +170,7 @@
                         <label class="label">Konfirmasi Kata Sandi</label>
                         <input type="password" class="form-control form-control-sm"
                             v-model="userMerchant.passwordconfirm" v-model.trim="$v.userMerchant.passwordconfirm.$model"
-                            :class="{'is-invalid':$v.userMerchant.passwordconfirm.$error, 
+                            :class="{'is-invalid':$v.userMerchant.passwordconfirm.$error,
                             'is-valid':(userMerchant.password!='')?!$v.userMerchant.passwordconfirm.$invalid:''}">
                         <div class="valid-feedback">Konfirmasi Kata Sandi sudah valid</div>
                         <div class="invalid-feedback">
@@ -268,7 +268,7 @@
                     let payload = {
                         provinceId: this.userMerchant.selectedProvince.id,
                         cityId: this.userMerchant.selectedCity.id,
-                        subdistrictId: this.userMerchant.selectedSubdistrict.subdistrict_id,                                                                             
+                        subdistrictId: this.userMerchant.selectedSubdistrict.subdistrict_id,
                         provinceName: this.userMerchant.selectedProvince.name,
                         cityName: this.userMerchant.selectedCity.name,
                         subdistrictName: this.userMerchant.selectedSubdistrict.subdistrict_name,

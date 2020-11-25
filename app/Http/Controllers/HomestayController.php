@@ -25,7 +25,7 @@ class HomestayController extends Controller
                 $homestays
             ]
         ];
-        return view('users.homestays.AfterSearchPage')->with('homestays', $homestays);
+        return view('users.homestay.after_search_page')->with('homestays', $homestays);
     }
 
     public function findAllCustomer()
@@ -44,7 +44,7 @@ class HomestayController extends Controller
 
     public function search(Request $request)
     {
-        $homestays = Homestay::All();
+        $homestays = Homestay::where('kecamatan', 'like', '%' . $request->get('kecamatan'))->get();
         return view('users.homestay.index')->with('homestays', $homestays);
     }
 
@@ -141,21 +141,23 @@ class HomestayController extends Controller
     }
 
 
-    public function bookHomestay(Request $request)
+    public function bookHomestay(Request $request,$id)
     {
+        $homestay=Homestay::find($id);
+
+        $total= $request->get('jumlahKamar');
         $orderHomestay = new HomestayOrders();
-        $orderHomestay->id_customer = $request->idCustomer;
-        $orderHomestay->id_homestay = $request->idHomestay;
-        $orderHomestay->total_price = $request->totalPrice;
-        $orderHomestay->check_in = $request->checkIn;
-        $orderHomestay->duration = $request->duration;
-        $orderHomestay->payment_method = $request->paymentMethod;
+        $orderHomestay->total_price = $total * $homestay->price;
+        $orderHomestay->id_homestay = $id;
+        $orderHomestay->id_customer = Auth::user()->id;
+        $orderHomestay->check_in = $request->get('checkIn');
+        $orderHomestay->duration = $request->get('durasi');
+        $orderHomestay->payment_method = "test";
         $orderHomestay->is_paid = false;
         $orderHomestay->resi = "";
         $orderHomestay->status = "Active";
-dd("test");
         $orderHomestay->save();
-        return "Pesan penginapan berhasil";
+        return redirect('/user/homestay/order/findAll');
     }
 
     public function approvePenginapan(Request $request, $id)
@@ -277,11 +279,33 @@ dd("test");
     public function findAllMerchantOrders()
     {
         $orders = HomestayOrders::all();
+//        $result = DB::table('homestay_orders')
+//            ->select('*')
+//            ->join('homestays', 'homestays.id', '=', 'homestay_orders.country_id')
+//            ->where('countries.country_name', $country)
+//            ->get();
+//        dd($orders);
+//        $homestay = Homestay::find($orders->id_homestay);
         $merchant = $this->getAuthincatedMerchant();
         $result = [
             "merchant" => $merchant,
             "orders" => $orders
+//            "homestay" => $homestay
         ];
         return view('users.merchants.homestays.record_pesanan_penginapan')->with('result', $result);
+    }
+
+    public function uploadRes(Request $request, $id){
+        $length = 10;
+        $rand =substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+        $homestayOrders = HomestayOrders::find($id);
+        if ($request->file('images')) {
+            $image = $request->file('images');
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, 'resi_'.$rand . '.png');
+        }
+
+        $homestayOrders->resi = 'resi_'.$rand.'.png';
+        $homestayOrders->update();
     }
 }

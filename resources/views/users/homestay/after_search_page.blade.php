@@ -51,11 +51,11 @@
                                         </div>
                                     </div>
                                     <div class="col-md-2">
-                                        <button class="btn"
+                                        <a class="btn"
                                                 href="{{ url('/homestays/find', $product->id)}}"
                                                 style="background-color: #0b0b0b; color: #ffffff; margin-top: 100px; width: 100px">
                                             Lihat
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                         </div>
                         @endforeach
                     </div>
-
+                    <br><br><br><br><br><br><br><br><br><br>
                     <div class="row">
                         @foreach ($homestays as $product)
                         <div class="col-12 col-sm-6 col-lg-4 card">
