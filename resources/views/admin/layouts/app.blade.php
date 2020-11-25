@@ -1,7 +1,10 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="en">
 <!--<![endif]-->
@@ -33,14 +36,14 @@
 </head>
 
 <body>
-    @include('admin.layouts.sidebar')
+@include('admin.layouts.sidebar')
 
-    <div id="right-panel" class="right-panel">
-        @include('admin.layouts.header') 
-        @yield('content')
-    </div>
-    @include('admin.layouts.script')
+<div id="right-panel" class="right-panel">
+    @include('admin.layouts.header')
+    @yield('content')
+</div>
+@include('admin.layouts.script')
 
 </body>
-
+<script src="{{asset('/js/app.js')}}"></script>
 </html>
