@@ -68,7 +68,7 @@
                                 <div class="detailproduct">
                                     <div class="row">
 
-                                        <div class="imagesliderholder col-md-10 col-lg-8 col-auto  ml-0 ">
+                                        <div class="imagesliderholder col-md-10 col-lg-8 col-auto  ml-5 ">
                                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
                                                 <div class="carousel-inner">
