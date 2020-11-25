@@ -4,6 +4,7 @@ async function login() {
 
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
+    const hidden = document.getElementById('hidden-customer').value
 
     var cek_depan = 1;
 
@@ -120,13 +121,13 @@ async function login() {
                 if (xhr.status == 200) {
 
                     if(hidden=="customer"){
-                        window.location.href="/home"
+                        window.location.href="/"
                     }else if(hidden=="cbt"){
-                        window.location.href="/home"
+                        window.location.href="/"
                     }else if(hidden=="admin"){
-                        window.location.href="/home"
+                        window.location.href="/"
                     }else if(hidden=="merchant"){
-                        window.location.href="/home"
+                        window.location.href="/"
                     }
                 } else if (xhr.status == 422) {
                     document.getElementById("exampleModalLabel").innerHTML = "E-mail atau Kata Sandi salah";
@@ -159,21 +160,4 @@ async function login() {
             },
         })
     }
-}
-
-function setCustomer(){
-    hidden = document.getElementById('hidden-customer').value
-    console.log(hidden);
-}
-function setMerchant(){
-    hidden = document.getElementById('hidden-merchant').value
-    console.log(hidden);
-}
-function setCbt(){
-    hidden = document.getElementById('hidden-cbt').value
-    console.log(hidden);
-}
-function setAdmin(){
-    hidden = document.getElementById('hidden-admin').value
-    console.log(hidden);
 }
