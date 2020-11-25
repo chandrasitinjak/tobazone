@@ -241,6 +241,9 @@ Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::get('/homestays/save', 'HomestayController@store');
 
+// Display all homestay orders of a customer.
+Route::get('/user/homestay/order/findAll', 'HomestayController@findAllCustomerOrder');
+
 
 // Sistem Informasi Pariwisata
 Route::get('/home-informasi-pariwisata', 'HomeController@homeInformasiPariwisata');
