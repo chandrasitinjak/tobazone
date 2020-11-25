@@ -19,7 +19,7 @@
                                     <img :src="image" class="img-responsive" height="70" width="90">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="file" v-on:change="onImageChange" class="form-control">
+                                    <input type="file" v-on:change="onImageChange" >
                                 </div>
                                 <br>
                             </div>
@@ -94,7 +94,7 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <select class="form-control form-control-sm" @change="getSubdistricts"
+                            <select class="form-control" @change="getSubdistricts"
                                     v-model="userMerchant.selectedCity"
                                     v-model.trim="$v.userMerchant.selectedCity.$model"
                                     :class="{'is-invalid':$v.userMerchant.selectedCity.$error, 'is-valid':!$v.userMerchant.selectedCity.$invalid }">
@@ -111,7 +111,7 @@
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <select class="form-control form-control-sm"
+                            <select class="form-control"
                                     v-model="userMerchant.selectedSubdistrict"
                                     v-model.trim="$v.userMerchant.selectedSubdistrict.$model"
                                     :class="{'is-invalid':$v.userMerchant.selectedSubdistrict.$error, 'is-valid':!$v.userMerchant.selectedSubdistrict.$invalid }">

@@ -72,7 +72,7 @@
                         <a href="{{ '../images/assets/no-image.jpg'}}">
                             <div class="product-img">
 
-                                <img src="{{ '../../images/assets/no-image.jpg'}}" alt="">
+                                <img src="{{ '../../images/'.$product->image}}" alt="">
 
                             </div>
                         </a>
