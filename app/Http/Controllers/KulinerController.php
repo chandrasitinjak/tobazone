@@ -79,6 +79,6 @@ class KulinerController extends Controller
 
         public function displayKuliner($id){
             $kuliner = Kuliner::findOrFail($id);
-            return view('wisatawan.Kuliner.index',compact('kuliner'));
+            return view('informasi-pariwisata.wisatawan.Kuliner.index',compact('kuliner'));
         }
 }

@@ -1,11 +1,6 @@
-@extends('layouts.CBT.master')
-​
-@section('title')
-    <title>Manajemen Obyek Wisata</title>
-@endsection
+@extends('users.anggotacbt.app')
 ​
 @section('content')
-    <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -31,14 +26,14 @@
                             @slot('header')
                                 <b>Tambah</b>
                             @endslot
-                            
+
                             @if (session('error'))
                                 @alert(['type' => 'danger'])
                                     {!! session('error') !!}
                                 @endalert
                             @endif
-​                            @slot('body')   
-                            <form role="form" action="" method="POST"  enctype="multipart/form-data">
+​                            @slot('body')
+                            <form role="form" action="{{ route('cbt.objek.store') }}" method="POST"  enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="nama_objek_wisata">Nama Objek Wisata</label>
@@ -46,17 +41,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="kabupaten_id">Kabupaten</label>
-{{--                                    <select class="form-control" name="kabupaten_id" readonly>--}}
-{{--                                            <option value="{{$kabupaten->id}}">{{$kabupaten->nama_kabupaten}}</option>--}}
-{{--                                    </select>--}}
+                                    <select class="form-control" name="kabupaten_id">
+                                            @foreach($kabupatens as $kabupaten)
+                                            <option value="{{$kabupaten->id_kabupaten}}">{{$kabupaten->nama_kabupaten}}</option>
+                                            @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="category_id">Category Wisata</label>
-{{--                                    <select class="form-control" name="category_id">--}}
-{{--                                        @foreach($categorys as $category)--}}
-{{--                                            <option value="{{$category->id}}">{{$category->nama_category}}</option>--}}
-{{--                                        @endforeach--}}
-{{--                                    </select>--}}
+                                    <select class="form-control" name="category_id">
+                                        @foreach($categorys as $category)
+                                            <option value="{{$category->id}}">{{$category->nama_category}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="lokasi">Lokasi</label>
@@ -78,7 +75,7 @@
                                     <label for="deskripsi">Deskripsi</label>
                                     <textarea class="ckeditor"  name="deskripsi" id="ckedtor" cols="5" rows="5" class="form-control {{ $errors->has('deskripsi') ? 'is-invalid':'' }}" required=""></textarea>
                                 </div>
-                            @endslot    
+                            @endslot
                             @slot('footer')
                                 <div class="card-footer">
                                     <button class="btn btn-primary">Simpan</button>
@@ -103,8 +100,8 @@
                                           <div class="col-sm-9">
                                             <input type="text" class="form-control" id="tempat" name="tempat">
                                           </div>
-                                        </div>          
-                                        <div class="form-group"> 
+                                        </div>
+                                        <div class="form-group">
                                           <div class="col-sm-offset-3 col-sm-9">
                                             <button type="submit" class="btn btn-default">Cari</button>
                                           </div>
@@ -119,7 +116,7 @@
                                         <div id="map" style="height: 500px;width: 600px"></div>
                                       </div>
                                     </div>
-                                </div>    
+                                </div>
                             @endslot
                             @slot('footer')
 ​                               <i>Peta</i>
@@ -130,7 +127,7 @@
                                 @slot('header')
                                 <b>List Objek Wisata</b>
                             @endslot
-                            
+
                             @slot('body')
                             @if (session('success'))
                                 @component('informasi-pariwisata.components.alert')
@@ -139,7 +136,7 @@
                                     @endslot
                                 @endcomponent
                             @endif
-                            
+
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                       <thead>
@@ -165,9 +162,9 @@
                                                 <td>{{$objekWisata->longitude}}</td>
                                                 <td>{{$objekWisata->latitude}}</td>
                                                 <td>{{$objekWisata->category_id}}</td>
-                                                <td>{{$objekWisata->kabupaten->nama_kabupaten}}</td>
+                                                <td></td>
                                                 <td>{{$objekWisata->cbt_id}} </td>
-                                                <td><form action="{{ route('ObjekWisata.destroy', $objekWisata->id) }}" method="POST">
+                                                <td><form action="" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <a href="{{ route('ObjekWisata.edit', $objekWisata->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
@@ -190,11 +187,11 @@
         </section>
 
 
-    </div>
+
 
     <script type="text/javascript">
       $(document).ready(function() {
-        
+
         function updateMarkerPosition(latLng) {
             document.getElementById('latitude').value = [latLng.lat()]
             document.getElementById('longitude').value = [latLng.lng()]
@@ -213,13 +210,13 @@
                 document.getElementById("panelContent").innerHTML="";
 
                 //ambil data dari json
-                $.getJSON(url, function(result){ 
+                $.getJSON(url, function(result){
 
                     //menampilkan peta
-                    var map;             
-                    map = new google.maps.Map(document.getElementById('map'), {                
-                      zoom: 15,  
-                      center: {lat: result.results[0].geometry.location.lat, lng: result.results[0].geometry.location.lng},              
+                    var map;
+                    map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 15,
+                      center: {lat: result.results[0].geometry.location.lat, lng: result.results[0].geometry.location.lng},
                     });
                     var propertiPeta = {
                         center:new google.maps.LatLng(result.results[0].geometry.location.lat,result.results[0].geometry.location.lng),
@@ -233,15 +230,15 @@
                     }
 
                     //looping data json
-                    $.each(result.results, function(i){  
-                        //menampilkan data keterangan alamat, lat, long 
+                    $.each(result.results, function(i){
+                        //menampilkan data keterangan alamat, lat, long
                         $("#latitude").val(result.results[i].geometry.location.lat);
                         $("#longitude").val(result.results[i].geometry.location.lng);
-                        $("#lokasi").val(result.results[i].formatted_address);       
+                        $("#lokasi").val(result.results[i].formatted_address);
 
-                
+
                         var peta = new google.maps.Map(document.getElementById("map"), propertiPeta);
-                        
+
                         var latLng = new google.maps.LatLng(result.results[i].geometry.location.lat, result.results[i].geometry.location.lng);
                        var marker = new google.maps.Marker({
                            position : latLng,
@@ -253,22 +250,22 @@
                        updateMarkerPosition(latLng);
                        google.maps.event.addListener(marker, 'drag', function() {
                            updateMarkerPosition(marker.getPosition());
-                       });    
-                          
+                       });
+
                          // To add the marker to the map, call setMap();
                         marker.setMap(peta);
 
                    });
 
-                 });   
+                 });
 
             }else{
               alert("Nama tempat tidak boleh kosong!");
-            } 
-           
+            }
+
         });
-        
+
     });
-   
+
 </script>
 @endsection

@@ -85,7 +85,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
+                            <a href="{{route('cbt.akomodasi')}}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Akomodasi</p>
                             </a>

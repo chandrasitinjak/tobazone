@@ -11,11 +11,11 @@ class AkomodasiController extends Controller
 {
     public function index(){
         	$kabupaten_id = session('kabupaten_id');
-        	$kabupaten = Kabupaten::findOrFail($kabupaten_id);
-        	$akomodasis = Akomodasi::where('kabupaten_id' , $kabupaten_id)->paginate(5);
+        	$kabupatens = Kabupaten::all();
+        	$akomodasis = Akomodasi::paginate(5);
         	$categoryAkomodasis = CategoryAkomodasi::all();
 
-        	return view('CBT.Akomodasi.index',compact('akomodasis','kabupaten','categoryAkomodasis'));
+        	return view('informasi-pariwisata.CBT.Akomodasi.index',compact('akomodasis','kabupatens','categoryAkomodasis'));
     }
     public function store(Request $request){
         	$akomodasi = new Akomodasi;
@@ -78,6 +78,6 @@ class AkomodasiController extends Controller
 
         public function displayAkomodasi($id){
             $akomodasi = Akomodasi::findOrFail($id);
-            return view('wisatawan.Akomodasi.index',compact('akomodasi'));
+            return view('informasi-pariwisata.wisatawan.Akomodasi.index',compact('akomodasi'));
         }
 }

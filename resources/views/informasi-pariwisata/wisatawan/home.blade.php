@@ -124,7 +124,7 @@
                             <div class="text p-4">
                               <span class="price">Explore</span>
                               <span class="days"><span class="badge badge-warning">Objek Wisata</span></span>
-                              <span class="days"> {{ $objekWisata1->kabupaten->nama_kabupaten}} </span>
+{{--                              <span class="days"> {{ $objekWisata1->kabupaten->nama_kabupaten}} </span>--}}
                               <h3><a href="#">{{ $objekWisata1->nama_objek_wisata}}</a></h3>
                               <p class="location"><span class="ion-ios-map"></span> {{ $objekWisata1->lokasi}}</p>
                             </div>
@@ -143,7 +143,7 @@
                             <div class="text p-4">
                               <span class="price">Explore</span>
                               <span class="days"><span class="badge badge-warning">Objek Wisata</span></span>
-                              <span class="days"> {{ $objekWisata2->kabupaten->nama_kabupaten}} </span>
+{{--                              <span class="days"> {{ $objekWisata2->kabupaten->nama_kabupaten}} </span>--}}
                               <h3><a href="#">{{ $objekWisata2->nama_objek_wisata}}</a></h3>
                               <p class="location"><span class="ion-ios-map"></span> {{ $objekWisata2->lokasi}}</p>
                             </div>
@@ -190,7 +190,7 @@
                 <div class="text p-4">
                   <span class="price">Explore</span>
                   <span class="days"><span class="badge badge-warning">Akomodasi</span></span>
-                  <span class="days">{{ $akomodasi->kabupaten->nama_kabupaten}}</span>
+{{--                  <span class="days">{{ $akomodasi->kabupaten->nama_kabupaten}}</span>--}}
                   <h3><a href="#">{{$akomodasi->nama_akomodasi}}</a></h3>
                   <p class="location"><span class="ion-ios-map"></span> {{$akomodasi->lokasi}}/p>
                 </div>
@@ -383,7 +383,7 @@
                 <div class="text p-4">
                   <span class="price">Explore</span>
                   <span class="days"><span class="badge badge-warning">Kuliner</span></span>
-                  <span class="days">{{ $kuliner->kabupaten->nama_kabupaten}}</span>
+{{--                  <span class="days">{{ $kuliner->kabupaten->nama_kabupaten}}</span>--}}
                   <h3><a href="#">{{$kuliner->nama_kuliner}}</a></h3>
                   <p class="location"><span class="ion-ios-map"></span> {{$kuliner->lokasi}}/p>
                 </div>

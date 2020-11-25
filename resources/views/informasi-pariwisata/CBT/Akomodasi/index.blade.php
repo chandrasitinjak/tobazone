@@ -1,11 +1,10 @@
-@extends('layouts.CBT.master')
+@extends('users.anggotacbt.app')
 ​
 @section('title')
     <title>Manajemen Obyek Wisata</title>
 @endsection
 ​
 @section('content')
-    <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -26,7 +25,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4">
-                        @component('components.card')
+                        @component('informasi-pariwisata.components.card')
                             @slot('header')
                                 <b>Tambah</b>
                             @endslot
@@ -37,7 +36,7 @@
                                 @endalert
                             @endif
 ​                            @slot('body')   
-                            <form role="form" action="{{ route('Akomodasi.store') }}" method="POST"  enctype="multipart/form-data">
+                            <form role="form" action="" method="POST"  enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="nama_akomodasi">Nama Akomodasi</label>
@@ -45,8 +44,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="kabupaten_id">Kabupaten</label>
-                                    <select class="form-control" name="kabupaten_id" readonly>
+                                    <select class="form-control" name="kabupaten_id">
+                                        @foreach($kabupatens as $kabupaten)
                                             <option value="{{$kabupaten->id}}">{{$kabupaten->nama_kabupaten}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -87,7 +88,7 @@
                         @endcomponent
                     </div>
                     <div class="col-md-8">
-                        @component('components.card')
+                        @component('informasi-pariwisata.components.card')
                             @slot('header')
                                 <b>Cari tempat Akomodasi</b>
                             @endslot
@@ -125,7 +126,7 @@
                             @endslot
 
                         @endcomponent('components.card')    
-                        @component('components.card')
+                        @component('informasi-pariwisata.components.card')
                                 @slot('header')
                                 <b>List Akomodasi</b>
                             @endslot
@@ -164,12 +165,12 @@
                                                 <td>{{$akomodasi->longitude}}</td>
                                                 <td>{{$akomodasi->latitude}}</td>
                                                 <td>{{$akomodasi->category_akomodasi_id}}</td>
-                                                <td>{{$akomodasi->kabupaten->nama_kabupaten}}</td>
+                                                <td></td>
                                                 <td>{{$akomodasi->cbt_id}} </td>
-                                                <td><form action="{{ route('Akomodasi.destroy', $akomodasi->id) }}" method="POST">
+                                                <td><form action="" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <a href="{{ route('Akomodasi.edit', $akomodasi->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                    <a href="" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                     <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                                                 </form></td>
                                             </tr>
@@ -188,8 +189,6 @@
             </div>
         </section>
 
-
-    </div>
 
     <script type="text/javascript">
       $(document).ready(function() {

@@ -8,37 +8,15 @@
       }
     </style>
     <meta charset="utf-8">
-    <link rel="icon" type="text/css" href="http://icons.iconarchive.com/icons/streamlineicons/streamline-ux-free/128/ecology-globe-icon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ asset('css_wisatawan/open-iconic-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css_wisatawan/animate.css') }}">
-    
-    <link rel="stylesheet" href="{{ asset('css_wisatawan/owl.carousel.min.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css_wisatawan/owl.theme.default.min.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css_wisatawan/magnific-popup.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('css_wisatawan/aos.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('css_wisatawan/ionicons.min.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('css_wisatawan/bootstrap-datepicker.css') }}">
-    <link rel="stylesheet" href="{{ asset('css_wisatawan/jquery.timepicker.css') }}">
-
-    
-    <link rel="stylesheet" href="{{asset('css_wisatawan/flaticon.css')}}">
-    <link rel="stylesheet" href="{{asset('css_wisatawan/icomoon.css')}}">
     <link rel="stylesheet" href="{{asset('css_wisatawan/style.css')}}">
-    <link rel="stylesheet" href="{{asset('css_wisatawan/style2.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
-       
+
   </head>
   <body>
 	<!-- nav -->

@@ -28,13 +28,13 @@
 <body class="hold-transition sidebar-mini">
     
     <div class="wrapper">
-        @include('layouts.CBT.module.nav')
+        @include('informasi-pariwisata.layouts.CBT.module.nav')
 ​
-        @include('layouts.CBT.module.sidebar')
+        @include('informasi-pariwisata.layouts.CBT.module.sidebar')
 ​
         @yield('content')
         
-        @include('layouts.CBT.module.footer')
+        @include('informasi-pariwisata.layouts.CBT.module.footer')
     </div>
 ​
     <!-- jQuery -->

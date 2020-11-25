@@ -80,6 +80,6 @@ class EventController extends Controller
 
         public function displayEvent($id){
             $event = Event::findOrFail($id);
-            return view('wisatawan.Event.index',compact('event'));
+            return view('informasi-pariwisata.wisatawan.Event.index',compact('event'));
         }
 }

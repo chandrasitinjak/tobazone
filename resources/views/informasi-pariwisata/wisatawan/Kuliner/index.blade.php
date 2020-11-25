@@ -1,4 +1,4 @@
-@extends('layouts.wisatawan.master')
+@extends('informasi-pariwisata.layouts.wisatawan.master')
 
 
 <head>

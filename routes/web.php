@@ -93,7 +93,12 @@ Route::get('anggotacbt/layananwisata/{id}/edit', 'LayananWisataController@edit')
 Route::put('anggotacbt/layanan_wisata/{id}/update', 'LayananWisataController@update')->name('anggotacbt.layanan.update');
 Route::get('anggotacbt/layanan_wisata/{id}/delete', 'LayananWisataController@delete')->name('anggotacbt.layanan.delete');
 // Manajemen objek wisata
+//Objek Wisata
 Route::get('cbt/objek', 'ObjekWisataController@index')->name('cbt.objek');
+Route::post('cbt/objek/store', 'ObjekWisataController@store')->name('cbt.objek.store');
+Route::put('cbt/objek/edit/{id}', 'ObjekWisataController@edit')->name('cbt.objek.edit');
+//Akomodasi
+Route::get('cbt/akomodasi', 'AkomodasiController@index')->name('cbt.akomodasi');
 
 Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::post('/profile/edit/{id}', 'ProfileController@updateAddress');

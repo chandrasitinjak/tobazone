@@ -1,4 +1,4 @@
-@extends('layouts.wisatawan.master')
+@extends('informasi-pariwisata.layouts.wisatawan.master')
 
 
 <head>
@@ -21,7 +21,6 @@ height: 70%;">
       <p>
         <?= $budaya->deskripsi ?>
       </p>
-     
     </div>
 
     

@@ -106,7 +106,7 @@ $(document).ready(function() {
     $(".overlay").removeClass("visible");
   });
 });
-
+    @include('sweetalert::alert')
 </script>
 
 </body>

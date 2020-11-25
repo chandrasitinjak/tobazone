@@ -33,7 +33,7 @@ Banyak terdapat wahana yang disediakan di pantai Lumban bulbul ini, seperti bana
 Akses Ke Lumban Bulbul.
 
 Pantai ini dapat ditempuh sekitar 1,5 jam dari kota  Parapat, dapat dicapai dengan menggunakan transportasi umum seperti angkot, namun jika ingin lebih nyaman dapat menggunakan transportasi pribadi seperti mobil, motor, atau bahkan sepeda jika ingin lebih santai. Pantai Bulbul ini dapat juga ditempuh sekitar 1 jam dari Bandara Silangit.',
-                'member_id' => 1,
+                'member_id' => 2,
                 'status' => "ready",
                 'created_at' => Carbon::now('Asia/Jakarta'),
                 'updated_at' => Carbon::now('Asia/Jakarta')
@@ -47,7 +47,7 @@ Pantai ini dapat ditempuh sekitar 1,5 jam dari kota  Parapat, dapat dicapai deng
                 'category_id' => 1,
                 'kabupaten_id' => 2,
                 'deskripsi' => 'cantik',
-                'member_id' => 1,
+                'member_id' => 2,
                 'status' => "ready",
                 'created_at' => Carbon::now('Asia/Jakarta'),
                 'updated_at' => Carbon::now('Asia/Jakarta')
@@ -61,7 +61,7 @@ Pantai ini dapat ditempuh sekitar 1,5 jam dari kota  Parapat, dapat dicapai deng
                 'category_id' => 1,
                 'kabupaten_id' => 2,
                 'deskripsi' => 'cantik',
-                'member_id' => 1,
+                'member_id' => 2,
                 'status' => "ready",
                 'created_at' => Carbon::now('Asia/Jakarta'),
                 'updated_at' => Carbon::now('Asia/Jakarta')
@@ -75,7 +75,7 @@ Pantai ini dapat ditempuh sekitar 1,5 jam dari kota  Parapat, dapat dicapai deng
                 'category_id' => 1,
                 'kabupaten_id' => 2,
                 'deskripsi' => 'cantik',
-                'member_id' => 1,
+                'member_id' => 2,
                 'status' => "ready",
                 'created_at' => Carbon::now('Asia/Jakarta'),
                 'updated_at' => Carbon::now('Asia/Jakarta')
@@ -89,7 +89,7 @@ Pantai ini dapat ditempuh sekitar 1,5 jam dari kota  Parapat, dapat dicapai deng
                 'category_id' => 1,
                 'kabupaten_id' => 2,
                 'deskripsi' => 'cantik',
-                'member_id' => 1,
+                'member_id' => 2,
                 'status' => "ready",
                 'created_at' => Carbon::now('Asia/Jakarta'),
                 'updated_at' => Carbon::now('Asia/Jakarta')
@@ -103,7 +103,7 @@ Pantai ini dapat ditempuh sekitar 1,5 jam dari kota  Parapat, dapat dicapai deng
                 'category_id' => 1,
                 'kabupaten_id' => 2,
                 'deskripsi' => 'cantik',
-                'member_id' => 1,
+                'member_id' => 2,
                 'status' => "ready",
                 'created_at' => Carbon::now('Asia/Jakarta'),
                 'updated_at' => Carbon::now('Asia/Jakarta')
@@ -117,7 +117,7 @@ Pantai ini dapat ditempuh sekitar 1,5 jam dari kota  Parapat, dapat dicapai deng
                 'category_id' => 1,
                 'kabupaten_id' => 2,
                 'deskripsi' => 'cantik',
-                'member_id' => 1,
+                'member_id' => 2,
                 'status' => "ready",
                 'created_at' => Carbon::now('Asia/Jakarta'),
                 'updated_at' => Carbon::now('Asia/Jakarta')
@@ -131,7 +131,7 @@ Pantai ini dapat ditempuh sekitar 1,5 jam dari kota  Parapat, dapat dicapai deng
                 'category_id' => 1,
                 'kabupaten_id' => 2,
                 'deskripsi' => 'cantik',
-                'member_id' => 1,
+                'member_id' => 2,
                 'status' => "ready",
                 'created_at' => Carbon::now('Asia/Jakarta'),
                 'updated_at' => Carbon::now('Asia/Jakarta')
@@ -145,7 +145,7 @@ Pantai ini dapat ditempuh sekitar 1,5 jam dari kota  Parapat, dapat dicapai deng
                 'category_id' => 1,
                 'kabupaten_id' => 2,
                 'deskripsi' => 'cantik',
-                'member_id' => 1,
+                'member_id' => 2,
                 'status' => "ready",
                 'created_at' => Carbon::now('Asia/Jakarta'),
                 'updated_at' => Carbon::now('Asia/Jakarta')
