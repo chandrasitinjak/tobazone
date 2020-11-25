@@ -22,4 +22,10 @@ class HomestayOrders extends Model{
         'status'
     ];
     protected $dates = ['deleted_at'];
+
+    // homestay gets homestay data by id_homestay.
+    public function homestay()
+    {
+        return $this->belongsTo('App\Homestay', 'id_homestay');
+    }
 }
