@@ -1,6 +1,6 @@
 <?php
 
-    use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ Route::get('/', function () {
     return view('users.homes.index');
 });
 
-Route::get('/login', function() {
+Route::get('/login', function () {
     return redirect('/');
 })->name('login');
 //
@@ -67,7 +67,18 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::get('/unverified', 'HomeController@showUnverifiedPage');
 
     Route::middleware('role:admin')->group(function () {
-    Route::get('/admin', 'AdminController@index');
+        //BEGIN KOPERASI
+        Route::get('/admin/koperasi-aktif', function () {
+            return view('admin.koperasi.koperasi-aktif');
+        });
+        Route::get('/admin/koperasi-tidak-aktif', function () {
+            return view('admin.koperasi.koperasi-tidak-aktif');
+        });
+        Route::get('/admin/akun-koperasi-pending', function () {
+            return view('admin.koperasi.akun-koperasi-pending');
+        });
+        //END KOPERASI
+        Route::get('/admin', 'AdminController@index');
         Route::post('/merchantconfirmed/{id}', 'MerchantController@updateConfirm');
         Route::get('/admin/new-merchant', 'MerchantController@newMerchant');
         Route::get('/admin/new-order', 'TransactionController@getNewOrder');
@@ -94,7 +105,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/edit-profile', 'AdminController@editProfile');
         Route::get('/admin/show-password', 'AdminController@showChangePassword');
         Route::post('/admin/update-profile', 'AdminController@updateProfile');
-        Route::post('/admin/edit-password','AdminController@editPassword');
+        Route::post('/admin/edit-password', 'AdminController@editPassword');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
@@ -220,7 +231,7 @@ Route::get('/home-informasi-pariwisata', 'HomeController@homeInformasiPariwisata
 
 
 Route::get('/homestays/approvalPesananPenginapan', function () {
-    return view ('homestay.merchant.ApprovalPesananPenginapan');
+    return view('homestay.merchant.ApprovalPesananPenginapan');
 });
 
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
