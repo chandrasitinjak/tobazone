@@ -20,15 +20,16 @@ class CreateKulinersTable extends Migration
             $table->string('jenis_kuliner');
             $table->string('longitude');
             $table->string('foto');
+            $table->string('status');
             $table->string('latitude');
             $table->string('lokasi');
             $table->text('deskripsi')->nullable();
-            $table->unsignedBigInteger('cbt_id');
+            $table->unsignedBigInteger('member_id');
             $table->unsignedBigInteger('kabupaten_id');
             $table->timestamps();
 
-            $table->foreign('cbt_id')->references('id')->on('cbts');
-            $table->foreign('kabupaten_id')->references('id')->on('kabupatens');
+            $table->foreign('member_id')->references('id')->on('member');
+            $table->foreign('kabupaten_id')->references('id_kabupaten')->on('kabupatens');
         });
     }
 

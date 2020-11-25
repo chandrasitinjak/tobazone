@@ -49,7 +49,9 @@ export default {
       };
 
       // await window.axios.post("/api/carts", payload).then(res => {
-      window.axios.post("/api/carts", payload).then(res => {
+      window.axios
+      .post("/api/carts", payload)
+      .then(res => {
         this.emitEvent(res.data);
       });
 

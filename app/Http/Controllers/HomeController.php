@@ -44,5 +44,8 @@ class HomeController extends Controller
         return view('users.homes.index');
     }
 
+    public function homeInformasiPariwisata(){
+        return "andreas";
+    }
     
 }

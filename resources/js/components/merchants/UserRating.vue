@@ -3,19 +3,19 @@
         <div class="card-body">
             <div class="row" style="margin-bottom: 5px;">
                 <div class="col-md-6">
-                    <star-rating v-model="rating" :increment="0.5" :star-size="30" text-class="custom-text" :read-only="rating > 0"></star-rating>
+                    <star-rating v-show="showRating" v-model="rating" :increment="0.5" :star-size="30" text-class="custom-text" :read-only="rating > 0"></star-rating>
                 </div>
             </div>
-            <button @click="setRating" class="btn btn-primary btn-sm">Rate</button>
+            <button @click="setRating" class="btn btn-primary btn-sm" v-show="showRating">Rate</button>
             <hr style="border:3px solid #f1f1f1">
 
             <div class="row">
-                <div class="col-xs-12 col-md-2 text-center">   
-                    <div v-if="totalrate > 0">                 
-                    <h1 class="rating-num">{{ totalrate }}</h1>            
+                <div class="col-xs-12 col-md-2 text-center">
+                    <div v-if="totalrate > 0">
+                    <h1 class="rating-num">{{ totalrate }}</h1>
                     </div>
-                    <div v-else>                 
-                    <h1 class="rating-num">0</h1>            
+                    <div v-else>
+                    <h1 class="rating-num">0</h1>
                     </div>
                     <div class="rating">
                         <star-rating :inline="true" :read-only="true" :show-rating="false" :star-size="20" v-model="totalrate" :increment="0.1" active-color="#000000"></star-rating>
@@ -152,13 +152,25 @@ export default {
             bar3: 0,
             bar4: 0,
             bar5: 0,
+            showRating: false
         };
     },
     created() {
         this.getRating();
         this.setDefaultRating();
     },
+
     methods: {
+        showRating(){
+            window.axios.get(`api/rating/${this.user}/${this.product}`)
+                .then(response => {
+                    this.showRating = response.data
+                })
+                .catch(error => {
+                    alert(error);
+                    console.log(error)
+                });
+        },
         setDefaultRating() {
             rating = this.rating;
         },
@@ -222,11 +234,15 @@ export default {
                     let errMessage = "Gagal memberikan penilaian, silahkan coba lagi"
                     if (error.response.data.message != "") {
                         errMessage = error.response.data.message
-                    } 
+                    }
                     alert(errMessage);
                     console.log(error)
                 });
         },
     },
+
+    mounted() {
+        this.showRating()
+    }
 }
 </script>

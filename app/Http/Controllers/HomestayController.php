@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Homestay;
+use App\HomestayOrders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\HomestayOrders;
+
 class HomestayController extends Controller
 {
     /**
@@ -24,6 +25,16 @@ class HomestayController extends Controller
             ]
         ];
         return view('users.merchants.homestays.index')->with('homestays', $homestays);
+    }
+
+    /**
+     * Display a list of homestay orders by user_id
+     */
+    public function findAllCustomerOrder()
+    {
+        $user = Auth::user();
+        $homestayOrders = HomestayOrders::where('id_customer', $user->id)->get();
+        return view('users.customers.homestays.index')->with('homestayOrders', $homestayOrders);
     }
 
     public function findById($id)
