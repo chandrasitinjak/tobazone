@@ -35,11 +35,11 @@
           </div>
         </ul>
       </div>
-      </div>     
+      </div>
       </div>
     </div>
-    <modal v-if="showModal" v-bind:user-id="userId"/>        
-  </div>  
+    <modal v-if="showModal" v-bind:user-id="userId"/>
+  </div>
 </template>
 
 <script>
@@ -53,7 +53,7 @@ export default {
       showModal: false,
       addresses: [],
       address: null,
-      buyer: {},      
+      buyer: {},
     };
   },
   components: {
@@ -66,10 +66,10 @@ export default {
         .then(res => {
           this.addresses = JSON.parse(res.data.address);
           this.address = JSON.parse(this.addresses[0]);
-          this.buyer = res.data;      
-          
+          this.buyer = res.data;
+
           EventBus.$emit('ADDRESS_CHOOSEN', null);
-           this.publishAddressChoosenEvent();          
+           this.publishAddressChoosenEvent();
         })
         .catch(err => {
           console.log(err);
@@ -84,7 +84,7 @@ export default {
     this.getAddress();
     EventBus.$on("ADD_ADDRESS_MODAL_CLOSED", () => {
       this.showModal = false;
-    });     
+    });
   }
 };
 </script>
