@@ -6,7 +6,7 @@
           <h5>Alamat Pengiriman</h5>
         </div>
         <div class="col-md-4 col-12">
-          <select v-model="address" class="form-control form-control-sm" @change="publishAddressChoosenEvent">            
+          <select v-model="address" class="form-control" @change="publishAddressChoosenEvent">
             <option v-for="address in addresses" :value="JSON.parse(address)"> {{ JSON.parse(address).name }}</option>
           </select>
         </div>

@@ -81454,7 +81454,7 @@ var render = function() {
                     expression: "address"
                   }
                 ],
-                staticClass: "form-control form-control-sm",
+                staticClass: "form-control",
                 on: {
                   change: [
                     function($event) {
@@ -89509,7 +89509,7 @@ var render = function() {
                           modifiers: { trim: true }
                         }
                       ],
-                      staticClass: "form-control form-control-sm",
+                      staticClass: "form-control",
                       class: {
                         "is-invalid":
                           _vm.$v.userCustomer.selectedProvince.$error,
@@ -89611,7 +89611,7 @@ var render = function() {
                           modifiers: { trim: true }
                         }
                       ],
-                      staticClass: "form-control form-control-sm",
+                      staticClass: "form-control ",
                       class: {
                         "is-invalid": _vm.$v.userCustomer.selectedCity.$error,
                         "is-valid": !_vm.$v.userCustomer.selectedCity.$invalid
@@ -89710,7 +89710,7 @@ var render = function() {
                           modifiers: { trim: true }
                         }
                       ],
-                      staticClass: "form-control form-control-sm",
+                      staticClass: "form-control ",
                       class: {
                         "is-invalid":
                           _vm.$v.userCustomer.selectedSubdistrict.$error,
@@ -91061,7 +91061,7 @@ var render = function() {
                           modifiers: { trim: true }
                         }
                       ],
-                      staticClass: "form-control form-control-sm",
+                      staticClass: "form-control ",
                       class: {
                         "is-invalid":
                           _vm.$v.userMerchant.selectedProvince.$error,
@@ -91164,7 +91164,7 @@ var render = function() {
                           modifiers: { trim: true }
                         }
                       ],
-                      staticClass: "form-control form-control-sm",
+                      staticClass: "form-control ",
                       class: {
                         "is-invalid": _vm.$v.userMerchant.selectedCity.$error,
                         "is-valid": !_vm.$v.userMerchant.selectedCity.$invalid
@@ -91263,7 +91263,7 @@ var render = function() {
                           modifiers: { trim: true }
                         }
                       ],
-                      staticClass: "form-control form-control-sm",
+                      staticClass: "form-control ",
                       class: {
                         "is-invalid":
                           _vm.$v.userMerchant.selectedSubdistrict.$error,
