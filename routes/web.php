@@ -263,6 +263,11 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::post('/customer/{id}/store', 'ProfileController@storeUpdate');
         Route::get('/customer/{id}/wishlist', 'CartController@myWishlist');
         Route::post('/wishlist/delete', 'CartController@deleteWishlist');
+        //Start visit Tba
+        //pemesanan
+        Route::delete('/pemesanan/cancel/{id_pemesanan}', 'PemesananController@cancel')->name('pemesanan.batal');
+        //end pemesanan
+        //end visit toba
     });
 
     Route::middleware('role:costumer|admin')->group(function () {
