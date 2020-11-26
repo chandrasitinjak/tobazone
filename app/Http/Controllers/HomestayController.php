@@ -166,7 +166,7 @@ dd("test");
 
         $homestay_id->update();
 
-        return "pesanan diterima";
+        return redirect('/merchant/homestay/orders')->with('success','Pesanan Diterima');
     }
 
     public function rejectedPenginapan(Request $request, $id)
@@ -177,7 +177,7 @@ dd("test");
 
         $homestay_id->update();
 
-        return "pesanan ditolak";
+        return redirect('/merchant/homestay/orders')->with('success','Pesanan Ditolak');
     }
 
     public function listPesananPenginapan()
