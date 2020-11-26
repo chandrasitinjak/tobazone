@@ -172,8 +172,9 @@ class HomestayController extends Controller
         $homestay_id->status = "accepted";
 
         $homestay_id->update();
+        //redirect
 
-        return "pesanan diterima";
+        return redirect('/merchant/homestay/orders')->with('success','Pesanan Diterima');
     }
 
     public function rejectedPenginapan(Request $request, $id)
@@ -184,7 +185,7 @@ class HomestayController extends Controller
 
         $homestay_id->update();
 
-        return "pesanan ditolak";
+        return redirect('/merchant/homestay/orders')->with('success','Pesanan Ditolak');
     }
 
     public function listPesananPenginapan()
