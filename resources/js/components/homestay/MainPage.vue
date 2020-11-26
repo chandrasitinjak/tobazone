@@ -56,18 +56,8 @@
               alert("test");
             },
             search() {
-                window.axios
-                    .post("/homestays/search",{
-                        'kecamatan': this.kecamatan
-                    })
-                    .then(res => {
-                        console.log(res)
-                    })
-                    .catch(err => {
-                        if (err.response.status === 500) {
-                            console.log(err.response);
-                        }
-                    });
+                window.location.href="/homestays/search";
+
             }
         }
     }
