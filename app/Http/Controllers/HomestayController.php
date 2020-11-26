@@ -165,6 +165,7 @@ dd("test");
         $homestay_id->status = "accepted";
 
         $homestay_id->update();
+        //redirect
 
         return redirect('/merchant/homestay/orders')->with('success','Pesanan Diterima');
     }
