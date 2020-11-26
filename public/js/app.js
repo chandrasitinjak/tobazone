@@ -101623,7 +101623,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Style the input container */\n.input-container[data-v-072c7e44] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    margin-bottom: 15px;\n}\n\n/* Style the form icons */\n.icon[data-v-072c7e44] {\n    padding: 10px;\n    background: #F5F5F5;\n    color: white;\n    min-width: 50px;\n    text-align: center;\n}\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Style the input container */\n.input-container[data-v-072c7e44] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    margin-bottom: 15px;\n}\n\n/* Style the form icons */\n.icon[data-v-072c7e44] {\n    padding: 10px;\n    background: #F5F5F5;\n    color: white;\n    min-width: 50px;\n    text-align: center;\n}\n\n", ""]);
 
 // exports
 
@@ -101693,15 +101693,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             alert("test");
         },
         search: function search() {
-            window.axios.post("/homestays/search", {
-                'kecamatan': this.kecamatan
-            }).then(function (res) {
-                console.log(res);
-            }).catch(function (err) {
-                if (err.response.status === 500) {
-                    console.log(err.response);
-                }
-            });
+            window.location.href = "/homestays/search";
         }
     }
 });

@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\HomestayOrders;
+use DB;
 
 class HomestayController extends Controller
 {
@@ -31,21 +32,25 @@ class HomestayController extends Controller
     public function findAllCustomer()
     {
         $homestays = Homestay::All();
+        $result =DB::table('homestays')
+            ->join('users', 'users.id', '=', 'homestays.merchant_id')
+            ->get();
         $data = [
             'code' => 200,
             'status' => 'OK',
             'data' => [
-                $homestays
+                $result
             ]
         ];
-        return view('users.homestay.index')->with('homestays', $homestays);
+        return view('users.homestay.index')->with('homestays', $result);
     }
 
 
     public function search(Request $request)
     {
-        $homestays = Homestay::where('kecamatan', 'like', '%' . $request->get('kecamatan'))->get();
-        return view('users.homestay.index')->with('homestays', $homestays);
+        $homestays = Homestay::where('kecamatan', 'like', "%" . $request->kecamatan."%")->get();
+
+        return view('users.homestay.after_search_page')->with('homestays', $homestays);
     }
 
     public function searchTest()
@@ -210,7 +215,7 @@ class HomestayController extends Controller
     public function getAllMerchantHomestay()
     {
         $merchant = $this->getAuthincatedMerchant();
-        $homestays = Homestay::All();
+        $homestays = Homestay::where('merchant_id', Auth::user()->id)->get();;
         $result = [
             "merchant" => $merchant,
             "homestay" => $homestays

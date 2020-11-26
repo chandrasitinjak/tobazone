@@ -66,13 +66,16 @@
             <hr>
             <br>
             <div class="row">
+
+
                 @foreach ($result['homestay'] as $product)
-                <div class="col-12 col-sm-6 col-lg-4 card">
-                    <div class="single-product-wrapper">
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card">
+                    <div class=" single-product-wrapper" style="margin: 10px;">
                         <a href="{{ '../images/assets/no-image.jpg'}}">
                             <div class="product-img">
 
-                                <img src="{{ '../../images/'.$product->image}}" alt="">
+                                <img src="{{ '../../images/'.$product->image}}" style=' object-fit: cover' alt="">
 
                             </div>
                         </a>
@@ -113,6 +116,7 @@
                                 </a>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
                 @endforeach
