@@ -38,34 +38,10 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return redirect('/');
 })->name('login');
+//
 
-Route::get('/listlogin', function () {
-    return view('users.auth.listlogin');
-});
+Auth::routes(['verify' => true]);
 
-Route::get('/cbt', function () {
-    return view('users.auth.listlogin');
-});
-
-//Auth::routes(['verify' => true]);
-//login
-Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
-Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
-Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
-
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('/login/{role}', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-
-Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
-
-
-//register
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
 
 Route::get('/profile', function () {
     return 'This is Profile';
@@ -91,6 +67,9 @@ Route::post('anggotacbt/layananwisata/create', 'LayananWisataController@create')
 Route::get('anggotacbt/layananwisata/{id}/edit', 'LayananWisataController@edit')->name('anggotacbt.layanan.edit');
 Route::put('anggotacbt/layanan_wisata/{id}/update', 'LayananWisataController@update')->name('anggotacbt.layanan.update');
 Route::get('anggotacbt/layanan_wisata/{id}/delete', 'LayananWisataController@delete')->name('anggotacbt.layanan.delete');
+Route::get('anggotacbt/komunitas/','KomunitasCBTController@index')->name('anggotacbt.komunitas');
+Route::get('anggotacbt/komunitas/pendaftar','PendaftarController@index')->name('view_anggota');
+Route::post('anggotacbt/komunitas/pendaftar/create','PendaftarController@daftar')->name('gabung_daftar');
 
 
 Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
@@ -99,6 +78,17 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::get('/unverified', 'HomeController@showUnverifiedPage');
 
     Route::middleware('role:admin')->group(function () {
+        //BEGIN KOPERASI
+        Route::get('/admin/koperasi-aktif', function () {
+            return view('admin.koperasi.koperasi-aktif');
+        });
+        Route::get('/admin/koperasi-tidak-aktif', function () {
+            return view('admin.koperasi.koperasi-tidak-aktif');
+        });
+        Route::get('/admin/akun-koperasi-pending', function () {
+            return view('admin.koperasi.akun-koperasi-pending');
+        });
+        //END KOPERASI
 
 //visit toba
 
@@ -232,6 +222,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::post('/orderconfirm/{id}', 'OrderController@orderconfirm');
     });
 
+
     Route::middleware('role:merchant')->group(function () {
         Route::get('/merchant', 'MerchantController@index');
         Route::prefix('/merchant/products')->group(function () {
@@ -259,6 +250,11 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::post('/customer/{id}/store', 'ProfileController@storeUpdate');
         Route::get('/customer/{id}/wishlist', 'CartController@myWishlist');
         Route::post('/wishlist/delete', 'CartController@deleteWishlist');
+        //Start visit Tba
+        //pemesanan
+        Route::delete('/pemesanan/cancel/{id_pemesanan}', 'PemesananController@cancel')->name('pemesanan.batal');
+        //end pemesanan
+        //end visit toba
     });
 
     Route::middleware('role:costumer|admin')->group(function () {
@@ -310,6 +306,9 @@ Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::get('/homestays/save', 'HomestayController@store');
 
+// Display all homestay orders of a customer.
+Route::get('/user/homestay/order/findAll', 'HomestayController@findAllCustomerOrder');
+
 
 // Sistem Informasi Pariwisata
 Route::get('/home-informasi-pariwisata', 'InformasiPariwisataController@index');
@@ -354,4 +353,9 @@ Route::get('/admin/member/aktif/{id_member}', 'MemberController@aktifkanStatus')
 Route::get('/admin/member/detail/{id_member}', 'MemberController@detailMember')->name('member.detail');
 Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}', 'MemberController@keluarkan')->name('member.keluarkan');
 
+//menampilkan paket wisata di sisi customer
+Route::get('/paket-wisata','PaketWisataController@index_customer');
 Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiemail')->name('konfirmasiemail');
+
+//detail paket wisata
+Route::get('/paket/details/{id_paket}', 'PaketWisataCustomerController@show')->name('paket.detail');

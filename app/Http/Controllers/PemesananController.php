@@ -85,6 +85,23 @@ class PemesananController extends Controller
         return view('admin.pemesanan.detail',compact('paket','total','pemesanan','user'));
     }
 
+    public function cancel($id_pemesanan)
+    {
+        $pemesanan = Pemesanan::find($id_pemesanan);
+        if ($pemesanan->count() != 0) {
+            $sesi = Sesi::find($pemesanan->sesi_id);
+            $sesi->kuota_peserta += $pemesanan->jumlah_peserta;
+            if($sesi->status==0)
+                $sesi->status=1;
+            $sesi->save();
+            $pemesanan->status = 0;
+            $pemesanan->save();
+
+            $this->refreshPaket($pemesanan->getSesi->paket_id,0);
+        }
+        return redirect(route('pemesanan'));
+    }
+
     public function konfirmasiPembayaran(Request $request, $id_pemesanan){
         $pemesanan = Pemesanan::find($id_pemesanan);
         $pemesanan->status = 3;
