@@ -266,6 +266,8 @@ Route::get('/user/homestay/order/findById/{idOrder}', 'HomestayController@findCu
 
 
 
+//List homestay Orders merchant side
+Route::get('/merchant/homestay/findAllOrder', 'HomestayController@findAllMerchantOrder');
 
 // Sistem Informasi Pariwisata
 Route::get('/home-informasi-pariwisata', 'HomeController@homeInformasiPariwisata');

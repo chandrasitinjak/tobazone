@@ -6,8 +6,10 @@ use App\Homestay;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use App\HomestayOrders;
-use DB;
+
 
 class HomestayController extends Controller
 {
@@ -225,6 +227,17 @@ class HomestayController extends Controller
         return view('users.merchants.homestays.all_homestay')->with('result', $result);
     }
 
+
+    public function findAllMerchantOrder() {        
+
+        $homestayOrders = DB::table('homestay_orders')
+                    ->join('homestays', 'homestay_orders.id_homestay', '=', 'homestays.id')
+                    ->where('homestays.merchant_id' ,'=', Auth::user()->id)
+                    ->whereIn('homestay_orders.status', ['paid', 'pending'])
+                    ->get();                    
+        return response()->json($homestayOrders);
+    }        
+
     public function findAllMerchantHomestay(){
         $homestays = Homestay::where('merchant_id', Auth::user()->id)->get();
 
@@ -314,4 +327,5 @@ class HomestayController extends Controller
         $homestayOrders->resi = 'resi_'.$rand.'.png';
         $homestayOrders->update();
     }
+    
 }
