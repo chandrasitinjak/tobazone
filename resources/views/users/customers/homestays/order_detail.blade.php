@@ -52,10 +52,97 @@
                                     {{-- TODO: add link for Hapus button --}}
                                     <td><p class="h6 text-right"><a href="#" class="btn btn-outline-warning">Hapus</a></p></td>
                                     {{-- add link for Bayar button --}}
-                                    <td><p class="h6 text-left"><a href="#" class="btn btn-dark">Bayar</a></p></td>
+                                    <td>
+                                        <button
+                                          type="button"
+                                          class="btn essence-btn"
+                                          data-toggle="modal"
+                                          data-target="#exampleModal"
+                                        >Bayar
+                                      </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
+
+                        <!-- Modal -->
+                    <div
+                      class="modal fade"
+                      id="exampleModal"
+                      tabindex="-1"
+                      role="dialog"
+                      aria-labelledby="exampleModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <spinner></spinner>
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Unggah Bukti Bayar</h5>
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- <form> -->
+                              <div class="form-group">
+                                <label for="namapengirim" class="small">Nama Pengirim</label>
+                                <input
+                                  type="text"
+                                  class="form-control form-control-sm"
+                                  id="namapengirim"
+                                  aria-describedby="emailHelp"
+                                  placeholder="Nama Pengirim"
+                                >
+                                <div class="valid-feedback">sudah valid</div>
+                              </div>
+                              <div class="form-group">
+                                <label for="utkbank" class="small">Bank Tujuan</label>
+                                <br>
+                                <select id="utkbank" class="form-control">
+                                  <!-- <option value="BRI">BRI</option> -->
+                                  <option value="MANDIRI">MANDIRI</option>
+                                    <option value="OVO">OVO</option>
+                                    <option value="DANA">DANA</option>
+                                    <option value="GOPAY">GOPAY</option>
+                                  <!-- <option value="BNI">BNI</option>
+                                  <option value="BCA">BCA</option> -->
+                                </select>
+                                 <div class="valid-feedback">sudah valid</div>
+                                  <div class="invalid-feedback">
+                                      <span>tidak boleh kosong</span>
+                                      <!-- <span v-if="!$v.senderName.required">tidak boleh kosong</span> -->
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="form-group">
+                                <label class="col-form-label">Bukti Pembayaran ( jpg/jpeg/png )</label>
+                                <div class="col-sm-9">
+                                  <div class="upload-btn-wrapper">
+                                    <button class="btn-upcus" style="margin: auto">
+                                      <img src="/images/assets/addimage.png" style="height: 100px">
+                                      <input type="file" name="myfile">
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            <!-- </form> -->
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn essence-btn"
+                            >Unggah</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     </div>
                 </div>
             </div>
