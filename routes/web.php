@@ -233,6 +233,8 @@ Route::get('/homestays/save', 'HomestayController@store');
 // Display all homestay orders of a customer.
 Route::get('/user/homestay/order/findAll', 'HomestayController@findAllCustomerOrder');
 
+//List homestay Orders merchant side
+Route::get('/merchant/homestay/findAllOrder/{id_merchant}', 'HomestayController@findAllMerchantOrder');
 
 // Sistem Informasi Pariwisata
 Route::get('/home-informasi-pariwisata', 'HomeController@homeInformasiPariwisata');
@@ -243,5 +245,6 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
 });
 
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
+
 
 

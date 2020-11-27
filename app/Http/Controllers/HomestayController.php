@@ -6,6 +6,8 @@ use App\Homestay;
 use App\HomestayOrders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class HomestayController extends Controller
 {
@@ -102,4 +104,14 @@ class HomestayController extends Controller
             return "Pesan penginapan berhasil";
     }
 
+    public function findAllMerchantOrder($id_merchant) {
+        $user = Auth::user();
+
+        $homestayOrders = DB::table('homestay_orders')
+                    ->join('homestays', 'homestay_orders.id_homestay', '=', 'homestays.id')
+                    ->where('homestays.merchant_id' ,'=', $id_merchant)
+                    ->get();            
+
+        return response()->json($homestayOrders);
+    }        
 }
