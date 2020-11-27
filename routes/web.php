@@ -244,8 +244,8 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
 
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
 
-Route::get('/customer/transactions/paket/{id}', 'TransactionPaketController@show');
+Route::get('/customer/transactions/paket/{id}', 'TransactionPaketController@show')->middleware('auth');
 
 // Route::get('/tessi123/{id}', function($id){
 //     echo $id;
-// });
+//
