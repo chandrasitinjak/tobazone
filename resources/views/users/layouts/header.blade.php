@@ -35,10 +35,13 @@
                @guest
                <div class="user-login-info align-content-end">
 {{--                  <a href="#">--}}
-                  <a href="/listlogin"><button class="btn btn-toba" type="button"
-                     style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
-                  </button></a>
+{{--                  <a href="/listlogin"><button class="btn btn-toba" type="button"--}}
+{{--                     style="text-decoration-line: unset; margin-right:15px!important;"> Masuk--}}
+{{--                  </button></a>--}}
 {{--                  </a>--}}
+                   <button class="btn btn-toba" type="button"  data-toggle="modal"  data-target="#loginModal"
+                           style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
+                   </button>
                   <a href="{{ url('/register') }}">
                   <button class="btn btn-toba" type="button"
                      style="text-decoration-line: unset;"> Daftar
@@ -161,6 +164,9 @@
       <li>
          <a href="{{ url('/product/ulos') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Ulos</a>
       </li>
+       <li>
+           <a href="{{ url('/user/homestays') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Homestay</a>
+       </li>
    </ul>
 </nav>
 @role('merchant')
@@ -343,6 +349,12 @@
          </a>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       </li>
+       <li class="nav-item dropdown" style="margin-left: 3rem">
+           <a class="nav-link dropdown" href="{{ url('/user/homestays') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+               Homestay
+           </a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+       </li>
    </ul>
    </div>
    <div class="container-fluid custom-container">
