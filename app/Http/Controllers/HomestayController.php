@@ -233,8 +233,11 @@ class HomestayController extends Controller
 
         $homestayOrders = DB::table('homestay_orders')
                     ->join('homestays', 'homestay_orders.id_homestay', '=', 'homestays.id')
-                    ->where('homestays.merchant_id' ,'=', $user->id)
-                    ->get();            
+                    ->where([
+                        'homestays.merchant_id' ,'=', $user->id,
+                        'homestay_orders.status', '=', 'pending',
+                        'homestay_orders.status', '=', 'paid',
+                        ])->get();                                            
 
         return response()->json($homestayOrders);
     }        
