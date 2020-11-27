@@ -80166,6 +80166,11 @@ var render = function() {
                         [
                           _c("img", {
                             staticClass: "ygambar-produk",
+                            staticStyle: {
+                              height: "100%",
+                              width: "100%",
+                              "object-fit": "cover"
+                            },
                             attrs: {
                               src:
                                 "/images/" + JSON.parse(cart.product.images)[0],
@@ -90919,7 +90924,7 @@ var render = function() {
                           modifiers: { trim: true }
                         }
                       ],
-                      staticClass: "form-control ",
+                      staticClass: "form-control",
                       class: {
                         "is-invalid":
                           _vm.$v.userMerchant.selectedProvince.$error,
@@ -91022,7 +91027,7 @@ var render = function() {
                           modifiers: { trim: true }
                         }
                       ],
-                      staticClass: "form-control ",
+                      staticClass: "form-control",
                       class: {
                         "is-invalid": _vm.$v.userMerchant.selectedCity.$error,
                         "is-valid": !_vm.$v.userMerchant.selectedCity.$invalid
@@ -91121,7 +91126,7 @@ var render = function() {
                           modifiers: { trim: true }
                         }
                       ],
-                      staticClass: "form-control ",
+                      staticClass: "form-control",
                       class: {
                         "is-invalid":
                           _vm.$v.userMerchant.selectedSubdistrict.$error,
