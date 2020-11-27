@@ -104,12 +104,12 @@ class HomestayController extends Controller
             return "Pesan penginapan berhasil";
     }
 
-    public function findAllMerchantOrder($id_merchant) {
+    public function findAllMerchantOrder() {
         $user = Auth::user();
 
         $homestayOrders = DB::table('homestay_orders')
                     ->join('homestays', 'homestay_orders.id_homestay', '=', 'homestays.id')
-                    ->where('homestays.merchant_id' ,'=', $id_merchant)
+                    ->where('homestays.merchant_id' ,'=', $user->id)
                     ->get();            
 
         return response()->json($homestayOrders);

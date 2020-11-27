@@ -29,3 +29,4 @@ class HomestayOrders extends Model{
         return $this->belongsTo('App\Homestay', 'id_homestay');
     }
 }
+

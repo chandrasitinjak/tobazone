@@ -234,7 +234,7 @@ Route::get('/homestays/save', 'HomestayController@store');
 Route::get('/user/homestay/order/findAll', 'HomestayController@findAllCustomerOrder');
 
 //List homestay Orders merchant side
-Route::get('/merchant/homestay/findAllOrder/{id_merchant}', 'HomestayController@findAllMerchantOrder');
+Route::get('/merchant/homestay/findAllOrder', 'HomestayController@findAllMerchantOrder');
 
 // Sistem Informasi Pariwisata
 Route::get('/home-informasi-pariwisata', 'HomeController@homeInformasiPariwisata');
