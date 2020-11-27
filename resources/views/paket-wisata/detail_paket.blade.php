@@ -101,9 +101,8 @@
                                             <h4><i class="fa fa-clock-o" aria-hidden="true"></i> <span>{{ $paket->durasi }}</span></h4>
                                         </div>
                                     </div>
-                                    <p class="product-desc"><?php echo $paket->deskripsi_paket ?></p>
 
-                                    <form>
+                                    <form class="mt-5">
                                         <div class="form-row align-items-center">
                                             <div class="col-sm-6 my-1">
                                                 <div class="input-group">
@@ -148,6 +147,13 @@
                                         </li>
 
                                         <li class="nav-item">
+                                            <a class="nav-link" id="desc-tab" data-toggle="tab" href="#desc" role="tab" aria-controls="desc" aria-selected="false">
+                                                <i class="fa fa-info mr-2" aria-hidden="true"></i>
+                                                <span>Description</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
                                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
                                                 <i class="fa fa-thumbs-o-up mr-2"></i>
                                                 <span>Included not Included</span>
@@ -156,9 +162,16 @@
 
                                     </ul>
                                     <div class="tab-content mt-3" id="myTabContent">
-                                        <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                             <div class="col-9 px-1">
                                                 <?php echo $paket->rencana_perjalanan ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade show" id="desc" role="tabpanel" aria-labelledby="desc-tab">
+                                            <div class="col-9 px-1">
+                                                <?php echo $paket->deskripsi_paket ?>
                                             </div>
                                         </div>
 
