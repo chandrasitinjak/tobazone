@@ -34,40 +34,7 @@
                                             </i>
                                             Non-Aktifkan
                                         </button>
-                                        <div class="modal fade" id="nonaktif_{{$paket->id_paket}}" tabindex="-1"
-                                             role="dialog"
-                                             aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="hapusModalLongTitle">Non-Aktifkan
-                                                            Paket
-                                                            Wisata</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body text-left">
-                                                        Anda Yakin Ingin Non-Aktifkan Paket ...
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">
-                                                            Batal
-                                                        </button>
-                                                        <form
-                                                            action="{{route('admin.paket.nonaktif',$paket->id_paket)}}"
-                                                            method="post">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <button type="submit" class="btn btn-warning">Non-Aktifkan
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </li>
                                 @elseif($paket->status==0)
                                     <li class="nav-item" style="margin-left: 10px">
@@ -77,37 +44,6 @@
                                             </i>
                                             Hapus Paket
                                         </button>
-                                        <div class="modal fade" id="delete_{{$paket->id_paket}}" tabindex="-1"
-                                             role="dialog"
-                                             aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="hapusModalLongTitle">Hapus Paket
-                                                            Wisata</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body text-left">
-                                                        Anda Yakin Ingin Menghapus Paket ...
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">
-                                                            Batal
-                                                        </button>
-                                                        <form action="{{route('admin.paket.hapus',$paket->id_paket)}}"
-                                                              method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Hapus</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </li>
                                     <li class="nav-item" style="margin-left: 10px">
                                         <button type="button" class="btn btn-success btn-md" data-toggle="modal"
@@ -116,41 +52,7 @@
                                             </i>
                                             Aktifkan
                                         </button>
-                                        <div class="modal fade" id="aktifkan_{{$paket->id_paket}}" tabindex="-1"
-                                             role="dialog"
-                                             aria-labelledby="aktifkanModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="aktifkanModalLongTitle">Aktifkan
-                                                            Kembali
-                                                            Paket
-                                                            Wisata</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body text-left">
-                                                        Anda Yakin Ingin Mengaktifkan kembali Paket ?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">
-                                                            Tidak
-                                                        </button>
-                                                        <form
-                                                            action="{{route('admin.paket.aktifkan',$paket->id_paket)}}"
-                                                            method="post">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <button type="submit" class="btn btn-success">Aktifkan
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </li>
                                 @elseif($paket->status==2)
                                     <li class="nav-item" style="margin-left: 10px">
@@ -160,40 +62,6 @@
                                             </i>
                                             Restore
                                         </button>
-                                        <div class="modal fade" id="restore_{{$paket->id_paket}}" tabindex="-1"
-                                             role="dialog"
-                                             aria-labelledby="restoreModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="restoreModalLongTitle">
-                                                            <i>Restore</i>
-                                                            Paket
-                                                            Wisata</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body text-left">
-                                                        Anda Yakin Ingin Me-<i>restore</i> Paket ?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">
-                                                            Tidak
-                                                        </button>
-                                                        <form action="{{route('admin.paket.recycle',$paket->id_paket)}}"
-                                                              method="post">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <button type="submit" class="btn btn-warning"><i>Restore</i>
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </li>
                                 @endif
                             </ul>
@@ -366,45 +234,7 @@
                                                             </i>
                                                             Aktifkan
                                                         </button>
-                                                        <div class="modal fade" id="aktifkan_sesi_{{$row->id_sesi}}"
-                                                             tabindex="-1" role="dialog"
-                                                             aria-labelledby="aktifkanSesiModalCenterTitle"
-                                                             aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered"
-                                                                 role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title"
-                                                                            id="aktifkanSesiModalLongTitle">
-                                                                            Aktifkan Sesi Paket Wisata</h5>
-                                                                        <button type="button" class="close"
-                                                                                data-dismiss="modal"
-                                                                                aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body text-left">
-                                                                        Anda Yakin Ingin Mengaktifkan Sesi Paket ?
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary"
-                                                                                data-dismiss="modal">
-                                                                            Batal
-                                                                        </button>
-                                                                        <form
-                                                                            action="{{route('admin.sesi.aktif',$row->id_sesi)}}"
-                                                                            method="post">
-                                                                            @csrf
-                                                                            @method('PUT')
-                                                                            <button type="submit"
-                                                                                    class="btn btn-success">
-                                                                                Aktifkan
-                                                                            </button>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
                                                     @endif
                                                     <a class="btn btn-info btn-sm"
                                                        href="{{ route('admin.sesi.edit',$row->id_sesi) }}">
@@ -420,90 +250,12 @@
                                                             </i>
                                                             Hapus
                                                         </button>
-                                                        <div class="modal fade" id="delete_sesi_{{$row->id_sesi}}"
-                                                             tabindex="-1" role="dialog"
-                                                             aria-labelledby="deleteModalCenterTitle"
-                                                             aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered"
-                                                                 role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title"
-                                                                            id="hapusModalLongTitle">
-                                                                            Hapus Sesi Paket Wisata</h5>
-                                                                        <button type="button" class="close"
-                                                                                data-dismiss="modal"
-                                                                                aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body text-left">
-                                                                        Anda Yakin Ingin Menghapus Sesi Paket ...
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary"
-                                                                                data-dismiss="modal">
-                                                                            Batal
-                                                                        </button>
-                                                                        <form
-                                                                            action="{{route('admin.sesi.delete',$row->id_sesi)}}"
-                                                                            method="post">
-                                                                            @csrf
-                                                                            @method('DELETE')
-                                                                            <button type="submit"
-                                                                                    class="btn btn-danger">
-                                                                                Hapus
-                                                                            </button>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     @elseif($row->status==1)
                                                         <button type="button" class="btn btn-danger btn-sm"
                                                                 data-toggle="modal"
                                                                 data-target="#nonaktif_sesi_{{$row->id_sesi}}">
                                                             Non-Aktifkan
                                                         </button>
-                                                        <div class="modal fade" id="nonaktif_sesi_{{$row->id_sesi}}"
-                                                             tabindex="-1" role="dialog"
-                                                             aria-labelledby="deleteModalCenterTitle"
-                                                             aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered"
-                                                                 role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title"
-                                                                            id="hapusModalLongTitle">
-                                                                            Non-Aktifkan Sesi Paket Wisata</h5>
-                                                                        <button type="button" class="close"
-                                                                                data-dismiss="modal"
-                                                                                aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body text-left">
-                                                                        Anda Yakin Ingin Non-Aktifkan Sesi Paket ?
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary"
-                                                                                data-dismiss="modal">
-                                                                            Batal
-                                                                        </button>
-                                                                        <form
-                                                                            action="{{route('admin.sesi.nonaktif',$row->id_sesi)}}"
-                                                                            method="post">
-                                                                            @csrf
-                                                                            @method('DELETE')
-                                                                            <button type="submit"
-                                                                                    class="btn btn-danger">
-                                                                                Non-Aktifkan
-                                                                            </button>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     @endif
                                                 </td>
                                             </tr>
@@ -528,4 +280,267 @@
             </div>
         </div>
     </div>
+    @if($paket->status==1)
+        <div class="modal fade" id="nonaktif_{{$paket->id_paket}}" tabindex="-1"
+             role="dialog"
+             aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="hapusModalLongTitle">Non-Aktifkan
+                            Paket
+                            Wisata</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-left">
+                        Anda Yakin Ingin Non-Aktifkan Paket ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">
+                            Batal
+                        </button>
+                        <form
+                            action="{{route('admin.paket.nonaktif',$paket->id_paket)}}"
+                            method="post">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" class="btn btn-warning">Non-Aktifkan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @elseif($paket->status==0)
+        <div class="modal fade" id="aktifkan_{{$paket->id_paket}}" tabindex="-1"
+             role="dialog"
+             aria-labelledby="aktifkanModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="aktifkanModalLongTitle">Aktifkan
+                            Kembali
+                            Paket
+                            Wisata</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-left">
+                        Anda Yakin Ingin Mengaktifkan kembali Paket ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">
+                            Tidak
+                        </button>
+                        <form
+                            action="{{route('admin.paket.aktifkan',$paket->id_paket)}}"
+                            method="post">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" class="btn btn-success">Aktifkan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="delete_{{$paket->id_paket}}" tabindex="-1"
+             role="dialog"
+             aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="hapusModalLongTitle">Hapus Paket
+                            Wisata</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-left">
+                        Anda Yakin Ingin Menghapus Paket ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">
+                            Batal
+                        </button>
+                        <form action="{{route('admin.paket.hapus',$paket->id_paket)}}"
+                              method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @elseif($paket->status==2)
+        <div class="modal fade" id="restore_{{$paket->id_paket}}" tabindex="-1"
+             role="dialog"
+             aria-labelledby="restoreModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="restoreModalLongTitle">
+                            <i>Restore</i>
+                            Paket
+                            Wisata</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-left">
+                        Anda Yakin Ingin Me-<i>restore</i> Paket ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">
+                            Tidak
+                        </button>
+                        <form action="{{route('admin.paket.recycle',$paket->id_paket)}}"
+                              method="post">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" class="btn btn-warning"><i>Restore</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+    @forelse($sesi as $index =>  $row)
+        @if($row->status==0)
+            <div class="modal fade" id="aktifkan_sesi_{{$row->id_sesi}}"
+                 tabindex="-1" role="dialog"
+                 aria-labelledby="aktifkanSesiModalCenterTitle"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered"
+                     role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"
+                                id="aktifkanSesiModalLongTitle">
+                                Aktifkan Sesi Paket Wisata</h5>
+                            <button type="button" class="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-left">
+                            Anda Yakin Ingin Mengaktifkan Sesi Paket ?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">
+                                Batal
+                            </button>
+                            <form
+                                action="{{route('admin.sesi.aktif',$row->id_sesi)}}"
+                                method="post">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit"
+                                        class="btn btn-success">
+                                    Aktifkan
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if($row->status==0)
+            <div class="modal fade" id="delete_sesi_{{$row->id_sesi}}"
+                 tabindex="-1" role="dialog"
+                 aria-labelledby="deleteModalCenterTitle"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered"
+                     role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"
+                                id="hapusModalLongTitle">
+                                Hapus Sesi Paket Wisata</h5>
+                            <button type="button" class="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-left">
+                            Anda Yakin Ingin Menghapus Sesi Paket ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">
+                                Batal
+                            </button>
+                            <form
+                                action="{{route('admin.sesi.delete',$row->id_sesi)}}"
+                                method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                        class="btn btn-danger">
+                                    Hapus
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($row->status==1)
+            <div class="modal fade" id="nonaktif_sesi_{{$row->id_sesi}}"
+                 tabindex="-1" role="dialog"
+                 aria-labelledby="deleteModalCenterTitle"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered"
+                     role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"
+                                id="hapusModalLongTitle">
+                                Non-Aktifkan Sesi Paket Wisata</h5>
+                            <button type="button" class="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-left">
+                            Anda Yakin Ingin Non-Aktifkan Sesi Paket ?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">
+                                Batal
+                            </button>
+                            <form
+                                action="{{route('admin.sesi.nonaktif',$row->id_sesi)}}"
+                                method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                        class="btn btn-danger">
+                                    Non-Aktifkan
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+    @empty
+    @endforelse
 @endsection

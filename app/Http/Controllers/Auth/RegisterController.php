@@ -77,7 +77,7 @@ class RegisterController extends Controller
      */
 
     public function registerCbt(Request $request){
-        
+
         $image = $request->file('image');
         $imageName = time() . $image->getClientOriginalName();
         $destinationPath = public_path('/images/ktp-cbt/');
@@ -92,13 +92,13 @@ class RegisterController extends Controller
             'status' => "-",
             'username'=> $request->email,
         ]);
-        
+
         $member = Member::create([
             'user_id' => $user->id,
             'photo' => $imageName,
-            'no_KTP' => $request->nomor_ktp,                        
+            'no_KTP' => $request->nomor_ktp,
         ]);
-              
+
         $komunitas_member = new KomunitasMember();
         $komunitas_member->komunitas_id = $request->komunitas;
         $komunitas_member->member_id = $member->id;
@@ -109,13 +109,37 @@ class RegisterController extends Controller
 
         $email_cbt = $request->email;
 
-        Mail::to($email_cbt)->send(new RegisterCbt());        
+        Mail::to($email_cbt)->send(new RegisterCbt());
     }
-    
-    public function registerCbtAdmin(Request $request){                     
-        return redirect(route('member'));
+
+    public function registerCbtAdmin(Request $request){
+        $image = $request->file('image');
+        $imageName = time() . $image->getClientOriginalName();
+        $destinationPath = public_path('/images/ktp-cbt/');
+        $image->move($destinationPath, $imageName);
+
+        $user = User::create([
+            'name' => $request->nama_lengkap,
+            'no_WA' => $request->nomor_wa,
+            'no_HP' => $request->nomor_hp,
+            'email' => $request->email,
+            'password' => Hash::make($request->kata_sandi),
+            'status' => "verifiedByAdmin",
+            'username'=> $request->email,
+        ]);
+
+        $member = Member::create([
+            'user_id' => $user->id,
+            'photo' => $imageName,
+            'no_KTP' => $request->nomor_ktp,
+        ]);
+
+        $user->assignRole('member_cbt');
+
+        return $user;
+//    return redirect(route('member'));
     }
-    
+
 
     protected function create(array $data)
     {
@@ -200,6 +224,6 @@ class RegisterController extends Controller
 
         return Redirect::route('login_path');
     }
-    
-    
+
+
 }

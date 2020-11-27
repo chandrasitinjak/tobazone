@@ -9,6 +9,7 @@ use App\PaketWisata;
 use App\Sesi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use File;
 
 class PaketWisataController extends Controller
@@ -18,7 +19,17 @@ class PaketWisataController extends Controller
         $pakets = PaketWisata::with(['getIncludedNotIncluded', 'getKabupaten'])->where('status', '!=', 2)->orderBy('created_at', 'DESC')->paginate(10);
         $kabupaten = Kabupaten::all();
         //        $pakets= paketWisata::where('id_paket',0)->paginate();
+
         return view('admin.paket.index', compact('kabupaten', 'pakets'));
+    }
+    public function index_customer(){
+        $paket = paketWisata::where('status', 1)->orderBy('created_at', 'DESC')->paginate(10);
+        $pakets = paketWisata::where('status', 1)->orderBy('created_at', 'DESC')->get();
+        $jenis = DB::table('paket_wisata')->select('jenis_paket')->groupBy('jenis_paket')->get();
+        $kabupaten = Kabupaten::all();
+        $paket_lainnya = $pakets->take(3);
+
+        return view('paket-wisata.index',compact('paket', 'jenis', 'kabupaten','paket_lainnya'));
     }
 
     public function show($id_paket)
@@ -297,6 +308,15 @@ class PaketWisataController extends Controller
         }
 
         return redirect(route('admin.paket.editChoice', $id_paket));
+    }
+
+    public function recycle($id_paket)
+    {
+        $paket = paketWisata::find($id_paket);
+        $paket->status = 0;
+        $paket->save();
+
+        return redirect(route('admin.paket'));
     }
 
     public function hapusLayanan($id_layanan, $id_paket)

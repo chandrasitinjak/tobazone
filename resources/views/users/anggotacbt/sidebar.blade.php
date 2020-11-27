@@ -25,8 +25,8 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview ">
-                    <a href="#" class="nav-link ">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <a href="{{url('cbt.dashboard')}}" class="nav-link ">
+                        <i class="nav-icon fa fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
@@ -34,15 +34,15 @@
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fa fa-copy"></i>
                         <p>
                             Komunitas Pariwisita
-                            <i class="fas fa-angle-left right"></i>
+                            <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{url('anggotacbt/komunitas')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Daftar Komunitas </p>
                             </a>
@@ -51,17 +51,17 @@
                     </ul>
                 </li>
                 <li class="nav-item has-treeview ">
-                    <a href="#" class="nav-link ">
-                        <i class="nav-icon fas fa-tree"></i>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-tree"></i>
                         <p>
                             Layanan Wisata
-                            <i class="fas fa-angle-left right"></i>
+                            <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item"></li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
+                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Daftar Layanan</p>
                             </a>
