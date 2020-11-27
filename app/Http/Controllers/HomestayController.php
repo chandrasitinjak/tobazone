@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\HomestayOrders;
-use DB;
+
 
 class HomestayController extends Controller
 {
@@ -228,17 +228,13 @@ class HomestayController extends Controller
     }
 
 
-    public function findAllMerchantOrder() {
-        $user = Auth::user();
+    public function findAllMerchantOrder() {        
 
         $homestayOrders = DB::table('homestay_orders')
                     ->join('homestays', 'homestay_orders.id_homestay', '=', 'homestays.id')
-                    ->where([
-                        'homestays.merchant_id' ,'=', $user->id,
-                        'homestay_orders.status', '=', 'pending',
-                        'homestay_orders.status', '=', 'paid',
-                        ])->get();                                            
-
+                    ->where('homestays.merchant_id' ,'=', Auth::user()->id)
+                    ->whereIn('homestay_orders.status', ['paid', 'pending'])
+                    ->get();                    
         return response()->json($homestayOrders);
     }        
 
