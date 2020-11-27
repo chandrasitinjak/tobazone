@@ -50,8 +50,8 @@
 
                     <div class="form-group">
                                 <label class="label">Komunitas</label>
-                                <select class="form-control form-control-lg" v-model="komunitas">                                   
-                                    <option>Komunitas Test 1</option>
+                                <select class="form-control form-control-lg" v-model="selected_komunitas">                                   
+                                    <option v-for="community in komunitas" :key="community.nama_komunitas" :value="community.id">{{ community.nama_komunitas }}</option>
                                 </select>                                
 
                             </div>                     
@@ -86,29 +86,40 @@
                 kata_sandi_konfirmasi: "",
                 nomor_ktp: "",
                 foto_ktp: null,
-                komunitas: "",
+                komunitas: [],
+                selected_komunitas: "",
                 image: null
             };  
         },
         methods: {
+
+            getCbt() {
+                window.axios
+                    .get("/api/get-cbt")
+                    .then(res => {
+                        this.komunitas = res.data;
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            },
 
             onImageChange(e) {                
                 this.foto_ktp = e.target.files[0];
                 this.image = URL.createObjectURL(this.foto_ktp);
             },
 
-            addCbt() {
-
-                let payload = {                    
-                    nama_lengkap: this.nama_lengkap,                    
-                    nomor_wa: this.nomor_wa,
-                    nomor_hp: this.nomor_hp,
-                    email: this.email,                                        
-                    kata_sandi: this.kata_sandi,
-                    kata_sandi_konfirmasi: this.kata_sandi,                    
-                    komunitas: this.komunitas,
-                    nomor_ktp: this.nomor_ktp,
-                };
+            addCbt() {                
+                // let payload = {                    
+                //     nama_lengkap: this.nama_lengkap,                    
+                //     nomor_wa: this.nomor_wa,
+                //     nomor_hp: this.nomor_hp,
+                //     email: this.email,                                        
+                //     kata_sandi: this.kata_sandi,
+                //     kata_sandi_konfirmasi: this.kata_sandi,                    
+                //     komunitas: this.komunitas,
+                //     nomor_ktp: this.nomor_ktp,
+                // };
 
                 const formData = new FormData();
                 formData.append("image", this.foto_ktp);
@@ -117,7 +128,8 @@
                 formData.append("nomor_hp", this.nomor_hp);
                 formData.append("email", this.email);
                 formData.append("kata_sandi", this.kata_sandi);
-                formData.append("komunitas", this.komunitas);
+                formData.append("komunitas", this.selected_komunitas);                
+                formData.append("nomor_ktp", this.nomor_ktp);    
                                                 
                 window.axios
                     .post("/register-cbt", formData)
@@ -134,7 +146,7 @@
 
         },
         mounted() {
-            
+            this.getCbt();
         }
     };
 
