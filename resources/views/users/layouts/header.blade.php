@@ -100,8 +100,8 @@
             <div class="col-10 pl-0">
                @guest
                 <div class="user-login-info align-content-end">
-                    <a href="#">
-                        <button class="btn btn-toba" id="butMasuk" type="button" data-toggle="modal" data-target="#loginModal"
+                    <a href="/listlogin">
+                        <button class="btn btn-toba" id="butMasuk" type="button"
                                 style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
                         </button>
                     </a>

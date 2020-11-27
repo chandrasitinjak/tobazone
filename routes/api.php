@@ -80,3 +80,4 @@ Route::middleware('role:merchant')->group(function () {
 });
 Route::get('/homestay/all', 'HomestayController@findAll');
 Route::get('/product/get-product-terlaris', 'API\ProductController@getProductTerlaris');
+Route::get('/get-cbt', 'CbtController@getCbt');

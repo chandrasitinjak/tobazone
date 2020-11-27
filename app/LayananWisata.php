@@ -14,7 +14,7 @@ class LayananWisata extends Model
         return $this->belongsTo(JenisLayanan::class, 'jenisLayanan_id','id');
     }
     public function getKabupaten(){
-        return $this->belongsTo(City::class, 'kabupaten_id','id_kabupaten');
+        return $this->belongsTo(Kabupaten::class, 'kabupaten_id','id_kabupaten');
     }
     public function getMember(){
         return $this->belongsTo(Member::class, 'member_id','id');

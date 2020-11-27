@@ -26,11 +26,11 @@ class Member extends Model
 
     public function defineStatus($src){
         $status=null;
-        if($src==1){
+        if($src=="verifiedByAdmin"){
             $status = 'Aktif';
-        }else if($src==2){
+        }else if($src=="deactiveByAdmin"){
             $status = 'Non-Aktif';
-        }else if($src==0){
+        }else if($src=="-"){
             $status = 'Request';
         }else if($src==4){
             $status = 'Ditolak';
