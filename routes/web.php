@@ -338,6 +338,12 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
 });
 
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
+
+Route::get('/customer/transactions/paket/{id}', 'TransactionPaketController@show')->middleware('auth');
+
+// Route::get('/tessi123/{id}', function($id){
+//     echo $id;
+//
 Route::post('/register-cbtAdmin', 'Auth\RegisterController@registerCbtAdmin')->name('registerCbtAdmin');
 Route::get('/admin/new-member', 'MemberController@index')->name('member');
 Route::get('/admin/new-member/request', 'MemberController@index')->name('member.request');
