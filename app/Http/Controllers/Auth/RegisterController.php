@@ -61,7 +61,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|string|unique:users',
+//            'username' => 'required|string|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -75,7 +75,7 @@ class RegisterController extends Controller
      */
 
     public function registerCbt(Request $request){
-        
+
         $image = $request->file('image');
         $imageName = time() . $image->getClientOriginalName();
         $destinationPath = public_path('/images/ktp-cbt');
@@ -90,18 +90,18 @@ class RegisterController extends Controller
             'status' => "-",
             'username'=> $request->email,
         ]);
-        
+
         $user->assignRole('member_cbt');
 
         $email_cbt = $request->email;
 
-        Mail::to($email_cbt)->send(new RegisterCbt());        
+        Mail::to($email_cbt)->send(new RegisterCbt());
     }
 
     protected function create(array $data)
     {
         $user = User::create([
-            'username' => $data['username'],
+            'username' => date("Ymdhis"),
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'status' => $data['role'] === 'customer' ? 'verifiedByAdmin' : "-"
@@ -181,6 +181,6 @@ class RegisterController extends Controller
 
         return Redirect::route('login_path');
     }
-    
-    
+
+
 }

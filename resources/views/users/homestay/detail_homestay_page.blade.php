@@ -10,18 +10,18 @@
             <br>
             <div class="row">
                 <div class="col-md-6">
-                    <h6>{{$homestays->name}}</h6>
+                    <h4 >{{$homestays->name}}</h4>
                 </div>
                 <div class="col-md-6" align="right">
-                    <h6 style="color: #FF8311">Harga Kamar/Hari </h6>
+                    <p style="color: #FF8311">Harga Kamar/Hari </p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <h6>{{$homestays->address}}</h6>
+                    <p>{{$homestays->address}}</p>
                 </div>
                 <div class="col-md-6" align="right">
-                    <h6 style="color: #FF8311">Rp. {{$homestays->price}}</h6>
+                    <h4 style="color: #FF8311">Rp. {{$homestays->price}}</h4>
                 </div>
             </div>
             <br>
@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <br>
-                        <img src="{{ '../../images/'.$homestays->image}}" alt="">
+                        <img src="{{ '../../images/'.$homestays->image}}" style="height: 100%; width: 100%; object-fit: cover" alt="">
                     </div>
                     <div class="col-md-4">
                         <br>
@@ -73,7 +73,7 @@
                 </div>
             </form>
             <br><br>
-            <p>{{$homestays->description}}</p>
+            <p class="container">{{$homestays->description}}</p>
             <br><br><br><br>
         </div>
     </div>

@@ -99,9 +99,11 @@
                         <div class="col-md-3">
                             <br><br><br>
                             <center>
-                                <button class="btn" style="width: 100px; background-color: #222757; color: white">Terima</button>
+                                @if($product->is_paid == 1)
+                                    <a href="/homestay/approvePenginapan/{{$product->id}}"><button class="btn" style="width: 100px; background-color: #222757; color: white">Terima</button></a>
                                 <br><br><br>
-                                <button class="btn" style="width: 100px; background-color: #6D0000; color: white">Tolak</button>
+                                    <a href="/homestay/rejectedPenginapan/{{$product->id}}"><button class="btn" style="width: 100px; background-color: #6D0000; color: white">Tolak</button></a>
+                                @endif
                             </center>
 
                         </div>
