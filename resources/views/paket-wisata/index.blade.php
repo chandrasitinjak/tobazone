@@ -44,7 +44,7 @@
                                     @forelse($paket as $row)
                                     <div class="col-4 px-1">
                                         <div class="card products"  style="border-radius: 10px;">
-                                            <a href="">
+                                            <a href="{{route('paket.detail',$row->id_paket)}}">
                                                 <p class="btn btn-info btn-sm" style="border-radius: 30px;padding-top:5px;position:relative;left:4px;top:5px;">Rp.{{number_format($row->harga_paket)}}</p>
                                                 <div class="imgwrapper">
                                                     <img src="{{asset('storage/img/paket/'.$row->gambar)}}"
