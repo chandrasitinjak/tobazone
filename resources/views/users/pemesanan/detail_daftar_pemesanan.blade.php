@@ -72,10 +72,12 @@
                         
                         <div class="card mb-2">
                             <div class="card-body">
-                                <p>Pembayan ke nomor virtual account :</p>
-                                <p>023438**********23423</p>
-                                <p>Total Pembayaran : Rp.</p>
-                                <p>Upload bukti pembayaran</p>
+                                <p style="color:black"> Pembayan ke nomor virtual account :
+                                <br> 023438**********23423
+                                <br> Total Pembayaran : Rp.
+                                <br> Upload bukti pembayaran</p>
+
+                                <img src="https://visit-toba.id/storage/img/pembayaran/1605452492_18_12.jpeg" class="row" style="max-width: 300px; max-height:300px; margin:auto">
                             </div>
                         </div>
 
