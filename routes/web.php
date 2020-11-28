@@ -354,8 +354,13 @@ Route::get('/admin/member/detail/{id_member}', 'MemberController@detailMember')-
 Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}', 'MemberController@keluarkan')->name('member.keluarkan');
 
 //menampilkan paket wisata di sisi customer
-Route::get('/paket-wisata','PaketWisataController@index_customer');
+Route::get('/paket-wisata','PaketWisataController@index_customer')->name('paket');
 Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiemail')->name('konfirmasiemail');
 
 //detail paket wisata
 Route::get('/paket/details/{id_paket}', 'PaketWisataCustomerController@show')->name('paket.detail');
+Route::post('/pesan/paket/{id_paket}','PaketWisataCustomerController@bookingPaket');
+Route::get('/pemesanan','PemesananController@indexC')->name('pemesanan');
+Route::get('/pemesanan/detail/{id}','PemesananController@show_c')->name('pemesanan.detail');
+Route::put('/pemesanan/detail/{id_pemesanan}/upload','PemesananController@kirimTransaksi')->name('transaksi.kirim');
+Route::put('/pemesanan/detail/{id_transaksi}/update', 'PemesananController@updateTransaksi')->name('transaksi.update');
