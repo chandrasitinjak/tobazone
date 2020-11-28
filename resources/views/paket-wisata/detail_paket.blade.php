@@ -73,7 +73,7 @@
 
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
-                                                        <img class="align-self-center" src="{{ '/images/' . $paket->gambar }}" alt="">
+                                                        <img class="align-self-center" src="{{ 'storage/img/paket/' . $paket->gambar }}" alt="">
                                                     </div>
                                                 </div>
 
