@@ -31,6 +31,15 @@ class PaketWisataController extends Controller
 
         return view('paket-wisata.index',compact('paket', 'jenis', 'kabupaten','paket_lainnya'));
     }
+    public function more_paket(){
+        $paket = paketWisata::where('status', 1)->orderBy('created_at', 'DESC')->paginate(10);
+        $pakets = paketWisata::where('status', 1)->orderBy('created_at', 'DESC')->get();
+        $jenis = DB::table('paket_wisata')->select('jenis_paket')->groupBy('jenis_paket')->get();
+        $kabupaten = Kabupaten::all();
+        $paket_lainnya = $pakets->take(3);
+
+        return view('paket-wisata.paketwisata',compact('paket', 'jenis', 'kabupaten','paket_lainnya'));
+    }
 
     public function show($id_paket)
     {

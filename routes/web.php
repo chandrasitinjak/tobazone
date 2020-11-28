@@ -361,5 +361,6 @@ Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}', 'MemberControll
 
 //menampilkan paket wisata di sisi customer
 Route::get('/paket-wisata','PaketWisataController@index_customer');
+Route::get('/paket-wisata/more','PaketWisataController@more_paket');
 Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiemail')->name('konfirmasiemail');
 

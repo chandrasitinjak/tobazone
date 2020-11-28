@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Komunitas;
 use Illuminate\Http\Request;
 use App\JenisLayanan;
 use App\Kabupaten;
@@ -15,6 +16,8 @@ class KomunitasCBTController extends Controller
         $kabupaten = Kabupaten::all();
         return view('cbt.komunitas.index',compact('data_komunitas','kabupaten'));
     }
+
+
 
 
 }

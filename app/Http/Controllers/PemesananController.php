@@ -33,6 +33,7 @@ class PemesananController extends Controller
         $rekening->delete();
         return redirect(route('admin.pemesanan'))->with('status','Rekening Berhasil Dihapus');
     }
+    
     public function editRekening($id_rekening){
         $rekening = Rekening::find($id_rekening);
 

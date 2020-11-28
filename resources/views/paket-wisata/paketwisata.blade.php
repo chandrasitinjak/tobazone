@@ -1,0 +1,88 @@
+@extends('users.layouts.app')
+@section('content')
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <center>
+                                <br>
+                                <h2>Paket Wisata</h2>
+                            </center>
+                            <br>
+                            <a href=""><img src="{{ url("/images/carousels/Banner.png" )}}" class="d-block w-100" alt="..."
+                                            style="height: 400px; width: 250px;"></a>
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <ul class="list-group list-group-horizontal-sm">
+            <li class="list-group-item"> <h5>Filter Produk</h5></li>
+            <li class="list-group-item">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" style="background-color: transparent;color: #0b0b0b; outline: white;">
+                        Dropdown button
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">Morbi leo risus</li>
+        </ul>
+        <div class="card-body">
+            <div class="col-12">
+
+
+
+                <div class="row">
+                    @forelse($paket as $row)
+                        <div class="col-3">
+                            <div class="card products"  style="border-radius: 10px;">
+                                <a href="">
+                                    <div class="imgwrapper">
+                                        <img src="{{asset('storage/img/paket/'.$row->gambar)}}"
+                                             alt="Card image cap" style="width: 1200px">
+                                    </div>
+                                    <div class="card-body">
+                                        <h7 class="card-title">{{$row->nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )</h7>
+                                        {{--                                    <h7 class="card-title">Nama ( <i class="fa fa-clock-o"></i> &nbsp; )</h7>--}}
+                                        <h5 style="color: #FF8311;">Rp.{{number_format($row->harga_paket)}}</h5>
+                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
+
+                                        <h5 style="color: #FF8311;"></h5>
+                                        <p></p>
+                                        <p class="card-text">
+                                            <medium class="text-muted  float-right"> &nbsp;{{$row->getKabupaten->nama_kabupaten}}</medium>
+                                            <medium class="text-muted  float-left"></medium>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+
+@endsection
+
