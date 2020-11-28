@@ -1,0 +1,41 @@
+.sub-judul{
+    color: #6897B1;
+    font-family: roboto;
+    text-align: center;
+}
+
+.isi-list{
+    color: #000000;
+    font-size: 15px;
+    font-family: roboto;
+}
+
+.isi-list .jumlah-peserta-no-detail{
+    text-align: center;
+}
+
+.button-detail{
+    background:#000000;
+    color:white;
+    border-radius: 7px;
+    padding:10px 20px;
+    font-family:sans-serif;
+    font-size:11pt;
+}
+
+.table1 {
+    font-family: sans-serif,prociono;
+    color: #232323;
+    border-collapse: collapse;
+}
+ 
+.table1, th, td {
+    border: 1px solid #ffffff;
+    padding: 1px 10px;
+    
+}
+
+.button-metode-pembayaran{
+    color: #000000;
+    font-size: 15px;
+}

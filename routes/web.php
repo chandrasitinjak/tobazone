@@ -12,6 +12,13 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
+Route::get('/daftar_pemesanan', function () {
+    return view('users.pemesanan.daftar_pemesanan');
+});
+
+Route::get('/detail_pemesanan', function () {
+    return view('users.pemesanan.detail_daftar_pemesanan');
+});
 
 Route::get('/', function () {
     if (Auth::user()) {

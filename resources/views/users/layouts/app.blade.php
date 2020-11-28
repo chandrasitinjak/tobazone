@@ -19,9 +19,10 @@
   <link rel="stylesheet" href="/user-assets/css/core-style.css">
   <link rel="stylesheet" href="/user-assets/style.css">
   <link rel="stylesheet" href="/user-assets/test-page-gridstyle.css">
-
+  
   <link rel="stylesheet" href="/user-assets/css/header.css">
   <link rel="stylesheet" href="/user-assets/css/header_merchant.css">
+  <link rel="stylesheet" href="/user-assets/css/list-detail-paketwisata.css">
   <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
   <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     @yield('style')
