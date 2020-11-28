@@ -49,16 +49,19 @@ class PaketWisataCustomerController extends Controller
 
     }
     public function bookingPaket(Request $request, $id_paket){
+        
         $result = DB::table('sesi')
             ->where('paket_id',$id_paket)
             ->pluck('id_sesi')
             ->first();
+            
         $paketWisata = new Pemesanan();
         $paketWisata->jumlah_peserta = $request->jumlah_orang;
         $paketWisata->user_id = Auth::user()->id;
         $paketWisata->status = 1;
         $paketWisata->pesan = $request->pesan;
-        $paketWisata->sesi_id = $result;
+        $paketWisata->sesi_id = 1;
+
         $paketWisata->save();
         return redirect()->back();
 

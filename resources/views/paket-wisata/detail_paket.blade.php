@@ -118,10 +118,23 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></div>
                                                     </div>
-                                                    <input type="date" name="pesan" class="form-control" id="inlineFormInputGroupUsername" name="date" placeholder="Tanggal">
+                                                    <input type="date" name="sesi" class="form-control" id="inlineFormInputGroupUsername" name="date" placeholder="Tanggal">
                                                 </div>
                                             </div>
-                                            <div class="col-12 my-1">
+                                            
+                                        </div>
+                                        <div class="form-row align-items-center">
+                                            <div class="col-sm-12 my-1">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
+                                                    </div>
+                                                    <textarea name="pesan" id="" cols="30" rows="10" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row align-items-center">
+                                        <div class="col-12 my-1">
                                                 <button type="submit" class="btn essence-btn ml4">Booking Pemesanan</button>
                                             </div>
                                         </div>

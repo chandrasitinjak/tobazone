@@ -90,8 +90,28 @@
                                     <div class="col text-center" style="padding-bottom: 20px">
                                         <p>Segera selesaikan pembayaran Anda !</p>
                                         <br>
-                                        <h2>@{{duration._data.hours}} Jam @{{ duration._data.minutes}} Menit @{{
-                                            duration._data.seconds }} Detik</h2>
+                                        <div class="row">
+                                            <div class="col-4">
+                                            </div>
+
+                                            <div class="col">
+                                                <h2 id="jam"></h2>Jam
+                                            </div>
+
+                                            <div class="col">
+                                                <h2 id="menit"></h2>Menit   
+                                            </div>
+                                                                                            
+                                            <div class="col">
+                                                <h2 id="detik"></h2>Detik                                                
+                                            </div>
+
+                                            <div class="col-4">
+                                            </div>
+                                        </div>                                        
+
+                                        
+                                        <h2 id="jam"></h2>
                                         <br>
                                         <p><i>(Sebelum @{{ getDeatline() }})</i></p>
                                     </div>
@@ -401,7 +421,7 @@
     <script src="{{url('https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js')}}"></script>
     <script src="{{url('https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js')}}"></script>
     <script src="{{url('https://unpkg.com/axios/dist/axios.min.js')}}"></script>
-    <script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js')}}"></script>
+    <script src="{{url('adminlte/plugins/moment/moment.min.js')}}"></script>
     <script>
 
         // import moment from "moment";
@@ -462,13 +482,22 @@
                         .catch(err => {
                             console.log(err);
                         });
+                },
+                test() {
+
                 }
             },
             created() {
                 this.getTransaction();
+                this.test();
                 setInterval(() => {
-                    this.updateDuration();
+                 this.updateDuration();                    
+                    document.getElementById('jam').innerHTML= this.duration._data.hours;                    
+                    document.getElementById('menit').innerHTML= this.duration._data.minutes;                    
+                    document.getElementById('detik').innerHTML= this.duration._data.seconds;                    
                 }, 1000);
+
+                
             }
         });
     </script>
