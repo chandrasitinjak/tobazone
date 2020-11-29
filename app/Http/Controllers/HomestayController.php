@@ -34,7 +34,7 @@ class HomestayController extends Controller
     public function findAllCustomer()
     {
         $homestays = Homestay::All();
-        $result =DB::table('homestays')
+        $result = DB::table('homestays')
             ->join('users', 'users.id', '=', 'homestays.merchant_id')
             ->get();
         $data = [
@@ -50,7 +50,7 @@ class HomestayController extends Controller
 
     public function search(Request $request)
     {
-        $homestays = Homestay::where('kecamatan', 'like', "%" . $request->kecamatan."%")->get();
+        $homestays = Homestay::where('kecamatan', 'like', "%" . $request->kecamatan . "%")->get();
 
         return view('users.homestay.after_search_page')->with('homestays', $homestays);
     }
@@ -107,6 +107,10 @@ class HomestayController extends Controller
     public function findById($id)
     {
         $detail = Homestay::find($id);
+        if (!$detail) {
+            abort(404, "Page not found.");
+        }
+
         return view('users.homestay.detail_homestay_page')->with('homestays', $detail);
     }
 
@@ -123,11 +127,11 @@ class HomestayController extends Controller
 
     public function store(Request $request)
     {
-        $length =15;
-        $rand =substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+        $length = 15;
+        $rand = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
         if ($request->image) {
-            $data = explode( ',', $request->image );
-            file_put_contents('images/'. $rand.'.png', base64_decode($data[1]));
+            $data = explode(',', $request->image);
+            file_put_contents('images/' . $rand . '.png', base64_decode($data[1]));
         }
 
 
@@ -148,11 +152,11 @@ class HomestayController extends Controller
     }
 
 
-    public function bookHomestay(Request $request,$id)
+    public function bookHomestay(Request $request, $id)
     {
-        $homestay=Homestay::find($id);
+        $homestay = Homestay::find($id);
 
-        $total= $request->get('jumlahKamar');
+        $total = $request->get('jumlahKamar');
         $orderHomestay = new HomestayOrders();
         $orderHomestay->total_price = $total * $homestay->price;
         $orderHomestay->id_homestay = $id;
@@ -176,7 +180,7 @@ class HomestayController extends Controller
         $homestay_id->update();
         //redirect
 
-        return redirect('/merchant/homestay/orders')->with('success','Pesanan Diterima');
+        return redirect('/merchant/homestay/orders')->with('success', 'Pesanan Diterima');
     }
 
     public function rejectedPenginapan(Request $request, $id)
@@ -187,7 +191,7 @@ class HomestayController extends Controller
 
         $homestay_id->update();
 
-        return redirect('/merchant/homestay/orders')->with('success','Pesanan Ditolak');
+        return redirect('/merchant/homestay/orders')->with('success', 'Pesanan Ditolak');
     }
 
     public function listPesananPenginapan()
@@ -228,17 +232,19 @@ class HomestayController extends Controller
     }
 
 
-    public function findAllMerchantOrder() {        
+    public function findAllMerchantOrder()
+    {
 
         $homestayOrders = DB::table('homestay_orders')
-                    ->join('homestays', 'homestay_orders.id_homestay', '=', 'homestays.id')
-                    ->where('homestays.merchant_id' ,'=', Auth::user()->id)
-                    ->whereIn('homestay_orders.status', ['paid', 'pending'])
-                    ->get();                    
+            ->join('homestays', 'homestay_orders.id_homestay', '=', 'homestays.id')
+            ->where('homestays.merchant_id', '=', Auth::user()->id)
+            ->whereIn('homestay_orders.status', ['paid', 'pending'])
+            ->get();
         return response()->json($homestayOrders);
-    }        
+    }
 
-    public function findAllMerchantHomestay(){
+    public function findAllMerchantHomestay()
+    {
         $homestays = Homestay::where('merchant_id', Auth::user()->id)->get();
 
         return $homestays;
@@ -298,34 +304,34 @@ class HomestayController extends Controller
     public function findAllMerchantOrders()
     {
         $orders = HomestayOrders::all();
-//        $result = DB::table('homestay_orders')
-//            ->select('*')
-//            ->join('homestays', 'homestays.id', '=', 'homestay_orders.country_id')
-//            ->where('countries.country_name', $country)
-//            ->get();
-//        dd($orders);
-//        $homestay = Homestay::find($orders->id_homestay);
+        //        $result = DB::table('homestay_orders')
+        //            ->select('*')
+        //            ->join('homestays', 'homestays.id', '=', 'homestay_orders.country_id')
+        //            ->where('countries.country_name', $country)
+        //            ->get();
+        //        dd($orders);
+        //        $homestay = Homestay::find($orders->id_homestay);
         $merchant = $this->getAuthincatedMerchant();
         $result = [
             "merchant" => $merchant,
             "orders" => $orders
-//            "homestay" => $homestay
+            //            "homestay" => $homestay
         ];
         return view('users.merchants.homestays.record_pesanan_penginapan')->with('result', $result);
     }
 
-    public function uploadRes(Request $request, $id){
+    public function uploadRes(Request $request, $id)
+    {
         $length = 10;
-        $rand =substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+        $rand = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
         $homestayOrders = HomestayOrders::find($id);
         if ($request->file('images')) {
             $image = $request->file('images');
             $destinationPath = public_path('/images');
-            $image->move($destinationPath, 'resi_'.$rand . '.png');
+            $image->move($destinationPath, 'resi_' . $rand . '.png');
         }
 
-        $homestayOrders->resi = 'resi_'.$rand.'.png';
+        $homestayOrders->resi = 'resi_' . $rand . '.png';
         $homestayOrders->update();
     }
-    
 }
