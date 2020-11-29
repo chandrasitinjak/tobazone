@@ -365,3 +365,8 @@ Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiema
 
 //detail paket wisata
 Route::get('/paket/details/{id_paket}', 'PaketWisataCustomerController@show')->name('paket.detail');
+
+//komunitas
+Route::get('/customer/komunitas/{id_kabupaten}', function (){
+   return view('komunitas.index');
+});
