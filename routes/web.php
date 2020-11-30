@@ -236,6 +236,7 @@ Route::post('/homestays/save', 'HomestayController@store');
 
 Route::post('/homestays/search', 'HomestayController@search');
 Route::get('/homestays/searchPage', 'HomestayController@searchTest');
+Route::post('/homestays/order/upload-resi/{id}', 'HomestayController@uploadResi');
 
 //orderHomestay
 Route::post('/homestay/pesan', 'HomestayController@bookHomestay');

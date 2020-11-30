@@ -28,13 +28,9 @@
         <br><br>
         <div class="container card" style="background-color: #FFFAF4">
             <br>
-
             <form-pesan-homestay :homestays="{{ $homestays }}"></form-pesan-homestay>
-
             <br><br>
-
             <p class="container">{{$homestays->description}}</p>
-
             <br><br><br><br>
         </div>
     </div>

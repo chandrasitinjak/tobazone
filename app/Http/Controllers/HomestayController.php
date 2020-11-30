@@ -341,9 +341,10 @@ class HomestayController extends Controller
             $destinationPath = public_path('/images');
             $image->move($destinationPath, 'resi_' . $rand . '.png');
         }
-
+        $homestayOrders->status = 'In Progress';
         $homestayOrders->resi = 'resi_' . $rand . '.png';
         $homestayOrders->update();
+        return redirect('/user/homestay/order/findAll');
     }
 
     //Admin
