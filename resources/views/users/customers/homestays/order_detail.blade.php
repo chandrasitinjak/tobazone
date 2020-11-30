@@ -18,6 +18,7 @@
                                     <td><p class="h6">:</p></td>
                                     <td><p class="h6">{{ $orderDetail->homestay->name }}</p></td>
                                 </tr>
+                              </div>
                                 <tr>
                                     <td><p class="h6">Lokasi Penginapan</p></td>
                                     <td><p class="h6">:</p></td>
@@ -43,26 +44,29 @@
                                     <td><p class="h6">:</p></td>
                                     <td><p class="h6">{{ date('d-m-Y', strtotime($orderDetail->check_in)) }}</p></td>
                                 </tr>
+                                </div>
                             </tbody>
                         </table>
 
                         <table class="table table-borderless">
                             <tbody>
+                                
                                 <tr>
                                     {{-- TODO: add link for Hapus button --}}
-                                    <td><p class="h6 text-right"><a href="#" class="btn btn-outline-warning">Hapus</a></p></td>
+                                    <td><center><p class="h6 text-right"><a href="#" class="btn btn-outline-warning">Hapus</a></p></td></center>
                                     {{-- add link for Bayar button --}}
-                                    <td>
+                                    <td> <center>
                                         <button
                                           type="button"
                                           class="btn essence-btn"
                                           data-toggle="modal"
                                           data-target="#exampleModal"
                                         >Bayar
-                                      </button>
+                                      </button> </center>
                                     </td>
                                 </tr>
                             </tbody>
+                            
                         </table>
 
                         <!-- Modal -->
@@ -151,3 +155,4 @@
 </section>
 <!-- ##### Shop Grid Area End ##### -->
 @endsection
+
