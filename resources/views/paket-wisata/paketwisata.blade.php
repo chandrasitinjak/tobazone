@@ -30,12 +30,12 @@
 
         <div class="row">
             <div class="col-auto">
-                <h4>Fitur Paket Wisata</h4>
+                <h4>Filter Paket Wisata</h4>
             </div>
             <div class="col-auto">
                 <div class="dropdown">
-                    <button class="btn dropdown-toggle bg-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
+                    <button class="btn dropdown-toggle bg-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false" style="background-color: #545454">
+                       Kabupaten
                     </button>
                     <div class="dropdown-menu bg-transparent" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">Action</a>
@@ -46,8 +46,8 @@
             </div>
             <div class="col-auto">
                 <div class="dropdown">
-                    <button class="btn dropdown-toggle bg-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
+                    <button class="btn dropdown-toggle bg-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #545454">
+                      Tipe Jenis Perjalanan
                     </button>
                     <div class="dropdown-menu bg-transparent" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">Action</a>
@@ -68,13 +68,12 @@
                         <div class="col-3">
                             <div class="card products"  style="border-radius: 10px;">
                                 <a href="">
-                                    <div class="imgwrapper">
-                                        <img src="{{asset('storage/img/paket/'.$row->gambar)}}"
-                                             alt="Card image cap" style="width: 1200px">
-                                    </div>
+
+                                    <img class="card-img-top"
+                                         src="{{asset('storage/img/paket/'.$row->gambar)}}" alt="Card image cap" style="height: 300px">
+
                                     <div class="card-body">
-                                        <h7 class="card-title">{{$row->nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )</h7>
-                                        {{--                                    <h7 class="card-title">Nama ( <i class="fa fa-clock-o"></i> &nbsp; )</h7>--}}
+                                        <h7 class="card-title" style="font-weight: bold">{{$row->nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )</h7>
                                         <h5 style="color: #FF8311;">Rp.{{number_format($row->harga_paket)}}</h5>
                                         <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
                                         <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
@@ -94,6 +93,7 @@
                         </div>
                         @endforeach
                 </div>
+
             </div>
         </div>
     </div>

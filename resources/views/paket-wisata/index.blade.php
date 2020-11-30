@@ -32,7 +32,10 @@
     <!--Carousel Wrapper-->
     <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-
+        <center>
+            <br>
+            <h2>Paket Wisata Terlaris</h2>
+        </center>
         <div class="row justify-content-center align-content-center">
             <div class="col-auto" style="margin-top: 190px">
                 <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
@@ -44,96 +47,31 @@
                     <!--First slide-->
                     <div class="carousel-item active">
 
-
+                        @foreach($paket as $row)
                         <div class="col-md-4" style="float:left">
-                            <div class="card mb-2">
+                            <div class="card mb-2" style="border-radius: 10px;">
                                 <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
+                                     src="{{asset('storage/img/paket/'.$row->gambar)}}" alt="Card image cap" style="height: 300px">
                                 <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.</p>
-                                    <a class="btn btn-primary">Button</a>
+                                    <h7  class="card-title" style="font-weight: bold;">{{$row->nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )</h7>
+                                    <h5 style="color: #FF8311;">Rp.5000000</h5>
+                                    <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
+
+                                    <p class="card-text">
+                                        <medium class="text-muted  float-right"> &nbsp;&nbsp;{{$row->getKabupaten->nama_kabupaten}}</medium>
+                                        <medium class="text-muted  float-left"></medium>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-md-4" style="float:left">
-                            <div class="card mb-2">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.</p>
-                                    <a class="btn btn-primary">Button</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4" style="float:left">
-                            <div class="card mb-2">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.</p>
-                                    <a class="btn btn-primary">Button</a>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
 
                     </div>
-                    <!--/.First slide-->
-
-                    <!--Second slide-->
-                    <div class="carousel-item">
-
-                        <div class="col-md-4" style="float:left">
-                            <div class="card-products" style="border-radius: 10px;">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.</p>
-                                    <a class="btn btn-primary">Button</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4" style="float:left">
-                            <div class="card mb-2">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.</p>
-                                    <a class="btn btn-primary">Button</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4" style="float:left">
-                            <div class="card mb-2">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.</p>
-                                    <a class="btn btn-primary">Button</a>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-                    <!--/.Second slide-->
-
+{{--                   s--}}
 
 
                 </div>
@@ -146,24 +84,9 @@
 
         </div>
 
-        <!--Controls-->
-{{--        <div class="controls-top">--}}
-{{--            --}}
-{{--            --}}
-{{--        </div>--}}
-        <!--/.Controls-->
-
-
-
 
     </div>
     <!--/.Carousel Wrapper-->
-
-
-
-
-
-
 
 
 
@@ -173,6 +96,7 @@
             <center>
                 <br>
                 <h2>Ragam Paket Wisata</h2>
+                <br><br>
             </center>
                 <div class="card-body">
                 <div class="col-12">
@@ -181,13 +105,12 @@
                     <div class="col-3">
                          <div class="card products"  style="border-radius: 10px;">
                                 <a href="">
-                            <div class="imgwrapper">
-                                <img src="{{asset('storage/img/paket/'.$row->gambar)}}"
-                                     alt="Card image cap" style="width: 1200px">
-                            </div>
+
+                                <img class="card-img-top"
+                                     src="{{asset('storage/img/paket/'.$row->gambar)}}" alt="Card image cap" style="height: 300px">
+
                             <div class="card-body">
-                                <h7 class="card-title">{{$row->nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )</h7>
-                                {{--                                    <h7 class="card-title">Nama ( <i class="fa fa-clock-o"></i> &nbsp; )</h7>--}}
+                                <h7 class="card-title" style="font-weight: bold">{{$row->nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )</h7>
                                 <h5 style="color: #FF8311;">Rp.{{number_format($row->harga_paket)}}</h5>
                                 <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
                                 <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
@@ -207,6 +130,12 @@
                      </div>
                 @endforeach
                 </div>
+                    <br><br><br>
+                    <center>
+                    <button class="btn essence-btn">Muat lebih banyak</button>
+                    </center>
+                    <br><br>
+                    <br><br>
                 </div>
             </div>
         </div>
@@ -224,43 +153,7 @@
 
 
 
-{{--            <div class="row">--}}
-{{--                <center><br><h2>Ragam Paket Wisata</h2><br></center>--}}
-{{--                <div class="col-md-12">--}}
-{{--                @forelse($paket as $row)--}}
-{{--                    <div class="col-3">--}}
-{{--                        <div class="card products"  style="border-radius: 10px;">--}}
-{{--                            <a href="">--}}
-{{--                                <div class="imgwrapper">--}}
-{{--                                    <img src="{{ url("/images/carousels/Banner.png" )}}"--}}
-{{--                                         alt="Card image cap" style="width: 1500px">--}}
-{{--                                </div>--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <h7 class="card-title">Nama Pket ( <i class="fa fa-clock-o"></i> &nbsp;Durasi )</h7>--}}
-{{--                                                                        <h7 class="card-title">{{$row->nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )</h7>--}}
-{{--                                                                        <h5 style="color: #FF8311;">Harga</h5>--}}
-{{--                                    <h5 style="color: #FF8311;">Harga</h5>--}}
-{{--                                    <p></p>--}}
-{{--                                    <p class="card-text">--}}
-{{--                                                                                <medium class="text-muted  float-right"> &nbsp;{{$row->getKabupaten->nama_kabupaten}}</medium>--}}
-{{--                                        <medium class="text-muted  float-right"> &nbsp;Kabupatej}</medium>--}}
-{{--                                        <medium class="text-muted  float-left"></medium>--}}
-{{--                                    </p>--}}
-{{--                                </div>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
 
-
-{{--                    @endforeach--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
-{{--        <div>--}}
-
-{{--        </div>--}}
 
 
 
