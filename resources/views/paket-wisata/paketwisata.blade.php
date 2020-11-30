@@ -27,23 +27,37 @@
     </div>
 
     <div class="container">
-        <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item"> <h5>Filter Produk</h5></li>
-            <li class="list-group-item">
+
+        <div class="row">
+            <div class="col-auto">
+                <h4>Fitur Paket Wisata</h4>
+            </div>
+            <div class="col-auto">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false" style="background-color: transparent;color: #0b0b0b; outline: white;">
+                    <button class="btn dropdown-toggle bg-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown button
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu bg-transparent" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">Action</a>
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </div>
-            </li>
-            <li class="list-group-item">Morbi leo risus</li>
-        </ul>
+            </div>
+            <div class="col-auto">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle bg-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <div class="dropdown-menu bg-transparent" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="card-body">
             <div class="col-12">
 
