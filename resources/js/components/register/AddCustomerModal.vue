@@ -1,44 +1,44 @@
 <template>
     <div class="registration">
-        <spinner> </spinner>
+        <spinner></spinner>
         <div class="row">
             <div class="col-md-12">
                 <form>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label class="label">Username</label>
-                                <input type="text" class="form-control form-control-sm" v-model="userCustomer.username"
-                                    v-model.trim="$v.userCustomer.username.$model"
-                                    :class="{'is-invalid':$v.userCustomer.username.$error, 'is-valid':!$v.userCustomer.username.$invalid }">
-                                <div class="valid-feedback">Username sudah valid</div>
-                                <div class="invalid-feedback">
-                                    <span v-if="!$v.userCustomer.username.required">Username tidak boleh kosong</span>
-                                    <span v-if="!$v.userCustomer.username.minLength">Username minimal 8 karakter</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label class="label">E-mail</label>
-                                <input type="text" class="form-control form-control-sm" v-model="userCustomer.email"
-                                    v-model.trim="$v.userCustomer.email.$model"
-                                    :class="{'is-invalid':$v.userCustomer.email.$error, 'is-valid':!$v.userCustomer.email.$invalid }">
-                                <div class="valid-feedback">E-mail sudah valid</div>
-                                <div class="invalid-feedback">
-                                    <span v-if="!$v.userCustomer.email.required">E-mail tidak boleh kosong</span>
-                                    <span v-if="!$v.userCustomer.email.email">Masukkan email dengan format
+                    <!--                    <div class="row">-->
+                    <!--                        <div class="col-6">-->
+                    <!--                            <div class="form-group">-->
+                    <!--                                <label class="label">Username</label>-->
+                    <!--                                <input type="text" class="form-control form-control-sm" v-model="userCustomer.username"-->
+                    <!--                                    v-model.trim="$v.userCustomer.username.$model"-->
+                    <!--                                    :class="{'is-invalid':$v.userCustomer.username.$error, 'is-valid':!$v.userCustomer.username.$invalid }">-->
+                    <!--                                <div class="valid-feedback">Username sudah valid</div>-->
+                    <!--                                <div class="invalid-feedback">-->
+                    <!--                                    <span v-if="!$v.userCustomer.username.required">Username tidak boleh kosong</span>-->
+                    <!--                                    <span v-if="!$v.userCustomer.username.minLength">Username minimal 8 karakter</span>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="col-6">-->
+                    <div class="form-group">
+                        <label class="label">E-mail</label>
+                        <input type="text" class="form-control form-control-sm" v-model="userCustomer.email"
+                               v-model.trim="$v.userCustomer.email.$model"
+                               :class="{'is-invalid':$v.userCustomer.email.$error, 'is-valid':!$v.userCustomer.email.$invalid }">
+                        <div class="valid-feedback">E-mail sudah valid</div>
+                        <div class="invalid-feedback">
+                            <span v-if="!$v.userCustomer.email.required">E-mail tidak boleh kosong</span>
+                            <span v-if="!$v.userCustomer.email.email">Masukkan email dengan format
                                         example@mail.com</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
+                    <!--                        </div>-->
+                    <!--                    </div>-->
 
                     <div class="form-group">
                         <label class="label">Nama Lengkap</label>
                         <input type="text" class="form-control form-control-sm" v-model="userCustomer.name"
-                            v-model.trim="$v.userCustomer.name.$model"
-                            :class="{'is-invalid':$v.userCustomer.name.$error, 'is-valid':!$v.userCustomer.name.$invalid }">
+                               v-model.trim="$v.userCustomer.name.$model"
+                               :class="{'is-invalid':$v.userCustomer.name.$error, 'is-valid':!$v.userCustomer.name.$invalid }">
                         <div class="valid-feedback">Nama Lengkap sudah valid</div>
                         <div class="invalid-feedback">
                             <span v-if="!$v.userCustomer.name.required">Nama Lengkap tidak boleh kosong</span>
@@ -48,8 +48,8 @@
                     <div class="form-group">
                         <label class="label">Nomor Telepon</label>
                         <input type="number" class="form-control form-control-sm" v-model="userCustomer.phone"
-                            v-model.trim="$v.userCustomer.phone.$model"
-                            :class="{'is-invalid':$v.userCustomer.phone.$error, 'is-valid':!$v.userCustomer.phone.$invalid }">
+                               v-model.trim="$v.userCustomer.phone.$model"
+                               :class="{'is-invalid':$v.userCustomer.phone.$error, 'is-valid':!$v.userCustomer.phone.$invalid }">
                         <div class="valid-feedback">Nomor Telepon sudah valid</div>
                         <div class="invalid-feedback">
                             <span v-if="!$v.userCustomer.phone.required">Nomor Telepon tidak boleh kosong</span>
@@ -60,14 +60,14 @@
                         <label class="label">Jenis Kelamin</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="male" value="Male"
-                                v-model="userCustomer.gender" v-model.trim="$v.userCustomer.gender.$model"
-                                :class="{'is-invalid':$v.userCustomer.gender.$error, 'is-valid':!$v.userCustomer.gender.$invalid }">
+                                   v-model="userCustomer.gender" v-model.trim="$v.userCustomer.gender.$model"
+                                   :class="{'is-invalid':$v.userCustomer.gender.$error, 'is-valid':!$v.userCustomer.gender.$invalid }">
                             <label class="form-check-label" for="male">Laki-laki</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="female" value="Female"
-                                v-model="userCustomer.gender" v-model.trim="$v.userCustomer.gender.$model"
-                                :class="{'is-invalid':$v.userCustomer.gender.$error, 'is-valid':!$v.userCustomer.gender.$invalid }">
+                                   v-model="userCustomer.gender" v-model.trim="$v.userCustomer.gender.$model"
+                                   :class="{'is-invalid':$v.userCustomer.gender.$error, 'is-valid':!$v.userCustomer.gender.$invalid }">
                             <label class="form-check-label" for="female">Perempuan</label>
                         </div>
                     </div>
@@ -75,9 +75,9 @@
                     <div class="form-group">
                         <label class="label">Alamat</label>
                         <input type="text" class="form-control form-control-sm" v-model="userCustomer.addressName"
-                            v-model.trim="$v.userCustomer.addressName.$model"
-                            :class="{'is-invalid':$v.userCustomer.addressName.$error, 'is-valid':!$v.userCustomer.addressName.$invalid }"
-                            placeholder="Contoh: Rumah, Kantor">
+                               v-model.trim="$v.userCustomer.addressName.$model"
+                               :class="{'is-invalid':$v.userCustomer.addressName.$error, 'is-valid':!$v.userCustomer.addressName.$invalid }"
+                               placeholder="Contoh: Rumah, Kantor">
                         <div class="valid-feedback">Alamat sudah valid</div>
                         <div class="invalid-feedback">
                             <span v-if="!$v.userCustomer.addressName.required">Alamat tidak boleh kosong</span>
@@ -88,12 +88,13 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="label">Provinsi</label>
-                                <select class="form-control form-control-sm" @change="getCities"
+                                <select class="form-control" @change="getCities"
                                     v-model="userCustomer.selectedProvince"
                                     v-model.trim="$v.userCustomer.selectedProvince.$model"
                                     :class="{'is-invalid':$v.userCustomer.selectedProvince.$error, 'is-valid':!$v.userCustomer.selectedProvince.$invalid }">
                                     <option v-for="province in provicies" :key="province.name" :value="province">
-                                        {{ province.name }}</option>
+                                        {{ province.name }}
+                                    </option>
                                 </select>
                                 <div class="valid-feedback">Provisi sudah valid</div>
                                 <div class="invalid-feedback">
@@ -106,7 +107,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="label">Kota/Kabupaten</label>
-                                <select class="form-control form-control-sm" @change="getSubdistricts"
+                                <select class="form-control " @change="getSubdistricts"
                                     v-model="userCustomer.selectedCity"
                                     v-model.trim="$v.userCustomer.selectedCity.$model"
                                     :class="{'is-invalid':$v.userCustomer.selectedCity.$error, 'is-valid':!$v.userCustomer.selectedCity.$invalid }">
@@ -123,11 +124,12 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="label">Kecamatan</label>
-                                <select class="form-control form-control-sm" v-model="userCustomer.selectedSubdistrict"
+                                <select class="form-control " v-model="userCustomer.selectedSubdistrict"
                                     v-model.trim="$v.userCustomer.selectedSubdistrict.$model"
                                     :class="{'is-invalid':$v.userCustomer.selectedSubdistrict.$error, 'is-valid':!$v.userCustomer.selectedSubdistrict.$invalid }">
                                     <option v-for="subdistrict in subdistricts" :key="subdistrict.subdistrict_name"
-                                        :value="subdistrict">{{ subdistrict.subdistrict_name }}</option>
+                                            :value="subdistrict">{{ subdistrict.subdistrict_name }}
+                                    </option>
                                 </select>
                                 <div class="valid-feedback">Kecamatan sudah valid</div>
                                 <div class="invalid-feedback">
@@ -141,9 +143,9 @@
                     <div class="form-group">
                         <label class="label">Alamat Rinci</label>
                         <textarea v-model="userCustomer.addressDetail" class="form-control form-control-sm" rows="3"
-                            placeholder="Contoh: Jalan Melati Nomor 23"
-                            v-model.trim="$v.userCustomer.addressDetail.$model"
-                            :class="{'is-invalid':$v.userCustomer.addressDetail.$error, 'is-valid':!$v.userCustomer.addressDetail.$invalid }"></textarea>
+                                  placeholder="Contoh: Jalan Melati Nomor 23"
+                                  v-model.trim="$v.userCustomer.addressDetail.$model"
+                                  :class="{'is-invalid':$v.userCustomer.addressDetail.$error, 'is-valid':!$v.userCustomer.addressDetail.$invalid }"></textarea>
                         <div class="valid-feedback">Alamat Rinci sudah valid</div>
                         <div class="invalid-feedback">
                             <span v-if="!$v.userCustomer.addressDetail.required">Alamat Rinci tidak boleh kosong</span>
@@ -153,8 +155,8 @@
                     <div class="form-group">
                         <label class="label">Tanggal Lahir</label>
                         <input type="date" class="form-control form-control-sm" v-model="userCustomer.birthday"
-                            v-model.trim="$v.userCustomer.birthday.$model"
-                            :class="{'is-invalid':$v.userCustomer.birthday.$error, 'is-valid':!$v.userCustomer.birthday.$invalid }">
+                               v-model.trim="$v.userCustomer.birthday.$model"
+                               :class="{'is-invalid':$v.userCustomer.birthday.$error, 'is-valid':!$v.userCustomer.birthday.$invalid }">
                         <div class="valid-feedback">Tanggal Lahir sudah valid</div>
                         <div class="invalid-feedback">
                             <span v-if="!$v.userCustomer.birthday.required">Tanggal Lahir tidak boleh kosong</span>
@@ -164,7 +166,7 @@
                     <div class="form-group">
                         <label class="label">Kata Sandi</label>
                         <input type="password" class="form-control form-control-sm" v-model="userCustomer.password"
-                            v-model.trim="$v.userCustomer.password.$model" :class="{'is-invalid':$v.userCustomer.password.$error, 
+                               v-model.trim="$v.userCustomer.password.$model" :class="{'is-invalid':$v.userCustomer.password.$error,
                             'is-valid':!$v.userCustomer.password.$invalid}">
                         <div class="valid-feedback">Kata Sandi sudah valid</div>
                         <div class="invalid-feedback">
@@ -176,8 +178,9 @@
                     <div class="form-group">
                         <label class="label">Konfirmasi Kata Sandi</label>
                         <input type="password" class="form-control form-control-sm"
-                            v-model="userCustomer.passwordconfirm" v-model.trim="$v.userCustomer.passwordconfirm.$model"
-                            :class="{'is-invalid':$v.userCustomer.passwordconfirm.$error, 
+                               v-model="userCustomer.passwordconfirm"
+                               v-model.trim="$v.userCustomer.passwordconfirm.$model"
+                               :class="{'is-invalid':$v.userCustomer.passwordconfirm.$error,
                             'is-valid':(userCustomer.password!='')?!$v.userCustomer.passwordconfirm.$invalid:''}">
                         <div class="valid-feedback">Konfirmasi Kata Sandi sudah valid</div>
                         <div class="invalid-feedback">
@@ -218,7 +221,7 @@
                     selectedSubdistrict: "",
                     addressDetail: "",
                     addressName: "",
-                    username: "",
+                    // username: "",
                     email: "",
                     name: "",
                     phone: "",
@@ -279,7 +282,7 @@
                         subdistrictName: this.userCustomer.selectedSubdistrict.subdistrict_name,
                         addressDetail: this.userCustomer.addressDetail,
                         addressName: this.userCustomer.addressName,
-                        username: this.userCustomer.username,
+                        // username: this.userCustomer.username,
                         email: this.userCustomer.email,
                         name: this.userCustomer.name,
                         phone: this.userCustomer.phone,
@@ -313,7 +316,7 @@
                                 "selectedSubdistrict": "Kecamatan",
                                 "addressDetail": "Alamat Rinci Toko",
                                 "addressName": "Alamat",
-                                "username": "Username",
+                                // "username": "Username",
                                 "email": "E-mail",
                                 "name": "Nama Lengkap",
                                 "phone": "Nomor Telepon",
@@ -334,7 +337,7 @@
 
                                 errMessage = "Data yang diberikan tidak valid.";
                                 if (errKey != "") {
-                                    if (errKey == "email" || errKey == "username") {
+                                    if (errKey == "email" /*|| errKey == "username"*/) {
                                         errMessage = errMessage + " " + customerAttributes[errKey] +
                                             " tidak valid atau telah terdaftar.";
                                     } else {
@@ -356,10 +359,10 @@
 
         validations: {
             userCustomer: {
-                username: {
-                    required,
-                    minLength: minLength(8)
-                },
+                // username: {
+                //     required,
+                //     minLength: minLength(8)
+                // },
                 email: {
                     required,
                     email

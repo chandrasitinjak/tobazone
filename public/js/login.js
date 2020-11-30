@@ -1,7 +1,10 @@
+
+var hidden;
 async function login() {
 
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
+    const hidden = document.getElementById('hidden-customer').value
 
     var cek_depan = 1;
 
@@ -100,7 +103,7 @@ async function login() {
             url: '/login',
             type: 'POST',
             headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
             },
 
             data: {
@@ -116,8 +119,8 @@ async function login() {
 
             complete: (xhr, error) => {
                 if (xhr.status == 200) {
-                    
-                    location.reload();
+
+                    window.location.reload()
                 } else if (xhr.status == 422) {
                     document.getElementById("exampleModalLabel").innerHTML = "E-mail atau Kata Sandi salah";
                     $('#password').css({

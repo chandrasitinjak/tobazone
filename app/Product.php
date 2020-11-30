@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
     use SoftDeletes;
-    
+
     public function merchant() {
         return $this->belongsTo('App\User', 'user_id');
     }
@@ -21,7 +21,11 @@ class Product extends Model
         return $this->hasOne('App\ProductReview');
     }
 
+    public function order()
+    {
+        return $this->hasMany('App\Order');
+    }
+
     protected $fillable = ['name', 'price', 'stock', 'description', 'category', 'specification', 'image', 'color'];
     protected $dates = ['deleted_at'];
 }
-	

@@ -18,6 +18,8 @@ use App\roles;
 use App\VerifyUser;
 use Illuminate\Auth\Events\Registered;
 
+use App\Mail\RegisterCbt;
+
 class RegisterController extends Controller
 {
     /*
@@ -59,7 +61,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|string|unique:users',
+//            'username' => 'required|string|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -72,10 +74,34 @@ class RegisterController extends Controller
      * @return \App\User
      */
 
+    public function registerCbt(Request $request){
+
+        $image = $request->file('image');
+        $imageName = time() . $image->getClientOriginalName();
+        $destinationPath = public_path('/images/ktp-cbt');
+        $image->move($destinationPath, $imageName);
+
+        $user = User::create([
+            'name' => $request->nama_lengkap,
+            'no_WA' => $request->nomor_wa,
+            'no_HP' => $request->nomor_hp,
+            'email' => $request->email,
+            'password' => Hash::make($request->kata_sandi),
+            'status' => "-",
+            'username'=> $request->email,
+        ]);
+
+        $user->assignRole('member_cbt');
+
+        $email_cbt = $request->email;
+
+        Mail::to($email_cbt)->send(new RegisterCbt());
+    }
+
     protected function create(array $data)
     {
         $user = User::create([
-            'username' => $data['username'],
+            'username' => date("Ymdhis"),
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'status' => $data['role'] === 'customer' ? 'verifiedByAdmin' : "-"
@@ -155,5 +181,6 @@ class RegisterController extends Controller
 
         return Redirect::route('login_path');
     }
+
 
 }
