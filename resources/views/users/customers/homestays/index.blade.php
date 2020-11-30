@@ -29,7 +29,8 @@
                     <td>{{ $homestayOrder->payment_method }}</td>
                     <td>Rp {{ number_format($homestayOrder->total_price, 2, ',', '.') }}</td>
                     <td>{{ ucfirst(strtolower($homestayOrder->status)) }}</td>
-                    <td><a class="btn" style="background-color: black; color: white" href="{{url('/user/homestay/order/findById/'.$homestayOrder->id)}}">Detail</a></td>
+                    <td><a class="btn" style="background-color: black; color: white" href="{{url('/user/homestay/order/findById/'.$homestayOrder->id)}}">Detail</a>
+                    <a class="btn" style="background-color: #6D0000; color: white" onclick="deletes()" >Delete</a></td>
                 </tr>
                 </tbody>
                 @endforeach
@@ -39,3 +40,14 @@
 </section>
 <!-- ##### Shop Grid Area End ##### -->
 @endsection
+
+<script>
+    function deletes() {
+        var x = confirm("Are you sure you want to delete?");
+        if (x)
+            window.location = "{{url('/user/homestay/order/delete/'.$homestayOrder->id)}}";
+        else
+            return false;
+        // href="{{url('/user/homestay/order/delete/'.$homestayOrder->id)}}"
+    }
+</script>

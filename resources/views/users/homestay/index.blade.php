@@ -59,12 +59,21 @@
                         </div>
                     </a>
                     <div class="product-description">
-                        <a href="{{ url('/homestays/find', $homestays[0]->id)}}"><h6>{{
-                                $homestays[0]->name }}</h6></a>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="{{ url('/homestays/find', $homestays[0]->id)}}"><h6>{{
+                                        $homestays[0]->name }}</h6></a>
+                            </div>
+                            <br>
+                            <div class="col-md-6" align="right">
+                                <p> {{
+                                    $homestays[0]->address }}</p>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <p class="product-price" style="color: #FF8311; "> Rp.{{
-                                    $homestays[0]->username }}</p>
+                                    $homestays[0]->price }}</p>
                             </div>
                             <div class="col-md-6" align="right">
                                 <p> {{
@@ -119,7 +128,7 @@
                               <div class="row">
                                   <div class="col-md-6">
                                       <p class="product-price" style="color: #FF8311; "> Rp.{{
-                                          $product->username }}</p>
+                                          $product->price }}</p>
                                   </div>
                                   <div class="col-md-6" align="right">
                                       <p> {{

@@ -16,22 +16,18 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th class="serial">#</th>
                                     <th>Homestay Name</th>
                                     <th>Address</th>
                                     <th>Check In</th>
-                                    <th>Check Out</th>
-                                    <th>Jumlah Orang</th>
-                                    <th>Layanan Tambahan</th>
+                                    <th>Durasi</th>
+                                    <th>Jumlah Kamar</th>
                                 </tr>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Sogu Homestay</td>
-                                    <td>Silaen</td>
-                                    <td>12-11-2020</td>
-                                    <td>30-12-2020</td>
-                                    <td>5</td>
-                                    <td>-</td>
+                                    <td>{{ $order[0]->name}}</td>
+                                    <td> <span class="address"> {{ $order[0]->address }}</span> </td>
+                                    <td>{{ $order[0]->check_in}}</td>
+                                    <td>{{ $order[0]->duration }} hari</td>
+                                    <td>{{ $order[0]->jumlah_kamar}}</td>
                                 </tr>
                             </thead>
                         </table>
@@ -45,16 +41,12 @@
                                         <table class="table table-striped">
                                             <tbody>
                                             <tr>
-                                                <th>Total Harga Produk</th>
-                                                <td>IDR 350.000</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Biaya Layanan Tambahan</th>
-                                                <td>IDR 0</td>
+                                                <th>Harga Kamar Penginapan </th>
+                                                <td>IDR 350.000 / hari</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Total Pembayaran</th>
-                                                <td>IDR 350.000</td>
+                                                <td>IDR {{$order[0]->total_price}}</td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -62,11 +54,11 @@
                                 </div>
                             </div>
                     </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-@endsection 
+@endsection

@@ -108,6 +108,10 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::post('/admin/update-profile', 'AdminController@updateProfile');
         Route::post('/admin/edit-password', 'AdminController@editPassword');
 
+        //Admin Homestay
+        Route::get('/admin/homestay/new-order', 'HomestayController@findAllNewOrder');
+        Route::get('/admin/homestay/new-order/{id}', 'HomestayController@findDetailNewOrder');
+
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
         Route::post('/roles/update/{id}', 'RoleController@update');
@@ -234,7 +238,7 @@ Route::post('/homestays/search', 'HomestayController@search');
 Route::get('/homestays/searchPage', 'HomestayController@searchTest');
 
 //orderHomestay
-Route::post('/homestay/pesan/{id}', 'HomestayController@bookHomestay');
+Route::post('/homestay/pesan', 'HomestayController@bookHomestay');
 
 //Approval Penginapan Backend
 Route::get('/homestay/approvePenginapan/{id}', 'HomestayController@approvePenginapan');
@@ -259,6 +263,7 @@ Route::get('/homestays/findAllMyHomestay', 'HomestayController@findAllMerchantHo
 Route::get('/user/homestay/order/findAll', 'HomestayController@findAllCustomerOrder');
 // Display detail of a customer's homestay order.
 Route::get('/user/homestay/order/findById/{idOrder}', 'HomestayController@findCustomerOrderByID');
+Route::get('/user/homestay/order/delete/{idOrder}', 'HomestayController@deleteOrder');
 
 
 
