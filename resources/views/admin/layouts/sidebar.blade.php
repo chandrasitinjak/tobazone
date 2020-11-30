@@ -33,6 +33,10 @@
                 <li><a href="{{ url('/admin/rejected-order')}}"> <i class="menu-icon fa fa-exclamation-triangle"></i>
                         Rejected Order</a></li>
 
+                <h3 class="menu-title">Homestay</h3>
+                <li> <a href="{{ url('/admin/new-merchant')}}"> <i class="menu-icon fa fa-user"></i>Homestay Ordered </a> </li>
+                <li> <a href="{{ url('/admin/list-merchant')}}"> <i class="menu-icon fa fa-users"></i>List Homestay </a> </li>
+
                 <h3 class="menu-title">View</h3>
                 <li><a href="{{ url('/carousels')}}"> <i class="menu-icon fa fa-star"></i> Carousel </a></li>
                 <!-- <li> <a href="{{ url('/banners')}}"> <i class="menu-icon fa fa-bookmark"></i> Banner </a> </li>
