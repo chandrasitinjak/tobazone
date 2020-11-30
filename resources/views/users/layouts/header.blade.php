@@ -159,7 +159,7 @@
          <a href="{{ url('/product/makanan') }}"><i class="bx bxs-food-menu mr-3"></i> Makanan</a>
       </li>
       <li>
-         <a href="{{ url('/product/obat') }}"><i class="bx bxl-drupal mr-3"></i> Obat</a>
+         <a href="{{ url('/product/obat') }}"><i class="bx bxl-drupal mr-3"></i> Minyak Tradisional</a>
       </li>
       <li>
          <a href="{{ url('/product/ulos') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Ulos</a>
@@ -279,7 +279,7 @@
                                     <a href="{{ url('/products/accessories/create') }}"><i class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah Aksesoris</a>
                                   </li>
                                   <li>
-                                    <a href="{{ url('/products/medicine/create') }}"><i class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah Obat</a>
+                                    <a href="{{ url('/products/medicine/create') }}"><i class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah Minyak Tradisional</a>
                                   </li>
                                 </ul>
                             </li>
@@ -336,7 +336,7 @@
       </li>
       <li class="nav-item dropdown" style="margin-left: 3rem">
          <a class="nav-link dropdown" href="{{ url('/product/obat') }}" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
-         Obat
+         Minyak Tradisional
          </a>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       </li>
