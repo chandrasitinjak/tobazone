@@ -63,7 +63,7 @@
                                                     <div class="col-sm-2">{{transaction.shipping_number}}</div>
                                                     <div class="col-sm-4">
                                                         <div class="alert alert-warning p-1" role="alert" style="font-size: x-small" v-if="transaction.status === 'pending' || transaction.status === 'acceptedByMerchant' || transaction.status === 'acceptedByAdmin'">
-                                                            MenunggUnu Pembayaran
+                                                            Menunggu Pembayaran
                                                             <a :href="'/customer/transactions/' + transaction.id" class="btn btn-sm btn-outline-action ml-30">
                                                                 Upload bukti pembayaran
                                                             </a>
