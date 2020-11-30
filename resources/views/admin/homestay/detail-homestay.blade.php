@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title') {{ "Detail Merchant" }}
+@section('title') {{ "Detail Homestays" }}
 @endsection
 
 @section('content')

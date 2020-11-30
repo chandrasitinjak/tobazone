@@ -9,11 +9,11 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Detail Pemesanan Homestay</strong>
+                            <strong class="card-title">Detail Merchant</strong>
                         </div>
 
                         
-                        <!-- <div class="row mt-3">
+                        <div class="row mt-3">
                             <div class="col-md-6" >
                             @if($profiles->photo != "profile.png")
                             <div class="imgwrapper imgwrapper-a mb-3 img-circle" style="padding: 0px;">
@@ -45,9 +45,9 @@
                                 width:100px;bottom:2rem;">Kembali</a>
                         </div>
                             </div>
-                        </div> -->
+                        </div>
 
-                        <div class="card-body">
+                        <!-- <div class="card-body">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -96,7 +96,7 @@
                                     </div>
                                 </div>
                             </div>
-                    </div>
+                    </div> -->
                         
                     </div>
                 </div>
