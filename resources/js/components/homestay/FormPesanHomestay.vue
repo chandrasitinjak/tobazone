@@ -114,13 +114,24 @@ export default {
     },
     methods: {
         submit() {
+            var url = window.location.pathname;
+            var id = url.substring(url.lastIndexOf('/') + 1);
+            let payload ={
+                id:id,
+                checkIn: this.checkIn,
+                durasi: this.duration,
+                totalRoom: this.totalRoom,
+            }
             this.$v.$touch();
             if (this.$v.$invalid) {
                 this.submitStatus == "ERROR"
             } else {
-                // Handle if request form is valid.
-                // Make a request to a route that handle storing order homestay.
-                // You can use axios like in AddCustomerModel.vue
+                window.axios
+                    .post("/homestay/pesan/", payload)
+                    .then(() => {
+                        alert("Pesan penginapan berhasil");
+                        window.location = "/user/homestay/order/findAll";
+                    })
             }
         }
     },

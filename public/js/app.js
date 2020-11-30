@@ -77126,7 +77126,7 @@ var content = __webpack_require__(197);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("1950337b", content, false, {});
+var update = __webpack_require__(3)("51161b15", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -79259,7 +79259,7 @@ var content = __webpack_require__(214);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("43506cc6", content, false, {});
+var update = __webpack_require__(3)("7b165460", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -79283,7 +79283,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.cart-enter-active[data-v-131f3cc0] {\n  -webkit-animation: bounce-in-data-v-131f3cc0 0.5s;\n          animation: bounce-in-data-v-131f3cc0 0.5s;\n}\n@-webkit-keyframes bounce-in-data-v-131f3cc0 {\n0% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n}\n50% {\n    -webkit-transform: scale(1.3);\n            transform: scale(1.3);\n}\n100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes bounce-in-data-v-131f3cc0 {\n0% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n}\n50% {\n    -webkit-transform: scale(1.3);\n            transform: scale(1.3);\n}\n100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n", ""]);
+exports.push([module.i, "\n.cart-enter-active[data-v-131f3cc0] {\r\n  -webkit-animation: bounce-in-data-v-131f3cc0 0.5s;\r\n          animation: bounce-in-data-v-131f3cc0 0.5s;\n}\n@-webkit-keyframes bounce-in-data-v-131f3cc0 {\n0% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\n}\n50% {\r\n    -webkit-transform: scale(1.3);\r\n            transform: scale(1.3);\n}\n100% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\n}\n}\n@keyframes bounce-in-data-v-131f3cc0 {\n0% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\n}\n50% {\r\n    -webkit-transform: scale(1.3);\r\n            transform: scale(1.3);\n}\n100% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\n}\n}\r\n", ""]);
 
 // exports
 
@@ -79476,7 +79476,7 @@ var content = __webpack_require__(219);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("5719d442", content, false, {});
+var update = __webpack_require__(3)("64146ef5", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -79500,7 +79500,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\nbutton[data-v-600e081a]{\n    font-size: 13px;\n}\n@media (min-width:219px) and (max-width: 449px){\n}\n@media (min-width:450px) and (max-width: 767px){\n}\n@media (min-width:768px) and (max-width: 990px){\nbutton[data-v-600e081a]{\n        font-size: 10px;\n}\n}\n@media (min-width:991px) and (max-width: 1230px){\nbutton[data-v-600e081a]{\n        font-size: 10px;\n}\n}\n", ""]);
+exports.push([module.i, "\nbutton[data-v-600e081a]{\r\n    font-size: 13px;\n}\n@media (min-width:219px) and (max-width: 449px){\n}\n@media (min-width:450px) and (max-width: 767px){\n}\n@media (min-width:768px) and (max-width: 990px){\nbutton[data-v-600e081a]{\r\n        font-size: 10px;\n}\n}\n@media (min-width:991px) and (max-width: 1230px){\nbutton[data-v-600e081a]{\r\n        font-size: 10px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -79679,7 +79679,7 @@ var content = __webpack_require__(224);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("4bea4c58", content, false, {});
+var update = __webpack_require__(3)("5fb810f2", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -79703,7 +79703,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\n    /*.ysearch-button{*/\n    /*    font-size: 13px;*/\n    /*    margin-left: -20px;*/\n    /*}*/\n.yjudul[data-v-5e4e7507]{\n        margin-left: -20px;\n        margin-right: -20px;\n        font-size: 25px;\n}\n.ygambar-produk[data-v-5e4e7507]{\n        margin-bottom: 20px;\n}\n}\n@media (min-width:450px) and (max-width: 767px) {\n}\n@media (min-width:768px) and (max-width: 990px){\n}\n@media (min-width:991px) and (max-width: 1199px){\n}\n@media (min-width:1200px){\n}\n", ""]);
+exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\r\n    /*.ysearch-button{*/\r\n    /*    font-size: 13px;*/\r\n    /*    margin-left: -20px;*/\r\n    /*}*/\n.yjudul[data-v-5e4e7507]{\r\n        margin-left: -20px;\r\n        margin-right: -20px;\r\n        font-size: 25px;\n}\n.ygambar-produk[data-v-5e4e7507]{\r\n        margin-bottom: 20px;\n}\n}\n@media (min-width:450px) and (max-width: 767px) {\n}\n@media (min-width:768px) and (max-width: 990px){\n}\n@media (min-width:991px) and (max-width: 1199px){\n}\n@media (min-width:1200px){\n}\r\n", ""]);
 
 // exports
 
@@ -80627,7 +80627,7 @@ var content = __webpack_require__(229);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("62bfa40e", content, false, {});
+var update = __webpack_require__(3)("0694a81f", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -80761,7 +80761,7 @@ var content = __webpack_require__(233);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("b075d38a", content, false, {});
+var update = __webpack_require__(3)("8f35f856", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -80978,7 +80978,7 @@ var content = __webpack_require__(237);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("5e1b36fe", content, false, {});
+var update = __webpack_require__(3)("6178fca4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -81667,7 +81667,7 @@ var content = __webpack_require__(243);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("09db387f", content, false, {});
+var update = __webpack_require__(3)("5f13f9ce", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -82163,7 +82163,7 @@ var content = __webpack_require__(246);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("0113ac3b", content, false, {});
+var update = __webpack_require__(3)("7d81a9ee", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -82187,7 +82187,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.spinner {\n  display: block;\n  position: fixed;\n  z-index: 1000;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 100%;\n  background: rgba(255, 255, 255, 0.8) url(\"/images/assets/spinner.gif\") 50% 50%\n    no-repeat;\n}\n", ""]);
+exports.push([module.i, "\n.spinner {\r\n  display: block;\r\n  position: fixed;\r\n  z-index: 1000;\r\n  top: 0;\r\n  left: 0;\r\n  height: 100%;\r\n  width: 100%;\r\n  background: rgba(255, 255, 255, 0.8) url(\"/images/assets/spinner.gif\") 50% 50%\r\n    no-repeat;\n}\r\n", ""]);
 
 // exports
 
@@ -82456,7 +82456,7 @@ var content = __webpack_require__(252);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("17fc13b4", content, false, {});
+var update = __webpack_require__(3)("697e2568", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -82962,7 +82962,7 @@ var content = __webpack_require__(258);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("09944c6b", content, false, {});
+var update = __webpack_require__(3)("1652d511", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -83549,7 +83549,7 @@ var content = __webpack_require__(263);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("f37d2d46", content, false, {});
+var update = __webpack_require__(3)("839438fa", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -84011,7 +84011,7 @@ var content = __webpack_require__(268);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("00484e38", content, false, {});
+var update = __webpack_require__(3)("85912d04", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -84831,7 +84831,7 @@ var content = __webpack_require__(273);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("4094c496", content, false, {});
+var update = __webpack_require__(3)("78893ebc", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -84866,6 +84866,10 @@ exports.push([module.i, "\n.tabbable .nav-tabs {\n    overflow-x: auto;\n    ove
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
 //
 //
 //
@@ -86056,6 +86060,15 @@ var staticRenderFns = [
               }
             },
             [_vm._v("Pesanan Selesai")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "nav-item nav-link",
+              attrs: { href: "/user/homestay/order/findAll" }
+            },
+            [_vm._v("Pesanan Penginapan")]
           )
         ]
       )
@@ -86181,7 +86194,7 @@ var content = __webpack_require__(278);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("18b17028", content, false, {});
+var update = __webpack_require__(3)("179b2d88", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -86574,7 +86587,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var withParams = Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).BUILD === 'web' ? __webpack_require__(282).withParams : __webpack_require__(24).withParams;
+var withParams = Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).BUILD === 'web' ? __webpack_require__(282).withParams : __webpack_require__(24).withParams;
 var _default = withParams;
 exports.default = _default;
 
@@ -88201,7 +88214,7 @@ var content = __webpack_require__(307);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("75aab0d5", content, false, {});
+var update = __webpack_require__(3)("a51ecf22", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -91997,7 +92010,7 @@ var content = __webpack_require__(321);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("e18baf5c", content, false, {});
+var update = __webpack_require__(3)("1a4cb46c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -93268,7 +93281,7 @@ var content = __webpack_require__(326);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("a5a97620", content, false, {});
+var update = __webpack_require__(3)("35d92190", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -94280,7 +94293,7 @@ var content = __webpack_require__(331);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("a22a5912", content, false, {});
+var update = __webpack_require__(3)("0cd53c91", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -95019,7 +95032,7 @@ var content = __webpack_require__(339);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("6c098bf4", content, false, {});
+var update = __webpack_require__(3)("1dda0958", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -96000,7 +96013,7 @@ var content = __webpack_require__(344);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("fb8b3f28", content, false, {});
+var update = __webpack_require__(3)("2732350c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -96961,7 +96974,7 @@ var content = __webpack_require__(349);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("e14956fa", content, false, {});
+var update = __webpack_require__(3)("34532923", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -97924,7 +97937,7 @@ var content = __webpack_require__(354);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("5fde39e5", content, false, {});
+var update = __webpack_require__(3)("b39932f6", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -99006,7 +99019,7 @@ var content = __webpack_require__(359);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("b9210e80", content, false, {});
+var update = __webpack_require__(3)("2878e820", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -100128,7 +100141,7 @@ var content = __webpack_require__(367);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("72828ef8", content, false, {});
+var update = __webpack_require__(3)("391d5992", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -100152,7 +100165,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Three column layout */\n.side {\n  float: left;\n  width: 15%;\n  margin-top: 10px;\n}\n.middle {\n  float: left;\n  width: 70%;\n  margin-top: 10px;\n}\n\n/* Place text to the right */\n.right {\n  text-align: right;\n}\n\n/* Clear floats after the columns */\n.row:after {\n  content: \"\";\n  display: table;\n  clear: both;\n}\n\n/* The bar container */\n.bar-container {\n  width: 100%;\n  background-color: #f1f1f1;\n  text-align: center;\n  color: white;\n}\n\n/* Individual bars */\n.bar-5 {height: 18px; background-color: #4CAF50;\n}\n.bar-4 {height: 18px; background-color: #2196F3;\n}\n.bar-3 {height: 18px; background-color: #00bcd4;\n}\n.bar-2 {height: 18px; background-color: #ff9800;\n}\n.bar-1 {height: 18px; background-color: #f44336;\n}\n\n/* Responsive layout - make the columns stack on top of each other instead of next to each other */\n@media (max-width: 400px) {\n.side, .middle {\n    width: 100%;\n}\n  /* Hide the right column on small screens */\n.right {\n    display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* Three column layout */\n.side {\r\n  float: left;\r\n  width: 15%;\r\n  margin-top: 10px;\n}\n.middle {\r\n  float: left;\r\n  width: 70%;\r\n  margin-top: 10px;\n}\r\n\r\n/* Place text to the right */\n.right {\r\n  text-align: right;\n}\r\n\r\n/* Clear floats after the columns */\n.row:after {\r\n  content: \"\";\r\n  display: table;\r\n  clear: both;\n}\r\n\r\n/* The bar container */\n.bar-container {\r\n  width: 100%;\r\n  background-color: #f1f1f1;\r\n  text-align: center;\r\n  color: white;\n}\r\n\r\n/* Individual bars */\n.bar-5 {height: 18px; background-color: #4CAF50;\n}\n.bar-4 {height: 18px; background-color: #2196F3;\n}\n.bar-3 {height: 18px; background-color: #00bcd4;\n}\n.bar-2 {height: 18px; background-color: #ff9800;\n}\n.bar-1 {height: 18px; background-color: #f44336;\n}\r\n\r\n/* Responsive layout - make the columns stack on top of each other instead of next to each other */\n@media (max-width: 400px) {\n.side, .middle {\r\n    width: 100%;\n}\r\n  /* Hide the right column on small screens */\n.right {\r\n    display: none;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -100719,7 +100732,7 @@ var content = __webpack_require__(372);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("7b647d59", content, false, {});
+var update = __webpack_require__(3)("3881271a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -100743,7 +100756,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Three column layout */\n.side {\n  float: left;\n  width: 15%;\n  margin-top: 10px;\n}\n.middle {\n  float: left;\n  width: 70%;\n  margin-top: 10px;\n}\n\n/* Place text to the right */\n.right {\n  text-align: right;\n}\n\n/* Clear floats after the columns */\n.row:after {\n  content: \"\";\n  display: table;\n  clear: both;\n}\n\n/* The bar container */\n.bar-container {\n  width: 100%;\n  background-color: #f1f1f1;\n  text-align: center;\n  color: white;\n}\n\n/* Individual bars */\n.bar-5 {height: 18px; background-color: #4CAF50;\n}\n.bar-4 {height: 18px; background-color: #2196F3;\n}\n.bar-3 {height: 18px; background-color: #00bcd4;\n}\n.bar-2 {height: 18px; background-color: #ff9800;\n}\n.bar-1 {height: 18px; background-color: #f44336;\n}\n\n/* Responsive layout - make the columns stack on top of each other instead of next to each other */\n@media (max-width: 400px) {\n.side, .middle {\n    width: 100%;\n}\n  /* Hide the right column on small screens */\n.right {\n    display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* Three column layout */\n.side {\r\n  float: left;\r\n  width: 15%;\r\n  margin-top: 10px;\n}\n.middle {\r\n  float: left;\r\n  width: 70%;\r\n  margin-top: 10px;\n}\r\n\r\n/* Place text to the right */\n.right {\r\n  text-align: right;\n}\r\n\r\n/* Clear floats after the columns */\n.row:after {\r\n  content: \"\";\r\n  display: table;\r\n  clear: both;\n}\r\n\r\n/* The bar container */\n.bar-container {\r\n  width: 100%;\r\n  background-color: #f1f1f1;\r\n  text-align: center;\r\n  color: white;\n}\r\n\r\n/* Individual bars */\n.bar-5 {height: 18px; background-color: #4CAF50;\n}\n.bar-4 {height: 18px; background-color: #2196F3;\n}\n.bar-3 {height: 18px; background-color: #00bcd4;\n}\n.bar-2 {height: 18px; background-color: #ff9800;\n}\n.bar-1 {height: 18px; background-color: #f44336;\n}\r\n\r\n/* Responsive layout - make the columns stack on top of each other instead of next to each other */\n@media (max-width: 400px) {\n.side, .middle {\r\n    width: 100%;\n}\r\n  /* Hide the right column on small screens */\n.right {\r\n    display: none;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -101600,7 +101613,7 @@ var content = __webpack_require__(380);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("14e6dabb", content, false, {});
+var update = __webpack_require__(3)("8aa48d4a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -101911,7 +101924,7 @@ var content = __webpack_require__(385);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("a3ce7682", content, false, {});
+var update = __webpack_require__(3)("30e7035f", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -104000,7 +104013,7 @@ var content = __webpack_require__(396);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("2b756d0b", content, false, {});
+var update = __webpack_require__(3)("27270e9e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -104348,7 +104361,7 @@ var content = __webpack_require__(400);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("120d6080", content, false, {});
+var update = __webpack_require__(3)("d201615a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -104682,7 +104695,7 @@ var content = __webpack_require__(405);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("413c61a2", content, false, {});
+var update = __webpack_require__(3)("6b85d6e2", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -104949,7 +104962,7 @@ var content = __webpack_require__(410);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("dfd4ded2", content, false, {});
+var update = __webpack_require__(3)("cf62b192", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -105216,7 +105229,7 @@ var content = __webpack_require__(415);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("563e2779", content, false, {});
+var update = __webpack_require__(3)("1029764e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -105462,7 +105475,7 @@ var content = __webpack_require__(420);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("59b739db", content, false, {});
+var update = __webpack_require__(3)("30b0cf3b", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -105616,13 +105629,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         submit: function submit() {
+            var url = window.location.pathname;
+            var id = url.substring(url.lastIndexOf('/') + 1);
+            var payload = {
+                id: id,
+                checkIn: this.checkIn,
+                durasi: this.duration,
+                totalRoom: this.totalRoom
+            };
             this.$v.$touch();
             if (this.$v.$invalid) {
                 this.submitStatus == "ERROR";
             } else {
-                // Handle if request form is valid.
-                // Make a request to a route that handle storing order homestay.
-                // You can use axios like in AddCustomerModel.vue
+                window.axios.post("/homestay/pesan/", payload).then(function () {
+                    alert("Pesan penginapan berhasil");
+                    window.location = "/user/homestay/order/findAll";
+                });
             }
         }
     },

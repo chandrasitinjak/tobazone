@@ -34,7 +34,7 @@
                         Rejected Order</a></li>
 
                 <h3 class="menu-title">Homestay</h3>
-                <li> <a href="{{ url('/admin/new-merchant')}}"> <i class="menu-icon fa fa-user"></i>Homestay Ordered </a> </li>
+                <li> <a href="{{ url('/admin/homestay/new-order')}}"> <i class="menu-icon fa fa-archive"></i>New Order </a> </li>
                 <li> <a href="{{ url('/admin/list-merchant')}}"> <i class="menu-icon fa fa-users"></i>List Homestay </a> </li>
 
                 <h3 class="menu-title">View</h3>
