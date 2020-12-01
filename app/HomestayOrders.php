@@ -1,7 +1,4 @@
 <?php
-/**
- * Created by Sogumontar Hendra Simangunsong on 10-10-2020.
- */
 
 namespace App;
 
