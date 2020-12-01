@@ -370,9 +370,7 @@ Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiema
 Route::get('/paket/details/{id_paket}', 'PaketWisataCustomerController@show')->name('paket.detail');
 
 
-Route::get('/komunitas', function (){
-   return view('users.komunitas.komunitas-perkabupaten');
-});
+Route::get('/komunitas', 'KomunitasController@komunitas');
 
 Route::post('/pesan/paket/{id_paket}','PaketWisataCustomerController@bookingPaket');
 Route::get('/pemesanan','PemesananController@indexC')->name('pemesanan');
