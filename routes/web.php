@@ -360,7 +360,10 @@ Route::get('/admin/member/detail/{id_member}', 'MemberController@detailMember')-
 Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}', 'MemberController@keluarkan')->name('member.keluarkan');
 
 //menampilkan paket wisata di sisi customer
-Route::get('/paket-wisata','PaketWisataController@index_customer')->name('paket');
+
+
+Route::get('/paket-wisata/more','PaketWisataController@more_paket');
+
 Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiemail')->name('konfirmasiemail');
 
 //detail paket wisata
