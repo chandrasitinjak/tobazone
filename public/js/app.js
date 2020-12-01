@@ -85266,7 +85266,7 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                                        MenunggUnu Pembayaran\n                                                        "
+                                                    "\n                                                        Menunggu Pembayaran\n                                                        "
                                                   ),
                                                   _c(
                                                     "a",
