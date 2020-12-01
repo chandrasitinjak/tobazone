@@ -85266,7 +85266,7 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                                        MenunggUnu Pembayaran\n                                                        "
+                                                    "\n                                                        Menunggu Pembayaran\n                                                        "
                                                   ),
                                                   _c(
                                                     "a",
@@ -101313,6 +101313,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
 
 
 
@@ -101437,7 +101440,10 @@ var render = function() {
                 perPageCustom: [
                   [0, 1],
                   [991.88, 6]
-                ]
+                ],
+                navigationEnabled: true,
+                navigationNextLabel: "<i class='fa fa-angle-right fa-3x'></i>",
+                navigationPrevLabel: "<i class='fa fa-angle-left fa-3x'></i>"
               }
             },
             _vm._l(_vm.products, function(product) {
