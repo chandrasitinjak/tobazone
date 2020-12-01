@@ -79,4 +79,20 @@ class KomunitasController extends Controller
         $komunitas->delete($komunitas);
         return redirect('admin/komunitas')->with('sukses', 'Data berhasil dihapus!');
     }
+
+    public function komunitas() {
+        $c_komunitas = \App\Komunitas::all()->count();
+        $member = \App\User::role('member_cbt')
+        ->where('status','=','verifiedByAdmin')->get();                        
+        $c_member = $member->count();
+        $c_layanan = 0;
+
+//      Count Layanan
+        foreach ($member as $row){
+            $c_layanan += \App\Member::where('user_id',$row->id)->first()->getLayanan->count();
+        }
+        $kabupaten = \App\Kabupaten::all();
+
+        return view('users.komunitas.komunitas-perkabupaten', compact('kabupaten','c_komunitas','c_layanan','c_member'));
+    }
 }
