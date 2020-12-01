@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\IncludedNotIncluded;
+use App\Mail\jadwalPaket;
 use App\PaketWisata;
 use App\Pemesanan;
 use App\Sesi;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PaketWisataCustomerController extends Controller
 {
@@ -49,21 +51,41 @@ class PaketWisataCustomerController extends Controller
 
     }
     public function bookingPaket(Request $request, $id_paket){
-        
-        $result = DB::table('sesi')
-            ->where('paket_id',$id_paket)
-            ->pluck('id_sesi')
-            ->first();
-            
-        $paketWisata = new Pemesanan();
-        $paketWisata->jumlah_peserta = $request->jumlah_orang;
-        $paketWisata->user_id = Auth::user()->id;
-        $paketWisata->status = 1;
-        $paketWisata->pesan = $request->pesan;
-        $paketWisata->sesi_id = 1;
+        $pemesanan = Pemesanan::where([['sesi_id', $request->sesi], ['user_id', Auth::id()]])->get();
+        $count = Pemesanan::where([['sesi_id', $request->sesi], ['user_id', Auth::id()]])->count();
+        // return $count;
+        if ($count != 0) {
+            foreach ($pemesanan as $row) {
+                if (($row->status == 1) || ($row->status == 2) || ($row->status == 4)) {
+//                    echo 's';
+                    return redirect(route('pemesanan.detail', $row->id_pemesanan));
+                }
+            }
+        }
+        $sesi = Sesi::find($request->sesi);
+        $countK = $sesi->kuota_peserta;
+        if (($countK - $request->jumlah_peserta) >= 0) {
+            $pemesanan = Pemesanan::create([
+                'user_id' => Auth::id(),
+                'sesi_id' => $request->sesi,
+                'status' => 1,
+                'pesan' => $request->pesan,
+                'jumlah_peserta' => $request->jumlah_peserta
+            ]);
+            if (($countK - $request->jumlah_peserta) == 0) {
+                $sesi->kuota_peserta -= $request->jumlah_peserta;
+                $sesi->status = 0;
+                $sesi->save();
+                $this->refreshPaket($id_paket,1);
+            } else if (($countK - $request->jumlah_peserta) > 0) {
+                $sesi->kuota_peserta -= $request->jumlah_peserta;
+                $sesi->save();
+            }
+            $paket = paketWisata::find($sesi->paket_id);
+            Mail::to(Auth::user()->email)->send(new jadwalPaket($paket));
+            return redirect(route('pemesanan.detail', $pemesanan->id_pemesanan));
+        }
 
-        $paketWisata->save();
-        return redirect()->back();
-
+        return redirect(route('pemesanan'));
     }
 }

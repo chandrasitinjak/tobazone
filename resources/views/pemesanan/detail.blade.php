@@ -99,18 +99,18 @@
                                             </div>
 
                                             <div class="col">
-                                                <h2 id="menit"></h2>Menit   
+                                                <h2 id="menit"></h2>Menit
                                             </div>
-                                                                                            
+
                                             <div class="col">
-                                                <h2 id="detik"></h2>Detik                                                
+                                                <h2 id="detik"></h2>Detik
                                             </div>
 
                                             <div class="col-4">
                                             </div>
-                                        </div>                                        
+                                        </div>
 
-                                        
+
                                         <h2 id="jam"></h2>
                                         <br>
                                         <p><i>(Sebelum @{{ getDeatline() }})</i></p>
@@ -269,7 +269,7 @@
                             <div v-else-if="status==5">
                                 <div class="border row "
                                      style="border-radius: 5px; background: #fbf9ff;padding: 10px;margin-bottom: 10px;">
-                                    <div class="col gj-text-align-center" style="padding-bottom: 20px">
+                                    <div class="col text-center" style="padding-bottom: 20px">
                                         <p>Terima Kasih, {{\Illuminate\Support\Facades\Auth::user()->name}}</p>
                                         <br>
                                         <h2>Waktu Pembayaran Anda Telah Habis</h2>
@@ -281,7 +281,7 @@
                             <div v-else-if="status==6">
                                 <div class="border row "
                                      style="border-radius: 5px; background: #fbf9ff;padding: 10px;margin-bottom: 10px;">
-                                    <div class="col gj-text-align-center" style="padding-bottom: 20px">
+                                    <div class="col text-center" style="padding-bottom: 20px">
                                         <p>Mohon Maaf, {{\Illuminate\Support\Facades\Auth::user()->name}}</p>
                                         <br>
                                         <h2>Bukti Pembayaran anda ditolak atau tidak dapat divalidasi !</h2>
@@ -401,7 +401,7 @@
                                     @if(isset($transaksi->gambar))
                                         <div class="border row "
                                              style="border-radius: 5px; background: #fbf9ff;padding: 10px;margin-bottom: 10px;">
-                                            <div class="col gj-text-align-center" style="padding-bottom: 20px">
+                                            <div class="col text-center" style="padding-bottom: 20px">
                                                 <h3>Bukti Pembayaran </h3>
                                                 <br>
                                                 <img src="{{asset('/storage/img/pembayaran/'.$transaksi->gambar)}}"
@@ -491,13 +491,13 @@
                 this.getTransaction();
                 this.test();
                 setInterval(() => {
-                 this.updateDuration();                    
-                    document.getElementById('jam').innerHTML= this.duration._data.hours;                    
-                    document.getElementById('menit').innerHTML= this.duration._data.minutes;                    
-                    document.getElementById('detik').innerHTML= this.duration._data.seconds;                    
+                 this.updateDuration();
+                    document.getElementById('jam').innerHTML= this.duration._data.hours;
+                    document.getElementById('menit').innerHTML= this.duration._data.minutes;
+                    document.getElementById('detik').innerHTML= this.duration._data.seconds;
                 }, 1000);
 
-                
+
             }
         });
     </script>

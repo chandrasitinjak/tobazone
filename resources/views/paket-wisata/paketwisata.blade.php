@@ -67,10 +67,10 @@
                     @forelse($paket as $row)
                         <div class="col-3">
                             <div class="card products"  style="border-radius: 10px;">
-                                <a href="">
+                                <a href="{{route('paket.detail',$row->id_paket)}}">
 
                                     <img class="card-img-top"
-                                         src="{{asset('storage/img/paket/'.$row->gambar)}}" alt="Card image cap" style="height: 300px">
+                                         src="{{asset('storage/img/paket/'.$row->gambar)}}" alt="Card image cap" style="height: 185px">
 
                                     <div class="card-body">
                                         <h7 class="card-title" style="font-weight: bold">{{$row->nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )</h7>
