@@ -338,6 +338,12 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
 });
 
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
+
+Route::get('/customer/transactions/paket/{id}', 'TransactionPaketController@show')->middleware('auth');
+
+// Route::get('/tessi123/{id}', function($id){
+//     echo $id;
+//
 Route::post('/register-cbtAdmin', 'Auth\RegisterController@registerCbtAdmin')->name('registerCbtAdmin');
 Route::get('/admin/new-member', 'MemberController@index')->name('member');
 Route::get('/admin/new-member/request', 'MemberController@index')->name('member.request');
@@ -359,8 +365,15 @@ Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiema
 
 //detail paket wisata
 Route::get('/paket/details/{id_paket}', 'PaketWisataCustomerController@show')->name('paket.detail');
+
+
+Route::get('/komunitas', function (){
+   return view('users.komunitas.komunitas-perkabupaten');
+});
+
 Route::post('/pesan/paket/{id_paket}','PaketWisataCustomerController@bookingPaket');
 Route::get('/pemesanan','PemesananController@indexC')->name('pemesanan');
 Route::get('/pemesanan/detail/{id}','PemesananController@show_c')->name('pemesanan.detail');
 Route::put('/pemesanan/detail/{id_pemesanan}/upload','PemesananController@kirimTransaksi')->name('transaksi.kirim');
 Route::put('/pemesanan/detail/{id_transaksi}/update', 'PemesananController@updateTransaksi')->name('transaksi.update');
+
