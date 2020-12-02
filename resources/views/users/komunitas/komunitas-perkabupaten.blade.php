@@ -43,11 +43,11 @@
         </div>
 
         <div class="row justify-content-center text-center">
-            @foreach($kabupaten as $row)            
+            @foreach($kabupaten as $row)
             @if($row->nama_kabupaten=='Toba')
             <div class="col-3 mt-1 mb-1">
                 <a href="{{route('komunitas.show',$row->id_kabupaten)}}">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Indonesia_-_Lake_Toba_%2826224127503%29.jpg/300px-Indonesia_-_Lake_Toba_%2826224127503%29.jpg" alt="Foto Danau Toba">                
+                <img src="{{asset('/images/filter-paket/toba.png')}}" alt="Foto Danau Toba">
                 <h6>Toba</h6>
                 <p>{{$row->getKomunitas->count()}} Komunitas</p>
                 </a>
@@ -55,7 +55,7 @@
             @elseif($row->nama_kabupaten == 'Samosir')
             <div class="col-3 mt-1 mb-1">
                 <a href="{{route('komunitas.show',$row->id_kabupaten)}}">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Indonesia_-_Lake_Toba_%2826224127503%29.jpg/300px-Indonesia_-_Lake_Toba_%2826224127503%29.jpg" alt="Foto Danau Toba">                
+                <img src="{{asset('/images/filter-paket/samosir.png')}}" alt="Foto Danau Toba">
                 <h6>Tapanuli Utara</h6>
                 <p>{{$row->getKomunitas->count()}} Komunitas</p>
                 </a>
@@ -63,7 +63,7 @@
             @elseif($row->nama_kabupaten == 'Tapanuli Utara')
             <div class="col-3 mt-1 mb-1">
                 <a href="{{route('komunitas.show',$row->id_kabupaten)}}">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Indonesia_-_Lake_Toba_%2826224127503%29.jpg/300px-Indonesia_-_Lake_Toba_%2826224127503%29.jpg" alt="Foto Danau Toba">            
+                <img src="{{asset('/images/filter-paket/taput.png')}}" alt="Foto Danau Toba">
                 <h6>Karo</h6>
                 <p>{{$row->getKomunitas->count()}} Komunitas</p>
                 </a>
@@ -71,7 +71,7 @@
             @elseif($row->nama_kabupaten == 'Karo')
             <div class="col-3 mt-1 mb-1">
                 <a href="{{route('komunitas.show',$row->id_kabupaten)}}">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Indonesia_-_Lake_Toba_%2826224127503%29.jpg/300px-Indonesia_-_Lake_Toba_%2826224127503%29.jpg" alt="Foto Danau Toba">
+                <img src="{{asset('/images/filter-paket/karo.png')}}" alt="Foto Danau Toba">
                 <h6>Samosir</h6>
                 <p>{{$row->getKomunitas->count()}} Komunitas</p>
                 </a>
@@ -79,8 +79,8 @@
             @elseif($row->nama_kabupaten == 'Simalungun')
             <div class="col-3 mt-1 mb-1">
                 <a href="{{route('komunitas.show',$row->id_kabupaten)}}">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Indonesia_-_Lake_Toba_%2826224127503%29.jpg/300px-Indonesia_-_Lake_Toba_%2826224127503%29.jpg" alt="Foto Danau Toba">
-                
+                <img src="{{asset('/images/filter-paket/simalungun.png')}}" alt="Foto Danau Toba">
+
                 <h6>Simalungun</h6>
                 <p>{{$row->getKomunitas->count()}} Komunitas</p>
                 </a>
@@ -88,7 +88,7 @@
             @elseif($row->nama_kabupaten == 'Humbang Hasundutan')
             <div class="col-3 mt-1 mb-1">
                 <a href="{{route('komunitas.show',$row->id_kabupaten)}}">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Indonesia_-_Lake_Toba_%2826224127503%29.jpg/300px-Indonesia_-_Lake_Toba_%2826224127503%29.jpg" alt="Foto Danau Toba">
+                <img src="{{asset('/images/filter-paket/humbahas.png')}}" alt="Foto Danau Toba">
                 <h6>Humbang Hasundutan</h6>
                 <p>{{$row->getKomunitas->count()}} Komunitas</p>
                 </a>
@@ -96,7 +96,7 @@
             @elseif($row->nama_kabupaten == 'Dairi')
             <div class="col-3 mt-1 mb-1">
                 <a href="{{route('komunitas.show',$row->id_kabupaten)}}">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Indonesia_-_Lake_Toba_%2826224127503%29.jpg/300px-Indonesia_-_Lake_Toba_%2826224127503%29.jpg" alt="Foto Danau Toba">                
+                <img src="{{asset('/images/filter-paket/dairi.png')}}" alt="Foto Danau Toba">
                 <h6>Dairi</h6>
                 <p>{{$row->getKomunitas->count()}} Komunitas</p>
                 </a>

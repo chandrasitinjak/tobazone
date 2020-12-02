@@ -371,6 +371,7 @@ Route::get('/paket/details/{id_paket}', 'PaketWisataCustomerController@show')->n
 
 
 Route::get('/komunitas', 'KomunitasController@komunitas');
+Route::get('/komunitas/{id_kabupaten}','KomunitasController@showC')->name('komunitas.show');
 
 Route::post('/pesan/paket/{id_paket}','PaketWisataCustomerController@bookingPaket');
 Route::get('/pemesanan','PemesananController@indexC')->name('pemesanan');

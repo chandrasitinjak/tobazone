@@ -22,6 +22,12 @@ class KomunitasController extends Controller
         return view('admin.komunitas.detail',compact('komunitas'));
     }
 
+    public function showC($id_kabupaten){
+        $komunitas = Komunitas::where('kabupaten_id',$id_kabupaten)->get();
+
+        return view('users.komunitas.detail',compact('komunitas'));
+    }
+
     public function create(Request $request)
     {
         if ($request->hasFile('gambar')) {
@@ -83,7 +89,7 @@ class KomunitasController extends Controller
     public function komunitas() {
         $c_komunitas = \App\Komunitas::all()->count();
         $member = \App\User::role('member_cbt')
-        ->where('status','=','verifiedByAdmin')->get();                        
+        ->where('status','=','verifiedByAdmin')->get();
         $c_member = $member->count();
         $c_layanan = 0;
 
