@@ -15,7 +15,7 @@
                                 <h2>Paket Wisata</h2>
                             </center>
                             <br>
-                            <a href=""><img src="{{ url("/images/carousels/Banner.png" )}}" class="d-block w-100" alt="..."
+                            <a href=""><img src="{{ asset("/images/carousels/Paket Wisata.png" )}}" class="d-block w-100" alt="..."
                                             style="height: 400px; width: 250px;"></a>
                             <br><br>
                         </div>
