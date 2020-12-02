@@ -1,11 +1,11 @@
 <div class="overlay"></div>
-<nav class="navbar navbar-expand-md navbar-light main-menu" style="box-shadow:none; background-color: #FFFAF4">
+<nav class="navbar navbar-expand-md navbar-light main-menu" style="box-shadow:none; background-color: #640000">
    <div class="container">
       <button type="button" id="sidebar1Collapse" class="btn btn-link d-block d-md-none">
       <i class="bx bx-menu icon-single" style="color:black"></i>
       </button>
       <a class="navbar-brand" href="/">
-         <h4 class="font-weight-bold">Tobazone</h4>
+         <h4 class="font-weight-bold text-light">Tobazone</h4>
       </a>
       <ul class="navbar-nav ml-auto d-block d-md-none">
          <li class="nav-item">
@@ -39,12 +39,12 @@
 {{--                     style="text-decoration-line: unset; margin-right:15px!important;"> Masuk--}}
 {{--                  </button></a>--}}
 {{--                  </a>--}}
-                   <button class="btn btn-toba" type="button"  data-toggle="modal"  data-target="#loginModal"
-                           style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
+                   <button class="btn btn-toba text-white" type="button"  data-toggle="modal"  data-target="#loginModal"
+                           style="text-decoration-line: unset;border-color: white;background-color: #640000; margin-right:15px!important;"> Masuk
                    </button>
                   <a href="{{ url('/register') }}">
-                  <button class="btn btn-toba" type="button"
-                     style="text-decoration-line: unset;"> Daftar
+                  <button class="btn btn-toba text-white" type="button"
+                     style="text-decoration-line: unset;border-color: white;background-color: #640000;"> Daftar
                   </button>
                   </a>
                </div>
@@ -148,7 +148,7 @@
          </div>
       </div>
    </div>
-   <ul class="list-unstyled components links">
+   <ul class="list-unstyled components links" >
       <li>
          <a href="{{ url('/product/pakaian') }}"><i class="bx bxs-t-shirt mr-3"></i> Pakaian</a>
       </li>
@@ -310,38 +310,38 @@
 </nav>
 
 @else
-<nav class="navbar2 navbar-expand-lg navbar-white main">
+<nav class="navbar2 navbar-expand-lg navbar-white main" style="background-color: #833334;">
    <div class="container-fluid custom-container">
    <div class="collapse navbar-collapse" id="navbarResponsive">
    <ul class="navbar-nav">
       <li class="nav-item dropdown">
-         <a class="nav-link dropdown" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+         <a class="nav-link dropdown text-white" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
          Pakaian
          </a>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
          </div>
       </li>
       <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown" href="{{ url('/product/aksesoris') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+         <a class="nav-link dropdown text-white" href="{{ url('/product/aksesoris') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
          Aksesoris
          </a>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       </li>
       <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown" href="{{ url('/product/makanan') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+         <a class="nav-link dropdown text-white" href="{{ url('/product/makanan') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
          Makanan
          </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         <div class="dropdown-menu text-white" aria-labelledby="navbarDropdown">
          </div>
       </li>
       <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown" href="{{ url('/product/obat') }}" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
+         <a class="nav-link dropdown text-white" href="{{ url('/product/obat') }}" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
          Obat
          </a>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       </li>
       <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown" href="{{ url('/product/ulos') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+         <a class="nav-link dropdown text-white" href="{{ url('/product/ulos') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
          Ulos
          </a>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
