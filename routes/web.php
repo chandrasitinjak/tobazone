@@ -111,6 +111,8 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         //Admin Homestay
         Route::get('/admin/homestay/new-order', 'HomestayController@findAllNewOrder');
         Route::get('/admin/homestay/new-order/{id}', 'HomestayController@findDetailNewOrder');
+        Route::get('/admin/homestay/room-categories', 'HomestayRoomsCategoriesController@findAllCategories');
+        Route::get('/admin/homestay/room-facilities', 'HomestayRoomsFacilitiesController@findAllFacilities');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
