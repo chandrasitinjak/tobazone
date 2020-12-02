@@ -240,7 +240,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     });
 
     Route::middleware('role:customer')->group(function () {
-        Route::post('/carts/delete/{id}', 'CartController@destroy');
+         Route::post('/carts/delete/{id}', 'CartController@destroy');
         Route::get('/shipping', 'ShippingController@index');
         Route::get('/customer/transactions/{id}', 'TransactionController@show');
         Route::get('/customer/{id}/orders', 'TransactionController@getTransactionByUser');

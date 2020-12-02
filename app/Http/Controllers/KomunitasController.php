@@ -24,7 +24,6 @@ class KomunitasController extends Controller
 
     public function showC($id_kabupaten){
         $komunitas = Komunitas::where('kabupaten_id',$id_kabupaten)->get();
-
         return view('users.komunitas.detail',compact('komunitas'));
     }
 
