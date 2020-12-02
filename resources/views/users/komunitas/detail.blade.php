@@ -51,7 +51,7 @@
                                     <td>{{$member->getLayanan->count()}}</td>
                                 </tr>
                                     @endforeach
-                                    @else
+                                @else
                                     <th scope="row"></th>
                                     <td></td>
                                     <td>Belum Memiliki Anggota</td>
@@ -82,60 +82,30 @@
                                         @if(isset($member->getLayanan))
                                             @foreach($member->getLayanan as $layanan)
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
+                                    <th scope="row">{{$indexx}}<?php $indexx += 1 ?></th>
+                                    <td>{{$layanan->nama_layanan}}</td>
+                                    <td>{{$member->getUser->name}}</td>
+                                    <td>{{$layanan->getJenisLayanan->nama_jenis_layanan}}</td>
+                                    <td>{{$layanan->deskripsi_layanan}}</td>
                                 </tr>
-                                </tbody>
-                            </table>
-
-                            <div class="progress-table-wrap">
-                                <div class="progress-table">
-                                    <div class="table-head">
-                                        <div class="serial">#</div>
-                                        <div class="country">Nama Layanan</div>
-                                        <div class="visit">Pemilik Layanan</div>
-                                        <div class="visit">Jenis Layanan</div>
-                                        <div class="percentage">Deskripsi</div>
-                                    </div>
-                                    @if(isset($row->getKomunitasMember)&&$row->getKomunitasMember->count()>0)
-                                        <?php $indexx = 1 ?>
-                                        @foreach($row->getKomunitasMember as $member)
-                                            @if(isset($member->getLayanan))
-                                                @foreach($member->getLayanan as $layanan)
-                                                    <div class="table-row">
-                                                        <div class="serial">{{$indexx}}<?php $indexx += 1 ?></div>
-                                                        <div class="country">{{$layanan->nama_layanan}}</div>
-                                                        <div class="visit">{{$member->getUser->name}}</div>
-                                                        <div
-                                                            class="visit">{{$layanan->getJenisLayanan->nama_jenis_layanan}}</div>
-                                                        <div
-                                                            class="percentage">{{$layanan->deskripsi_layanan}}</div>
-                                                    </div>
-                                                @endforeach
-                                            @endif
-                                        @endforeach
-                                    @else
-                                        <div class="table-row">
-                                            <div class="serial"></div>
-                                            <div class="country">Belum memiliki Layanan Wisata</div>
-                                            <div class="visit"></div>
-                                            <div
-                                                class="visit"></div>
-                                            <div
-                                                class="percentage"></div>
-                                        </div>
+                                    @endforeach
                                     @endif
-                                </div>
+                                    @endforeach
+                                </tbody> 
+                                    @else                                              
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Belum Memiliki Layanan Wisata</td>
+                                            <td></td>
+                                    @endif                                                                                                           
+                                </table>
+                                    
                             </div>
-                        </div>
-                    </div>
+                        </div>                        
                 </div>
             </div>
         @empty
-
             <div class="row">
                 <div class="col-lg-12">
                     <h3>Belum Ada Komunitas Di Daerah Ini !</h3>
