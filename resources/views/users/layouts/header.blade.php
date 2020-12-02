@@ -11,8 +11,6 @@
          <li class="nav-item">
             @if(Auth::check())
             <cart-icon :user-id="{{Auth::user()->id}}"/>
-            @else
-            <cart-icon/>
             @endif
          </li>
       </ul>
@@ -26,8 +24,6 @@
                <div id="cart-icon" class="d-none d-lg-block mr-3" style="margin-right:50px!important">
                   @if(Auth::check())
                   <cart-icon :user-id="{{Auth::user()->id}}"/>
-                  @else
-                  <cart-icon/>
                   @endif
                </div>
             </li>
