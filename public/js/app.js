@@ -102321,6 +102321,115 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -102344,7 +102453,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             address: '',
             kabupaten: '',
             kecamatan: '',
+            kategori: '',
             desa: '',
+            kamar: ['Kamar 1', 'Kamar 2'],
+            rooms: {
+                kategoriSelected: ''
+            },
             userMerchant: {
                 selectedCity: "",
                 selectedProvince: "",
@@ -102354,15 +102468,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
+        getCategories: function getCategories() {
+            var _this = this;
+
+            window.axios.get("/api/homestay/room-categories").then(function (res) {
+                _this.kategori = res.data;
+                console.log(res.data);
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
+        addRooms: function addRooms(position) {
+            this.kamar.push("kamar" + position);
+        },
         dismiss: function dismiss() {
             __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("ADD_MERCHANT_MODAL_CLOSED", null);
         },
         getCities: function getCities() {
-            var _this = this;
+            var _this2 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
             window.axios.get("/api/cities?pro_id=" + 34).then(function (res) {
-                _this.cities = res.data;
+                _this2.cities = res.data;
                 __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
             }).catch(function (err) {
                 console.log(err);
@@ -102370,11 +102497,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         getSubdistricts: function getSubdistricts() {
-            var _this2 = this;
+            var _this3 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
             window.axios.get("/api/subdistricts?city_id=" + this.userMerchant.selectedCity.id).then(function (res) {
-                _this2.subdistricts = res.data.rajaongkir.results;
+                _this3.subdistricts = res.data.rajaongkir.results;
                 __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
             }).catch(function (err) {
                 console.log(err);
@@ -102431,6 +102558,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         this.getCities();
+        this.getCategories();
     }
 });
 
@@ -102582,8 +102710,156 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
+            _c("div", [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.kamar) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "modal fade",
+                attrs: {
+                  id: "exampleModal",
+                  tabindex: "-1",
+                  role: "dialog",
+                  "aria-labelledby": "exampleModalLabel",
+                  "aria-hidden": "true"
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "modal-dialog modal-dialog-centered",
+                    attrs: { role: "document" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "modal-content" },
+                      [
+                        _c("spinner"),
+                        _vm._v(" "),
+                        _vm._m(5),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "modal-body" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "small",
+                                attrs: { for: "namapengirim" }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            Kategori Kamar"
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.rooms.kategoriSelected,
+                                    expression: "rooms.kategoriSelected"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  id: "namapengirim",
+                                  "aria-describedby": "emailHelp",
+                                  placeholder: "Nama Pengirim",
+                                  required: ""
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.rooms,
+                                      "kategoriSelected",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              _vm._l(_vm.kategori, function(data, index) {
+                                return _c(
+                                  "option",
+                                  { key: index, domProps: { value: data } },
+                                  [
+                                    _vm._v(
+                                      _vm._s(data.category_name) +
+                                        "\n                                            "
+                                    )
+                                  ]
+                                )
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "valid-feedback" }, [
+                              _vm._v("sudah valid")
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(6),
+                          _vm._v(" "),
+                          _vm._m(7),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _vm._m(8)
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "modal-footer" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn btn-secondary close",
+                              attrs: { "data-dismiss": "modal" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.addRooms(1)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "Unggah\n                                    "
+                              )
+                            ]
+                          )
+                        ])
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
-              _vm._m(4),
+              _vm._m(9),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-9" }, [
                 _c("input", {
@@ -102616,7 +102892,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
-              _vm._m(5),
+              _vm._m(10),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-9" }, [
                 _c("textarea", {
@@ -102648,7 +102924,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
-              _vm._m(6),
+              _vm._m(11),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-9" }, [
                 _c("input", {
@@ -102681,7 +102957,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
-              _vm._m(7),
+              _vm._m(12),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-9" }, [
                 _c(
@@ -102764,7 +103040,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
-              _vm._m(8),
+              _vm._m(13),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-9" }, [
                 _c(
@@ -102853,7 +103129,7 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(9)
+            _vm._m(14)
           ]),
           _vm._v(" "),
           _c(
@@ -102937,6 +103213,134 @@ var staticRenderFns = [
         },
         [_vm._v("Wajib")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { align: "right" } }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { "data-toggle": "modal", "data-target": "#exampleModal" }
+        },
+        [
+          _c("i", { staticClass: "fa fa-plus" }),
+          _vm._v(" Tambah\n                    ")
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Tambah Kamar\n                                    ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { staticClass: "small", attrs: { for: "Jumlah Kasur" } }, [
+        _vm._v("\n                                           Jumlah Kasur")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control form-control-sm",
+        attrs: {
+          type: "number",
+          min: "1",
+          id: "Jumlah Kasur",
+          "aria-describedby": "emailHelp",
+          placeholder: "Jumlah Kasur",
+          required: ""
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "valid-feedback" }, [_vm._v("sudah valid")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { staticClass: "small", attrs: { for: "utkbank" } }, [
+        _vm._v("Bank\n                                            Tujuan")
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "select",
+        { staticClass: "form-control", attrs: { id: "utkbank", required: "" } },
+        [
+          _c("option", { attrs: { value: "MANDIRI" } }, [_vm._v("MANDIRI")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "OVO" } }, [_vm._v("OVO")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "DANA" } }, [_vm._v("DANA")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "GOPAY" } }, [_vm._v("GOPAY")])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "valid-feedback" }, [_vm._v("sudah valid")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "invalid-feedback" }, [
+        _c("span", [_vm._v("tidak boleh kosong")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { staticClass: "col-form-label" }, [
+        _vm._v(
+          "Gambar Kamar (\n                                            jpg/jpeg/png )"
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-9" }, [
+        _c("div", { staticClass: "upload-btn-wrapper" }, [
+          _c(
+            "button",
+            { staticClass: "btn-upcus", staticStyle: { margin: "auto" } },
+            [
+              _c("img", {
+                staticStyle: { height: "100px" },
+                attrs: { src: "/images/assets/addimage.png" }
+              }),
+              _vm._v(" "),
+              _c("input", { attrs: { type: "file", name: "images" } })
+            ]
+          )
+        ])
+      ])
     ])
   },
   function() {

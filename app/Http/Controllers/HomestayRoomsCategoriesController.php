@@ -19,4 +19,11 @@ class HomestayRoomsCategoriesController extends Controller
         $result = HomestayRoomCategory::all();
         return view('admin.homestay.all_room_categories')->with('transactions', $result);
     }
+
+    public function findAll(){
+        $result = HomestayRoomCategory::all();
+        return $result;
+    }
+
 }
+

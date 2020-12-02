@@ -9,14 +9,14 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Kategori Kamar</strong>
+                        <strong class="card-title">Fasilitas Kamar</strong>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped">
                             <thead>
                             <tr>
                                 <th scope="row">#</th>
-                                <th>Nama Kategori</th>
+                                <th>Nama Fasilitas</th>
                                 <th>Deskripsi</th>
                             </tr>
                             </thead>
@@ -24,8 +24,8 @@
                             @foreach ($transactions as $idx => $order)
                             <tr>
                                 <th scope="row"> {{ $idx+1 }}</th>
-                                <td>{{ $order->category_name}}</td>
-                                <td><span class="address"> {{ $order->category_deskripsi }}</span>
+                                <td>{{ $order->facilities_name}}</td>
+                                <td><span class="address"> {{ $order->facilities_deskripsi }}</span>
                                 </td>
                             </tr>
                             @endforeach
