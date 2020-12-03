@@ -314,41 +314,43 @@
    <div class="container-fluid custom-container">
    <div class="collapse navbar-collapse" id="navbarResponsive">
    <ul class="navbar-nav">
-      <li class="nav-item dropdown">
-         <a class="nav-link dropdown text-white" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-         Pakaian
+      <li class="dropdown megaDropMenu" data-toggle="dropdown" data-hover="dropdown" data-close-others="false" id="li_souvenir">
+         <a class="nav-link dropdown text-white" href="" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false"  data-close-others="false">
+         Souvenir <i class="fa fa-angle-down ml-1"></i>
          </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         </div>
+          <ul class="dropdown-menu row">
+              <li class="col-sm-6 col-xs-12"><a tabindex="-1" href="#">Fashion</a></li>
+              <li class="col-sm-6 col-xs-12"><a tabindex="-1" href="#">Tenun</a></li>
+
+          </ul>
       </li>
-      <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown text-white" href="{{ url('/product/aksesoris') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-         Aksesoris
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      </li>
-      <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown text-white" href="{{ url('/product/makanan') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-         Makanan
-         </a>
-         <div class="dropdown-menu text-white" aria-labelledby="navbarDropdown">
-         </div>
-      </li>
-      <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown text-white" href="{{ url('/product/obat') }}" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
-         Obat
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      </li>
-      <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown text-white" href="{{ url('/product/ulos') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-         Ulos
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      </li>
+       <li class="nav-item dropdown ml-5">
+           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Akomodasi
+           </a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+               <a class="dropdown-item" href="#"><b>Penginapan</b></a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="#">Homestay</a>
+               <a class="dropdown-item" href="#">Guest House</a>
+               <a class="dropdown-item" href="#">Losmen</a>
+               <a class="dropdown-item" href="#">Hotel</a>
+               <a class="dropdown-item" href="#">Villa</a>
+
+           </div>
+       </li>
+       <li class="nav-item dropdown ml-5">
+           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Paket Wisata
+           </a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+               <a class="dropdown-item" href="#">Paket Wisata</a>
+               <a class="dropdown-item" href="#">Komunitas paket wisata</a>
+           </div>
+       </li>
    </ul>
    </div>
-   <div class="container-fluid custom-container">
+   </div>
 </nav>
 @endrole
 
