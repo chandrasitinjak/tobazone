@@ -81,6 +81,13 @@
             @endif
         </div>
 
+        <div class="container-fluid mt-7" id="informasi-pariwisata">
+            <informasi-dicari />
+        </div>
+
+        <div class="container-fluid mt-7" id="komunitas-paket-wisata">
+            <komunitas-paket-wisata />
+        </div>
 
         <!-- <div id="banner">
             <banner/>
@@ -131,8 +138,9 @@
 </html>
 <script>
     import ProdukTerlaris from "../../../js/components/homes/ProdukTerlaris";
+    import KomunitasPaketWisata from "../../../js/components/homes/KomunitasPaketWisata";
 
     export default {
-        components: {ProdukTerlaris}
+        components: {ProdukTerlaris, KomunitasPaketWisata}
     }
 </script>
