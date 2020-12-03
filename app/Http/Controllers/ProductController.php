@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\Product;
 use App\Profile;
 use App\Rating;
@@ -33,22 +34,22 @@ class ProductController extends Controller
     }
 
     public function createFood()
-    {           
+    {
         return view('users.merchants.products.create_food');
     }
 
     public function createClothes()
-    {        
+    {
         return view('users.merchants.products.create_clothes');
     }
 
     public function createAccessories()
-    {        
+    {
         return view('users.merchants.products.create_accessories');
     }
 
     public function createMedicine()
-    {        
+    {
         return view('users.merchants.products.create_medicine');
     }
     /**
@@ -70,18 +71,18 @@ class ProductController extends Controller
             $destinationPath = public_path('/images');
             $image->move($destinationPath, $imageName);
         }
-        
-        
+
+
         $address = Profile::all()->where('user_id', Auth::user()->id)->first();
         $data = json_decode($address->address);
         $real_address = json_decode($data[0]);
-        $address_merchant = $real_address->city_name;                
+        $address_merchant = $real_address->city_name;
 
         $product = new Product();
-        $product->user_id = Auth::user()->id;   
+        $product->user_id = Auth::user()->id;
         $product->color = $request->color;
 
-        if($id == 1) {            
+        if($id == 1) {
             $product->cat_product = "ulos";
             $product->specification = json_encode([
                 'dimention' => $request->dimention,
@@ -89,13 +90,13 @@ class ProductController extends Controller
             ]);
             $product->category = $request->category;
         } else if($id == 2) {
-            $product->cat_product = "pakaian";                        
+            $product->cat_product = "pakaian";
             $product->specification = json_encode([
                 'size' => $request->dimention,
                 'weight' => $request->weight
             ]);
             $product->category = $request->category;
-        } else if($id == 3) {            
+        } else if($id == 3) {
             $product->cat_product = "makanan";
             $product->specification = json_encode([
                 'size_pack' => $request->dimention,
@@ -106,19 +107,19 @@ class ProductController extends Controller
             $product->category = $request->category;
 
         } else if($id == 4) {
-            $product->cat_product = "aksesoris";            
+            $product->cat_product = "aksesoris";
             $product->specification = json_encode([
                 'size' => $request->dimention,
                 'weight' => $request->weight
             ]);
             $product->category = $request->category;
         } else if($id == 5) {
-            $product->cat_product = "obat";            
+            $product->cat_product = "obat";
             $product->specification = json_encode([
                 'jenis' => $request->dimention,
                 'weight' => $request->weight
             ]);
-            
+
             if($request->dimention == "Padat")
                 $product->color = $request->color_1;
 
@@ -127,14 +128,14 @@ class ProductController extends Controller
 
             $product->category = "-";
 
-        }        
-        
+        }
+
         $product->name = $request->name;
         $product->price = $request->price;
         $product->stock = $request->stock;
-        $product->sold = 0;        
+        $product->sold = 0;
         $product->description = $request->description;
-        
+
         $product->images = json_encode($imageNames);
         // $product->asal = $address_merchant;
         $product->asal = $request->product_origin;
@@ -152,7 +153,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::with(['reviews.customer.profile'])->where('id',$id)->first();        
+        $product = Product::with(['reviews.customer.profile'])->where('id',$id)->first();
         $product->rating = 0;
         if (Auth::check()) {
             $rating = $this->getPersonalRating(Auth::user()->id, $id);
@@ -160,7 +161,7 @@ class ProductController extends Controller
                 $product->rating = $rating->rating;
             }
         }
-        
+
         return view('users.merchants.products.show')->with('product', $product);
     }
 
@@ -211,8 +212,8 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->price = $request->price;
         $product->stock = $request->stock;
-        $product->description = $request->description;        
-        
+        $product->description = $request->description;
+
         // echo $request->dimention. " " . $request->color;
 
         if($product->cat_product == "ulos") {
@@ -258,9 +259,9 @@ class ProductController extends Controller
             }
 
             $product->category = "-";
-        } 
-        
-        
+        }
+
+
         $imageNames = json_decode($product->images);
         $deletedImages = explode(",", $request->deletedImages);
 
@@ -287,6 +288,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id)->delete();
+        Cart::where('product_id', $id)->delete();
         return redirect('/merchant');
         // return redirect('/products');
     }
@@ -295,23 +297,23 @@ class ProductController extends Controller
         return view('users.homes.search');
     }
 
-    public function searchProductByUlos() {        
+    public function searchProductByUlos() {
         return view('users.category.ulos');
     }
 
-    public function searchProductByPakaian() {        
+    public function searchProductByPakaian() {
         return view('users.category.pakaian');
-    }    
+    }
 
-    public function searchProductByMakanan() {        
+    public function searchProductByMakanan() {
         return view('users.category.makanan');
     }
-    
-    public function searchProductByAksesoris() {        
+
+    public function searchProductByAksesoris() {
         return view('users.category.aksesoris');
     }
 
-    public function searchProductByObat() {        
+    public function searchProductByObat() {
         return view('users.category.obat');
     }
 }
