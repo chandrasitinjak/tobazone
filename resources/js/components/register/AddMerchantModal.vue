@@ -91,6 +91,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="label">Provinsi</label>
+
                                 <select class="form-control" v-on:change="getCities"
                                     v-model="userMerchant.selectedProvince"
                                     v-model.trim="$v.userMerchant.selectedProvince.$model"

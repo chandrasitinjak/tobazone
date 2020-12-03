@@ -1,12 +1,12 @@
 @extends('users.layouts.app')
-@section('title') {{ "Dashboard" }}
+
+@section('title') {{ "penginapan" }}
 @endsection
 
 @section('content')
 
 <div class="container">
     @include('users.merchants.profile')
-
   <!--menu-store-->
   <div class="row">
     <!--sidebar-->

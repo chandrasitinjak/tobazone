@@ -30,6 +30,10 @@
                                 aria-controls="profile"
                                 aria-selected="false"
                             >Pesanan Selesai</a>
+                            <a
+                                class="nav-item nav-link"
+                                href="/user/homestay/order/findAll"
+                            >Pesanan Penginapan</a>
                         </div>
                     </nav>
                     <div class="tab-content pt-2" id="myTabContent">
