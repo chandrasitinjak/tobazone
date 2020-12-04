@@ -371,7 +371,7 @@ Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiema
 Route::get('/paket/details/{id_paket}', 'PaketWisataCustomerController@show')->name('paket.detail');
 
 
-Route::get('/komunitas', 'KomunitasController@komunitas');
+Route::get('/komunitas', 'KomunitasController@komunitas')->name('komunitas');
 Route::get('/komunitas/{id_kabupaten}','KomunitasController@showC')->name('komunitas.show');
 
 Route::post('/pesan/paket/{id_paket}','PaketWisataCustomerController@bookingPaket');
@@ -380,3 +380,4 @@ Route::get('/pemesanan/detail/{id}','PemesananController@show_c')->name('pemesan
 Route::put('/pemesanan/detail/{id_pemesanan}/upload','PemesananController@kirimTransaksi')->name('transaksi.kirim');
 Route::put('/pemesanan/detail/{id_transaksi}/update', 'PemesananController@updateTransaksi')->name('transaksi.update');
 
+Route::get('/pemesanan/detail/pembayaran/{id}','PemesananController@pembayaran')->name('pembayaran');

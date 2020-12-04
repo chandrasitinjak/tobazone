@@ -45,7 +45,7 @@
                         <div class="single_travel text-center">
                             <div class="icon">
                                 <!-- <img src="images/tour.png" alt=""> -->
-                                <a href=""><img src="{{ asset("/images/riwayatpemesanan.png" )}}" alt="..."
+                                <a href="{{route('pemesanan')}}"><img src="{{ asset("/images/riwayatpemesanan.png" )}}" alt="..."
                                     ></a>
                             </div>
                             <h3>Riwayat Pemesanan</h3>
@@ -79,7 +79,7 @@
                     <div class="single_travel text-center">
                         <div class="icon">
                             <!-- <img src="images/komunitas.png" alt=""> -->
-                            <a href="#"><img src="{{ asset("/images/komunitas.png" )}}" alt="..."
+                            <a href="{{route('komunitas')}}"><img src="{{ asset("/images/komunitas.png" )}}" alt="..."
                                             ></a>
                         </div>
                             <h3>Comunity Based Tourism</h3>
