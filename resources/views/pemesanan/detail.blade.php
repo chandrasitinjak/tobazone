@@ -6,8 +6,8 @@
                 <div class="col">
                     <center><h3 class="mt-5">Detail Pemesanan</h3></center>
                     <div class="row mt-5">
-                        <div class="col-3 px-1">
-                            <div class="card products" style="border-radius: 10px;">
+                        <div class="col-lg-3 col-md-3 col-sm-12 px-1">
+                            <div class="card products">
                                 <a href="{{route('paket.detail',$pemesanan->getSesi->getPaket->id_paket)}}">
                                     <p class="btn btn-info btn-sm"
                                        style="border-radius: 30px;padding-top:5px;position:relative;left:4px;top:5px;">
@@ -28,8 +28,8 @@
                                 </a>
                             </div>
                         </div>
-                        <div class=" col" style="margin-left: 5px;">
-                            <div class="row border"
+                        <div class="col-lg-9 col-md-3 col-sm-12">
+                            <div class="row border pb-5"
                                  style="border-radius: 5px; background: white;padding: 10px;margin-bottom: 10px;">
                                 <div class="col ">
                                     <div class="row">
@@ -86,12 +86,12 @@
                             </div>
                             <div v-if="status==1">
                                 <div class="border row "
-                                     style="border-radius: 5px; background: #fbf9ff;padding: 10px;margin-bottom: 10px;">
+                                     style="border-radius: 5px; background: #fbf9ff;padding-top: 10px;margin-bottom: 10px;">
                                     <div class="col text-center" style="padding-bottom: 20px">
                                         <p>Segera selesaikan pembayaran Anda !</p>
                                         <br>
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-lg-4 col-sm-2">
                                             </div>
 
                                             <div class="col">
@@ -106,7 +106,7 @@
                                                 <h2 id="detik"></h2>Detik
                                             </div>
 
-                                            <div class="col-4">
+                                            <div class="col-lg-4 col-sm-2">
                                             </div>
                                         </div>
 
@@ -116,154 +116,8 @@
                                         <p><i>(Sebelum @{{ getDeatline() }})</i></p>
                                     </div>
                                 </div>
-                                <div class="border row"
-                                     style="background: white;padding: 10px;margin-bottom: 10px;border-radius: 5px">
-                                    <div class="col ">
-                                        <p class="gj-text-align-center">Transfer pembayaran ke salah satu nomor Account di bawah
-                                            ini :</p>
-                                        @foreach($rekening as $row)
-                                            <hr>
-                                            <h3 class="mb-30">{{$row->nama_bank}}</h3>
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img src="{{asset('storage/img/rekening/'.$row->gambar)}}"
-                                                         class="img-fluid">
-                                                </div>
-                                                <div class="col-md-10 mt-sm-20">
-                                                    <p><b>Nomor Rekening : {{$row->nomor_rekening}}</b></p>
-                                                    <p>a/n Kristopel Lumbantoruan </p>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                        <hr>
-                                        <div class="row">
-                                            <button data-toggle="modal"
-                                                    data-target="#exampleModal"
-                                                    class="btn btn-dark col-md mt-sm-20">
-                                                Upload Bukti Pembayaran
-                                            </button>
-
-                                            <!-- Modal -->
-                                            <div
-                                                class="modal fade"
-                                                id="exampleModal"
-                                                tabindex="-1"
-                                                role="dialog"
-                                                aria-labelledby="exampleModalLabel"
-                                                aria-hidden="true"
-                                            >
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Upload Bukti
-                                                                Bayar</h5>
-                                                            <button
-                                                                type="button"
-                                                                class="close"
-                                                                data-dismiss="modal"
-                                                                aria-label="Close"
-                                                            >
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <form action="{{route('transaksi.kirim',$pemesanan->id_pemesanan)}}"
-                                                              method="post" enctype="multipart/form-data">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <div class="modal-body">
-                                                                <p>Total Yang Harus Dibayar :
-                                                                    <b>Rp. {{number_format($pemesanan->getSesi->getPaket->harga_paket*$pemesanan->jumlah_peserta)}}</b>
-                                                                </p>
-                                                                <hr>
-                                                                <label for="rekening" class="small">Pilih Rekening</label>
-                                                                <hr>
-                                                                @foreach($rekening as $row)
-                                                                    <div id="rekening" class="form-group">
-                                                                        <input type="radio" value="{{$row->id_rekening}}"
-                                                                               id="rekening_{{$row->id_rekening}}"
-                                                                               name="rekening"
-                                                                               required>
-                                                                        <label for="rekening_{{$row->id_rekening}}">
-                                                                            <img
-                                                                                src="{{asset('storage/img/rekening/'.$row->gambar)}}"
-                                                                                width="50"> {{$row->nama_bank}}
-                                                                            ({{$row->nomor_rekening}})</label>
-                                                                    </div>
-                                                                @endforeach
-                                                                <br>
-                                                                <hr>
-                                                                <div class="form-group">
-                                                                    <label for="bukti" class="small">Bukti Pembayaran</label>
-                                                                    <hr>
-                                                                    <input id="bukti" name="bukti" class="form-control"
-                                                                           type="file" required>
-
-                                                                </div>
-                                                                <hr>
-                                                                <div class="form-group">
-                                                                    <label for="jumlah" class="small">Jumlah Nilai (Rp) yang
-                                                                        Ditransfer</label>
-                                                                    <hr>
-
-                                                                    <input type="number" id="jumlah" min="0" class="form-control" name="jumlah"
-                                                                           placeholder="Jumlah Nilai Transaksi (Rp)"
-                                                                           required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row modal-footer">
-                                                                <div class="col-1">
-                                                                </div>
-                                                                <button type="submit" class="col btn btn-dark">Upload
-                                                                </button>
-                                                                <div class="col-1">
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- end Modal -->
-                                        </div>
-                                        <div class="row" style="margin-top:10px">
-                                            <button type="button" class="btn btn-danger col-md mt-sm-20" data-toggle="modal"
-                                                    data-target="#delete_{{$pemesanan->id_pemesanan}}">
-                                                Batalkan Pemesanan
-                                            </button>
-                                            <div class="modal fade" id="delete_{{$pemesanan->id_pemesanan}}"
-                                                 tabindex="-1" role="dialog"
-                                                 aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="hapusModalLongTitle">
-                                                                Batalkan Pemesanan</h5>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            Anda Yakin Ingin Membatalkan Pemesanan Paket ini ?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">
-                                                                Tidak
-                                                            </button>
-                                                            <form
-                                                                action="{{route('pemesanan.batal',$pemesanan->id_pemesanan)}}"
-                                                                method="post">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="submit" class="btn btn-danger">Ya
-                                                                </button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="row mb-5">
+                                    <a href="{{route('pembayaran',$pemesanan->id_pemesanan)}}" class="col btn btn-dark">Upload Pembayaran</a>
                                 </div>
                             </div>
                             <div v-else-if="status==5">
@@ -314,10 +168,13 @@
                                                         aria-labelledby="exampleModalLabel"
                                                         aria-hidden="true"
                                                     >
-                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                                                        <div
+                                                            class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                                                            role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Upload Bukti
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        Upload Bukti
                                                                         Bayar</h5>
                                                                     <button
                                                                         type="button"
@@ -328,8 +185,9 @@
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
                                                                 </div>
-                                                                <form action="{{route('transaksi.update',$transaksi->id_transaksi)}}"
-                                                                      method="post" enctype="multipart/form-data">
+                                                                <form
+                                                                    action="{{route('transaksi.update',$transaksi->id_transaksi)}}"
+                                                                    method="post" enctype="multipart/form-data">
                                                                     @csrf
                                                                     @method('PUT')
                                                                     <div class="modal-body">
@@ -347,7 +205,8 @@
                                                                                        id="rekening_{{$row->id_rekening}}"
                                                                                        name="rekening"
                                                                                        required>
-                                                                                <label for="rekening_{{$row->id_rekening}}">
+                                                                                <label
+                                                                                    for="rekening_{{$row->id_rekening}}">
                                                                                     <img
                                                                                         src="{{asset('storage/img/rekening/'.$row->gambar)}}"
                                                                                         width="50"> {{$row->nama_bank}}
@@ -366,11 +225,13 @@
                                                                         </div>
                                                                         <hr>
                                                                         <div class="form-group">
-                                                                            <label for="jumlah" class="small">Jumlah Nilai (Rp)
+                                                                            <label for="jumlah" class="small">Jumlah
+                                                                                Nilai (Rp)
                                                                                 yang
                                                                                 Ditransfer</label>
                                                                             <hr>
-                                                                            <input type="number" id="jumlah" min="0" class="form-control" name="jumlah"
+                                                                            <input type="number" id="jumlah" min="0"
+                                                                                   class="form-control" name="jumlah"
                                                                                    placeholder="Jumlah Nilai Transaksi (Rp)"
                                                                                    required>
                                                                         </div>
@@ -378,7 +239,8 @@
                                                                     <div class="row modal-footer">
                                                                         <div class="col-1">
                                                                         </div>
-                                                                        <button type="submit" class="col btn btn-dark">Upload
+                                                                        <button type="submit" class="col btn btn-dark">
+                                                                            Upload
                                                                         </button>
                                                                         <div class="col-1">
                                                                         </div>
@@ -491,10 +353,10 @@
                 this.getTransaction();
                 this.test();
                 setInterval(() => {
-                 this.updateDuration();
-                    document.getElementById('jam').innerHTML= this.duration._data.hours;
-                    document.getElementById('menit').innerHTML= this.duration._data.minutes;
-                    document.getElementById('detik').innerHTML= this.duration._data.seconds;
+                    this.updateDuration();
+                    document.getElementById('jam').innerHTML = this.duration._data.hours;
+                    document.getElementById('menit').innerHTML = this.duration._data.minutes;
+                    document.getElementById('detik').innerHTML = this.duration._data.seconds;
                 }, 1000);
 
 
