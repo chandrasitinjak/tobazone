@@ -15,7 +15,7 @@
                                 <h2>Paket Wisata</h2>
                             </center>
                             <br>
-                            <a href=""><img src="{{ asset("/images/carousels/1588556676inspirasi_2.png" )}}" class="d-block w-100" alt="..."
+                            <a href=""><img src="{{ asset("/images/carousels/Paket Wisata.png" )}}" class="d-block w-100" alt="..."
                                             style="height: 400px; width: 250px;"></a>
                             <br><br>
                         </div>
@@ -29,7 +29,42 @@
     <div class="travel_variation_area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6">
+                @if(Auth::check())
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single_travel text-center">
+                            <div class="icon">
+                                <!-- <img src="images/tour.png" alt=""> -->
+                                <a href=""><img src="{{ asset("/images/tour.png" )}}"  alt="..."
+                                    ></a>
+                            </div>
+                            <h3>Paket Wisata</h3>
+                            <p>Perjalanan wisata yang dirancang agar perjalanan lebih menyenangkan.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single_travel text-center">
+                            <div class="icon">
+                                <!-- <img src="images/tour.png" alt=""> -->
+                                <a href=""><img src="{{ asset("/images/riwayatpemesanan.png" )}}" alt="..."
+                                    ></a>
+                            </div>
+                            <h3>Riwayat Pemesanan</h3>
+                            <p>Komunitas yang dibangun untuk meningkatkan produktivitas penyaji wisata.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single_travel text-center">
+                            <div class="icon">
+                                <!-- <img src="images/komunitas.png" alt=""> -->
+                                <a href="{{route('komunitas')}}"><img src="{{ asset("/images/komunitas.png" )}}" alt="..."
+                                    ></a>
+                            </div>
+                            <h3>Comunity Based Tourism</h3>
+                            <p>Komunitas yang dibangun untuk meningkatkan produktivitas penyaji wisata.</p>
+                        </div>
+                    </div>
+                @else
+                <div class="col-lg-6 col-md-6">
                     <div class="single_travel text-center">
                         <div class="icon">
                             <!-- <img src="images/tour.png" alt=""> -->
@@ -40,28 +75,18 @@
                             <p>Perjalanan wisata yang dirancang agar perjalanan lebih menyenangkan.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_travel text-center">
-                        <div class="icon">
-                            <!-- <img src="images/tour.png" alt=""> -->
-                            <a href=""><img src="{{ asset("/images/riwayatpemesanan.png" )}}" alt="..."
-                                            ></a>
-                        </div>
-                            <h3>Riwayat Pemesanan</h3>
-                            <p>Komunitas yang dibangun untuk meningkatkan produktivitas penyaji wisata.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-6 col-md-6">
                     <div class="single_travel text-center">
                         <div class="icon">
                             <!-- <img src="images/komunitas.png" alt=""> -->
-                            <a href=""><img src="{{ asset("/images/komunitas.png" )}}" alt="..."
+                            <a href="#"><img src="{{ asset("/images/komunitas.png" )}}" alt="..."
                                             ></a>
                         </div>
                             <h3>Comunity Based Tourism</h3>
                             <p>Komunitas yang dibangun untuk meningkatkan produktivitas penyaji wisata.</p>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>
