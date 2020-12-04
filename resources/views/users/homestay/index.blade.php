@@ -7,7 +7,6 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class=" col-md-1">
-
             </div>
             <div class="col-md-10">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -41,7 +40,6 @@
         </div>
 
     </div>
-
 <section class="shop_grid_area section-padding-80">
     <div class="row">
         <div class="col-md-12">
@@ -58,25 +56,40 @@
 
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="lokasi">Destinasi Penginapan</label>
+
+                                        <p style="margin-bottom: -5px; font-weight: bolder">Destinasi Penginapan</p>
+
                                         <div id="lokasi" class="input-container">
                                             <i class="fa fa-map-marker icon fa-lg" style="color:#000000;"></i>
                                             <input class="form-control" type="text" placeholder="Lokasi" name="kecamatan">
                                         </div>
-                                        <label for="check">Check In</label>
-                                        <div class="row" id="check">
-                                            <div class="input-container col-md-6">
-                                                <i class="fa fa-calendar icon fa-lg" style="color:#000000;"></i>
-                                                <input class="form-control" type="date" name="check-in">
-                                            </div>
 
-                                            <div class="input-container col-md-6">
-                                                <i class="fa fa-moon-o icon fa-lg" style="color:#000000;"></i>
-                                                <input class="form-control" type="number" name="durasi">
+                                        <div class="row" id="check">
+                                            <div class="col-lg-6">
+                                                <p style="margin-bottom: -5px; font-weight: bolder">Check in</p>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+                                                    </div>
+                                                    <input type="date" class="form-control" id="inlineFormInputGroup">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p style="margin-bottom: -5px; font-weight: bolder">Durasi</p>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fa fa-moon-o" aria-hidden="true"></i></div>
+                                                    </div>
+                                                    <input type="number" class="form-control" id="inlineFormInputGroup">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-xs-5">
+                                                <p style="margin-bottom: -5px; font-weight: bolder">Check out</p>
+                                                <p style="margin-bottom: -5px;font-weight: bold;font-weight: bolder">Sabtu,26 Dec 2020</p>
 
+                                            </div>
                                         </div>
                                         <label for="tamu">Tamu dan Kamar</label>
                                         <div id="tamu" class="input-container ">
@@ -103,101 +116,98 @@
                 </div>
             </div>
         </div>
-{{--        <div class="col-md-4 card">--}}
-{{--            <div class="single-product-wrapper">--}}
-{{--                <div style="margin: 10px">--}}
-
-{{--                    <a href="{{ '../images/'. $homestays[0]->image}}">--}}
-{{--                        <div class="product-img">--}}
-{{--                            <img src="{{ '../images/'. $homestays[0]->image}}"  style='width: 100%; object-fit: cover' alt="">--}}
-{{--                        </div>--}}
-{{--                    </a>--}}
-{{--                    <div class="product-description">--}}
-{{--                        <div class="row">--}}
-{{--                            <div class="col-md-6">--}}
-{{--                                <a href="{{ url('/homestays/find', $homestays[0]->id)}}"><h6>{{--}}
-{{--                                        $homestays[0]->name }}</h6></a>--}}
-{{--                            </div>--}}
-{{--                            <br>--}}
-{{--                            <div class="col-md-6" align="right">--}}
-{{--                                <p> {{--}}
-{{--                                    $homestays[0]->address }}</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="row">--}}
-{{--                            <div class="col-md-6">--}}
-{{--                                <p class="product-price" style="color: #FF8311; "> Rp.{{--}}
-{{--                                    $homestays[0]->price }}</p>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-md-6" align="right">--}}
-{{--                                <p> {{--}}
-{{--                                    $homestays[0]->username }}</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
     </div>
-    <hr>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-12 col-lg-12">
-        <div class="shop_grid_product_area">
-          <div class="row">
-            <div class="col-12">
-              <div class="product-topbar d-flex align-items-center justify-content-between">
-                <!-- Total Products -->
-                <div class="total-products">
-                </div>
-              </div>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-1">
+
             </div>
-          </div>
+            <div class="col-md-10">
+                <div class="container card products mt-5" style="background-color: #F5F5F5">
+                    <div class="row" id="check">
+                        <div class="col-lg-6 mt-2 mb-2">
+                            <div class="input-group">
+                                <div class="text-black-50">
+                                    <h3>Menampilkan hasil homestay di </h3>
+                                </div>
+                                <input type="form-control" placeholder="Laguboti" style="margin-left: 10px; width: 50px;font-weight: bold;" readonly class="form-control" id="inlineFormInputGroup">
+                            </div>
+                        </div>
+                        <div class="col-lg- mt-2 mb-2">
+                            <div class="input-group">
+                                <div class="text-black-50">
+                                    <h3>Pada tanggal </h3>
+                                </div>
+                                <input type="form-control" placeholder="25 Desember 2020" style="margin-left: 10px; font-weight: bold;" readonly class="form-control" id="inlineFormInputGroup">
+                            </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-1">
 
-          <div class="row">
-            @foreach ($homestays as $product)
-              <div class="col-12 col-sm-6 col-lg-4">
-                  <div class="single-product-wrapper card">
-                      <div style="margin: 10px">
-
-                          <a href="{{ '../images/'. $product->image}}">
-                              <div class="product-img">
-                                  <img src="{{ '../images/'. $product->image}}"  style='width: 100%; object-fit: cover' alt="">
-                              </div>
-                          </a>
-                          <div class="product-description">
-                              <div class="row">
-                                  <div class="col-md-6">
-                                      <a href="{{ url('/homestays/find', $product->id)}}"><h6>{{
-                                              $product->name }}</h6></a>
-                                  </div>
-                                  <br>
-                                  <div class="col-md-6" align="right">
-                                      <p> {{
-                                          $product->address }}</p>
-                                  </div>
-                              </div>
-
-                              <div class="row">
-                                  <div class="col-md-6">
-                                      <p class="product-price" style="color: #FF8311; "> Rp.{{
-                                          $product->price }}</p>
-                                  </div>
-                                  <div class="col-md-6" align="right">
-                                      <p> {{
-                                          $product->username }}</p>
-                                  </div>
-                                  <br><br>
-                              </div>
-                          </div>
-                      </div>
-                      </a>
-                  </div>
-              </div>
-            @endforeach
-          </div>
+            </div>
         </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class=" col-md-1">
+
+            </div>
+            <div class="col-md-10">
+                @foreach ($homestays as $product)
+                <a href="{{ url('/homestays/find', $product->id)}}">
+                <div class="container card products mt-5" style="background-color: #F5F5F5">
+
+                    <h3 class="mt-3">{{$product->name }}</h3>
+                    <hr>
+                    <div class="row">
+
+                        <div class="col-lg-4">
+                            <div class="col-12 mb-3">
+                                <img class="img-thumbnail bayangan" src="{{ '../images/'. $product->image}}" width="1000">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 pt-5 pl-3 mb-2 img-thumbnail bayangan" style="background-color:#F5F5F5;">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4 class="product-price" style="color: black">{{$product->name }}</h4>
+                                    <h6 style="color: black; margin-top: -10px"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> {{$product->address }}</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <form class="row pl-3 pr-3">
+                                    <div class="col-lg-12">
+                                        <h4 class="product-price" style="color: darkorange">Rp {{ number_format($product->price) }} </h4>
+                                        <p style="color: darkorange; margin-top: -10px">{{
+                                          $product->username }}</p>
+
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                    @endforeach
+                </a>
+            </div>
+            <div class=" col-md-1">
+
+            </div>
+        </div>
+
+    </div>
+
+
+
         <!-- Pagination -->
 {{--        <nav aria-label="navigation">--}}
 {{--          <ul class="pagination mt-50 mb-70">--}}
