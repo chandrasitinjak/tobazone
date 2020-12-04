@@ -57,12 +57,21 @@ const AddToWishlistButton = require('./components/AddToWishlistButton')
 const UserRating = require('./components/merchants/UserRating')
 const UserRatingSecond = require('./components/merchants/UserRatingSecond')
 const ProdukTerlaris = require('./components/homes/ProdukTerlaris')
+const MainPage = require('./components/homestay/MainPage')
+const CarouselHomestay = require('./components/homestay/CarouselHomestay')
+const CreateHomestay = require('./components/homestay/merchant/CreateHomestay')
+const UpdateHomestay = require('./components/homestay/merchant/UpdateHomestay')
 const ListLogin = require('./components/auths/ListLogin')
+const AllHomestay = require('./components/homestay/merchant/AllHomestay')
 const KoperasiAktif = require('./components/Koperasi/KoperasiAktif')
 const KoperasiTidakAktif = require('./components/Koperasi/KoperasiTidakAktif')
 const AkunPending = require('./components/Koperasi/AkunPending')
+<<<<<<< HEAD
 const InformasiDicari = require('./components/homes/InformasiDicari')
 const KomunitasPaketWisata = require('./components/homes/KomunitasPaketWisata')
+=======
+const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay')
+>>>>>>> e94768802c2cb60183eff1995ae958e71f0d4887
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -114,11 +123,20 @@ const app = new Vue({
         ProductsAksesoris,
         ProductsObat,
         ProdukTerlaris,
+        MainPage,
+        CarouselHomestay,
+        CreateHomestay,
+        UpdateHomestay,
         ListLogin,
         RegCebt,
+<<<<<<< HEAD
         InformasiDicari,
         KomunitasPaketWisata
 
+=======
+        AllHomestay,
+        FormPesanHomestay,
+>>>>>>> e94768802c2cb60183eff1995ae958e71f0d4887
     },
     data() {
         return {
