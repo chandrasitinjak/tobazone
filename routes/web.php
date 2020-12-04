@@ -237,3 +237,14 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
 
 
+//Sistem informasi Pariwisata
+Route::get('informasi-akomodasi', 'AkomodasiController@displayAkomodasi');
+Route::get('/Kab/Information/Akomodasi/{id}', 'AkomodasiController@displayDetailAkomodasi');
+Route::get('informasi-objek-wisata', 'ObjekWisataController@displayObjekWisata');
+Route::get('/Kab/Information/ObjekWisata/{id}', 'ObjekWisataController@displayDetailObjekWisata');
+Route::get('informasi-event', 'EventController@displayEvent');
+Route::get('/Kab/Information/Event/{id}', 'EventController@displayDetailEvent');
+Route::get('informasi-kuliner', 'KulinerController@displayKuliner');
+Route::get('/Kab/Information/Kuliner/{id}', 'KulinerController@displayDetailKuliner');
+Route::get('informasi-budaya', 'BudayaController@displayBudaya');
+Route::get('/Kab/Information/Budaya/{id}', 'BudayaController@displayDetailBudaya');
