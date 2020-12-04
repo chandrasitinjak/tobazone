@@ -26,6 +26,49 @@
         </div>
     </div>
 
+    <div class="travel_variation_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_travel text-center">
+                        <div class="icon">
+                            <!-- <img src="images/tour.png" alt=""> -->
+                            <a href=""><img src="{{ asset("/images/tour.png" )}}"  alt="..."
+                                            ></a>
+                        </div>
+                            <h3>Paket Wisata</h3>
+                            <p>Perjalanan wisata yang dirancang agar perjalanan lebih menyenangkan.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_travel text-center">
+                        <div class="icon">
+                            <!-- <img src="images/tour.png" alt=""> -->
+                            <a href=""><img src="{{ asset("/images/riwayatpemesanan.png" )}}" alt="..."
+                                            ></a>
+                        </div>
+                            <h3>Riwayat Pemesanan</h3>
+                            <p>Komunitas yang dibangun untuk meningkatkan produktivitas penyaji wisata.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_travel text-center">
+                        <div class="icon">
+                            <!-- <img src="images/komunitas.png" alt=""> -->
+                            <a href=""><img src="{{ asset("/images/komunitas.png" )}}" alt="..."
+                                            ></a>
+                        </div>
+                            <h3>Comunity Based Tourism</h3>
+                            <p>Komunitas yang dibangun untuk meningkatkan produktivitas penyaji wisata.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
     <div class="container">
 
         <div class="row">
@@ -44,6 +87,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-auto">
                 <div class="dropdown">
                     <button class="btn dropdown-toggle bg-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #545454">
