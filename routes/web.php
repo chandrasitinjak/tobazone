@@ -363,6 +363,7 @@ Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}', 'MemberControll
 
 
 Route::get('/paket-wisata/more','PaketWisataController@more_paket')->name('paket');
+Route::post('/paket-wisata/more','PaketWisataController@indexFilter')->name('paket.filter');
 
 Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiemail')->name('konfirmasiemail');
 
