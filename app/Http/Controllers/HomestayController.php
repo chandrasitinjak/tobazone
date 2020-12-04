@@ -47,6 +47,21 @@ class HomestayController extends Controller
         ];
         return view('users.homestay.index')->with('homestays', $result);
     }
+    public function morePage(){
+        $homestays = Homestay::All();
+        $result = DB::table('homestays')
+            ->join('users', 'users.id', '=', 'homestays.merchant_id')
+            ->select('homestays.*', 'users.username')
+            ->get();
+        $data = [
+            'code' => 200,
+            'status' => 'OK',
+            'data' => [
+                $result
+            ]
+        ];
+        return view('users.homestay.more_page')->with('homestays', $result);
+    }
 
 
     public function search(Request $request)
