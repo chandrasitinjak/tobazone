@@ -45,7 +45,7 @@
                         <div class="single_travel text-center">
                             <div class="icon">
                                 <!-- <img src="images/tour.png" alt=""> -->
-                                <a href=""><img src="{{ asset("/images/riwayatpemesanan.png" )}}" alt="..."
+                                <a href="{{route('pemesanan')}}"><img src="{{ asset("/images/riwayatpemesanan.png" )}}" alt="..."
                                     ></a>
                             </div>
                             <h3>Riwayat Pemesanan</h3>

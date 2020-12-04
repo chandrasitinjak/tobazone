@@ -14,6 +14,19 @@ use Illuminate\Support\Str;
 class PemesananController extends Controller
 {
 
+    public function pembayaran($id_pemesanan){
+        $pemesanan = Pemesanan::find($id_pemesanan);
+        $status = $pemesanan->defineStatus($pemesanan->status);
+        $rekening = Rekening::all();
+
+        if ($pemesanan->user_id == Auth::id()) {
+            return view('pemesanan.pembayaran', compact('rekening', 'pemesanan', 'status'));
+        } else {
+            return redirect(route('pemesanan'));
+        }
+        return view('pemesanan.pembayaran');
+    }
+
     public function updateRekening(Request $request, $id_rekening){
         $rekening = Rekening::find($id_rekening);
         $rekening->nama_bank = $request->nama_bank;
@@ -34,7 +47,7 @@ class PemesananController extends Controller
         $rekening->delete();
         return redirect(route('admin.pemesanan'))->with('status','Rekening Berhasil Dihapus');
     }
-    
+
     public function editRekening($id_rekening){
         $rekening = Rekening::find($id_rekening);
 
