@@ -10,13 +10,23 @@
             }
             .yjudul{
                 margin-top: 10px;
-                font-size: 28px;
+                font-size: 25px;
             }
             .product-desc{
                 text-align: justify;
             }
             #message{
                 height: 100px;
+            }
+            .ylokasi{
+                margin-top: 20px;
+            }
+            .yform{
+
+            }
+
+            .yrencana{
+                margin-left: -60px;
             }
         }
         @media (min-width:450px) and (max-width: 767px){
@@ -32,6 +42,9 @@
             }
             #message{
                 height: 100px;
+            }
+            .yrencana{
+                margin-left: -60px;
             }
         }
         @media (min-width:768px) and (max-width: 990px){
@@ -64,16 +77,16 @@
                     <div class="card-body">
                         <div class="row">
 
-                            <div class="col-md-5">
+                            <div class="col-md-5 col-12">
                                 <div class="detailproduct">
                                     <div class="row">
 
-                                        <div class="imagesliderholder col-md-10 col-lg-8 col-auto  ml-5 ">
+                                        <div class="imagesliderholder col-md-10 col-lg-11 col-12">
                                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
-                                                        <img class="align-self-center" src="{{ asset('storage/img/paket/'.$paket->gambar) }}" alt="">
+                                                        <img class="align-self-center yfoto" src="{{ asset('images/' . $paket->gambar) }}"alt="">
                                                     </div>
                                                 </div>
 
@@ -84,67 +97,63 @@
                                 </div>
                             </div>
 
-                                <div class="col-md-6">
-{{--                                    <button type="button" class="badge custom-badge font-weight-light ybutton-category" data-toggle="test" data-rigger="focus" data-content="Produk ini dibuat dengan metode {{ $product->category }}"--}}
-{{--                                            data-html="true">--}}
-{{--                                        {{$product->category}}--}}
-{{--                                    </button>--}}
+                            <div class="col-md-6">
+                                {{--                                    <button type="button" class="badge custom-badge font-weight-light ybutton-category" data-toggle="test" data-rigger="focus" data-content="Produk ini dibuat dengan metode {{ $product->category }}"--}}
+                                {{--                                            data-html="true">--}}
+                                {{--                                        {{$product->category}}--}}
+                                {{--                                    </button>--}}
 
-                                    <h2 class="yjudul">{{ $paket->nama_paket }} </h2>
-                                    <h6><i class="fa fa-map-marker" aria-hidden="true"></i> <span>{{ $paket->getKabupaten->nama_kabupaten }}</span></h6>
-                                    <h6><i class="fa fa-user" aria-hidden="true"></i> <span>Maximal {{ $paket->availability }} Orang</span></h6>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <h4 class="product-price" style="color: orange">Rp {{ number_format($paket->harga_paket ,0) }}</h4>
+                                <h2 class="yjudul">{{ $paket->nama_paket }} </h2>
+                                <h6 class="ylokasi"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>{{ $paket->getKabupaten->nama_kabupaten }}</span></h6>
+                                <h6 class=""><i class="fa fa-user" aria-hidden="true"></i> <span>Maximal {{ $paket->availability }} Orang</span></h6>
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <h4 class="product-price" style="color: orange">Rp {{ number_format($paket->harga_paket ,0) }}</h4>
+                                    </div>
+                                    <div class="col-auto">
+                                        <h4><i class="fa fa-clock-o" aria-hidden="true"></i> <span>{{ $paket->durasi }}</span></h4>
+                                    </div>
+                                </div>
+
+                                <form class="mt-5 yform" method="post" action="/pesan/paket/{{$paket->id_paket}}">
+                                    @csrf
+                                    <div class="form-row align-items-center">
+                                        <div class="col-sm-6 my-1">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
+                                                </div>
+                                                <input type="number" min="1" name="jumlah_orang" class="form-control" id="inlineFormInputGroupUsername" placeholder="Jumlah Orang">
+                                            </div>
                                         </div>
-                                        <div class="col-auto">
-                                            <h4><i class="fa fa-clock-o" aria-hidden="true"></i> <span>{{ $paket->durasi }}</span></h4>
+                                        <div class="col-sm-6 my-1">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+                                                </div>
+                                                <input type="date" name="sesi" class="form-control" id="inlineFormInputGroupUsername" name="date" placeholder="Tanggal">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row align-items-center">
+                                        <div class="col-sm-12 my-1">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
+                                                </div>
+                                                <textarea name="pesan" id="" cols="30" rows="10" class="form-control"></textarea>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="form-row align-items-center">
+                                        <div class="col-12 my-1 mt-3">
+                                            <button type="submit" class="btn essence-btn ml4">Booking Pemesanan</button>
+                                        </div>
+                                    </div>
+                                </form>
 
-                                    <form class="mt-3" method="post" action="/pesan/paket/{{$paket->id_paket}}">
-                                        @csrf
-                                        <div class="form-row align-items-center">
-                                            <div class="col-sm-6 my-1">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
-                                                    </div>
-                                                    <input type="number" min="1" name="jumlah_peserta" class="form-control" id="inlineFormInputGroupUsername" placeholder="Jumlah Orang">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6 my-1">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></div>
-                                                    </div>
-                                                    <select name="sesi" class="custom-select form-control">
-                                                        <option disabled selected>Pilih Jadwal</option>
-                                                        @foreach($sesi as $row)
-                                                            <option value="{{$row->id_sesi}}">{{$row->jadwal}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-1 align-items-center">
-                                            <div class="col-sm-12 my-1">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fa fa-comments" aria-hidden="true"></i></div>
-                                                    </div>
-                                                    <textarea name="pesan" placeholder="Pesan/Pertanyaan Untuk Pemesanan" id="" cols="30" rows="10" class="form-control"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-2 align-items-center">
-                                        <div class="col-12 my-1">
-                                                <button type="submit" class="btn essence-btn ml4">Booking Pemesanan</button>
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                </div>
+                            </div>
                         </div>
 
                         <div class="row text-center">
@@ -154,7 +163,7 @@
                         <div class="row">
                             <div class="mt-5 detailreview">
 
-                                <div class="col-md-12">
+                                <div class="col-md-12 col-12">
                                     <!-- Nav tabs -->
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item">
@@ -182,7 +191,7 @@
                                     <div class="tab-content mt-3" id="myTabContent">
 
                                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                            <div class="col-9 px-1">
+                                            <div class="col-12 yrencana">
                                                 <?php echo $paket->rencana_perjalanan ?>
                                             </div>
                                         </div>
@@ -193,8 +202,8 @@
                                             </div>
                                         </div>
 
-                                        <div class="tab-pane fade ulasan" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                            <div class="row ml-3">
+                                        <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                            <div class="row">
                                                 <div class="col-md-5">
                                                     <h4>Included</h4>
                                                     <ul>
