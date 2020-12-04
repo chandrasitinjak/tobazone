@@ -1,8 +1,8 @@
 @extends('users.layouts.app')
 @section('content')
 
-
-
+<div class="container-fluid">
+    
     <div class="container">
         <div class="row">
             <div class="col-1"></div>
@@ -130,7 +130,7 @@
         <div class="row">
             <div class="card globalcard">
                 <div class="card-header">
-                <nav class="navbar navbar-expand-sm mproduct p-1" style="background-color: transparent; border:none;width : 1300px">
+                <nav class="navbar navbar-expand-sm mproduct p-1" style="background-color: transparent; border:none;">
           <!-- <h5 class="mr-3">Filter </h5> -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars"></span>
@@ -139,9 +139,8 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
            <form action="{{route('paket.filter')}}" method="post">
            @csrf
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="position : relative; float : right">
-              <li class="mr-1 ml-auto">
-                <select name="kabupaten" style="width: 90%;padding: 14px 12px;
+              <div class="container">
+                <select name="kabupaten" style="padding: 14px 12px;
                                                 border: none;
                                                 border-radius: 5px;
                                                 color: black;
@@ -152,10 +151,8 @@
                             {{(isset($id_kab)&&($id_kab==$row->id_kabupaten))?'selected':null}}> {{$row->nama_kabupaten}} </option>
                         @endforeach
                 </select>
-              </li>
-              <li class="mr-1 ml-auto">
 
-                <select name="jenis" style="width: 90%;padding: 14px 22px;
+                <select name="jenis" style="padding: 14px 22px;
                                             border: none;
                                             border-radius: 5px;
                                             color: black;
@@ -168,17 +165,13 @@
 
                         @endforeach
                 </select>
-              </li>
-
-              <li class="mr-1 ml-auto">
                 <button type="submit" style="padding: 14px 22px;
                                             border: none;
                                             border-radius: 5px;
                                             color: black;
                                             background-color: #d9d9d9;;"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
-              </li>
 
-            </ul>
+            </div>
             </form>
           </div>
         </nav>
@@ -190,7 +183,7 @@
             <div class="col-12">
                 <div class="row">
                     @forelse($paket as $row)
-                        <div class="col-4">
+                        <div class="col-lg-4 col-sm-12 col-md-6">
                             <div class="card products"  style="border-radius: 10px;">
                                 <a href="{{route('paket.detail',$row->id_paket)}}">
 
@@ -229,6 +222,7 @@
 
             </div>
         </div>
+    </div>
     </div>
 
 @endsection
