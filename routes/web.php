@@ -371,7 +371,7 @@ Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiema
 Route::get('/paket/details/{id_paket}', 'PaketWisataCustomerController@show')->name('paket.detail');
 
 
-Route::get('/komunitas', 'KomunitasController@komunitas');
+Route::get('/komunitas', 'KomunitasController@komunitas')->name('komunitas');
 Route::get('/komunitas/{id_kabupaten}','KomunitasController@showC')->name('komunitas.show');
 
 Route::post('/pesan/paket/{id_paket}','PaketWisataCustomerController@bookingPaket');
