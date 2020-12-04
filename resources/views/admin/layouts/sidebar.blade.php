@@ -39,6 +39,7 @@
                 <li><a href="{{ url('/admin/rejected-order')}}"> <i class="menu-icon fa fa-exclamation-triangle"></i>
                         Rejected Order</a></li>
 
+<<<<<<< HEAD
                 {{--                Paket wisata--}}
                 <h3 class="menu-title">Komunitas</h3>
                 <li> <a href="{{ url('/admin/komunitas')}}"> <i class="menu-icon fa fa-users"></i>List Komunitas</a> </li>
@@ -50,6 +51,13 @@
                 <h3 class="menu-title">Pemesanan</h3>
                 <li> <a href="{{ route('admin.pemesanan')}}"> <i class="menu-icon fa fa-book"></i>List Pemesanan</a> </li>
                 {{--                the end of paket--}}
+=======
+                <h3 class="menu-title">Homestay</h3>
+                <li> <a href="{{ url('/admin/homestay/new-order')}}"> <i class="menu-icon fa fa-archive"></i>New Order </a> </li>
+                <li> <a href="{{ url('/admin/list-merchant')}}"> <i class="menu-icon fa fa-users"></i>List Homestay </a> </li>
+                <li> <a href="{{ url('/admin/homestay/room-categories')}}"> <i class="menu-icon fa fa-bed"></i>Rooms Categories </a> </li>
+                <li> <a href="{{ url('/admin/homestay/room-facilities')}}"> <i class="menu-icon fa fa-cutlery"></i>Rooms Facilities </a> </li>
+>>>>>>> 1a0c909a791b2d777ff0ed4af4806adf2a833476
 
                 <h3 class="menu-title">View</h3>
                 <li><a href="{{ url('/carousels')}}"> <i class="menu-icon fa fa-star"></i> Carousel </a></li>

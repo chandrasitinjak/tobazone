@@ -79,6 +79,7 @@ Route::middleware('role:merchant')->group(function () {
     Route::get('/merchant/detail-transaction/{id}', 'OrderController@getDetailSuccesOrdersByMerchant');
 });
 Route::get('/homestay/all', 'HomestayController@findAll');
+Route::get('/homestay/room-categories', 'HomestayRoomsCategoriesController@findAll');
 Route::get('/product/get-product-terlaris', 'API\ProductController@getProductTerlaris');
 Route::get('/get-cbt', 'CbtController@getCbt');
 

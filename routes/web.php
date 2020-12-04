@@ -78,6 +78,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::get('/unverified', 'HomeController@showUnverifiedPage');
 
     Route::middleware('role:admin')->group(function () {
+
         //BEGIN KOPERASI
         Route::get('/admin/koperasi-aktif', function () {
             return view('admin.koperasi.koperasi-aktif');
@@ -184,6 +185,12 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/show-password', 'AdminController@showChangePassword');
         Route::post('/admin/update-profile', 'AdminController@updateProfile');
         Route::post('/admin/edit-password', 'AdminController@editPassword');
+
+        //Admin Homestay
+        Route::get('/admin/homestay/new-order', 'HomestayController@findAllNewOrder');
+        Route::get('/admin/homestay/new-order/{id}', 'HomestayController@findDetailNewOrder');
+        Route::get('/admin/homestay/room-categories', 'HomestayRoomsCategoriesController@findAllCategories');
+        Route::get('/admin/homestay/room-facilities', 'HomestayRoomsFacilitiesController@findAllFacilities');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
@@ -301,14 +308,58 @@ Route::get('/carabayar', 'QnAController@showi');
 
 //homestays
 
+Route::get('/homestay/get-carousels', 'HomestayCarouselController@getCarousels');
+
+
+Route::post('/homestay/create', 'HomestayController@store');
+
+
 Route::get('/homestays', 'HomestayController@findAll');
+Route::get('/user/homestays', 'HomestayController@findAllCustomer');
 Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
+Route::post('/homestays/save', 'HomestayController@store');
+
+Route::post('/homestays/search', 'HomestayController@search');
+Route::get('/homestays/searchPage', 'HomestayController@searchTest');
+Route::post('/homestays/order/upload-resi/{id}', 'HomestayController@uploadResi');
+
+//orderHomestay
+Route::post('/homestay/pesan', 'HomestayController@bookHomestay');
+
+//Approval Penginapan Backend
+Route::get('/homestay/approvePenginapan/{id}', 'HomestayController@approvePenginapan');
+Route::get('/homestay/rejectedPrenginapan/{id}', 'HomestayController@rejectedPenginapan');
+
+//Approval Penginapan Frontend
+Route::get('/homestay/ListPesanan', 'HomestayController@listPesananPenginapan');
+
+
+//Homestay Merchant
+Route::get('/merchant/homestay/create', 'HomestayController@createHomestayPage');
+Route::get('/merchant/homestay/findAll', 'HomestayController@getAllMerchantHomestay');
+Route::get('/merchant/homestay/delete/{id}', 'HomestayController@deleteById')->name('deleteHomestay');
+Route::get('/merchant/homestay/update/{id}', 'HomestayController@updateHomestay');
+Route::post('/merchant/homestay/updateHomestay/{id}', 'HomestayController@update');
+Route::get('/merchant/homestay/findHomestayById/{id}', 'HomestayController@findHomestayById');
+Route::get('/merchant/homestay/orders', 'HomestayController@findAllMerchantOrders');
 Route::get('/homestays/save', 'HomestayController@store');
+Route::get('/homestays/findAllMyHomestay', 'HomestayController@findAllMerchantHomestay');
 
 // Display all homestay orders of a customer.
 Route::get('/user/homestay/order/findAll', 'HomestayController@findAllCustomerOrder');
+// Display detail of a customer's homestay order.
+Route::get('/user/homestay/order/findById/{idOrder}', 'HomestayController@findCustomerOrderByID');
+Route::get('/user/homestay/order/delete/{idOrder}', 'HomestayController@deleteOrder');
 
+
+
+
+
+
+
+//List homestay Orders merchant side
+Route::get('/merchant/homestay/findAllOrder', 'HomestayController@findAllMerchantOrder');
 
 // Sistem Informasi Pariwisata
 Route::get('/home-informasi-pariwisata', 'InformasiPariwisataController@index');
@@ -338,6 +389,7 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
 });
 
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
+
 
 Route::get('/customer/transactions/paket/{id}', 'TransactionPaketController@show')->middleware('auth');
 
