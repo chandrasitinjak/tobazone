@@ -6,7 +6,7 @@
 
 <section class="shop_grid_area section-padding-80">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div>
                 <div class="card" style="background-color: #FFFAF4">
                     <div>
@@ -49,42 +49,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 card">
-            <div class="single-product-wrapper">
-                <div style="margin: 10px">
-
-                    <a href="{{ '../images/'. $homestays[0]->image}}">
-                        <div class="product-img">
-                            <img src="{{ '../images/'. $homestays[0]->image}}"  style='width: 100%; object-fit: cover' alt="">
-                        </div>
-                    </a>
-                    <div class="product-description">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <a href="{{ url('/homestays/find', $homestays[0]->id)}}"><h6>{{
-                                        $homestays[0]->name }}</h6></a>
-                            </div>
-                            <br>
-                            <div class="col-md-6" align="right">
-                                <p> {{
-                                    $homestays[0]->address }}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p class="product-price" style="color: #FF8311; "> Rp.{{
-                                    $homestays[0]->price }}</p>
-                            </div>
-                            <div class="col-md-6" align="right">
-                                <p> {{
-                                    $homestays[0]->username }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </a>
-            </div>
-        </div>
+<!--        -->
     </div>
     <hr>
   <div class="container">
