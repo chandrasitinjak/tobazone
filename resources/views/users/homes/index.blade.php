@@ -81,13 +81,13 @@
             @endif
         </div>
 
-        <div class="container-fluid mt-7" id="informasi-pariwisata">
-            <informasi-dicari />
-        </div>
+{{--        <div class="container-fluid mt-7" id="informasi-pariwisata">--}}
+{{--            <informasi-dicari />--}}
+{{--        </div>--}}
 
-        <div class="container-fluid mt-7" id="komunitas-paket-wisata">
-            <komunitas-paket-wisata />
-        </div>
+{{--        <div class="container-fluid mt-7" id="komunitas-paket-wisata">--}}
+{{--            <komunitas-paket-wisata />--}}
+{{--        </div>--}}
 
         <!-- <div id="banner">
             <banner/>
