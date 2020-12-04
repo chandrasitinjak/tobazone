@@ -15,7 +15,7 @@
                                 <h2>Paket Wisata</h2>
                             </center>
                             <br>
-                            <a href=""><img src="{{ asset("/images/carousels/Paket Wisata.png" )}}" class="d-block w-100" alt="..."
+                            <a href=""><img src="{{ asset("/images/carousels/1588556676inspirasi_2.png" )}}" class="d-block w-100" alt="..."
                                             style="height: 400px; width: 250px;"></a>
                             <br><br>
                         </div>
@@ -71,7 +71,7 @@
 
     <div class="container">
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-auto">
                 <h4>Filter Paket Wisata</h4>
             </div>
@@ -100,21 +100,77 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+
+        <div class="row">
+            <div class="card globalcard">
+                <div class="card-header">
+                <nav class="navbar navbar-expand-sm mproduct p-1" style="background-color: transparent; border:none;width : 1300px">
+          <!-- <h5 class="mr-3">Filter </h5> -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+           <form action="{{route('paket.filter')}}" method="post">
+           @csrf
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="position : relative; float : right">
+              <li class="mr-1 ml-auto">  
+                <select name="kabupaten" style="width: 90%;padding: 14px 12px;
+                                                border: none;
+                                                border-radius: 5px;
+                                                color: black;
+                                                background-color: #d9d9d9;">
+                        <option data-display="Kabupaten">Kabupaten</option>
+                        @foreach($kabupaten as $row)
+                            <option value="{{$row->id_kabupaten}}" data-display="{{$row->nama_kabupaten}}"
+                            {{(isset($id_kab)&&($id_kab==$row->id_kabupaten))?'selected':null}}> {{$row->nama_kabupaten}} </option>                                                            
+                        @endforeach                               
+                </select>                                
+              </li>
+              <li class="mr-1 ml-auto">
+              
+                <select name="jenis" style="width: 90%;padding: 14px 22px;
+                                            border: none;
+                                            border-radius: 5px;
+                                            color: black;
+                                            background-color: #d9d9d9;">
+                    <option data-display="Tipe/Jenis Perjalanan"> Tipe/Jenis Perjalanan  </option>      
+                        @foreach($jenis as $row)                                                    
+                            <option value="{{$row->jenis_paket}}" data-display="{{$row->jenis_paket}}" 
+                            {{(isset($jeniss)&&(strcmp($jeniss,$row->jenis_paket)==0)?'selected':null)}}>                       
+                            {{$row->jenis_paket}}</option>                            
+                                                                
+                        @endforeach                           
+                </select>                             
+              </li>
+
+              <li class="mr-1 ml-auto">
+                <button type="submit" style="padding: 14px 22px;
+                                            border: none;
+                                            border-radius: 5px;
+                                            color: black;
+                                            background-color: #d9d9d9;;"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
+              </li>
+              
+            </ul>    
+            </form>       
+          </div>
+        </nav>
+                </div>
+            </div>        
         </div>
 
         <div class="card-body">
             <div class="col-12">
-
-
-
                 <div class="row">
                     @forelse($paket as $row)
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="card products"  style="border-radius: 10px;">
                                 <a href="{{route('paket.detail',$row->id_paket)}}">
 
                                     <img class="card-img-top"
-                                         src="{{asset('storage/img/paket/'.$row->gambar)}}" alt="Card image cap" style="height: 185px">
+                                         src="{{ asset("/images/carousels/1588556676inspirasi_2.png" )}}" alt="Card image cap" style="height: 185px">
 
                                     <div class="card-body">
                                         <h7 class="card-title" style="font-weight: bold">{{$row->nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )</h7>
@@ -135,7 +191,15 @@
                                 </a>
                             </div>
                         </div>
-                        @endforeach
+                        @empty 
+                        <div class="col-12 center center-block align-center text-center">
+                        <img src="/images/assets/search_result_empty.png" style="height: 120px; border: none; opacity: 0.5"/>
+                        <p class="text font-bold">
+                            <br>
+                            Paket Wisata Belum Ada
+                        </p>                        
+                        </div>
+                        @endforelse
                 </div>
 
             </div>
