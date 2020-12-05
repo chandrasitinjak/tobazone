@@ -69,6 +69,69 @@
 
                     </ul>
                 </li>
+                <li class="nav-item has-treeview ">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-adjust"></i>
+                        <p>
+                            Informasi Pariwisata
+                            <i class="fa fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item"></li>
+                        <li class="nav-item">
+                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Mengelola Objek Wisata</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item"></li>
+                        <li class="nav-item">
+                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Mengelola Kuliner</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item"></li>
+                        <li class="nav-item">
+                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Mengelola Akomodasi</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item"></li>
+                        <li class="nav-item">
+                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Mengelola Event</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item"></li>
+                        <li class="nav-item">
+                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Mengelola Transportasi</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item"></li>
+                        <li class="nav-item">
+                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Mengelola Budaya</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
