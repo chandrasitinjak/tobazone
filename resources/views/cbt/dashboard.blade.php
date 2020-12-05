@@ -37,6 +37,7 @@
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3></h3>
+
                             <p>Member CBT</p>
                         </div>
                         <div class="icon">

@@ -190,7 +190,6 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/homestay/new-order', 'HomestayController@findAllNewOrder');
         Route::get('/admin/homestay/new-order/{id}', 'HomestayController@findDetailNewOrder');
         Route::get('/admin/homestay/room-categories', 'HomestayRoomsCategoriesController@findAllCategories');
-        Route::get('/admin/homestay/room-facilities', 'HomestayRoomsFacilitiesController@findAllFacilities');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
@@ -390,7 +389,6 @@ Route::get('/homestays/approvalPesananPenginapan', function () {
 
 Route::post('/register-cbt', 'Auth\RegisterController@registerCbt');
 
-
 Route::get('/customer/transactions/paket/{id}', 'TransactionPaketController@show')->middleware('auth');
 
 // Route::get('/tessi123/{id}', function($id){
@@ -415,6 +413,7 @@ Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}', 'MemberControll
 
 
 Route::get('/paket-wisata/more','PaketWisataController@more_paket')->name('paket');
+Route::post('/paket-wisata/more','PaketWisataController@indexFilter')->name('paket.filter');
 
 Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiemail')->name('konfirmasiemail');
 
@@ -422,9 +421,8 @@ Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiema
 Route::get('/paket/details/{id_paket}', 'PaketWisataCustomerController@show')->name('paket.detail');
 
 
-Route::get('/komunitas', function (){
-   return view('users.komunitas.komunitas-perkabupaten');
-});
+Route::get('/komunitas', 'KomunitasController@komunitas')->name('komunitas');
+Route::get('/komunitas/{id_kabupaten}','KomunitasController@showC')->name('komunitas.show');
 
 Route::post('/pesan/paket/{id_paket}','PaketWisataCustomerController@bookingPaket');
 Route::get('/pemesanan','PemesananController@indexC')->name('pemesanan');
@@ -432,3 +430,16 @@ Route::get('/pemesanan/detail/{id}','PemesananController@show_c')->name('pemesan
 Route::put('/pemesanan/detail/{id_pemesanan}/upload','PemesananController@kirimTransaksi')->name('transaksi.kirim');
 Route::put('/pemesanan/detail/{id_transaksi}/update', 'PemesananController@updateTransaksi')->name('transaksi.update');
 
+Route::get('/pemesanan/detail/pembayaran/{id}','PemesananController@pembayaran')->name('pembayaran');
+
+//Sistem informasi Pariwisata
+Route::get('informasi-akomodasi', 'AkomodasiController@displayAkomodasi');
+Route::get('/Kab/Information/Akomodasi/{id}', 'AkomodasiController@displayDetailAkomodasi');
+Route::get('informasi-objek-wisata', 'ObjekWisataController@displayObjekWisata');
+Route::get('/Kab/Information/ObjekWisata/{id}', 'ObjekWisataController@displayDetailObjekWisata');
+Route::get('informasi-event', 'EventController@displayEvent');
+Route::get('/Kab/Information/Event/{id}', 'EventController@displayDetailEvent');
+Route::get('informasi-kuliner', 'KulinerController@displayKuliner');
+Route::get('/Kab/Information/Kuliner/{id}', 'KulinerController@displayDetailKuliner');
+Route::get('informasi-budaya', 'BudayaController@displayBudaya');
+Route::get('/Kab/Information/Budaya/{id}', 'BudayaController@displayDetailBudaya');
