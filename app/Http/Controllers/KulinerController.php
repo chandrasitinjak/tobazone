@@ -9,11 +9,10 @@ use App\Kabupaten;
 class KulinerController extends Controller
 {
      public function index(){
-        	$kabupaten_id = session('kabupaten_id');
-        	$kabupatens = Kabupaten::findOrFail($kabupaten_id);
-        	$kuliners = Kuliner::where('kabupaten_id', $kabupaten_id)->paginate(5);
+        	$kabupatens = Kabupaten::all();
+        	$kuliners = Kuliner::paginate(5);
 
-        	return view('CBT.Kuliner.index',compact('kabupatens','kuliners'));
+        	return view('cbt.informasi.kuliner.index',compact('kabupatens','kuliners'));
         }
 
         public function store(Request $request){

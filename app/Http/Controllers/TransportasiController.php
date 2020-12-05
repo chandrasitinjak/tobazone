@@ -9,11 +9,10 @@ use App\Transportasi;
 class TransportasiController extends Controller
 {
     public function index(){
-        	$kabupaten_id = session('kabupaten_id');
-        	$kabupaten = Kabupaten::findOrFail($kabupaten_id);
-        	$transportasis = Transportasi::where('kabupaten_id', $kabupaten_id)->paginate(5);
+        	$kabupatens = Kabupaten::all();
+        	$transportasis = Transportasi::paginate(5);
 
-        	return view('CBT.Transportasi.index',compact('transportasis','kabupaten'));
+        	return view('cbt.informasi.transportasi.index',compact('transportasis','kabupatens'));
         }
 
         public function store(Request $request){

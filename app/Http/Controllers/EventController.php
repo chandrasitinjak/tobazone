@@ -9,11 +9,10 @@ use App\Kabupaten;
 class EventController extends Controller
 {
     public function index(){
-        	$kabupaten_id = session('kabupaten_id');
-        	$events = Event::where('kabupaten_id', $kabupaten_id)->paginate(10);
-        	$kabupatens = Kabupaten::findOrFail($kabupaten_id);
+        	$events = Event::paginate(10);
+        	$kabupatens = Kabupaten::all();
 
-        	return view('CBT.Event.index',compact('events', 'kabupatens'));
+        	return view('cbt.informasi.event.index',compact('events', 'kabupatens'));
         }
 
         public function store(Request $request){

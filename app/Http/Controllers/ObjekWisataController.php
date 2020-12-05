@@ -10,12 +10,11 @@ use App\ObjekWisata;
 class ObjekWisataController extends Controller
 {
      public function index(){
-        	$kabupaten_id = session('kabupaten_id');
-        	$kabupaten = Kabupaten::findOrFail($kabupaten_id);
+        	$kabupatens = Kabupaten::all();
         	$categorys = CategoryWisata::all();
-        	$objekWisatas = ObjekWisata::where('kabupaten_id', $kabupaten_id)->paginate(5);
+        	$objekWisatas = ObjekWisata::paginate(5);
 
-        	return view('CBT.ObjekWisata.index',compact('objekWisatas','categorys','kabupaten'));
+        	return view('cbt.informasi.objekwisata.index',compact('objekWisatas','categorys','kabupatens'));
         }
 
         public function store(Request $request){

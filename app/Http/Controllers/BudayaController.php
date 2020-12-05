@@ -9,11 +9,10 @@ use App\Kabupaten;
 class BudayaController extends Controller
 {
     public function index(){
-        	$kabupaten_id = session('kabupaten_id');
-        	$budayas = Budaya::where('kabupaten_id', $kabupaten_id)->paginate(10);
-        	$kabupatens = Kabupaten::findOrFail($kabupaten_id);
+        	$budayas = Budaya::paginate(10);
+        	$kabupatens = Kabupaten::all();
 
-        	return view('CBT.Budaya.index',compact('budayas','kabupatens'));
+        	return view('cbt.informasi.budaya.index',compact('budayas','kabupatens'));
         }
 
         public function store(Request $request){

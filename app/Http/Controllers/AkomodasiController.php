@@ -10,24 +10,23 @@ use App\CategoryAkomodasi;
 class AkomodasiController extends Controller
 {
     public function index(){
-        	$kabupaten_id = session('kabupaten_id');
-        	$kabupaten = Kabupaten::findOrFail($kabupaten_id);
-        	$akomodasis = Akomodasi::where('kabupaten_id' , $kabupaten_id)->paginate(5);
+        	$kabupatens = Kabupaten::all();
+        	$akomodasis = Akomodasi::paginate(5);
         	$categoryAkomodasis = CategoryAkomodasi::all();
 
-        	return view('CBT.Akomodasi.index',compact('akomodasis','kabupaten','categoryAkomodasis'));
+        	return view('cbt.informasi.akomodasi.index',compact('akomodasis','kabupatens','categoryAkomodasis'));
     }
     public function store(Request $request){
         	$akomodasi = new Akomodasi;
         	$akomodasi->nama_akomodasi = $request->nama_akomodasi;
         	$akomodasi->longitude = $request->longitude;
         	$akomodasi->latitude = $request->latitude;
-        	$akomodasi->cbt_id = $request->cbt_id;
+        	$akomodasi->member_id = 2;
         	$akomodasi->kabupaten_id = $request->kabupaten_id;
         	$akomodasi->category_akomodasi_id = $request->category_akomodasi_id;
         	$akomodasi->lokasi = $request->lokasi;
         	$akomodasi->deskripsi = $request->deskripsi;
-        	$akomodasi->cbt_id = session('cbt_id');
+        	$akomodasi->status = "ready";
             $file = $request->file('foto');
             $gambar = $file->getClientOriginalName();
         	$akomodasi->foto = $gambar;
@@ -43,7 +42,7 @@ class AkomodasiController extends Controller
 
         public function edit($id){
             $akomodasi = Akomodasi::findOrFail($id);
-            return view('CBT.Akomodasi.edit',compact('akomodasi'));
+            return view('cbt.informasi.Akomodasi.edit',compact('akomodasi'));
         }
 
         public function update(Request $request, $id){

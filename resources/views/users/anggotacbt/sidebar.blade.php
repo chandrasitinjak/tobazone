@@ -80,7 +80,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item"></li>
                         <li class="nav-item">
-                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
+                            <a href="{{url('anggotacbt/informasi/objekwisata')}}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Mengelola Objek Wisata</p>
                             </a>
@@ -89,7 +89,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item"></li>
                         <li class="nav-item">
-                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
+                            <a href="{{url('anggotacbt/informasi/kuliner')}}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Mengelola Kuliner</p>
                             </a>
@@ -98,7 +98,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item"></li>
                         <li class="nav-item">
-                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
+                            <a href="{{url('anggotacbt/informasi/akomodasi')}}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Mengelola Akomodasi</p>
                             </a>
@@ -107,7 +107,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item"></li>
                         <li class="nav-item">
-                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
+                            <a href="{{url('anggotacbt/informasi/event')}}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Mengelola Event</p>
                             </a>
@@ -116,7 +116,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item"></li>
                         <li class="nav-item">
-                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
+                            <a href="{{url('anggotacbt/informasi/transportasi')}}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Mengelola Transportasi</p>
                             </a>
@@ -125,7 +125,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item"></li>
                         <li class="nav-item">
-                            <a href="{{route('anggotacbt.layanan')}}" class="nav-link ">
+                            <a href="{{url('anggotacbt/informasi/budaya')}}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Mengelola Budaya</p>
                             </a>

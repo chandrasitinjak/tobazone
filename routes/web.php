@@ -381,3 +381,28 @@ Route::put('/pemesanan/detail/{id_pemesanan}/upload','PemesananController@kirimT
 Route::put('/pemesanan/detail/{id_transaksi}/update', 'PemesananController@updateTransaksi')->name('transaksi.update');
 
 Route::get('/pemesanan/detail/pembayaran/{id}','PemesananController@pembayaran')->name('pembayaran');
+
+//CBT informasi pariwisata
+Route::get('/anggotacbt/informasi/akomodasi', 'AkomodasiController@index');
+Route::get('/anggotacbt/informasi/akomodasi/{id}', 'AkomodasiController@edit');
+Route::post('/anggotacbt/informasi/akomodasi', 'AkomodasiController@store');
+
+Route::get('/anggotacbt/informasi/objekwisata', 'ObjekWisataController@index');
+Route::get('/anggotacbt/informasi/objekwisata/{id}', 'ObjekWisataController@edit');
+Route::post('/anggotacbt/informasi/objekwisata', 'ObjekWisataController@store');
+
+Route::get('/anggotacbt/informasi/kuliner', 'KulinerController@index');
+Route::get('/anggotacbt/informasi/kuliner/{id}', 'KulinerController@edit');
+Route::post('/anggotacbt/informasi/kuliner', 'KulinerController@store');
+
+Route::get('/anggotacbt/informasi/event', 'EventController@index');
+Route::get('/anggotacbt/informasi/event/{id}', 'EventController@edit');
+Route::post('/anggotacbt/informasi/event', 'EventController@store');
+
+Route::get('/anggotacbt/informasi/transportasi', 'TransportasiController@index');
+Route::get('/anggotacbt/informasi/transportasi/{id}', 'TransportasiController@edit');
+Route::post('/anggotacbt/informasi/transportasi', 'TransportasiController@store');
+
+Route::get('/anggotacbt/informasi/budaya', 'BudayaController@index');
+Route::get('/anggotacbt/informasi/budaya/{id}', 'BudayaController@edit');
+Route::post('/anggotacbt/informasi/budaya', 'BudayaController@store');
