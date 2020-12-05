@@ -51,6 +51,11 @@
                 <li> <a href="{{ route('admin.pemesanan')}}"> <i class="menu-icon fa fa-book"></i>List Pemesanan</a> </li>
                 {{--                the end of paket--}}
 
+                <h3 class="menu-title">Homestay</h3>
+                <li> <a href="{{ url('/admin/homestay/new-order')}}"> <i class="menu-icon fa fa-archive"></i>New Order </a> </li>
+                <li> <a href="{{ url('/admin/list-merchant')}}"> <i class="menu-icon fa fa-users"></i>List Homestay </a> </li>
+                <li> <a href="{{ url('/admin/homestay/room-categories')}}"> <i class="menu-icon fa fa-bed"></i>Rooms Categories </a> </li>
+
                 <h3 class="menu-title">View</h3>
                 <li><a href="{{ url('/carousels')}}"> <i class="menu-icon fa fa-star"></i> Carousel </a></li>
                 <!-- <li> <a href="{{ url('/banners')}}"> <i class="menu-icon fa fa-bookmark"></i> Banner </a> </li>

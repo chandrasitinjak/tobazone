@@ -41,11 +41,11 @@ class HomeController extends Controller
             } else if($role === 'member_cbt') {
                 return redirect ('/anggotacbt/layananwisata');
             }
-            
-        }        
+
+        }
         return view('users.homes.index');
     }
 
 
-    
+
 }
