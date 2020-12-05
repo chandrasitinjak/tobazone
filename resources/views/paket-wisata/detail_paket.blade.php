@@ -73,7 +73,7 @@
 
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
-                                                        <img class="align-self-center" src="{{ '/images/' . $paket->gambar }}" alt="">
+                                                        <img class="align-self-center" src="{{ asset('storage/img/paket/'.$paket->gambar) }}" alt="">
                                                     </div>
                                                 </div>
 
@@ -102,14 +102,15 @@
                                         </div>
                                     </div>
 
-                                    <form class="mt-5">
+                                    <form class="mt-3" method="post" action="/pesan/paket/{{$paket->id_paket}}">
+                                        @csrf
                                         <div class="form-row align-items-center">
                                             <div class="col-sm-6 my-1">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
                                                     </div>
-                                                    <input type="number" min="1" class="form-control" id="inlineFormInputGroupUsername" placeholder="Jumlah Orang">
+                                                    <input type="number" min="1" name="jumlah_peserta" class="form-control" id="inlineFormInputGroupUsername" placeholder="Jumlah Orang">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6 my-1">
@@ -117,10 +118,27 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></div>
                                                     </div>
-                                                    <input type="date" class="form-control" id="inlineFormInputGroupUsername" placeholder="Tanggal">
+                                                    <select name="sesi" class="custom-select form-control">
+                                                        <option disabled selected>Pilih Jadwal</option>
+                                                        @foreach($sesi as $row)
+                                                            <option value="{{$row->id_sesi}}">{{$row->jadwal}}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="col-12 my-1">
+                                        </div>
+                                        <div class="form-row mt-1 align-items-center">
+                                            <div class="col-sm-12 my-1">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fa fa-comments" aria-hidden="true"></i></div>
+                                                    </div>
+                                                    <textarea name="pesan" placeholder="Pesan/Pertanyaan Untuk Pemesanan" id="" cols="30" rows="10" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-2 align-items-center">
+                                        <div class="col-12 my-1">
                                                 <button type="submit" class="btn essence-btn ml4">Booking Pemesanan</button>
                                             </div>
                                         </div>

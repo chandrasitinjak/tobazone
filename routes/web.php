@@ -240,7 +240,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     });
 
     Route::middleware('role:customer')->group(function () {
-        Route::post('/carts/delete/{id}', 'CartController@destroy');
+         Route::post('/carts/delete/{id}', 'CartController@destroy');
         Route::get('/shipping', 'ShippingController@index');
         Route::get('/customer/transactions/{id}', 'TransactionController@show');
         Route::get('/customer/{id}/orders', 'TransactionController@getTransactionByUser');
@@ -360,9 +360,24 @@ Route::get('/admin/member/detail/{id_member}', 'MemberController@detailMember')-
 Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}', 'MemberController@keluarkan')->name('member.keluarkan');
 
 //menampilkan paket wisata di sisi customer
-Route::get('/paket-wisata','PaketWisataController@index_customer');
-Route::get('/paket-wisata/more','PaketWisataController@more_paket');
+
+
+Route::get('/paket-wisata/more','PaketWisataController@more_paket')->name('paket');
+Route::post('/paket-wisata/more','PaketWisataController@indexFilter')->name('paket.filter');
+
 Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiemail')->name('konfirmasiemail');
 
 //detail paket wisata
 Route::get('/paket/details/{id_paket}', 'PaketWisataCustomerController@show')->name('paket.detail');
+
+
+Route::get('/komunitas', 'KomunitasController@komunitas')->name('komunitas');
+Route::get('/komunitas/{id_kabupaten}','KomunitasController@showC')->name('komunitas.show');
+
+Route::post('/pesan/paket/{id_paket}','PaketWisataCustomerController@bookingPaket');
+Route::get('/pemesanan','PemesananController@indexC')->name('pemesanan');
+Route::get('/pemesanan/detail/{id}','PemesananController@show_c')->name('pemesanan.detail');
+Route::put('/pemesanan/detail/{id_pemesanan}/upload','PemesananController@kirimTransaksi')->name('transaksi.kirim');
+Route::put('/pemesanan/detail/{id_transaksi}/update', 'PemesananController@updateTransaksi')->name('transaksi.update');
+
+Route::get('/pemesanan/detail/pembayaran/{id}','PemesananController@pembayaran')->name('pembayaran');
