@@ -10,13 +10,12 @@ window.Vue = require('vue');
 
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-
-Vue.use(VueSweetalert2);
-
-
 import StarRating from 'vue-star-rating'
 
 import Vuelidate from 'vuelidate'
+
+Vue.use(VueSweetalert2);
+
 
 Vue.use(Vuelidate)
 
@@ -66,6 +65,8 @@ const AllHomestay = require('./components/homestay/merchant/AllHomestay')
 const KoperasiAktif = require('./components/Koperasi/KoperasiAktif')
 const KoperasiTidakAktif = require('./components/Koperasi/KoperasiTidakAktif')
 const AkunPending = require('./components/Koperasi/AkunPending')
+const InformasiDicari = require('./components/homes/InformasiDicari')
+const KomunitasPaketWisata = require('./components/homes/KomunitasPaketWisata')
 const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay')
 const NewOrder = require('./components/homestay/merchant/NewOrder')
 // const Test = require('./components/test/test');
@@ -125,6 +126,8 @@ const app = new Vue({
         UpdateHomestay,
         ListLogin,
         RegCebt,
+        InformasiDicari,
+        KomunitasPaketWisata,
         AllHomestay,
         FormPesanHomestay,
         NewOrder,

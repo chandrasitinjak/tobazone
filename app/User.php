@@ -11,7 +11,7 @@ use App\Notifications\EmailRegistration;
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
-    use Notifiable, HasRoles;    
+    use Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +19,7 @@ class User extends Authenticatable implements MustVerifyEmailContract
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'status'
+        'username', 'email', 'password', 'status', 'name', 'no_WA', 'no_HP', 'status','email_verified_at'
     ];
 
     /**
@@ -41,6 +41,10 @@ class User extends Authenticatable implements MustVerifyEmailContract
 
     public function transactions() {
         return $this->hasMany('App\Transaction');
+    }
+
+    public function getPemesanan(){
+        return $this->hasMany(Pemesanan::class,'user_id','id');
     }
 
     public function sendEmailVerificationNotification() {

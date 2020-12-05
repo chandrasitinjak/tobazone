@@ -4,7 +4,6 @@ async function login() {
 
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
-    const hidden = document.getElementById('hidden-customer').value
 
     var cek_depan = 1;
 
@@ -119,7 +118,6 @@ async function login() {
 
             complete: (xhr, error) => {
                 if (xhr.status == 200) {
-
                     window.location.reload()
                 } else if (xhr.status == 422) {
                     document.getElementById("exampleModalLabel").innerHTML = "E-mail atau Kata Sandi salah";
@@ -142,7 +140,24 @@ async function login() {
                     });                                        
                     
                 } else {
+                    document.getElementById("exampleModalLabel").innerHTML = "E-mail atau Kata Sandi salah";
+                    $('#password').css({
+                        'border': '1px solid #ff3333',
+                        'border-radius': '2px',
+                        'box-shadow': '0px 0px 5px 0px #ff3333',
+                        'outline': 'red',
+                    }).focus();
 
+                    $('#email').css({
+                        'border': '1px solid #ff3333',
+                        'border-radius': '2px',
+                        'box-shadow': '0px 0px 5px 0px #ff3333',
+                        'outline': 'red',
+                    });
+
+                    $('#exampleModalLabel').css({
+                        'color': 'red'
+                    });
                 }
                 
                 $("#loader").hide();
