@@ -16,10 +16,10 @@
                     <img class="d-block" style="height: 500px; width: 100%" src="https://indonesia.go.id/assets/img/content_image/1560768797_800px_Dengke_Mas_Na_Niura.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" style="height: 500px; width: 100%" src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9" alt="Second slide">
+                    <img class="d-block" style="height: 500px; width: 100%" src="https://indonesia.go.id/assets/img/content_image/1560768797_800px_Dengke_Mas_Na_Niura.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" style="height: 500px; width: 100%" src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9" alt="Third slide">
+                    <img class="d-block" style="height: 500px; width: 100%" src="https://indonesia.go.id/assets/img/content_image/1560768797_800px_Dengke_Mas_Na_Niura.jpg" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

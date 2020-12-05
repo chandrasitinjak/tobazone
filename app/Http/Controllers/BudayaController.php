@@ -73,7 +73,7 @@ class BudayaController extends Controller
 
     public function displaydetailBudaya($id){
         $budaya = Budaya::findOrFail($id);
-        return view('wisatawan.Budaya.index',compact('budaya'));
+        return view('users.informasi.budaya.detail.budaya',compact('budaya'));
     }
 
     public function displayBudaya(){

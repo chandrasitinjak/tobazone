@@ -296,3 +296,5 @@ Route::get('informasi-kuliner', 'KulinerController@displayKuliner');
 Route::get('/Kab/Information/Kuliner/{id}', 'KulinerController@displayDetailKuliner');
 Route::get('informasi-budaya', 'BudayaController@displayBudaya');
 Route::get('/Kab/Information/Budaya/{id}', 'BudayaController@displayDetailBudaya');
+Route::get('informasi-transportasi', 'TransportasiController@displayTransportasi');
+Route::get('/Kab/Information/Transportasi/{id}', 'TransportasiController@displayDetailTransportasi');

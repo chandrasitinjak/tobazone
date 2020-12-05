@@ -1,5 +1,5 @@
 @extends('users.informasi.app')
-@section('title') {{ "Budaya" }}
+@section('title') {{ "Transportasi" }}
 @endsection
 
 @section('content')
@@ -13,13 +13,10 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block" style="height: 500px; width: 100%" src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9" alt="First slide">
+                    <img class="d-block" style="height: 500px; width: 100%" src="https://asset.kompas.com/crops/SdpSgMncG5UN3aOjVZC3ApcEp0I=/1x0:1280x853/750x500/data/photo/2020/12/03/5fc8599878d07.jpeg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" style="height: 500px; width: 100%" src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block" style="height: 500px; width: 100%" src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9" alt="Third slide">
+                    <img class="d-block" style="height: 500px; width: 100%" src="https://cache.jpnn.com/timthumb.php?src=https://photo.jpnn.com/arsip/watermark/2020/11/12/suzuki-carry-dengan-varian-minibus-foto-suzuki-indonesia-79.jpg&w=600&h=320&a=t&zc=0&q=80" alt="Second slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -35,14 +32,14 @@
     <br><br><br><br>
     <div class="container">
         <div class="row ">
-            @foreach($budayas as $budaya)
-                <a href="/Kab/Information/Budaya/{{$budaya->id}}" class="mb-100">
+            @foreach($transportasis as $transportasi)
+                <a href="/Kab/Information/Transportasi/{{$transportasi->id}}" class="mb-100">
                     <div class="col-md-2">
                         <div class="shadow card-informasi card products" style="width: 15rem;height: auto;border-top-right-radius: 15px;border-top-left-radius: 15px;border-bottom-left-radius: 15px;border-bottom-right-radius: 15px;">
-                            <img class="card-img-top" src="Kab/information/Budaya/{{$budaya->foto}}" style="width: 15rem;height: 13rem;border-top-right-radius: 15px ;border-top-left-radius: 15px;" alt="Card image cap">
+                            <img class="card-img-top-a" src="Kab/information/Transportasi/{{$transportasi->foto}}" style="width: 15rem;height: 13rem;border-top-right-radius: 15px ;border-top-left-radius: 15px;" alt="Card image cap">
                             <div class="card-body">
-                                <h5><span class="badge badge-warning">Budaya</span></h5>
-                                <h5 class="card-title">{{$budaya->nama_budaya}}</h5>
+                                <h5><span class="badge badge-warning">Transportasi</span></h5>
+                                <h5 class="card-title">{{$transportasi->nama_transportasi}}</h5>
                             </div>
                         </div>
                     </div>
@@ -51,17 +48,4 @@
         </div>
     </div>
 
-
-
-    <style>
-        .card-informasi {
-            border-radius: 15px;
-        }
-        .card-img-top {
-            border-top-right-radius: 15px;
-            border-top-left-radius: 15px;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-        }
-    </style>
 @endsection
