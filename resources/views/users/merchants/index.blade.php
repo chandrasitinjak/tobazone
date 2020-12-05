@@ -6,11 +6,11 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-12">
+    <div class="col-10">
       <div class="card globalcard store">
         <div class="card-body">
           <div class="row">
-            <div class="col-lg-3 col-sm-3 d-none d-sm-block store-image px-0">
+            <!-- <div class="col-lg-3 col-sm-3 d-none d-sm-block store-image px-0">
               @if($merchant->profile->photo == NULL)
               <div class="imgwrapper">
                 <img src="{{ url('/images/assets/no-image.jpg') }}" alt="">
@@ -20,11 +20,11 @@
                 <img src="{{ url("/images/user_profiles/".$merchant->profile->photo )}}" alt="">
               </div>
               @endif
-            </div>
+            </div> -->
             <div class="col-md-9 col-sm-12 store-name pl-0">
               <div class="row">
                 <div class="col-10 col-sm-8 col-md-10">
-                  <h5 class="mb-0"> {{ $merchant->profile->name }}</h5>
+                  <!-- <h5 class="mb-0"> {{ $merchant->profile->name }}</h5> -->
                 </div>
 
                 <div class="col-2 ">

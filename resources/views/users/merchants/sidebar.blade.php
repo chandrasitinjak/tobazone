@@ -69,6 +69,18 @@
               {{--<li><a href="">Order Dibatalkan</a></li>--}}
               {{--<li><a href="">Order Gagal</a></li>--}}
             {{--</ul>--}}
+            <a>Penginapan</a>
+              <ul class="sub-menu collapse show" id="homestay">
+                <li><a href="{{ url('/merchant/homestay/findAll') }}">Semua Penginapan</a></li>
+                <li>
+                  <ul id="menu-content2" class="menu-content collapse show">
+                      <li data-toggle="collapse" data-target="#tambah_homestay">
+                        <a href="{{ url('/merchant/homestay/create') }}">Tambah Penginapan</a>
+                      </li>
+                  </ul>
+                </li>
+                <!-- <li><a href="">Produk terjual</a></li> -->
+              </ul>
           </ul>
         </div>
       </div>

@@ -1,7 +1,4 @@
 <?php
-/**
- * Created by Sogumontar Hendra Simangunsong on 10-10-2020.
- */
 
 namespace App;
 
@@ -30,3 +27,4 @@ class HomestayOrders extends Model
         return $this->belongsTo('App\Homestay', 'id_homestay');
     }
 }
+

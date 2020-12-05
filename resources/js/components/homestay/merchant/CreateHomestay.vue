@@ -55,6 +55,115 @@
                                    aria-describedby="namaprodukhelp" min="0" name="stock">
                         </div>
                     </div>
+                    <div>
+                        {{kamar}}
+                    </div>
+                    <div align="right">
+                        <button class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModal"><i class="fa fa-plus"></i> Tambah
+                        </button>
+                    </div>
+                    <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        role="dialog"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                    >
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                    <spinner></spinner>
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Tambah Kamar
+                                        </h5>
+                                        <button
+                                            type="button"
+                                            class="close"
+                                            data-dismiss="modal"
+                                            aria-label="Close"
+                                        >
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- <form> -->
+                                        <div class="form-group">
+                                            <label for="namapengirim" class="small">
+                                                Kategori Kamar</label>
+                                            <select class="form-control"
+                                                    id="namapengirim"
+                                                    aria-describedby="emailHelp"
+                                                    placeholder="Nama Pengirim"
+                                                    required
+                                                    v-model="rooms.kategoriSelected">
+                                                <option v-for="data,index in kategori" :key="index" :value="data">{{
+                                                    data.category_name }}
+                                                </option>
+                                            </select>
+                                            <div class="valid-feedback">sudah valid</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Jumlah Kasur" class="small">
+                                               Jumlah Kasur</label>
+                                            <input
+                                                type="number"
+                                                min="1"
+                                                class="form-control form-control-sm"
+                                                id="Jumlah Kasur"
+                                                aria-describedby="emailHelp"
+                                                placeholder="Jumlah Kasur"
+                                                required
+                                            >
+                                            <div class="valid-feedback">sudah valid</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="utkbank" class="small">Bank
+                                                Tujuan</label>
+                                            <br>
+                                            <select id="utkbank" class="form-control" required>
+                                                <!-- <option value="BRI">BRI</option> -->
+                                                <option value="MANDIRI">MANDIRI</option>
+                                                <option value="OVO">OVO</option>
+                                                <option value="DANA">DANA</option>
+                                                <option value="GOPAY">GOPAY</option>
+                                                <!-- <option value="BNI">BNI</option>
+                                                <option value="BCA">BCA</option> -->
+                                            </select>
+                                            <div class="valid-feedback">sudah valid</div>
+                                            <div class="invalid-feedback">
+                                                <span>tidak boleh kosong</span>
+                                                <!-- <span v-if="!$v.senderName.required">tidak boleh kosong</span> -->
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <label class="col-form-label">Gambar Kamar (
+                                                jpg/jpeg/png )</label>
+                                            <div class="col-sm-9">
+                                                <div class="upload-btn-wrapper">
+                                                    <button class="btn-upcus"
+                                                            style="margin: auto">
+                                                        <img src="/images/assets/addimage.png"
+                                                             style="height: 100px">
+                                                        <input type="file" name="images">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- </form> -->
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a
+                                            @click="addRooms(1)"
+                                            class="btn btn-secondary close"
+                                            data-dismiss="modal"
+                                        >Unggah
+                                        </a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Harga Kamar/malam
                             <span
@@ -165,15 +274,34 @@
                 address:'',
                 kabupaten:'',
                 kecamatan:'',
+                kategori:'',
                 desa:'',
+                kamar:['Kamar 1', 'Kamar 2'],
+                rooms:{
+                  kategoriSelected:'',
+                },
                 userMerchant: {
                     selectedCity: "",
                     selectedProvince: "",
-                    selectedSubdistrict: "",
+                    selectedSubdistrict: ""
                 }
             };
         },
         methods: {
+            getCategories(){
+                window.axios
+                    .get("/api/homestay/room-categories")
+                    .then(res => {
+                        this.kategori = res.data;
+                        console.log(res.data);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            },
+            addRooms(position){
+              this.kamar.push("kamar"+position);
+            },
             dismiss() {
                 EventBus.$emit("ADD_MERCHANT_MODAL_CLOSED", null);
             },
@@ -257,6 +385,7 @@
         },
         mounted() {
             this.getCities();
+            this.getCategories();
         }
     };
 

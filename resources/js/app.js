@@ -66,6 +66,7 @@ const AllHomestay = require('./components/homestay/merchant/AllHomestay')
 const KoperasiAktif = require('./components/Koperasi/KoperasiAktif')
 const KoperasiTidakAktif = require('./components/Koperasi/KoperasiTidakAktif')
 const AkunPending = require('./components/Koperasi/AkunPending')
+const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay')
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -123,8 +124,8 @@ const app = new Vue({
         UpdateHomestay,
         ListLogin,
         RegCebt,
-        AllHomestay
-
+        AllHomestay,
+        FormPesanHomestay,
     },
     data() {
         return {
