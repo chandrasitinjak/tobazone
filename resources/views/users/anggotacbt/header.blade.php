@@ -20,7 +20,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <div class="dropdown-divider"></div>
-                
+
                 <form action="{{ url('/logout')}}" method="POST">
                     {{ csrf_field() }}
                     <button class="dropdown-item" style="background: none;
