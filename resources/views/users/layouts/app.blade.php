@@ -108,6 +108,6 @@ $(document).ready(function() {
 });
 
 </script>
-
+  @yield('js')
 </body>
 </html>
