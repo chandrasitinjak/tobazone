@@ -20,16 +20,18 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <div class="dropdown-divider"></div>
-                <a href="" onclick="event.preventDefault();document.getElementById('logout-form').submit();"
-                   class="dropdown-item">
-                    <i class="fa fa-sign-out mr-2"></i> Logout
-                </a>
-                <form id="logout-form" action=""
-                      method="POST"
-                      style="display: none;">
-
+                
+                <form action="{{ url('/logout')}}" method="POST">
+                    {{ csrf_field() }}
+                    <button class="dropdown-item" style="background: none;
+                                                border: none;
+                                                font-size: 14px;
+                                                color: black;
+                                                padding-left: 0;"
+                            type="submit"><i class="fa fa-power-off"></i>&nbsp;Logout</a>
+                    </button>
                 </form>
-            </div> 
+            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
