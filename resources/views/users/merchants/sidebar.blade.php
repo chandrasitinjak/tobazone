@@ -56,7 +56,7 @@
                   <ul class="sub-menu collapse show" id="pemesanan">
                       <!-- <li><a href="{{ url('/merchant/' . Auth::user()->id . '/new-orders') }}">Order Masuk</a></li> -->
                       <li><a href="{{ url('/merchant/homestay/orders') }}">Order Masuk</a></li>
-                      <li><a href="{{ url('/merchant/' . Auth::user()->id . '/succes-orders') }}">Order Berhasil</a></li>
+                      <li><a href="{{ url('/merchant/homestay/success-order') }}">Order Berhasil</a></li>
                       <!-- <li><a href="#">Order Dibatalkan</a></li>
                       <li><a href="#">Order Gagal</a></li> -->
                   </ul>

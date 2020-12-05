@@ -67,7 +67,11 @@
             <br>
             <div class="row">
 
-
+                @if(count($result['homestay'])==0)
+                    <img src="/images/assets/search_result_empty.png" style="height: 120px; border: none; opacity: 0.5"/>
+                    <br>
+                    <p>Penginapan anda belum ada</p>
+                @endif
                 @foreach ($result['homestay'] as $product)
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card">
