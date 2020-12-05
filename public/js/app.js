@@ -36208,6 +36208,7 @@ var KoperasiAktif = __webpack_require__(403);
 var KoperasiTidakAktif = __webpack_require__(408);
 var AkunPending = __webpack_require__(413);
 var FormPesanHomestay = __webpack_require__(418);
+var NewOrder = __webpack_require__(425);
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', __WEBPACK_IMPORTED_MODULE_2_vue_star_rating___default.a);
@@ -36266,7 +36267,8 @@ var app = new Vue({
         ListLogin: ListLogin,
         RegCebt: RegCebt,
         AllHomestay: AllHomestay,
-        FormPesanHomestay: FormPesanHomestay
+        FormPesanHomestay: FormPesanHomestay,
+        NewOrder: NewOrder
     },
     data: function data() {
         return {
@@ -94799,6 +94801,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ["userId"],
@@ -94815,8 +94824,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getSuccessOrders: function getSuccessOrders() {
             var _this = this;
 
-            window.axios.get("/api/merchant/" + this.userId + "/success-orders").then(function (res) {
-                _this.transactions = res.data;
+            window.axios.get("/merchant/homestay/get-success-order").then(function (res) {
+                _this.transactions = res.data.data;
                 console.log(_this.transactions);
             }).catch(function (err) {
                 console.log(err);
@@ -94833,6 +94842,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     mounted: function mounted() {
+        this.transaction = ['asd', 'asd'];
         this.getSuccessOrders();
     }
 });
@@ -94868,55 +94878,49 @@ var render = function() {
                     attrs: { src: "/images/assets/search_result_empty.png" }
                   }),
                   _vm._v(" "),
-                  _vm._m(1)
-                ]
-              )
-            : _vm.transactions.length != 0
-            ? _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c("table", { staticClass: "table" }, [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.transactions, function(transaction, index) {
-                        return _c("tr", [
-                          _c("th", { attrs: { scope: "col" } }, [
-                            _vm._v(" " + _vm._s(index + 1))
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(" " + _vm._s(transaction.customer_info.name))
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticStyle: { width: "25rem" } }, [
-                            _vm._v(" " + _vm._s(transaction.address))
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(transaction.updated_at))]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-info",
-                                attrs: {
-                                  href:
-                                    "/merchant/detail-transaction/" +
-                                    transaction.id
-                                }
-                              },
-                              [_vm._v("detail")]
-                            )
-                          ])
-                        ])
-                      }),
-                      0
+                  _c("p", { staticClass: "text font-bold" }, [
+                    _c("br"),
+                    _vm._v(
+                      "\n                  " +
+                        _vm._s(_vm.transactions.length) +
+                        "\n                belum ada order saat ini\n              "
                     )
                   ])
-                ])
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("table", { staticClass: "table" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.transactions, function(transaction, index) {
+                    return _c("tr", [
+                      _c("th", { attrs: { scope: "col" } }, [
+                        _vm._v(" " + _vm._s(index + 1))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(transaction.username))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(transaction.name))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(transaction.address))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(transaction.check_in))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(transaction.duration))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(transaction.updated_at))])
+                    ])
+                  }),
+                  0
+                )
               ])
-            : _vm._e()
+            ])
+          ])
         ])
       ])
     ])
@@ -94937,22 +94941,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "text font-bold" }, [
-      _c("br"),
-      _vm._v("\n              belum ada order saat ini\n            ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("No")]),
         _vm._v(" "),
-        _c("td", [_vm._v("Nama")]),
+        _c("td", [_vm._v("Nama Pemesan")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Nama Homestay")]),
         _vm._v(" "),
         _c("td", [_vm._v("Alamat")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Check in")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Durasi")]),
         _vm._v(" "),
         _c("td", [_vm._v("Tanggal Konfirmasi")]),
         _vm._v(" "),
@@ -105984,6 +105985,311 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 424 */,
+/* 425 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(426)
+/* template */
+var __vue_template__ = __webpack_require__(427)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/homestay/merchant/NewOrder.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-ef10d9ee", Component.options)
+  } else {
+    hotAPI.reload("data-v-ef10d9ee", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 426 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ["userId"],
+    data: function data() {
+        return {
+            transactions: [],
+            number: 0,
+            order: []
+        };
+    },
+
+
+    methods: {
+        getSuccessOrders: function getSuccessOrders() {
+            var _this = this;
+
+            window.axios.get("/merchant/homestay/get-paid-order").then(function (res) {
+                _this.transactions = res.data.data;
+                console.log(_this.transactions);
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
+        getDetailSuccesOrder: function getDetailSuccesOrder(id_trans) {
+            var _this2 = this;
+
+            window.axios.get("/merchant/detail-transaction/" + id_trans).then(function (res) {
+                _this2.order = res.data;
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }
+    },
+    mounted: function mounted() {
+        this.transaction = ['asd', 'asd'];
+        this.getSuccessOrders();
+    }
+});
+
+/***/ }),
+/* 427 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card globalcard" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "pull-right" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm.transactions.length == 0
+            ? _c(
+                "div",
+                {
+                  staticClass:
+                    "center center-block align-center text-center mt-15 "
+                },
+                [
+                  _c("img", {
+                    staticStyle: {
+                      height: "120px",
+                      border: "none",
+                      opacity: "0.5"
+                    },
+                    attrs: { src: "/images/assets/search_result_empty.png" }
+                  }),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("table", { staticClass: "table" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.transactions, function(transaction, index) {
+                    return _c("tr", [
+                      _c("th", { attrs: { scope: "col" } }, [
+                        _vm._v(" " + _vm._s(index + 1))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(transaction.username))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(transaction.name))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(transaction.address))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(transaction.check_in))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(transaction.duration))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(transaction.updated_at))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          { attrs: { href: "'/images/' + transaction.resi" } },
+                          [
+                            _c("img", {
+                              staticStyle: {
+                                height: "20%",
+                                width: "20%",
+                                "object-fit": "cover"
+                              },
+                              attrs: {
+                                src: "/images/" + transaction.resi,
+                                alt: "Card image cap"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  }),
+                  0
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card globalcard mt-0" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _c("h6", [_vm._v("Order berhasil")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text font-bold" }, [
+      _c("br"),
+      _vm._v(
+        "\n                        belum ada order saat ini\n                    "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("No")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Nama Pemesan")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Nama Homestay")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Alamat")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Check in")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Durasi")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Tanggal Konfirmasi")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Resi")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-ef10d9ee", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
