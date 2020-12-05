@@ -9,8 +9,17 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">New Order</strong>
+                        <strong class="card-title">Orders</strong>
                     </div>
+                    @if(count($transactions) == 0)
+                    <br>
+                    <center><img src="/images/assets/search_result_empty.png"
+                                 style="height: 120px; alignment: center; border: none; opacity: 0.5"/>
+                        <br>
+                        <p>pesanan anda belum ada</p>
+                    </center>
+                    <br>
+                    @else
                     <div class="card-body">
                         <table class="table table-striped">
                             <thead>
@@ -21,6 +30,7 @@
                                 <th>Tanggal Check In</th>
                                 <th>Durasi</th>
                                 <th>Alamat Penginapan</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -32,10 +42,12 @@
                                 <td>{{ $order->name}}</td>
                                 <td>{{ $order->duration }} hari</td>
                                 <td>{{ $order->check_in}}</td>
-                                <td> <span class="address"> {{ $order->address }}</span> </td>
+                                <td><span class="address"> {{ $order->address }}</span></td>
+                                <td> {{ $order->status }}</td>
                                 <td>
                                     <a href="{{ url('/admin/homestay/new-order', $order->id)}}">
-                                        <button type="button" class="btn btn-primary btn-sm" title="Lihat Detail">
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                                title="Lihat Detail">
                                             <i class="fa fa-eye"></i>
                                         </button>
                                     </a>
@@ -45,6 +57,7 @@
                             </tbody>
                         </table>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

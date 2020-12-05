@@ -68,6 +68,7 @@ const AkunPending = require('./components/Koperasi/AkunPending')
 const InformasiDicari = require('./components/homes/InformasiDicari')
 const KomunitasPaketWisata = require('./components/homes/KomunitasPaketWisata')
 const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay')
+const NewOrder = require('./components/homestay/merchant/NewOrder')
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -129,6 +130,7 @@ const app = new Vue({
         KomunitasPaketWisata,
         AllHomestay,
         FormPesanHomestay,
+        NewOrder,
     },
     data() {
         return {

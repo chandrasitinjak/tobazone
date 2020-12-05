@@ -188,6 +188,9 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
         //Admin Homestay
         Route::get('/admin/homestay/new-order', 'HomestayController@findAllNewOrder');
+        Route::get('/admin/homestay/paid-order', 'HomestayController@findAllPaidOrder');
+        Route::get('/admin/homestay/success-order', 'HomestayController@findAllSuccessOrder');
+        Route::get('/admin/homestay/rejected-order', 'HomestayController@findAllRejectedOrder');
         Route::get('/admin/homestay/new-order/{id}', 'HomestayController@findDetailNewOrder');
         Route::get('/admin/homestay/room-categories', 'HomestayRoomsCategoriesController@findAllCategories');
 
@@ -328,7 +331,7 @@ Route::post('/homestay/pesan', 'HomestayController@bookHomestay');
 
 //Approval Penginapan Backend
 Route::get('/homestay/approvePenginapan/{id}', 'HomestayController@approvePenginapan');
-Route::get('/homestay/rejectedPrenginapan/{id}', 'HomestayController@rejectedPenginapan');
+Route::get('/homestay/rejectedPenginapan/{id}', 'HomestayController@rejectedPenginapan');
 
 //Approval Penginapan Frontend
 Route::get('/homestay/ListPesanan', 'HomestayController@listPesananPenginapan');
@@ -342,6 +345,9 @@ Route::get('/merchant/homestay/update/{id}', 'HomestayController@updateHomestay'
 Route::post('/merchant/homestay/updateHomestay/{id}', 'HomestayController@update');
 Route::get('/merchant/homestay/findHomestayById/{id}', 'HomestayController@findHomestayById');
 Route::get('/merchant/homestay/orders', 'HomestayController@findAllMerchantOrders');
+Route::get('/merchant/homestay/success-order', 'HomestayController@listSuccessOrder');
+Route::get('/merchant/homestay/get-success-order', 'HomestayController@allSuccessOrder');
+Route::get('/merchant/homestay/get-paid-order', 'HomestayController@allPaidOrder');
 Route::get('/homestays/save', 'HomestayController@store');
 Route::get('/homestays/findAllMyHomestay', 'HomestayController@findAllMerchantHomestay');
 

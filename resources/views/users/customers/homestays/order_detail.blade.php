@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <div class="card">
+                <div class="container card">
                     <div class="card-body">
                         <table class="table table-borderless">
                             <tbody>
@@ -28,11 +28,6 @@
                         <td><p class="h6">Lama Menginap</p></td>
                         <td><p class="h6">:</p></td>
                         <td><p class="h6">{{ $orderDetail->duration }} Hari</p></td>
-                    </tr>
-                    <tr>
-                        <td><p class="h6">Metode Pembayaran</p></td>
-                        <td><p class="h6">:</p></td>
-                        <td><p class="h6">{{ $orderDetail->payment_method }}</p></td>
                     </tr>
                     <tr>
                         <td><p class="h6">Total Harga</p></td>
@@ -54,16 +49,10 @@
                     <tbody>
 
                     <tr>
-                        {{-- TODO: add link for Hapus button --}}
-                        <td>
-                            <center><p class="h6 text-right"><a href="#"
-                                                                class="btn btn-outline-warning">Hapus</a>
-                                </p>
-                        </td>
-                        </center>
-                        {{-- add link for Bayar button --}}
+
                         <td>
                             <center>
+                                @if($orderDetail->status == 'Pending')
                                 <button
                                     type="button"
                                     class="btn essence-btn"
@@ -71,6 +60,29 @@
                                     data-target="#exampleModal"
                                 >Bayar
                                 </button>
+                                @elseif($orderDetail->status == 'In Progress')
+                                <a href="{{ '/./images/'. $orderDetail->resi}}">
+                                    <img src="{{ '/./images/'. $orderDetail->resi}}"
+                                         style='width: 50%; object-fit: cover' alt="">
+                                </a>
+                                <br><br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h3 style="color: #FF8311; ">{{$orderDetail->status}}</h3>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button
+                                            type="button"
+                                            class="btn essence-btn"
+                                            data-toggle="modal"
+                                            data-target="#exampleModal"
+                                        >Ubah Resi
+                                        </button>
+                                    </div>
+                                </div>
+                                @else
+                                <h3 style="color: #FF8311; ">{{$orderDetail->status}}</h3>
+                                @endif
                             </center>
                         </td>
                     </tr>
@@ -113,6 +125,7 @@
                                             type="text"
                                             class="form-control form-control-sm"
                                             id="namapengirim"
+                                            name="namapengirim"
                                             aria-describedby="emailHelp"
                                             placeholder="Nama Pengirim"
                                             required
@@ -120,9 +133,9 @@
                                         <div class="valid-feedback">sudah valid</div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="utkbank" class="small">Bank Tujuan</label>
+                                        <label for="utkbank" class="small">Metode Pembayaran</label>
                                         <br>
-                                        <select id="utkbank" class="form-control" required>
+                                        <select id="utkbank" name="utkbank" class="form-control" required>
                                             <!-- <option value="BRI">BRI</option> -->
                                             <option value="MANDIRI">MANDIRI</option>
                                             <option value="OVO">OVO</option>

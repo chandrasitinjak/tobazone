@@ -53,6 +53,9 @@
 
                 <h3 class="menu-title">Homestay</h3>
                 <li> <a href="{{ url('/admin/homestay/new-order')}}"> <i class="menu-icon fa fa-archive"></i>New Order </a> </li>
+                <li> <a href="{{ url('/admin/homestay/paid-order')}}"> <i class="menu-icon fa fa-money"></i>Paid Order </a> </li>
+                <li> <a href="{{ url('/admin/homestay/success-order')}}"> <i class="menu-icon fa fa-check-circle"></i>Success Order </a> </li>
+                <li> <a href="{{ url('/admin/homestay/rejected-order')}}"> <i class="menu-icon fa fa-exclamation-triangle"></i>Rejected Order </a> </li>
                 <li> <a href="{{ url('/admin/list-merchant')}}"> <i class="menu-icon fa fa-users"></i>List Homestay </a> </li>
                 <li> <a href="{{ url('/admin/homestay/room-categories')}}"> <i class="menu-icon fa fa-bed"></i>Rooms Categories </a> </li>
 
