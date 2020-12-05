@@ -3,8 +3,8 @@
 @endsection
 
 @section('content')
-
-<div class="container">
+<div id="app-2">
+<div class="container" >
     <div class="row">
         <div class="col-12">
             <div class="card globalcard store">
@@ -176,18 +176,134 @@
 
 
         <div class="col-md-9 crudproduk mt-3" style="display: grid">
-            <Create-Homestay/>
+{{--            <Create-Homestay/>--}}
+            <form class="form-group" method="POST" action="{{ url('/products/store', 1) }}" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <span name="cat_product" style="display:none">ulos</span>
+                <div class="form-group row">
+                    <div class="input-group mb-3">
+                        <label class="col-sm-3 col-form-label">
+                            Gambar Penginapan
+                            <span class="formbadge badge badge-secondary font-weight-light text-muted">Wajib</span>
+                        </label>
+                        <div class="col-sm-9">
+                            <div class="upload-btn-wrapper">
+                                <button class="btn-upcus">
+                                    <img src="{{ '/images/assets/addimage.png'}}">
+                                </button>
+                                <input id="files" name="images[]" multiple type="file" required/>
+                            </div>
+                            <div id="result" class="row mt-4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Nama Penginapan
+                        <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
+                    </label>
+
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" aria-describedby="namaprodukhelp" name="name" required>
+                    </div>
+                </div>
+            </form>
+                <div class="form-group row">
+                    <div class="col-md-12 mt-4">
+                        <button @click="addRow()" class="btn btn-success float-right" ><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Kamar Penginapan
+                        <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
+                    </label>
+                    <div class="col-sm-9">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Kategori Kamar</th>
+                                <th scope="col">Jumlah Kamar</th>
+                                <th scope="col">Harga Kamar/Hari</th>
+                                <th scope="col">Fasilitas</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="row in rows">
+                                <td>
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="formGroupExampleInput"  placeholder="">
+                                        </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+                                        </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+                                        </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+                                        </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    <button @click="deleteRow" class="btn btn-danger float-right" ><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Lokasi Penginapan
+                        <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" aria-describedby="namaprodukhelp" min="1" name="product_origin" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Deskripsi Penginapan
+                        <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
+                    </label>
+                    <div class="col-sm-9">
+                        <textarea type="text" rows="5" class="form-control" aria-describedby="namaprodukhelp" name="description"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-12 mt-4">
+                        <button type="submit" class="btn essence-btn float-right">Simpan</button>
+                    </div>
+                </div>
+
         </div>
 
     </div>
 </div>
-
-
+</div>
 @endsection
-<script>
-    import CreateHomestay from "../../../../js/components/homestay/merchant/CreateHomestay";
 
-    export default {
-        components: {CreateHomestay}
-    }
-</script>
+@section('script')
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>-->
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script>
+
+    </script>
+@endsection
+
+

@@ -36270,9 +36270,20 @@ var app = new Vue({
     },
     data: function data() {
         return {
-            message: ''
+            message: '',
+            rows: [{ nama_produk: '', kategori: '' }]
         };
+    },
+
+    methods: {
+        addRow: function addRow() {
+            this.rows.push({ nama_produk: '', kategori: '' });
+        },
+        deleteRow: function deleteRow() {
+            this.rows.pop();
+        }
     }
+
 });
 
 /***/ }),
