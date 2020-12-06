@@ -314,38 +314,34 @@
    <div class="container-fluid custom-container">
    <div class="collapse navbar-collapse" id="navbarResponsive">
    <ul class="navbar-nav">
-      <li class="nav-item dropdown">
-         <a class="nav-link dropdown" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-         Pakaian
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         </div>
+      <li class="nav-item-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Souvenir
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ url('/product/pakaian') }}" ><b>Fashion</b><br> <span data-toggle="tooltip" data-placement="right" title="Kemeja, Kaos, Jaket, Topi">Pria</span> <br> <span  data-placement="right" title="Kemeja, Kaos, Jaket, Topi, Dress"> Wanita</span> <br> <span   data-placement="right" title="Kemeja, Kaos, Jaket">Anak - anak</span>
+                  <br><br></a>
+              <a class="dropdown-item" href="{{ url('/product/ulos') }}"><b>Tenun</b><br> <span data-toggle="tooltip" data-placement="right" title="Ulos (sarung, selendang), lembaran kain"> Buatan tangan</span> <br> <span  data-placement="right" title="Ulos (sarung, selendang), lembaran kain">Mesin</span>  <br><br></a>
+              <a class="dropdown-item" href="{{ url('/product/obat') }}"><b>Kesehatan & Kecantikan</b> <br> <span data-toggle="tooltip" data-placement="right" title="Rempah-rempah, minyak karo, masker"> Obat tradisional</span>
+                  <br> <span data-toggle="tooltip" data-placement="right" title="Masker wajah, lulur kopi, madu,sabun"> Perawatan</span> <br><br></a>
+              <a class="dropdown-item" href="{{ url('/product/makanan') }}"><b>Kuliner</b> <br> <span data-toggle="tooltip" data-placement="right" title="Tipa-tipa, kacang, sasagun"> Kering</span> <br> Basah <br><br></a>
+              <a class="dropdown-item" href="{{ url('/product/aksesoris') }}"><b><span data-toggle="tooltip" data-placement="right" title="Ikan mas arsik, naniura, napinadar, ikan mujahir tombur, lappet"> Aksesoris</span></b></a>
+          </div>
       </li>
-      <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown" href="{{ url('/product/aksesoris') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-         Aksesoris
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      </li>
-      <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown" href="{{ url('/product/makanan') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-         Makanan
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         </div>
-      </li>
-      <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown" href="{{ url('/product/obat') }}" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
-         Obat
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      </li>
-      <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown" href="{{ url('/product/ulos') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-         Ulos
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      </li>
+       <li class="nav-item dropdown ml-30">
+           <a class="nav-link dropdown" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+               <span data-toggle="tooltip" data-placement="right" title="Homestay, guesthouse, losmen, hotel, villa">Akomodasi</span>
+           </a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           </div>
+       </li>
+       <li class="nav-item dropdown ml-30">
+           <a class="nav-link dropdown" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+               <span data-toggle="tooltip" data-placement="right" title="Paket wisata, komunitas paket wisata">Paket Wisata</span>
+           </a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           </div>
+       </li>
    </ul>
    </div>
    <div class="container-fluid custom-container">
