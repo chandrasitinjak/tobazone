@@ -6,64 +6,71 @@ use Illuminate\Http\Request;
 use App\Kabupaten;
 use App\Akomodasi;
 use App\CategoryAkomodasi;
+use App\Member;
+use Illuminate\Support\Facades\Auth;
 
 class AkomodasiController extends Controller
 {
     public function index(){
-        $kabupaten_id = session('kabupaten_id');
-        $kabupaten = Kabupaten::findOrFail($kabupaten_id);
-        $akomodasis = Akomodasi::where('kabupaten_id' , $kabupaten_id)->paginate(5);
-        $categoryAkomodasis = CategoryAkomodasi::all();
+        $kabupatens = Kabupaten::all();
+        $categorys = CategoryWisata::all();
+        $objekWisatas = ObjekWisata::paginate(5);
 
-        return view('CBT.Akomodasi.index',compact('akomodasis','kabupaten','categoryAkomodasis'));
+        return view('cbt.informasi.objekwisata.index',compact('objekWisatas','categorys','kabupatens'));
     }
 
     public function store(Request $request){
-        $akomodasi = new Akomodasi;
-        $akomodasi->nama_akomodasi = $request->nama_akomodasi;
-        $akomodasi->longitude = $request->longitude;
-        $akomodasi->latitude = $request->latitude;
-        $akomodasi->cbt_id = $request->cbt_id;
-        $akomodasi->kabupaten_id = $request->kabupaten_id;
-        $akomodasi->category_akomodasi_id = $request->category_akomodasi_id;
-        $akomodasi->lokasi = $request->lokasi;
-        $akomodasi->deskripsi = $request->deskripsi;
-        $akomodasi->cbt_id = session('cbt_id');
+        $member = Member::where('user_id', Auth::id())->get();
+
+        $objekWisata = new ObjekWisata;
+        $objekWisata->nama_objek_wisata = $request->nama_objek_wisata;
+        $objekWisata->lokasi = $request->lokasi;
+        $objekWisata->longitude = $request->longitude;
+        $objekWisata->latitude = $request->latitude;
+        $objekWisata->category_id = $request->category_id;
+        $objekWisata->kabupaten_id = $request->kabupaten_id;
+        $objekWisata->deskripsi = $request->deskripsi;
+        $objekWisata->member_id = $member[0]->id;
+        $objekWisata->status = "ready";
+
+        //foto
         $file = $request->file('foto');
         $gambar = $file->getClientOriginalName();
-        $akomodasi->foto = $gambar;
+        $gambar = "asd1.jpg";
+        $objekWisata->foto = $gambar;
+        if($objekWisata->save()){
 
-        if($akomodasi->save()){
-
-            $file->move(\base_path() ."/public/Kab/information/Akomodasi", $gambar);
-
-            //Alert::success('Success', $request->nama_akomodasi. ' berhasil ditambahkan');
+            $file->move(\base_path() ."/public/Kab/information/ObjekWisata", $gambar);
+            //Alert::success('Success', $request->nama_objek_wisata. ' berhasil ditambahkan');
             return redirect()->back();
         }
     }
 
     public function edit($id){
-        $akomodasi = Akomodasi::findOrFail($id);
-        return view('CBT.Akomodasi.edit',compact('akomodasi'));
+        $objekWisata = ObjekWisata::findOrFail($id);
+        $categorys = CategoryWisata::all();
+        return view('cbt.informasi.objekwisata.edit',compact('objekWisata','categorys'));
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request,$id){
         try {
             //select data berdasarkan id
-            $akomodasi = Akomodasi::findOrFail($id);
+            $objekWisata = ObjekWisata::findOrFail($id);
             //update data
 
-            $akomodasi->nama_akomodasi = $request->nama_akomodasi;
-            $akomodasi->lokasi = $request->lokasi;
-            $akomodasi->longitude = $request->longitude;
-            $akomodasi->latitude = $request->latitude;
-            $akomodasi->deskripsi = $request->deskripsi;
-            $akomodasi->save();
+            $objekWisata->nama_objek_wisata = $request->nama_objek_wisata;
+            $objekWisata->lokasi = $request->lokasi;
+            $objekWisata->longitude = $request->longitude;
+            $objekWisata->latitude = $request->latitude;
+            $objekWisata->category_id = $request->category_id;
+            $objekWisata->deskripsi = $request->deskripsi;
 
-            //redirect ke route Akomodasi.index
-            //Alert::success('Success', $request->nama_akomodasi. ' berhasil diedit');
+            $objekWisata->save();
 
-            return redirect(route('Akomodasi.index'))->with(['success' => 'Akomodasi: ' . $request->nama_akomodasi . ' Diedit']);
+            //redirect ke route kategori.index
+            //Alert::success('Success', $request->nama_objek_wisata. ' berhasil diedit');
+
+            return redirect(route('objekwisata.index'))->with(['success' => 'Objek Wisata: ' . $objekWisata->nama_objek_wisata . ' Diedit']);
         } catch (\Exception $e) {
             //jika gagal, redirect ke form yang sama lalu membuat flash message error
             return redirect()->back();
@@ -71,9 +78,9 @@ class AkomodasiController extends Controller
     }
 
     public function destroy($id){
-        $akomodasi = Akomodasi::findOrFail($id);
-        $akomodasi->delete();
-        //Alert::success('Success', 'Akomodasi berhasil dihapus');
+        $objekWisata = ObjekWisata::findOrFail($id);
+        $objekWisata->delete();
+        //Alert::success('Success', 'Objek Wisata berhasil dihapus');
         return redirect()->back();
     }
 

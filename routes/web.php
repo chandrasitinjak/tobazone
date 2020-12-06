@@ -80,14 +80,14 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::middleware('role:admin')->group(function () {
 
         //BEGIN KOPERASI
-        Route::get('/admin/koperasi-aktif', function () {
-            return view('admin.koperasi.koperasi-aktif');
-        });
-        Route::get('/admin/koperasi-tidak-aktif', function () {
-            return view('admin.koperasi.koperasi-tidak-aktif');
+        Route::get('/admin/status-koperasi', function () {
+            return view('admin.koperasi.status-koperasi');
         });
         Route::get('/admin/akun-koperasi-pending', function () {
             return view('admin.koperasi.akun-koperasi-pending');
+        });
+        Route::get('/admin/layanan-maintenence', function () {
+            return view('admin.koperasi.layanan-maintenence');
         });
         //END KOPERASI
 
@@ -188,6 +188,9 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
         //Admin Homestay
         Route::get('/admin/homestay/new-order', 'HomestayController@findAllNewOrder');
+        Route::get('/admin/homestay/paid-order', 'HomestayController@findAllPaidOrder');
+        Route::get('/admin/homestay/success-order', 'HomestayController@findAllSuccessOrder');
+        Route::get('/admin/homestay/rejected-order', 'HomestayController@findAllRejectedOrder');
         Route::get('/admin/homestay/new-order/{id}', 'HomestayController@findDetailNewOrder');
         Route::get('/admin/homestay/room-categories', 'HomestayRoomsCategoriesController@findAllCategories');
 
@@ -328,7 +331,7 @@ Route::post('/homestay/pesan', 'HomestayController@bookHomestay');
 
 //Approval Penginapan Backend
 Route::get('/homestay/approvePenginapan/{id}', 'HomestayController@approvePenginapan');
-Route::get('/homestay/rejectedPrenginapan/{id}', 'HomestayController@rejectedPenginapan');
+Route::get('/homestay/rejectedPenginapan/{id}', 'HomestayController@rejectedPenginapan');
 
 //Approval Penginapan Frontend
 Route::get('/homestay/ListPesanan', 'HomestayController@listPesananPenginapan');
@@ -342,6 +345,9 @@ Route::get('/merchant/homestay/update/{id}', 'HomestayController@updateHomestay'
 Route::post('/merchant/homestay/updateHomestay/{id}', 'HomestayController@update');
 Route::get('/merchant/homestay/findHomestayById/{id}', 'HomestayController@findHomestayById');
 Route::get('/merchant/homestay/orders', 'HomestayController@findAllMerchantOrders');
+Route::get('/merchant/homestay/success-order', 'HomestayController@listSuccessOrder');
+Route::get('/merchant/homestay/get-success-order', 'HomestayController@allSuccessOrder');
+Route::get('/merchant/homestay/get-paid-order', 'HomestayController@allPaidOrder');
 Route::get('/homestays/save', 'HomestayController@store');
 Route::get('/homestays/findAllMyHomestay', 'HomestayController@findAllMerchantHomestay');
 
@@ -432,6 +438,16 @@ Route::put('/pemesanan/detail/{id_transaksi}/update', 'PemesananController@updat
 
 Route::get('/pemesanan/detail/pembayaran/{id}','PemesananController@pembayaran')->name('pembayaran');
 
+
+//CBT informasi pariwisata
+
+Route::resource('objekwisata', 'ObjekWisataController');
+Route::resource('kuliner', 'KulinerController');
+Route::resource('akomodasi', 'AkomodasiController');
+Route::resource('event', 'EventController');
+Route::resource('transportasi', 'TransportasiController');
+Route::resource('budaya', 'BudayaController');
+
 //Sistem informasi Pariwisata
 Route::get('informasi-akomodasi', 'AkomodasiController@displayAkomodasi');
 Route::get('/Kab/Information/Akomodasi/{id}', 'AkomodasiController@displayDetailAkomodasi');
@@ -443,3 +459,5 @@ Route::get('informasi-kuliner', 'KulinerController@displayKuliner');
 Route::get('/Kab/Information/Kuliner/{id}', 'KulinerController@displayDetailKuliner');
 Route::get('informasi-budaya', 'BudayaController@displayBudaya');
 Route::get('/Kab/Information/Budaya/{id}', 'BudayaController@displayDetailBudaya');
+Route::get('informasi-transportasi', 'TransportasiController@displayTransportasi');
+Route::get('/Kab/Information/Transportasi/{id}', 'TransportasiController@displayDetailTransportasi');
