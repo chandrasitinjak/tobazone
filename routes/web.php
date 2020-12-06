@@ -68,14 +68,14 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
     Route::middleware('role:admin')->group(function () {
         //BEGIN KOPERASI
-        Route::get('/admin/koperasi-aktif', function () {
-            return view('admin.koperasi.koperasi-aktif');
-        });
-        Route::get('/admin/koperasi-tidak-aktif', function () {
-            return view('admin.koperasi.koperasi-tidak-aktif');
+        Route::get('/admin/status-koperasi', function () {
+            return view('admin.koperasi.status-koperasi');
         });
         Route::get('/admin/akun-koperasi-pending', function () {
             return view('admin.koperasi.akun-koperasi-pending');
+        });
+        Route::get('/admin/layanan-maintenence', function () {
+            return view('admin.koperasi.layanan-maintenence');
         });
         //END KOPERASI
         Route::get('/admin', 'AdminController@index');

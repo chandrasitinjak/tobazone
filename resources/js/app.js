@@ -58,7 +58,8 @@ const UserRating = require('./components/merchants/UserRating')
 const UserRatingSecond = require('./components/merchants/UserRatingSecond')
 const ProdukTerlaris = require('./components/homes/ProdukTerlaris')
 const ListLogin = require('./components/auths/ListLogin')
-const KoperasiAktif = require('./components/Koperasi/KoperasiAktif')
+const StatusKoperasi = require('./components/koperasi/StatusKoperasi')
+const LayananMaintenence = require('./components/koperasi/LayananMaintenence')
 const KoperasiTidakAktif = require('./components/Koperasi/KoperasiTidakAktif')
 const AkunPending = require('./components/Koperasi/AkunPending')
 const InformasiDicari = require('./components/homes/InformasiDicari')
@@ -71,7 +72,7 @@ Vue.mixin({
     data: function () {
         return {
             get urlGlobalKoperasi() {
-                return 'http://localhost:8089/'
+                return 'https://tobazone-koperasi.herokuapp.com/'
             }
         }
     }
@@ -80,8 +81,9 @@ Vue.mixin({
 const app = new Vue({
     el: '#app',
     components: {
+        LayananMaintenence,
         KoperasiTidakAktif,
-        KoperasiAktif,
+        StatusKoperasi,
         AkunPending,
         UserRating,
         UserRatingSecond,
