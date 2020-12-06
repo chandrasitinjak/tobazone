@@ -38,16 +38,10 @@ class HomeController extends Controller
                 return redirect('/admin');
             } else if ($role === 'merchant') {
                 return redirect('/merchant');
-            } else if($role === 'cbt') {
-                return redirect('/cbt');
+            } else if($role === 'member_cbt') {
+                return redirect ('/anggotacbt/layananwisata');
             }
-            
-        }        
+        }
         return view('users.homes.index');
     }
-
-    public function homeInformasiPariwisata(){
-        return "andreas";
-    }
-    
 }

@@ -11,7 +11,7 @@ class Sesi extends Model
     protected $fillable =['paket_id','kuota_peserta','jadwal','status'];
 
     public function getPaket(){
-        return $this->belongsTo(paketWisata::class,'paket_id','id_paket');
+        return $this->belongsTo(PaketWisata::class,'paket_id','id_paket');
     }
 
     public function getPemesanan(){
