@@ -422,6 +422,13 @@
 
                         </div>
                     </li>
+                    <li class="nav-item dropdown" style="margin-left: 3rem">
+                        <a class="nav-link dropdown" href="https://tobazone-koperasi.herokuapp.com/#/register" id="navbarDropdown"
+                           role="button" aria-haspopup="true" aria-expanded="false">
+                            Koperasi
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
+                    </li>
                 </ul>
             </div>
             <div class="container-fluid custom-container"></div>
