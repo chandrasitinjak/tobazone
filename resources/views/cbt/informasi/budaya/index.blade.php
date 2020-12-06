@@ -30,14 +30,9 @@
                             {!! session('error') !!}
                             @endalert
                         @endif
-                        ​                            @slot('body')
-                            <<<<<<< HEAD
-                            <form role="form" action="{{route('Budaya.store')}}" method="POST"
-                                  enctype="multipart/form-data">
-                                =======
+                        ​     @slot('body')
                                 <form role="form" action="{{ route('budaya.store') }}" method="POST"
                                       enctype="multipart/form-data">
-                                    >>>>>>> b61ddc8e369c96e2e3de730caf7a2acf3f6b3a58
                                     @csrf
                                     <div class="form-group">
                                         <label for="nama_budaya">Nama Budaya</label>
@@ -117,11 +112,11 @@
                                             <td>{{$budaya->member_id}}</td>
 
                                             <td>
-                                                <form action="{{ route('Budaya.destroy', $budaya->id) }}" method="post">
+                                                <form action="{{ route('budaya.destroy', $budaya->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <a href="{{ route('Budaya.edit', $budaya->id) }}"
+                                                    <a href="{{ route('budaya.edit', $budaya->id) }}"
                                                        class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                     <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
                                                     </button>

@@ -23,6 +23,7 @@ class TransportasiController extends Controller
         	$transportasi = new Transportasi;
         	$transportasi->nama_transportasi = $request->nama_transportasi;
         	$transportasi->jenis_transportasi = $request->jenis_transportasi;
+
         	$transportasi->alamat = $request->alamat;
         	$transportasi->kabupaten_id = $request->kabupaten_id;
         	$transportasi->deskripsi = $request->deskripsi;

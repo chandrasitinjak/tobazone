@@ -73,7 +73,7 @@ class BudayaController extends Controller
             //redirect ke route Budaya.index
 //            Alert::success('Success', $request->nama_budaya. ' berhasil diedit');
 
-            return redirect(route('Budaya.index'))->with(['success' => 'Budaya: ' . $request->nama_budaya . ' Diedit']);
+            return redirect(route('budaya.index'))->with(['success' => 'Budaya: ' . $request->nama_budaya . ' Diedit']);
         } catch (\Exception $e) {
             //jika gagal, redirect ke form yang sama lalu membuat flash message error
             return redirect()->back();

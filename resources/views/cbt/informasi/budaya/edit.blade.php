@@ -1,6 +1,5 @@
 @extends('users.anggotacbt.app')
 @section('content')
-    <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -35,7 +34,7 @@
                                     @endalert
                                 @endif
                                 ​
-                                <form role="form" action="{{route('Budaya.update',$budaya->id)}}" method="POST"
+                                <form role="form" action="{{route('budaya.update',$budaya->id)}}" method="POST"
                                       enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
@@ -84,5 +83,4 @@
                 </div>
             </div>
         </section>
-    </div>
 @endsection

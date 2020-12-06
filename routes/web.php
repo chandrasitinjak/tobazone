@@ -390,13 +390,3 @@ Route::resource('akomodasi', 'AkomodasiController');
 Route::resource('event', 'EventController');
 Route::resource('transportasi', 'TransportasiController');
 Route::resource('budaya', 'BudayaController');
-
-Route::get('/anggotacbt/informasi/transportasi', 'TransportasiController@index');
-Route::get('/anggotacbt/informasi/transportasi/{id}', 'TransportasiController@edit');
-Route::post('/anggotacbt/informasi/transportasi', 'TransportasiController@store');
-
-Route::get('/anggotacbt/informasi/budaya', 'BudayaController@index')->name('Budaya.index');
-Route::get('/anggotacbt/informasi/budaya/{id}/edit', 'BudayaController@edit')->name('Budaya.edit');
-Route::post('/anggotacbt/informasi/budaya', 'BudayaController@store')->name('Budaya.store');
-Route::put('/anggotacbt/informasi/budaya/{id}', 'BudayaController@update')->name('Budaya.update');
-Route::delete('/anggotacbt/informasi/budaya/{id}', 'BudayaController@destroy')->name('Budaya.destroy');
