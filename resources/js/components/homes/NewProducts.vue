@@ -1,14 +1,14 @@
 <template>
     <div>
-        <div class="card globalcard" style="min-height: 400px; background-color: #fffaf3">
+        <div class="card globalcard" style="min-height: 400px;">
             <div class="card-header">
                 <nav class="navbar navbar-expand-lg mproduct p-1" style="background-color: transparent; border:none">
                     <h3 class="m-auto">Produk Terbaru</h3>
                 </nav>
             </div>
-            <div class="card-body" style="padding : 0.7rem">
+            <div class="card-body mb-4" style="padding : 0.7rem">
                 <div class="" v-if="products.length>0">
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <div v-for="product in products" class="col-6 col-md-2 col-lg-2 px-1">
                             <div class="card products">
                                 <a :href="'/products/' + product.id">
@@ -35,7 +35,7 @@
                                             <small class="text-muted"> {{ product.merchant.profile.name }}</small>
                                         </p>
                                         <div>
-                                            <button style="border : 0px; background-color: white" class="float-right"
+                                            <button style="border : 0px; background-color: white" class="float-right "
                                                     v-on:click="addToWishlist(product.id)"><i class="fa fa-heart-o"></i>
                                             </button>
                                         </div>
@@ -54,7 +54,7 @@
             <div class="col-md-12">
                 <center>
                     <a href="/search">
-                        <button class="btn" type="button"
+                        <button class="btn essence-btn" type="button"
                                 style="text-decoration-line: unset; "> Muat Lebih Banyak
                         </button>
                     </a>

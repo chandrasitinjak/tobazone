@@ -4,35 +4,45 @@
             <h3>Informasi yang dicari</h3>
         </div>
         <div class="">
-            <div class="d-flex justify-content-between">
-                <div class="card-informasi card shadow mt-3 " style="width: 15rem;height: 18rem">
-                    <img class="card-img-top" src="https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080" alt="Card image cap">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title text-white">Kuliner</h5>
+            <div class="row justify-content-center">
+                <div class="col-lg-auto col-auto">
+                    <div class="card-informasi card shadow mt-3 " style="width: 15rem;height: 18rem">
+                        <img class="card-img-top" src="https://previews.123rf.com/images/azamshah72/azamshah721112/azamshah72111200256/11776023-close-up-view-of-an-opened-durian-on-bluish-background-in-portrait-orientation.jpg" alt="Card image cap" style="height: 18rem">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title text-white">Kuliner</h5>
+                        </div>
                     </div>
                 </div>
-                <div class="card-informasi card shadow mt-3" style="width: 15rem;height: 18rem">
-                    <img class="card-img-top" src="https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080" alt="Card image cap">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title text-white">Akomodasi</h5>
+                <div class="col-lg-auto col-auto">
+                    <div class="card-informasi card shadow mt-3" style="width: 15rem;height: 18rem">
+                        <img class="card-img-top" src="https://media.cntraveler.com/photos/5a91dba089971c2c547af1a3/4:5/w_767,c_limit/Portrait-Roma_The-Leading-Hotels-of-the-World__2018_75269857-H1-D3395.jpg" alt="Card image cap">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title text-white">Akomodasi</h5>
+                        </div>
                     </div>
                 </div>
-                <div class="card-informasi card shadow mt-3" style="width: 15rem;height: 18rem">
-                    <img class="card-img-top" src="https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080" alt="Card image cap">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title text-white">Objek Wisata</h5>
+                <div class="col-lg-auto col-auto">
+                    <div class="card-informasi card shadow mt-3" style="width: 15rem;height: 18rem">
+                        <img class="card-img-top" src="https://seringjalan.com/wp-content/uploads/2020/04/Tugu-Toga-Aritonang-3.jpg" alt="Card image cap" style="height: 18rem">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title text-white">Objek Wisata</h5>
+                        </div>
                     </div>
                 </div>
-                <div class="card-informasi card shadow mt-3" style="width: 15rem;height: 18rem">
-                    <img class="card-img-top" src="https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080" alt="Card image cap">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title text-white">Budaya</h5>
+                <div class="col-lg-auto col-auto">
+                    <div class="card-informasi card shadow mt-3" style="width: 15rem;height: 18rem">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/93/f0/db/93f0db676204c8e40fe4e96f6d2218a9.jpg" alt="Card image cap" style="height: 18rem">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title text-white">Budaya</h5>
+                        </div>
                     </div>
                 </div>
-                <div class="card-informasi card shadow mt-3" style="width: 15rem;height: 18rem">
-                    <img class="card-img-top" src="https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080" alt="Card image cap">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title text-white">Event</h5>
+                <div class="col-lg-auto col-auto">
+                    <div class="card-informasi card shadow mt-3" style="width: 15rem;height: 18rem">
+                        <img class="card-img-top" src="https://nababan.files.wordpress.com/2010/10/1160.jpg" alt="Card image cap" style="height: 18rem">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title text-white">Event</h5>
+                        </div>
                     </div>
                 </div>
             </div>

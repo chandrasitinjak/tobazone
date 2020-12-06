@@ -36124,7 +36124,7 @@ function withParams(paramsOrClosure, maybeValidator) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(161);
-module.exports = __webpack_require__(406);
+module.exports = __webpack_require__(423);
 
 
 /***/ }),
@@ -36204,6 +36204,7 @@ var KoperasiTidakAktif = __webpack_require__(387);
 var AkunPending = __webpack_require__(392);
 var InformasiDicari = __webpack_require__(397);
 var KomunitasPaketWisata = __webpack_require__(401);
+var ProdukTerlaris2 = __webpack_require__(406);
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', __WEBPACK_IMPORTED_MODULE_2_vue_star_rating___default.a);
@@ -36258,7 +36259,8 @@ var app = new Vue({
         ListLogin: ListLogin,
         RegCebt: RegCebt,
         InformasiDicari: InformasiDicari,
-        KomunitasPaketWisata: KomunitasPaketWisata
+        KomunitasPaketWisata: KomunitasPaketWisata,
+        ProdukTerlaris2: ProdukTerlaris2
 
     },
     data: function data() {
@@ -78509,20 +78511,20 @@ var render = function() {
       "div",
       {
         staticClass: "card globalcard",
-        staticStyle: { "min-height": "400px", "background-color": "#fffaf3" }
+        staticStyle: { "min-height": "400px" }
       },
       [
         _vm._m(0),
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "card-body", staticStyle: { padding: "0.7rem" } },
+          { staticClass: "card-body mb-4", staticStyle: { padding: "0.7rem" } },
           [
             _vm.products.length > 0
               ? _c("div", {}, [
                   _c(
                     "div",
-                    { staticClass: "row" },
+                    { staticClass: "row justify-content-center" },
                     _vm._l(_vm.products, function(product) {
                       return _c(
                         "div",
@@ -78625,7 +78627,7 @@ var render = function() {
                                       _c(
                                         "button",
                                         {
-                                          staticClass: "float-right",
+                                          staticClass: "float-right ",
                                           staticStyle: {
                                             border: "0px",
                                             "background-color": "white"
@@ -78668,7 +78670,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn",
+                    staticClass: "btn essence-btn",
                     staticStyle: { "text-decoration-line": "unset" },
                     attrs: { type: "button" }
                   },
@@ -79276,7 +79278,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.cart-enter-active[data-v-131f3cc0] {\r\n  -webkit-animation: bounce-in-data-v-131f3cc0 0.5s;\r\n          animation: bounce-in-data-v-131f3cc0 0.5s;\n}\n@-webkit-keyframes bounce-in-data-v-131f3cc0 {\n0% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\n}\n50% {\r\n    -webkit-transform: scale(1.3);\r\n            transform: scale(1.3);\n}\n100% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\n}\n}\n@keyframes bounce-in-data-v-131f3cc0 {\n0% {\r\n    -webkit-transform: scale(0);\r\n            transform: scale(0);\n}\n50% {\r\n    -webkit-transform: scale(1.3);\r\n            transform: scale(1.3);\n}\n100% {\r\n    -webkit-transform: scale(1);\r\n            transform: scale(1);\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.cart-enter-active[data-v-131f3cc0] {\n  -webkit-animation: bounce-in-data-v-131f3cc0 0.5s;\n          animation: bounce-in-data-v-131f3cc0 0.5s;\n}\n@-webkit-keyframes bounce-in-data-v-131f3cc0 {\n0% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n}\n50% {\n    -webkit-transform: scale(1.3);\n            transform: scale(1.3);\n}\n100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes bounce-in-data-v-131f3cc0 {\n0% {\n    -webkit-transform: scale(0);\n            transform: scale(0);\n}\n50% {\n    -webkit-transform: scale(1.3);\n            transform: scale(1.3);\n}\n100% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n", ""]);
 
 // exports
 
@@ -79364,29 +79366,28 @@ var render = function() {
         { attrs: { href: "/carts" } },
         [
           _c("transition", { attrs: { name: "cart" } }, [
-            _vm.show
-              ? _c("img", {
-                  staticStyle: { width: "30px", heigh: "30px" },
-                  attrs: { src: "/user-assets/img/core-img/bag.svg" }
-                })
-              : _vm._e()
+            _c("i", {
+              staticClass:
+                "fa fa-shopping-cart fa-3x fa-flip-horizontal text-white",
+              attrs: { "aria-hidden": "true" }
+            })
           ]),
           _vm._v(" "),
           _c(
             "span",
             {
-              staticClass: "badge badge-light",
+              staticClass: "badge badge-light border",
               staticStyle: {
-                "background-color": "black",
+                "background-color": "#640000",
                 display: "inline-block",
                 "font-size": "0.8rem",
                 color: "#FFFAF3",
                 "-webkit-border-radius": "9px",
-                "margin-top": "14px",
+                "margin-top": "16px",
                 "-moz-border-radius": "20px",
                 "border-radius": "20px",
                 "vertical-align": "top",
-                "margin-left": "-15px"
+                "margin-left": "-10px"
               }
             },
             [_vm._v(_vm._s(_vm.total))]
@@ -102776,126 +102777,139 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", {}, [
-        _c("div", { staticClass: "d-flex justify-content-between" }, [
-          _c(
-            "div",
-            {
-              staticClass: "card-informasi card shadow mt-3 ",
-              staticStyle: { width: "15rem", height: "18rem" }
-            },
-            [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src:
-                    "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-img-overlay" }, [
-                _c("h5", { staticClass: "card-title text-white" }, [
-                  _vm._v("Kuliner")
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-lg-auto col-auto" }, [
+            _c(
+              "div",
+              {
+                staticClass: "card-informasi card shadow mt-3 ",
+                staticStyle: { width: "15rem", height: "18rem" }
+              },
+              [
+                _c("img", {
+                  staticClass: "card-img-top",
+                  staticStyle: { height: "18rem" },
+                  attrs: {
+                    src:
+                      "https://previews.123rf.com/images/azamshah72/azamshah721112/azamshah72111200256/11776023-close-up-view-of-an-opened-durian-on-bluish-background-in-portrait-orientation.jpg",
+                    alt: "Card image cap"
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-img-overlay" }, [
+                  _c("h5", { staticClass: "card-title text-white" }, [
+                    _vm._v("Kuliner")
+                  ])
                 ])
-              ])
-            ]
-          ),
+              ]
+            )
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "card-informasi card shadow mt-3",
-              staticStyle: { width: "15rem", height: "18rem" }
-            },
-            [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src:
-                    "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-img-overlay" }, [
-                _c("h5", { staticClass: "card-title text-white" }, [
-                  _vm._v("Akomodasi")
+          _c("div", { staticClass: "col-lg-auto col-auto" }, [
+            _c(
+              "div",
+              {
+                staticClass: "card-informasi card shadow mt-3",
+                staticStyle: { width: "15rem", height: "18rem" }
+              },
+              [
+                _c("img", {
+                  staticClass: "card-img-top",
+                  attrs: {
+                    src:
+                      "https://media.cntraveler.com/photos/5a91dba089971c2c547af1a3/4:5/w_767,c_limit/Portrait-Roma_The-Leading-Hotels-of-the-World__2018_75269857-H1-D3395.jpg",
+                    alt: "Card image cap"
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-img-overlay" }, [
+                  _c("h5", { staticClass: "card-title text-white" }, [
+                    _vm._v("Akomodasi")
+                  ])
                 ])
-              ])
-            ]
-          ),
+              ]
+            )
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "card-informasi card shadow mt-3",
-              staticStyle: { width: "15rem", height: "18rem" }
-            },
-            [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src:
-                    "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-img-overlay" }, [
-                _c("h5", { staticClass: "card-title text-white" }, [
-                  _vm._v("Objek Wisata")
+          _c("div", { staticClass: "col-lg-auto col-auto" }, [
+            _c(
+              "div",
+              {
+                staticClass: "card-informasi card shadow mt-3",
+                staticStyle: { width: "15rem", height: "18rem" }
+              },
+              [
+                _c("img", {
+                  staticClass: "card-img-top",
+                  staticStyle: { height: "18rem" },
+                  attrs: {
+                    src:
+                      "https://seringjalan.com/wp-content/uploads/2020/04/Tugu-Toga-Aritonang-3.jpg",
+                    alt: "Card image cap"
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-img-overlay" }, [
+                  _c("h5", { staticClass: "card-title text-white" }, [
+                    _vm._v("Objek Wisata")
+                  ])
                 ])
-              ])
-            ]
-          ),
+              ]
+            )
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "card-informasi card shadow mt-3",
-              staticStyle: { width: "15rem", height: "18rem" }
-            },
-            [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src:
-                    "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-img-overlay" }, [
-                _c("h5", { staticClass: "card-title text-white" }, [
-                  _vm._v("Budaya")
+          _c("div", { staticClass: "col-lg-auto col-auto" }, [
+            _c(
+              "div",
+              {
+                staticClass: "card-informasi card shadow mt-3",
+                staticStyle: { width: "15rem", height: "18rem" }
+              },
+              [
+                _c("img", {
+                  staticClass: "card-img-top",
+                  staticStyle: { height: "18rem" },
+                  attrs: {
+                    src:
+                      "https://i.pinimg.com/236x/93/f0/db/93f0db676204c8e40fe4e96f6d2218a9.jpg",
+                    alt: "Card image cap"
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-img-overlay" }, [
+                  _c("h5", { staticClass: "card-title text-white" }, [
+                    _vm._v("Budaya")
+                  ])
                 ])
-              ])
-            ]
-          ),
+              ]
+            )
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "card-informasi card shadow mt-3",
-              staticStyle: { width: "15rem", height: "18rem" }
-            },
-            [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src:
-                    "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-img-overlay" }, [
-                _c("h5", { staticClass: "card-title text-white" }, [
-                  _vm._v("Event")
+          _c("div", { staticClass: "col-lg-auto col-auto" }, [
+            _c(
+              "div",
+              {
+                staticClass: "card-informasi card shadow mt-3",
+                staticStyle: { width: "15rem", height: "18rem" }
+              },
+              [
+                _c("img", {
+                  staticClass: "card-img-top",
+                  staticStyle: { height: "18rem" },
+                  attrs: {
+                    src: "https://nababan.files.wordpress.com/2010/10/1160.jpg",
+                    alt: "Card image cap"
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-img-overlay" }, [
+                  _c("h5", { staticClass: "card-title text-white" }, [
+                    _vm._v("Event")
+                  ])
                 ])
-              ])
-            ]
-          )
+              ]
+            )
+          ])
         ])
       ]),
       _vm._v(" "),
@@ -103057,6 +103071,234 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { carousel2: __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default.a, Carousel: __WEBPACK_IMPORTED_MODULE_1_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_1_vue_carousel__["Slide"] },
+    data: function data() {
+        return {
+            komunitass: ["1", "2", "1", "2", "1", "2", "1", "2"]
+        };
+    }
+});
+
+/***/ }),
+/* 405 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-md-12" }, [
+    _c("br"),
+    _c("br"),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "card globalcard" }, [
+      _c("h3", { staticClass: "text-center mt-5" }, [
+        _vm._v("Komunitas Paket Wisata")
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "card-body globalcardbody" },
+        [
+          _c(
+            "carousel",
+            {
+              attrs: {
+                "mouse-drag": true,
+                scrollPerPage: true,
+                spacePadding: 20,
+                speed: 800,
+                paginationEnabled: false,
+                autoplay: true,
+                perPageCustom: [
+                  [0, 1],
+                  [991.88, 4]
+                ],
+                navigationEnabled: true,
+                navigationNextLabel: "<i class='fa fa-angle-right fa-3x'></i>",
+                navigationPrevLabel: "<i class='fa fa-angle-left fa-3x'></i>"
+              }
+            },
+            _vm._l(_vm.komunitass, function(komunitas) {
+              return _c("slide", { staticClass: "px-2" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "card-paket",
+                    staticStyle: { height: "12rem" }
+                  },
+                  [
+                    _c("img", {
+                      staticStyle: {
+                        height: "100%",
+                        width: "100%",
+                        "object-fit": "cover"
+                      },
+                      attrs: {
+                        id: "card-img",
+                        src:
+                          "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
+                        alt: "Card image cap"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-img-overlay" }, [
+                      _c(
+                        "h5",
+                        { staticClass: "card-title text-white mx-3 mt-2" },
+                        [_vm._v("Kuliner")]
+                      )
+                    ])
+                  ]
+                )
+              ])
+            }),
+            1
+          )
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5f0d419d", module.exports)
+  }
+}
+
+/***/ }),
+/* 406 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(407)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(409)
+/* template */
+var __vue_template__ = __webpack_require__(410)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/homes/ProdukTerlaris2.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-325fd96e", Component.options)
+  } else {
+    hotAPI.reload("data-v-325fd96e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 407 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(408);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("71079b08", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-325fd96e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProdukTerlaris2.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-325fd96e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProdukTerlaris2.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 408 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.card-paket {\n    border-radius: 15px;\n}\n#card-img {\n    border-top-right-radius: 15px;\n    border-top-left-radius: 15px;\n    border-bottom-left-radius: 15px;\n    border-bottom-right-radius: 15px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 409 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_carousel__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_carousel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__eventBus__ = __webpack_require__(5);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -103105,238 +103347,228 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { carousel2: __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default.a, Carousel: __WEBPACK_IMPORTED_MODULE_1_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_1_vue_carousel__["Slide"] }
+    components: { carousel2: __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default.a, Carousel: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Slide"] },
+    props: ["userId", "title"],
+    data: function data() {
+        return {
+            products: []
+        };
+    },
+
+    methods: {
+        formatPrice: function formatPrice(value) {
+            var val = (value / 1).toFixed().replace('.', ',');
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        },
+        getAllProducts: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+                var _this = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _context.next = 2;
+                                return window.axios.get("/api/product/get-product-terlaris").then(function (res) {
+                                    _this.products = res.data;
+                                }).catch(function (err) {
+                                    console.log(err);
+                                });
+
+                            case 2:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function getAllProducts() {
+                return _ref.apply(this, arguments);
+            }
+
+            return getAllProducts;
+        }(),
+        addToCart: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(id) {
+                var _this2 = this;
+
+                var payload;
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                payload = {
+                                    productId: id,
+                                    total: 1,
+                                    userId: this.userId
+                                };
+                                _context2.next = 3;
+                                return window.axios.post("/api/carts", payload).then(function (res) {
+                                    _this2.emitEvent(res.data);
+                                }).catch(function (err) {
+                                    console.log(err);
+                                });
+
+                            case 3:
+                            case "end":
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function addToCart(_x) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return addToCart;
+        }(),
+        emitEvent: function emitEvent(data) {
+            __WEBPACK_IMPORTED_MODULE_3__eventBus__["a" /* default */].$emit("CART_UPDATED", data);
+        }
+    },
+    mounted: function mounted() {
+        this.getAllProducts();
+    }
 });
 
 /***/ }),
-/* 405 */
+/* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-md-12" }, [
-    _c("br"),
-    _c("br"),
-    _c("br"),
-    _vm._v(" "),
-    _c("div", { staticClass: "card globalcard" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "card-body globalcardbody" },
-        [
-          _c(
-            "carousel",
-            {
-              attrs: {
-                "mouse-drag": true,
-                scrollPerPage: true,
-                spacePadding: 20,
-                speed: 800,
-                paginationEnabled: false,
-                autoplay: true,
-                perPageCustom: [
-                  [0, 1],
-                  [991.88, 4]
-                ],
-                navigationEnabled: true,
-                navigationNextLabel: "<i class='fa fa-angle-right fa-3x'></i>",
-                navigationPrevLabel: "<i class='fa fa-angle-left fa-3x'></i>"
-              }
-            },
-            [
-              _c("slide", { staticClass: "px-2" }, [
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c("div", { staticClass: "row justify-content-center mt-5" }, [
+      _c("div", { staticClass: "col-md-10" }, [
+        _c(
+          "div",
+          {
+            staticClass: "card globalcard p-4",
+            staticStyle: { "background-color": "#640000" }
+          },
+          [
+            _c("h3", { staticClass: "text-center text-white mt-5" }, [
+              _vm._v("Produk Terlaris")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-body globalcardbody" },
+              [
                 _c(
-                  "div",
+                  "carousel",
                   {
-                    staticClass: "card-paket",
-                    staticStyle: { height: "12rem" }
+                    attrs: {
+                      "mouse-drag": true,
+                      scrollPerPage: true,
+                      spacePadding: 20,
+                      speed: 800,
+                      paginationEnabled: false,
+                      autoplay: true,
+                      perPageCustom: [
+                        [0, 1],
+                        [991.88, 4]
+                      ],
+                      navigationEnabled: true,
+                      navigationNextLabel:
+                        "<i class='fa fa-angle-right fa-3x text-white'></i>",
+                      navigationPrevLabel:
+                        "<i class='fa fa-angle-left fa-3x text-white'></i>"
+                    }
                   },
-                  [
-                    _c("img", {
-                      staticStyle: {
-                        height: "100%",
-                        width: "100%",
-                        "object-fit": "cover"
-                      },
-                      attrs: {
-                        id: "card-img",
-                        src:
-                          "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                        alt: "Card image cap"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-img-overlay" }, [
-                      _c(
-                        "h5",
-                        { staticClass: "card-title text-white mx-3 mt-2" },
-                        [_vm._v("Kuliner")]
-                      )
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("slide", { staticClass: "px-2" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card product",
-                    staticStyle: { height: "12rem" }
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: {
-                        height: "100%",
-                        width: "100%",
-                        "object-fit": "cover"
-                      },
-                      attrs: {
-                        src:
-                          "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                        alt: "Card image cap"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-img-overlay" }, [
-                      _c("h5", { staticClass: "card-title text-white" }, [
-                        _vm._v("Kuliner")
+                  _vm._l(_vm.products, function(product) {
+                    return _c("slide", { staticClass: "px-2" }, [
+                      _c("a", { attrs: { href: "/products/" + product.id } }, [
+                        _c("div", { staticClass: "card product " }, [
+                          _c("div", { staticClass: "imgwrapper" }, [
+                            _c("img", {
+                              staticStyle: {
+                                height: "100%",
+                                width: "100%",
+                                "object-fit": "cover"
+                              },
+                              attrs: {
+                                src: "/images/" + JSON.parse(product.images)[0],
+                                alt: "Card image cap"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "card-body" }, [
+                            _c(
+                              "p",
+                              {
+                                staticClass: "card-title productname",
+                                staticStyle: {
+                                  "white-space": "nowrap",
+                                  overflow: "hidden",
+                                  "text-overflow": "ellipsis",
+                                  "max-width": "20ex"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(product.name)
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                              _vm._v(
+                                "Rp " + _vm._s(_vm.formatPrice(product.price))
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "card-text float-right" }, [
+                              _c("small", { staticClass: "text-muted" }, [
+                                _vm._v(_vm._s(product.merchant_name))
+                              ])
+                            ])
+                          ])
+                        ])
                       ])
                     ])
-                  ]
+                  }),
+                  1
                 )
-              ]),
-              _vm._v(" "),
-              _c("slide", { staticClass: "px-2" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card product",
-                    staticStyle: { height: "12rem" }
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: {
-                        height: "100%",
-                        width: "100%",
-                        "object-fit": "cover"
-                      },
-                      attrs: {
-                        src:
-                          "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                        alt: "Card image cap"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-img-overlay" }, [
-                      _c("h5", { staticClass: "card-title text-white" }, [
-                        _vm._v("Kuliner")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("slide", { staticClass: "px-2" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card product",
-                    staticStyle: { height: "12rem" }
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: {
-                        height: "100%",
-                        width: "100%",
-                        "object-fit": "cover"
-                      },
-                      attrs: {
-                        src:
-                          "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                        alt: "Card image cap"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-img-overlay" }, [
-                      _c("h5", { staticClass: "card-title text-white" }, [
-                        _vm._v("Kuliner")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("slide", { staticClass: "px-2" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card product",
-                    staticStyle: { height: "12rem" }
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: {
-                        height: "100%",
-                        width: "100%",
-                        "object-fit": "cover"
-                      },
-                      attrs: {
-                        src:
-                          "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                        alt: "Card image cap"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-img-overlay" }, [
-                      _c("h5", { staticClass: "card-title text-white" }, [
-                        _vm._v("Kuliner")
-                      ])
-                    ])
-                  ]
-                )
-              ])
-            ],
-            1
-          )
-        ],
-        1
-      )
+              ],
+              1
+            )
+          ]
+        )
+      ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c(
-        "nav",
-        {
-          staticClass: "navbar navbar-expand-lg mproduct p-1",
-          staticStyle: { "background-color": "transparent", border: "none" }
-        },
-        [_c("h3", { staticClass: "m-auto" }, [_vm._v("Produk Terlaris")])]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5f0d419d", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-325fd96e", module.exports)
   }
 }
 
 /***/ }),
-/* 406 */
+/* 411 */,
+/* 412 */,
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */,
+/* 419 */,
+/* 420 */,
+/* 421 */,
+/* 422 */,
+/* 423 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

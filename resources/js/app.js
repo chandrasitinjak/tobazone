@@ -63,6 +63,7 @@ const KoperasiTidakAktif = require('./components/Koperasi/KoperasiTidakAktif')
 const AkunPending = require('./components/Koperasi/AkunPending')
 const InformasiDicari = require('./components/homes/InformasiDicari')
 const KomunitasPaketWisata = require('./components/homes/KomunitasPaketWisata')
+const ProdukTerlaris2 = require('./components/homes/ProdukTerlaris2')
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -117,7 +118,8 @@ const app = new Vue({
         ListLogin,
         RegCebt,
         InformasiDicari,
-        KomunitasPaketWisata
+        KomunitasPaketWisata,
+        ProdukTerlaris2,
 
     },
     data() {
