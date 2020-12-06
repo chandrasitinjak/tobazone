@@ -40,7 +40,6 @@
               <div class="text p-4">
                 <span class="price">Explore</span>
                 <span class="days"><span class="badge badge-warning">Transportasi</span></span>
-                <span class="days"> {{ $transportasi->kabupaten->nama_kabupaten}} </span>
                 <h3><a href="#">{{ $transportasi->nama_transportasi}}</a></h3>
                 <p class="location"><span class="ion-ios-map"></span> {{ $transportasi->alamat}}</p>
               </div>

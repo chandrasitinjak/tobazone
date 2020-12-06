@@ -80,14 +80,14 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     Route::middleware('role:admin')->group(function () {
 
         //BEGIN KOPERASI
-        Route::get('/admin/koperasi-aktif', function () {
-            return view('admin.koperasi.koperasi-aktif');
-        });
-        Route::get('/admin/koperasi-tidak-aktif', function () {
-            return view('admin.koperasi.koperasi-tidak-aktif');
+        Route::get('/admin/status-koperasi', function () {
+            return view('admin.koperasi.status-koperasi');
         });
         Route::get('/admin/akun-koperasi-pending', function () {
             return view('admin.koperasi.akun-koperasi-pending');
+        });
+        Route::get('/admin/layanan-maintenence', function () {
+            return view('admin.koperasi.layanan-maintenence');
         });
         //END KOPERASI
 
@@ -438,6 +438,16 @@ Route::put('/pemesanan/detail/{id_transaksi}/update', 'PemesananController@updat
 
 Route::get('/pemesanan/detail/pembayaran/{id}','PemesananController@pembayaran')->name('pembayaran');
 
+
+//CBT informasi pariwisata
+
+Route::resource('objekwisata', 'ObjekWisataController');
+Route::resource('kuliner', 'KulinerController');
+Route::resource('akomodasi', 'AkomodasiController');
+Route::resource('event', 'EventController');
+Route::resource('transportasi', 'TransportasiController');
+Route::resource('budaya', 'BudayaController');
+
 //Sistem informasi Pariwisata
 Route::get('informasi-akomodasi', 'AkomodasiController@displayAkomodasi');
 Route::get('/Kab/Information/Akomodasi/{id}', 'AkomodasiController@displayDetailAkomodasi');
@@ -449,3 +459,5 @@ Route::get('informasi-kuliner', 'KulinerController@displayKuliner');
 Route::get('/Kab/Information/Kuliner/{id}', 'KulinerController@displayDetailKuliner');
 Route::get('informasi-budaya', 'BudayaController@displayBudaya');
 Route::get('/Kab/Information/Budaya/{id}', 'BudayaController@displayDetailBudaya');
+Route::get('informasi-transportasi', 'TransportasiController@displayTransportasi');
+Route::get('/Kab/Information/Transportasi/{id}', 'TransportasiController@displayDetailTransportasi');
