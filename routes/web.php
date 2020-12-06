@@ -38,29 +38,10 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return redirect('/');
 })->name('login');
+//
 
-Route::get('/listlogin', function () {
-    return view('users.auth.listlogin');
-});
-//Auth::routes(['verify' => true]);
-//login
-Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
-Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
-Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+Auth::routes(['verify' => true]);
 
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('/login/{role}', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-
-Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
-
-
-//register
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
 
 Route::get('/profile', function () {
     return 'This is Profile';
@@ -87,14 +68,14 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
     Route::middleware('role:admin')->group(function () {
         //BEGIN KOPERASI
-        Route::get('/admin/koperasi-aktif', function () {
-            return view('admin.koperasi.koperasi-aktif');
-        });
-        Route::get('/admin/koperasi-tidak-aktif', function () {
-            return view('admin.koperasi.koperasi-tidak-aktif');
+        Route::get('/admin/status-koperasi', function () {
+            return view('admin.koperasi.status-koperasi');
         });
         Route::get('/admin/akun-koperasi-pending', function () {
             return view('admin.koperasi.akun-koperasi-pending');
+        });
+        Route::get('/admin/layanan-maintenence', function () {
+            return view('admin.koperasi.layanan-maintenence');
         });
         //END KOPERASI
         Route::get('/admin', 'AdminController@index');
@@ -240,6 +221,9 @@ Route::get('/homestays', 'HomestayController@findAll');
 Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::get('/homestays/save', 'HomestayController@store');
+
+// Display all homestay orders of a customer.
+Route::get('/user/homestay/order/findAll', 'HomestayController@findAllCustomerOrder');
 
 
 // Sistem Informasi Pariwisata
