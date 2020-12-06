@@ -2,7 +2,6 @@
 @section('content')
 
 @section('content')
-    <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -37,7 +36,7 @@
                                     @endalert
                                 @endif
                                 ​
-                                <form role="form" action="{{ route('Akomodasi.update', $akomodasi->id) }}" method="POST">
+                                <form role="form" action="{{ route('akomodasi.update', $akomodasi->id) }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="_method" value="PUT">
                                     <div class="form-group">
@@ -72,5 +71,4 @@
                 </div>
             </div>
         </section>
-    </div>
 @endsection

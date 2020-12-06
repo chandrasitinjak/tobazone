@@ -31,7 +31,7 @@
                                 @endalert
                             @endif
                             ​    @slot('body')
-                                <form role="form" action="/anggotacbt/informasi/akomodasi" method="POST"  enctype="multipart/form-data">
+                                <form role="form" action="{{ route('akomodasi.store') }}" method="POST"  enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label for="nama_akomodasi">Nama Akomodasi</label>
@@ -158,10 +158,10 @@
                                                 <td>{{$akomodasi->longitude}}</td>
                                                 <td>{{$akomodasi->latitude}}</td>
                                                 <td>{{$akomodasi->category_akomodasi_id}}</td>
-                                                <td><form action="" method="POST">
+                                                <td><form action="{{ route('akomodasi.destroy', $akomodasi->id) }}" method="POST">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <a href="anggotacbt/informasi/akomodasi/{{$akomodasi->id}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                        <a href="{{ route('akomodasi.edit', $akomodasi->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                         <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                                                     </form></td>
                                             </tr>

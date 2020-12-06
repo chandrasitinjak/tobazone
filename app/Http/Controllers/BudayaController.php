@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Budaya;
 use App\Kabupaten;
+use App\Member;
+use Illuminate\Support\Facades\Auth;
 
 class BudayaController extends Controller
 {
@@ -16,13 +18,17 @@ class BudayaController extends Controller
         }
 
         public function store(Request $request){
+            $member = Member::where('user_id', Auth::id())->get();
+
         	$budaya = new Budaya;
         	$budaya->nama_budaya = $request->nama_budaya;
         	$budaya->kabupaten_id = $request->kabupaten_id;
         	$budaya->deskripsi = $request->deskripsi;
         	$budaya->lokasi = $request->lokasi;
-        	$budaya->cbt_id = session('cbt_id');
-        	//file
+        	$budaya->member_id = $member[0]->id;
+            $budaya->status = "ready";
+
+            //file
         	$file = $request->file('foto');
             $gambar = $file->getClientOriginalName();
         	$budaya->foto = $gambar;
@@ -39,7 +45,7 @@ class BudayaController extends Controller
 
         public function edit($id){
             $budaya = Budaya::findOrFail($id);
-            return view('CBT.Budaya.edit',compact('budaya'));
+            return view('cbt.informasi.budaya.edit',compact('budaya'));
         }
 
         public function update(Request $request, $id){
@@ -56,7 +62,7 @@ class BudayaController extends Controller
                 //redirect ke route Budaya.index
                 //Alert::success('Success', $request->nama_budaya. ' berhasil diedit');
 
-                return redirect(route('Budaya.index'))->with(['success' => 'Budaya: ' . $request->nama_budaya . ' Diedit']);
+                return redirect(route('budaya.index'))->with(['success' => 'Budaya: ' . $request->nama_budaya . ' Diedit']);
             } catch (\Exception $e) {
                 //jika gagal, redirect ke form yang sama lalu membuat flash message error
                 return redirect()->back();

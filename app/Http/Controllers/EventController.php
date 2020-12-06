@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Event;
 use App\Kabupaten;
+use App\Member;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -16,6 +18,8 @@ class EventController extends Controller
         }
 
         public function store(Request $request){
+            $member = Member::where('user_id', Auth::id())->get();
+
         	$event = new Event;
         	$event->nama_event = $request->nama_event;
         	$event->kabupaten_id = $request->kabupaten_id;
@@ -23,8 +27,10 @@ class EventController extends Controller
         	$event->tgl_akhir = $request->tgl_akhir;
         	$event->lokasi = $request->lokasi;
         	$event->deskripsi = $request->deskripsi;
-        	$event->cbt_id = session('cbt_id');
-        	//file
+        	$event->member_id = $member[0]->id;
+            $event->status = 2;
+
+            //file
         	$file = $request->file('foto');
             $gambar = $file->getClientOriginalName();
         	$event->foto = $gambar;
@@ -40,7 +46,7 @@ class EventController extends Controller
 
         public function edit($id){
         	$event = Event::findOrFail($id);
-            return view('CBT.Event.edit',compact('event'));
+            return view('cbt.informasi.event.edit',compact('event'));
         }
 
         public function update(Request $request, $id){
@@ -56,13 +62,12 @@ class EventController extends Controller
                 $event->tgl_akhir = $request->tgl_akhir;
                 $event->lokasi = $request->lokasi;
                 $event->deskripsi = $request->deskripsi;
-                $event->cbt_id = session('cbt_id');
                 $event->save();
 
                 //redirect ke route Event.index
                 //Alert::success('Success', $request->nama_event. ' berhasil diedit');
 
-                return redirect(route('Event.index'))->with(['success' => 'Budaya: ' . $request->nama_event . ' Diedit']);
+                return redirect(route('event.index'))->with(['success' => 'Budaya: ' . $request->nama_event . ' Diedit']);
             } catch (\Exception $e) {
                 //jika gagal, redirect ke form yang sama lalu membuat flash message error
                 return $e->getMessage();

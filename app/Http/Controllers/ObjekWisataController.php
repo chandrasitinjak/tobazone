@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Kabupaten;
 use App\CategoryWisata;
 use App\ObjekWisata;
+use App\Member;
+use Illuminate\Support\Facades\Auth;
 
 class ObjekWisataController extends Controller
 {
@@ -18,6 +20,8 @@ class ObjekWisataController extends Controller
         }
 
         public function store(Request $request){
+            $member = Member::where('user_id', Auth::id())->get();
+
         	$objekWisata = new ObjekWisata;
         	$objekWisata->nama_objek_wisata = $request->nama_objek_wisata;
         	$objekWisata->lokasi = $request->lokasi;
@@ -26,7 +30,9 @@ class ObjekWisataController extends Controller
         	$objekWisata->category_id = $request->category_id;
         	$objekWisata->kabupaten_id = $request->kabupaten_id;
         	$objekWisata->deskripsi = $request->deskripsi;
-        	$objekWisata->cbt_id = session('cbt_id');
+        	$objekWisata->member_id = $member[0]->id;
+            $objekWisata->status = "ready";
+
             //foto
             $file = $request->file('foto');
             $gambar = $file->getClientOriginalName();
@@ -43,11 +49,10 @@ class ObjekWisataController extends Controller
         public function edit($id){
         	$objekWisata = ObjekWisata::findOrFail($id);
         	$categorys = CategoryWisata::all();
-        	return view('CBT.ObjekWisata.edit',compact('objekWisata','categorys'));
+        	return view('cbt.informasi.objekwisata.edit',compact('objekWisata','categorys'));
         }
 
         public function update(Request $request,$id){
-
         	try {
                 //select data berdasarkan id
                 $objekWisata = ObjekWisata::findOrFail($id);
@@ -65,7 +70,7 @@ class ObjekWisataController extends Controller
                 //redirect ke route kategori.index
                 //Alert::success('Success', $request->nama_objek_wisata. ' berhasil diedit');
 
-                return redirect(route('ObjekWisata.index'))->with(['success' => 'Objek Wisata: ' . $objekWisata->nama_objek_wisata . ' Diedit']);
+                return redirect(route('objekwisata.index'))->with(['success' => 'Objek Wisata: ' . $objekWisata->nama_objek_wisata . ' Diedit']);
             } catch (\Exception $e) {
                 //jika gagal, redirect ke form yang sama lalu membuat flash message error
                 return redirect()->back();
