@@ -31,30 +31,40 @@
                             @endalert
                         @endif
                         ​                            @slot('body')
-                            <form role="form" action="" method="POST"  enctype="multipart/form-data">
+                            <form role="form" action="{{route('Budaya.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="nama_budaya">Nama Budaya</label>
-                                    <input type="text" name="nama_budaya" class="form-control {{ $errors->has('nama_budaya') ? 'is-invalid':'' }}" id="nama_budaya" required>
+                                    <input type="text" name="nama_budaya"
+                                           class="form-control {{ $errors->has('nama_budaya') ? 'is-invalid':'' }}"
+                                           id="nama_budaya" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="kabupaten_id">Kabupaten</label>
                                     <select class="form-control" name="kabupaten_id">
                                         @foreach($kabupatens as $kabupaten)
-                                            <option value="{{$kabupaten->id_kabupaten}}">{{$kabupaten->nama_kabupaten}}</option>
+                                            <option
+                                                value="{{$kabupaten->id_kabupaten}}">{{$kabupaten->nama_kabupaten}}</option>
                                         @endforeach
                                     </select>
-                                </div>                           <div class="form-group">
+                                </div>
+                                <div class="form-group">
                                     <label for="lokasi">Lokasi</label>
-                                    <textarea name="lokasi" id="lokasi" cols="5" rows="5" class="form-control {{ $errors->has('lokasi') ? 'is-invalid':'' }}" required=""></textarea>
+                                    <textarea name="lokasi" id="lokasi" cols="5" rows="5"
+                                              class="form-control {{ $errors->has('lokasi') ? 'is-invalid':'' }}"
+                                              required=""></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="foto">Foto</label>
-                                    <input type="file" name="foto" id="foto" class="form-control {{ $errors->has('foto') ? 'is-invalid':'' }}" required="">
+                                    <input type="file" name="foto" id="foto"
+                                           class="form-control {{ $errors->has('foto') ? 'is-invalid':'' }}"
+                                           required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <textarea class="ckeditor"  name="deskripsi" id="ckedtor" cols="5" rows="5" class="form-control {{ $errors->has('deskripsi') ? 'is-invalid':'' }}" required=""></textarea>
+                                    <textarea class="ckeditor" name="deskripsi" id="ckedtor" cols="5" rows="5"
+                                              class="form-control {{ $errors->has('deskripsi') ? 'is-invalid':'' }}"
+                                              required=""></textarea>
                                 </div>
                                 @endslot
                                 @slot('footer')
@@ -98,14 +108,19 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{$budaya->nama_budaya}}</td>
                                             <td>{{$budaya->lokasi}}</td>
-                                            <td>{{$budaya->cbt_id}}</td>
+                                            <td>{{$budaya->member_id}}</td>
 
-                                            <td><form action="{{ route('Budaya.destroy', $budaya->id) }}" method="POST">
+                                            <td>
+                                                <form action="{{ route('Budaya.destroy', $budaya->id) }}" method="post">
                                                     @csrf
+                                                    @method('DELETE')
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <a href="{{ route('Budaya.edit', $budaya->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                                                </form></td>
+                                                    <a href="{{ route('Budaya.edit', $budaya->id) }}"
+                                                       class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
