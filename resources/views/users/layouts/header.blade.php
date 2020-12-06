@@ -175,6 +175,17 @@
         <li>
             <a href="{{ url('/user/homestays') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Homestay</a>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </li>
     </ul>
 </nav>
 @role('merchant')
@@ -394,6 +405,27 @@
                         <a class="nav-link dropdown" href="{{ url('/user/homestays') }}" id="navbarDropdown"
                            role="button" aria-haspopup="true" aria-expanded="false">
                             Homestay
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
+                    </li>
+                    <li class="nav-item dropdown" style="margin-left: 3rem">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Informasi Pariwisata
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ url('/informasi-objek-wisata') }}">Objek Wisata</a>
+                            <a class="dropdown-item" href="{{ url('/informasi-akomodasi') }}">Akomodasi</a>
+                            <a class="dropdown-item" href="{{ url('/informasi-kuliner') }}">Kuliner</a>
+                            <a class="dropdown-item" href="{{ url('/informasi-transportasi') }}">Transportasi</a>
+                            <a class="dropdown-item" href="{{ url('/informasi-budaya') }}">Budaya</a>
+                            <a class="dropdown-item" href="{{ url('/informasi-event') }}">Event</a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown" style="margin-left: 3rem">
+                        <a class="nav-link dropdown" href="https://tobazone-koperasi.herokuapp.com/#/register" id="navbarDropdown"
+                           role="button" aria-haspopup="true" aria-expanded="false">
+                            Koperasi
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
                     </li>
