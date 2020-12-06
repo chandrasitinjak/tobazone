@@ -16,10 +16,10 @@
            </ol>
            <div class="carousel-inner">
                <div class="carousel-item active">
-                   <img class="d-block" style="height: 500px; width: 100%" src="https://indonesia.tripcanvas.co/id/wp-content/uploads/sites/2/2018/12/7-1-by-TripCanvas-740x416.jpg" alt="First slide">
+                   <img class="d-block" style="height: 500px; width: 100%" src="https://www.indoplaces.com/foto/hotel/pangeran-pekanbaru.jpg" alt="First slide">
                </div>
                <div class="carousel-item">
-                   <img class="d-block" style="height: 500px; width: 100%" src="https://indonesia.tripcanvas.co/id/wp-content/uploads/sites/2/2018/12/1-4-by-TripCanvas-1-740x414.jpg" alt="Second slide">
+                   <img class="d-block" style="height: 500px; width: 100%" src="https://www.indoplaces.com/foto/hotel/pangeran-pekanbaru.jpg" alt="Second slide">
                </div>
            </div>
            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

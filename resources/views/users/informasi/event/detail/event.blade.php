@@ -21,10 +21,6 @@
                 <h3>Deskripsi</h3>
                 <p>{{$event->deskripsi}}</p>
             </div>
-            <div class="col-md-4">
-                <h3>Lokasi</h3><br>
-
-            </div>
         </div>
     </div>
 
