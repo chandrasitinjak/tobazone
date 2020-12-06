@@ -51,6 +51,14 @@
                 <li> <a href="{{ route('admin.pemesanan')}}"> <i class="menu-icon fa fa-book"></i>List Pemesanan</a> </li>
                 {{--                the end of paket--}}
 
+                <h3 class="menu-title">Homestay</h3>
+                <li> <a href="{{ url('/admin/homestay/new-order')}}"> <i class="menu-icon fa fa-archive"></i>New Order </a> </li>
+                <li> <a href="{{ url('/admin/homestay/paid-order')}}"> <i class="menu-icon fa fa-money"></i>Paid Order </a> </li>
+                <li> <a href="{{ url('/admin/homestay/success-order')}}"> <i class="menu-icon fa fa-check-circle"></i>Success Order </a> </li>
+                <li> <a href="{{ url('/admin/homestay/rejected-order')}}"> <i class="menu-icon fa fa-exclamation-triangle"></i>Rejected Order </a> </li>
+                <li> <a href="{{ url('/admin/list-merchant')}}"> <i class="menu-icon fa fa-users"></i>List Homestay </a> </li>
+                <li> <a href="{{ url('/admin/homestay/room-categories')}}"> <i class="menu-icon fa fa-bed"></i>Rooms Categories </a> </li>
+
                 <h3 class="menu-title">View</h3>
                 <li><a href="{{ url('/carousels')}}"> <i class="menu-icon fa fa-star"></i> Carousel </a></li>
                 <!-- <li> <a href="{{ url('/banners')}}"> <i class="menu-icon fa fa-bookmark"></i> Banner </a> </li>
@@ -61,10 +69,10 @@
                 <li> <a href="{{ url('/roles')}}"> <i class="menu-icon fa fa-users"></i> Roles </a> </li>
                 <li> <a href="{{ url('/permissions')}}"> <i class="menu-icon fa fa-user"></i> Permissions </a> </li> -->
                 <h3 class="menu-title">Koperasi</h3>
-                <li><a href="{{ url('/admin/koperasi-aktif')}}"> <i class="menu-icon"></i>Koperasi Aktif</a></li>
-                <li><a href="{{ url('/admin/koperasi-tidak-aktif')}}"> <i class="menu-icon"></i>Koperasi Tidak Aktif</a>
-                </li>
+                <li><a href="{{ url('/admin/status-koperasi')}}"> <i class="menu-icon"></i>Status Koperasi</a></li>
                 <li><a href="{{ url('/admin/akun-koperasi-pending')}}"> <i class="menu-icon"></i>Akun Pending</a></li>
+                <li><a href="{{ url('/admin/layanan-maintenence')}}"> <i class="menu-icon"></i>Layanan Maintenence</a>
+                </li>
             </ul>
         </div>
     </nav>

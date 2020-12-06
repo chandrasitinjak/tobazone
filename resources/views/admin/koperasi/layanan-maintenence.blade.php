@@ -76,9 +76,9 @@
             <div class="col-md-12">
                 <div class="card" id="app">
                     <div class="card-header">
-                        <strong class="card-title">Daftar Koperasi aktif di Tobazone</strong>
+                        <strong class="card-title">Layanan Maintenence</strong>
                     </div>
-                    <koperasi-aktif></koperasi-aktif>
+                    <layanan-maintenence></layanan-maintenence>
                 </div>
             </div>
         </div>

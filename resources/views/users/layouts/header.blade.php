@@ -172,6 +172,9 @@
         <li>
             <a href="{{ route('paket') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Paket Wisata</a>
         </li>
+        <li>
+            <a href="{{ url('/user/homestays') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Homestay</a>
+        </li>
     </ul>
 </nav>
 @role('merchant')
@@ -356,7 +359,7 @@
                            role="button" aria-haspopup="true" aria-expanded="false">
                             Aksesoris
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
                     </li>
                     <li class="nav-item dropdown" style="margin-left: 3rem">
                         <a class="nav-link dropdown" href="{{ url('/product/makanan') }}" id="navbarDropdown"
@@ -371,26 +374,33 @@
                            aria-haspopup="true" aria-expanded="false">
                             Obat
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
                     </li>
                     <li class="nav-item dropdown" style="margin-left: 3rem">
                         <a class="nav-link dropdown" href="{{ url('/product/ulos') }}" id="navbarDropdown" role="button"
                            aria-haspopup="true" aria-expanded="false">
                             Ulos
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
                     </li>
                     <li class="nav-item dropdown" style="margin-left: 3rem">
                         <a class="nav-link dropdown" href="{{route('paket')}}" id="navbarDropdown" role="button"
                            aria-haspopup="true" aria-expanded="false">
                             Paket Wisata
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
+                    </li>
+                    <li class="nav-item dropdown" style="margin-left: 3rem">
+                        <a class="nav-link dropdown" href="{{ url('/user/homestays') }}" id="navbarDropdown"
+                           role="button" aria-haspopup="true" aria-expanded="false">
+                            Homestay
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
                     </li>
                 </ul>
             </div>
-            <div class="container-fluid custom-container">
+            <div class="container-fluid custom-container"></div>
+        </div>
     </nav>
     @endrole
-
     @include('users.auth.login_modal')
