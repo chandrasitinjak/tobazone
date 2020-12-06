@@ -18,13 +18,16 @@ class AdminController extends Controller
     $countOrder = Transaction::all()->count();
 
     $countMerchant = DB::table('model_has_roles')->where('role_id', 2)->count();
-     
+
     $countCustomer = DB::table('model_has_roles')->where('role_id', 3)->count();
-    
+
+    $countHomestay = DB::table('homestays')->count();
+
     return view('admin.index')
     ->with('countOrder', $countOrder)
     ->with('countMerchant', $countMerchant)
-    ->with('countCustomer', $countCustomer);         
+    ->with('countCustomer', $countCustomer)
+    ->with('countHomestay', $countHomestay);
   }
 
   private function getAuthincatedUser() {
@@ -46,11 +49,11 @@ class AdminController extends Controller
   }
 
   public function updateProfile(Request $request){
-    $user = $this->getAuthincatedUser(); 
+    $user = $this->getAuthincatedUser();
     $profile = [];
-    $profile['name'] = $request->name;  
+    $profile['name'] = $request->name;
     $profile['phone'] = $request->phone;
-    
+
     if($request->file('photo')) {
       $updateImage = $request->file('photo');
       $imageName = $updateImage->getClientOriginalName();
@@ -80,5 +83,5 @@ class AdminController extends Controller
     }
 
   }
- 
+
 }

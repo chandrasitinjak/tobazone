@@ -13,6 +13,8 @@ class KabupatenTableSeeder extends Seeder
     {
         \App\Kabupaten::insert([
             [
+                'id_kabupaten' => '1',
+                'area' => 'Tempat wisata',
                 'alamat' => 'Dolok sanggul',
                 'nama_kabupaten' => 'Humbang Hasundutan',
                 'gambar_kabupaten' => 'https://images.unsplash.com/photo-1585371979158-0e577cf0204e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9',
@@ -22,6 +24,8 @@ class KabupatenTableSeeder extends Seeder
                 'updated_at' => Carbon::now('Asia/Jakarta')
             ],
             [
+                'id_kabupaten' => '2',
+                'area' => 'Tempat wisata',
                 'alamat' => 'Balige',
                 'nama_kabupaten' => 'Toba',
                 'gambar_kabupaten' => 'https://images.unsplash.com/photo-1569833905347-2e8c153dcf89?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9',
@@ -31,6 +35,8 @@ class KabupatenTableSeeder extends Seeder
                 'updated_at' => Carbon::now('Asia/Jakarta')
             ],
             [
+                'id_kabupaten' => '3',
+                'area' => 'Tempat wisata',
                 'alamat' => 'Tarutung',
                 'nama_kabupaten' => 'Tapanuli Utara',
                 'gambar_kabupaten' => 'https://images.unsplash.com/photo-1569832653475-fd1028ed7eab?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9',
@@ -40,6 +46,8 @@ class KabupatenTableSeeder extends Seeder
                 'updated_at' => Carbon::now('Asia/Jakarta')
             ],
             [
+                'id_kabupaten' => '4',
+                'area' => 'Tempat wisata',
                 'alamat' => 'Pematang Siantar',
                 'nama_kabupaten' => 'Simalungun',
                 'gambar_kabupaten' => 'https://images.unsplash.com/photo-1556100053-fdab394a0985?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9',
@@ -49,6 +57,8 @@ class KabupatenTableSeeder extends Seeder
                 'updated_at' => Carbon::now('Asia/Jakarta')
             ],
             [
+                'id_kabupaten' => '5',
+                'area' => 'Tempat wisata',
                 'alamat' => 'Pangururan',
                 'nama_kabupaten' => 'Samosir',
                 'gambar_kabupaten' => 'https://images.unsplash.com/photo-1545886290-dc80d8908b9e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9',
@@ -58,6 +68,8 @@ class KabupatenTableSeeder extends Seeder
                 'updated_at' => Carbon::now('Asia/Jakarta')
             ],
             [
+                'id_kabupaten' => '6',
+                'area' => 'Tempat wisata',
                 'alamat' => 'Berastagi',
                 'nama_kabupaten' => 'Karo',
                 'gambar_kabupaten' => 'https://images.unsplash.com/photo-1586703449297-0618fa522ecf?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9',
@@ -67,6 +79,8 @@ class KabupatenTableSeeder extends Seeder
                 'updated_at' => Carbon::now('Asia/Jakarta')
             ],
             [
+                'id_kabupaten' => '7',
+                'area' => 'Tempat wisata',
                 'alamat' => 'Dairi',
                 'nama_kabupaten' => 'Dairi',
                 'gambar_kabupaten' => 'https://images.unsplash.com/photo-1569081562679-6d71c00aab86?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9',
@@ -76,6 +90,8 @@ class KabupatenTableSeeder extends Seeder
                 'updated_at' => Carbon::now('Asia/Jakarta')
             ],
             [
+                'id_kabupaten' => '8',
+                'area' => 'Tempat wisata',
                 'alamat' => 'Pakpak Barat',
                 'nama_kabupaten' => 'Pakpak Barat',
                 'gambar_kabupaten' => 'https://images.unsplash.com/photo-1539605481381-55a82c810663?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9',
