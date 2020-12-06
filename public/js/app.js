@@ -36124,7 +36124,11 @@ function withParams(paramsOrClosure, maybeValidator) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(161);
+<<<<<<< HEAD
+module.exports = __webpack_require__(435);
+=======
 module.exports = __webpack_require__(432);
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 
 
 /***/ }),
@@ -36210,7 +36214,11 @@ var AkunPending = __webpack_require__(413);
 var InformasiDicari = __webpack_require__(418);
 var KomunitasPaketWisata = __webpack_require__(422);
 var FormPesanHomestay = __webpack_require__(427);
+<<<<<<< HEAD
+var NewOrder = __webpack_require__(432);
+=======
 var NewOrder = __webpack_require__(434);
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', __WEBPACK_IMPORTED_MODULE_2_vue_star_rating___default.a);
@@ -79710,7 +79718,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\r\n    /*.ysearch-button{*/\r\n    /*    font-size: 13px;*/\r\n    /*    margin-left: -20px;*/\r\n    /*}*/\n.yjudul[data-v-5e4e7507]{\r\n        margin-left: -20px;\r\n        margin-right: -20px;\r\n        font-size: 25px;\n}\n.ygambar-produk[data-v-5e4e7507]{\r\n        margin-bottom: 20px;\n}\n}\n@media (min-width:450px) and (max-width: 767px) {\n}\n@media (min-width:768px) and (max-width: 990px){\n}\n@media (min-width:991px) and (max-width: 1199px){\n}\n@media (min-width:1200px){\n}\r\n", ""]);
+exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\n    /*.ysearch-button{*/\n    /*    font-size: 13px;*/\n    /*    margin-left: -20px;*/\n    /*}*/\n.yjudul[data-v-5e4e7507]{\n        margin-left: -20px;\n        margin-right: -20px;\n        font-size: 25px;\n}\n.ygambar-produk[data-v-5e4e7507]{\n        margin-bottom: 20px;\n}\n}\n@media (min-width:450px) and (max-width: 767px) {\n}\n@media (min-width:768px) and (max-width: 990px){\n}\n@media (min-width:991px) and (max-width: 1199px){\n}\n@media (min-width:1200px){\n}\n", ""]);
 
 // exports
 
@@ -106414,6 +106422,8 @@ if (false) {
 
 /***/ }),
 /* 432 */
+<<<<<<< HEAD
+=======
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -106421,14 +106431,21 @@ if (false) {
 /***/ }),
 /* 433 */,
 /* 434 */
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
+var __vue_script__ = __webpack_require__(433)
+/* template */
+var __vue_template__ = __webpack_require__(434)
+=======
 var __vue_script__ = __webpack_require__(435)
 /* template */
 var __vue_template__ = __webpack_require__(436)
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -106467,7 +106484,11 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
+/* 433 */
+=======
 /* 435 */
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -106576,7 +106597,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
+<<<<<<< HEAD
+/* 434 */
+=======
 /* 436 */
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -106724,6 +106749,16 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
+/* 435 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 436 */,
+=======
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 /* 437 */
 /***/ (function(module, exports, __webpack_require__) {
 
