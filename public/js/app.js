@@ -36124,7 +36124,11 @@ function withParams(paramsOrClosure, maybeValidator) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(161);
+<<<<<<< HEAD
 module.exports = __webpack_require__(435);
+=======
+module.exports = __webpack_require__(432);
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 
 
 /***/ }),
@@ -36210,7 +36214,11 @@ var AkunPending = __webpack_require__(413);
 var InformasiDicari = __webpack_require__(418);
 var KomunitasPaketWisata = __webpack_require__(422);
 var FormPesanHomestay = __webpack_require__(427);
+<<<<<<< HEAD
 var NewOrder = __webpack_require__(432);
+=======
+var NewOrder = __webpack_require__(434);
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', __WEBPACK_IMPORTED_MODULE_2_vue_star_rating___default.a);
@@ -106414,14 +106422,30 @@ if (false) {
 
 /***/ }),
 /* 432 */
+<<<<<<< HEAD
+=======
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 433 */,
+/* 434 */
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(433)
 /* template */
 var __vue_template__ = __webpack_require__(434)
+=======
+var __vue_script__ = __webpack_require__(435)
+/* template */
+var __vue_template__ = __webpack_require__(436)
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -106460,7 +106484,11 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 433 */
+=======
+/* 435 */
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -106569,7 +106597,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 434 */
+=======
+/* 436 */
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -106717,6 +106749,7 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 435 */
 /***/ (function(module, exports) {
 
@@ -106724,6 +106757,8 @@ if (false) {
 
 /***/ }),
 /* 436 */,
+=======
+>>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
 /* 437 */
 /***/ (function(module, exports, __webpack_require__) {
 
