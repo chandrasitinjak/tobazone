@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Kabupaten;
 use App\Akomodasi;
 use App\CategoryAkomodasi;
+use App\Member;
+use Illuminate\Support\Facades\Auth;
 
 class AkomodasiController extends Controller
 {
@@ -17,11 +19,13 @@ class AkomodasiController extends Controller
         	return view('cbt.informasi.akomodasi.index',compact('akomodasis','kabupatens','categoryAkomodasis'));
     }
     public function store(Request $request){
+            $member = Member::where('user_id', Auth::id())->get();
+
         	$akomodasi = new Akomodasi;
         	$akomodasi->nama_akomodasi = $request->nama_akomodasi;
         	$akomodasi->longitude = $request->longitude;
         	$akomodasi->latitude = $request->latitude;
-        	$akomodasi->member_id = 2;
+        	$akomodasi->member_id = $member[0]->id;;
         	$akomodasi->kabupaten_id = $request->kabupaten_id;
         	$akomodasi->category_akomodasi_id = $request->category_akomodasi_id;
         	$akomodasi->lokasi = $request->lokasi;
@@ -61,7 +65,7 @@ class AkomodasiController extends Controller
                 //redirect ke route Akomodasi.index
                 //Alert::success('Success', $request->nama_akomodasi. ' berhasil diedit');
 
-                return redirect(route('Akomodasi.index'))->with(['success' => 'Akomodasi: ' . $request->nama_akomodasi . ' Diedit']);
+                return redirect(route('akomodasi.index'))->with(['success' => 'Akomodasi: ' . $request->nama_akomodasi . ' Diedit']);
             } catch (\Exception $e) {
                 //jika gagal, redirect ke form yang sama lalu membuat flash message error
                 return redirect()->back();

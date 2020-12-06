@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kabupaten;
 use App\Transportasi;
+use App\Member;
+use Illuminate\Support\Facades\Auth;
 
 class TransportasiController extends Controller
 {
@@ -16,13 +18,16 @@ class TransportasiController extends Controller
         }
 
         public function store(Request $request){
+            $member = Member::where('user_id', Auth::id())->get();
+
         	$transportasi = new Transportasi;
         	$transportasi->nama_transportasi = $request->nama_transportasi;
         	$transportasi->jenis_transportasi = $request->jenis_transportasi;
         	$transportasi->alamat = $request->alamat;
         	$transportasi->kabupaten_id = $request->kabupaten_id;
         	$transportasi->deskripsi = $request->deskripsi;
-        	$transportasi->cbt_id = session('cbt_id');
+        	$transportasi->member_id = $member[0]->id;
+        	$transportasi->status = "ready";
             //foto
             $file = $request->file('foto');
             $gambar = $file->getClientOriginalName();
@@ -30,14 +35,13 @@ class TransportasiController extends Controller
         	if($transportasi->save()){
 
                 $file->move(\base_path() ."/public/Kab/information/Transportasi", $gambar);
-        		Alert::success('Success', $request->nama_transportasi. ' berhasil ditambahkan');
         		return redirect()->back();
         	}
         }
 
         public function edit($id){
         	$transportasi = Transportasi::findOrFail($id);
-        	return view('CBT.Transportasi.edit',compact('transportasi'));
+        	return view('cbt.informasi.transportasi.edit',compact('transportasi'));
         }
 
         public function update(Request $request,$id){
@@ -55,9 +59,8 @@ class TransportasiController extends Controller
                 $transportasi->save();
 
                 //redirect ke route kategori.index
-                Alert::success('Success', $request->nama_transportasi. ' berhasil diedit');
 
-                return redirect(route('Transportasi.index'))->with(['success' => 'Objek Wisata: ' . $transportasi->nama_objek_wisata . ' Diedit']);
+                return redirect(route('transportasi.index'))->with(['success' => 'Objek Wisata: ' . $transportasi->nama_objek_wisata . ' Diedit']);
             } catch (\Exception $e) {
                 //jika gagal, redirect ke form yang sama lalu membuat flash message error
                 return redirect()->back();
@@ -67,7 +70,6 @@ class TransportasiController extends Controller
         public function destroy($id){
         	$transportasi = Transportasi::findOrFail($id);
             $transportasi->delete();
-             Alert::success('Success', 'Objek Wisata berhasil dihapus');
             return redirect()->back();
         }
 

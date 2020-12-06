@@ -31,7 +31,7 @@
                             @endalert
                         @endif
                         ​                            @slot('body')
-                            <form role="form" action="" method="POST"  enctype="multipart/form-data">
+                            <form role="form" action="{{ route('event.store') }}" method="POST"  enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="nama_event">Nama Event</label>
@@ -112,10 +112,10 @@
                                             <td>{{ $event->tgl_akhir }}</td>
                                             <td>{{$event->lokasi}}</td>
 
-                                            <td><form action="" method="POST">
+                                            <td><form action="{{ route('event.destroy', $event->id) }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <a href="" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                    <a href="{{ route('event.edit', $event->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                     <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                                                 </form></td>
                                         </tr>

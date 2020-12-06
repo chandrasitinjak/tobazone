@@ -1,7 +1,5 @@
 @extends('users.anggotacbt.app')
 @section('content')
-
-@section('content')
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
