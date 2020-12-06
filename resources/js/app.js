@@ -10,12 +10,14 @@ window.Vue = require('vue');
 
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
+
 Vue.use(VueSweetalert2);
 
 
 import StarRating from 'vue-star-rating'
 
 import Vuelidate from 'vuelidate'
+
 Vue.use(Vuelidate)
 
 /**
@@ -56,13 +58,31 @@ const UserRating = require('./components/merchants/UserRating')
 const UserRatingSecond = require('./components/merchants/UserRatingSecond')
 const ProdukTerlaris = require('./components/homes/ProdukTerlaris')
 const ListLogin = require('./components/auths/ListLogin')
-    // const Test = require('./components/test/test');
+const KoperasiAktif = require('./components/Koperasi/KoperasiAktif')
+const KoperasiTidakAktif = require('./components/Koperasi/KoperasiTidakAktif')
+const AkunPending = require('./components/Koperasi/AkunPending')
+const InformasiDicari = require('./components/homes/InformasiDicari')
+const KomunitasPaketWisata = require('./components/homes/KomunitasPaketWisata')
+// const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
+
+Vue.mixin({
+    data: function () {
+        return {
+            get urlGlobalKoperasi() {
+                return 'http://localhost:8089/'
+            }
+        }
+    }
+})
 
 const app = new Vue({
     el: '#app',
     components: {
+        KoperasiTidakAktif,
+        KoperasiAktif,
+        AkunPending,
         UserRating,
         UserRatingSecond,
         // Test,
@@ -95,10 +115,12 @@ const app = new Vue({
         ProductsObat,
         ProdukTerlaris,
         ListLogin,
-        RegCebt
+        RegCebt,
+        InformasiDicari,
+        KomunitasPaketWisata
 
     },
-    data(){
+    data() {
         return {
             message: ''
         }

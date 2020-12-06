@@ -68,6 +68,36 @@
             </div>
         </div>
 
+{{--        <div class="row justify-content-center mb-5">--}}
+{{--            <a href="#"><div class="card shadow rounded-5" style="width:6rem; height:8.5rem">--}}
+{{--                    <img class="card-img-top m-auto" src="images/kategori_produk/fashion.png" alt="Card image cap">--}}
+{{--                    <p class="card-text text-center">Fashion</p>--}}
+{{--                </div></a>--}}
+{{--            <a href="#"><div class="card shadow rounded-5 ml-4" style="width:6rem; height:8.5rem">--}}
+{{--                    <img class="card-img-top m-auto" src="images/kategori_produk/tenun.png" style="width:60px; height:90px" alt="Card image cap">--}}
+{{--                    <p class="card-text text-center">Tenun</p>--}}
+{{--                </div></a>--}}
+{{--            <a href="#"><div class="card shadow rounded-5 ml-4 " style="width:6rem; height:8.5rem">--}}
+{{--                    <img class="card-img-top m-auto pt-1" src="images/kategori_produk/kesehatan.png" style="width:60px; height:75px" alt="Card image cap">--}}
+{{--                    <p class="card-text text-center mb-2" style="line-height: 100%">Kesehatan & Kecantikan</p>--}}
+{{--                </div></a>--}}
+{{--            <a href="#"><div class="card shadow rounded-5 ml-4 " style="width:6rem; height:8.5rem">--}}
+{{--                    <img class="card-img-top mt-4 mb-3" src="images/kategori_produk/kuliner.png" alt="Card image cap">--}}
+{{--                    <p class="card-text text-center">Kuliner</p>--}}
+{{--                </div></a>--}}
+{{--            <a href="#"><div class="card shadow rounded-5 ml-4 " style="width:6rem; height:8.5rem">--}}
+{{--                    <img class="card-img-top mt-4 mb-2" src="images/kategori_produk/aksesoris.png" alt="Card image cap">--}}
+{{--                    <p class="card-text text-center">Aksesoris</p>--}}
+{{--                </div></a>--}}
+{{--            <a href="#"><div class="card shadow rounded-5 ml-4 " style="width:6rem; height:8.5rem">--}}
+{{--                    <img class="card-img-top m-auto" src="images/kategori_produk/penginapan.png"  style="width:70px; height:70px" alt="Card image cap">--}}
+{{--                    <p class="card-text text-center">Penginapan</p>--}}
+{{--                </div></a>--}}
+{{--            <a href="#"><div class="card shadow rounded-5 ml-3 " style="width:6rem; height:8.5rem">--}}
+{{--                    <img class="card-img-top m-auto" src="images/kategori_produk/paket_wisata.jpg" style="width:85px; height:85px" alt="Card image cap">--}}
+{{--                    <p class="card-text text-center">Paket Wisata</p>--}}
+{{--                </div></a>--}}
+{{--        </div>--}}
 
         <div class="row" id="product-terlaris">
             <produk-terlaris/>
@@ -81,6 +111,13 @@
             @endif
         </div>
 
+{{--        <div class="container-fluid mt-7" id="informasi-pariwisata">--}}
+{{--            <informasi-dicari />--}}
+{{--        </div>--}}
+
+{{--        <div class="container-fluid mt-7" id="komunitas-paket-wisata">--}}
+{{--            <komunitas-paket-wisata />--}}
+{{--        </div>--}}
 
         <!-- <div id="banner">
             <banner/>
@@ -131,8 +168,9 @@
 </html>
 <script>
     import ProdukTerlaris from "../../../js/components/homes/ProdukTerlaris";
+    import KomunitasPaketWisata from "../../../js/components/homes/KomunitasPaketWisata";
 
     export default {
-        components: {ProdukTerlaris}
+        components: {ProdukTerlaris, KomunitasPaketWisata}
     }
 </script>
