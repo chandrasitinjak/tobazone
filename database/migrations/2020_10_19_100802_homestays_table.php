@@ -20,7 +20,7 @@ class HomestaysTable extends Migration
             $table->integer('price');
             $table->integer('total_room');
             $table->integer('room_available');
-            $table->string('description',500);
+            $table->text('description');
             $table->string('address');
             $table->string('image');
             $table->integer('status');
