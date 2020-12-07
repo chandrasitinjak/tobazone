@@ -1,11 +1,11 @@
 <div class="overlay"></div>
-<nav class="navbar navbar-expand-md navbar-light main-menu" style="box-shadow:none; background-color: #FFFAF4">
+<nav class="navbar navbar-expand-md navbar-light main-menu" style="box-shadow:none; background-color: #640000">
    <div class="container">
       <button type="button" id="sidebar1Collapse" class="btn btn-link d-block d-md-none">
-      <i class="bx bx-menu icon-single" style="color:black"></i>
+      <i class="bx bx-menu icon-single" style="color:white"></i>
       </button>
       <a class="navbar-brand" href="/">
-         <h4 class="font-weight-bold">Tobazone</h4>
+         <h4 class="font-weight-bold text-white">Tobazone</h4>
       </a>
       <ul class="navbar-nav ml-auto d-block d-md-none">
          <li class="nav-item">
@@ -19,7 +19,7 @@
       <div class="collapse navbar-collapse">
          <form class="form-inline my-2 my-lg-0 mx-auto" action="/search">
             <input class="form-control" type="search" placeholder="Cari Produk..." aria-label="Search" name="search">
-            <button class="btn my-2 my-sm-0" type="submit"><i class="bx bx-search"></i></button>
+            <button class="btn my-2 my-sm-0 border" type="submit" style="background-color: #640000"><i class="bx bx-search text-white"></i></button>
          </form>
          <ul class="navbar-nav">
             <li class="nav-item">
@@ -39,11 +39,11 @@
 {{--                     style="text-decoration-line: unset; margin-right:15px!important;"> Masuk--}}
 {{--                  </button></a>--}}
 {{--                  </a>--}}
-                   <button class="btn btn-toba" type="button"  data-toggle="modal"  data-target="#loginModal"
+                   <button class="btn btn-outline-light" type="button"  data-toggle="modal"  data-target="#loginModal"
                            style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
                    </button>
                   <a href="{{ url('/register') }}">
-                  <button class="btn btn-toba" type="button"
+                  <button class="btn btn-outline-light" type="button"
                      style="text-decoration-line: unset;"> Daftar
                   </button>
                   </a>
@@ -82,17 +82,17 @@
    <div class="container">
       <div class="row">
          <div class="col-12">
-            <form class="example form-inline mb-3 mx-auto" action="/search">
+            <form class="example form-inline mb-3 mt-3 mx-auto" action="/search">
                     <input type="text" class="form-control" placeholder="Cari Produk" name="search">
-                    <button type="submit" style="background-color:#fff!important; border-color:#A8A8A8!important;">
-                      <i class="fa fa-search"></i></button>
+                    <button type="submit" style="background-color:#640000 !important; ">
+                      <i class="fa fa-search text-white"></i></button>
                 </form>
          </div>
       </div>
    </div>
 </div>
 <!-- Sidebar -->
-<nav id="sidebar1">
+<nav id="sidebar1" >
    <div class=
       "sidebar1-header">
       <div class="container">
@@ -150,7 +150,7 @@
    </div>
    <ul class="list-unstyled components links">
       <li>
-         <a href="{{ url('/product/pakaian') }}"><i class="bx bxs-t-shirt mr-3"></i> Pakaian</a>
+         <a href="{{ url('/product/pakaian') }}"><i class="bx bxs-t-shirt mr-3"></i> Pakaian1</a>
       </li>
       <li>
          <a href="{{ url('/product/aksesoris') }}"><i class="bx bxs-star-half mr-3"></i> Aksesoris</a>
@@ -310,42 +310,38 @@
 </nav>
 
 @else
-<nav class="navbar2 navbar-expand-lg navbar-white main">
+<nav class="navbar2 navbar-expand-lg main" style="background-color: #833333">
    <div class="container-fluid custom-container">
    <div class="collapse navbar-collapse" id="navbarResponsive">
    <ul class="navbar-nav">
-      <li class="nav-item dropdown">
-         <a class="nav-link dropdown" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-         Pakaian
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         </div>
+      <li class="nav-item-dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Souvenir
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ url('/product/pakaian') }}" ><b>Fashion</b><br> <span data-toggle="tooltip" data-placement="right" title="Kemeja, Kaos, Jaket, Topi">Pria</span> <br> <span  data-placement="right" title="Kemeja, Kaos, Jaket, Topi, Dress"> Wanita</span> <br> <span   data-placement="right" title="Kemeja, Kaos, Jaket">Anak - anak</span>
+                  <br><br></a>
+              <a class="dropdown-item" href="{{ url('/product/ulos') }}"><b>Tenun</b><br> <span data-toggle="tooltip" data-placement="right" title="Ulos (sarung, selendang), lembaran kain"> Buatan tangan</span> <br> <span  data-placement="right" title="Ulos (sarung, selendang), lembaran kain">Mesin</span>  <br><br></a>
+              <a class="dropdown-item" href="{{ url('/product/obat') }}"><b>Kesehatan & Kecantikan</b> <br> <span data-toggle="tooltip" data-placement="right" title="Rempah-rempah, minyak karo, masker"> Obat tradisional</span>
+                  <br> <span data-toggle="tooltip" data-placement="right" title="Masker wajah, lulur kopi, madu,sabun"> Perawatan</span> <br><br></a>
+              <a class="dropdown-item" href="{{ url('/product/makanan') }}"><b>Kuliner</b> <br> <span data-toggle="tooltip" data-placement="right" title="Tipa-tipa, kacang, sasagun"> Kering</span> <br> Basah <br><br></a>
+              <a class="dropdown-item" href="{{ url('/product/aksesoris') }}"><b><span data-toggle="tooltip" data-placement="right" title="Ikan mas arsik, naniura, napinadar, ikan mujahir tombur, lappet"> Aksesoris</span></b></a>
+          </div>
       </li>
-      <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown" href="{{ url('/product/aksesoris') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-         Aksesoris
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      </li>
-      <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown" href="{{ url('/product/makanan') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-         Makanan
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         </div>
-      </li>
-      <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown" href="{{ url('/product/obat') }}" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
-         Obat
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      </li>
-      <li class="nav-item dropdown" style="margin-left: 3rem">
-         <a class="nav-link dropdown" href="{{ url('/product/ulos') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-         Ulos
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      </li>
+       <li class="nav-item dropdown ml-30">
+           <a class="nav-link dropdown text-white" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+               <span data-toggle="tooltip" data-placement="right" title="Homestay, guesthouse, losmen, hotel, villa">Akomodasi</span>
+           </a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           </div>
+       </li>
+       <li class="nav-item dropdown ml-30">
+           <a class="nav-link dropdown text-white" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+               <span data-toggle="tooltip" data-placement="right" title="Paket wisata, komunitas paket wisata">Paket Wisata</span>
+           </a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           </div>
+       </li>
    </ul>
    </div>
    <div class="container-fluid custom-container">
