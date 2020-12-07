@@ -36162,6 +36162,7 @@ function withParams(paramsOrClosure, maybeValidator) {
 __webpack_require__(161);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = __webpack_require__(411);
 =======
 <<<<<<< HEAD
@@ -36173,6 +36174,9 @@ module.exports = __webpack_require__(432);
 =======
 module.exports = __webpack_require__(435);
 >>>>>>> a2a4d90d4ead25938be04e26691984a026691609
+=======
+module.exports = __webpack_require__(440);
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 
 
 /***/ }),
@@ -36266,6 +36270,7 @@ var CarouselHomestay = __webpack_require__(383);
 var CreateHomestay = __webpack_require__(388);
 var UpdateHomestay = __webpack_require__(391);
 var ListLogin = __webpack_require__(394);
+<<<<<<< HEAD
 var StatusKoperasi = __webpack_require__(437);
 var LayananMaintenence = __webpack_require__(442);
 var AllHomestay = __webpack_require__(398);
@@ -36282,6 +36287,17 @@ var NewOrder = __webpack_require__(434);
 >>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
 =======
 >>>>>>> a2a4d90d4ead25938be04e26691984a026691609
+=======
+var StatusKoperasi = __webpack_require__(398);
+var LayananMaintenence = __webpack_require__(403);
+var AllHomestay = __webpack_require__(408);
+var KoperasiTidakAktif = __webpack_require__(413);
+var AkunPending = __webpack_require__(418);
+var InformasiDicari = __webpack_require__(423);
+var KomunitasPaketWisata = __webpack_require__(427);
+var FormPesanHomestay = __webpack_require__(432);
+var NewOrder = __webpack_require__(437);
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', __WEBPACK_IMPORTED_MODULE_2_vue_star_rating___default.a);
@@ -74640,7 +74656,7 @@ function addStyle (obj, options) {
 	// If a transform function was defined, run it on the css
 	if (options.transform && obj.css) {
 	    result = typeof options.transform === 'function'
-		 ? options.transform(obj.css)
+		 ? options.transform(obj.css) 
 		 : options.transform.default(obj.css);
 
 	    if (result) {
@@ -74994,7 +75010,7 @@ module.exports = exports;
 /* harmony import */ var _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_star_rating_vue_vue_type_style_index_0_id_fde73a0c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("3c76");
 /* harmony import */ var _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_star_rating_vue_vue_type_style_index_0_id_fde73a0c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_star_rating_vue_vue_type_style_index_0_id_fde73a0c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_star_rating_vue_vue_type_style_index_0_id_fde73a0c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a);
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_star_rating_vue_vue_type_style_index_0_id_fde73a0c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -75437,7 +75453,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     if (descriptor && descriptor.get !== getCurrentScript && document.currentScript) {
       return document.currentScript
     }
-
+  
     // IE 8-10 support script readyState
     // IE 11+ & Firefox support stack trace
     try {
@@ -75455,24 +75471,24 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         inlineScriptSourceRegExp,
         inlineScriptSource,
         scripts = document.getElementsByTagName('script'); // Live NodeList collection
-
+  
       if (scriptLocation === currentLocation) {
         pageSource = document.documentElement.outerHTML;
         inlineScriptSourceRegExp = new RegExp('(?:[^\\n]+?\\n){0,' + (line - 2) + '}[^<]*<script>([\\d\\D]*?)<\\/script>[\\d\\D]*', 'i');
         inlineScriptSource = pageSource.replace(inlineScriptSourceRegExp, '$1').trim();
       }
-
+  
       for (var i = 0; i < scripts.length; i++) {
         // If ready state is interactive, return the script tag
         if (scripts[i].readyState === 'interactive') {
           return scripts[i];
         }
-
+  
         // If src matches, return the script tag
         if (scripts[i].src === scriptLocation) {
           return scripts[i];
         }
-
+  
         // If inline source matches, return the script tag
         if (
           scriptLocation === currentLocation &&
@@ -75482,7 +75498,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
           return scripts[i];
         }
       }
-
+  
       // If no match, return null
       return null;
     }
@@ -75501,7 +75517,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /* harmony import */ var _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_star_vue_vue_type_style_index_0_id_ef4bc576_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("70a0");
 /* harmony import */ var _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_star_vue_vue_type_style_index_0_id_ef4bc576_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_star_vue_vue_type_style_index_0_id_ef4bc576_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_star_vue_vue_type_style_index_0_id_ef4bc576_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a);
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_star_vue_vue_type_style_index_0_id_ef4bc576_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -75860,7 +75876,7 @@ var AlphaColor_default = /*#__PURE__*/__webpack_require__.n(AlphaColor);
 });
 
 // CONCATENATED MODULE: ./src/star.vue?vue&type=script&lang=js&
- /* harmony default export */ var src_starvue_type_script_lang_js_ = (starvue_type_script_lang_js_);
+ /* harmony default export */ var src_starvue_type_script_lang_js_ = (starvue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./src/star.vue?vue&type=style&index=0&id=ef4bc576&scoped=true&lang=css&
 var starvue_type_style_index_0_id_ef4bc576_scoped_true_lang_css_ = __webpack_require__("ab73");
 
@@ -75981,7 +75997,7 @@ var component = normalizeComponent(
   null,
   "ef4bc576",
   null
-
+  
 )
 
 /* harmony default export */ var star = (component.exports);
@@ -76257,7 +76273,7 @@ var component = normalizeComponent(
 });
 
 // CONCATENATED MODULE: ./src/star-rating.vue?vue&type=script&lang=js&
- /* harmony default export */ var src_star_ratingvue_type_script_lang_js_ = (star_ratingvue_type_script_lang_js_);
+ /* harmony default export */ var src_star_ratingvue_type_script_lang_js_ = (star_ratingvue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./src/star-rating.vue?vue&type=style&index=0&id=fde73a0c&scoped=true&lang=css&
 var star_ratingvue_type_style_index_0_id_fde73a0c_scoped_true_lang_css_ = __webpack_require__("2b2b");
 
@@ -76278,7 +76294,7 @@ var star_rating_component = normalizeComponent(
   null,
   "fde73a0c",
   null
-
+  
 )
 
 /* harmony default export */ var star_rating = (star_rating_component.exports);
@@ -79793,7 +79809,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\n    /*.ysearch-button{*/\n    /*    font-size: 13px;*/\n    /*    margin-left: -20px;*/\n    /*}*/\n.yjudul[data-v-5e4e7507]{\n        margin-left: -20px;\n        margin-right: -20px;\n        font-size: 25px;\n}\n.ygambar-produk[data-v-5e4e7507]{\n        margin-bottom: 20px;\n}\n}\n@media (min-width:450px) and (max-width: 767px) {\n}\n@media (min-width:768px) and (max-width: 990px){\n}\n@media (min-width:991px) and (max-width: 1199px){\n}\n@media (min-width:1200px){\n}\n", ""]);
+exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\r\n    /*.ysearch-button{*/\r\n    /*    font-size: 13px;*/\r\n    /*    margin-left: -20px;*/\r\n    /*}*/\n.yjudul[data-v-5e4e7507]{\r\n        margin-left: -20px;\r\n        margin-right: -20px;\r\n        font-size: 25px;\n}\n.ygambar-produk[data-v-5e4e7507]{\r\n        margin-bottom: 20px;\n}\n}\n@media (min-width:450px) and (max-width: 767px) {\n}\n@media (min-width:768px) and (max-width: 990px){\n}\n@media (min-width:991px) and (max-width: 1199px){\n}\n@media (min-width:1200px){\n}\r\n", ""]);
 
 // exports
 
@@ -86614,7 +86630,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
               title: 'Oops...',
               text: 'Something went wrong!'
             }).then(function () {
-              // window.history.back();
+              // window.history.back();                
               window.location.reload();
             });
           });
@@ -91755,13 +91771,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.image = URL.createObjectURL(this.foto_ktp);
         },
         addCbt: function addCbt() {
-            // let payload = {
-            //     nama_lengkap: this.nama_lengkap,
+            // let payload = {                    
+            //     nama_lengkap: this.nama_lengkap,                    
             //     nomor_wa: this.nomor_wa,
             //     nomor_hp: this.nomor_hp,
-            //     email: this.email,
+            //     email: this.email,                                        
             //     kata_sandi: this.kata_sandi,
-            //     kata_sandi_konfirmasi: this.kata_sandi,
+            //     kata_sandi_konfirmasi: this.kata_sandi,                    
             //     komunitas: this.komunitas,
             //     nomor_ktp: this.nomor_ktp,
             // };
@@ -92454,7 +92470,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$emit("SPINNER", true);
       window.axios.get("/api/transaction/" + this.transactionId + "/tracking").then(function (res) {
         _this.transaction = res.data.transaction;
-        // this.trackings = res.data.tracking.rajaongkir.result.manifest;
+        // this.trackings = res.data.tracking.rajaongkir.result.manifest;          
         // this.updateStatus(res.data.tracking.rajaongkir.result.delivered);
 
         _this.trackings = res.data.tracking.data.history;
@@ -106098,6 +106114,767 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/koperasi/StatusKoperasi.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c9a7e134", Component.options)
+  } else {
+    hotAPI.reload("data-v-c9a7e134", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 399 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(400);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("118eb676", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c9a7e134\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./StatusKoperasi.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c9a7e134\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./StatusKoperasi.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 400 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.switch {\n    position: relative;\n    display: inline-block;\n    width: 60px;\n    height: 34px;\n}\n.switch input {\n    opacity: 0;\n    width: 0;\n    height: 0;\n}\n.slider.round {\n    border-radius: 34px;\n}\n.slider.round:before {\n    border-radius: 50%;\n}\n.slider {\n    position: absolute;\n    cursor: pointer;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: #ccc;\n    -webkit-transition: .4s;\n    transition: .4s;\n}\n.slider:before {\n    position: absolute;\n    content: \"\";\n    height: 26px;\n    width: 26px;\n    left: 4px;\n    bottom: 4px;\n    background-color: white;\n    -webkit-transition: .4s;\n    transition: .4s;\n}\ninput:checked + .slider {\n    background-color: #2196F3;\n}\ninput:focus + .slider {\n    -webkit-box-shadow: 0 0 1px #2196F3;\n            box-shadow: 0 0 1px #2196F3;\n}\ninput:checked + .slider:before {\n    -webkit-transform: translateX(26px);\n    transform: translateX(26px);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 401 */
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            data: []
+        };
+    },
+
+    methods: {
+        change: function change(id, state) {
+            var _this = this;
+
+            axios.post(this.urlGlobalKoperasi + 'ubah-status-koperasi', {
+                id: id,
+                state: state
+            }).then(function () {
+                _this.$swal.fire('Success!', 'Status Koperasi berhasil diubah', 'success');
+            }).catch(function () {
+                _this.$swal.fire('Error!', 'Terjadi kesalahan, refresh(F5)', 'error');
+            });
+        },
+        changeStatus: function changeStatus(id, status) {
+            var _this2 = this;
+
+            this.$swal.fire({
+                title: 'Anda yakin?',
+                text: 'Ingin ' + (status ? 'nonaktifkan' : 'mengaktifkan') + ' koperasi ini?',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, ' + (status ? 'nonaktifkan' : 'aktifkan') + '!'
+            }).then(function (result) {
+                if (result.value) {
+                    _this2.change(id, status);
+                } else {}
+            });
+        },
+        getData: function getData() {
+            var _this3 = this;
+
+            axios.get(this.urlGlobalKoperasi + 'get-koperasi-aktif').then(function (e) {
+                _this3.data = e.data;
+            });
+        }
+    },
+    mounted: function mounted() {
+        this.getData();
+    }
+});
+
+/***/ }),
+<<<<<<< HEAD
+/* 433 */
+=======
+/* 402 */
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card-body" }, [
+    _c("table", { staticClass: "demo-table responsive" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.data, function(value) {
+          return _c("tr", [
+            _c(
+              "td",
+              {
+                staticClass: "title",
+                attrs: { "data-header": "Nama Koperasi" }
+              },
+              [_vm._v(_vm._s(value.namaKoperasi))]
+            ),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "Jenis Koperasi" } }, [
+              _vm._v(
+                "\n                " +
+                  _vm._s(
+                    value.jenisKoperasi === 1
+                      ? "Koperasi Serba Usaha(KSU)"
+                      : "Koperasi Simpan Pinjam"
+                  ) +
+                  "\n            "
+              )
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "Nama Pendiri" } }, [
+              _vm._v(_vm._s(value.namaPendiri))
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "Alamat Koperasi" } }, [
+              _vm._v(_vm._s(value.alamatKoperasi))
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "Tahun Berdiri Koperasi" } }, [
+              _vm._v(_vm._s(value.tahunBerdiriKoperasi))
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "Email Koperasi" } }, [
+              _vm._v(_vm._s(value.email))
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "No Izin Koperasi" } }, [
+              _vm._v(_vm._s(value.noIzinKoperasi))
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "Logo Koperasi" } }, [
+              value.logoKoperasi === null
+                ? _c("div", [_vm._v("Logo Tidak Ada")])
+                : _c("div", [
+                    _c("img", {
+                      attrs: {
+                        src: "data:image/jpeg;base64," + value.logoKoperasi
+                      }
+                    })
+                  ])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("label", { staticClass: "switch" }, [
+                _c("input", {
+                  attrs: { type: "checkbox" },
+                  domProps: { checked: value.haveKoperasi === 3 },
+                  on: {
+                    input: function($event) {
+                      return _vm.changeStatus(
+                        value.id,
+                        value.haveKoperasi === 3
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("span", { staticClass: "slider round" })
+              ])
+            ])
+          ])
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nama Koperasi")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Jenis Koperasi")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nama Pendiri")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Alamat Koperasi")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [
+          _vm._v("Tahun Berdiri Koperasi")
+        ]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Email Koperasi")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("No Izin Koperasi")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Logo Koperasi")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Aksi")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-c9a7e134", module.exports)
+  }
+}
+
+/***/ }),
+<<<<<<< HEAD
+<<<<<<< HEAD
+/* 434 */
+=======
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 403 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+<<<<<<< HEAD
+<<<<<<< HEAD
+  __webpack_require__(435)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(437)
+/* template */
+var __vue_template__ = __webpack_require__(438)
+=======
+  __webpack_require__(409)
+=======
+  __webpack_require__(404)
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(406)
+/* template */
+<<<<<<< HEAD
+var __vue_template__ = __webpack_require__(412)
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+var __vue_template__ = __webpack_require__(407)
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/koperasi/LayananMaintenence.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-31ad1427", Component.options)
+  } else {
+    hotAPI.reload("data-v-31ad1427", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+<<<<<<< HEAD
+<<<<<<< HEAD
+/* 435 */
+=======
+/* 409 */
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 404 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+<<<<<<< HEAD
+<<<<<<< HEAD
+var content = __webpack_require__(436);
+=======
+var content = __webpack_require__(410);
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+var content = __webpack_require__(405);
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("9d0a8392", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31ad1427\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LayananMaintenence.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31ad1427\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LayananMaintenence.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+<<<<<<< HEAD
+<<<<<<< HEAD
+/* 436 */
+=======
+/* 410 */
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 405 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.switch {\n    position: relative;\n    display: inline-block;\n    width: 60px;\n    height: 34px;\n}\n.switch input {\n    opacity: 0;\n    width: 0;\n    height: 0;\n}\n.slider.round {\n    border-radius: 34px;\n}\n.slider.round:before {\n    border-radius: 50%;\n}\n.slider {\n    position: absolute;\n    cursor: pointer;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: #ccc;\n    -webkit-transition: .4s;\n    transition: .4s;\n}\n.slider:before {\n    position: absolute;\n    content: \"\";\n    height: 26px;\n    width: 26px;\n    left: 4px;\n    bottom: 4px;\n    background-color: white;\n    -webkit-transition: .4s;\n    transition: .4s;\n}\ninput:checked + .slider {\n    background-color: #2196F3;\n}\ninput:focus + .slider {\n    -webkit-box-shadow: 0 0 1px #2196F3;\n            box-shadow: 0 0 1px #2196F3;\n}\ninput:checked + .slider:before {\n    -webkit-transform: translateX(26px);\n    transform: translateX(26px);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+<<<<<<< HEAD
+<<<<<<< HEAD
+/* 437 */
+=======
+/* 411 */
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 406 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            data: []
+        };
+    },
+
+    methods: {
+        change: function change(id, state) {
+            var _this = this;
+
+            axios.post(this.urlGlobalKoperasi + 'aktifkan-koperasi', {
+                id: id,
+                state: state
+            }).then(function () {
+                _this.$swal.fire('Success!', 'Status Koperasi berhasil diubah', 'success');
+                _this.getData();
+            }).catch(function () {
+                _this.$swal.fire('Error!', 'Terjadi kesalahan, refresh(F5)', 'error');
+            });
+        },
+        changeStatus: function changeStatus(id, status) {
+            var _this2 = this;
+
+            this.$swal.fire({
+                title: 'Anda yakin?',
+                text: 'Ingin ' + (status ? 'nonaktifkan' : 'mengaktifkan') + ' koperasi ini?',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, ' + (status ? 'nonaktifkan' : 'aktifkan') + '!'
+            }).then(function (result) {
+                if (result.value) {
+                    _this2.change(id, status);
+                } else {}
+            });
+        },
+        getData: function getData() {
+            var _this3 = this;
+
+            axios.get(this.urlGlobalKoperasi + 'layanan-koperasi').then(function (e) {
+                _this3.data = e.data;
+            });
+        }
+    },
+    mounted: function mounted() {
+        this.getData();
+    }
+});
+
+/***/ }),
+<<<<<<< HEAD
+<<<<<<< HEAD
+/* 438 */
+=======
+/* 412 */
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 407 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card-body" }, [
+    _c("table", { staticClass: "demo-table responsive" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.data, function(value) {
+          return _c("tr", [
+            _c(
+              "td",
+              {
+                staticClass: "title",
+                attrs: { "data-header": "Nama Koperasi" }
+              },
+              [_vm._v(_vm._s(value.namaKoperasi))]
+            ),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "Jenis Koperasi" } }, [
+              _vm._v(
+                "\n                " +
+                  _vm._s(
+                    value.jenisKoperasi === 1
+                      ? "Koperasi Serba Usaha(KSU)"
+                      : "Koperasi Simpan Pinjam"
+                  ) +
+                  "\n            "
+              )
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "Nama Pendiri" } }, [
+              _vm._v(_vm._s(value.namaPendiri))
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "Alamat Koperasi" } }, [
+              _vm._v(_vm._s(value.alamatKoperasi))
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "Tahun Berdiri Koperasi" } }, [
+              _vm._v(_vm._s(value.tahunBerdiriKoperasi))
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "Email Koperasi" } }, [
+              _vm._v(_vm._s(value.email))
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "No Izin Koperasi" } }, [
+              _vm._v(_vm._s(value.noIzinKoperasi))
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "No Izin Koperasi" } }, [
+              _vm._v("Rp.500.000,-")
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-header": "Logo Koperasi" } }, [
+              value.logoKoperasi === null
+                ? _c("div", [_vm._v("Logo Tidak Ada")])
+                : _c("div", [
+                    _c("img", {
+                      attrs: {
+                        src: "data:image/jpeg;base64," + value.buktiBayar
+                      }
+                    })
+                  ])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("label", { staticClass: "switch" }, [
+                _c("input", {
+                  attrs: { type: "checkbox" },
+                  domProps: { checked: value.haveKoperasi === 3 },
+                  on: {
+                    input: function($event) {
+                      return _vm.changeStatus(
+                        value.id,
+                        value.haveKoperasi === 3
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("span", { staticClass: "slider round" })
+              ])
+            ])
+          ])
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nama Koperasi")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Jenis Koperasi")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nama Pendiri")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Alamat Koperasi")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [
+          _vm._v("Tahun Berdiri Koperasi")
+        ]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Email Koperasi")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("No Izin Koperasi")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Biaya Layanan")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Bukti Bayar")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Aksi")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-31ad1427", module.exports)
+  }
+}
+
+/***/ }),
+<<<<<<< HEAD
+<<<<<<< HEAD
+/* 439 */
+=======
+/* 413 */
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 408 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+<<<<<<< HEAD
+<<<<<<< HEAD
+  __webpack_require__(440)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(442)
+/* template */
+var __vue_template__ = __webpack_require__(443)
+=======
+  __webpack_require__(414)
+=======
+  __webpack_require__(409)
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(411)
+/* template */
+<<<<<<< HEAD
+var __vue_template__ = __webpack_require__(417)
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+var __vue_template__ = __webpack_require__(412)
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
 var __vue_scopeId__ = "data-v-e512cc64"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
@@ -106131,13 +106908,29 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 399 */
+<<<<<<< HEAD
+<<<<<<< HEAD
+/* 440 */
+=======
+/* 414 */
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 409 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(400);
+<<<<<<< HEAD
+<<<<<<< HEAD
+var content = __webpack_require__(441);
+=======
+var content = __webpack_require__(415);
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+var content = __webpack_require__(410);
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -106157,7 +106950,15 @@ if(false) {
 }
 
 /***/ }),
-/* 400 */
+<<<<<<< HEAD
+<<<<<<< HEAD
+/* 441 */
+=======
+/* 415 */
+>>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 410 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -106171,8 +106972,14 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 401 */
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+<<<<<<< HEAD
+<<<<<<< HEAD
+/* 442 */
+=======
+/* 416 */
+=======
+/* 411 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -106271,11 +107078,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-<<<<<<< HEAD
-/* 433 */
-=======
-/* 402 */
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+/* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -106419,38 +107222,19 @@ if (false) {
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 434 */
-=======
-/* 403 */,
-/* 404 */,
-/* 405 */,
-/* 406 */,
-/* 407 */,
-/* 408 */
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-<<<<<<< HEAD
-  __webpack_require__(435)
+  __webpack_require__(414)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(437)
+var __vue_script__ = __webpack_require__(416)
 /* template */
-var __vue_template__ = __webpack_require__(438)
-=======
-  __webpack_require__(409)
-}
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(411)
-/* template */
-var __vue_template__ = __webpack_require__(412)
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+var __vue_template__ = __webpack_require__(417)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -106489,21 +107273,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 435 */
-=======
-/* 409 */
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+/* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-<<<<<<< HEAD
-var content = __webpack_require__(436);
-=======
-var content = __webpack_require__(410);
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+var content = __webpack_require__(415);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -106523,11 +107299,7 @@ if(false) {
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 436 */
-=======
-/* 410 */
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+/* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -106541,11 +107313,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 437 */
-=======
-/* 411 */
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+/* 416 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -106609,11 +107377,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-<<<<<<< HEAD
-/* 438 */
-=======
-/* 412 */
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -106725,33 +107489,19 @@ if (false) {
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 439 */
-=======
-/* 413 */
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+/* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-<<<<<<< HEAD
-  __webpack_require__(440)
+  __webpack_require__(419)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(442)
+var __vue_script__ = __webpack_require__(421)
 /* template */
-var __vue_template__ = __webpack_require__(443)
-=======
-  __webpack_require__(414)
-}
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(416)
-/* template */
-var __vue_template__ = __webpack_require__(417)
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+var __vue_template__ = __webpack_require__(422)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -106790,21 +107540,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 440 */
-=======
-/* 414 */
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+/* 419 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-<<<<<<< HEAD
-var content = __webpack_require__(441);
-=======
-var content = __webpack_require__(415);
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+var content = __webpack_require__(420);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -106824,11 +107566,7 @@ if(false) {
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 441 */
-=======
-/* 415 */
->>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+/* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -106842,10 +107580,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 442 */
-=======
-/* 416 */
+/* 421 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -106913,7 +107648,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 417 */
+/* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -107000,19 +107735,19 @@ if (false) {
 }
 
 /***/ }),
-/* 418 */
+/* 423 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(419)
+  __webpack_require__(424)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(421)
+var __vue_template__ = __webpack_require__(426)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -107051,13 +107786,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 419 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(420);
+var content = __webpack_require__(425);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -107077,7 +107812,7 @@ if(false) {
 }
 
 /***/ }),
-/* 420 */
+/* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -107091,7 +107826,7 @@ exports.push([module.i, "\n.card-informasi {\n    border-radius: 15px;\n}\n.card
 
 
 /***/ }),
-/* 421 */
+/* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -107249,19 +107984,19 @@ if (false) {
 }
 
 /***/ }),
-/* 422 */
+/* 427 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(423)
+  __webpack_require__(428)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(425)
+var __vue_script__ = __webpack_require__(430)
 /* template */
-var __vue_template__ = __webpack_require__(426)
+var __vue_template__ = __webpack_require__(431)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -107300,13 +108035,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 423 */
+/* 428 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(424);
+var content = __webpack_require__(429);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -107326,7 +108061,7 @@ if(false) {
 }
 
 /***/ }),
-/* 424 */
+/* 429 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -107340,8 +108075,12 @@ exports.push([module.i, "\n.card-paket {\n    border-radius: 15px;\n}\n#card-img
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 425 */
 >>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 430 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -107474,10 +108213,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* 443 */
 =======
 /* 426 */
 >>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 431 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -107622,15 +108365,20 @@ if (false) {
 
 /***/ }),
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* 444 */
 =======
 /* 427 */
 >>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 432 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
+<<<<<<< HEAD
 <<<<<<< HEAD
   __webpack_require__(445)
 }
@@ -107641,13 +108389,20 @@ var __vue_script__ = __webpack_require__(447)
 var __vue_template__ = __webpack_require__(448)
 =======
   __webpack_require__(428)
+=======
+  __webpack_require__(433)
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(430)
+var __vue_script__ = __webpack_require__(435)
 /* template */
+<<<<<<< HEAD
 var __vue_template__ = __webpack_require__(431)
 >>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+var __vue_template__ = __webpack_require__(436)
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -107687,20 +108442,28 @@ module.exports = Component.exports
 
 /***/ }),
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* 445 */
 =======
 /* 428 */
 >>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 433 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
 <<<<<<< HEAD
+<<<<<<< HEAD
 var content = __webpack_require__(446);
 =======
 var content = __webpack_require__(429);
 >>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+var content = __webpack_require__(434);
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -107721,10 +108484,14 @@ if(false) {
 
 /***/ }),
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* 446 */
 =======
 /* 429 */
 >>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 434 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -107739,10 +108506,14 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 /***/ }),
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* 447 */
 =======
 /* 430 */
 >>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 435 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -107909,10 +108680,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* 448 */
 =======
 /* 431 */
 >>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
+=======
+/* 436 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -108220,6 +108995,7 @@ if (false) {
 
 /***/ }),
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* 449 */
 =======
 /* 432 */
@@ -108235,11 +109011,15 @@ if (false) {
 >>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
 =======
 >>>>>>> a2a4d90d4ead25938be04e26691984a026691609
+=======
+/* 437 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 var __vue_script__ = __webpack_require__(450)
@@ -108261,6 +109041,11 @@ var __vue_script__ = __webpack_require__(433)
 /* template */
 var __vue_template__ = __webpack_require__(434)
 >>>>>>> a2a4d90d4ead25938be04e26691984a026691609
+=======
+var __vue_script__ = __webpack_require__(438)
+/* template */
+var __vue_template__ = __webpack_require__(439)
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -108301,6 +109086,7 @@ module.exports = Component.exports
 /***/ }),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* 450 */
 =======
 <<<<<<< HEAD
@@ -108311,6 +109097,9 @@ module.exports = Component.exports
 >>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
 =======
 >>>>>>> a2a4d90d4ead25938be04e26691984a026691609
+=======
+/* 438 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -108421,6 +109210,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ }),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* 451 */
 =======
 <<<<<<< HEAD
@@ -108431,6 +109221,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 >>>>>>> dd448e97f94b602331fbde31d17f220fc9f9a8e1
 =======
 >>>>>>> a2a4d90d4ead25938be04e26691984a026691609
+=======
+/* 439 */
+>>>>>>> caf3c436c9b12815f59ea734d0b2e8fd6a10658c
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -108578,671 +109371,10 @@ if (false) {
 }
 
 /***/ }),
-/* 435 */
+/* 440 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 436 */,
->>>>>>> 28ea859c1d3045c09a9c09ecd7a8c0cf8cb02d2a
-/* 437 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(438)
-}
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(440)
-/* template */
-var __vue_template__ = __webpack_require__(441)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/koperasi/StatusKoperasi.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-c9a7e134", Component.options)
-  } else {
-    hotAPI.reload("data-v-c9a7e134", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 438 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(439);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("118eb676", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c9a7e134\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./StatusKoperasi.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c9a7e134\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./StatusKoperasi.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 439 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.switch {\n    position: relative;\n    display: inline-block;\n    width: 60px;\n    height: 34px;\n}\n.switch input {\n    opacity: 0;\n    width: 0;\n    height: 0;\n}\n.slider.round {\n    border-radius: 34px;\n}\n.slider.round:before {\n    border-radius: 50%;\n}\n.slider {\n    position: absolute;\n    cursor: pointer;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: #ccc;\n    -webkit-transition: .4s;\n    transition: .4s;\n}\n.slider:before {\n    position: absolute;\n    content: \"\";\n    height: 26px;\n    width: 26px;\n    left: 4px;\n    bottom: 4px;\n    background-color: white;\n    -webkit-transition: .4s;\n    transition: .4s;\n}\ninput:checked + .slider {\n    background-color: #2196F3;\n}\ninput:focus + .slider {\n    -webkit-box-shadow: 0 0 1px #2196F3;\n            box-shadow: 0 0 1px #2196F3;\n}\ninput:checked + .slider:before {\n    -webkit-transform: translateX(26px);\n    transform: translateX(26px);\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 440 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            data: []
-        };
-    },
-
-    methods: {
-        change: function change(id, state) {
-            var _this = this;
-
-            axios.post(this.urlGlobalKoperasi + 'ubah-status-koperasi', {
-                id: id,
-                state: state
-            }).then(function () {
-                _this.$swal.fire('Success!', 'Status Koperasi berhasil diubah', 'success');
-            }).catch(function () {
-                _this.$swal.fire('Error!', 'Terjadi kesalahan, refresh(F5)', 'error');
-            });
-        },
-        changeStatus: function changeStatus(id, status) {
-            var _this2 = this;
-
-            this.$swal.fire({
-                title: 'Anda yakin?',
-                text: 'Ingin ' + (status ? 'nonaktifkan' : 'mengaktifkan') + ' koperasi ini?',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, ' + (status ? 'nonaktifkan' : 'aktifkan') + '!'
-            }).then(function (result) {
-                if (result.value) {
-                    _this2.change(id, status);
-                } else {}
-            });
-        },
-        getData: function getData() {
-            var _this3 = this;
-
-            axios.get(this.urlGlobalKoperasi + 'get-koperasi-aktif').then(function (e) {
-                _this3.data = e.data;
-            });
-        }
-    },
-    mounted: function mounted() {
-        this.getData();
-    }
-});
-
-/***/ }),
-/* 441 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card-body" }, [
-    _c("table", { staticClass: "demo-table responsive" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.data, function(value) {
-          return _c("tr", [
-            _c(
-              "td",
-              {
-                staticClass: "title",
-                attrs: { "data-header": "Nama Koperasi" }
-              },
-              [_vm._v(_vm._s(value.namaKoperasi))]
-            ),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "Jenis Koperasi" } }, [
-              _vm._v(
-                "\n                " +
-                  _vm._s(
-                    value.jenisKoperasi === 1
-                      ? "Koperasi Serba Usaha(KSU)"
-                      : "Koperasi Simpan Pinjam"
-                  ) +
-                  "\n            "
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "Nama Pendiri" } }, [
-              _vm._v(_vm._s(value.namaPendiri))
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "Alamat Koperasi" } }, [
-              _vm._v(_vm._s(value.alamatKoperasi))
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "Tahun Berdiri Koperasi" } }, [
-              _vm._v(_vm._s(value.tahunBerdiriKoperasi))
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "Email Koperasi" } }, [
-              _vm._v(_vm._s(value.email))
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "No Izin Koperasi" } }, [
-              _vm._v(_vm._s(value.noIzinKoperasi))
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "Logo Koperasi" } }, [
-              value.logoKoperasi === null
-                ? _c("div", [_vm._v("Logo Tidak Ada")])
-                : _c("div", [
-                    _c("img", {
-                      attrs: {
-                        src: "data:image/jpeg;base64," + value.logoKoperasi
-                      }
-                    })
-                  ])
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _c("label", { staticClass: "switch" }, [
-                _c("input", {
-                  attrs: { type: "checkbox" },
-                  domProps: { checked: value.haveKoperasi === 3 },
-                  on: {
-                    input: function($event) {
-                      return _vm.changeStatus(
-                        value.id,
-                        value.haveKoperasi === 3
-                      )
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "slider round" })
-              ])
-            ])
-          ])
-        }),
-        0
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nama Koperasi")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Jenis Koperasi")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nama Pendiri")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Alamat Koperasi")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [
-          _vm._v("Tahun Berdiri Koperasi")
-        ]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Email Koperasi")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("No Izin Koperasi")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Logo Koperasi")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Aksi")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-c9a7e134", module.exports)
-  }
-}
-
-/***/ }),
-/* 442 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(443)
-}
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(445)
-/* template */
-var __vue_template__ = __webpack_require__(446)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/koperasi/LayananMaintenence.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-31ad1427", Component.options)
-  } else {
-    hotAPI.reload("data-v-31ad1427", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 443 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(444);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("9d0a8392", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31ad1427\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LayananMaintenence.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31ad1427\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LayananMaintenence.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 444 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.switch {\n    position: relative;\n    display: inline-block;\n    width: 60px;\n    height: 34px;\n}\n.switch input {\n    opacity: 0;\n    width: 0;\n    height: 0;\n}\n.slider.round {\n    border-radius: 34px;\n}\n.slider.round:before {\n    border-radius: 50%;\n}\n.slider {\n    position: absolute;\n    cursor: pointer;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: #ccc;\n    -webkit-transition: .4s;\n    transition: .4s;\n}\n.slider:before {\n    position: absolute;\n    content: \"\";\n    height: 26px;\n    width: 26px;\n    left: 4px;\n    bottom: 4px;\n    background-color: white;\n    -webkit-transition: .4s;\n    transition: .4s;\n}\ninput:checked + .slider {\n    background-color: #2196F3;\n}\ninput:focus + .slider {\n    -webkit-box-shadow: 0 0 1px #2196F3;\n            box-shadow: 0 0 1px #2196F3;\n}\ninput:checked + .slider:before {\n    -webkit-transform: translateX(26px);\n    transform: translateX(26px);\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 445 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            data: []
-        };
-    },
-
-    methods: {
-        change: function change(id, state) {
-            var _this = this;
-
-            axios.post(this.urlGlobalKoperasi + 'aktifkan-koperasi', {
-                id: id,
-                state: state
-            }).then(function () {
-                _this.$swal.fire('Success!', 'Status Koperasi berhasil diubah', 'success');
-                _this.getData();
-            }).catch(function () {
-                _this.$swal.fire('Error!', 'Terjadi kesalahan, refresh(F5)', 'error');
-            });
-        },
-        changeStatus: function changeStatus(id, status) {
-            var _this2 = this;
-
-            this.$swal.fire({
-                title: 'Anda yakin?',
-                text: 'Ingin ' + (status ? 'nonaktifkan' : 'mengaktifkan') + ' koperasi ini?',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, ' + (status ? 'nonaktifkan' : 'aktifkan') + '!'
-            }).then(function (result) {
-                if (result.value) {
-                    _this2.change(id, status);
-                } else {}
-            });
-        },
-        getData: function getData() {
-            var _this3 = this;
-
-            axios.get(this.urlGlobalKoperasi + 'layanan-koperasi').then(function (e) {
-                _this3.data = e.data;
-            });
-        }
-    },
-    mounted: function mounted() {
-        this.getData();
-    }
-});
-
-/***/ }),
-/* 446 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card-body" }, [
-    _c("table", { staticClass: "demo-table responsive" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.data, function(value) {
-          return _c("tr", [
-            _c(
-              "td",
-              {
-                staticClass: "title",
-                attrs: { "data-header": "Nama Koperasi" }
-              },
-              [_vm._v(_vm._s(value.namaKoperasi))]
-            ),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "Jenis Koperasi" } }, [
-              _vm._v(
-                "\n                " +
-                  _vm._s(
-                    value.jenisKoperasi === 1
-                      ? "Koperasi Serba Usaha(KSU)"
-                      : "Koperasi Simpan Pinjam"
-                  ) +
-                  "\n            "
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "Nama Pendiri" } }, [
-              _vm._v(_vm._s(value.namaPendiri))
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "Alamat Koperasi" } }, [
-              _vm._v(_vm._s(value.alamatKoperasi))
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "Tahun Berdiri Koperasi" } }, [
-              _vm._v(_vm._s(value.tahunBerdiriKoperasi))
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "Email Koperasi" } }, [
-              _vm._v(_vm._s(value.email))
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "No Izin Koperasi" } }, [
-              _vm._v(_vm._s(value.noIzinKoperasi))
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "No Izin Koperasi" } }, [
-              _vm._v("Rp.500.000,-")
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-header": "Logo Koperasi" } }, [
-              value.logoKoperasi === null
-                ? _c("div", [_vm._v("Logo Tidak Ada")])
-                : _c("div", [
-                    _c("img", {
-                      attrs: {
-                        src: "data:image/jpeg;base64," + value.buktiBayar
-                      }
-                    })
-                  ])
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _c("label", { staticClass: "switch" }, [
-                _c("input", {
-                  attrs: { type: "checkbox" },
-                  domProps: { checked: value.haveKoperasi === 3 },
-                  on: {
-                    input: function($event) {
-                      return _vm.changeStatus(
-                        value.id,
-                        value.haveKoperasi === 3
-                      )
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "slider round" })
-              ])
-            ])
-          ])
-        }),
-        0
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nama Koperasi")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Jenis Koperasi")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nama Pendiri")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Alamat Koperasi")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [
-          _vm._v("Tahun Berdiri Koperasi")
-        ]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Email Koperasi")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("No Izin Koperasi")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Biaya Layanan")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Bukti Bayar")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Aksi")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-31ad1427", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);
