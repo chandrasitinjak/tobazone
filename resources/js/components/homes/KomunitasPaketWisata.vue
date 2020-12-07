@@ -7,7 +7,7 @@
 <!--                    <h3 class="m-auto">Komunitas Paket Wisata</h3>-->
 <!--                </nav>-->
 <!--            </div>-->
-            <h3 class="text-center mt-5">Komunitas Paket Wisata</h3>
+            <h3 class="text-center mt-5">Paket Wisata</h3>
             <div class="card-body globalcardbody" >
                 <carousel
                         :mouse-drag="true"
@@ -21,13 +21,13 @@
                         navigationNextLabel="<i class='fa fa-angle-right fa-3x'></i>"
                         navigationPrevLabel="<i class='fa fa-angle-left fa-3x'></i>"
                 >
-                    <slide class="px-2" v-for="komunitas in komunitass">
+                    <slide class="px-2" v-for="paket in pakets">
                         <div class="card-paket" style="height: 12rem">
-                            <img id="card-img" src="https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080"
+                            <img id="card-img" :src="'/storage/img/paket/'+paket.gambar"
                                  alt="Card image cap"
                                  style='height: 100%; width: 100%; object-fit: cover'>
                             <div class="card-img-overlay">
-                                <h5 class="card-title text-white mx-3 mt-2">Kuliner</h5>
+                                <h5 class="card-title text-white mx-3 mt-2">{{ paket.nama_paket }}</h5>
                             </div>
                         </div>
                     </slide>
@@ -49,9 +49,25 @@
         components: {carousel2, Carousel, Slide},
         data() {
             return {
-                komunitass: ["1","2","1","2","1","2","1","2"],
+                pakets: []
             };
         },
+        methods: {
+            async getPaket() {
+                await window.axios
+                    .get("/api/paket/get-paket-terbaru")
+                    .then(res => {
+                        this.pakets = res.data;
+                        console.log(this.pakets);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            },
+        },
+        mounted() {
+            this.getPaket();
+        }
     };
 </script>
 
