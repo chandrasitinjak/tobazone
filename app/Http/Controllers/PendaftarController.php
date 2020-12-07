@@ -15,12 +15,14 @@ class PendaftarController extends Controller
         $anggota = Member::all();
         $data_pendaftar = [];
         foreach ($anggota as $row){
-            if(($row->getUser->register_status==1)&&($row->getKomunitasMember->count()>0)){
+            if(($row->getUser->status=="verifiedByAdmin")&&($row->getKomunitasMember->count()>0)){
                 array_push($data_pendaftar,$row);
             }
         }
+
         $komunitas = Komunitas::all();
         $kabupaten = Kabupaten::all();
+
         return view('cbt.komunitas.anggota_komunitas',compact('data_pendaftar','komunitas', 'kabupaten'));
     }
     public function daftar(Request $request)

@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class HomestayOrders extends Model
 {
-    use SoftDeletes;
     protected $fillable = [
         'id_customer',
         'id_homestay',

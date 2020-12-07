@@ -23,9 +23,7 @@
 
 <script type="application/javascript">
     $(document).ready(function () {
-        $('[data-toggle="test"]').popover({
-            trigger: 'focus'
-        });
+
 
         $('#searchagain').click(function() {
             $('#headerSearch').focus();
