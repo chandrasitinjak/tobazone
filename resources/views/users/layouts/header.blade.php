@@ -410,14 +410,7 @@
                     </li>
                     <li class="nav-item dropdown" style="margin-left: 3rem">
                         <a onclick="myFunction()" class="dropbtn nav-link dropdown">Informasi Pariwisata <i class="fa fa-angle-down"></i></a>
-                        <div id="myDropdown" class="dropbtn dropdown-content"  onclick="myFunction()">
-                            <a class="dropdown-item" href="{{ url('/informasi-objek-wisata') }}">Objek Wisata</a>
-                            <a class="dropdown-item" href="{{ url('/informasi-akomodasi') }}">Akomodasi</a>
-                            <a class="dropdown-item" href="{{ url('/informasi-kuliner') }}">Kuliner</a>
-                            <a class="dropdown-item" href="{{ url('/informasi-transportasi') }}">Transportasi</a>
-                            <a class="dropdown-item" href="{{ url('/informasi-budaya') }}">Budaya</a>
-                            <a class="dropdown-item" href="{{ url('/informasi-event') }}">Event</a>
-                        </div>
+
                     </li>
                     <li class="nav-item dropdown"  style="margin-left: 3rem">
                         <a class="nav-link dropdown" href="https://tobazone-koperasi.herokuapp.com/#/register" style="color: black" id="navbarDropdown"
@@ -431,53 +424,6 @@
             <div class="container-fluid custom-container"></div>
         </div>
     </nav>
-    <style>
-        .dropbtn:hover, .dropbtn:focus {
-        }
 
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 160px;
-            overflow: auto;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-
-        .show {display: block;}
-    </style>
-    <script>
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-    </script>
     @endrole
     @include('users.auth.login_modal')
