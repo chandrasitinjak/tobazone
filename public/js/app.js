@@ -103120,7 +103120,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: { carousel2: __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default.a, Carousel: __WEBPACK_IMPORTED_MODULE_1_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_1_vue_carousel__["Slide"] },
     data: function data() {
         return {
-            komunitass: ["1", "2", "1", "2", "1", "2", "1", "2"]
+            komunitass: []
         };
     }
 });

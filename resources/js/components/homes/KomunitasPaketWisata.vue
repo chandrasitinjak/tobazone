@@ -49,7 +49,7 @@
         components: {carousel2, Carousel, Slide},
         data() {
             return {
-                komunitass: ["1","2","1","2","1","2","1","2"],
+                komunitass: [],
             };
         },
     };
