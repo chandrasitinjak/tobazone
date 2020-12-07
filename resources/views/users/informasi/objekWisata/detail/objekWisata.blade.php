@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-8">
                 <h3>Deskripsi</h3>
-                <p>{{$objekWisata->deskripsi}}</p>
+                <?php echo $objekWisata->deskripsi ?>
             </div>
             <div class="col-md-4">
                 <h3>Lokasi</h3><br>
@@ -26,5 +26,6 @@
             </div>
         </div>
     </div>
+
 
 @endsection
