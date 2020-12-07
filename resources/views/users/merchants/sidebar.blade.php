@@ -26,7 +26,8 @@
                 <!-- <li><a href="">Produk terjual</a></li> -->
               </ul>
             </li>
-              <li data-toggle="collapse" data-target="#produk">
+
+            <li data-toggle="collapse" data-target="#produk">
                   <a>Homestay</a>
                   <ul class="sub-menu collapse show" id="produk">
                       <li><a href="{{ url('/merchant/homestay/findAll') }}">Semua Homestay</a></li>
@@ -40,9 +41,10 @@
                       <!-- <li><a href="">Produk terjual</a></li> -->
                   </ul>
               </li>
+                            
             <!-- Single Item -->
             <li data-toggle="collapse" data-target="#pemesanan" class="collapsed">
-              <a href="#">Pemesanan</a>
+              <a href="#">Pemesanan Produk</a>
               <ul class="sub-menu collapse show" id="pemesanan">
                 <!-- <li><a href="{{ url('/merchant/' . Auth::user()->id . '/new-orders') }}">Order Masuk</a></li> -->
                 <li><a href="{{ url('/merchant/' . Auth::user()->id . '/ongoing-orders') }}">Order Masuk</a></li>
@@ -51,8 +53,9 @@
                 <li><a href="#">Order Gagal</a></li> -->
               </ul>
             </li>
+            
               <li data-toggle="collapse" data-target="#pemesanan" class="collapsed">
-                  <a href="#">Pemesanan Penginapan</a>
+                  <a href="#">Pemesanan Homestay</a>
                   <ul class="sub-menu collapse show" id="pemesanan">
                       <!-- <li><a href="{{ url('/merchant/' . Auth::user()->id . '/new-orders') }}">Order Masuk</a></li> -->
                       <li><a href="{{ url('/merchant/homestay/orders') }}">Order Masuk</a></li>
@@ -69,18 +72,8 @@
               {{--<li><a href="">Order Dibatalkan</a></li>--}}
               {{--<li><a href="">Order Gagal</a></li>--}}
             {{--</ul>--}}
-            <a>Penginapan</a>
-              <ul class="sub-menu collapse show" id="homestay">
-                <li><a href="{{ url('/merchant/homestay/findAll') }}">Semua Penginapan</a></li>
-                <li>
-                  <ul id="menu-content2" class="menu-content collapse show">
-                      <li data-toggle="collapse" data-target="#tambah_homestay">
-                        <a href="{{ url('/merchant/homestay/create') }}">Tambah Penginapan</a>
-                      </li>
-                  </ul>
-                </li>
-                <!-- <li><a href="">Produk terjual</a></li> -->
-              </ul>
+
+                    
           </ul>
         </div>
       </div>
