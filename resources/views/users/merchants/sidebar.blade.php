@@ -41,17 +41,7 @@
                       <!-- <li><a href="">Produk terjual</a></li> -->
                   </ul>
               </li>
-              
-              <li data-toggle="collapse" data-target="#pemesanan" class="collapsed">
-                  <a href="#">Penginapan</a>
-                  <ul class="sub-menu collapse show" id="pemesanan">
-                      <!-- <li><a href="{{ url('/merchant/' . Auth::user()->id . '/new-orders') }}">Order Masuk</a></li> -->
-                      <li><a href="{{ url('/merchant/homestay/findAll') }}">Semua Penginapan</a></li>
-                      <li><a href="{{ url('/merchant/homestay/create') }}">Tambah Penginapan</a></li>
-                      <!-- <li><a href="#">Order Dibatalkan</a></li>
-                      <li><a href="#">Order Gagal</a></li> -->
-                  </ul>
-              </li>    
+                            
             <!-- Single Item -->
             <li data-toggle="collapse" data-target="#pemesanan" class="collapsed">
               <a href="#">Pemesanan Produk</a>
@@ -65,7 +55,7 @@
             </li>
             
               <li data-toggle="collapse" data-target="#pemesanan" class="collapsed">
-                  <a href="#">Pemesanan Penginapan</a>
+                  <a href="#">Pemesanan Homestay</a>
                   <ul class="sub-menu collapse show" id="pemesanan">
                       <!-- <li><a href="{{ url('/merchant/' . Auth::user()->id . '/new-orders') }}">Order Masuk</a></li> -->
                       <li><a href="{{ url('/merchant/homestay/orders') }}">Order Masuk</a></li>
