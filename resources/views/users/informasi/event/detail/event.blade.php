@@ -1,4 +1,4 @@
-@extends('users.layouts.app')
+@extends('users.informasi.app')
 @section('title') {{ "Detail Event" }}
 @endsection
 
@@ -18,6 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
+
                 <?php echo $event->deskripsi ?>
             </div>
         </div>

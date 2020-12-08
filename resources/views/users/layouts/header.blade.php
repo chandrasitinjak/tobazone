@@ -409,8 +409,17 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
                     </li>
                     <li class="nav-item dropdown" style="margin-left: 3rem">
-                        <a onclick="myFunction()" class="dropbtn nav-link dropdown">Informasi Pariwisata <i class="fa fa-angle-down"></i></a>
-
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Informasi Pariwisata
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ url('/informasi-objek-wisata') }}">Objek Wisata</a>
+                            <a class="dropdown-item" href="{{ url('/informasi-akomodasi') }}">Akomodasi</a>
+                            <a class="dropdown-item" href="{{ url('/informasi-kuliner') }}">Kuliner</a>
+                            <a class="dropdown-item" href="{{ url('/informasi-event') }}">Event</a>
+                            <a class="dropdown-item" href="{{ url('/informasi-transportasi') }}">Transportasi</a>
+                            <a class="dropdown-item" href="{{ url('/informasi-budaya') }}">Budaya</a>
+                        </div>
                     </li>
                     <li class="nav-item dropdown"  style="margin-left: 3rem">
                         <a class="nav-link dropdown" href="https://tobazone-koperasi.herokuapp.com/#/register" style="color: black" id="navbarDropdown"
