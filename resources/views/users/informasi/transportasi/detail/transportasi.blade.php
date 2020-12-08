@@ -1,4 +1,4 @@
-@extends('users.layouts.app')
+@extends('users.informasi.app')
 @section('title') {{ "Detail Transportasi" }}
 @endsection
 
