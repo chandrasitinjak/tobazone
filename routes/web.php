@@ -316,6 +316,7 @@ Route::post('/homestay/create', 'HomestayController@store');
 
 Route::get('/homestays', 'HomestayController@findAll');
 Route::get('/user/homestays', 'HomestayController@findAllCustomer');
+Route::get('/user/homestays/more', 'HomestayController@morePage');
 Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::post('/homestays/save', 'HomestayController@store');
