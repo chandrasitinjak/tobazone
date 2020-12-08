@@ -57,10 +57,16 @@ const AddToWishlistButton = require('./components/AddToWishlistButton')
 const UserRating = require('./components/merchants/UserRating')
 const UserRatingSecond = require('./components/merchants/UserRatingSecond')
 const ProdukTerlaris = require('./components/homes/ProdukTerlaris')
+const MainPage = require('./components/homestay/MainPage')
+const CarouselHomestay = require('./components/homestay/CarouselHomestay')
+const CreateHomestay = require('./components/homestay/merchant/CreateHomestay')
+const UpdateHomestay = require('./components/homestay/merchant/UpdateHomestay')
 const ListLogin = require('./components/auths/ListLogin')
+const AllHomestay = require('./components/homestay/merchant/AllHomestay')
 const KoperasiAktif = require('./components/Koperasi/KoperasiAktif')
 const KoperasiTidakAktif = require('./components/Koperasi/KoperasiTidakAktif')
 const AkunPending = require('./components/Koperasi/AkunPending')
+const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay')
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -112,14 +118,33 @@ const app = new Vue({
         ProductsAksesoris,
         ProductsObat,
         ProdukTerlaris,
+        MainPage,
+        CarouselHomestay,
+        CreateHomestay,
+        UpdateHomestay,
         ListLogin,
-        RegCebt
-
+        RegCebt,
+        AllHomestay,
+        FormPesanHomestay,
     },
     data() {
         return {
-            message: ''
+            message: '',
+            rows: [
+                {nama_produk: '', kategori: ''}
+            ],
         }
-    }
+    },
+    methods: {
+        addRow() {
+            this.rows.push({nama_produk: '', kategori: ''});
+        },
+        deleteRow() {
+            this.rows.pop();
+        },
+
+
+    },
 
 });
+

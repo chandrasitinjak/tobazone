@@ -2,7 +2,7 @@
   <div>
     <div class="card globalcard" style="min-height: 400px">
       <div class="card-header">
-        <nav class="navbar navbar-expand-lg mproduct p-1" style="background-color: transparent; border:none">
+        <nav class="navbar navbar-expand-lg mproduct p-1" style="background-color: transparent; border:none" >
            <h5 class="mr-3"><center>    Filter Produk</center></h5>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars"></span>
