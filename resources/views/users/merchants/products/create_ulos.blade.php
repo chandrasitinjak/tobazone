@@ -1,7 +1,7 @@
-@extends('users.layouts.app') 
+@extends('users.layouts.app')
 @section('title') {{ "Products" }}
 @endsection
- 
+
 @section('content')
 <div class="container">
     <div class="row">

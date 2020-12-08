@@ -81,3 +81,7 @@ Route::middleware('role:merchant')->group(function () {
 Route::get('/homestay/all', 'HomestayController@findAll');
 Route::get('/homestay/room-categories', 'HomestayRoomsCategoriesController@findAll');
 Route::get('/product/get-product-terlaris', 'API\ProductController@getProductTerlaris');
+Route::get('/get-cbt', 'CbtController@getCbt');
+
+Route::get('pemesanan/detail/{id_pemesanan}','PemesananController@getDataPemesanan')->name('data.transaksi');
+Route::post('pemesanan/{id_pemesanan}/update-status','PemesananController@updateStatus');

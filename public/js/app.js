@@ -36270,9 +36270,20 @@ var app = new Vue({
     },
     data: function data() {
         return {
-            message: ''
+            message: '',
+            rows: [{ nama_produk: '', kategori: '' }]
         };
+    },
+
+    methods: {
+        addRow: function addRow() {
+            this.rows.push({ nama_produk: '', kategori: '' });
+        },
+        deleteRow: function deleteRow() {
+            this.rows.pop();
+        }
     }
+
 });
 
 /***/ }),
@@ -91628,28 +91639,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             kata_sandi_konfirmasi: "",
             nomor_ktp: "",
             foto_ktp: null,
-            komunitas: "",
+            komunitas: [],
+            selected_komunitas: "",
             image: null
         };
     },
 
     methods: {
+        getCbt: function getCbt() {
+            var _this = this;
+
+            window.axios.get("/api/get-cbt").then(function (res) {
+                _this.komunitas = res.data;
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
         onImageChange: function onImageChange(e) {
             this.foto_ktp = e.target.files[0];
             this.image = URL.createObjectURL(this.foto_ktp);
         },
         addCbt: function addCbt() {
-
-            var payload = {
-                nama_lengkap: this.nama_lengkap,
-                nomor_wa: this.nomor_wa,
-                nomor_hp: this.nomor_hp,
-                email: this.email,
-                kata_sandi: this.kata_sandi,
-                kata_sandi_konfirmasi: this.kata_sandi,
-                komunitas: this.komunitas,
-                nomor_ktp: this.nomor_ktp
-            };
+            // let payload = {                    
+            //     nama_lengkap: this.nama_lengkap,                    
+            //     nomor_wa: this.nomor_wa,
+            //     nomor_hp: this.nomor_hp,
+            //     email: this.email,                                        
+            //     kata_sandi: this.kata_sandi,
+            //     kata_sandi_konfirmasi: this.kata_sandi,                    
+            //     komunitas: this.komunitas,
+            //     nomor_ktp: this.nomor_ktp,
+            // };
 
             var formData = new FormData();
             formData.append("image", this.foto_ktp);
@@ -91658,7 +91678,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             formData.append("nomor_hp", this.nomor_hp);
             formData.append("email", this.email);
             formData.append("kata_sandi", this.kata_sandi);
-            formData.append("komunitas", this.komunitas);
+            formData.append("komunitas", this.selected_komunitas);
+            formData.append("nomor_ktp", this.nomor_ktp);
 
             window.axios.post("/register-cbt", formData).then(function (rest) {}).catch(function (err) {
                 console.log(err);
@@ -91667,7 +91688,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     validations: {},
-    mounted: function mounted() {}
+    mounted: function mounted() {
+        this.getCbt();
+    }
 });
 
 /***/ }),
@@ -91897,8 +91920,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.komunitas,
-                      expression: "komunitas"
+                      value: _vm.selected_komunitas,
+                      expression: "selected_komunitas"
                     }
                   ],
                   staticClass: "form-control form-control-lg",
@@ -91912,13 +91935,23 @@ var render = function() {
                           var val = "_value" in o ? o._value : o.value
                           return val
                         })
-                      _vm.komunitas = $event.target.multiple
+                      _vm.selected_komunitas = $event.target.multiple
                         ? $$selectedVal
                         : $$selectedVal[0]
                     }
                   }
                 },
-                [_c("option", [_vm._v("Komunitas Test 1")])]
+                _vm._l(_vm.komunitas, function(community) {
+                  return _c(
+                    "option",
+                    {
+                      key: community.nama_komunitas,
+                      domProps: { value: community.id }
+                    },
+                    [_vm._v(_vm._s(community.nama_komunitas))]
+                  )
+                }),
+                0
               )
             ]),
             _vm._v(" "),
@@ -94799,6 +94832,93 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ["userId"],
@@ -94852,25 +94972,7 @@ var render = function() {
           _vm._m(0),
           _vm._v(" "),
           _vm.transactions.length == 0
-            ? _c(
-                "div",
-                {
-                  staticClass:
-                    "center center-block align-center text-center mt-15 "
-                },
-                [
-                  _c("img", {
-                    staticStyle: {
-                      height: "120px",
-                      border: "none",
-                      opacity: "0.5"
-                    },
-                    attrs: { src: "/images/assets/search_result_empty.png" }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(1)
-                ]
-              )
+            ? _c("div", [_vm._m(1)])
             : _vm.transactions.length != 0
             ? _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-md-12" }, [
@@ -94937,10 +95039,101 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "text font-bold" }, [
-      _c("br"),
-      _vm._v("\n              belum ada order saat ini\n            ")
-    ])
+    return _c(
+      "div",
+      { staticClass: "row", staticStyle: { "background-color": "#edebdd" } },
+      [
+        _c("div", { staticClass: "col-lg-7 col-sm-12 pt-4 pl-4" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-4" }, [_c("h6", [_vm._v("Nama")])]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto" }, [_c("h6", [_vm._v(":")])]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6" }, [
+              _c("h6", [_vm._v("Benyamin Salamone")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-4" }, [
+              _c("h6", [_vm._v("Check in")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto" }, [_c("h6", [_vm._v(":")])]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto" }, [
+              _c("h6", [_vm._v("Sunday, 25-10-2020")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-4" }, [
+              _c("h6", [_vm._v("Check out")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto" }, [_c("h6", [_vm._v(":")])]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto" }, [
+              _c("h6", [_vm._v("Monday, 26-10-2020")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-4" }, [
+              _c("h6", [_vm._v("Homestay")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto" }, [_c("h6", [_vm._v(":")])]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto" }, [
+              _c("h6", [_vm._v("Polado Homestay")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-4" }, [_c("h6", [_vm._v("Lokasi")])]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto" }, [_c("h6", [_vm._v(":")])]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto" }, [
+              _c("h6", [_vm._v("Jl.Melinton 129, semeru")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-4" }, [_c("h6", [_vm._v("Total")])]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto" }, [_c("h6", [_vm._v(":")])]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto" }, [
+              _c("h6", [_vm._v("Rp. 40.000,00")])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-2 col-sm-12 pt-4 pb-4" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-auto" }, [
+              _c("h6", [_vm._v("Resi: ")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto" }, [
+              _c("img", {
+                attrs: {
+                  src: "https://cekresi.com/images/resi-wahana-02.jpg",
+                  width: "120px",
+                  alt: ""
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto pt-4 ml-4" }, [
+          _c("h6", { staticClass: "text-success" }, [_vm._v("Sudah Dibayar")])
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -104441,7 +104634,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\nbody {\n    background-color: #F1F1F1;\n}\n.card-login{\n    width: 500px;\n}\n#arrow{\n    width: 20px;\n}\n@media screen and (max-width: 600px) {\n.card-login{\n        width: 300px;\n        height: 200px;\n}\n#arrow{\n        width: 20px;\n}\n}\n", ""]);
+exports.push([module.i, "\nbody {\n    background-color: #F1F1F1;\n}\n.card-login{\n    width: 500px;\n}\n#arrow{\n    width: 20px;\n}\n@media screen and (max-width: 600px) {\n.card-login{\n        width: 300px;\n        height: 200px;\n}\n#arrow{\n        width: 20px;\n}\n#icon-login1{\n        width: 50px;\n}\n}\n", ""]);
 
 // exports
 
@@ -104484,9 +104677,8 @@ var render = function() {
                     _c("div", { staticClass: "col-xs-2 col-md-2" }, [
                       _c("img", {
                         attrs: {
-                          src:
-                            "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
-                          alt: ""
+                          src: "images/icon-login/customer.jpeg",
+                          id: "icon-login1"
                         }
                       })
                     ]),
@@ -104534,9 +104726,8 @@ var render = function() {
                     _c("div", { staticClass: "col-xs-2 col-md-2" }, [
                       _c("img", {
                         attrs: {
-                          src:
-                            "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
-                          alt: ""
+                          src: "images/icon-login/merchant.jpeg",
+                          id: "icon-login1"
                         }
                       })
                     ]),
@@ -104575,7 +104766,7 @@ var render = function() {
               attrs: {
                 "data-toggle": "modal",
                 onclick: "setCbt()",
-                "data-target": "#loginModal2"
+                "data-target": "#loginModal"
               }
             },
             [
@@ -104585,9 +104776,8 @@ var render = function() {
                     _c("div", { staticClass: "col-xs-2 col-md-2" }, [
                       _c("img", {
                         attrs: {
-                          src:
-                            "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
-                          alt: ""
+                          src: "images/icon-login/cbt.jpeg",
+                          id: "icon-login1"
                         }
                       })
                     ]),
@@ -104636,9 +104826,8 @@ var render = function() {
                     _c("div", { staticClass: "col-xs-2 col-md-2" }, [
                       _c("img", {
                         attrs: {
-                          src:
-                            "https://static-siplah.blibli.com/static/img/buyer.b3bcbc6.png",
-                          alt: ""
+                          src: "images/icon-login/admin.png",
+                          id: "icon-login1"
                         }
                       })
                     ]),
