@@ -190,6 +190,9 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/homestay/new-order', 'HomestayController@findAllNewOrder');
         Route::get('/admin/homestay/new-order/{id}', 'HomestayController@findDetailNewOrder');
         Route::get('/admin/homestay/room-categories', 'HomestayRoomsCategoriesController@findAllCategories');
+        Route::get('/admin/delete-kategori/{id}', 'HomestayRoomsCategoriesController@deleteKategori');
+        Route::post('/admin/tambah-kategori-homestay', 'HomestayRoomsCategoriesController@createCategories');
+        Route::post('/admin/edit-kategori-homestay/{id}', 'HomestayRoomsCategoriesController@editKategori');
         Route::get('/admin/homestay/room-facilities', 'HomestayRoomsFacilitiesController@findAllFacilities');
 
         Route::get('/roles', 'RoleController@index');

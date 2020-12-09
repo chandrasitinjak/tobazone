@@ -13,15 +13,17 @@ class CreateProductHistoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_histories', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('product_id')->unsigned();
-            $table->integer('total');
-            $table->string('information');
-            $table->timestamps();
+        if (!Schema::hasTable('product_histories')) {
+            Schema::create('product_histories', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('product_id')->unsigned();
+                $table->integer('total');
+                $table->string('information');
+                $table->timestamps();
 
-            $table->foreign('product_id')->references('id')->on('products');
-        });
+                $table->foreign('product_id')->references('id')->on('products');
+            });
+        }
     }
 
     /**
