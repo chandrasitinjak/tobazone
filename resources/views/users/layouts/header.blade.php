@@ -1,5 +1,6 @@
 <div class="overlay"></div>
 <nav class="navbar navbar-expand-md navbar-light main-menu" style="box-shadow:none; background-color: #FFFAF4">
+
     <div class="container">
         <button type="button" id="sidebar1Collapse" class="btn btn-link d-block d-md-none">
             <i class="bx bx-menu icon-single" style="color:black"></i>
