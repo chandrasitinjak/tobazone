@@ -175,15 +175,17 @@
         <li>
             <a href="{{ url('/user/homestays') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Homestay</a>
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
+        <li class="dropdown" >
+            <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bx bxs-info-square mr-3"></i> Informasi Pariwisata
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="{{ url('/informasi-objek-wisata') }}">Objek Wisata</a>
+                <a class="dropdown-item" href="{{ url('/informasi-akomodasi') }}">Akomodasi</a>
+                <a class="dropdown-item" href="{{ url('/informasi-kuliner') }}">Kuliner</a>
+                <a class="dropdown-item" href="{{ url('/informasi-event') }}">Event</a>
+                <a class="dropdown-item" href="{{ url('/informasi-transportasi') }}">Transportasi</a>
+                <a class="dropdown-item" href="{{ url('/informasi-budaya') }}">Budaya</a>
             </div>
         </li>
     </ul>
