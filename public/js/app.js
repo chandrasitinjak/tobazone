@@ -102828,11 +102828,29 @@ exports.push([module.i, "\n.card-paket {\n    border-radius: 15px;\n}\n#card-img
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_carousel__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_carousel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__eventBus__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_carousel__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_carousel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__eventBus__ = __webpack_require__(5);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -102881,11 +102899,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { carousel2: __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default.a, Carousel: __WEBPACK_IMPORTED_MODULE_1_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_1_vue_carousel__["Slide"] },
+    components: { carousel2: __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default.a, Carousel: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Slide"] },
     data: function data() {
         return {
-            komunitass: ["1", "2", "1", "2", "1", "2", "1", "2"]
+            pakets: []
         };
+    },
+
+    methods: {
+        getPaket: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+                var _this = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _context.next = 2;
+                                return window.axios.get("/api/paket/get-paket-terbaru").then(function (res) {
+                                    _this.pakets = res.data;
+                                    console.log(_this.pakets);
+                                }).catch(function (err) {
+                                    console.log(err);
+                                });
+
+                            case 2:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function getPaket() {
+                return _ref.apply(this, arguments);
+            }
+
+            return getPaket;
+        }(),
+        formatPrice: function formatPrice(value) {
+            var val = (value / 1).toFixed().replace('.', ',');
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+    },
+    mounted: function mounted() {
+        this.getPaket();
     }
 });
 
@@ -102903,13 +102961,11 @@ var render = function() {
     _c("br"),
     _vm._v(" "),
     _c("div", { staticClass: "card globalcard" }, [
-      _c("h3", { staticClass: "text-center mt-5" }, [
-        _vm._v("Komunitas Paket Wisata")
-      ]),
+      _c("h3", { staticClass: "text-center" }, [_vm._v("Paket Wisata")]),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "card-body globalcardbody" },
+        { staticClass: "card-body globalcardbody mb-5" },
         [
           _c(
             "carousel",
@@ -102930,38 +102986,129 @@ var render = function() {
                 navigationPrevLabel: "<i class='fa fa-angle-left fa-3x'></i>"
               }
             },
-            _vm._l(_vm.komunitass, function(komunitas) {
-              return _c("slide", { staticClass: "px-2" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card-paket",
-                    staticStyle: { height: "12rem" }
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: {
-                        height: "100%",
-                        width: "100%",
-                        "object-fit": "cover"
-                      },
-                      attrs: {
-                        id: "card-img",
-                        src:
-                          "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                        alt: "Card image cap"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-img-overlay" }, [
-                      _c(
-                        "h5",
-                        { staticClass: "card-title text-white mx-3 mt-2" },
-                        [_vm._v("Kuliner")]
-                      )
-                    ])
-                  ]
-                )
+            _vm._l(_vm.pakets, function(paket) {
+              return _c("slide", { staticClass: "mt-3" }, [
+                _c("div", { staticClass: "col-auto" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card products",
+                      staticStyle: { "border-radius": "10px" }
+                    },
+                    [
+                      _c("a", { attrs: { href: "" } }, [
+                        _c("img", {
+                          staticClass: "card-img-top",
+                          staticStyle: { height: "200px" },
+                          attrs: {
+                            src: "/images/" + paket.gambar,
+                            alt: "Card image cap"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "card-body" },
+                          [
+                            _c(
+                              "h7",
+                              {
+                                staticClass: "card-title",
+                                staticStyle: { "font-weight": "bold" }
+                              },
+                              [
+                                _vm._v(_vm._s(paket.nama_paket) + " ( "),
+                                _c("i", { staticClass: "fa fa-clock-o" }),
+                                _vm._v("  " + _vm._s(paket.durasi) + " )")
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("h5", { staticStyle: { color: "#FF8311" } }, [
+                              _vm._v(
+                                "Rp." +
+                                  _vm._s(_vm.formatPrice(paket.harga_paket))
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "li",
+                              {
+                                staticClass: "list-inline-item",
+                                staticStyle: { color: "#ffc000" }
+                              },
+                              [_c("i", { staticClass: "fa fa-star" })]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "li",
+                              {
+                                staticClass: "list-inline-item",
+                                staticStyle: { color: "#ffc000" }
+                              },
+                              [_c("i", { staticClass: "fa fa-star" })]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "li",
+                              {
+                                staticClass: "list-inline-item",
+                                staticStyle: { color: "#ffc000" }
+                              },
+                              [_c("i", { staticClass: "fa fa-star" })]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "li",
+                              {
+                                staticClass: "list-inline-item",
+                                staticStyle: { color: "#ffc000" }
+                              },
+                              [_c("i", { staticClass: "fa fa-star" })]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "li",
+                              {
+                                staticClass: "list-inline-item",
+                                staticStyle: { color: "#ffc000" }
+                              },
+                              [_c("i", { staticClass: "fa fa-star" })]
+                            ),
+                            _vm._v(" "),
+                            _c("h5", { staticStyle: { color: "#FF8311" } }),
+                            _vm._v(" "),
+                            _c("p"),
+                            _vm._v(" "),
+                            _c(
+                              "p",
+                              { staticClass: "card-text" },
+                              [
+                                _c(
+                                  "medium",
+                                  { staticClass: "text-muted  float-right" },
+                                  [
+                                    _vm._v(
+                                      "  " +
+                                        _vm._s(
+                                          paket.get_kabupaten.nama_kabupaten
+                                        )
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("medium", {
+                                  staticClass: "text-muted  float-left"
+                                })
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ]
+                  )
+                ])
               ])
             }),
             1

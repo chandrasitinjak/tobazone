@@ -99,7 +99,7 @@
             <div class="col-lg-auto col-auto mt-2">
                 <a href="#">
                     <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
-                        <img class="card-img-top m-auto" src="images/kategori_produk/fashion.png" alt="Card image cap">
+                        <img class="card-img-top m-auto" src="{{ asset('images/kategori-produk/fashion.png') }}" alt="Card image cap">
                         <p class="card-text text-center">Fashion</p>
                     </div>
                 </a>
@@ -107,7 +107,7 @@
             <div class="col-lg-auto ml-1 col-auto mt-2">
                 <a href="#">
                     <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
-                        <img class="card-img-top m-auto" src="images/kategori_produk/tenun.png" style="width:60px; height:90px" alt="Card image cap">
+                        <img class="card-img-top m-auto" src="{{ asset('images/kategori-produk/tenun.png') }}" style="width:60px; height:90px" alt="Card image cap">
                         <p class="card-text text-center">Tenun</p>
                     </div>
                 </a>
@@ -115,15 +115,15 @@
             <div class="col-lg-auto ml-1 col-auto mt-2">
                 <a href="#">
                     <div class="card shadow rounded-5 " style="width:6rem; height:8.5rem">
-                        <img class="card-img-top m-auto pt-1" src="images/kategori_produk/kesehatan.png" style="width:60px; height:75px" alt="Card image cap">
+                        <img class="card-img-top m-auto pt-1" src="{{ asset('images/kategori-produk/kesehatan.png') }}" style="width:60px; height:75px" alt="Card image cap">
                         <p class="card-text text-center mb-2" style="line-height: 100%">Kesehatan & Kecantikan</p>
                     </div>
                 </a>
             </div>
             <div class="col-lg-auto ml-1 col-auto mt-2">
                 <a href="#">
-                    <div class="card shadow rounded-5 " style="width:6rem; height:8.5rem">
-                        <img class="card-img-top mt-4 mb-3" src="images/kategori_produk/kuliner.png" style="width:60px; height:75px" alt="Card image cap">
+                    <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
+                        <img class="card-img-top mt-4 mb-3 ml-2" src="{{ asset('images/kategori-produk/kuliner.png') }}" style="width:75px; height:75px" alt="Card image cap">
                         <p class="card-text text-center">Kuliner</p>
                     </div>
                 </a>
@@ -131,7 +131,7 @@
             <div class="col-lg-auto ml-1 col-auto mt-2">
                 <a href="#">
                     <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
-                        <img class="card-img-top mt-4 mb-2" src="images/kategori_produk/aksesoris.png" style="width:60px; height:75px" alt="Card image cap">
+                        <img class="card-img-top mt-4 mb-2 ml-1" src="{{ asset('images/kategori-produk/aksesoris.png') }}" style="width:80px; height:75px" alt="Card image cap">
                         <p class="card-text text-center">Aksesoris</p>
                     </div>
                 </a>
@@ -139,7 +139,7 @@
             <div class="col-lg-auto ml-1 col-auto mt-2">
                 <a href="#">
                     <div class="card shadow rounded-5 " style="width:6rem; height:8.5rem">
-                        <img class="card-img-top" src="images/kategori_produk/penginapan.png"  style="width:70px; height:70px" alt="Card image cap">
+                        <img class="card-img-top mt-4 ml-3 mb-2" src="{{ asset('images/kategori-produk/penginapan.png') }}"  style="width:65px; height:70px" alt="Card image cap">
                         <p class="card-text text-center">Penginapan</p>
                     </div>
                 </a>
@@ -147,7 +147,7 @@
             <div class="col-lg-auto ml-1 col-auto mt-2">
                 <a href="#">
                     <div class="card shadow rounded-5 " style="width:6rem; height:8.5rem">
-                        <img class="card-img-top" src="images/kategori_produk/paket_wisata.jpg" style="width:85px; height:85px" alt="Card image cap">
+                        <img class="card-img-top mt-3 ml-1 mb-1" src="{{ asset('images/kategori-produk/paket_wisata.jpg') }}" style="width:85px; height:85px" alt="Card image cap">
                         <p class="card-text text-center">Paket Wisata</p>
                     </div>
                 </a>
