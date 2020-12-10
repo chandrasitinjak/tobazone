@@ -31,7 +31,15 @@ class BudayaController extends Controller
         $budaya->status = "ready";
         //file
         $file = $request->file('foto');
-        $gambar = $file->getClientOriginalName();
+        $length = 10;
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+
+        $gambar = $randomString.".jpg";
         $budaya->foto = $gambar;
 
         if ($budaya->save()) {
@@ -73,7 +81,7 @@ class BudayaController extends Controller
             //redirect ke route Budaya.index
 //            Alert::success('Success', $request->nama_budaya. ' berhasil diedit');
 
-            return redirect(route('Budaya.index'))->with(['success' => 'Budaya: ' . $request->nama_budaya . ' Diedit']);
+            return redirect(route('budaya.index'))->with(['success' => 'Budaya: ' . $request->nama_budaya . ' Diedit']);
         } catch (\Exception $e) {
             //jika gagal, redirect ke form yang sama lalu membuat flash message error
             return redirect()->back();

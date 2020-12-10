@@ -18,8 +18,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h3>Deskripsi</h3>
-                <p>{{$event->deskripsi}}</p>
+
+                <?php echo $event->deskripsi ?>
             </div>
         </div>
     </div>

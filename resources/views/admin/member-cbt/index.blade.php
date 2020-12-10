@@ -98,7 +98,7 @@
                                                         <div class="form-group">
                                                             <input name="komunitas" type="hidden" class="form-control"
                                                                    id="password"
-                                                                   aria-describedby="emailHelp" value="-">
+                                                                   aria-describedby="emailHelp" value="-" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="photo">Foto KTP</label>

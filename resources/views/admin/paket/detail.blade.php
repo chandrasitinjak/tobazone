@@ -8,6 +8,13 @@
         <div class="animated fadeIn">
             <div class="row">
                 <div class="col-lg-12">
+                    @if(session('error'))
+                        <div class="row danger bg-danger">
+                            <div class="col text-center m-2" >
+                                {{session('error')}}
+                            </div>
+                        </div>
+                    @endif
                     <div class="card">
                         <div class="card-header p-2">
                             <ul class="nav nav-pills">
