@@ -1,4 +1,4 @@
-@extends('users.informasi.app')
+@extends('users.layouts.app')
 @section('title') {{ "Transportasi" }}
 @endsection
 
@@ -13,10 +13,10 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block" style="height: 500px; width: 100%" src="https://asset.kompas.com/crops/SdpSgMncG5UN3aOjVZC3ApcEp0I=/1x0:1280x853/750x500/data/photo/2020/12/03/5fc8599878d07.jpeg" alt="First slide">
+                    <img class="d-block" style="height: 500px; width: 100%" src="https://cdn-2.tstatic.net/medan/foto/bank/images/tarik-magg.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" style="height: 500px; width: 100%" src="https://cache.jpnn.com/timthumb.php?src=https://photo.jpnn.com/arsip/watermark/2020/11/12/suzuki-carry-dengan-varian-minibus-foto-suzuki-indonesia-79.jpg&w=600&h=320&a=t&zc=0&q=80" alt="Second slide">
+                    <img class="d-block" style="height: 500px; width: 100%" src="https://cdn-2.tstatic.net/medan/foto/bank/images/tarik-magg.jpg" alt="Second slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -9,7 +9,7 @@
                 <span class="badge badge-light">{{$budaya->nama_budaya}}</span>
             </h1>
             <p class="mb-4">
-            <h4><span class="badge badge-warning">Kuliner</span></h4>
+            <h4><span class="badge badge-warning">Budaya</span></h4>
             </p>
         </div>
     </div>
@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-8">
                 <h3>Deskripsi</h3>
-                <p>{{$budaya->deskripsi}}</p>
+                <?php echo $budaya->deskripsi ?>
             </div>
             <div class="col-md-4">
 

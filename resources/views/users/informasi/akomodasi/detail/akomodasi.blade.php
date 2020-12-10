@@ -1,4 +1,4 @@
-@extends('users.informasi.app')
+@extends('users.layouts.app')
 @section('title') {{ "Detail Akomodasi" }}
 @endsection
 @section('content')
@@ -13,18 +13,16 @@
         </div>
     </div>
 
-    <div class="container">
         <div class="row">
             <div class="col-md-8">
                 <h3>Deskripsi</h3>
-                <p>{{$akomodasi->deskripsi}}</p>
+                <?php echo $akomodasi->deskripsi ?>
             </div>
             <div class="col-md-4">
                 <h3>Lokasi</h3><br>
                 <div id="map" style="height: 400px;width: 400px"></div>
             </div>
         </div>
-    </div>
 @endsection
 
 @section('js')
