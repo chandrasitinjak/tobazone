@@ -90428,7 +90428,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     role: "merchant"
                 };
 
-                console.log(payload);
+                // console.log(payload);
 
                 __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
                 window.axios.post("/register", payload).then(function () {
@@ -91616,6 +91616,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -91642,6 +91651,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
+        dismiss: function dismiss() {
+            __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("ADD_MERCHANT_MODAL_CLOSED", null);
+        },
         getCbt: function getCbt() {
             var _this = this;
 
@@ -91667,25 +91679,63 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             //     nomor_ktp: this.nomor_ktp,
             // };
 
-            var formData = new FormData();
-            formData.append("image", this.foto_ktp);
-            formData.append("nama_lengkap", this.nama_lengkap);
-            formData.append("nomor_wa", this.nomor_wa);
-            formData.append("nomor_hp", this.nomor_hp);
-            formData.append("email", this.email);
-            formData.append("kata_sandi", this.kata_sandi);
-            formData.append("komunitas", this.selected_komunitas);
-            formData.append("nomor_ktp", this.nomor_ktp);
+            this.$v.$touch();
+            if (!this.$v.$invalid) {
 
-            window.axios.post("/register-cbt", formData).then(function (rest) {
-                window.location = "/email-verify1";
-            }).catch(function (err) {
-                alert("Terjadi Kesalahan, Isi Semua Inputan");
-            });
+                var formData = new FormData();
+                formData.append("image", this.foto_ktp);
+                formData.append("nama_lengkap", this.nama_lengkap);
+                formData.append("nomor_wa", this.nomor_wa);
+                formData.append("nomor_hp", this.nomor_hp);
+                formData.append("email", this.email);
+                formData.append("kata_sandi", this.kata_sandi);
+                formData.append("komunitas", this.selected_komunitas);
+                formData.append("nomor_ktp", this.nomor_ktp);
+
+                __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
+
+                window.axios.post("/register-cbt", formData).then(function (rest) {
+                    window.location = "/email-verify1";
+                }).catch(function (err) {
+                    __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
+                });
+            }
         }
     },
 
-    validations: {},
+    validations: {
+        nama_lengkap: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        },
+        nomor_wa: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        },
+        nomor_hp: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        },
+        email: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        },
+        kata_sandi: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        },
+        kata_sandi_konfirmasi: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        },
+        komunitas: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        },
+        selected_komunitas: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        },
+        nomor_ktp: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        },
+        image: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        }
+
+    },
     mounted: function mounted() {
         this.getCbt();
     }
@@ -91722,20 +91772,59 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.nama_lengkap,
                     expression: "nama_lengkap"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.nama_lengkap.$model,
+                    expression: "$v.nama_lengkap.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.nama_lengkap.$error,
+                  "is-valid": !_vm.$v.nama_lengkap.$invalid
+                },
                 attrs: { type: "text" },
-                domProps: { value: _vm.nama_lengkap },
+                domProps: {
+                  value: _vm.nama_lengkap,
+                  value: _vm.$v.nama_lengkap.$model
+                },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.nama_lengkap,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.nama_lengkap = $event.target.value
                     }
-                    _vm.nama_lengkap = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.nama_lengkap.required
+                  ? _c("span", [_vm._v("nama lengkap tidak boleh kosong")])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [

@@ -9,7 +9,15 @@
 
                     <div class="form-group">
                         <label class="label">nama Lengkap</label>
-                        <input type="text" class="form-control form-control-sm" v-model="nama_lengkap"/>                        
+                        <input type="text" class="form-control form-control-sm" v-model="nama_lengkap"
+                        v-model.trim="$v.nama_lengkap.$model"
+                        :class="{'is-invalid':$v.nama_lengkap.$error, 'is-valid':!$v.nama_lengkap.$invalid }"
+                        />        
+
+                        <div class="valid-feedback">sudah valid</div>
+                        <div class="invalid-feedback">
+                            <span v-if="!$v.nama_lengkap.required">nama lengkap tidak boleh kosong</span>                            
+                        </div>                
                     </div>                                        
 
                     <div class="form-group">
@@ -63,12 +71,15 @@
 </template>
 
 <script>
+    
     import {
         required,
         minLength,
         email,
         sameAs
-    } from "vuelidate/lib/validators";
+    } 
+    
+    from "vuelidate/lib/validators";
     import EventBus from "../../eventBus";
     import spinner from "../Spinner";
 
@@ -92,6 +103,10 @@
             };  
         },
         methods: {
+
+            dismiss() {
+                EventBus.$emit("ADD_MERCHANT_MODAL_CLOSED", null);
+            },
 
             getCbt() {
                 window.axios
@@ -121,6 +136,9 @@
                 //     nomor_ktp: this.nomor_ktp,
                 // };
 
+                this.$v.$touch()
+                if (!this.$v.$invalid) {
+
                 const formData = new FormData();
                 formData.append("image", this.foto_ktp);
                 formData.append("nama_lengkap", this.nama_lengkap);
@@ -130,19 +148,53 @@
                 formData.append("kata_sandi", this.kata_sandi);
                 formData.append("komunitas", this.selected_komunitas);                
                 formData.append("nomor_ktp", this.nomor_ktp);    
+
+                EventBus.$emit("SPINNER", true);
                                                 
                 window.axios
                     .post("/register-cbt", formData)
                     .then(rest => {                        
                         window.location = "/email-verify1";
                     })
-                    .catch(err => {
-                         alert("Terjadi Kesalahan, Isi Semua Inputan");
+                    .catch(err => {                         
+                         EventBus.$emit("SPINNER", false);
                     })
+                }
             }
         },
 
-        validations: {            
+        validations: {                        
+            nama_lengkap: {
+                required,                
+            }, 
+            nomor_wa : {
+                required,    
+            },
+            nomor_hp : {
+                required,
+            },
+            email : {
+                required,
+            },
+            kata_sandi : {
+                required,
+            },
+            kata_sandi_konfirmasi : {
+                required,
+            },
+            komunitas : {
+                required,
+            },
+            selected_komunitas : {
+                required,
+            }, 
+            nomor_ktp : {
+                required,
+            }, 
+            image : {
+                required,
+            }, 
+
 
         },
         mounted() {
