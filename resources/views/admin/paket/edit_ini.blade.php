@@ -89,12 +89,12 @@
                                 <div class="mb-3" id="not_included_to_add">
 
                                 </div>
-                                <input type="number" id="jlh_not_included" name="jlh_not_included" value="<?= $cu ?>" hidden></input>
+                                <input type="number" id="jlh_not_included" name="jlh_not_included" value="<?= $cu ?>" hidden ></input>
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Edit</button>
+                                <button onclick="return confirm('Apakah data ini ingin diedit?')" type="submit" class="btn btn-primary">Edit</button>
                                 <a href="{{route('admin.paket.editChoice',$paket->id_paket)}}" class="btn btn-danger">Batal</a>
                             </div>
                         </form>
@@ -108,7 +108,7 @@
                                 var html = '';
                                 html += '<div class="row" id="item_included_'+ci+'">';
                                 html += '<div class="col-10"><br>';
-                                html += '<input type="text" class="form-control" name="included_'+ ci +'" id="included_'+ ci +'" placeholder="Included">';
+                                html += '<input type="text" class="form-control" name="included_'+ ci +'" id="included_'+ ci +'" placeholder="Included" required>';
                                 html += '</div>';
                                 html += '<div class="col-2"><br>';
                                 html += '<button type="button" onclick="removei()" class="btn btn-danger"><i class="fa fa-minus"></i></button>';
