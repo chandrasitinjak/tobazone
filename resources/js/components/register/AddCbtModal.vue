@@ -133,11 +133,11 @@
                                                 
                 window.axios
                     .post("/register-cbt", formData)
-                    .then(rest => {
-                        
+                    .then(rest => {                        
+                        window.location = "/email-verify1";
                     })
                     .catch(err => {
-                         console.log(err);
+                         alert("Terjadi Kesalahan, Isi Semua Inputan");
                     })
             }
         },
