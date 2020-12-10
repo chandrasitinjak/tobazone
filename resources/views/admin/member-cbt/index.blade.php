@@ -55,44 +55,44 @@
                                                             <input name="nama_lengkap" type="text" class="form-control"
                                                                    id="name"
                                                                    aria-describedby="emailHelp"
-                                                                   placeholder="Nama Anggota/Member">
+                                                                   placeholder="Nama Anggota/Member" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="no_wa">Nomor WhatsApp (WA)</label>
                                                             <input name="nomor_wa" type="text" class="form-control"
                                                                    id="no_WA"
                                                                    aria-describedby="emailHelp"
-                                                                   placeholder="Nomor WhatsApp (WA)">
+                                                                   placeholder="Nomor WhatsApp (WA)" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="no_HP">Nomor Telepon (Hp)</label>
                                                             <input name="nomor_hp" type="text" class="form-control"
                                                                    id="no_HP"
                                                                    aria-describedby="emailHelp"
-                                                                   placeholder="Nomor Telepon (Hp)">
+                                                                   placeholder="Nomor Telepon (Hp)" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="no_KTP">Nomor KTP </label>
                                                             <input name="nomor_ktp" type="text" class="form-control"
                                                                    id="no_KTP"
-                                                                   aria-describedby="emailHelp" placeholder="Nomor KTP">
+                                                                   aria-describedby="emailHelp" placeholder="Nomor KTP" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="email">Email</label>
                                                             <input name="email" type="email" class="form-control"
                                                                    id="email"
-                                                                   aria-describedby="emailHelp" placeholder="Email">
+                                                                   aria-describedby="emailHelp" placeholder="Email" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="password">Password</label>
                                                             <input name="kata_sandi" type="text" class="form-control"
                                                                    id="password"
-                                                                   aria-describedby="emailHelp" placeholder="Password">
+                                                                   aria-describedby="emailHelp" placeholder="Password" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <input name="komunitas" type="hidden" class="form-control"
                                                                    id="password"
-                                                                   aria-describedby="emailHelp" value="-">
+                                                                   aria-describedby="emailHelp" value="-" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="photo">Foto KTP</label>
@@ -100,7 +100,7 @@
                                                                 <div class="custom-file">
                                                                     <input name="image" type="file"
                                                                            class="custom-file-input"
-                                                                           id="exampleInputFile">
+                                                                           id="exampleInputFile" required>
                                                                     <label class="custom-file-label"
                                                                            for="exampleInputFile">Pilih file</label>
                                                                 </div>
