@@ -170,10 +170,10 @@
             <a href="{{ url('/product/ulos') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Ulos</a>
         </li>
         <li>
-            <a href="{{ route('paket') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Paket Wisata</a>
+            <a href="{{ route('paket') }}"><i class="bx bxs-image mr-3"></i> Paket Wisata</a>
         </li>
         <li>
-            <a href="{{ url('/user/homestays') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Homestay</a>
+            <a href="{{ url('/user/homestays') }}"><i class="bx bxs-home-smile mr-3"></i> Homestay</a>
         </li>
         <li class="dropdown" >
             <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -187,6 +187,9 @@
                 <a class="dropdown-item" href="{{ url('/informasi-transportasi') }}">Transportasi</a>
                 <a class="dropdown-item" href="{{ url('/informasi-budaya') }}">Budaya</a>
             </div>
+        </li>
+        <li>
+            <a href="https://tobazone-koperasi.herokuapp.com/#/register"><i class="bx bxs-store mr-3"></i> Koperasi</a>
         </li>
     </ul>
 </nav>
