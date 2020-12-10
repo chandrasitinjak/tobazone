@@ -70,7 +70,7 @@
                                     c++;
                                     var html = '';
                                     html += '<div class="row" id="new_layanan_'+c+'"><div class="col-md-10"><br>';
-                                    html += '<select class="form-control custom-select" name="layanan_'+c +'">';
+                                    html += '<select class="form-control custom-select" name="layanan_'+c +'" required>';
                                     html += '<option selected="" disabled="">Pilih Layanan Wisata</option><?php echo $options; ?>';
                                     html += '</select>';
                                     html += '</div>';

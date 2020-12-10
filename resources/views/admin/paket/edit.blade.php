@@ -67,7 +67,7 @@
                                         <div class="mb-3">
                                     <textarea class="textarea" id="deskripsi" name="deskripsi"
                                               placeholder="Deskripsi Paket"
-                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$paket->deskripsi_paket}}</textarea>
+                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required>{{$paket->deskripsi_paket}}</textarea>
                                             {{--                                        <p class="text-danger">{{$error->first('deskripsi')}}</p>--}}
                                         </div>
                                     </div>
@@ -76,7 +76,7 @@
                                         <div class="mb-3">
                                     <textarea class="textarea" name="rencana_perjalanan" id="rencana_perjalanan"
                                               placeholder="Rencana Perjalanan ( Itinerary )"
-                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$paket->rencana_perjalanan}}</textarea>
+                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required>{{$paket->rencana_perjalanan}}</textarea>
                                             {{--                                        <p class="text-danger">{{$error->first('rencana-perjalanan')}}</p>--}}
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@
                                         <label for="tambahan">Tambahan</label>
                                         <div class="mb-3">
                                     <textarea class="textarea" name="tambahan" id="tambahan" placeholder="Tambahan"
-                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$paket->tambahan}}</textarea>
+                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"required>{{$paket->tambahan}}</textarea>
                                             {{--                                        <p class="text-danger">{{$error->first('tambahan')}}</p>--}}
                                         </div>
                                     </div>
@@ -102,7 +102,7 @@
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="gambar" id="gambar"
-                                                >
+                                                       required>
                                                 <label class="custom-file-label" for="gambar">Choose file</label>
                                             </div>
 
