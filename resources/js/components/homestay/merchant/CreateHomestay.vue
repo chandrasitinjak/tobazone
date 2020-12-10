@@ -36,33 +36,62 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Jumlah Kamar
+                        <label class="col-sm-3 col-form-label">Kamar Homestay
                             <span
                                 class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                         </label>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control" v-model="totalRoom"
-                                   aria-describedby="namaprodukhelp" min="1" name="stock">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Jumlah Kamar Tersedia
-                            <span
-                                class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
+                    <div class="form-group row" v-for="(experience, index) in workExperiences" :key="index">
+                        <label class="col-sm-3 col-form-label">
                         </label>
-                        <div class="col-sm-9">
-                            <input type="number" class="form-control" v-model="roomAvailable"
-                                   aria-describedby="namaprodukhelp" min="0" name="stock">
+                        <div class="form-group row col-sm-9" >
+                            <div class="form-group col-md-3">
+                                <label>Kategori</label>
+                                <input v-model="experience.kategori" :name="`workExperiences[${index}][company]`" type="text" class="form-control" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label>Fasilitas</label>
+                                <input v-model="experience.fasilitas" :name="`workExperiences[${index}][title]`" type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label>Harga</label>
+                                <input v-model="experience.harga" :name="`workExperiences[${index}][title]`" type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label>Total Kasur</label>
+                                <input v-model="experience.totalBed" :name="`workExperiences[${index}][title]`" type="text" class="form-control" >
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label>Tambahan Kasur</label>
+                                <input v-model="experience.isExtraBed" :name="`workExperiences[${index}][title]`" type="text" class="form-control" >
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        {{kamar}}
+                    <div class="form-group" align="right">
+                        <button @click="addKamar" type="button" class="btn btn-secondary">Tambah Kamar</button>
+                        <button @click="removeKamar" type="button" class="btn btn-secondary">Hapus Kamar</button>
                     </div>
-                    <div align="right">
-                        <button class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModal"><i class="fa fa-plus"></i> Tambah
-                        </button>
-                    </div>
+                    <br>
+<!--                    <div class="form-group row">-->
+<!--                        <label class="col-sm-3 col-form-label">Jumlah Kamar Tersedia-->
+<!--                            <span-->
+<!--                                class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>-->
+<!--                        </label>-->
+<!--                        <div class="col-sm-9">-->
+<!--                            <input type="number" class="form-control" v-model="roomAvailable"-->
+<!--                                   aria-describedby="namaprodukhelp" min="0" name="stock">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        {{kamar}}-->
+<!--                    </div>-->
+<!--                    <div align="right">-->
+<!--                        <button class="btn btn-primary" data-toggle="modal"-->
+<!--                                data-target="#exampleModal"><i class="fa fa-plus"></i> Tambah-->
+<!--                        </button>-->
+<!--                    </div>-->
                     <div
                         class="modal fade"
                         id="exampleModal"
@@ -284,10 +313,32 @@
                     selectedCity: "",
                     selectedProvince: "",
                     selectedSubdistrict: ""
-                }
+                },
+                workExperiences: [
+                    {
+                        kategori: '',
+                        fasilitas: '',
+                        harga: '',
+                        totalBed: '',
+                        isExtraBed: ''
+                    },
+
+                ]
             };
         },
         methods: {
+            addKamar() {
+                this.workExperiences.push({
+                    kategori: '',
+                    fasilitas: '',
+                    harga: '',
+                    totalBed: '',
+                    isExtraBed: ''
+                })
+            },
+            removeKamar() {
+                this.workExperiences.pop();
+            },
             getCategories(){
                 window.axios
                     .get("/api/homestay/room-categories")
@@ -346,12 +397,11 @@
                 reader.readAsDataURL(file);
             },
             save() {
-                console.log(this.image)
                 window.axios
                     .post("/homestays/save",{
                         'name': this.name,
                         'price':this.price,
-                        'totalRoom':this.totalRoom,
+                        'totalRoom':this.workExperiences.length,
                         'roomAvailable':this.roomAvailable,
                         'description':this.description,
                         'address':this.address,
@@ -361,7 +411,15 @@
                         'image': this.image
                     })
                     .then(res => {
-                        alert("Tambah Penginapan Sukses");
+                        for(let i=0 ; i<this.workExperiences.length ; i++){
+                            alert(this.workExperiences[i].kategori)
+                            window.axios
+                                .post("/homestay/room/store",{
+                                    'description':this.workExperiences[i].kategori
+                                }).then(res=>{
+
+                            })
+                        }
                         window.location.href="/merchant/homestay/findAll";
                     })
                     .catch(err => {

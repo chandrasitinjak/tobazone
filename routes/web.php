@@ -350,6 +350,10 @@ Route::get('/merchant/homestay/orders', 'HomestayController@findAllMerchantOrder
 Route::get('/homestays/save', 'HomestayController@store');
 Route::get('/homestays/findAllMyHomestay', 'HomestayController@findAllMerchantHomestay');
 
+//Homestay Rooms
+Route::post('homestay/room/store','HomestayController@saveRooms');
+
+
 // Display all homestay orders of a customer.
 Route::get('/user/homestay/order/findAll', 'HomestayController@findAllCustomerOrder');
 // Display detail of a customer's homestay order.

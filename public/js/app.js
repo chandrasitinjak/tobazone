@@ -5621,6 +5621,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5652,10 +5681,29 @@ __webpack_require__.r(__webpack_exports__);
         selectedCity: "",
         selectedProvince: "",
         selectedSubdistrict: ""
-      }
+      },
+      workExperiences: [{
+        kategori: '',
+        fasilitas: '',
+        harga: '',
+        totalBed: '',
+        isExtraBed: ''
+      }]
     };
   },
   methods: {
+    addKamar: function addKamar() {
+      this.workExperiences.push({
+        kategori: '',
+        fasilitas: '',
+        harga: '',
+        totalBed: '',
+        isExtraBed: ''
+      });
+    },
+    removeKamar: function removeKamar() {
+      this.workExperiences.pop();
+    },
     getCategories: function getCategories() {
       var _this = this;
 
@@ -5712,11 +5760,12 @@ __webpack_require__.r(__webpack_exports__);
       reader.readAsDataURL(file);
     },
     save: function save() {
-      console.log(this.image);
+      var _this4 = this;
+
       window.axios.post("/homestays/save", {
         'name': this.name,
         'price': this.price,
-        'totalRoom': this.totalRoom,
+        'totalRoom': this.workExperiences.length,
         'roomAvailable': this.roomAvailable,
         'description': this.description,
         'address': this.address,
@@ -5725,7 +5774,13 @@ __webpack_require__.r(__webpack_exports__);
         'desa': '',
         'image': this.image
       }).then(function (res) {
-        alert("Tambah Penginapan Sukses");
+        for (var i = 0; i < _this4.workExperiences.length; i++) {
+          alert(_this4.workExperiences[i].kategori);
+          window.axios.post("/homestay/room/store", {
+            'description': _this4.workExperiences[i].kategori
+          }).then(function (res) {});
+        }
+
         window.location.href = "/merchant/homestay/findAll";
       })["catch"](function (err) {
         console.log(err);
@@ -77902,552 +77957,687 @@ var render = function() {
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
-          _c("form", { staticClass: "form-group", on: { submit: _vm.save } }, [
-            _c("div", { staticClass: "form-group row" }, [
-              _c("div", { staticClass: "input-group mb-3" }, [
-                _vm._m(0),
+          _c(
+            "form",
+            { staticClass: "form-group", on: { submit: _vm.save } },
+            [
+              _c("div", { staticClass: "form-group row" }, [
+                _c("div", { staticClass: "input-group mb-3" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-9" }, [
+                    _vm.image
+                      ? _c("div", { staticClass: "col-md-3" }, [
+                          _c("img", {
+                            staticClass: "img-responsive",
+                            attrs: { src: _vm.image, height: "70", width: "90" }
+                          })
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c("input", {
+                        attrs: { type: "file" },
+                        on: { change: _vm.onImageChange }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("br")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _vm._m(1),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-9" }, [
-                  _vm.image
-                    ? _c("div", { staticClass: "col-md-3" }, [
-                        _c("img", {
-                          staticClass: "img-responsive",
-                          attrs: { src: _vm.image, height: "70", width: "90" }
-                        })
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("input", {
-                      attrs: { type: "file" },
-                      on: { change: _vm.onImageChange }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("br")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-9" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.name,
-                      expression: "name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    "aria-describedby": "namaprodukhelp",
-                    name: "name"
-                  },
-                  domProps: { value: _vm.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.name,
+                        expression: "name"
                       }
-                      _vm.name = $event.target.value
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      "aria-describedby": "namaprodukhelp",
+                      name: "name"
+                    },
+                    domProps: { value: _vm.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.name = $event.target.value
+                      }
                     }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
+                  })
+                ])
+              ]),
+              _vm._v(" "),
               _vm._m(2),
               _vm._v(" "),
-              _c("div", { staticClass: "col-sm-9" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.totalRoom,
-                      expression: "totalRoom"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "number",
-                    "aria-describedby": "namaprodukhelp",
-                    min: "1",
-                    name: "stock"
-                  },
-                  domProps: { value: _vm.totalRoom },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.totalRoom = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _vm._m(3),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-9" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.roomAvailable,
-                      expression: "roomAvailable"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "number",
-                    "aria-describedby": "namaprodukhelp",
-                    min: "0",
-                    name: "stock"
-                  },
-                  domProps: { value: _vm.roomAvailable },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.roomAvailable = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.kamar) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(4),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "modal fade",
-                attrs: {
-                  id: "exampleModal",
-                  tabindex: "-1",
-                  role: "dialog",
-                  "aria-labelledby": "exampleModalLabel",
-                  "aria-hidden": "true"
-                }
-              },
-              [
-                _c(
+              _vm._l(_vm.workExperiences, function(experience, index) {
+                return _c(
                   "div",
-                  {
-                    staticClass: "modal-dialog modal-dialog-centered",
-                    attrs: { role: "document" }
-                  },
+                  { key: index, staticClass: "form-group row" },
                   [
-                    _c(
-                      "div",
-                      { staticClass: "modal-content" },
-                      [
-                        _c("spinner"),
+                    _c("label", { staticClass: "col-sm-3 col-form-label" }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row col-sm-9" }, [
+                      _c("div", { staticClass: "form-group col-md-3" }, [
+                        _c("label", [_vm._v("Kategori")]),
                         _vm._v(" "),
-                        _vm._m(5),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: experience.kategori,
+                              expression: "experience.kategori"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "workExperiences[" + index + "][company]",
+                            type: "text"
+                          },
+                          domProps: { value: experience.kategori },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                experience,
+                                "kategori",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group col-md-3" }, [
+                        _c("label", [_vm._v("Fasilitas")]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "modal-body" }, [
-                          _c("div", { staticClass: "form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: experience.fasilitas,
+                              expression: "experience.fasilitas"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "workExperiences[" + index + "][title]",
+                            type: "text"
+                          },
+                          domProps: { value: experience.fasilitas },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                experience,
+                                "fasilitas",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group col-md-2" }, [
+                        _c("label", [_vm._v("Harga")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: experience.harga,
+                              expression: "experience.harga"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "workExperiences[" + index + "][title]",
+                            type: "text"
+                          },
+                          domProps: { value: experience.harga },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(experience, "harga", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group col-md-2" }, [
+                        _c("label", [_vm._v("Total Kasur")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: experience.totalBed,
+                              expression: "experience.totalBed"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "workExperiences[" + index + "][title]",
+                            type: "text"
+                          },
+                          domProps: { value: experience.totalBed },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                experience,
+                                "totalBed",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group col-md-2" }, [
+                        _c("label", [_vm._v("Tambahan Kasur")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: experience.isExtraBed,
+                              expression: "experience.isExtraBed"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "workExperiences[" + index + "][title]",
+                            type: "text"
+                          },
+                          domProps: { value: experience.isExtraBed },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                experience,
+                                "isExtraBed",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  ]
+                )
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group", attrs: { align: "right" } },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button" },
+                      on: { click: _vm.addKamar }
+                    },
+                    [_vm._v("Tambah Kamar")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button" },
+                      on: { click: _vm.removeKamar }
+                    },
+                    [_vm._v("Hapus Kamar")]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "modal fade",
+                  attrs: {
+                    id: "exampleModal",
+                    tabindex: "-1",
+                    role: "dialog",
+                    "aria-labelledby": "exampleModalLabel",
+                    "aria-hidden": "true"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal-dialog modal-dialog-centered",
+                      attrs: { role: "document" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "modal-content" },
+                        [
+                          _c("spinner"),
+                          _vm._v(" "),
+                          _vm._m(3),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-body" }, [
+                            _c("div", { staticClass: "form-group" }, [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "small",
+                                  attrs: { for: "namapengirim" }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                                Kategori Kamar"
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.rooms.kategoriSelected,
+                                      expression: "rooms.kategoriSelected"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    id: "namapengirim",
+                                    "aria-describedby": "emailHelp",
+                                    placeholder: "Nama Pengirim",
+                                    required: ""
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.rooms,
+                                        "kategoriSelected",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
+                                _vm._l(_vm.kategori, function(data, index) {
+                                  return _c(
+                                    "option",
+                                    { key: index, domProps: { value: data } },
+                                    [
+                                      _vm._v(
+                                        _vm._s(data.category_name) +
+                                          "\n                                                "
+                                      )
+                                    ]
+                                  )
+                                }),
+                                0
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "valid-feedback" }, [
+                                _vm._v("sudah valid")
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(4),
+                            _vm._v(" "),
+                            _vm._m(5),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
+                            _vm._m(6)
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-footer" }, [
                             _c(
-                              "label",
+                              "a",
                               {
-                                staticClass: "small",
-                                attrs: { for: "namapengirim" }
+                                staticClass: "btn btn-secondary close",
+                                attrs: { "data-dismiss": "modal" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.addRooms(1)
+                                  }
+                                }
                               },
                               [
                                 _vm._v(
-                                  "\n                                            Kategori Kamar"
+                                  "Unggah\n                                        "
                                 )
                               ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "select",
-                              {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.rooms.kategoriSelected,
-                                    expression: "rooms.kategoriSelected"
-                                  }
-                                ],
-                                staticClass: "form-control",
-                                attrs: {
-                                  id: "namapengirim",
-                                  "aria-describedby": "emailHelp",
-                                  placeholder: "Nama Pengirim",
-                                  required: ""
-                                },
-                                on: {
-                                  change: function($event) {
-                                    var $$selectedVal = Array.prototype.filter
-                                      .call($event.target.options, function(o) {
-                                        return o.selected
-                                      })
-                                      .map(function(o) {
-                                        var val =
-                                          "_value" in o ? o._value : o.value
-                                        return val
-                                      })
-                                    _vm.$set(
-                                      _vm.rooms,
-                                      "kategoriSelected",
-                                      $event.target.multiple
-                                        ? $$selectedVal
-                                        : $$selectedVal[0]
-                                    )
-                                  }
-                                }
-                              },
-                              _vm._l(_vm.kategori, function(data, index) {
-                                return _c(
-                                  "option",
-                                  { key: index, domProps: { value: data } },
-                                  [
-                                    _vm._v(
-                                      _vm._s(data.category_name) +
-                                        "\n                                            "
-                                    )
-                                  ]
-                                )
-                              }),
-                              0
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "valid-feedback" }, [
-                              _vm._v("sudah valid")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(6),
-                          _vm._v(" "),
-                          _vm._m(7),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(" "),
-                          _vm._m(8)
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "modal-footer" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-secondary close",
-                              attrs: { "data-dismiss": "modal" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.addRooms(1)
-                                }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "Unggah\n                                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _vm._m(9),
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]
+              ),
               _vm._v(" "),
-              _c("div", { staticClass: "col-sm-9" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.price,
-                      expression: "price"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "number",
-                    "aria-describedby": "namaprodukhelp",
-                    min: "1",
-                    name: "price"
-                  },
-                  domProps: { value: _vm.price },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.price = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _vm._m(10),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-9" }, [
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.description,
-                      expression: "description"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    rows: "10",
-                    "aria-describedby": "namaprodukhelp",
-                    name: "description"
-                  },
-                  domProps: { value: _vm.description },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.description = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _vm._m(11),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-9" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.address,
-                      expression: "address"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    "aria-describedby": "namaprodukhelp",
-                    min: "1",
-                    name: "product_origin"
-                  },
-                  domProps: { value: _vm.address },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.address = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _vm._m(12),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-9" }, [
-                _c(
-                  "select",
-                  {
+              _c("div", { staticClass: "form-group row" }, [
+                _vm._m(7),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-9" }, [
+                  _c("input", {
                     directives: [
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.userMerchant.selectedCity,
-                        expression: "userMerchant.selectedCity"
-                      },
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.$v.userMerchant.selectedCity.$model,
-                        expression: "$v.userMerchant.selectedCity.$model",
-                        modifiers: { trim: true }
+                        value: _vm.price,
+                        expression: "price"
                       }
                     ],
                     staticClass: "form-control",
-                    class: {
-                      "is-invalid": _vm.$v.userMerchant.selectedCity.$error,
-                      "is-valid": !_vm.$v.userMerchant.selectedCity.$invalid
+                    attrs: {
+                      type: "number",
+                      "aria-describedby": "namaprodukhelp",
+                      min: "1",
+                      name: "price"
                     },
+                    domProps: { value: _vm.price },
                     on: {
-                      change: [
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.$v.userMerchant.selectedCity,
-                            "$model",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        },
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.userMerchant,
-                            "selectedCity",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        },
-                        _vm.getSubdistricts
-                      ]
-                    }
-                  },
-                  _vm._l(_vm.cities, function(city) {
-                    return _c(
-                      "option",
-                      { key: city.name, domProps: { value: city } },
-                      [
-                        _vm._v(
-                          _vm._s(city.name) + "\n                            "
-                        )
-                      ]
-                    )
-                  }),
-                  0
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _vm._m(13),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-9" }, [
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.userMerchant.selectedSubdistrict,
-                        expression: "userMerchant.selectedSubdistrict"
-                      },
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.$v.userMerchant.selectedSubdistrict.$model,
-                        expression:
-                          "$v.userMerchant.selectedSubdistrict.$model",
-                        modifiers: { trim: true }
-                      }
-                    ],
-                    staticClass: "form-control",
-                    class: {
-                      "is-invalid":
-                        _vm.$v.userMerchant.selectedSubdistrict.$error,
-                      "is-valid": !_vm.$v.userMerchant.selectedSubdistrict
-                        .$invalid
-                    },
-                    on: {
-                      change: [
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.$v.userMerchant.selectedSubdistrict,
-                            "$model",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        },
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.userMerchant,
-                            "selectedSubdistrict",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
                         }
-                      ]
+                        _vm.price = $event.target.value
+                      }
                     }
-                  },
-                  _vm._l(_vm.subdistricts, function(subdistrict) {
-                    return _c(
-                      "option",
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _vm._m(8),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-9" }, [
+                  _c("textarea", {
+                    directives: [
                       {
-                        key: subdistrict.subdistrict_name,
-                        domProps: { value: subdistrict }
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.description,
+                        expression: "description"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      rows: "10",
+                      "aria-describedby": "namaprodukhelp",
+                      name: "description"
+                    },
+                    domProps: { value: _vm.description },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.description = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _vm._m(9),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-9" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.address,
+                        expression: "address"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      "aria-describedby": "namaprodukhelp",
+                      min: "1",
+                      name: "product_origin"
+                    },
+                    domProps: { value: _vm.address },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.address = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _vm._m(10),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-9" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.userMerchant.selectedCity,
+                          expression: "userMerchant.selectedCity"
+                        },
+                        {
+                          name: "model",
+                          rawName: "v-model.trim",
+                          value: _vm.$v.userMerchant.selectedCity.$model,
+                          expression: "$v.userMerchant.selectedCity.$model",
+                          modifiers: { trim: true }
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: {
+                        "is-invalid": _vm.$v.userMerchant.selectedCity.$error,
+                        "is-valid": !_vm.$v.userMerchant.selectedCity.$invalid
                       },
-                      [
-                        _vm._v(
-                          "\n                                " +
-                            _vm._s(subdistrict.subdistrict_name) +
-                            "\n                            "
-                        )
-                      ]
-                    )
-                  }),
-                  0
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._m(14)
-          ]),
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.$v.userMerchant.selectedCity,
+                              "$model",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.userMerchant,
+                              "selectedCity",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          _vm.getSubdistricts
+                        ]
+                      }
+                    },
+                    _vm._l(_vm.cities, function(city) {
+                      return _c(
+                        "option",
+                        { key: city.name, domProps: { value: city } },
+                        [
+                          _vm._v(
+                            _vm._s(city.name) +
+                              "\n                                "
+                          )
+                        ]
+                      )
+                    }),
+                    0
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _vm._m(11),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-9" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.userMerchant.selectedSubdistrict,
+                          expression: "userMerchant.selectedSubdistrict"
+                        },
+                        {
+                          name: "model",
+                          rawName: "v-model.trim",
+                          value: _vm.$v.userMerchant.selectedSubdistrict.$model,
+                          expression:
+                            "$v.userMerchant.selectedSubdistrict.$model",
+                          modifiers: { trim: true }
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: {
+                        "is-invalid":
+                          _vm.$v.userMerchant.selectedSubdistrict.$error,
+                        "is-valid": !_vm.$v.userMerchant.selectedSubdistrict
+                          .$invalid
+                      },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.$v.userMerchant.selectedSubdistrict,
+                              "$model",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.userMerchant,
+                              "selectedSubdistrict",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        ]
+                      }
+                    },
+                    _vm._l(_vm.subdistricts, function(subdistrict) {
+                      return _c(
+                        "option",
+                        {
+                          key: subdistrict.subdistrict_name,
+                          domProps: { value: subdistrict }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    " +
+                              _vm._s(subdistrict.subdistrict_name) +
+                              "\n                                "
+                          )
+                        ]
+                      )
+                    }),
+                    0
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(12)
+            ],
+            2
+          ),
           _vm._v(" "),
           _c(
             "button",
@@ -78457,7 +78647,7 @@ var render = function() {
               attrs: { type: "submit" },
               on: { click: _vm.save }
             },
-            [_vm._v("Simpan\n            ")]
+            [_vm._v("Simpan\n                ")]
           )
         ])
       ])
@@ -78472,7 +78662,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { staticClass: "col-sm-3 col-form-label" }, [
       _vm._v(
-        "\n                            Gambar Homestay\n                            "
+        "\n                                Gambar Homestay\n                                "
       ),
       _c(
         "span",
@@ -78489,7 +78679,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-      _vm._v("Nama Homestay\n                        "),
+      _vm._v("Nama Homestay\n                            "),
       _c(
         "span",
         {
@@ -78504,50 +78694,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-      _vm._v("Jumlah Kamar\n                        "),
-      _c(
-        "span",
-        {
-          staticClass:
-            "formbadge text-muted badge badge-secondary font-weight-light"
-        },
-        [_vm._v("Wajib")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-      _vm._v("Jumlah Kamar Tersedia\n                        "),
-      _c(
-        "span",
-        {
-          staticClass:
-            "formbadge text-muted badge badge-secondary font-weight-light"
-        },
-        [_vm._v("Wajib")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { align: "right" } }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary",
-          attrs: { "data-toggle": "modal", "data-target": "#exampleModal" }
-        },
-        [
-          _c("i", { staticClass: "fa fa-plus" }),
-          _vm._v(" Tambah\n                    ")
-        ]
-      )
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("label", { staticClass: "col-sm-3 col-form-label" }, [
+        _vm._v("Kamar Homestay\n                            "),
+        _c(
+          "span",
+          {
+            staticClass:
+              "formbadge text-muted badge badge-secondary font-weight-light"
+          },
+          [_vm._v("Wajib")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-9" })
     ])
   },
   function() {
@@ -78558,7 +78718,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Tambah Kamar\n                                    ")]
+        [_vm._v("Tambah Kamar\n                                        ")]
       ),
       _vm._v(" "),
       _c(
@@ -78581,7 +78741,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
       _c("label", { staticClass: "small", attrs: { for: "Jumlah Kasur" } }, [
-        _vm._v("\n                                           Jumlah Kasur")
+        _vm._v("\n                                               Jumlah Kasur")
       ]),
       _vm._v(" "),
       _c("input", {
@@ -78605,7 +78765,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
       _c("label", { staticClass: "small", attrs: { for: "utkbank" } }, [
-        _vm._v("Bank\n                                            Tujuan")
+        _vm._v("Bank\n                                                Tujuan")
       ]),
       _vm._v(" "),
       _c("br"),
@@ -78638,7 +78798,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "form-group" }, [
       _c("label", { staticClass: "col-form-label" }, [
         _vm._v(
-          "Gambar Kamar (\n                                            jpg/jpeg/png )"
+          "Gambar Kamar (\n                                                jpg/jpeg/png )"
         )
       ]),
       _vm._v(" "),
@@ -78665,7 +78825,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-      _vm._v("Harga Kamar/malam\n                        "),
+      _vm._v("Harga Kamar/malam\n                            "),
       _c(
         "span",
         {
@@ -78681,7 +78841,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-      _vm._v("Deskripsi Homestay\n                        "),
+      _vm._v("Deskripsi Homestay\n                            "),
       _c(
         "span",
         {
@@ -78697,7 +78857,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-      _vm._v("Alamat Homestay\n                        "),
+      _vm._v("Alamat Homestay\n                            "),
       _c(
         "span",
         {
@@ -78713,7 +78873,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-      _vm._v("Kabupaten\n                        "),
+      _vm._v("Kabupaten\n                            "),
       _c(
         "span",
         {
@@ -78729,7 +78889,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-      _vm._v("Kecamatan\n                        "),
+      _vm._v("Kecamatan\n                            "),
       _c(
         "span",
         {

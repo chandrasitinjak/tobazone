@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Homestay;
+use App\HomestayRooms;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -154,8 +155,8 @@ class HomestayController extends Controller
         $homestay = new Homestay();
         $homestay->name = ($request->get('name'));
         $homestay->price = $request->price;
-        $homestay->total_room = $request->totalRoom;
-        $homestay->room_available = $request->roomAvailable;
+        $homestay->total_room = 2;
+        $homestay->room_available = 2;
         $homestay->description = $request->description;
         $homestay->image = $rand . '.png';
         $homestay->address = $request->address;
@@ -165,6 +166,14 @@ class HomestayController extends Controller
         $homestay->merchant_id = Auth::user()->id;
         $homestay->save();
         return redirect('/merchant')->with('success', 'Product created successfully.');
+    }
+
+    public function saveRooms(Request $request){
+        $homestay= Homestay::where('merchant_id',Auth::user()->id)->latest('created_at')->first();
+        $rooms = new HomestayRooms();
+        $rooms->id_homestay = $homestay->id;
+        $rooms->kategori = Auth::user()->id;
+        $rooms->save();
     }
 
 
