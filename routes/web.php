@@ -175,6 +175,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
         Route::get('/admin/new-order/order-detail', 'OrderController@detailOrder');
         Route::get('/admin/list-merchant', 'MerchantController@listMerchant');
+        Route::get('/admin/list-user', 'MerchantController@listUser');        
         Route::get('/admin/list-merchant/merchant-detail/{id}', 'MerchantController@detailMerchant');
         Route::get('/admin/new-order-detail/{id}', 'TransactionController@getTransactionDetail');
         Route::get('/admin/unpaid-order-detail/{id}', 'TransactionController@getUnpaidTransactionDetail');
@@ -461,3 +462,7 @@ Route::get('informasi-budaya', 'BudayaController@displayBudaya');
 Route::get('/Kab/Information/Budaya/{id}', 'BudayaController@displayDetailBudaya');
 Route::get('informasi-transportasi', 'TransportasiController@displayTransportasi');
 Route::get('/Kab/Information/Transportasi/{id}', 'TransportasiController@displayDetailTransportasi');
+
+Route::get('/email-verify1', function () {
+    return view('auth.verify1');
+});

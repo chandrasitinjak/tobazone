@@ -110,6 +110,8 @@ class RegisterController extends Controller
         $email_cbt = $request->email;
 
         Mail::to($email_cbt)->send(new RegisterCbt());
+
+        return $user;
     }
 
     public function registerCbtAdmin(Request $request){

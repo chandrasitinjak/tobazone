@@ -91677,8 +91677,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             formData.append("komunitas", this.selected_komunitas);
             formData.append("nomor_ktp", this.nomor_ktp);
 
-            window.axios.post("/register-cbt", formData).then(function (rest) {}).catch(function (err) {
-                console.log(err);
+            window.axios.post("/register-cbt", formData).then(function (rest) {
+                window.location = "/email-verify1";
+            }).catch(function (err) {
+                alert("Terjadi Kesalahan, Isi Semua Inputan");
             });
         }
     },
