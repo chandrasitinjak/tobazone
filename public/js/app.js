@@ -91624,6 +91624,62 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -91668,6 +91724,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.image = URL.createObjectURL(this.foto_ktp);
         },
         addCbt: function addCbt() {
+            var _this2 = this;
+
             // let payload = {                    
             //     nama_lengkap: this.nama_lengkap,                    
             //     nomor_wa: this.nomor_wa,
@@ -91693,11 +91751,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 formData.append("nomor_ktp", this.nomor_ktp);
 
                 __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
-
                 window.axios.post("/register-cbt", formData).then(function (rest) {
                     window.location = "/email-verify1";
                 }).catch(function (err) {
                     __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
+
+                    var customerAttributes = {
+                        "nama_lengkap": "Nama Lengkap",
+                        "nomor_wa": "nomor WA",
+                        "nomor_hp": "nomor HP",
+                        "email": "Email",
+                        "kata_sandi": "Kata Sandi",
+                        "kata_sandi_konfirmasi": "Konfirmasi Kata Sandi",
+                        "nomor_ktp": "Nomor KTP",
+                        "selected_komunitas": "Komunitas"
+                    };
+
+                    var errMessage = "Terjadi kesalahan.";
+                    if (err.response.status == 422) {
+                        var errKeys = Object.keys(err.response.data.errors);
+                        var errKey = "";
+                        if (errKeys.length > 0) {
+                            errKey = errKeys[0];
+                        }
+
+                        errMessage = "Data yang diberikan tidak valid.";
+
+                        if (errKey != "") {
+                            if (errKey == "email" /*|| errKey == "username"*/) {
+                                    errMessage = errMessage + " " + customerAttributes[errKey] + " tidak valid atau telah terdaftar.";
+                                } else {
+                                errMessage = customerAttributes[errKey] + " tidak valid.";
+                            }
+                        }
+                    }
+
+                    _this2.$swal({
+                        title: "Pendaftaran Gagal",
+                        icon: "error",
+                        text: errMessage
+                    });
                 });
             }
         }
@@ -91714,24 +91807,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
         },
         email: {
-            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"],
+            email: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["email"]
         },
         kata_sandi: {
-            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"],
+            minLength: Object(__WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["minLength"])(8)
         },
         kata_sandi_konfirmasi: {
-            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
-        },
-        komunitas: {
-            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"],
+            sameAsPassword: Object(__WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["sameAs"])("kata_sandi")
         },
         selected_komunitas: {
             required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
         },
         nomor_ktp: {
-            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
-        },
-        image: {
             required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
         }
 
@@ -91837,20 +91927,59 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.nomor_wa,
                     expression: "nomor_wa"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.nomor_wa.$model,
+                    expression: "$v.nomor_wa.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.nomor_wa.$error,
+                  "is-valid": !_vm.$v.nomor_wa.$invalid
+                },
                 attrs: { type: "number" },
-                domProps: { value: _vm.nomor_wa },
+                domProps: {
+                  value: _vm.nomor_wa,
+                  value: _vm.$v.nomor_wa.$model
+                },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.nomor_wa,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.nomor_wa = $event.target.value
                     }
-                    _vm.nomor_wa = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.nomor_wa.required
+                  ? _c("span", [_vm._v("nomor WA tidak boleh kosong")])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -91865,20 +91994,59 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.nomor_hp,
                     expression: "nomor_hp"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.nomor_hp.$model,
+                    expression: "$v.nomor_hp.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.nomor_hp.$error,
+                  "is-valid": !_vm.$v.nomor_hp.$invalid
+                },
                 attrs: { type: "number" },
-                domProps: { value: _vm.nomor_hp },
+                domProps: {
+                  value: _vm.nomor_hp,
+                  value: _vm.$v.nomor_hp.$model
+                },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.nomor_hp,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.nomor_hp = $event.target.value
                     }
-                    _vm.nomor_hp = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.nomor_hp.required
+                  ? _c("span", [_vm._v("nomor Handphone tidak boleh kosong")])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -91891,20 +92059,64 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.email,
                     expression: "email"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.email.$model,
+                    expression: "$v.email.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.email.$error,
+                  "is-valid": !_vm.$v.email.$invalid
+                },
                 attrs: { type: "email" },
-                domProps: { value: _vm.email },
+                domProps: { value: _vm.email, value: _vm.$v.email.$model },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.email,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
                     }
-                    _vm.email = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.email.required
+                  ? _c("span", [_vm._v("Email tidak boleh kosong")])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.$v.email.email
+                  ? _c("span", [
+                      _vm._v(
+                        "Masukkan email dengan format\n                                    example@mail.com"
+                      )
+                    ])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -91917,20 +92129,63 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.kata_sandi,
                     expression: "kata_sandi"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.kata_sandi.$model,
+                    expression: "$v.kata_sandi.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.kata_sandi.$error,
+                  "is-valid": !_vm.$v.kata_sandi.$invalid
+                },
                 attrs: { type: "password" },
-                domProps: { value: _vm.kata_sandi },
+                domProps: {
+                  value: _vm.kata_sandi,
+                  value: _vm.$v.kata_sandi.$model
+                },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.kata_sandi,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.kata_sandi = $event.target.value
                     }
-                    _vm.kata_sandi = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("Kata Sandi sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.kata_sandi.required
+                  ? _c("span", [_vm._v("Kata Sandi tidak boleh kosong")])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.$v.kata_sandi.mingLength
+                  ? _c("span", [_vm._v("Kata Sandi minimal 8 karakter")])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -91945,20 +92200,63 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.kata_sandi_konfirmasi,
                     expression: "kata_sandi_konfirmasi"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.kata_sandi_konfirmasi.$model,
+                    expression: "$v.kata_sandi_konfirmasi.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.kata_sandi_konfirmasi.$error,
+                  "is-valid": !_vm.$v.kata_sandi_konfirmasi.$invalid
+                },
                 attrs: { type: "password" },
-                domProps: { value: _vm.kata_sandi_konfirmasi },
+                domProps: {
+                  value: _vm.kata_sandi_konfirmasi,
+                  value: _vm.$v.kata_sandi_konfirmasi.$model
+                },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.kata_sandi_konfirmasi,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.kata_sandi_konfirmasi = $event.target.value
                     }
-                    _vm.kata_sandi_konfirmasi = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("Konfirmasi Kata Sandi sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.kata_sandi_konfirmasi.sameAsPassword
+                  ? _c("span", [
+                      _vm._v(
+                        "Kata Sandi dan Konfirmasi Kata\n                            Sandi tidak sesuai"
+                      )
+                    ])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -91971,20 +92269,59 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.nomor_ktp,
                     expression: "nomor_ktp"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.nomor_ktp.$model,
+                    expression: "$v.nomor_ktp.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.nomor_ktp.$error,
+                  "is-valid": !_vm.$v.nomor_ktp.$invalid
+                },
                 attrs: { type: "number" },
-                domProps: { value: _vm.nomor_ktp },
+                domProps: {
+                  value: _vm.nomor_ktp,
+                  value: _vm.$v.nomor_ktp.$model
+                },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.nomor_ktp,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.nomor_ktp = $event.target.value
                     }
-                    _vm.nomor_ktp = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.nomor_ktp.required
+                  ? _c("span", [_vm._v("Nomor KTP tidak boleh kosong")])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -92009,23 +92346,53 @@ var render = function() {
                       rawName: "v-model",
                       value: _vm.selected_komunitas,
                       expression: "selected_komunitas"
+                    },
+                    {
+                      name: "model",
+                      rawName: "v-model.trim",
+                      value: _vm.$v.selected_komunitas.$model,
+                      expression: "$v.selected_komunitas.$model",
+                      modifiers: { trim: true }
                     }
                   ],
                   staticClass: "form-control form-control-lg",
+                  class: {
+                    "is-invalid": _vm.$v.selected_komunitas.$error,
+                    "is-valid": !_vm.$v.selected_komunitas.$invalid
+                  },
                   on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.selected_komunitas = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    }
+                    change: [
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.$v.selected_komunitas,
+                          "$model",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.selected_komunitas = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
+                    ]
                   }
                 },
                 _vm._l(_vm.komunitas, function(community) {
@@ -92039,7 +92406,21 @@ var render = function() {
                   )
                 }),
                 0
-              )
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.selected_komunitas.required
+                  ? _c("span", [
+                      _vm._v(
+                        "Komunitas tidak boleh\n                                    kosong"
+                      )
+                    ])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c(
