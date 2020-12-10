@@ -58,7 +58,7 @@
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                    <button onclick="return confirm('Apakah ingin mengedit data layanan wisata untuk paket ini?')" type="submit" class="btn btn-primary">Edit</button>
                                     <a href="{{route('admin.paket.editChoice',$paket->id_paket)}}" class="btn btn-danger">Batal</a>
                                 </div>
                             </form>

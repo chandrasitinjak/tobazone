@@ -68,7 +68,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-warning">Update</button>
+                                <button onclick="return confirm('Apakah data ini ingin diedit?')" type="submit" class="btn btn-warning">Update</button>
 
 
                             </div>
