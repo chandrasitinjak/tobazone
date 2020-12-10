@@ -84,7 +84,7 @@
                                         <label for="tambahan">Tambahan</label>
                                         <div class="mb-3">
                                     <textarea class="textarea" name="tambahan" id="tambahan" placeholder="Tambahan"
-                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"required>{{$paket->tambahan}}</textarea>
+                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$paket->tambahan}}</textarea>
                                             {{--                                        <p class="text-danger">{{$error->first('tambahan')}}</p>--}}
                                         </div>
                                     </div>
