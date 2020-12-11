@@ -20,15 +20,15 @@ class HomestaysTable extends Migration
             $table->integer('price');
             $table->integer('total_room');
             $table->integer('room_available');
-            $table->string('description');
+            $table->text('description');
             $table->string('address');
             $table->string('image');
             $table->integer('status');
-            $table->integer('kabupaten');
-            $table->integer('kecamatan');
-            $table->integer('desa');
-            $table->string('longitude');
-            $table->string('latitude');
+            $table->string('kabupaten');
+            $table->string('kecamatan');
+            $table->string('desa')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

@@ -39,7 +39,7 @@
             <div class="row">
               <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="imgwrapper" style="padding: 0px">
-                  <img :src="'/images/' + JSON.parse(cart.product.images)[0]" alt="Card image cap" class="ygambar-produk">
+                  <img :src="'/images/' + JSON.parse(cart.product.images)[0]" style='height: 100%; width: 100%; object-fit: cover' alt="Card image cap" class="ygambar-produk">
                 </div>
               </div>
               <div class="col-lg-8 col-sm-6 col-xs-12">

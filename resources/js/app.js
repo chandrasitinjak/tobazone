@@ -10,13 +10,12 @@ window.Vue = require('vue');
 
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-
-Vue.use(VueSweetalert2);
-
-
 import StarRating from 'vue-star-rating'
 
 import Vuelidate from 'vuelidate'
+
+Vue.use(VueSweetalert2);
+
 
 Vue.use(Vuelidate)
 
@@ -57,10 +56,20 @@ const AddToWishlistButton = require('./components/AddToWishlistButton')
 const UserRating = require('./components/merchants/UserRating')
 const UserRatingSecond = require('./components/merchants/UserRatingSecond')
 const ProdukTerlaris = require('./components/homes/ProdukTerlaris')
+const MainPage = require('./components/homestay/MainPage')
+const CarouselHomestay = require('./components/homestay/CarouselHomestay')
+const CreateHomestay = require('./components/homestay/merchant/CreateHomestay')
+const UpdateHomestay = require('./components/homestay/merchant/UpdateHomestay')
 const ListLogin = require('./components/auths/ListLogin')
-const KoperasiAktif = require('./components/Koperasi/KoperasiAktif')
+const StatusKoperasi = require('./components/koperasi/StatusKoperasi')
+const LayananMaintenence = require('./components/koperasi/LayananMaintenence')
+const AllHomestay = require('./components/homestay/merchant/AllHomestay')
 const KoperasiTidakAktif = require('./components/Koperasi/KoperasiTidakAktif')
 const AkunPending = require('./components/Koperasi/AkunPending')
+const InformasiDicari = require('./components/homes/InformasiDicari')
+const KomunitasPaketWisata = require('./components/homes/KomunitasPaketWisata')
+const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay')
+const NewOrder = require('./components/homestay/merchant/NewOrder')
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -69,7 +78,7 @@ Vue.mixin({
     data: function () {
         return {
             get urlGlobalKoperasi() {
-                return 'http://localhost:8089/'
+                return 'https://tobazone-koperasi.herokuapp.com/'
             }
         }
     }
@@ -78,8 +87,9 @@ Vue.mixin({
 const app = new Vue({
     el: '#app',
     components: {
+        LayananMaintenence,
         KoperasiTidakAktif,
-        KoperasiAktif,
+        StatusKoperasi,
         AkunPending,
         UserRating,
         UserRatingSecond,
@@ -112,9 +122,17 @@ const app = new Vue({
         ProductsAksesoris,
         ProductsObat,
         ProdukTerlaris,
+        MainPage,
+        CarouselHomestay,
+        CreateHomestay,
+        UpdateHomestay,
         ListLogin,
-        RegCebt
-
+        RegCebt,
+        InformasiDicari,
+        KomunitasPaketWisata,
+        AllHomestay,
+        FormPesanHomestay,
+        NewOrder,
     },
     data() {
         return {

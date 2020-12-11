@@ -20,6 +20,7 @@ class CreateHomestayOrdersTable extends Migration
             $table->integer('total_price');
             $table->string('check_in');
             $table->integer('duration');
+            $table->integer('jumlah_kamar');
             $table->string('payment_method');
             $table->boolean('is_paid');
             $table->string('resi');
