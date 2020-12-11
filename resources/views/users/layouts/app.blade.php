@@ -23,7 +23,7 @@
 
   <link rel="stylesheet" href="/user-assets/css/header.css">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="/user-assets/css/header_merchant.css">
     <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     @yield('style')
 </head>
