@@ -1,7 +1,7 @@
-@extends('users.layouts.app') 
+@extends('users.layouts.app')
 @section('title') {{ "Products" }}
 @endsection
- 
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -102,6 +102,10 @@
                                                 <option value="Ungu"> Ungu</option>
                                                 <option value="Hijau"> Hijau</option>
                                                 <option value="Cokelat"> Cokelat</option>
+                                                <option value="Kuning"> Kuning</option>
+                                                <option value="Silver"> Silver</option>
+                                                <option value="Pink"> Pink</option>
+                                                <option value="Maroon"> Maroon</option>
                                             </select>
                                         <small id="warnadasar" class="form-text text-muted">
                                             Pilih warna yang paling dominan
