@@ -77505,6 +77505,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
 
 
 
@@ -78530,7 +78531,7 @@ var render = function() {
                                     staticStyle: {
                                       height: "100%",
                                       width: "100%",
-                                      "object-fit": "cover"
+                                      "object-fit": "fill"
                                     },
                                     attrs: {
                                       src:
@@ -78557,7 +78558,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                    " +
+                                    "\n                                        " +
                                       _vm._s(product.name)
                                   )
                                 ]
@@ -78664,7 +78665,7 @@ var render = function() {
                     staticStyle: { "text-decoration-line": "unset" },
                     attrs: { type: "button" }
                   },
-                  [_vm._v(" Muat Lebih Banyak\n                    ")]
+                  [_vm._v(" Muat Lebih Banyak\n                        ")]
                 )
               ])
             ]),
@@ -78768,6 +78769,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
 //
 //
 //
@@ -78951,7 +78953,7 @@ var render = function() {
                         staticStyle: {
                           height: "100%",
                           width: "100%",
-                          "object-fit": "cover"
+                          "object-fit": "fill"
                         },
                         attrs: {
                           src: "/images/" + JSON.parse(product.images)[0],
@@ -101312,6 +101314,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
 
 
 
@@ -101451,7 +101454,7 @@ var render = function() {
                         staticStyle: {
                           height: "100%",
                           width: "100%",
-                          "object-fit": "cover"
+                          "object-fit": "fill"
                         },
                         attrs: {
                           src: "/images/" + JSON.parse(product.images)[0],
@@ -101474,7 +101477,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                " +
+                            "\n                                    " +
                               _vm._s(product.name)
                           )
                         ]
