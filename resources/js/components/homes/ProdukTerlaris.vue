@@ -15,6 +15,9 @@
                         :speed="800"
                         :paginationEnabled="false"
                         :perPageCustom="[[0, 1], [991.88, 6]]"
+                        :navigationEnabled="true"
+                        navigationNextLabel="<i class='fa fa-angle-right fa-3x'></i>"
+                        navigationPrevLabel="<i class='fa fa-angle-left fa-3x'></i>"
                 >
                     <slide class="px-2" v-for="product in products">
                         <a :href="'/products/' + product.id">
