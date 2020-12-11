@@ -1,11 +1,11 @@
 <div class="overlay"></div>
-<nav class="navbar navbar-expand-md navbar-light main-menu" style="box-shadow:none; background-color: #FFFAF4">
+<nav class="navbar navbar-expand-md navbar-light main-menu" style="box-shadow:none; background-color: #640000">
     <div class="container">
         <button type="button" id="sidebar1Collapse" class="btn btn-link d-block d-md-none">
-            <i class="bx bx-menu icon-single" style="color:black"></i>
+            <i class="bx bx-menu icon-single" style="color:white"></i>
         </button>
         <a class="navbar-brand" href="/">
-            <h4 class="font-weight-bold">Tobazone</h4>
+            <h4 class="font-weight-bold text-white">Tobazone</h4>
         </a>
         <ul class="navbar-nav ml-auto d-block d-md-none">
             <li class="nav-item">
@@ -18,9 +18,8 @@
         </ul>
         <div class="collapse navbar-collapse">
             <form class="form-inline my-2 my-lg-0 mx-auto" action="/search">
-                <input class="form-control" type="search" placeholder="Cari Produk..." aria-label="Search"
-                       name="search">
-                <button class="btn my-2 my-sm-0" type="submit"><i class="bx bx-search"></i></button>
+                <input class="form-control" type="search" placeholder="Cari Produk..." aria-label="Search" name="search">
+                <button class="btn my-2 my-sm-0 border" type="submit" style="background-color: #640000"><i class="bx bx-search text-white"></i></button>
             </form>
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -40,11 +39,11 @@
                             {{--                     style="text-decoration-line: unset; margin-right:15px!important;"> Masuk--}}
                             {{--                  </button></a>--}}
                             {{--                  </a>--}}
-                            <button class="btn btn-toba" type="button" data-toggle="modal" data-target="#loginModal"
+                            <button class="btn btn-outline-light" type="button"  data-toggle="modal"  data-target="#loginModal"
                                     style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
                             </button>
                             <a href="{{ url('/register') }}">
-                                <button class="btn btn-toba" type="button"
+                                <button class="btn btn-outline-light" type="button"
                                         style="text-decoration-line: unset;"> Daftar
                                 </button>
                             </a>
@@ -52,16 +51,13 @@
                     @else
                         <div class="classynav p-0">
                             <div class="dropdown float-right">
-                                <a href="#" class="dropdown-toggle active mr-4" data-toggle="dropdown"
-                                   aria-haspopup="true"
+                                <a href="#" class="dropdown-toggle active mr-4" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false" style="display: inherit;">
                                     <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
                                 </a>
-                                <div class="user-menu dropdown-menu mt-2"
-                                     style="border: 1px solid #e0e0e0; left: -70px;">
-                                    <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/myProfil') }}">Profil
-                                        Saya</a>
-                                    <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/wishlist') }}">Favorit</a>
+                                <div class="user-menu dropdown-menu mt-2" style="border: 1px solid #e0e0e0; left: -70px;">
+                                    <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/myProfil') }}">Profil Saya</a>
+                                    <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/wishlist') }}" >Favorit</a>
                                     <a class="nav-link" href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}">Pesanan</a>
                                     <ul class="dropdown">
                                         <li class="item">
@@ -86,17 +82,17 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form class="example form-inline mb-3 mx-auto" action="/search">
+                <form class="example form-inline mb-3 mt-3 mx-auto" action="/search">
                     <input type="text" class="form-control" placeholder="Cari Produk" name="search">
-                    <button type="submit" style="background-color:#fff!important; border-color:#A8A8A8!important;">
-                        <i class="fa fa-search"></i></button>
+                    <button type="submit" style="background-color:#640000 !important; ">
+                        <i class="fa fa-search text-white"></i></button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 <!-- Sidebar -->
-<nav id="sidebar1">
+<nav id="sidebar1" >
     <div class=
          "sidebar1-header">
         <div class="container">
@@ -104,8 +100,8 @@
                 <div class="col-10 pl-0">
                     @guest
                         <div class="user-login-info align-content-end">
-                            <a href="/listlogin">
-                                <button class="btn btn-toba" id="butMasuk" type="button"
+                            <a href="#">
+                                <button class="btn btn-toba" id="butMasuk" type="button" data-toggle="modal" data-target="#loginModal"
                                         style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
                                 </button>
                             </a>
@@ -118,8 +114,7 @@
                     @else
                         <ul class="list-unstyled components links">
                             <li>
-                                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
-                                   class="dropdown-toggle"><i class="bx bx-user mr-3"></i>
+                                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bx bx-user mr-3"></i>
                                     Profil</a>
                                 <ul class="collapse list-unstyled" id="pageSubmenu">
                                     <li>
@@ -155,7 +150,7 @@
     </div>
     <ul class="list-unstyled components links">
         <li>
-            <a href="{{ url('/product/pakaian') }}"><i class="bx bxs-t-shirt mr-3"></i> Pakaian</a>
+            <a href="{{ url('/product/pakaian') }}"><i class="bx bxs-t-shirt mr-3"></i> Pakaian1</a>
         </li>
         <li>
             <a href="{{ url('/product/aksesoris') }}"><i class="bx bxs-star-half mr-3"></i> Aksesoris</a>
@@ -168,28 +163,6 @@
         </li>
         <li>
             <a href="{{ url('/product/ulos') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Ulos</a>
-        </li>
-        <li>
-            <a href="{{ route('paket') }}"><i class="bx bxs-image mr-3"></i> Paket Wisata</a>
-        </li>
-        <li>
-            <a href="{{ url('/user/homestays') }}"><i class="bx bxs-home-smile mr-3"></i> Homestay</a>
-        </li>
-        <li class="dropdown" >
-            <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="bx bxs-info-square mr-3"></i> Informasi Pariwisata
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ url('/informasi-objek-wisata') }}">Objek Wisata</a>
-                <a class="dropdown-item" href="{{ url('/informasi-akomodasi') }}">Akomodasi</a>
-                <a class="dropdown-item" href="{{ url('/informasi-kuliner') }}">Kuliner</a>
-                <a class="dropdown-item" href="{{ url('/informasi-event') }}">Event</a>
-                <a class="dropdown-item" href="{{ url('/informasi-transportasi') }}">Transportasi</a>
-                <a class="dropdown-item" href="{{ url('/informasi-budaya') }}">Budaya</a>
-            </div>
-        </li>
-        <li>
-            <a href="https://tobazone-koperasi.herokuapp.com/#/register"><i class="bx bxs-store mr-3"></i> Koperasi</a>
         </li>
     </ul>
 </nav>
@@ -225,8 +198,7 @@
                         <div class="user-menu dropdown-menu mt-2" style="border: 1px solid #e0e0e0; left: -70px;">
                             <ul class="dropdown">
                                 <li>
-                                    <a class="nav-link" href="{{ url('/merchant/'.Auth::user()->id.'/myProfile') }}">Profil
-                                        Saya</a>
+                                    <a class="nav-link" href="{{ url('/merchant/'.Auth::user()->id.'/myProfile') }}">Profil Saya</a>
                                 </li>
                                 <li>
                                     <form method="POST" action="{{ url('/logout')}}">
@@ -254,8 +226,7 @@
                     @guest
                         <div class="user-login-info align-content-end">
                             <a href="#">
-                                <button class="btn btn-toba" id="butMasuk" type="button" data-toggle="modal"
-                                        data-target="#loginModal"
+                                <button class="btn btn-toba" id="butMasuk" type="button" data-toggle="modal" data-target="#loginModal"
                                         style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
                                 </button>
                             </a>
@@ -268,8 +239,7 @@
                     @else
                         <ul class="list-unstyled components links">
                             <li>
-                                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
-                                   class="dropdown-toggle"><i class="bx bx-user mr-3"></i>
+                                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bx bx-user mr-3"></i>
                                     Profil</a>
                                 <ul class="collapse list-unstyled" id="pageSubmenu">
                                     <li>
@@ -286,60 +256,42 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false"
-                                   class="dropdown-toggle"><i class="bx bx-store-alt mr-3"></i>
+                                <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bx bx-store-alt mr-3"></i>
                                     Produk</a>
                                 <ul class="collapse list-unstyled" id="pageSubmenu1">
                                     <li>
-                                        <a href="{{ url('/merchant') }}"><i class="bx bx-blanket mr-3"
-                                                                            style="margin-left: 20px"></i>Semua
-                                            Produk</a>
+                                        <a href="{{ url('/merchant') }}"><i class="bx bx-blanket mr-3" style="margin-left: 20px"></i>Semua Produk</a>
                                     </li>
                                     <li>
-                                        <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false"
-                                           class="dropdown-toggle"><i class="bx bx-store-alt mr-3"
-                                                                      style="margin-left: 20px"></i>
+                                        <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bx bx-store-alt mr-3" style="margin-left: 20px"></i>
                                             Tambah Produk</a>
                                         <ul class="collapse list-unstyled" id="pageSubmenu3">
                                             <li>
-                                                <a href="{{ url('/products/ulos/create') }}"><i class="bx bx-plus mr-3"
-                                                                                                style="margin-left: 40px"></i>Tambah
-                                                    Ulos</a>
+                                                <a href="{{ url('/products/ulos/create') }}"><i class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah Ulos</a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/products/clothes/create') }}"><i
-                                                        class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah
-                                                    Pakaian</a>
+                                                <a href="{{ url('/products/clothes/create') }}"><i class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah Pakaian</a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/products/food/create') }}"><i class="bx bx-plus mr-3"
-                                                                                                style="margin-left: 40px"></i>Tambah
-                                                    Makanan</a>
+                                                <a href="{{ url('/products/food/create') }}"><i class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah Makanan</a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/products/accessories/create') }}"><i
-                                                        class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah
-                                                    Aksesoris</a>
+                                                <a href="{{ url('/products/accessories/create') }}"><i class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah Aksesoris</a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/products/medicine/create') }}"><i
-                                                        class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah
-                                                    Obat</a>
+                                                <a href="{{ url('/products/medicine/create') }}"><i class="bx bx-plus mr-3" style="margin-left: 40px"></i>Tambah Obat</a>
                                             </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false"
-                                   class="dropdown-toggle"><i class="bx bx-cart mr-3"></i>
+                                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bx bx-cart mr-3"></i>
                                     Pemesanan</a>
                                 <ul class="collapse list-unstyled" id="pageSubmenu2">
                                     <li>
-                                        <a href="{{ url('/merchant/' . Auth::user()->id . '/ongoing-orders') }}">Order
-                                            masuk</a>
-                                        <a href="{{ url('/merchant/' . Auth::user()->id . '/succes-orders') }}">Order
-                                            Keluar</a>
+                                        <a href="{{ url('/merchant/' . Auth::user()->id . '/ongoing-orders') }}">Order masuk</a>
+                                        <a href="{{ url('/merchant/' . Auth::user()->id . '/succes-orders') }}">Order Keluar</a>
                                     </li>
                                 </ul>
                             </li>
@@ -358,86 +310,42 @@
 </nav>
 
 @else
-    <nav class="navbar2 navbar-expand-lg navbar-white main">
+    <nav class="navbar2 navbar-expand-lg main" style="background-color: #833333">
         <div class="container-fluid custom-container">
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown" href="{{ url('/product/pakaian') }}" style="color: black" id="navbarDropdown"
-                           role="button" aria-haspopup="true" aria-expanded="false">
-                            Pakaian
+                    <li class="nav-item-dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Souvenir
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ url('/product/pakaian') }}" ><b>Fashion</b><br> <span data-toggle="tooltip" data-placement="right" title="Kemeja, Kaos, Jaket, Topi">Pria</span> <br> <span  data-placement="right" title="Kemeja, Kaos, Jaket, Topi, Dress"> Wanita</span> <br> <span   data-placement="right" title="Kemeja, Kaos, Jaket">Anak - anak</span>
+                                <br><br></a>
+                            <a class="dropdown-item" href="{{ url('/product/ulos') }}"><b>Tenun</b><br> <span data-toggle="tooltip" data-placement="right" title="Ulos (sarung, selendang), lembaran kain"> Buatan tangan</span> <br> <span  data-placement="right" title="Ulos (sarung, selendang), lembaran kain">Mesin</span>  <br><br></a>
+                            <a class="dropdown-item" href="{{ url('/product/obat') }}"><b>Kesehatan & Kecantikan</b> <br> <span data-toggle="tooltip" data-placement="right" title="Rempah-rempah, minyak karo, masker"> Obat tradisional</span>
+                                <br> <span data-toggle="tooltip" data-placement="right" title="Masker wajah, lulur kopi, madu,sabun"> Perawatan</span> <br><br></a>
+                            <a class="dropdown-item" href="{{ url('/product/makanan') }}"><b>Kuliner</b> <br> <span data-toggle="tooltip" data-placement="right" title="Tipa-tipa, kacang, sasagun"> Kering</span> <br> Basah <br><br></a>
+                            <a class="dropdown-item" href="{{ url('/product/aksesoris') }}"><b><span data-toggle="tooltip" data-placement="right" title="Ikan mas arsik, naniura, napinadar, ikan mujahir tombur, lappet"> Aksesoris</span></b></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown ml-30">
+                        <a class="nav-link dropdown text-white" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span data-toggle="tooltip" data-placement="right" title="Homestay, guesthouse, losmen, hotel, villa">Akomodasi</span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         </div>
                     </li>
-                    <li class="nav-item dropdown" style="margin-left: 3rem">
-                        <a class="nav-link dropdown" href="{{ url('/product/aksesoris') }}" style="color: black" id="navbarDropdown"
-                           role="button" aria-haspopup="true" aria-expanded="false">
-                            Aksesoris
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
-                    </li>
-                    <li class="nav-item dropdown" style="margin-left: 3rem">
-                        <a class="nav-link dropdown" href="{{ url('/product/makanan') }}" style="color: black" id="navbarDropdown"
-                           role="button" aria-haspopup="true" aria-expanded="false">
-                            Makanan
+                    <li class="nav-item dropdown ml-30">
+                        <a class="nav-link dropdown text-white" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span data-toggle="tooltip" data-placement="right" title="Paket wisata, komunitas paket wisata">Paket Wisata</span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         </div>
-                    </li>
-                    <li class="nav-item dropdown" style="margin-left: 3rem">
-                        <a class="nav-link dropdown" href="{{ url('/product/obat') }}" style="color: black" id="navbarDropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false">
-                            Obat
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
-                    </li>
-                    <li class="nav-item dropdown" style="margin-left: 3rem">
-                        <a class="nav-link dropdown" href="{{ url('/product/ulos') }}" style="color: black" id="navbarDropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false">
-                            Ulos
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
-                    </li>
-                    <li class="nav-item dropdown" style="margin-left: 3rem">
-                        <a class="nav-link dropdown" href="{{route('paket')}}" style="color: black" id="navbarDropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false">
-                            Paket Wisata
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
-                    </li>
-                    <li class="nav-item dropdown" style="margin-left: 3rem">
-                        <a class="nav-link dropdown" href="{{ url('/user/homestays') }}" style="color: black" id="navbarDropdown"
-                           role="button" aria-haspopup="true" aria-expanded="false">
-                            Homestay
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
-                    </li>
-                    <li class="nav-item dropdown" style="margin-left: 3rem">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Informasi Pariwisata
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ url('/informasi-objek-wisata') }}">Objek Wisata</a>
-                            <a class="dropdown-item" href="{{ url('/informasi-akomodasi') }}">Akomodasi</a>
-                            <a class="dropdown-item" href="{{ url('/informasi-kuliner') }}">Kuliner</a>
-                            <a class="dropdown-item" href="{{ url('/informasi-event') }}">Event</a>
-                            <a class="dropdown-item" href="{{ url('/informasi-transportasi') }}">Transportasi</a>
-                            <a class="dropdown-item" href="{{ url('/informasi-budaya') }}">Budaya</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"  style="margin-left: 3rem">
-                        <a class="nav-link dropdown" href="https://tobazone-koperasi.herokuapp.com/#/register" style="color: black" id="navbarDropdown"
-                           role="button" aria-haspopup="true" aria-expanded="false">
-                            Koperasi
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
                     </li>
                 </ul>
             </div>
-            <div class="container-fluid custom-container"></div>
-        </div>
+            <div class="container-fluid custom-container">
     </nav>
-
     @endrole
+
     @include('users.auth.login_modal')
