@@ -174,6 +174,13 @@
             <komunitas-paket-wisata />
         </div>
 
+        <div class="container-fluid mt-7">
+            <div class="col-md-12">
+                <a href="https://tobazone-koperasi.herokuapp.com/#/register">
+                    <img src="{{ asset('koperasi.jpg') }}" class="w-100">
+                </a>
+            </div>
+        </div>
         <!-- <div id="banner">
             <banner/>
         </div> -->
@@ -222,11 +229,3 @@
 
 </html>
 <script>
-    import ProdukTerlaris from "../../../js/components/homes/ProdukTerlaris";
-    import KomunitasPaketWisata from "../../../js/components/homes/KomunitasPaketWisata";
-    import ProdukTerlaris2 from "../../../js/components/homes/ProdukTerlaris2";
-
-    export default {
-        components: {ProdukTerlaris2, ProdukTerlaris, KomunitasPaketWisata}
-    }
-</script>
