@@ -58,7 +58,7 @@
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                    <button onclick="return confirm('Apakah ingin mengedit data layanan wisata untuk paket ini?')" type="submit" class="btn btn-primary">Edit</button>
                                     <a href="{{route('admin.paket.editChoice',$paket->id_paket)}}" class="btn btn-danger">Batal</a>
                                 </div>
                             </form>
@@ -70,7 +70,7 @@
                                     c++;
                                     var html = '';
                                     html += '<div class="row" id="new_layanan_'+c+'"><div class="col-md-10"><br>';
-                                    html += '<select class="form-control custom-select" name="layanan_'+c +'">';
+                                    html += '<select class="form-control custom-select" name="layanan_'+c +'" required>';
                                     html += '<option selected="" disabled="">Pilih Layanan Wisata</option><?php echo $options; ?>';
                                     html += '</select>';
                                     html += '</div>';

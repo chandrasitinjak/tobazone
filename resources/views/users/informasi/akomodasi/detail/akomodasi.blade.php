@@ -13,7 +13,6 @@
         </div>
     </div>
 
-    <div class="container">
         <div class="row">
             <div class="col-md-8">
                 <h3>Deskripsi</h3>
@@ -24,7 +23,6 @@
                 <div id="map" style="height: 400px;width: 400px"></div>
             </div>
         </div>
-    </div>
 @endsection
 
 @section('js')

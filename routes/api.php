@@ -84,3 +84,6 @@ Route::get('/get-cbt', 'CbtController@getCbt');
 
 Route::get('pemesanan/detail/{id_pemesanan}','PemesananController@getDataPemesanan')->name('data.transaksi');
 Route::post('pemesanan/{id_pemesanan}/update-status','PemesananController@updateStatus');
+
+//Paket Wisata
+Route::get('/paket/get-paket-terbaru','API\PaketWisataController@getNewPackage');

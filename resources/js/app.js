@@ -75,6 +75,7 @@ const InformasiDicari = require('./components/homes/InformasiDicari').default
 const KomunitasPaketWisata = require('./components/homes/KomunitasPaketWisata').default
 const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay').default
 const NewOrder = require('./components/homestay/merchant/NewOrder').default
+const ProdukTerlaris2 = require('./components/homes/ProdukTerlaris2').default
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -138,6 +139,7 @@ const app = new Vue({
         AllHomestay,
         FormPesanHomestay,
         NewOrder,
+        ProdukTerlaris2,
     },
     data() {
         return {

@@ -289,7 +289,7 @@
                         role: "merchant"
                     };
 
-                    console.log(payload);
+                    // console.log(payload);
 
                     EventBus.$emit("SPINNER", true);
                     window.axios
