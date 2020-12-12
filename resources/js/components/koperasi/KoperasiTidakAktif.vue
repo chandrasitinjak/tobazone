@@ -43,10 +43,15 @@
         },
         methods: {
             getData() {
+                const loader = this.$loading.show()
                 axios.get(`${this.urlGlobalKoperasi}get-koperasi-tidak-aktif`)
                     .then(e => {
                         this.data = e.data
+                        loader.hide()
                     })
+                .catch(() => {
+                    loader.hide()
+                })
             }
         },
         mounted() {

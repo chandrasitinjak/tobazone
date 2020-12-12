@@ -39,16 +39,25 @@
         },
         methods: {
             getData() {
+                const loader = this.$loading.show()
                 axios.get(`${this.urlGlobalKoperasi}get-akun-pending`)
                     .then(e => {
                         this.data = e.data
+                        loader.hide()
+                    })
+                    .catch(() => {
+                        loader.hide()
                     })
             },
             terima(id) {
+                const loader = this.$loading.show()
                 axios.post(`${this.urlGlobalKoperasi}terimaacc`, {id})
                     .then(e => {
                         alert('Berhasil mengaktifkan akun')
                         this.getData()
+                    })
+                    .catch(() => {
+                        loader.hide()
                     })
             }
         },
