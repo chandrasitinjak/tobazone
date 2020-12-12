@@ -9,8 +9,6 @@
 
 
 <body>
-
-
             <div class="col-xl-4 col-lg-6">
                 <div class="card">
                     <div class="card-body">

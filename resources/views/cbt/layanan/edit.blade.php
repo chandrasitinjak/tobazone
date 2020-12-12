@@ -40,7 +40,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nama Layanan</label>
-                                    <input name="nama_layanan" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Layanan" value="{{$layanan_wisata->nama_layanan}}">
+                                    <input name="nama_layanan" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Layanan" value="{{$layanan_wisata->nama_layanan}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Pilih Jenis Layanan</label>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Deskripsi Layanan</label>
-                                    <textarea name="deskripsi_layanan" class="form-control" id="exampleFormControlTextarea1" rows="3">{{$layanan_wisata->deskripsi_layanan}}</textarea>
+                                    <textarea name="deskripsi_layanan" class="form-control" id="exampleFormControlTextarea1" rows="3" required>{{$layanan_wisata->deskripsi_layanan}}</textarea>
                                 </div>
 
 
@@ -68,7 +68,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-warning">Update</button>
+                                <button onclick="return confirm('Apakah data ini ingin diedit?')" type="submit" class="btn btn-warning">Update</button>
 
 
                             </div>

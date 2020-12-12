@@ -85,8 +85,27 @@ class MerchantController extends Controller
     foreach($profiles as $profile) {
       $profile->address = json_decode(json_decode($profile->address)[0]);
     }
-
+   
     return view('admin.merchant.list')->with('profiles', $profiles);
+  }
+
+
+  public function listUser() {        
+    
+    $user = DB::table('model_has_roles')->where('role_id', 3)
+                                             ->pluck('model_id')->toArray();
+
+    $users = User::whereIn('id', $user)
+                          ->pluck('id')->toArray();
+
+    $profiles = Profile::whereIn('user_id', $users)->get();
+
+    foreach($profiles as $profile) {
+      $profile->address = json_decode(json_decode($profile->address)[0]);
+      $email = User::find($profile->user_id);
+      $profile->email = $email['email'];
+    }    
+    return view('admin.merchant.list-user')->with('profiles', $profiles);
   }
 
   public function detailMerchant($id){    

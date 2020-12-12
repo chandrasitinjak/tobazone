@@ -55,44 +55,50 @@
                                                             <input name="nama_lengkap" type="text" class="form-control"
                                                                    id="name"
                                                                    aria-describedby="emailHelp"
-                                                                   placeholder="Nama Anggota/Member">
+                                                                   placeholder="Nama Anggota/Member"
+                                                                   required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="no_wa">Nomor WhatsApp (WA)</label>
-                                                            <input name="nomor_wa" type="text" class="form-control"
+                                                            <input name="nomor_wa" type="number" class="form-control"
                                                                    id="no_WA"
                                                                    aria-describedby="emailHelp"
-                                                                   placeholder="Nomor WhatsApp (WA)">
+                                                                   placeholder="Nomor WhatsApp (WA)"
+                                                                   required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="no_HP">Nomor Telepon (Hp)</label>
-                                                            <input name="nomor_hp" type="text" class="form-control"
+                                                            <input name="nomor_hp" type="number" class="form-control"
                                                                    id="no_HP"
                                                                    aria-describedby="emailHelp"
-                                                                   placeholder="Nomor Telepon (Hp)">
+                                                                   placeholder="Nomor Telepon (Hp)"
+                                                                   required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="no_KTP">Nomor KTP </label>
-                                                            <input name="nomor_ktp" type="text" class="form-control"
+                                                            <input name="nomor_ktp" type="number" class="form-control"
                                                                    id="no_KTP"
-                                                                   aria-describedby="emailHelp" placeholder="Nomor KTP">
+                                                                   aria-describedby="emailHelp" placeholder="Nomor KTP"
+                                                                   required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="email">Email</label>
                                                             <input name="email" type="email" class="form-control"
                                                                    id="email"
-                                                                   aria-describedby="emailHelp" placeholder="Email">
+                                                                   aria-describedby="emailHelp" placeholder="Email"
+                                                                   required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="password">Password</label>
                                                             <input name="kata_sandi" type="text" class="form-control"
                                                                    id="password"
-                                                                   aria-describedby="emailHelp" placeholder="Password">
+                                                                   aria-describedby="emailHelp" placeholder="Password"
+                                                                   required>
                                                         </div>
                                                         <div class="form-group">
                                                             <input name="komunitas" type="hidden" class="form-control"
                                                                    id="password"
-                                                                   aria-describedby="emailHelp" value="-">
+                                                                   aria-describedby="emailHelp" value="-" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="photo">Foto KTP</label>
@@ -100,7 +106,8 @@
                                                                 <div class="custom-file">
                                                                     <input name="image" type="file"
                                                                            class="custom-file-input"
-                                                                           id="exampleInputFile">
+                                                                           id="exampleInputFile"
+                                                                           required>
                                                                     <label class="custom-file-label"
                                                                            for="exampleInputFile">Pilih file</label>
                                                                 </div>
@@ -221,10 +228,12 @@
                                                        class="btn btn-sm btn-info"><i class="fa fa-eye"> </i> Lihat</a>
                                                     @if($row->getUser->status=='verifiedByAdmin')
                                                         <a href="{{route('member.nonaktifkan',$row->id)}}"
-                                                           class="btn btn-sm btn-warning">Non-Aktif kan</a>
+                                                           class="btn btn-sm btn-warning" 
+                                                           onclick="return confirm('Apakah akun ini ingin diNon-Aktifkan?')">Non-Aktif kan</a>
                                                     @elseif($row->getUser->status=='deactiveByAdmin')
                                                         <a href="{{route('member.aktifkan',$row->id)}}"
-                                                           class="btn btn-sm btn-success">Aktif-kan</a>
+                                                           class="btn btn-sm btn-success"
+                                                           onclick="return confirm('Apakah akun ini ingin diaktifkan?')">Aktif-kan</a>
                                                     @endif
                                                 </td>
                                             </tr>
@@ -341,9 +350,11 @@
                                                        class="btn btn-sm btn-info">Detail</a>
                                                     @if($row->getUser->status==0)
                                                         <a href="{{route('member.request.tolak',$row->getUser->id)}}"
-                                                           class="btn btn-sm btn-danger">Tolak</a>
+                                                           class="btn btn-sm btn-danger"
+                                                           onclick="return confirm('Apakah Anda Yakin ?')">Tolak</a>
                                                         <a href="{{route('member.request.terima',$row->getUser->id)}}"
-                                                           class="btn btn-sm btn-warning">Terima</a>
+                                                           class="btn btn-sm btn-warning"
+                                                           onclick="return confirm('Apakah Anda Yakin ?')">Terima</a>
                                                     @elseif($row->getUser->status==4)
                                                         <a href="{{route('member.request.terima',$row->getUser->id)}}"
                                                            class="btn btn-sm btn-success">Terima</a>

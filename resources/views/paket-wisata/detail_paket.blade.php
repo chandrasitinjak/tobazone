@@ -4,51 +4,61 @@
 
 @section('style')
     <style>
-        @media (min-width:219px) and (max-width: 449px){
-            .ybutton-category{
+        @media (min-width: 219px) and (max-width: 449px) {
+            .ybutton-category {
                 margin-top: 15px;
             }
-            .yjudul{
+
+            .yjudul {
                 margin-top: 10px;
                 font-size: 28px;
             }
-            .product-desc{
+
+            .product-desc {
                 text-align: justify;
             }
-            #message{
+
+            #message {
                 height: 100px;
             }
         }
-        @media (min-width:450px) and (max-width: 767px){
-            .ybutton-category{
+
+        @media (min-width: 450px) and (max-width: 767px) {
+            .ybutton-category {
                 margin-top: 15px;
             }
-            .yjudul{
+
+            .yjudul {
                 margin-top: 10px;
                 font-size: 28px;
             }
-            .product-desc{
+
+            .product-desc {
                 text-align: justify;
             }
-            #message{
+
+            #message {
                 height: 100px;
             }
         }
-        @media (min-width:768px) and (max-width: 990px){
-            #message{
+
+        @media (min-width: 768px) and (max-width: 990px) {
+            #message {
                 width: 300px;
                 height: 100px;
             }
 
         }
-        @media (min-width:991px) and (max-width: 1199px){
-            #message{
+
+        @media (min-width: 991px) and (max-width: 1199px) {
+            #message {
                 width: 400px;
                 height: 100px;
             }
         }
-        @media (min-width:1200px){
-            #message{
+
+        @media (min-width: 1200px) {
+            #message {
                 width: 400px;
                 height: 100px;
             }
@@ -73,7 +83,9 @@
 
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
-                                                        <img class="align-self-center" src="{{ asset('storage/img/paket/'.$paket->gambar) }}" alt="">
+                                                        <img class="align-self-center"
+                                                             src="{{ asset('storage/img/paket/'.$paket->gambar) }}"
+                                                             alt="">
                                                     </div>
                                                 </div>
 
@@ -84,67 +96,81 @@
                                 </div>
                             </div>
 
-                                <div class="col-md-6">
-{{--                                    <button type="button" class="badge custom-badge font-weight-light ybutton-category" data-toggle="test" data-rigger="focus" data-content="Produk ini dibuat dengan metode {{ $product->category }}"--}}
-{{--                                            data-html="true">--}}
-{{--                                        {{$product->category}}--}}
-{{--                                    </button>--}}
+                            <div class="col-md-6">
+                                {{--                                    <button type="button" class="badge custom-badge font-weight-light ybutton-category" data-toggle="test" data-rigger="focus" data-content="Produk ini dibuat dengan metode {{ $product->category }}"--}}
+                                {{--                                            data-html="true">--}}
+                                {{--                                        {{$product->category}}--}}
+                                {{--                                    </button>--}}
 
-                                    <h2 class="yjudul">{{ $paket->nama_paket }} </h2>
-                                    <h6><i class="fa fa-map-marker" aria-hidden="true"></i> <span>{{ $paket->getKabupaten->nama_kabupaten }}</span></h6>
-                                    <h6><i class="fa fa-user" aria-hidden="true"></i> <span>Maximal {{ $paket->availability }} Orang</span></h6>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <h4 class="product-price" style="color: orange">Rp {{ number_format($paket->harga_paket ,0) }}</h4>
+                                <h2 class="yjudul">{{ $paket->nama_paket }} </h2>
+                                <h6><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <span>{{ $paket->getKabupaten->nama_kabupaten }}</span></h6>
+                                <h6><i class="fa fa-user" aria-hidden="true"></i> <span>Maximal {{ $paket->availability }} Orang</span>
+                                </h6>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h4 class="product-price" style="color: orange">
+                                            Rp {{ number_format($paket->harga_paket ,0) }}</h4>
+                                    </div>
+                                    <div class="col-auto">
+                                        <h4><i class="fa fa-clock-o" aria-hidden="true"></i>
+                                            <span>{{ $paket->durasi }}</span></h4>
+                                    </div>
+                                </div>
+
+                                <form class="mt-3" method="post" action="/pesan/paket/{{$paket->id_paket}}">
+                                    @csrf
+                                    <div class="form-row align-items-center">
+                                        <div class="col-sm-6 my-1">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><i class="fa fa-user"
+                                                                                     aria-hidden="true"></i></div>
+                                                </div>
+                                                <input type="number" min="1" name="jumlah_peserta" class="form-control"
+                                                       id="inlineFormInputGroupUsername" placeholder="Jumlah Orang">
+                                            </div>
                                         </div>
-                                        <div class="col-auto">
-                                            <h4><i class="fa fa-clock-o" aria-hidden="true"></i> <span>{{ $paket->durasi }}</span></h4>
+                                        <div class="col-sm-6 my-1">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><i class="fa fa-calendar"
+                                                                                     aria-hidden="true"></i></div>
+                                                </div>
+                                                <select name="sesi" class="custom-select form-control">
+                                                    <option disabled selected>Pilih Jadwal</option>
+                                                    @foreach($sesi as $row)
+                                                        <option value="{{$row->id_sesi}}">{{$row->jadwal}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <form class="mt-3" method="post" action="/pesan/paket/{{$paket->id_paket}}">
-                                        @csrf
-                                        <div class="form-row align-items-center">
-                                            <div class="col-sm-6 my-1">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
-                                                    </div>
-                                                    <input type="number" min="1" name="jumlah_peserta" class="form-control" id="inlineFormInputGroupUsername" placeholder="Jumlah Orang">
+                                    <div class="form-row mt-1 align-items-center">
+                                        <div class="col-sm-12 my-1">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><i class="fa fa-comments"
+                                                                                     aria-hidden="true"></i></div>
                                                 </div>
-                                            </div>
-                                            <div class="col-sm-6 my-1">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></div>
-                                                    </div>
-                                                    <select name="sesi" class="custom-select form-control">
-                                                        <option disabled selected>Pilih Jadwal</option>
-                                                        @foreach($sesi as $row)
-                                                            <option value="{{$row->id_sesi}}">{{$row->jadwal}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
+                                                <textarea name="pesan" placeholder="Pesan/Pertanyaan Untuk Pemesanan"
+                                                          id="" cols="30" rows="10" class="form-control"></textarea>
                                             </div>
                                         </div>
-                                        <div class="form-row mt-1 align-items-center">
-                                            <div class="col-sm-12 my-1">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fa fa-comments" aria-hidden="true"></i></div>
-                                                    </div>
-                                                    <textarea name="pesan" placeholder="Pesan/Pertanyaan Untuk Pemesanan" id="" cols="30" rows="10" class="form-control"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-2 align-items-center">
+                                    </div>
+                                    <div class="form-row mt-2 align-items-center">
                                         <div class="col-12 my-1">
-                                                <button type="submit" class="btn essence-btn ml4">Booking Pemesanan</button>
-                                            </div>
+                                            @if(Auth::check())
+                                                <button type="submit" class="btn essence-btn ml4">Booking Pemesanan
+                                                </button>
+                                            @else
+                                                <a href="#" class="btn essence-btn ml4" data-toggle="modal" data-target="#loginModal">Booking Pemesanan</a>
+                                            @endif
                                         </div>
-                                    </form>
+                                    </div>
+                                </form>
 
-                                </div>
+                            </div>
                         </div>
 
                         <div class="row text-center">
@@ -158,21 +184,24 @@
                                     <!-- Nav tabs -->
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
+                                               role="tab" aria-controls="home" aria-selected="true">
                                                 <i class="fa fa-file-text-o mr-2"></i>
                                                 <span>Itinerary</span>
                                             </a>
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" id="desc-tab" data-toggle="tab" href="#desc" role="tab" aria-controls="desc" aria-selected="false">
+                                            <a class="nav-link" id="desc-tab" data-toggle="tab" href="#desc" role="tab"
+                                               aria-controls="desc" aria-selected="false">
                                                 <i class="fa fa-info mr-2" aria-hidden="true"></i>
                                                 <span>Description</span>
                                             </a>
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
+                                               role="tab" aria-controls="profile" aria-selected="false">
                                                 <i class="fa fa-thumbs-o-up mr-2"></i>
                                                 <span>Included not Included</span>
                                             </a>
@@ -181,19 +210,22 @@
                                     </ul>
                                     <div class="tab-content mt-3" id="myTabContent">
 
-                                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                             aria-labelledby="home-tab">
                                             <div class="col-9 px-1">
                                                 <?php echo $paket->rencana_perjalanan ?>
                                             </div>
                                         </div>
 
-                                        <div class="tab-pane fade show" id="desc" role="tabpanel" aria-labelledby="desc-tab">
+                                        <div class="tab-pane fade show" id="desc" role="tabpanel"
+                                             aria-labelledby="desc-tab">
                                             <div class="col-9 px-1">
                                                 <?php echo $paket->deskripsi_paket ?>
                                             </div>
                                         </div>
 
-                                        <div class="tab-pane fade ulasan" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="tab-pane fade ulasan" id="profile" role="tabpanel"
+                                             aria-labelledby="profile-tab">
                                             <div class="row ml-3">
                                                 <div class="col-md-5">
                                                     <h4>Included</h4>

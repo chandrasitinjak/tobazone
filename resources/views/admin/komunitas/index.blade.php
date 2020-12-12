@@ -102,19 +102,19 @@
                         <div class="form-group">
                             <label>Nama Komunitas</label>
                             <input name="nama_komunitas" class="form-control" type="text"
-                                   placeholder="Nama Komunitas">
+                                   placeholder="Nama Komunitas" required>
                         </div>
                         <div class="form-group">
                             <label for="Deskripsi">Deskripsi</label>
                             <textarea name="deskripsi" class="textarea" placeholder="Deskripsi"
-                                      style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                      style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="gambar">Gambar</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="gambar" id="gambar">
+                                    <input type="file" class="custom-file-input" name="gambar" id="gambar" required>
                                     <label class="custom-file-label" for="gambar">Pilih file</label>
                                 </div>
                                 <div class="input-group-append">
@@ -126,15 +126,14 @@
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Link WhatsApp Group Komunitas</label>
                             <textarea name="link" class="form-control" id="exampleFormControlTextarea1"
-                                      rows="3"></textarea>
+                                      rows="3" required></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Pilih Kabupaten</label>
-                            <select name="kabupaten_id" class="form-control" id="exampleFormControlSelect1">
-                                <option selected="" disabled="">Pilih Kabupaten</option>
+                            <select name="kabupaten_id" required class="form-control" id="exampleFormControlSelect1" >
                                 @foreach($kabupaten as $row)
-                                    <option value="{{$row->id_kabupaten}}">{{$row->nama_kabupaten}}</option>
+                                    <option value="{{$row->id_kabupaten}}" >{{$row->nama_kabupaten}}</option>
                                 @endforeach
                             </select>
                         </div>

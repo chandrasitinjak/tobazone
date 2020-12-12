@@ -97,15 +97,14 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nama Layanan</label>
                                 <input name="nama_layanan" type="text" class="form-control" id="exampleInputEmail1"
-                                       aria-describedby="emailHelp" placeholder="Nama Layanan">
-                            </div>
+                                       aria-describedby="emailHelp" placeholder="Nama Layanan" required>
+                            </div> 
 
 
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Pilih Jenis Layanan</label>
-                                <select name="jenisLayanan_id" class="form-control" id="exampleFormControlSelect1"
-                                        required>
-                                    <option selected="" disabled="">Pilih Jenis Layanan</option>
+                                <select name="jenisLayanan_id" class="form-control" id="exampleFormControlSelect1" required>
+                                    <option selected="selected" disabled="disabled" value="">Pilih Jenis Layanan</option>
                                     @foreach($jenis as $row)
                                         <option value="{{$row->id}}">{{$row->nama_jenis_layanan}}</option>
                                     @endforeach
@@ -114,8 +113,8 @@
 
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Pilih Kabupaten</label>
-                                <select name="kabupaten_id" class="form-control" id="exampleFormControlSelect1">
-                                    <option selected="" disabled="">Pilih Kabupaten</option>
+                                <select name="kabupaten_id" class="form-control" id="exampleFormControlSelect1" required>
+                                    <option selected="selected" disabled="disabled" value="">Pilih Kabupaten</option>
                                     @foreach($kabupaten as $row)
                                         <option value="{{$row->id_kabupaten}}">{{$row->nama_kabupaten}}</option>
                                     @endforeach
@@ -126,7 +125,7 @@
                                 <label for="exampleFormControlTextarea1">Deskripsi Layanan</label>
                                 <textarea name="deskripsi_layanan" class="form-control"
                                           id="exampleFormControlTextarea1"
-                                          rows="3"></textarea>
+                                          rows="3" required></textarea>
                             </div>
 
                         </div>

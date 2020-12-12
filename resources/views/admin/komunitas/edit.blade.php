@@ -15,24 +15,24 @@
                             {{csrf_field()}}
                             <div class="card-body">
                                 <div class="form-group">
-                                    <input type="hidden" value="{{$komunitas->id}}" name="id">
+                                    <input type="hidden" value="{{$komunitas->id}}" name="id" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Komunitas</label>
-                                    <input name="nama_komunitas" class="form-control" type="text" placeholder="Nama Komunitas" value="{{$komunitas->nama_komunitas}}">
+                                    <input name="nama_komunitas" class="form-control" type="text" placeholder="Nama Komunitas" value="{{$komunitas->nama_komunitas}}" required>
                                 </div>
                                 <div class="form-group" >
                                     <label for="Deskripsi">Deskripsi</label>
                                     <textarea name="deskripsi" class="textarea" placeholder="Deskripsi"
-                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$komunitas->deskripsi}}</textarea>
+                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required>{{$komunitas->deskripsi}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Link WhatsApp Group Komunitas</label>
-                                    <textarea name="link" class="form-control" id="exampleFormControlTextarea1" rows="3">{{$komunitas->link}}</textarea>
+                                    <textarea name="link" class="form-control" id="exampleFormControlTextarea1" rows="3" required>{{$komunitas->link}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Pilih Kabupaten</label>
-                                    <select name="kabupaten_id" class="form-control" id="exampleFormControlSelect1">
+                                    <select name="kabupaten_id" class="form-control" id="exampleFormControlSelect1" required>
                                         <option selected="" disabled="">Pilih Kabupaten</option>
                                         @foreach($kabupaten as $row)
                                             <option value="{{$row->id_kabupaten}}" @if($row->id_kabupaten) selected @endif>{{$row->nama_kabupaten}}</option>
@@ -43,7 +43,7 @@
                                     <label for="gambar">Gambar</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="gambar" id="gambar">
+                                            <input type="file" class="custom-file-input" name="gambar" id="gambar" required>
                                             <label class="custom-file-label" for="gambar">Pilih file</label>
                                         </div>
                                         <div class="input-group-append">
