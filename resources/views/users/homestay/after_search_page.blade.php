@@ -20,7 +20,11 @@
                             </div>
                         </div>
                     </div>
-
+                    @if(count($homestays) == 0)
+                    <center><img src="/images/assets/search_result_empty.png" style="height: 120px; alignment: center; border: none; opacity: 0.5"/>
+                        <p>Pencarian tidak ditemukan</p></center>
+                    <br>
+                    @else
                     <div class="row">
                         @foreach ($homestays as $product)
                         <div class="col-md-12">
@@ -63,6 +67,7 @@
                         </div>
                         @endforeach
                     </div>
+                    @endif
                     <br><br><br><br><br><br><br><br><br><br>
                     <div class="row">
                         @foreach ($homestays as $product)
@@ -103,19 +108,23 @@
 
                 </div>
                 <!-- Pagination -->
-                <nav aria-label="navigation">
-                    <ul class="pagination mt-50 mb-70">
-                        <li class="page-item"><a class="page-link" href="#"><i
-                                    class="fa fa-angle-left"></i></a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">...</a></li>
-                        <li class="page-item"><a class="page-link" href="#">21</a></li>
-                        <li class="page-item"><a class="page-link" href="#"><i
-                                    class="fa fa-angle-right"></i></a></li>
-                    </ul>
-                </nav>
+                @if(!count($homestays) == 0)
+                <center>
+                    <nav aria-label="navigation">
+                        <ul class="pagination mt-50 mb-70">
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class="fa fa-angle-left"></i></a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#">21</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </center>
+                @endif
             </div>
         </div>
     </div>

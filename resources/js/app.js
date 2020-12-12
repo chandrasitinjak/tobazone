@@ -7,12 +7,17 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
 
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import StarRating from 'vue-star-rating'
 
 import Vuelidate from 'vuelidate'
+Vue.use(Loading, {
+    color: '#073763'
+});
 
 Vue.use(VueSweetalert2);
 
@@ -25,51 +30,51 @@ Vue.use(Vuelidate)
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const Carousel = require('./components/homes/Carousel')
-const NewProducts = require('./components/homes/NewProducts')
-const NewProductsSuggest = require('./components/homes/NewProductsSuggest')
-const Banner = require('./components/homes/Banner')
-const CartIcon = require('./components/carts/CartIcon')
-const AddToCartButton = require('./components/AddToCartButton')
-const Cart = require('./components/carts/Cart')
-const ShippingPage = require('./components/shippings/Container')
-const ProductListMerchantPage = require('./components/merchants/ProductList')
-const OrderListMerchantPage = require('./components/merchants/OrderList')
-const OnProcessOrderListMerchantPage = require('./components/merchants/OnProcessOrderList')
-const OrderListCustomerPage = require('./components/customers/OrderList')
-const PaymentConfirmation = require('./components/payments/PaymentConfirmation')
-const BlogList = require('./components/blogs/BlogList')
-const RegCustomer = require('./components/register/AddCustomerModal')
-const RegMerchant = require('./components/register/AddMerchantModal')
-const RegCebt = require('./components/register/AddCbtModal')
-const TrackingPage = require('./components/customers/TrackingPage')
-const SearchProduct = require('./components/search/SearchProduct')
-const LoginModal = require('./components/auths/LoginModal')
-const Spinner = require('./components/Spinner')
-const SuccesOrdersList = require('./components/merchants/SuccesOrdersList')
-const ProductsUlos = require('./components/search/Ulos')
-const ProductsPakaian = require('./components/search/Pakaian')
-const ProductsMakanan = require('./components/search/Makanan')
-const ProductsAksesoris = require('./components/search/Aksesoris')
-const ProductsObat = require('./components/search/Obat')
-const AddToWishlistButton = require('./components/AddToWishlistButton')
-const UserRating = require('./components/merchants/UserRating')
-const UserRatingSecond = require('./components/merchants/UserRatingSecond')
-const ProdukTerlaris = require('./components/homes/ProdukTerlaris')
-const MainPage = require('./components/homestay/MainPage')
-const CarouselHomestay = require('./components/homestay/CarouselHomestay')
-const CreateHomestay = require('./components/homestay/merchant/CreateHomestay')
-const UpdateHomestay = require('./components/homestay/merchant/UpdateHomestay')
-const ListLogin = require('./components/auths/ListLogin')
-const StatusKoperasi = require('./components/koperasi/StatusKoperasi')
-const LayananMaintenence = require('./components/koperasi/LayananMaintenence')
-const AllHomestay = require('./components/homestay/merchant/AllHomestay')
-const KoperasiTidakAktif = require('./components/Koperasi/KoperasiTidakAktif')
-const AkunPending = require('./components/Koperasi/AkunPending')
-const InformasiDicari = require('./components/homes/InformasiDicari')
-const KomunitasPaketWisata = require('./components/homes/KomunitasPaketWisata')
-const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay')
-const NewOrder = require('./components/homestay/merchant/NewOrder')
+const Carousel = require('./components/homes/Carousel').default
+const NewProducts = require('./components/homes/NewProducts').default
+const NewProductsSuggest = require('./components/homes/NewProductsSuggest').default
+const Banner = require('./components/homes/Banner').default
+const CartIcon = require('./components/carts/CartIcon').default
+const AddToCartButton = require('./components/AddToCartButton').default
+const Cart = require('./components/carts/Cart').default
+const ShippingPage = require('./components/shippings/Container').default
+const ProductListMerchantPage = require('./components/merchants/ProductList').default
+const OrderListMerchantPage = require('./components/merchants/OrderList').default
+const OnProcessOrderListMerchantPage = require('./components/merchants/OnProcessOrderList').default
+const OrderListCustomerPage = require('./components/customers/OrderList').default
+const PaymentConfirmation = require('./components/payments/PaymentConfirmation').default
+const BlogList = require('./components/blogs/BlogList').default
+const RegCustomer = require('./components/register/AddCustomerModal').default
+const RegMerchant = require('./components/register/AddMerchantModal').default
+const RegCebt = require('./components/register/AddCbtModal').default
+const TrackingPage = require('./components/customers/TrackingPage').default
+const SearchProduct = require('./components/search/SearchProduct').default
+const LoginModal = require('./components/auths/LoginModal').default
+const Spinner = require('./components/Spinner').default
+const SuccesOrdersList = require('./components/merchants/SuccesOrdersList').default
+const ProductsUlos = require('./components/search/Ulos').default
+const ProductsPakaian = require('./components/search/Pakaian').default
+const ProductsMakanan = require('./components/search/Makanan').default
+const ProductsAksesoris = require('./components/search/Aksesoris').default
+const ProductsObat = require('./components/search/Obat').default
+const AddToWishlistButton = require('./components/AddToWishlistButton').default
+const UserRating = require('./components/merchants/UserRating').default
+const UserRatingSecond = require('./components/merchants/UserRatingSecond').default
+const ProdukTerlaris = require('./components/homes/ProdukTerlaris').default
+const MainPage = require('./components/homestay/MainPage').default
+const CarouselHomestay = require('./components/homestay/CarouselHomestay').default
+const CreateHomestay = require('./components/homestay/merchant/CreateHomestay').default
+const UpdateHomestay = require('./components/homestay/merchant/UpdateHomestay').default
+const ListLogin = require('./components/auths/ListLogin').default
+const StatusKoperasi = require('./components/koperasi/StatusKoperasi').default
+const LayananMaintenence = require('./components/koperasi/LayananMaintenence').default
+const AllHomestay = require('./components/homestay/merchant/AllHomestay').default
+const KoperasiTidakAktif = require('./components/Koperasi/KoperasiTidakAktif').default
+const AkunPending = require('./components/Koperasi/AkunPending').default
+const InformasiDicari = require('./components/homes/InformasiDicari').default
+const KomunitasPaketWisata = require('./components/homes/KomunitasPaketWisata').default
+const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay').default
+const NewOrder = require('./components/homestay/merchant/NewOrder').default
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)

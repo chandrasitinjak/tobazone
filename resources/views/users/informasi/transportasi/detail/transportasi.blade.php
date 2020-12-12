@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-8">
                 <h3>Deskripsi</h3>
-                <p>{{$transportasi->deskripsi}}</p>
+                <?php echo $transportasi->deskripsi ?>
             </div>
         </div>
     </div>

@@ -28,6 +28,7 @@
     "npm": "^6.4.1",
     "sweetalert2": "^9.15.2",
     "vue-carousel": "^0.16.0-rc2",
+    "vue-loading-overlay": "^3.4.2",
     "vue-owl-carousel": "^2.0.3",
     "vue-star-rating": "^1.6.1",
     "vue-sweetalert2": "^3.0.6",
