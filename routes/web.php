@@ -107,6 +107,12 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::post('/admin/update-profile', 'AdminController@updateProfile');
         Route::post('/admin/edit-password', 'AdminController@editPassword');
 
+        //products
+        Route::get('/admin/ulos-colors', 'AdminController@findAllUlosColors');
+        Route::post('/admin/ulos-colors', 'AdminController@addUlosColors');
+        Route::post('/admin/ulos-colors/edit/{id}', 'AdminController@editUlosColors');
+        Route::get('/admin/ulos-colors/delete/{id}', 'AdminController@deleteUlosColors');
+
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
         Route::post('/roles/update/{id}', 'RoleController@update');
