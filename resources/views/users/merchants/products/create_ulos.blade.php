@@ -95,17 +95,9 @@
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Warna Dasar</label>
                                         <select class="form-control" name="color" aria-describedby="warnadasar">
-                                                <option value="Hitam"> Hitam</option>
-                                                <option value="Merah"> Merah</option>
-                                                <option value="Biru"> Biru</option>
-                                                <option value="Putih"> Putih</option>
-                                                <option value="Ungu"> Ungu</option>
-                                                <option value="Hijau"> Hijau</option>
-                                                <option value="Cokelat"> Cokelat</option>
-                                                <option value="Kuning"> Kuning</option>
-                                                <option value="Silver"> Silver</option>
-                                                <option value="Pink"> Pink</option>
-                                                <option value="Maroon"> Maroon</option>
+                                            @foreach($colors as $color)
+                                                <option value="Hitam">{{$color}}</option>
+                                            @endforeach
                                             </select>
                                         <small id="warnadasar" class="form-text text-muted">
                                             Pilih warna yang paling dominan
