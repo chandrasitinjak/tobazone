@@ -20,9 +20,10 @@
             </div>
             <div class="col-md-4">
                 <h3>Lokasi</h3><br>
-                <div id="map" style="height: 400px;width: 400px"></div>
+
             </div>
         </div>
+    <div id="map" style="height: 400px;width: 400px"></div>
 @endsection
 
 @section('js')
@@ -87,5 +88,6 @@
         // code from the next step will go here!
 
     </script>
+
 
 @endsection
