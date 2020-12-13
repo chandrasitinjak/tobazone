@@ -97,7 +97,7 @@
 
         <div class="row justify-content-center mb-5 mt-5">
             <div class="col-lg-auto col-auto mt-2">
-                <a href="#">
+                <a href="{{ url('/product/pakaian') }}">
                     <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
                         <img class="card-img-top m-auto" src="{{ asset('images/kategori-produk/fashion.png') }}" alt="Card image cap">
                         <p class="card-text text-center">Fashion</p>
@@ -105,7 +105,7 @@
                 </a>
             </div>
             <div class="col-lg-auto ml-1 col-auto mt-2">
-                <a href="#">
+                <a href="{{ url('/product/ulos') }}">
                     <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
                         <img class="card-img-top m-auto" src="{{ asset('images/kategori-produk/tenun.png') }}" style="width:60px; height:90px" alt="Card image cap">
                         <p class="card-text text-center">Tenun</p>
@@ -113,7 +113,7 @@
                 </a>
             </div>
             <div class="col-lg-auto ml-1 col-auto mt-2">
-                <a href="#">
+                <a href="{{ url('/product/obat') }}">
                     <div class="card shadow rounded-5 " style="width:6rem; height:8.5rem">
                         <img class="card-img-top m-auto pt-1" src="{{ asset('images/kategori-produk/kesehatan.png') }}" style="width:60px; height:75px" alt="Card image cap">
                         <p class="card-text text-center mb-2" style="line-height: 100%">Kesehatan & Kecantikan</p>
@@ -121,7 +121,7 @@
                 </a>
             </div>
             <div class="col-lg-auto ml-1 col-auto mt-2">
-                <a href="#">
+                <a href="{{ url('/product/makanan') }}">
                     <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
                         <img class="card-img-top mt-4 mb-3 ml-2" src="{{ asset('images/kategori-produk/kuliner.png') }}" style="width:75px; height:75px" alt="Card image cap">
                         <p class="card-text text-center">Kuliner</p>
@@ -129,7 +129,7 @@
                 </a>
             </div>
             <div class="col-lg-auto ml-1 col-auto mt-2">
-                <a href="#">
+                <a href="{{ url('/product/aksesoris') }}">
                     <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
                         <img class="card-img-top mt-4 mb-2 ml-1" src="{{ asset('images/kategori-produk/aksesoris.png') }}" style="width:80px; height:75px" alt="Card image cap">
                         <p class="card-text text-center">Aksesoris</p>
@@ -137,7 +137,7 @@
                 </a>
             </div>
             <div class="col-lg-auto ml-1 col-auto mt-2">
-                <a href="#">
+                <a href="{{ url('/user/homestays') }}">
                     <div class="card shadow rounded-5 " style="width:6rem; height:8.5rem">
                         <img class="card-img-top mt-4 ml-3 mb-2" src="{{ asset('images/kategori-produk/penginapan.png') }}"  style="width:65px; height:70px" alt="Card image cap">
                         <p class="card-text text-center">Penginapan</p>
@@ -145,7 +145,7 @@
                 </a>
             </div>
             <div class="col-lg-auto ml-1 col-auto mt-2">
-                <a href="#">
+                <a href="{{ route('paket') }}">
                     <div class="card shadow rounded-5 " style="width:6rem; height:8.5rem">
                         <img class="card-img-top mt-3 ml-1 mb-1" src="{{ asset('images/kategori-produk/paket_wisata.jpg') }}" style="width:85px; height:85px" alt="Card image cap">
                         <p class="card-text text-center">Paket Wisata</p>
@@ -174,6 +174,13 @@
             <komunitas-paket-wisata />
         </div>
 
+        <div class="container-fluid mt-7">
+            <div class="col-md-12">
+                <a href="https://tobazone-koperasi.herokuapp.com/#/register">
+                    <img src="{{ asset('koperasi.jpg') }}" class="w-100">
+                </a>
+            </div>
+        </div>
         <!-- <div id="banner">
             <banner/>
         </div> -->
@@ -222,11 +229,3 @@
 
 </html>
 <script>
-    import ProdukTerlaris from "../../../js/components/homes/ProdukTerlaris";
-    import KomunitasPaketWisata from "../../../js/components/homes/KomunitasPaketWisata";
-    import ProdukTerlaris2 from "../../../js/components/homes/ProdukTerlaris2";
-
-    export default {
-        components: {ProdukTerlaris2, ProdukTerlaris, KomunitasPaketWisata}
-    }
-</script>

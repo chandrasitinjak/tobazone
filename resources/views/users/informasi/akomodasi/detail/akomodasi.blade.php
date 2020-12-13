@@ -3,7 +3,7 @@
 @endsection
 @section('content')
     <div class="jumbutron mt-50">
-        <div class="jumbotron text-white jumbotron-image shadow"  style="height:500px;background-image: url(<?= $akomodasi->foto ?>);background-size:2000px 1000px ;background-repeat: no-repeat">
+        <div class="jumbotron text-white jumbotron-image shadow"  style="height:500px;background-image: url({{'/Kab/information/Akomodasi/'.$akomodasi->foto}});background-size:2000px 1000px ;background-repeat: no-repeat">
             <h1 class="mb-4 text-white">
                 <span class="badge badge-light">{{$akomodasi->nama_akomodasi}}</span>
             </h1>
