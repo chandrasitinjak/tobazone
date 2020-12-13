@@ -19,7 +19,7 @@
                         navigationNextLabel="<i class='fa fa-angle-right fa-3x'></i>"
                         navigationPrevLabel="<i class='fa fa-angle-left fa-3x'></i>"
                 >
-                    <slide class="px-2" v-for="product in products">
+                    <slide class="px-2" v-for="product in products" :key="product.id">
                         <a :href="'/products/' + product.id">
                             <div class="card product ">
 

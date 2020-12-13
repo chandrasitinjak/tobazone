@@ -51,11 +51,13 @@
         },
         methods: {
             change(id, state) {
+                const loader = this.$loading.show()
                 axios.post(`${this.urlGlobalKoperasi}ubah-status-koperasi`, {
                     id,
                     state: state,
                 })
                     .then(() => {
+                        loader.hide()
                         this.$swal.fire(
                             'Success!',
                             'Status Koperasi berhasil diubah',
@@ -63,6 +65,7 @@
                         );
                     })
                     .catch(() => {
+                        loader.hide()
                         this.$swal.fire(
                             'Error!',
                             'Terjadi kesalahan, refresh(F5)',
@@ -84,14 +87,21 @@
                         if (result.value) {
                             this.change(id, status);
                         } else {
+                            this.data = []
+                            this.getData()
                         }
                     });
             },
             getData() {
+                const loader = this.$loading.show()
                 axios.get(`${this.urlGlobalKoperasi}get-koperasi-aktif`)
                     .then(e => {
                         this.data = e.data
+                        loader.hide()
                     })
+                .catch(()=>{
+                    loader.hide()
+                })
             }
         },
         mounted() {

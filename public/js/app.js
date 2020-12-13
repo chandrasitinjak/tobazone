@@ -36133,13 +36133,15 @@ module.exports = __webpack_require__(445);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_sweetalert2__ = __webpack_require__(186);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert2_dist_sweetalert2_min_css__ = __webpack_require__(188);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert2_dist_sweetalert2_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_sweetalert2_dist_sweetalert2_min_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_star_rating__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_star_rating___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_star_rating__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuelidate__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuelidate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vuelidate__);
+throw new Error("Cannot find module \"vue-loading-overlay\"");
+throw new Error("Cannot find module \"vue-loading-overlay/dist/vue-loading.css\"");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_sweetalert2__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_sweetalert2_dist_sweetalert2_min_css__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_sweetalert2_dist_sweetalert2_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_sweetalert2_dist_sweetalert2_min_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_star_rating__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_star_rating___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue_star_rating__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vuelidate__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vuelidate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vuelidate__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -36156,9 +36158,14 @@ window.Vue = __webpack_require__(23);
 
 
 
-Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_sweetalert2__["a" /* default */]);
 
-Vue.use(__WEBPACK_IMPORTED_MODULE_3_vuelidate___default.a);
+Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_loading_overlay___default.a, {
+    color: '#073763'
+});
+
+Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_sweetalert2__["a" /* default */]);
+
+Vue.use(__WEBPACK_IMPORTED_MODULE_5_vuelidate___default.a);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -36166,54 +36173,55 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_3_vuelidate___default.a);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var Carousel = __webpack_require__(195);
-var NewProducts = __webpack_require__(201);
-var NewProductsSuggest = __webpack_require__(206);
-var Banner = __webpack_require__(209);
-var CartIcon = __webpack_require__(212);
-var AddToCartButton = __webpack_require__(217);
-var Cart = __webpack_require__(222);
-var ShippingPage = __webpack_require__(227);
-var ProductListMerchantPage = __webpack_require__(256);
-var OrderListMerchantPage = __webpack_require__(261);
-var OnProcessOrderListMerchantPage = __webpack_require__(266);
-var OrderListCustomerPage = __webpack_require__(271);
-var PaymentConfirmation = __webpack_require__(276);
-var BlogList = __webpack_require__(305);
-var RegCustomer = __webpack_require__(310);
-var RegMerchant = __webpack_require__(313);
-var RegCebt = __webpack_require__(316);
-var TrackingPage = __webpack_require__(319);
-var SearchProduct = __webpack_require__(324);
-var LoginModal = __webpack_require__(329);
-var Spinner = __webpack_require__(8);
-var SuccesOrdersList = __webpack_require__(334);
-var ProductsUlos = __webpack_require__(337);
-var ProductsPakaian = __webpack_require__(342);
-var ProductsMakanan = __webpack_require__(347);
-var ProductsAksesoris = __webpack_require__(352);
-var ProductsObat = __webpack_require__(357);
-var AddToWishlistButton = __webpack_require__(362);
-var UserRating = __webpack_require__(365);
-var UserRatingSecond = __webpack_require__(370);
-var ProdukTerlaris = __webpack_require__(375);
-var MainPage = __webpack_require__(378);
-var CarouselHomestay = __webpack_require__(383);
-var CreateHomestay = __webpack_require__(388);
-var UpdateHomestay = __webpack_require__(391);
-var ListLogin = __webpack_require__(394);
-var StatusKoperasi = __webpack_require__(398);
-var LayananMaintenence = __webpack_require__(403);
-var AllHomestay = __webpack_require__(408);
-var KoperasiTidakAktif = __webpack_require__(413);
-var AkunPending = __webpack_require__(418);
-var InformasiDicari = __webpack_require__(423);
-var KomunitasPaketWisata = __webpack_require__(427);
-var FormPesanHomestay = __webpack_require__(432);
-var NewOrder = __webpack_require__(437);
+var Carousel = __webpack_require__(195).default;
+var NewProducts = __webpack_require__(201).default;
+var NewProductsSuggest = __webpack_require__(206).default;
+var Banner = __webpack_require__(209).default;
+var CartIcon = __webpack_require__(212).default;
+var AddToCartButton = __webpack_require__(217).default;
+var Cart = __webpack_require__(222).default;
+var ShippingPage = __webpack_require__(227).default;
+var ProductListMerchantPage = __webpack_require__(256).default;
+var OrderListMerchantPage = __webpack_require__(261).default;
+var OnProcessOrderListMerchantPage = __webpack_require__(266).default;
+var OrderListCustomerPage = __webpack_require__(271).default;
+var PaymentConfirmation = __webpack_require__(276).default;
+var BlogList = __webpack_require__(305).default;
+var RegCustomer = __webpack_require__(310).default;
+var RegMerchant = __webpack_require__(313).default;
+var RegCebt = __webpack_require__(316).default;
+var TrackingPage = __webpack_require__(319).default;
+var SearchProduct = __webpack_require__(324).default;
+var LoginModal = __webpack_require__(329).default;
+var Spinner = __webpack_require__(8).default;
+var SuccesOrdersList = __webpack_require__(334).default;
+var ProductsUlos = __webpack_require__(337).default;
+var ProductsPakaian = __webpack_require__(342).default;
+var ProductsMakanan = __webpack_require__(347).default;
+var ProductsAksesoris = __webpack_require__(352).default;
+var ProductsObat = __webpack_require__(357).default;
+var AddToWishlistButton = __webpack_require__(362).default;
+var UserRating = __webpack_require__(365).default;
+var UserRatingSecond = __webpack_require__(370).default;
+var ProdukTerlaris = __webpack_require__(375).default;
+var MainPage = __webpack_require__(378).default;
+var CarouselHomestay = __webpack_require__(383).default;
+var CreateHomestay = __webpack_require__(388).default;
+var UpdateHomestay = __webpack_require__(391).default;
+var ListLogin = __webpack_require__(394).default;
+var StatusKoperasi = __webpack_require__(398).default;
+var LayananMaintenence = __webpack_require__(403).default;
+var AllHomestay = __webpack_require__(408).default;
+var KoperasiTidakAktif = __webpack_require__(413).default;
+var AkunPending = __webpack_require__(418).default;
+var InformasiDicari = __webpack_require__(423).default;
+var KomunitasPaketWisata = __webpack_require__(427).default;
+var FormPesanHomestay = __webpack_require__(432).default;
+var NewOrder = __webpack_require__(437).default;
+var ProdukTerlaris2 = __webpack_require__(440).default;
 // const Test = require('./components/test/test');
 
-Vue.component('star-rating', __WEBPACK_IMPORTED_MODULE_2_vue_star_rating___default.a);
+Vue.component('star-rating', __WEBPACK_IMPORTED_MODULE_4_vue_star_rating___default.a);
 
 Vue.mixin({
     data: function data() {
@@ -36273,7 +36281,8 @@ var app = new Vue({
         KomunitasPaketWisata: KomunitasPaketWisata,
         AllHomestay: AllHomestay,
         FormPesanHomestay: FormPesanHomestay,
-        NewOrder: NewOrder
+        NewOrder: NewOrder,
+        ProdukTerlaris2: ProdukTerlaris2
     },
     data: function data() {
         return {
@@ -77336,7 +77345,7 @@ var render = function() {
               }
             },
             _vm._l(_vm.carousels, function(carousel) {
-              return _c("slide", { staticClass: "px-0" }, [
+              return _c("slide", { key: carousel.id, staticClass: "px-0" }, [
                 _c("a", { attrs: { href: carousel.link } }, [
                   _c("img", {
                     staticClass: "empty-slide",
@@ -78965,7 +78974,7 @@ var render = function() {
               }
             },
             _vm._l(_vm.products, function(product) {
-              return _c("slide", { staticClass: "px-2" }, [
+              return _c("slide", { key: product.id, staticClass: "px-2" }, [
                 _c("a", { attrs: { href: "/products/" + product.id } }, [
                   _c("div", { staticClass: "card product " }, [
                     _c("div", { staticClass: "imgwrapper" }, [
@@ -79378,29 +79387,28 @@ var render = function() {
         { attrs: { href: "/carts" } },
         [
           _c("transition", { attrs: { name: "cart" } }, [
-            _vm.show
-              ? _c("img", {
-                  staticStyle: { width: "30px", heigh: "30px" },
-                  attrs: { src: "/user-assets/img/core-img/bag.svg" }
-                })
-              : _vm._e()
+            _c("i", {
+              staticClass:
+                "fa fa-shopping-cart fa-3x fa-flip-horizontal text-white",
+              attrs: { "aria-hidden": "true" }
+            })
           ]),
           _vm._v(" "),
           _c(
             "span",
             {
-              staticClass: "badge badge-light",
+              staticClass: "badge badge-light border",
               staticStyle: {
-                "background-color": "black",
+                "background-color": "#640000",
                 display: "inline-block",
                 "font-size": "0.8rem",
                 color: "#FFFAF3",
                 "-webkit-border-radius": "9px",
-                "margin-top": "14px",
+                "margin-top": "16px",
                 "-moz-border-radius": "20px",
                 "border-radius": "20px",
                 "vertical-align": "top",
-                "margin-left": "-15px"
+                "margin-left": "-10px"
               }
             },
             [_vm._v(_vm._s(_vm.total))]
@@ -90428,7 +90436,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     role: "merchant"
                 };
 
-                console.log(payload);
+                // console.log(payload);
 
                 __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
                 window.axios.post("/register", payload).then(function () {
@@ -91616,6 +91624,71 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -91642,6 +91715,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
+        dismiss: function dismiss() {
+            __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("ADD_MERCHANT_MODAL_CLOSED", null);
+        },
         getCbt: function getCbt() {
             var _this = this;
 
@@ -91656,6 +91732,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.image = URL.createObjectURL(this.foto_ktp);
         },
         addCbt: function addCbt() {
+            var _this2 = this;
+
             // let payload = {                    
             //     nama_lengkap: this.nama_lengkap,                    
             //     nomor_wa: this.nomor_wa,
@@ -91667,23 +91745,95 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             //     nomor_ktp: this.nomor_ktp,
             // };
 
-            var formData = new FormData();
-            formData.append("image", this.foto_ktp);
-            formData.append("nama_lengkap", this.nama_lengkap);
-            formData.append("nomor_wa", this.nomor_wa);
-            formData.append("nomor_hp", this.nomor_hp);
-            formData.append("email", this.email);
-            formData.append("kata_sandi", this.kata_sandi);
-            formData.append("komunitas", this.selected_komunitas);
-            formData.append("nomor_ktp", this.nomor_ktp);
+            this.$v.$touch();
+            if (!this.$v.$invalid) {
 
-            window.axios.post("/register-cbt", formData).then(function (rest) {}).catch(function (err) {
-                console.log(err);
-            });
+                var formData = new FormData();
+                formData.append("image", this.foto_ktp);
+                formData.append("nama_lengkap", this.nama_lengkap);
+                formData.append("nomor_wa", this.nomor_wa);
+                formData.append("nomor_hp", this.nomor_hp);
+                formData.append("email", this.email);
+                formData.append("kata_sandi", this.kata_sandi);
+                formData.append("komunitas", this.selected_komunitas);
+                formData.append("nomor_ktp", this.nomor_ktp);
+
+                __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", true);
+                window.axios.post("/register-cbt", formData).then(function (rest) {
+                    window.location = "/email-verify1";
+                }).catch(function (err) {
+                    __WEBPACK_IMPORTED_MODULE_1__eventBus__["a" /* default */].$emit("SPINNER", false);
+
+                    var customerAttributes = {
+                        "nama_lengkap": "Nama Lengkap",
+                        "nomor_wa": "nomor WA",
+                        "nomor_hp": "nomor HP",
+                        "email": "Email",
+                        "kata_sandi": "Kata Sandi",
+                        "kata_sandi_konfirmasi": "Konfirmasi Kata Sandi",
+                        "nomor_ktp": "Nomor KTP",
+                        "selected_komunitas": "Komunitas"
+                    };
+
+                    var errMessage = "Terjadi kesalahan.";
+                    if (err.response.status == 422) {
+                        var errKeys = Object.keys(err.response.data.errors);
+                        var errKey = "";
+                        if (errKeys.length > 0) {
+                            errKey = errKeys[0];
+                        }
+
+                        errMessage = "Data yang diberikan tidak valid.";
+
+                        if (errKey != "") {
+                            if (errKey == "email" /*|| errKey == "username"*/) {
+                                    errMessage = errMessage + " " + customerAttributes[errKey] + " tidak valid atau telah terdaftar.";
+                                } else {
+                                errMessage = customerAttributes[errKey] + " tidak valid.";
+                            }
+                        }
+                    }
+
+                    _this2.$swal({
+                        title: "Pendaftaran Gagal",
+                        icon: "error",
+                        text: errMessage
+                    });
+                });
+            }
         }
     },
 
-    validations: {},
+    validations: {
+        nama_lengkap: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        },
+        nomor_wa: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        },
+        nomor_hp: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        },
+        email: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"],
+            email: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["email"]
+        },
+        kata_sandi: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"],
+            minLength: Object(__WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["minLength"])(8)
+        },
+        kata_sandi_konfirmasi: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"],
+            sameAsPassword: Object(__WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["sameAs"])("kata_sandi")
+        },
+        selected_komunitas: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        },
+        nomor_ktp: {
+            required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+        }
+
+    },
     mounted: function mounted() {
         this.getCbt();
     }
@@ -91720,20 +91870,59 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.nama_lengkap,
                     expression: "nama_lengkap"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.nama_lengkap.$model,
+                    expression: "$v.nama_lengkap.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.nama_lengkap.$error,
+                  "is-valid": !_vm.$v.nama_lengkap.$invalid
+                },
                 attrs: { type: "text" },
-                domProps: { value: _vm.nama_lengkap },
+                domProps: {
+                  value: _vm.nama_lengkap,
+                  value: _vm.$v.nama_lengkap.$model
+                },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.nama_lengkap,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.nama_lengkap = $event.target.value
                     }
-                    _vm.nama_lengkap = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.nama_lengkap.required
+                  ? _c("span", [_vm._v("nama lengkap tidak boleh kosong")])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -91746,20 +91935,59 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.nomor_wa,
                     expression: "nomor_wa"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.nomor_wa.$model,
+                    expression: "$v.nomor_wa.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.nomor_wa.$error,
+                  "is-valid": !_vm.$v.nomor_wa.$invalid
+                },
                 attrs: { type: "number" },
-                domProps: { value: _vm.nomor_wa },
+                domProps: {
+                  value: _vm.nomor_wa,
+                  value: _vm.$v.nomor_wa.$model
+                },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.nomor_wa,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.nomor_wa = $event.target.value
                     }
-                    _vm.nomor_wa = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.nomor_wa.required
+                  ? _c("span", [_vm._v("nomor WA tidak boleh kosong")])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -91774,20 +92002,59 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.nomor_hp,
                     expression: "nomor_hp"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.nomor_hp.$model,
+                    expression: "$v.nomor_hp.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.nomor_hp.$error,
+                  "is-valid": !_vm.$v.nomor_hp.$invalid
+                },
                 attrs: { type: "number" },
-                domProps: { value: _vm.nomor_hp },
+                domProps: {
+                  value: _vm.nomor_hp,
+                  value: _vm.$v.nomor_hp.$model
+                },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.nomor_hp,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.nomor_hp = $event.target.value
                     }
-                    _vm.nomor_hp = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.nomor_hp.required
+                  ? _c("span", [_vm._v("nomor Handphone tidak boleh kosong")])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -91800,20 +92067,64 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.email,
                     expression: "email"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.email.$model,
+                    expression: "$v.email.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.email.$error,
+                  "is-valid": !_vm.$v.email.$invalid
+                },
                 attrs: { type: "email" },
-                domProps: { value: _vm.email },
+                domProps: { value: _vm.email, value: _vm.$v.email.$model },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.email,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
                     }
-                    _vm.email = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.email.required
+                  ? _c("span", [_vm._v("Email tidak boleh kosong")])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.$v.email.email
+                  ? _c("span", [
+                      _vm._v(
+                        "Masukkan email dengan format\n                                    example@mail.com"
+                      )
+                    ])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -91826,20 +92137,63 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.kata_sandi,
                     expression: "kata_sandi"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.kata_sandi.$model,
+                    expression: "$v.kata_sandi.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.kata_sandi.$error,
+                  "is-valid": !_vm.$v.kata_sandi.$invalid
+                },
                 attrs: { type: "password" },
-                domProps: { value: _vm.kata_sandi },
+                domProps: {
+                  value: _vm.kata_sandi,
+                  value: _vm.$v.kata_sandi.$model
+                },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.kata_sandi,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.kata_sandi = $event.target.value
                     }
-                    _vm.kata_sandi = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("Kata Sandi sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.kata_sandi.required
+                  ? _c("span", [_vm._v("Kata Sandi tidak boleh kosong")])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.$v.kata_sandi.mingLength
+                  ? _c("span", [_vm._v("Kata Sandi minimal 8 karakter")])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -91854,20 +92208,63 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.kata_sandi_konfirmasi,
                     expression: "kata_sandi_konfirmasi"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.kata_sandi_konfirmasi.$model,
+                    expression: "$v.kata_sandi_konfirmasi.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.kata_sandi_konfirmasi.$error,
+                  "is-valid": !_vm.$v.kata_sandi_konfirmasi.$invalid
+                },
                 attrs: { type: "password" },
-                domProps: { value: _vm.kata_sandi_konfirmasi },
+                domProps: {
+                  value: _vm.kata_sandi_konfirmasi,
+                  value: _vm.$v.kata_sandi_konfirmasi.$model
+                },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.kata_sandi_konfirmasi,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.kata_sandi_konfirmasi = $event.target.value
                     }
-                    _vm.kata_sandi_konfirmasi = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("Konfirmasi Kata Sandi sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.kata_sandi_konfirmasi.sameAsPassword
+                  ? _c("span", [
+                      _vm._v(
+                        "Kata Sandi dan Konfirmasi Kata\n                            Sandi tidak sesuai"
+                      )
+                    ])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -91880,20 +92277,59 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.nomor_ktp,
                     expression: "nomor_ktp"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.nomor_ktp.$model,
+                    expression: "$v.nomor_ktp.$model",
+                    modifiers: { trim: true }
                   }
                 ],
                 staticClass: "form-control form-control-sm",
+                class: {
+                  "is-invalid": _vm.$v.nomor_ktp.$error,
+                  "is-valid": !_vm.$v.nomor_ktp.$invalid
+                },
                 attrs: { type: "number" },
-                domProps: { value: _vm.nomor_ktp },
+                domProps: {
+                  value: _vm.nomor_ktp,
+                  value: _vm.$v.nomor_ktp.$model
+                },
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  input: [
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.nomor_ktp,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.nomor_ktp = $event.target.value
                     }
-                    _vm.nomor_ktp = $event.target.value
+                  ],
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.nomor_ktp.required
+                  ? _c("span", [_vm._v("Nomor KTP tidak boleh kosong")])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -91918,23 +92354,53 @@ var render = function() {
                       rawName: "v-model",
                       value: _vm.selected_komunitas,
                       expression: "selected_komunitas"
+                    },
+                    {
+                      name: "model",
+                      rawName: "v-model.trim",
+                      value: _vm.$v.selected_komunitas.$model,
+                      expression: "$v.selected_komunitas.$model",
+                      modifiers: { trim: true }
                     }
                   ],
                   staticClass: "form-control form-control-lg",
+                  class: {
+                    "is-invalid": _vm.$v.selected_komunitas.$error,
+                    "is-valid": !_vm.$v.selected_komunitas.$invalid
+                  },
                   on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.selected_komunitas = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    }
+                    change: [
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.$v.selected_komunitas,
+                          "$model",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.selected_komunitas = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
+                    ]
                   }
                 },
                 _vm._l(_vm.komunitas, function(community) {
@@ -91948,7 +92414,21 @@ var render = function() {
                   )
                 }),
                 0
-              )
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "valid-feedback" }, [
+                _vm._v("sudah valid")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.selected_komunitas.required
+                  ? _c("span", [
+                      _vm._v(
+                        "Komunitas tidak boleh\n                                    kosong"
+                      )
+                    ])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
             _c(
@@ -101500,7 +101980,7 @@ var render = function() {
               }
             },
             _vm._l(_vm.products, function(product) {
-              return _c("slide", { staticClass: "px-2" }, [
+              return _c("slide", { key: product.id, staticClass: "px-2" }, [
                 _c("a", { attrs: { href: "/products/" + product.id } }, [
                   _c("div", { staticClass: "card product " }, [
                     _c("div", { staticClass: "imgwrapper" }, [
@@ -102098,7 +102578,7 @@ var render = function() {
               }
             },
             _vm._l(_vm.carousels, function(carousel) {
-              return _c("slide", { staticClass: "px-0" }, [
+              return _c("slide", { key: carousel.id, staticClass: "px-0" }, [
                 _c("a", { attrs: { href: carousel.link } }, [
                   _c("img", {
                     staticClass: "empty-slide",
@@ -104482,12 +104962,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         change: function change(id, state) {
             var _this = this;
 
+            var loader = this.$loading.show();
             axios.post(this.urlGlobalKoperasi + 'ubah-status-koperasi', {
                 id: id,
                 state: state
             }).then(function () {
+                loader.hide();
                 _this.$swal.fire('Success!', 'Status Koperasi berhasil diubah', 'success');
             }).catch(function () {
+                loader.hide();
                 _this.$swal.fire('Error!', 'Terjadi kesalahan, refresh(F5)', 'error');
             });
         },
@@ -104505,14 +104988,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (result) {
                 if (result.value) {
                     _this2.change(id, status);
-                } else {}
+                } else {
+                    _this2.data = [];
+                    _this2.getData();
+                }
             });
         },
         getData: function getData() {
             var _this3 = this;
 
+            var loader = this.$loading.show();
             axios.get(this.urlGlobalKoperasi + 'get-koperasi-aktif').then(function (e) {
                 _this3.data = e.data;
+                loader.hide();
+            }).catch(function () {
+                loader.hide();
             });
         }
     },
@@ -104809,13 +105299,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         change: function change(id, state) {
             var _this = this;
 
+            var loader = this.$loading.show();
             axios.post(this.urlGlobalKoperasi + 'aktifkan-koperasi', {
                 id: id,
                 state: state
             }).then(function () {
+                loader.hide();
                 _this.$swal.fire('Success!', 'Status Koperasi berhasil diubah', 'success');
-                _this.getData();
             }).catch(function () {
+                loader.hide();
                 _this.$swal.fire('Error!', 'Terjadi kesalahan, refresh(F5)', 'error');
             });
         },
@@ -104833,14 +105325,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (result) {
                 if (result.value) {
                     _this2.change(id, status);
-                } else {}
+                } else {
+                    _this2.data = [];
+                    _this2.getData();
+                }
             });
         },
         getData: function getData() {
             var _this3 = this;
 
+            var loader = this.$loading.show();
             axios.get(this.urlGlobalKoperasi + 'layanan-koperasi').then(function (e) {
                 _this3.data = e.data;
+                loader.hide();
+            }).catch(function () {
+                loader.hide();
             });
         }
     },
@@ -105408,7 +105907,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -105467,8 +105966,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getData: function getData() {
             var _this = this;
 
+            var loader = this.$loading.show();
             axios.get(this.urlGlobalKoperasi + "get-koperasi-tidak-aktif").then(function (e) {
                 _this.data = e.data;
+                loader.hide();
+            }).catch(function () {
+                loader.hide();
             });
         }
     },
@@ -105675,7 +106178,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -105730,16 +106233,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getData: function getData() {
             var _this = this;
 
+            var loader = this.$loading.show();
             axios.get(this.urlGlobalKoperasi + 'get-akun-pending').then(function (e) {
                 _this.data = e.data;
+                loader.hide();
+            }).catch(function () {
+                loader.hide();
             });
         },
         terima: function terima(id) {
             var _this2 = this;
 
+            var loader = this.$loading.show();
             axios.post(this.urlGlobalKoperasi + 'terimaacc', { id: id }).then(function (e) {
                 alert('Berhasil mengaktifkan akun');
                 _this2.getData();
+            }).catch(function () {
+                loader.hide();
             });
         }
     },
@@ -105921,7 +106431,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.card-informasi {\n    border-radius: 15px;\n}\n.card-img-top {\n    border-top-right-radius: 15px;\n    border-top-left-radius: 15px;\n    border-bottom-left-radius: 15px;\n    border-bottom-right-radius: 15px;\n}\n", ""]);
+exports.push([module.i, "\n.card-informasi {\r\n    border-radius: 15px;\n}\n.card-img-top {\r\n    border-top-right-radius: 15px;\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 15px;\r\n    border-bottom-right-radius: 15px;\n}\r\n", ""]);
 
 // exports
 
@@ -105947,126 +106457,179 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", {}, [
-        _c("div", { staticClass: "d-flex justify-content-between" }, [
-          _c(
-            "div",
-            {
-              staticClass: "card-informasi card shadow mt-3 ",
-              staticStyle: { width: "15rem", height: "18rem" }
-            },
-            [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src:
-                    "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-img-overlay" }, [
-                _c("h5", { staticClass: "card-title text-white" }, [
-                  _vm._v("Kuliner")
-                ])
-              ])
-            ]
-          ),
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("a", { attrs: { href: "/informasi-kuliner" } }, [
+            _c("div", { staticClass: "col-lg-auto col-auto" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card-informasi card shadow mt-3 ",
+                  staticStyle: { width: "15rem", height: "18rem" }
+                },
+                [
+                  _c("img", {
+                    staticClass: "card-img-top",
+                    staticStyle: { height: "18rem" },
+                    attrs: {
+                      src:
+                        "https://previews.123rf.com/images/azamshah72/azamshah721112/azamshah72111200256/11776023-close-up-view-of-an-opened-durian-on-bluish-background-in-portrait-orientation.jpg",
+                      alt: "Card image cap"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-img-overlay" }, [
+                    _c("h5", { staticClass: "card-title text-white" }, [
+                      _vm._v("Kuliner")
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "card-informasi card shadow mt-3",
-              staticStyle: { width: "15rem", height: "18rem" }
-            },
-            [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src:
-                    "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-img-overlay" }, [
-                _c("h5", { staticClass: "card-title text-white" }, [
-                  _vm._v("Akomodasi")
-                ])
-              ])
-            ]
-          ),
+          _c("a", { attrs: { href: "/informasi-akomodasi" } }, [
+            _c("div", { staticClass: "col-lg-auto col-auto" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card-informasi card shadow mt-3",
+                  staticStyle: { width: "15rem", height: "18rem" }
+                },
+                [
+                  _c("img", {
+                    staticClass: "card-img-top",
+                    attrs: {
+                      src:
+                        "https://media.cntraveler.com/photos/5a91dba089971c2c547af1a3/4:5/w_767,c_limit/Portrait-Roma_The-Leading-Hotels-of-the-World__2018_75269857-H1-D3395.jpg",
+                      alt: "Card image cap"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-img-overlay" }, [
+                    _c("h5", { staticClass: "card-title text-white" }, [
+                      _vm._v("Akomodasi")
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "card-informasi card shadow mt-3",
-              staticStyle: { width: "15rem", height: "18rem" }
-            },
-            [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src:
-                    "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-img-overlay" }, [
-                _c("h5", { staticClass: "card-title text-white" }, [
-                  _vm._v("Objek Wisata")
-                ])
-              ])
-            ]
-          ),
+          _c("a", { attrs: { href: "/informasi-objek-wisata" } }, [
+            _c("div", { staticClass: "col-lg-auto col-auto" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card-informasi card shadow mt-3",
+                  staticStyle: { width: "15rem", height: "18rem" }
+                },
+                [
+                  _c("img", {
+                    staticClass: "card-img-top",
+                    staticStyle: { height: "18rem" },
+                    attrs: {
+                      src:
+                        "https://seringjalan.com/wp-content/uploads/2020/04/Tugu-Toga-Aritonang-3.jpg",
+                      alt: "Card image cap"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-img-overlay" }, [
+                    _c("h5", { staticClass: "card-title text-white" }, [
+                      _vm._v("Objek Wisata")
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "card-informasi card shadow mt-3",
-              staticStyle: { width: "15rem", height: "18rem" }
-            },
-            [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src:
-                    "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-img-overlay" }, [
-                _c("h5", { staticClass: "card-title text-white" }, [
-                  _vm._v("Budaya")
-                ])
-              ])
-            ]
-          ),
+          _c("a", { attrs: { href: "/informasi-budaya" } }, [
+            _c("div", { staticClass: "col-lg-auto col-auto" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card-informasi card shadow mt-3",
+                  staticStyle: { width: "15rem", height: "18rem" }
+                },
+                [
+                  _c("img", {
+                    staticClass: "card-img-top",
+                    staticStyle: { height: "18rem" },
+                    attrs: {
+                      src:
+                        "https://i.pinimg.com/236x/93/f0/db/93f0db676204c8e40fe4e96f6d2218a9.jpg",
+                      alt: "Card image cap"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-img-overlay" }, [
+                    _c("h5", { staticClass: "card-title text-white" }, [
+                      _vm._v("Budaya")
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "card-informasi card shadow mt-3",
-              staticStyle: { width: "15rem", height: "18rem" }
-            },
-            [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src:
-                    "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-img-overlay" }, [
-                _c("h5", { staticClass: "card-title text-white" }, [
-                  _vm._v("Event")
-                ])
-              ])
-            ]
-          )
+          _c("a", { attrs: { href: "informasi-event" } }, [
+            _c("div", { staticClass: "col-lg-auto col-auto" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card-informasi card shadow mt-3",
+                  staticStyle: { width: "15rem", height: "18rem" }
+                },
+                [
+                  _c("img", {
+                    staticClass: "card-img-top",
+                    staticStyle: { height: "18rem" },
+                    attrs: {
+                      src:
+                        "https://nababan.files.wordpress.com/2010/10/1160.jpg",
+                      alt: "Card image cap"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-img-overlay" }, [
+                    _c("h5", { staticClass: "card-title text-white" }, [
+                      _vm._v("Event")
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "informasi-transportasi" } }, [
+            _c("div", { staticClass: "col-lg-auto col-auto" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card-informasi card shadow mt-3",
+                  staticStyle: { width: "15rem", height: "18rem" }
+                },
+                [
+                  _c("img", {
+                    staticClass: "card-img-top",
+                    staticStyle: { height: "18rem" },
+                    attrs: {
+                      src:
+                        "https://cdn-2.tstatic.net/medan/foto/bank/images/tarik-magg.jpg",
+                      alt: "Card image cap"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-img-overlay" }, [
+                    _c("h5", { staticClass: "card-title text-white" }, [
+                      _vm._v("Transportasi")
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
         ])
       ]),
       _vm._v(" "),
@@ -106181,41 +106744,17 @@ exports.push([module.i, "\n.card-paket {\n    border-radius: 15px;\n}\n#card-img
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_carousel__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_carousel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__eventBus__ = __webpack_require__(5);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_carousel__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_carousel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__eventBus__ = __webpack_require__(5);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
 //
 //
 //
@@ -106276,7 +106815,52 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { carousel2: __WEBPACK_IMPORTED_MODULE_0_vue_owl_carousel___default.a, Carousel: __WEBPACK_IMPORTED_MODULE_1_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_1_vue_carousel__["Slide"] }
+    components: { carousel2: __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default.a, Carousel: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Slide"] },
+    data: function data() {
+        return {
+            pakets: []
+        };
+    },
+
+    methods: {
+        getPaket: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+                var _this = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _context.next = 2;
+                                return window.axios.get("/api/paket/get-paket-terbaru").then(function (res) {
+                                    _this.pakets = res.data;
+                                    console.log(_this.pakets);
+                                }).catch(function (err) {
+                                    console.log(err);
+                                });
+
+                            case 2:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function getPaket() {
+                return _ref.apply(this, arguments);
+            }
+
+            return getPaket;
+        }(),
+        formatPrice: function formatPrice(value) {
+            var val = (value / 1).toFixed().replace('.', ',');
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+    },
+    mounted: function mounted() {
+        this.getPaket();
+    }
 });
 
 /***/ }),
@@ -106293,11 +106877,11 @@ var render = function() {
     _c("br"),
     _vm._v(" "),
     _c("div", { staticClass: "card globalcard" }, [
-      _vm._m(0),
+      _c("h3", { staticClass: "text-center" }, [_vm._v("Paket Wisata")]),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "card-body globalcardbody" },
+        { staticClass: "card-body globalcardbody mb-5" },
         [
           _c(
             "carousel",
@@ -106318,160 +106902,131 @@ var render = function() {
                 navigationPrevLabel: "<i class='fa fa-angle-left fa-3x'></i>"
               }
             },
-            [
-              _c("slide", { staticClass: "px-2" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card-paket",
-                    staticStyle: { height: "12rem" }
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: {
-                        height: "100%",
-                        width: "100%",
-                        "object-fit": "cover"
-                      },
-                      attrs: {
-                        id: "card-img",
-                        src:
-                          "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                        alt: "Card image cap"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-img-overlay" }, [
-                      _c(
-                        "h5",
-                        { staticClass: "card-title text-white mx-3 mt-2" },
-                        [_vm._v("Kuliner")]
-                      )
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("slide", { staticClass: "px-2" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card product",
-                    staticStyle: { height: "12rem" }
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: {
-                        height: "100%",
-                        width: "100%",
-                        "object-fit": "cover"
-                      },
-                      attrs: {
-                        src:
-                          "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                        alt: "Card image cap"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-img-overlay" }, [
-                      _c("h5", { staticClass: "card-title text-white" }, [
-                        _vm._v("Kuliner")
+            _vm._l(_vm.pakets, function(paket) {
+              return _c("slide", { key: paket.id, staticClass: "mt-3" }, [
+                _c("div", { staticClass: "col-auto" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card products",
+                      staticStyle: { "border-radius": "10px" }
+                    },
+                    [
+                      _c("a", { attrs: { href: "" } }, [
+                        _c("img", {
+                          staticClass: "card-img-top",
+                          staticStyle: { height: "200px" },
+                          attrs: {
+                            src: "/images/" + paket.gambar,
+                            alt: "Card image cap"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "card-body" },
+                          [
+                            _c(
+                              "h7",
+                              {
+                                staticClass: "card-title",
+                                staticStyle: { "font-weight": "bold" }
+                              },
+                              [
+                                _vm._v(_vm._s(paket.nama_paket) + " ( "),
+                                _c("i", { staticClass: "fa fa-clock-o" }),
+                                _vm._v("  " + _vm._s(paket.durasi) + " )")
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("h5", { staticStyle: { color: "#FF8311" } }, [
+                              _vm._v(
+                                "Rp." +
+                                  _vm._s(_vm.formatPrice(paket.harga_paket))
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "li",
+                              {
+                                staticClass: "list-inline-item",
+                                staticStyle: { color: "#ffc000" }
+                              },
+                              [_c("i", { staticClass: "fa fa-star" })]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "li",
+                              {
+                                staticClass: "list-inline-item",
+                                staticStyle: { color: "#ffc000" }
+                              },
+                              [_c("i", { staticClass: "fa fa-star" })]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "li",
+                              {
+                                staticClass: "list-inline-item",
+                                staticStyle: { color: "#ffc000" }
+                              },
+                              [_c("i", { staticClass: "fa fa-star" })]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "li",
+                              {
+                                staticClass: "list-inline-item",
+                                staticStyle: { color: "#ffc000" }
+                              },
+                              [_c("i", { staticClass: "fa fa-star" })]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "li",
+                              {
+                                staticClass: "list-inline-item",
+                                staticStyle: { color: "#ffc000" }
+                              },
+                              [_c("i", { staticClass: "fa fa-star" })]
+                            ),
+                            _vm._v(" "),
+                            _c("h5", { staticStyle: { color: "#FF8311" } }),
+                            _vm._v(" "),
+                            _c("p"),
+                            _vm._v(" "),
+                            _c(
+                              "p",
+                              { staticClass: "card-text" },
+                              [
+                                _c(
+                                  "medium",
+                                  { staticClass: "text-muted  float-right" },
+                                  [
+                                    _vm._v(
+                                      "  " +
+                                        _vm._s(
+                                          paket.get_kabupaten.nama_kabupaten
+                                        )
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("medium", {
+                                  staticClass: "text-muted  float-left"
+                                })
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
                       ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("slide", { staticClass: "px-2" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card product",
-                    staticStyle: { height: "12rem" }
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: {
-                        height: "100%",
-                        width: "100%",
-                        "object-fit": "cover"
-                      },
-                      attrs: {
-                        src:
-                          "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                        alt: "Card image cap"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-img-overlay" }, [
-                      _c("h5", { staticClass: "card-title text-white" }, [
-                        _vm._v("Kuliner")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("slide", { staticClass: "px-2" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card product",
-                    staticStyle: { height: "12rem" }
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: {
-                        height: "100%",
-                        width: "100%",
-                        "object-fit": "cover"
-                      },
-                      attrs: {
-                        src:
-                          "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                        alt: "Card image cap"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-img-overlay" }, [
-                      _c("h5", { staticClass: "card-title text-white" }, [
-                        _vm._v("Kuliner")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("slide", { staticClass: "px-2" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card product",
-                    staticStyle: { height: "12rem" }
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: {
-                        height: "100%",
-                        width: "100%",
-                        "object-fit": "cover"
-                      },
-                      attrs: {
-                        src:
-                          "https://images.unsplash.com/photo-1606940077503-8cd3365e5cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
-                        alt: "Card image cap"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-img-overlay" }, [
-                      _c("h5", { staticClass: "card-title text-white" }, [
-                        _vm._v("Kuliner")
-                      ])
-                    ])
-                  ]
-                )
+                    ]
+                  )
+                ])
               ])
-            ],
+            }),
             1
           )
         ],
@@ -106480,23 +107035,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c(
-        "nav",
-        {
-          staticClass: "navbar navbar-expand-lg mproduct p-1",
-          staticStyle: { "background-color": "transparent", border: "none" }
-        },
-        [_c("h3", { staticClass: "m-auto" }, [_vm._v("Produk Terlaris")])]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -107371,11 +107910,402 @@ if (false) {
 }
 
 /***/ }),
-/* 440 */,
-/* 441 */,
-/* 442 */,
-/* 443 */,
-/* 444 */,
+/* 440 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(441)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(443)
+/* template */
+var __vue_template__ = __webpack_require__(444)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/homes/ProdukTerlaris2.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-325fd96e", Component.options)
+  } else {
+    hotAPI.reload("data-v-325fd96e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 441 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(442);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("71079b08", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-325fd96e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProdukTerlaris2.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-325fd96e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProdukTerlaris2.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 442 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.card-paket {\r\n    border-radius: 15px;\n}\n#card-img {\r\n    border-top-right-radius: 15px;\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 15px;\r\n    border-bottom-right-radius: 15px;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 443 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_carousel__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_carousel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__eventBus__ = __webpack_require__(5);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { carousel2: __WEBPACK_IMPORTED_MODULE_1_vue_owl_carousel___default.a, Carousel: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Carousel"], Slide: __WEBPACK_IMPORTED_MODULE_2_vue_carousel__["Slide"] },
+    props: ["userId", "title"],
+    data: function data() {
+        return {
+            products: []
+        };
+    },
+
+    methods: {
+        formatPrice: function formatPrice(value) {
+            var val = (value / 1).toFixed().replace('.', ',');
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        },
+        getAllProducts: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+                var _this = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _context.next = 2;
+                                return window.axios.get("/api/product/get-product-terlaris").then(function (res) {
+                                    _this.products = res.data;
+                                }).catch(function (err) {
+                                    console.log(err);
+                                });
+
+                            case 2:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function getAllProducts() {
+                return _ref.apply(this, arguments);
+            }
+
+            return getAllProducts;
+        }(),
+        addToCart: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(id) {
+                var _this2 = this;
+
+                var payload;
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                payload = {
+                                    productId: id,
+                                    total: 1,
+                                    userId: this.userId
+                                };
+                                _context2.next = 3;
+                                return window.axios.post("/api/carts", payload).then(function (res) {
+                                    _this2.emitEvent(res.data);
+                                }).catch(function (err) {
+                                    console.log(err);
+                                });
+
+                            case 3:
+                            case "end":
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function addToCart(_x) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return addToCart;
+        }(),
+        emitEvent: function emitEvent(data) {
+            __WEBPACK_IMPORTED_MODULE_3__eventBus__["a" /* default */].$emit("CART_UPDATED", data);
+        }
+    },
+    mounted: function mounted() {
+        this.getAllProducts();
+    }
+});
+
+/***/ }),
+/* 444 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c("div", { staticClass: "row justify-content-center mt-5" }, [
+      _c("div", { staticClass: "col-md-10" }, [
+        _c(
+          "div",
+          {
+            staticClass: "card globalcard p-4",
+            staticStyle: { "background-color": "#640000" }
+          },
+          [
+            _c("h3", { staticClass: "text-center text-white mt-5" }, [
+              _vm._v("Produk Terlaris")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-body globalcardbody" },
+              [
+                _c(
+                  "carousel",
+                  {
+                    attrs: {
+                      "mouse-drag": true,
+                      scrollPerPage: true,
+                      spacePadding: 20,
+                      speed: 800,
+                      paginationEnabled: false,
+                      autoplay: true,
+                      perPageCustom: [
+                        [0, 1],
+                        [991.88, 4]
+                      ],
+                      navigationEnabled: true,
+                      navigationNextLabel:
+                        "<i class='fa fa-angle-right fa-3x text-white'></i>",
+                      navigationPrevLabel:
+                        "<i class='fa fa-angle-left fa-3x text-white'></i>"
+                    }
+                  },
+                  _vm._l(_vm.products, function(product) {
+                    return _c(
+                      "slide",
+                      { key: product.id, staticClass: "px-2" },
+                      [
+                        _c(
+                          "a",
+                          { attrs: { href: "/products/" + product.id } },
+                          [
+                            _c("div", { staticClass: "card product " }, [
+                              _c("div", { staticClass: "imgwrapper" }, [
+                                _c("img", {
+                                  staticStyle: {
+                                    height: "100%",
+                                    width: "100%",
+                                    "object-fit": "cover"
+                                  },
+                                  attrs: {
+                                    src:
+                                      "/images/" +
+                                      JSON.parse(product.images)[0],
+                                    alt: "Card image cap"
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "card-body" }, [
+                                _c(
+                                  "p",
+                                  {
+                                    staticClass: "card-title productname",
+                                    staticStyle: {
+                                      "white-space": "nowrap",
+                                      overflow: "hidden",
+                                      "text-overflow": "ellipsis",
+                                      "max-width": "20ex"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(product.name)
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "h6",
+                                  { staticStyle: { color: "#ff5205" } },
+                                  [
+                                    _vm._v(
+                                      "Rp " +
+                                        _vm._s(_vm.formatPrice(product.price))
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "p",
+                                  { staticClass: "card-text float-right" },
+                                  [
+                                    _c("small", { staticClass: "text-muted" }, [
+                                      _vm._v(_vm._s(product.merchant_name))
+                                    ])
+                                  ]
+                                )
+                              ])
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  }),
+                  1
+                )
+              ],
+              1
+            )
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-325fd96e", module.exports)
+  }
+}
+
+/***/ }),
 /* 445 */
 /***/ (function(module, exports) {
 
