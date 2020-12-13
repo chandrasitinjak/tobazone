@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\UlosColors;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
@@ -18,13 +19,13 @@ class AdminController extends Controller
     $countOrder = Transaction::all()->count();
 
     $countMerchant = DB::table('model_has_roles')->where('role_id', 2)->count();
-     
+
     $countCustomer = DB::table('model_has_roles')->where('role_id', 3)->count();
-    
+
     return view('admin.index')
     ->with('countOrder', $countOrder)
     ->with('countMerchant', $countMerchant)
-    ->with('countCustomer', $countCustomer);         
+    ->with('countCustomer', $countCustomer);
   }
 
   private function getAuthincatedUser() {
@@ -46,11 +47,11 @@ class AdminController extends Controller
   }
 
   public function updateProfile(Request $request){
-    $user = $this->getAuthincatedUser(); 
+    $user = $this->getAuthincatedUser();
     $profile = [];
-    $profile['name'] = $request->name;  
+    $profile['name'] = $request->name;
     $profile['phone'] = $request->phone;
-    
+
     if($request->file('photo')) {
       $updateImage = $request->file('photo');
       $imageName = $updateImage->getClientOriginalName();
@@ -80,5 +81,30 @@ class AdminController extends Controller
     }
 
   }
- 
+
+  public function findAllUlosColors(){
+      $ulosColors = UlosColors::all();
+      return view('admin.products.UlosColors')->with('ulos',$ulosColors);
+  }
+
+  public function addUlosColors(Request $request){
+      $ulosColors = new UlosColors();
+      $ulosColors->color =$request->warna;
+      $ulosColors->save();
+      return redirect("/admin/ulos-colors")->with("success", "Add new ulos color success");
+  }
+
+    public function editUlosColors(Request $request, $id){
+        $ulosColors = UlosColors::find($id);
+        $ulosColors->color =$request->warna;
+        $ulosColors->save();
+        return redirect("/admin/ulos-colors")->with("success", "Update new ulos color success");
+    }
+
+    public function deleteUlosColors($id){
+        $ulosColors = UlosColors::find($id);
+        $ulosColors->delete();
+        return redirect("/admin/ulos-colors")->with("success", "Delete new ulos color success");
+    }
+
 }
