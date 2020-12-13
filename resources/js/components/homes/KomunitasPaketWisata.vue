@@ -16,7 +16,7 @@
                         navigationNextLabel="<i class='fa fa-angle-right fa-3x'></i>"
                         navigationPrevLabel="<i class='fa fa-angle-left fa-3x'></i>"
                 >
-                    <slide class="mt-3" v-for="paket in pakets">
+                    <slide class="mt-3" v-for="paket in pakets" :key="paket.id">
                         <div class="col-auto">
                             <div class="card products"  style="border-radius: 10px;">
                                 <a :href="'/paket/details/'+paket.id_paket">
