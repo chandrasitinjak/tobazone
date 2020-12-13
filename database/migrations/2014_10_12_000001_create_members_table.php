@@ -13,14 +13,16 @@ class CreateMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('member', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('photo')->nullable();
-            $table->string('no_KTP');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('member')) {
+            Schema::create('member', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->unsignedInteger('user_id');
+                $table->foreign('user_id')->references('id')->on('users');
+                $table->string('photo')->nullable();
+                $table->string('no_KTP');
+                $table->timestamps();
+            });
+        }
     }
 
     /**

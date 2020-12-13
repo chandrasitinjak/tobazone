@@ -13,20 +13,22 @@ class CreatePaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('payments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('transaction_id')->unsigned();
-            $table->integer('product_cost');
-            $table->integer('shipping_cost');
-            $table->integer('product_discount')->default(0);
-            $table->integer('shipping_discount')->default(0);
-            $table->string('date')->nullable();
-            $table->string('status')->default('pending');
-            $table->text('proof')->nullable();
-            $table->timestamps();
+        if (!Schema::hasTable('payments')) {
+            Schema::create('payments', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('transaction_id')->unsigned();
+                $table->integer('product_cost');
+                $table->integer('shipping_cost');
+                $table->integer('product_discount')->default(0);
+                $table->integer('shipping_discount')->default(0);
+                $table->string('date')->nullable();
+                $table->string('status')->default('pending');
+                $table->text('proof')->nullable();
+                $table->timestamps();
 
-            $table->foreign('transaction_id')->references('id')->on('transactions');
-        });
+                $table->foreign('transaction_id')->references('id')->on('transactions');
+            });
+        }
     }
 
     /**

@@ -1,5 +1,6 @@
 <div class="overlay"></div>
 <nav class="navbar navbar-expand-md navbar-light main-menu" style="box-shadow:none; background-color: #640000">
+
     <div class="container">
         <button type="button" id="sidebar1Collapse" class="btn btn-link d-block d-md-none">
             <i class="bx bx-menu icon-single" style="color:white"></i>
@@ -7,10 +8,20 @@
         <a class="navbar-brand" href="/">
             <h4 class="font-weight-bold text-white">Tobazone</h4>
         </a>
+
+        <ul class="navbar-nav ml-auto d-block d-md-none">
+            <li class="nav-item">
+                @if(Auth::check())
+                    <cart-icon :user-id="{{Auth::user()->id}}"/>
+                @else
+                    <cart-icon/>
+                @endif
+            </li>
+        </ul>
         <div class="collapse navbar-collapse">
             <form class="form-inline my-2 my-lg-0 mx-auto" action="/search">
                 <input class="form-control" type="search" placeholder="Cari Produk..." aria-label="Search" name="search">
-                <button class="btn my-2 my-sm-0 border" type="submit" style="background-color: #640000"><i class="bx bx-search text-white"></i></button>
+                <button class="btn my-2 my-sm-0" type="submit"><i class="bx bx-search"></i></button>
             </form>
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -30,7 +41,7 @@
                             {{--                     style="text-decoration-line: unset; margin-right:15px!important;"> Masuk--}}
                             {{--                  </button></a>--}}
                             {{--                  </a>--}}
-                            <button class="btn btn-outline-light" type="button"  data-toggle="modal"  data-target="#loginModal"
+                            <button class="btn btn-toba" type="button"  data-toggle="modal"  data-target="#loginModal"
                                     style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
                             </button>
                             <a href="{{ url('/register') }}">
@@ -154,6 +165,9 @@
         </li>
         <li>
             <a href="{{ url('/product/ulos') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Ulos</a>
+        </li>
+        <li>
+            <a href="{{ url('/user/homestays') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Homestay</a>
         </li>
     </ul>
 </nav>

@@ -281,7 +281,7 @@ form.example::after {
 }
 
 .imgwrapper img {
-    width: 180px;        
+    width: 180px;
     height: 180px;
     max-width: 100%;
     max-height: 100%;
@@ -793,6 +793,17 @@ form.example::after {
 }
 
 .essence-btn:hover, .essence-btn:focus{
+    background-color: #4b1815 ;
+    border-color: #813E39;
+}
+
+.essence-btn-sm{
+    background-color: black;
+    color: #ffffff;
+    font-size: 10px;
+}
+
+.essence-btn-sm:hover, .essence-btn-sm:focus{
     background-color: #4b1815 ;
     border-color: #813E39;
 }
