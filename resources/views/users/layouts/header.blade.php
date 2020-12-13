@@ -1,73 +1,12 @@
 <div class="overlay"></div>
 <nav class="navbar navbar-expand-md navbar-light main-menu" style="box-shadow:none; background-color: #FFFAF4">
-   <div class="container">
-      <button type="button" id="sidebar1Collapse" class="btn btn-link d-block d-md-none">
-      <i class="bx bx-menu icon-single" style="color:black"></i>
-      </button>
-      <a class="navbar-brand" href="/">
-         <h4 class="font-weight-bold">Tobazone</h4>
-      </a>
-      <ul class="navbar-nav ml-auto d-block d-md-none">
-         <li class="nav-item">
-            @if(Auth::check())
-            <cart-icon :user-id="{{Auth::user()->id}}"/>
-            @endif
-         </li>
-      </ul>
-      <div class="collapse navbar-collapse">
-         <form class="form-inline my-2 my-lg-0 mx-auto" action="/search">
-            <input class="form-control" type="search" placeholder="Cari Produk..." aria-label="Search" name="search">
-            <button class="btn my-2 my-sm-0" type="submit"><i class="bx bx-search"></i></button>
-         </form>
-         <ul class="navbar-nav">
-            <li class="nav-item">
-               <div id="cart-icon" class="d-none d-lg-block mr-3" style="margin-right:50px!important">
-                  @if(Auth::check())
-                  <cart-icon :user-id="{{Auth::user()->id}}"/>
-                  @endif
-               </div>
-            </li>
-            <li class="nav-item ml-md-3">
-               @guest
-               <div class="user-login-info align-content-end">
-{{--                  <a href="#">--}}
-                  <a href="/listlogin"><button class="btn btn-toba" type="button"
-                     style="text-decoration-line: unset; margin-right:15px!important;"> Masuk
-                  </button></a>
-{{--                  </a>--}}
-                  <a href="{{ url('/register') }}">
-                  <button class="btn btn-toba" type="button"
-                     style="text-decoration-line: unset;"> Daftar
-                  </button>
-                  </a>
-               </div>
-               @else
-               <div class="classynav p-0">
-                  <div class="dropdown float-right">
-                     <a href="#" class="dropdown-toggle active mr-4" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" style="display: inherit;">
-                     <img width="25" src="/user-assets/img/core-img/user.svg" alt="">
-                     </a>
-                     <div class="user-menu dropdown-menu mt-2" style="border: 1px solid #e0e0e0; left: -70px;">
-                        <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/myProfil') }}">Profil Saya</a>
-                        <a class="nav-link" href="{{ url('/customer/'.Auth::user()->id.'/wishlist') }}" >Favorit</a>
-                        <a class="nav-link" href="{{ url('/customer/' . Auth::user()->id . '/orders' )}}">Pesanan</a>
-                        <ul class="dropdown">
-                           <li class="item">
-                              <form method="POST" action="{{ url('/logout')}}">
-                                 {{ csrf_field() }}
-                                 <button type="submit" class="btn nav-link"
-                                    style="background-color: transparent;padding-left: 12px;">Keluar
-                                 </button>
-                              </form>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               @endguest
-            </li>
-        </ul>
+    <div class="container">
+        <button type="button" id="sidebar1Collapse" class="btn btn-link d-block d-md-none">
+            <i class="bx bx-menu icon-single" style="color:black"></i>
+        </button>
+        <a class="navbar-brand" href="/">
+            <h4 class="font-weight-bold">Tobazone</h4>
+        </a>
         <div class="collapse navbar-collapse">
             <form class="form-inline my-2 my-lg-0 mx-auto" action="/search">
                 <input class="form-control" type="search" placeholder="Cari Produk..." aria-label="Search"

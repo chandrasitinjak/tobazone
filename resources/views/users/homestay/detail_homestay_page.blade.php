@@ -55,3 +55,11 @@
     </div>
 </section>
 @endsection
+
+<script>
+    import FormPesanHomestay from "../../../js/components/homestay/FormPesanHomestay";
+
+    export default {
+        components: {FormPesanHomestay}
+    }
+</script>
