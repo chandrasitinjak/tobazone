@@ -19,7 +19,7 @@
                     <slide class="mt-3" v-for="paket in pakets" :key="paket.id">
                         <div class="col-auto">
                             <div class="card products"  style="border-radius: 10px;">
-                                <a href="">
+                                <a :href="'/paket/details/'+paket.id_paket">
 
                                     <img class="card-img-top"
                                          :src="'/images/'+paket.gambar" alt="Card image cap" style="height: 200px;">

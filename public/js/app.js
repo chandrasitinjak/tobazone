@@ -16535,7 +16535,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.card-paket {\n    border-radius: 15px;\n}\n#card-img {\n    border-top-right-radius: 15px;\n    border-top-left-radius: 15px;\n    border-bottom-left-radius: 15px;\n    border-bottom-right-radius: 15px;\n}\n", ""]);
+exports.push([module.i, "\n.card-paket {\r\n    border-radius: 15px;\n}\n#card-img {\r\n    border-top-right-radius: 15px;\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 15px;\r\n    border-bottom-right-radius: 15px;\n}\r\n", ""]);
 
 // exports
 
@@ -77956,116 +77956,120 @@ var render = function() {
                       staticStyle: { "border-radius": "10px" }
                     },
                     [
-                      _c("a", { attrs: { href: "" } }, [
-                        _c("img", {
-                          staticClass: "card-img-top",
-                          staticStyle: { height: "200px" },
-                          attrs: {
-                            src: "/images/" + paket.gambar,
-                            alt: "Card image cap"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "card-body" },
-                          [
-                            _c(
-                              "h7",
-                              {
-                                staticClass: "card-title",
-                                staticStyle: { "font-weight": "bold" }
-                              },
-                              [
-                                _vm._v(_vm._s(paket.nama_paket) + " ( "),
-                                _c("i", { staticClass: "fa fa-clock-o" }),
-                                _vm._v("  " + _vm._s(paket.durasi) + " )")
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("h5", { staticStyle: { color: "#FF8311" } }, [
-                              _vm._v(
-                                "Rp." +
-                                  _vm._s(_vm.formatPrice(paket.harga_paket))
+                      _c(
+                        "a",
+                        { attrs: { href: "/paket/details/" + paket.id_paket } },
+                        [
+                          _c("img", {
+                            staticClass: "card-img-top",
+                            staticStyle: { height: "200px" },
+                            attrs: {
+                              src: "/images/" + paket.gambar,
+                              alt: "Card image cap"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "card-body" },
+                            [
+                              _c(
+                                "h7",
+                                {
+                                  staticClass: "card-title",
+                                  staticStyle: { "font-weight": "bold" }
+                                },
+                                [
+                                  _vm._v(_vm._s(paket.nama_paket) + " ( "),
+                                  _c("i", { staticClass: "fa fa-clock-o" }),
+                                  _vm._v("  " + _vm._s(paket.durasi) + " )")
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("h5", { staticStyle: { color: "#FF8311" } }, [
+                                _vm._v(
+                                  "Rp." +
+                                    _vm._s(_vm.formatPrice(paket.harga_paket))
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item",
+                                  staticStyle: { color: "#ffc000" }
+                                },
+                                [_c("i", { staticClass: "fa fa-star" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item",
+                                  staticStyle: { color: "#ffc000" }
+                                },
+                                [_c("i", { staticClass: "fa fa-star" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item",
+                                  staticStyle: { color: "#ffc000" }
+                                },
+                                [_c("i", { staticClass: "fa fa-star" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item",
+                                  staticStyle: { color: "#ffc000" }
+                                },
+                                [_c("i", { staticClass: "fa fa-star" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item",
+                                  staticStyle: { color: "#ffc000" }
+                                },
+                                [_c("i", { staticClass: "fa fa-star" })]
+                              ),
+                              _vm._v(" "),
+                              _c("h5", { staticStyle: { color: "#FF8311" } }),
+                              _vm._v(" "),
+                              _c("p"),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                { staticClass: "card-text" },
+                                [
+                                  _c(
+                                    "medium",
+                                    { staticClass: "text-muted  float-right" },
+                                    [
+                                      _vm._v(
+                                        "  " +
+                                          _vm._s(
+                                            paket.get_kabupaten.nama_kabupaten
+                                          )
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("medium", {
+                                    staticClass: "text-muted  float-left"
+                                  })
+                                ],
+                                1
                               )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              {
-                                staticClass: "list-inline-item",
-                                staticStyle: { color: "#ffc000" }
-                              },
-                              [_c("i", { staticClass: "fa fa-star" })]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              {
-                                staticClass: "list-inline-item",
-                                staticStyle: { color: "#ffc000" }
-                              },
-                              [_c("i", { staticClass: "fa fa-star" })]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              {
-                                staticClass: "list-inline-item",
-                                staticStyle: { color: "#ffc000" }
-                              },
-                              [_c("i", { staticClass: "fa fa-star" })]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              {
-                                staticClass: "list-inline-item",
-                                staticStyle: { color: "#ffc000" }
-                              },
-                              [_c("i", { staticClass: "fa fa-star" })]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              {
-                                staticClass: "list-inline-item",
-                                staticStyle: { color: "#ffc000" }
-                              },
-                              [_c("i", { staticClass: "fa fa-star" })]
-                            ),
-                            _vm._v(" "),
-                            _c("h5", { staticStyle: { color: "#FF8311" } }),
-                            _vm._v(" "),
-                            _c("p"),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              { staticClass: "card-text" },
-                              [
-                                _c(
-                                  "medium",
-                                  { staticClass: "text-muted  float-right" },
-                                  [
-                                    _vm._v(
-                                      "  " +
-                                        _vm._s(
-                                          paket.get_kabupaten.nama_kabupaten
-                                        )
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("medium", {
-                                  staticClass: "text-muted  float-left"
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ])
+                            ],
+                            1
+                          )
+                        ]
+                      )
                     ]
                   )
                 ])
@@ -109789,8 +109793,8 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\IT DEL\Semester 7\Keteknowiraan\Proyek\tobazone\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\IT DEL\Semester 7\Keteknowiraan\Proyek\tobazone\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\tobazone-v3\tobazone\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\tobazone-v3\tobazone\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
