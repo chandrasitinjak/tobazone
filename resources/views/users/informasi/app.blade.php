@@ -10,7 +10,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--  <meta name="csrf-token" content="{{ csrf_token() }}">--}}
     <title> @yield('title', 'Tobazone')</title>
 
     <link rel="shortcut icon" href="/images/assets/icon_1.png">
@@ -18,9 +18,12 @@
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="/user-assets/css/core-style.css">
     <link rel="stylesheet" href="/user-assets/style.css">
-
+    <link rel="stylesheet" href="/user-assets/new-css.css">
+    <link rel="stylesheet" href="/user-assets/test-page-gridstyle.css">
     <link rel="stylesheet" href="/user-assets/css/header.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/user-assets/css/header_merchant.css">
+    <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     @yield('style')
 </head>
 
@@ -48,7 +51,6 @@
     </div>
     <!-- </div> -->
 </div>
-@include('users.layouts.script')
 <script>
     $(document).ready(function() {
         //untuk customer
