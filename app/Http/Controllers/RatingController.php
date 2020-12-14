@@ -32,7 +32,7 @@ class RatingController extends Controller
             ->where('product_id', $productID)
             ->first();
     }
-    
+
     public function getRating($productID) {
         return Rating::where('product_id', $productID)
             ->get();

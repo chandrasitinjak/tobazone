@@ -1,5 +1,5 @@
 @extends('users.layouts.app')
-@section('title')
+@section('title') {{"Detail Paket"}}
 @endsection
 
 @section('style')
@@ -164,7 +164,8 @@
                                                 <button type="submit" class="btn essence-btn ml4">Booking Pemesanan
                                                 </button>
                                             @else
-                                                <a href="#" class="btn essence-btn ml4" data-toggle="modal" data-target="#loginModal">Booking Pemesanan</a>
+                                                <a href="#" class="btn essence-btn ml4" data-toggle="modal"
+                                                   data-target="#loginModal">Booking Pemesanan</a>
                                             @endif
                                         </div>
                                     </div>
@@ -207,24 +208,33 @@
                                             </a>
                                         </li>
 
+                                        @role('customer')
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="rating-tab" data-toggle="tab" href="#rating"
+                                               role="tab" aria-controls="rating" aria-selected="false">
+                                                <i class="fa fa-star mr-2"></i>
+                                                <span>Ulasan</span>
+                                            </a>
+                                        </li>
+                                        @endrole
                                     </ul>
                                     <div class="tab-content mt-3" id="myTabContent">
 
                                         <div class="tab-pane fade show active" id="home" role="tabpanel"
                                              aria-labelledby="home-tab">
                                             <div class="col-9 px-1">
-                                                <?php echo $paket->rencana_perjalanan ?>
+                                                <?php echo $paket->rencana_perjalanan; ?>
                                             </div>
                                         </div>
 
-                                        <div class="tab-pane fade show" id="desc" role="tabpanel"
+                                        <div class="tab-pane fade" id="desc" role="tabpanel"
                                              aria-labelledby="desc-tab">
                                             <div class="col-9 px-1">
                                                 <?php echo $paket->deskripsi_paket ?>
                                             </div>
                                         </div>
 
-                                        <div class="tab-pane fade ulasan" id="profile" role="tabpanel"
+                                        <div class="tab-pane fade " id="profile" role="tabpanel"
                                              aria-labelledby="profile-tab">
                                             <div class="row ml-3">
                                                 <div class="col-md-5">
@@ -246,10 +256,23 @@
                                             </div>
 
                                         </div>
-
+                                        @if (Auth::check())
+                                            <div class="tab-pane fade ulasan" id="rating" role="tabpanel"
+                                                 aria-labelledby="profile-tab">
+                                                {{--                                                <h1>contoh</h1>--}}
+                                                <div id="paket-rating" style="margin-bottom: 25px;">
+                                                    <paket-rating :paket="{{$paket->id_paket}}"
+                                                                  :user="{{ Auth::user()->id }}" :rating="{{$rating}}"/>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
