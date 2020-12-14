@@ -77964,7 +77964,7 @@ var render = function() {
                             staticClass: "card-img-top",
                             staticStyle: { height: "200px" },
                             attrs: {
-                              src: "/images/" + paket.gambar,
+                              src: "/storage/img/paket/" + paket.gambar,
                               alt: "Card image cap"
                             }
                           }),
