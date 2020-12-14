@@ -13,20 +13,24 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('customer_id')->unsigned();
-            $table->integer('merchant_id')->unsigned();
-            $table->string('shipping_number')->nullable();            
-            $table->string('courier');
-            $table->string('address');
-            $table->string('status');
-            $table->integer('confirm_user')->default(0);
-            $table->timestamps();
+        if (!Schema::hasTable('transactions')) {
 
-            $table->foreign('customer_id')->references('id')->on('users');
-            $table->foreign('merchant_id')->references('id')->on('users');
-        });
+            Schema::create('transactions', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('customer_id')->unsigned();
+                $table->integer('merchant_id')->unsigned();
+                $table->string('shipping_number')->nullable();
+                $table->string('courier');
+                $table->string('address');
+                $table->string('status');
+                $table->integer('confirm_user')->default(0);
+                $table->timestamps();
+
+                $table->foreign('customer_id')->references('id')->on('users');
+                $table->foreign('merchant_id')->references('id')->on('users');
+            });
+        }
+
     }
 
     /**

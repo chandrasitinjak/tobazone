@@ -143,8 +143,22 @@ const app = new Vue({
     },
     data() {
         return {
-            message: ''
+            message: '',
+            rows: [
+                {nama_produk: '', kategori: ''}
+            ],
         }
-    }
+    },
+    methods: {
+        addRow() {
+            this.rows.push({nama_produk: '', kategori: ''});
+        },
+        deleteRow() {
+            this.rows.pop();
+        },
+
+
+    },
 
 });
+

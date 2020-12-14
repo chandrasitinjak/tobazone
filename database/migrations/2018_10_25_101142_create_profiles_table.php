@@ -13,20 +13,22 @@ class CreateProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->string('name');
-            $table->text('address');
-            $table->string('phone');
-            $table->string('photo')->default('');
-            $table->string('gender');
-            $table->string('birthday');
-            $table->string('deleted_at')->nullable();
-            $table->timestamps();
+        if (!Schema::hasTable('profiles')) {
+            Schema::create('profiles', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('user_id')->unsigned();
+                $table->string('name');
+                $table->text('address');
+                $table->string('phone');
+                $table->string('photo')->default('');
+                $table->string('gender');
+                $table->string('birthday');
+                $table->string('deleted_at')->nullable();
+                $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-        });
+                $table->foreign('user_id')->references('id')->on('users');
+            });
+        }
     }
 
     /**
