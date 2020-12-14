@@ -6042,7 +6042,6 @@ __webpack_require__.r(__webpack_exports__);
         for (var i = 0; i < _this5.workExperiences.length; i++) {
           var facy = ['Ac', 'Kamar mandi', 'Pemanas'];
           var fa_res = [];
-          alert("test");
 
           for (var j = 0; j < _this5.workExperiences[i].checked.length; j++) {
             if (_this5.workExperiences[i].checked[j]) {

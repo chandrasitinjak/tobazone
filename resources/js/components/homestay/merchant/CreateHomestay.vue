@@ -446,7 +446,6 @@
                         for(let i=0 ; i<this.workExperiences.length ; i++){
                             var facy =['Ac','Kamar mandi', 'Pemanas'];
                             var fa_res =[];
-                            alert("test");
                             for(let j=0 ; j< this.workExperiences[i].checked.length ; j++){
                                 if(this.workExperiences[i].checked[j]){
                                     fa_res.push(facy[j])
