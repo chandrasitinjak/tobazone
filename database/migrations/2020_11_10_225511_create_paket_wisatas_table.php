@@ -13,22 +13,24 @@ class CreatePaketWisatasTable extends Migration
      */
     public function up()
     {
-        Schema::create('paket_wisata', function (Blueprint $table) {
-            $table->bigIncrements('id_paket');
-            $table->string('nama_paket');
-            $table->bigInteger('harga_paket');
-            $table->integer('availability');
-            $table->string('durasi');
-            $table->integer('status')->default(1);
-            $table->string('jenis_paket');
-            $table->text('deskripsi_paket');
-            $table->text('rencana_perjalanan')->nullable();
-            $table->text('tambahan')->nullable();
-            $table->text('gambar');
-            $table->unsignedBigInteger('kabupaten_id');
-            $table->foreign('kabupaten_id')->references('id_kabupaten')->on('kabupatens');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('paket_wisata')) {
+            Schema::create('paket_wisata', function (Blueprint $table) {
+                $table->bigIncrements('id_paket');
+                $table->string('nama_paket');
+                $table->bigInteger('harga_paket');
+                $table->integer('availability');
+                $table->string('durasi');
+                $table->integer('status')->default(1);
+                $table->string('jenis_paket');
+                $table->text('deskripsi_paket');
+                $table->text('rencana_perjalanan')->nullable();
+                $table->text('tambahan')->nullable();
+                $table->text('gambar');
+                $table->unsignedBigInteger('kabupaten_id');
+                $table->foreign('kabupaten_id')->references('id_kabupaten')->on('kabupatens');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
