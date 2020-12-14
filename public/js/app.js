@@ -5899,6 +5899,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -5923,7 +5926,6 @@ __webpack_require__.r(__webpack_exports__);
       kategori: '',
       fasilitas: '',
       desa: '',
-      checked: [{}],
       kamar: ['Kamar 1', 'Kamar 2'],
       rooms: {
         kategoriSelected: ''
@@ -5938,7 +5940,8 @@ __webpack_require__.r(__webpack_exports__);
         fasilitas: [],
         harga: '',
         totalBed: '',
-        isExtraBed: ''
+        isExtraBed: '',
+        checked: [false, false, false]
       }]
     };
   },
@@ -5949,7 +5952,8 @@ __webpack_require__.r(__webpack_exports__);
         fasilitas: '',
         harga: '',
         totalBed: '',
-        isExtraBed: ''
+        isExtraBed: '',
+        checked: [false, false, false]
       });
     },
     removeKamar: function removeKamar() {
@@ -6036,9 +6040,22 @@ __webpack_require__.r(__webpack_exports__);
         'image': this.image
       }).then(function (res) {
         for (var i = 0; i < _this5.workExperiences.length; i++) {
-          alert(_this5.workExperiences[i].kategori);
+          var facy = ['Ac', 'Kamar mandi', 'Pemanas'];
+          var fa_res = [];
+          alert("test");
+
+          for (var j = 0; j < _this5.workExperiences[i].checked.length; j++) {
+            if (_this5.workExperiences[i].checked[j]) {
+              fa_res.push(facy[j]);
+            }
+          }
+
           window.axios.post("/homestay/room/store", {
-            'description': _this5.workExperiences[i].kategori
+            'kategori': _this5.workExperiences[i].kategori.category_name,
+            'fasilitas': fa_res,
+            'price': _this5.workExperiences[i].harga,
+            'total_bed': _this5.workExperiences[i].totalBed,
+            'total_extra_bed': _this5.workExperiences[i].isExtraBed
           }).then(function (res) {});
         }
 
@@ -79527,10 +79544,10 @@ var render = function() {
                               }
                             }
                           },
-                          _vm._l(_vm.kategori, function(data, i) {
+                          _vm._l(_vm.kategori, function(data, index) {
                             return _c(
                               "option",
-                              { key: i, domProps: { value: data } },
+                              { key: index, domProps: { value: data } },
                               [
                                 _vm._v(
                                   _vm._s(data.category_name) +
@@ -79543,82 +79560,199 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "form-group col-md-3" },
-                        [
-                          _c("label", [_vm._v("Fasilitas")]),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(" "),
-                          _vm._l(_vm.fasilitas, function(data, idx) {
-                            return _c("div", { key: idx }, [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.checked[index],
-                                    expression: "checked[index]"
-                                  }
-                                ],
-                                attrs: {
-                                  id: data.facilities_name,
-                                  type: "checkbox"
-                                },
-                                domProps: {
-                                  value: data.facilities_name,
-                                  checked: Array.isArray(_vm.checked[index])
-                                    ? _vm._i(
-                                        _vm.checked[index],
-                                        data.facilities_name
-                                      ) > -1
-                                    : _vm.checked[index]
-                                },
-                                on: {
-                                  change: function($event) {
-                                    var $$a = _vm.checked[index],
-                                      $$el = $event.target,
-                                      $$c = $$el.checked ? true : false
-                                    if (Array.isArray($$a)) {
-                                      var $$v = data.facilities_name,
-                                        $$i = _vm._i($$a, $$v)
-                                      if ($$el.checked) {
-                                        $$i < 0 &&
-                                          _vm.$set(
-                                            _vm.checked,
-                                            index,
-                                            $$a.concat([$$v])
-                                          )
-                                      } else {
-                                        $$i > -1 &&
-                                          _vm.$set(
-                                            _vm.checked,
-                                            index,
-                                            $$a
-                                              .slice(0, $$i)
-                                              .concat($$a.slice($$i + 1))
-                                          )
-                                      }
-                                    } else {
-                                      _vm.$set(_vm.checked, index, $$c)
-                                    }
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "label",
-                                { attrs: { for: data.facilities_name } },
-                                [_c("span", [_vm._v(_vm._s(idx))])]
+                      _c("div", { staticClass: "form-group col-md-3" }, [
+                        _c("label", [_vm._v("Fasilitas")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("div", [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.workExperiences[index].checked[0],
+                                expression: "workExperiences[index].checked[0]"
+                              }
+                            ],
+                            attrs: { type: "checkbox", id: "Ac", value: "Ac" },
+                            domProps: {
+                              checked: Array.isArray(
+                                _vm.workExperiences[index].checked[0]
                               )
-                            ])
+                                ? _vm._i(
+                                    _vm.workExperiences[index].checked[0],
+                                    "Ac"
+                                  ) > -1
+                                : _vm.workExperiences[index].checked[0]
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = _vm.workExperiences[index].checked[0],
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = "Ac",
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        _vm.workExperiences[index].checked,
+                                        0,
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        _vm.workExperiences[index].checked,
+                                        0,
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(
+                                    _vm.workExperiences[index].checked,
+                                    0,
+                                    $$c
+                                  )
+                                }
+                              }
+                            }
                           }),
                           _vm._v(" "),
-                          _c("span", [_vm._v(_vm._s(_vm.checked[index]))])
-                        ],
-                        2
-                      ),
+                          _c("label", { attrs: { for: "Ac" } }, [_vm._v("Ac")]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.workExperiences[index].checked[1],
+                                expression: "workExperiences[index].checked[1]"
+                              }
+                            ],
+                            attrs: {
+                              type: "checkbox",
+                              id: "Kamar mandi",
+                              value: "Kamar mandi"
+                            },
+                            domProps: {
+                              checked: Array.isArray(
+                                _vm.workExperiences[index].checked[1]
+                              )
+                                ? _vm._i(
+                                    _vm.workExperiences[index].checked[1],
+                                    "Kamar mandi"
+                                  ) > -1
+                                : _vm.workExperiences[index].checked[1]
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = _vm.workExperiences[index].checked[1],
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = "Kamar mandi",
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        _vm.workExperiences[index].checked,
+                                        1,
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        _vm.workExperiences[index].checked,
+                                        1,
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(
+                                    _vm.workExperiences[index].checked,
+                                    1,
+                                    $$c
+                                  )
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "Kamar mandi" } }, [
+                            _vm._v("Kamar mandi")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.workExperiences[index].checked[2],
+                                expression: "workExperiences[index].checked[2]"
+                              }
+                            ],
+                            attrs: {
+                              type: "checkbox",
+                              id: "Pemanas",
+                              value: "Pemanas"
+                            },
+                            domProps: {
+                              checked: Array.isArray(
+                                _vm.workExperiences[index].checked[2]
+                              )
+                                ? _vm._i(
+                                    _vm.workExperiences[index].checked[2],
+                                    "Pemanas"
+                                  ) > -1
+                                : _vm.workExperiences[index].checked[2]
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = _vm.workExperiences[index].checked[2],
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = "Pemanas",
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        _vm.workExperiences[index].checked,
+                                        2,
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        _vm.workExperiences[index].checked,
+                                        2,
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(
+                                    _vm.workExperiences[index].checked,
+                                    2,
+                                    $$c
+                                  )
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "Pemanas" } }, [
+                            _vm._v("Pemanas")
+                          ])
+                        ])
+                      ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-2" }, [
                         _c("label", [_vm._v("Harga")]),
@@ -79896,6 +80030,39 @@ var render = function() {
                 _vm._m(7),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-9" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.price,
+                        expression: "price"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "number",
+                      "aria-describedby": "namaprodukhelp",
+                      min: "1",
+                      name: "price"
+                    },
+                    domProps: { value: _vm.price },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.price = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _vm._m(8),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-9" }, [
                   _c("textarea", {
                     directives: [
                       {
@@ -79925,7 +80092,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group row" }, [
-                _vm._m(8),
+                _vm._m(9),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-9" }, [
                   _c("input", {
@@ -79958,7 +80125,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group row" }, [
-                _vm._m(9),
+                _vm._m(10),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-9" }, [
                   _c(
@@ -80042,7 +80209,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group row" }, [
-                _vm._m(10),
+                _vm._m(11),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-9" }, [
                   _c(
@@ -80131,7 +80298,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(11)
+              _vm._m(12)
             ],
             2
           ),
@@ -80315,6 +80482,22 @@ var staticRenderFns = [
           )
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-sm-3 col-form-label" }, [
+      _vm._v("Harga Kamar/malam\n                            "),
+      _c(
+        "span",
+        {
+          staticClass:
+            "formbadge text-muted badge badge-secondary font-weight-light"
+        },
+        [_vm._v("Wajib")]
+      )
     ])
   },
   function() {
