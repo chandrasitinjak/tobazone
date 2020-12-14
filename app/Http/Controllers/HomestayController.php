@@ -172,7 +172,11 @@ class HomestayController extends Controller
         $homestay= Homestay::where('merchant_id',Auth::user()->id)->latest('created_at')->first();
         $rooms = new HomestayRooms();
         $rooms->id_homestay = $homestay->id;
-        $rooms->kategori = Auth::user()->id;
+        $rooms->kategori = $request->kategori;
+        $rooms->facilities = json_encode($request->fasilitas);
+        $rooms->price = $request->price;
+        $rooms->total_bed = $request->total_bed;
+        $rooms->total_extra_bed = $request->total_extra_bed;
         $rooms->save();
     }
 

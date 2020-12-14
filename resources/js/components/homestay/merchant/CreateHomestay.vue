@@ -55,7 +55,7 @@
                                         required
                                         :name="`workExperiences[${index}][company]`"
                                         v-model="experience.kategori">
-                                    <option v-for="data,i in kategori" :key="i" :value="data">{{
+                                    <option v-for="data,index in kategori" :key="index" :value="data">{{
                                         data.category_name }}
                                     </option>
                                 </select>
@@ -63,11 +63,14 @@
                             <div class="form-group col-md-3">
                                 <label>Fasilitas</label>
                                 <br>
-                                <div v-for="data,idx in fasilitas" :key="idx">
-                                    <input :id="data.facilities_name" :value="data.facilities_name" type="checkbox" v-model="checked[index]" />
-                                    <label :for="data.facilities_name"><span>{{idx}}</span></label>
+                                <div>
+                                    <input type="checkbox" id="Ac" value="Ac" v-model="workExperiences[index].checked[0]">
+                                    <label for="Ac">Ac</label>
+                                    <input type="checkbox" id="Kamar mandi" value="Kamar mandi" v-model="workExperiences[index].checked[1]">
+                                    <label for="Kamar mandi">Kamar mandi</label>
+                                    <input type="checkbox" id="Pemanas" value="Pemanas" v-model="workExperiences[index].checked[2]">
+                                    <label for="Pemanas">Pemanas</label>
                                 </div>
-                                <span>{{checked[index]}}</span>
 <!--                                <input v-model="experience.fasilitas" :name="`workExperiences[${index}][title]`" type="text" class="form-control">-->
                             </div>
                             <div class="form-group col-md-2">
@@ -208,16 +211,16 @@
                             </div>
                         </div>
                     </div>
-<!--                    <div class="form-group row">-->
-<!--                        <label class="col-sm-3 col-form-label">Harga Kamar/malam-->
-<!--                            <span-->
-<!--                                class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>-->
-<!--                        </label>-->
-<!--                        <div class="col-sm-9">-->
-<!--                            <input type="number" class="form-control" v-model="price"-->
-<!--                                   aria-describedby="namaprodukhelp" min="1" name="price">-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Harga Kamar/malam
+                            <span
+                                class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
+                        </label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" v-model="price"
+                                   aria-describedby="namaprodukhelp" min="1" name="price">
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Deskripsi Homestay
                             <span
@@ -321,9 +324,6 @@
                 kategori:'',
                 fasilitas:'',
                 desa:'',
-                checked:[
-                    {}
-                ],
                 kamar:['Kamar 1', 'Kamar 2'],
                 rooms:{
                   kategoriSelected:'',
@@ -339,7 +339,8 @@
                         fasilitas: [],
                         harga: '',
                         totalBed: '',
-                        isExtraBed: ''
+                        isExtraBed: '',
+                        checked:[false,false,false]
                     },
 
                 ]
@@ -352,7 +353,8 @@
                     fasilitas: '',
                     harga: '',
                     totalBed: '',
-                    isExtraBed: ''
+                    isExtraBed: '',
+                    checked:[false,false,false]
                 })
             },
             removeKamar() {
@@ -442,10 +444,20 @@
                     })
                     .then(res => {
                         for(let i=0 ; i<this.workExperiences.length ; i++){
-                            alert(this.workExperiences[i].kategori)
+                            var facy =['Ac','Kamar mandi', 'Pemanas'];
+                            var fa_res =[];
+                            for(let j=0 ; j< this.workExperiences[i].checked.length ; j++){
+                                if(this.workExperiences[i].checked[j]){
+                                    fa_res.push(facy[j])
+                                }
+                            }
                             window.axios
                                 .post("/homestay/room/store",{
-                                    'description':this.workExperiences[i].kategori
+                                    'kategori':this.workExperiences[i].kategori.category_name,
+                                    'fasilitas':fa_res,
+                                    'price':this.workExperiences[i].harga,
+                                    'total_bed':this.workExperiences[i].totalBed,
+                                    'total_extra_bed':this.workExperiences[i].isExtraBed,
                                 }).then(res=>{
 
                             })
