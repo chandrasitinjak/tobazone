@@ -1,7 +1,7 @@
-@extends('users.layouts.app') 
+@extends('users.layouts.app')
 @section('title') {{ "Products" }}
 @endsection
- 
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -14,6 +14,12 @@
                         <h6>Tambah Obat Baru </h6>
                     </div>
                     <div class="card-body">
+                        @if ($message = Session::get('fail'))
+                            <div class="alert alert-danger alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @endif
                         <form class="form-group" method="POST" action="{{ url('/products/store', 5) }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group row">
@@ -27,7 +33,7 @@
                                             <button class="btn-upcus">
                                                     <img src="{{ '/images/assets/addimage.png'}}">
                                                 </button>
-                                            <input id="files" name="images[]" multiple type="file" />
+                                            <input id="files" name="images[]" multiple type="file" required/>
                                         </div>
                                         <div id="result" class="row mt-4">
                                         </div>
@@ -83,21 +89,21 @@
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Jenis </label>
                                         <!-- <input class="form-control" type="text" name="dimention" placeholder="Cth: Cair, Padat" /> -->
-                                        <select onchange="cek_jenis()" id="jeniss"class="form-control" name="dimention" aria-describedby="warnadasar">
+                                        <select onchange="cek_jenis()" id="jeniss"class="form-control" name="dimention" aria-describedby="warnadasar" required>
                                                 <option value="Padat"> Padat</option>
-                                                <option value="Cair"> Cair</option>                                                
+                                                <option value="Cair"> Cair</option>
                                         </select>
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Berat </label>
-                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/g"/>
+                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/g" required/>
                                         <small id="warnadasar" class="form-text text-muted">
                                             Berat dalam satuan gram
                                         </small>
-                                    </div>                                    
+                                    </div>
                                     <div class="col-12 col-md-4 col-lg-4" style="display:none" id="uk_kemasan">
                                         <label class="label"> Ukuran Kemasan </label>
-                                        <input class="form-control" type="text" name="color_1" placeholder="cth 2cmx8cm" />
+                                        <input class="form-control" type="text" name="color_1" placeholder="cth 2cmx8cm" required/>
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4" style="display:none" id="vol">
                                         <label class="label"> Volume </label>
@@ -122,7 +128,7 @@
                                         <label class="label"> Kategori </label>
                                         <select class="form-control" name="category">
                                                 <option value="Herbal"> Herbal</option>
-                                                <option value="Tradisional"> Tradisional</option>                                                
+                                                <option value="Tradisional"> Tradisional</option>
                                             </select>
                                     </div> -->
                                 </div>
@@ -188,6 +194,6 @@
         } else {
             document.getElementById("vol").style.display="none"
             document.getElementById("uk_kemasan").style.display="block"
-        } 
+        }
     }
 </script>

@@ -1,7 +1,7 @@
-@extends('users.layouts.app') 
+@extends('users.layouts.app')
 @section('title') {{ "Products" }}
 @endsection
- 
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -14,6 +14,12 @@
                         <h6>Tambah Makanan Baru </h6>
                     </div>
                     <div class="card-body">
+                        @if ($message = Session::get('fail'))
+                            <div class="alert alert-danger alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @endif
                         <form class="form-group" method="POST" action="{{ url('/products/store', 3) }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group row">
@@ -27,7 +33,7 @@
                                             <button class="btn-upcus">
                                                     <img src="{{ '/images/assets/addimage.png'}}">
                                                 </button>
-                                            <input id="files" name="images[]" multiple type="file" />
+                                            <input id="files" name="images[]" multiple type="file" required />
                                         </div>
                                         <div id="result" class="row mt-4">
                                         </div>
@@ -39,7 +45,7 @@
                                         <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                                     </label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" aria-describedby="namaprodukhelp" name="name">
+                                    <input type="text" class="form-control" aria-describedby="namaprodukhelp" name="name" required>
                                     <small id="namaprodukhelp" class="form-text text-muted">
                                         Tulis nama produk sesuai jenis, merek, dan rincian produk.
                                     </small>
@@ -66,7 +72,7 @@
                                     <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                                 </label>
                                 <div class="col-sm-9">
-                                    <textarea type="text" rows="5" class="form-control" aria-describedby="namaprodukhelp" name="description"></textarea>
+                                    <textarea type="text" rows="5" class="form-control" aria-describedby="namaprodukhelp" name="description" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -82,20 +88,20 @@
                                 <div class="row">
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Ukuran Kemasan</label>
-                                        <input class="form-control" type="text" name="dimention" placeholder="Cth: 2cm x 90cm" />
+                                        <input class="form-control" type="text" name="dimention" placeholder="Cth: 2cm x 90cm" required/>
                                     </div>
 
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Berat </label>
-                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/g"/>
+                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/g" required/>
                                         <small id="warnadasar" class="form-text text-muted">
                                             Berat dalam satuan gram
                                         </small>
                                     </div>
-                                                                        
+
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Umur Simpan </label>
-                                        <select class="form-control" name="color" aria-describedby="warnadasar">
+                                        <select class="form-control" name="color" aria-describedby="warnadasar" required>
                                                 <option value="1 minggu"> 1 minggu</option>
                                                 <option value="2 minggu"> 2 minggu</option>
                                                 <option value="3 minggu"> 3 minggu</option>
@@ -112,9 +118,9 @@
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4 mt-4">
                                         <label class="label"> Jenis Makanan </label>
-                                        <select class="form-control" name="category">
+                                        <select class="form-control" name="category" required>
                                                 <option value="Kering"> Kering</option>
-                                                <option value="Basah"> Basah</option>                                                
+                                                <option value="Basah"> Basah</option>
                                             </select>
                                     </div>
                                 </div>

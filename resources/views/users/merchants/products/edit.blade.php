@@ -1,12 +1,12 @@
-@extends('users.layouts.app') 
+@extends('users.layouts.app')
 @section('title') {{ "Products" }}
 @endsection
- 
+
 @section('content')
 <section class="shop_grid_area">
   <div class="container">
+      @include('users.merchants.profile')
     <div class="row">
-        @include('users.merchants.index')
         <div class="row">
           @include('users.merchants.sidebar')
 
@@ -76,16 +76,16 @@
                                     <input type="number" class="form-control" value="{{ $product->stock }}" aria-describedby="namaprodukhelp" min="1" name="stock" required>
                                 </div>
                             </div>
-                            </div>
-                            <div class="mt-4">
+
+                            <div class="mt-4 ml-4 mr-3">
                                 <label class="label"> Spesifikasi </label>
                                 @if($product['cat_product'] == "ulos")
-                                <div class="row">                                
+                                <div class="row">
                                     <div class="col-4">
                                         <label class="label"> Ukuran </label>
                                         <input class="form-control" type="text" name="dimention" placeholder="Cth: 2m x 90cm" value="{{ json_decode($product->specification)->dimention }}" />
-                                    </div>                                                                
-                                    
+                                    </div>
+
                                     <div class="col-4">
                                         <label class="label"> Berat </label>
                                         <input class="form-control" type="number" min="1" name="weight" value="{{ json_decode($product->specification)->weight }}"/>
@@ -115,14 +115,14 @@
                                                     <option value="Mesin"> Mesin</option>
                                                 </select>
                                     </div>
-                                </div>                            
+                                </div>
                                 @elseif($product['cat_product'] == "pakaian")
-                                <div class="row">                                                               
+                                <div class="row">
                                     <div class="col-4">
                                         <label class="label"> Ukuran </label>
                                         <input class="form-control" type="text" name="dimention" placeholder="Cth: 2m x 90cm" value="{{ json_decode($product->specification)->size }}" />
                                     </div>
-                                    
+
                                     <div class="col-4">
                                         <label class="label"> Berat </label>
                                         <input class="form-control" type="number" min="1" name="weight" value="{{ json_decode($product->specification)->weight }}"/>
@@ -148,10 +148,10 @@
                                         <select class="form-control" name="category">
                                                 <option value="{{ $product->category }}"> {{ $product->category }} </option>
                                                 <option value="Pria"> Pria</option>
-                                                <option value="Wanita"> Wanita</option>                                                
+                                                <option value="Wanita"> Wanita</option>
                                             </select>
                                     </div>
-                                </div> 
+                                </div>
                                 @elseif($product['cat_product'] == "makanan")
                                 <div class="row">
                                         <div class="col-12 col-md-4 col-lg-4">
@@ -189,19 +189,19 @@
                                             <select class="form-control" name="category">
                                                     <option value="{{ $product->category }}"> {{ $product->category }}</option>
                                                     <option value="Kering"> Kering</option>
-                                                    <option value="Basah"> Basah</option>                                                
+                                                    <option value="Basah"> Basah</option>
                                                 </select>
                                         </div>
                                     </div>
                                 @elseif($product['cat_product'] == "aksesoris")
                                 <div class="row">
                                         <div class="col-12 col-md-4 col-lg-4">
-                                            <label class="label"> Ukuran </label>                                                                                
+                                            <label class="label"> Ukuran </label>
                                             <select class="form-control" name="dimention" aria-describedby="warnadasar">
                                                     <option value="{{ json_decode($product->specification)->size}}">{{ json_decode($product->specification)->size}}</option>
                                                     <option value="Kecil"> Kecil</option>
                                                     <option value="Sedang"> Sedang</option>
-                                                    <option value="Besar"> Besar</option>                                                
+                                                    <option value="Besar"> Besar</option>
                                                 </select>
                                         </div>
                                         <div class="col-12 col-md-4 col-lg-4">
@@ -229,10 +229,10 @@
                                         </div>
                                         <div class="col-12 col-md-4 col-lg-4 mt-4">
                                         <label class="label"> Jenis </label>
-                                            <select class="form-control" name="category">                                                
-                                                    <option value="{{ $product->category }}"> {{ $product->category }} </option>    
+                                            <select class="form-control" name="category">
+                                                    <option value="{{ $product->category }}"> {{ $product->category }} </option>
                                                     <option value="Buatan Tangan"> Buatan Tangan</option>
-                                                    <option value="Buatan Mesin"> Buatan Mesin </option>                                                
+                                                    <option value="Buatan Mesin"> Buatan Mesin </option>
                                                 </select>
                                         </div>
                                     </div>
@@ -241,11 +241,11 @@
                                 <div class="row">
                                         <div class="col-12 col-md-4 col-lg-4">
                                             <label class="label"> Jenis </label>
-                                            <input class="form-control" type="text" name="dimention" placeholder="Cth: Cair, Padat" />
-                                            <select onchange="cek_jenis()" id="jeniss" class="form-control" name="dimention" aria-describedby="warnadasar">
+{{--                                            <input class="form-control" type="text" name="dimention" placeholder="Cth: Cair, Padat" />--}}
+                                            <select onchange="cek_jenis()" id="jeniss" class="form-control" name="dimention" aria-describedby="warnadasar" required>
                                                     <option value="{{ json_decode($product->specification)->jenis}}"> {{ json_decode($product->specification)->jenis}} </option>
                                                     <option value="Padat"> Padat</option>
-                                                    <option value="Cair"> Cair</option>                                                
+                                                    <option value="Cair"> Cair</option>
                                             </select>
                                         </div>
                                         <div class="col-12 col-md-4 col-lg-4">
@@ -256,11 +256,11 @@
                                             </small>
                                         </div>
                                         <div class="col-12 col-md-4 col-lg-4">
-                                            <label class="label" style="color : white">  asdhkjashdkjsha </label>
+                                            <label class="label">  Ukuran Kemasan </label>
                                             <input class="form-control" type="text" name="color" placeholder="/ml" value="{{ $product->color }}" />
-                                            <small id="warnadasar11" style="display:none" class="form-text text-muted">
-                                                Volume dalam satuan mililiter()
-                                            </small>
+{{--                                            <small id="warnadasar11" style="display:none" class="form-text text-muted">--}}
+{{--                                                Volume dalam satuan mililiter()--}}
+{{--                                            </small>--}}
 
                                             <small id="warnadasar12" style="display:none" class="form-text text-muted">
                                                 cth : 20cmx90cm
@@ -270,7 +270,7 @@
                                             <label class="label"> Volume </label>
                                             <input class="form-control" type="text" name="color" placeholder="/ml" />
                                         </div> -->
-                                        
+
                                     </div>
                                 @endif
                             </div>
@@ -295,16 +295,16 @@
   window.onload = function(){
     if(window.File && window.FileList && window.FileReader) {
       var filesInput = document.getElementById("files");
-      
+
       filesInput.addEventListener("change", function(event){
-        var files = event.target.files; 
+        var files = event.target.files;
         var output = document.getElementById("result");
-                
+
         for(var i = 0; i< files.length; i++) {
           var file = files[i];
-          
+
           if(!file.type.match('image')) continue;
-                    
+
           var picReader = new FileReader();
           picReader.addEventListener("load",function(event){
             var picFile = event.target;
@@ -315,12 +315,12 @@
             div.innerHTML =  "<div class='single-product-wrapper'> <div class='product-img'> <img src='"
             + picFile.result + "'> </div> <div class='product-description'> <div class='hover-content'> <div class='add-to-cart-btn'> <button onclick='deleteImage(" +i+ ")' type='button' class='btn essence-btn'>Delete</button> </div> </div> </div> </div>";
 
-            output.insertBefore(div,null);            
+            output.insertBefore(div,null);
           });
 
           picReader.readAsDataURL(file);
-        }                               
-               
+        }
+
       });
     } else {
       console.log("Your browser does not support File API");
@@ -328,7 +328,7 @@
 
     let productImages = ('{{ json_encode($product->images) }}').replace(/&quot;/g, '"')
     productImages = productImages.substr(1, productImages.length-2);
-    
+
     var output = document.getElementById("result");
 
     JSON.parse(productImages).forEach((image, idx) => {
@@ -336,16 +336,16 @@
       var div = document.createElement("div");
       div.className = "col-3"
       div.setAttribute('id', elementId)
-    
+
       const data = {
         id: idx,
         name: image
-      }  
+      }
 
       div.innerHTML =  "<div class='single-product-wrapper'> <div class='product-img'> <img src='/images/"
       + image + "'> </div> <div class='product-description'> <div class='hover-content'> <div class='add-to-cart-btn'> <button onclick='deleteImage(" + JSON.stringify(data)+ ")' type='button' class='btn essence-btn'>Delete</button> </div> </div> </div> </div>";
 
-      output.insertBefore(div,null);     
+      output.insertBefore(div,null);
     });
   }
 
@@ -368,7 +368,7 @@
         } else {
             document.getElementById("warnadasar12").style.display="block"
             document.getElementById("warnadasar11").style.display="none";
-        } 
+        }
     }
 
 </script>
