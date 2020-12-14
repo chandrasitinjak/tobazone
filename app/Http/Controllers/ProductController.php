@@ -6,6 +6,7 @@ use App\Cart;
 use App\Product;
 use App\Profile;
 use App\Rating;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -17,6 +18,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    private function getAuthincatedMerchant() {
+        $merchant = User::with('profile')->find(Auth::user()->id);
+        $address = json_decode(json_decode($merchant->profile->address)[0]);
+        $merchant->profile->address = $address;
+
+        return $merchant;
+    }
+
     public function index()
     {
         $products = Product::where('user_id', Auth::user()->id)->get();
@@ -56,12 +66,17 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request, $id)
     {
         $uploadedImages = $request->file('images');
         $imageNames = [];
+
+        if($uploadedImages == null)
+        {
+            return back()->with('fail', 'Foto produk tidak boleh kosong, silahkan pilih foto');
+        }
 
         foreach ($uploadedImages as $image) {
             $imageName = time() . $image->getClientOriginalName();
@@ -176,12 +191,13 @@ class ProductController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('users.merchants.products.edit')->with('product', $product);
+        $merchant = $this->getAuthincatedMerchant();
+        return view('users.merchants.products.edit', compact(['product', 'merchant']));
     }
 
     /**
