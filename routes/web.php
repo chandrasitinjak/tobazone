@@ -356,7 +356,7 @@ Route::get('/merchant/homestay/get-success-order', 'HomestayController@allSucces
 Route::get('/merchant/homestay/get-paid-order', 'HomestayController@allPaidOrder');
 Route::get('/homestays/save', 'HomestayController@store');
 Route::get('/homestays/findAllMyHomestay', 'HomestayController@findAllMerchantHomestay');
-
+Route::get('/homestay/room-facilities/findAll', 'HomestayRoomsFacilitiesController@findAll');
 //Homestay Rooms
 Route::post('homestay/room/store','HomestayController@saveRooms');
 

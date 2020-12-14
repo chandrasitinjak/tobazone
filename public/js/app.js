@@ -5884,6 +5884,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5906,7 +5921,9 @@ __webpack_require__.r(__webpack_exports__);
       kabupaten: '',
       kecamatan: '',
       kategori: '',
+      fasilitas: '',
       desa: '',
+      checked: [{}],
       kamar: ['Kamar 1', 'Kamar 2'],
       rooms: {
         kategoriSelected: ''
@@ -5918,7 +5935,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       workExperiences: [{
         kategori: '',
-        fasilitas: '',
+        fasilitas: [],
         harga: '',
         totalBed: '',
         isExtraBed: ''
@@ -5948,6 +5965,16 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
+    getFacilities: function getFacilities() {
+      var _this2 = this;
+
+      window.axios.get("/homestay/room-facilities/findAll").then(function (res) {
+        _this2.fasilitas = res.data;
+        console.log(res.data);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
     addRooms: function addRooms(position) {
       this.kamar.push("kamar" + position);
     },
@@ -5955,11 +5982,11 @@ __webpack_require__.r(__webpack_exports__);
       _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$emit("ADD_MERCHANT_MODAL_CLOSED", null);
     },
     getCities: function getCities() {
-      var _this2 = this;
+      var _this3 = this;
 
       _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$emit("SPINNER", true);
       window.axios.get("/api/cities?pro_id=" + 34).then(function (res) {
-        _this2.cities = res.data;
+        _this3.cities = res.data;
         _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$emit("SPINNER", false);
       })["catch"](function (err) {
         console.log(err);
@@ -5967,11 +5994,11 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getSubdistricts: function getSubdistricts() {
-      var _this3 = this;
+      var _this4 = this;
 
       _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$emit("SPINNER", true);
       window.axios.get("/api/subdistricts?city_id=" + this.userMerchant.selectedCity.id).then(function (res) {
-        _this3.subdistricts = res.data.rajaongkir.results;
+        _this4.subdistricts = res.data.rajaongkir.results;
         _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$emit("SPINNER", false);
       })["catch"](function (err) {
         console.log(err);
@@ -5994,7 +6021,7 @@ __webpack_require__.r(__webpack_exports__);
       reader.readAsDataURL(file);
     },
     save: function save() {
-      var _this4 = this;
+      var _this5 = this;
 
       window.axios.post("/homestays/save", {
         'name': this.name,
@@ -6008,10 +6035,10 @@ __webpack_require__.r(__webpack_exports__);
         'desa': '',
         'image': this.image
       }).then(function (res) {
-        for (var i = 0; i < _this4.workExperiences.length; i++) {
-          alert(_this4.workExperiences[i].kategori);
+        for (var i = 0; i < _this5.workExperiences.length; i++) {
+          alert(_this5.workExperiences[i].kategori);
           window.axios.post("/homestay/room/store", {
-            'description': _this4.workExperiences[i].kategori
+            'description': _this5.workExperiences[i].kategori
           }).then(function (res) {});
         }
 
@@ -6037,6 +6064,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.getCities();
     this.getCategories();
+    this.getFacilities();
   }
 });
 
@@ -79445,74 +79473,148 @@ var render = function() {
                   "div",
                   { key: index, staticClass: "form-group row" },
                   [
-                    _c("label", { staticClass: "col-sm-3 col-form-label" }),
+                    _c("label", { staticClass: "col-sm-3 col-form-label" }, [
+                      _vm._v(
+                        "Kamar " +
+                          _vm._s(index + 1) +
+                          "\n                        "
+                      )
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group row col-sm-9" }, [
                       _c("div", { staticClass: "form-group col-md-3" }, [
                         _c("label", [_vm._v("Kategori")]),
                         _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: experience.kategori,
-                              expression: "experience.kategori"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            name: "workExperiences[" + index + "][company]",
-                            type: "text"
-                          },
-                          domProps: { value: experience.kategori },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: experience.kategori,
+                                expression: "experience.kategori"
                               }
-                              _vm.$set(
-                                experience,
-                                "kategori",
-                                $event.target.value
-                              )
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              "aria-describedby": "emailHelp",
+                              placeholder: "Nama Pengirim",
+                              required: "",
+                              name: "workExperiences[" + index + "][company]"
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  experience,
+                                  "kategori",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
                             }
-                          }
-                        })
+                          },
+                          _vm._l(_vm.kategori, function(data, i) {
+                            return _c(
+                              "option",
+                              { key: i, domProps: { value: data } },
+                              [
+                                _vm._v(
+                                  _vm._s(data.category_name) +
+                                    "\n                                    "
+                                )
+                              ]
+                            )
+                          }),
+                          0
+                        )
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "form-group col-md-3" }, [
-                        _c("label", [_vm._v("Fasilitas")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: experience.fasilitas,
-                              expression: "experience.fasilitas"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            name: "workExperiences[" + index + "][title]",
-                            type: "text"
-                          },
-                          domProps: { value: experience.fasilitas },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                experience,
-                                "fasilitas",
-                                $event.target.value
+                      _c(
+                        "div",
+                        { staticClass: "form-group col-md-3" },
+                        [
+                          _c("label", [_vm._v("Fasilitas")]),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _vm._l(_vm.fasilitas, function(data, idx) {
+                            return _c("div", { key: idx }, [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.checked[index],
+                                    expression: "checked[index]"
+                                  }
+                                ],
+                                attrs: {
+                                  id: data.facilities_name,
+                                  type: "checkbox"
+                                },
+                                domProps: {
+                                  value: data.facilities_name,
+                                  checked: Array.isArray(_vm.checked[index])
+                                    ? _vm._i(
+                                        _vm.checked[index],
+                                        data.facilities_name
+                                      ) > -1
+                                    : _vm.checked[index]
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a = _vm.checked[index],
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = data.facilities_name,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          _vm.$set(
+                                            _vm.checked,
+                                            index,
+                                            $$a.concat([$$v])
+                                          )
+                                      } else {
+                                        $$i > -1 &&
+                                          _vm.$set(
+                                            _vm.checked,
+                                            index,
+                                            $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1))
+                                          )
+                                      }
+                                    } else {
+                                      _vm.$set(_vm.checked, index, $$c)
+                                    }
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                { attrs: { for: data.facilities_name } },
+                                [_c("span", [_vm._v(_vm._s(idx))])]
                               )
-                            }
-                          }
-                        })
-                      ]),
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("span", [_vm._v(_vm._s(_vm.checked[index]))])
+                        ],
+                        2
+                      ),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-2" }, [
                         _c("label", [_vm._v("Harga")]),
@@ -79529,7 +79631,8 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             name: "workExperiences[" + index + "][title]",
-                            type: "text"
+                            type: "number",
+                            min: "0"
                           },
                           domProps: { value: experience.harga },
                           on: {
@@ -79558,7 +79661,8 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             name: "workExperiences[" + index + "][title]",
-                            type: "text"
+                            type: "number",
+                            min: "0"
                           },
                           domProps: { value: experience.totalBed },
                           on: {
@@ -79577,7 +79681,9 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-2" }, [
-                        _c("label", [_vm._v("Tambahan Kasur")]),
+                        _c("label", { staticStyle: { "font-size": "13px" } }, [
+                          _vm._v("Extra bed")
+                        ]),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -79591,7 +79697,8 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             name: "workExperiences[" + index + "][title]",
-                            type: "text"
+                            type: "number",
+                            min: "0"
                           },
                           domProps: { value: experience.isExtraBed },
                           on: {
@@ -79785,39 +79892,6 @@ var render = function() {
                 _vm._m(7),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-9" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.price,
-                        expression: "price"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "number",
-                      "aria-describedby": "namaprodukhelp",
-                      min: "1",
-                      name: "price"
-                    },
-                    domProps: { value: _vm.price },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.price = $event.target.value
-                      }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
-                _vm._m(8),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-9" }, [
                   _c("textarea", {
                     directives: [
                       {
@@ -79847,7 +79921,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group row" }, [
-                _vm._m(9),
+                _vm._m(8),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-9" }, [
                   _c("input", {
@@ -79880,7 +79954,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group row" }, [
-                _vm._m(10),
+                _vm._m(9),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-9" }, [
                   _c(
@@ -79964,7 +80038,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group row" }, [
-                _vm._m(11),
+                _vm._m(10),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-9" }, [
                   _c(
@@ -80053,7 +80127,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(12)
+              _vm._m(11)
             ],
             2
           ),
@@ -80237,22 +80311,6 @@ var staticRenderFns = [
           )
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-      _vm._v("Harga Kamar/malam\n                            "),
-      _c(
-        "span",
-        {
-          staticClass:
-            "formbadge text-muted badge badge-secondary font-weight-light"
-        },
-        [_vm._v("Wajib")]
-      )
     ])
   },
   function() {

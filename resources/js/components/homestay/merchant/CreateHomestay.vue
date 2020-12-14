@@ -44,28 +44,43 @@
                         </div>
                     </div>
                     <div class="form-group row" v-for="(experience, index) in workExperiences" :key="index">
-                        <label class="col-sm-3 col-form-label">
+                        <label class="col-sm-3 col-form-label">Kamar {{index+1}}
                         </label>
                         <div class="form-group row col-sm-9" >
                             <div class="form-group col-md-3">
                                 <label>Kategori</label>
-                                <input v-model="experience.kategori" :name="`workExperiences[${index}][company]`" type="text" class="form-control" >
-                            </div>
+                                <select class="form-control"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Nama Pengirim"
+                                        required
+                                        :name="`workExperiences[${index}][company]`"
+                                        v-model="experience.kategori">
+                                    <option v-for="data,i in kategori" :key="i" :value="data">{{
+                                        data.category_name }}
+                                    </option>
+                                </select>
+                                </div>
                             <div class="form-group col-md-3">
                                 <label>Fasilitas</label>
-                                <input v-model="experience.fasilitas" :name="`workExperiences[${index}][title]`" type="text" class="form-control">
+                                <br>
+                                <div v-for="data,idx in fasilitas" :key="idx">
+                                    <input :id="data.facilities_name" :value="data.facilities_name" type="checkbox" v-model="checked[index]" />
+                                    <label :for="data.facilities_name"><span>{{idx}}</span></label>
+                                </div>
+                                <span>{{checked[index]}}</span>
+<!--                                <input v-model="experience.fasilitas" :name="`workExperiences[${index}][title]`" type="text" class="form-control">-->
                             </div>
                             <div class="form-group col-md-2">
                                 <label>Harga</label>
-                                <input v-model="experience.harga" :name="`workExperiences[${index}][title]`" type="text" class="form-control">
+                                <input v-model="experience.harga" :name="`workExperiences[${index}][title]`" type="number" min="0" class="form-control">
                             </div>
                             <div class="form-group col-md-2">
                                 <label>Total Kasur</label>
-                                <input v-model="experience.totalBed" :name="`workExperiences[${index}][title]`" type="text" class="form-control" >
+                                <input v-model="experience.totalBed" :name="`workExperiences[${index}][title]`" type="number" min="0" class="form-control" >
                             </div>
                             <div class="form-group col-md-2">
-                                <label>Tambahan Kasur</label>
-                                <input v-model="experience.isExtraBed" :name="`workExperiences[${index}][title]`" type="text" class="form-control" >
+                                <label style="font-size:13px;">Extra bed</label>
+                                <input v-model="experience.isExtraBed" :name="`workExperiences[${index}][title]`" type="number" min="0" class="form-control" >
                             </div>
                         </div>
                     </div>
@@ -193,16 +208,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Harga Kamar/malam
-                            <span
-                                class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
-                        </label>
-                        <div class="col-sm-9">
-                            <input type="number" class="form-control" v-model="price"
-                                   aria-describedby="namaprodukhelp" min="1" name="price">
-                        </div>
-                    </div>
+<!--                    <div class="form-group row">-->
+<!--                        <label class="col-sm-3 col-form-label">Harga Kamar/malam-->
+<!--                            <span-->
+<!--                                class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>-->
+<!--                        </label>-->
+<!--                        <div class="col-sm-9">-->
+<!--                            <input type="number" class="form-control" v-model="price"-->
+<!--                                   aria-describedby="namaprodukhelp" min="1" name="price">-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Deskripsi Homestay
                             <span
@@ -304,7 +319,11 @@
                 kabupaten:'',
                 kecamatan:'',
                 kategori:'',
+                fasilitas:'',
                 desa:'',
+                checked:[
+                    {}
+                ],
                 kamar:['Kamar 1', 'Kamar 2'],
                 rooms:{
                   kategoriSelected:'',
@@ -317,7 +336,7 @@
                 workExperiences: [
                     {
                         kategori: '',
-                        fasilitas: '',
+                        fasilitas: [],
                         harga: '',
                         totalBed: '',
                         isExtraBed: ''
@@ -344,6 +363,17 @@
                     .get("/api/homestay/room-categories")
                     .then(res => {
                         this.kategori = res.data;
+                        console.log(res.data);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            },
+            getFacilities(){
+                window.axios
+                    .get("/homestay/room-facilities/findAll")
+                    .then(res => {
+                        this.fasilitas = res.data;
                         console.log(res.data);
                     })
                     .catch(err => {
@@ -444,6 +474,7 @@
         mounted() {
             this.getCities();
             this.getCategories();
+            this.getFacilities();
         }
     };
 
