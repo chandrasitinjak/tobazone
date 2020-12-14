@@ -33,7 +33,7 @@
        </div>
    </div>
    <br><br><br><br>
-   <div class="container">
+   <div class="container" style="margin-left: 80px">
        <div class="row ">
            @foreach($akomodasis as $akomodasi)
                <a href="/Kab/Information/Akomodasi/{{$akomodasi->id}}" class="mb-100">
