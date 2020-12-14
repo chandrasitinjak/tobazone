@@ -33,7 +33,7 @@
         </div>
     </div>
     <br><br><br><br>
-    <div class="container">
+    <div class="container" style="margin-left: 80px">
         <div class="row ">
             @foreach($objekWisatas as $objekWisata)
                 <a href="/Kab/Information/ObjekWisata/{{$objekWisata->id}}" class="mb-100">

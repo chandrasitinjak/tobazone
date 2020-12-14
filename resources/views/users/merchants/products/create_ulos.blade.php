@@ -14,6 +14,12 @@
                         <h6>Tambah Ulos Baru </h6>
                     </div>
                     <div class="card-body">
+                        @if ($message = Session::get('fail'))
+                            <div class="alert alert-danger alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @endif
                         <form class="form-group" method="POST" action="{{ url('/products/store', 1) }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <span name="cat_product" style="display:none">ulos</span>
@@ -26,9 +32,9 @@
                                     <div class="col-sm-9">
                                         <div class="upload-btn-wrapper">
                                             <button class="btn-upcus">
-                                                    <img src="{{ '/images/assets/addimage.png'}}">
-                                                </button>
-                                            <input id="files" name="images[]" multiple type="file" required/>
+                                                <img src="{{ '/images/assets/addimage.png'}}">
+                                            </button>
+                                            <input id="files" name="images[]" multiple type="file"/>
                                         </div>
                                         <div id="result" class="row mt-4">
                                         </div>
@@ -67,7 +73,7 @@
                                     <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                                 </label>
                                 <div class="col-sm-9">
-                                    <textarea type="text" rows="5" class="form-control" aria-describedby="namaprodukhelp" name="description"></textarea>
+                                    <textarea type="text" rows="5" class="form-control" aria-describedby="namaprodukhelp" name="description" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -83,18 +89,18 @@
                                 <div class="row">
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Ukuran </label>
-                                        <input class="form-control" type="text" name="dimention" placeholder="Cth: 2m x 90cm" />
+                                        <input class="form-control" type="text" name="dimention" placeholder="Cth: 2m x 90cm" required />
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Berat </label>
-                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/g"/>
+                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/g" required/>
                                         <small id="warnadasar" class="form-text text-muted">
                                             Berat dalam satuan gram
                                         </small>
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Warna Dasar</label>
-                                        <select class="form-control" name="color" aria-describedby="warnadasar">
+                                        <select class="form-control" name="color" aria-describedby="warnadasar" required>
                                                 <option value="Hitam"> Hitam</option>
                                                 <option value="Merah"> Merah</option>
                                                 <option value="Biru"> Biru</option>
@@ -109,7 +115,7 @@
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4 mt-4">
                                         <label class="label"> Metode Pembuatan </label>
-                                        <select class="form-control" name="category">
+                                        <select class="form-control" name="category" required>
                                                 <option value="ATBM"> Alat Tenun Bukan Mesin</option>
                                                 <option value="Tradisional"> Tradisional</option>
                                                 <option value="Mesin"> Mesin</option>

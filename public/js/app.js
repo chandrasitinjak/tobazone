@@ -78246,116 +78246,120 @@ var render = function() {
                       staticStyle: { "border-radius": "10px" }
                     },
                     [
-                      _c("a", { attrs: { href: "" } }, [
-                        _c("img", {
-                          staticClass: "card-img-top",
-                          staticStyle: { height: "200px" },
-                          attrs: {
-                            src: "/images/" + paket.gambar,
-                            alt: "Card image cap"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "card-body" },
-                          [
-                            _c(
-                              "h7",
-                              {
-                                staticClass: "card-title",
-                                staticStyle: { "font-weight": "bold" }
-                              },
-                              [
-                                _vm._v(_vm._s(paket.nama_paket) + " ( "),
-                                _c("i", { staticClass: "fa fa-clock-o" }),
-                                _vm._v("  " + _vm._s(paket.durasi) + " )")
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("h5", { staticStyle: { color: "#FF8311" } }, [
-                              _vm._v(
-                                "Rp." +
-                                  _vm._s(_vm.formatPrice(paket.harga_paket))
+                      _c(
+                        "a",
+                        { attrs: { href: "/paket/details/" + paket.id_paket } },
+                        [
+                          _c("img", {
+                            staticClass: "card-img-top",
+                            staticStyle: { height: "200px" },
+                            attrs: {
+                              src: "/storage/img/paket/" + paket.gambar,
+                              alt: "Card image cap"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "card-body" },
+                            [
+                              _c(
+                                "h7",
+                                {
+                                  staticClass: "card-title",
+                                  staticStyle: { "font-weight": "bold" }
+                                },
+                                [
+                                  _vm._v(_vm._s(paket.nama_paket) + " ( "),
+                                  _c("i", { staticClass: "fa fa-clock-o" }),
+                                  _vm._v("  " + _vm._s(paket.durasi) + " )")
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("h5", { staticStyle: { color: "#FF8311" } }, [
+                                _vm._v(
+                                  "Rp." +
+                                    _vm._s(_vm.formatPrice(paket.harga_paket))
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item",
+                                  staticStyle: { color: "#ffc000" }
+                                },
+                                [_c("i", { staticClass: "fa fa-star" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item",
+                                  staticStyle: { color: "#ffc000" }
+                                },
+                                [_c("i", { staticClass: "fa fa-star" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item",
+                                  staticStyle: { color: "#ffc000" }
+                                },
+                                [_c("i", { staticClass: "fa fa-star" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item",
+                                  staticStyle: { color: "#ffc000" }
+                                },
+                                [_c("i", { staticClass: "fa fa-star" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "list-inline-item",
+                                  staticStyle: { color: "#ffc000" }
+                                },
+                                [_c("i", { staticClass: "fa fa-star" })]
+                              ),
+                              _vm._v(" "),
+                              _c("h5", { staticStyle: { color: "#FF8311" } }),
+                              _vm._v(" "),
+                              _c("p"),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                { staticClass: "card-text" },
+                                [
+                                  _c(
+                                    "medium",
+                                    { staticClass: "text-muted  float-right" },
+                                    [
+                                      _vm._v(
+                                        "  " +
+                                          _vm._s(
+                                            paket.get_kabupaten.nama_kabupaten
+                                          )
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("medium", {
+                                    staticClass: "text-muted  float-left"
+                                  })
+                                ],
+                                1
                               )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              {
-                                staticClass: "list-inline-item",
-                                staticStyle: { color: "#ffc000" }
-                              },
-                              [_c("i", { staticClass: "fa fa-star" })]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              {
-                                staticClass: "list-inline-item",
-                                staticStyle: { color: "#ffc000" }
-                              },
-                              [_c("i", { staticClass: "fa fa-star" })]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              {
-                                staticClass: "list-inline-item",
-                                staticStyle: { color: "#ffc000" }
-                              },
-                              [_c("i", { staticClass: "fa fa-star" })]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              {
-                                staticClass: "list-inline-item",
-                                staticStyle: { color: "#ffc000" }
-                              },
-                              [_c("i", { staticClass: "fa fa-star" })]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "li",
-                              {
-                                staticClass: "list-inline-item",
-                                staticStyle: { color: "#ffc000" }
-                              },
-                              [_c("i", { staticClass: "fa fa-star" })]
-                            ),
-                            _vm._v(" "),
-                            _c("h5", { staticStyle: { color: "#FF8311" } }),
-                            _vm._v(" "),
-                            _c("p"),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              { staticClass: "card-text" },
-                              [
-                                _c(
-                                  "medium",
-                                  { staticClass: "text-muted  float-right" },
-                                  [
-                                    _vm._v(
-                                      "  " +
-                                        _vm._s(
-                                          paket.get_kabupaten.nama_kabupaten
-                                        )
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("medium", {
-                                  staticClass: "text-muted  float-left"
-                                })
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ])
+                            ],
+                            1
+                          )
+                        ]
+                      )
                     ]
                   )
                 ])

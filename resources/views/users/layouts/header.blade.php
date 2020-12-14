@@ -149,20 +149,23 @@
         </div>
     </div>
     <ul class="list-unstyled components links">
-        <li>
-            <a href="{{ url('/product/pakaian') }}"><i class="bx bxs-t-shirt mr-3"></i> Pakaian1</a>
+        <li class="dropdown" >
+            <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bx bxs-t-shirt mr-3"></i> Souvenir
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ url('/product/pakaian') }}">Fashion</a>
+                <a class="dropdown-item" href="{{ url('/product/ulos') }}">Tenun</a>
+                <a class="dropdown-item" href="{{ url('/product/obat') }}">Kesehatan & Kecantikan</a>
+                <a class="dropdown-item" href="{{ url('/product/makanan') }}">Kuliner</a>
+                <a class="dropdown-item" href="{{ url('/product/aksesoris') }}">Aksesoris</a>
+            </div>
         </li>
         <li>
-            <a href="{{ url('/product/aksesoris') }}"><i class="bx bxs-star-half mr-3"></i> Aksesoris</a>
+            <a href="{{ url('/user/homestays') }}"><i class="bx bxs-star-half mr-3"></i> Akomodasi</a>
         </li>
         <li>
-            <a href="{{ url('/product/makanan') }}"><i class="bx bxs-food-menu mr-3"></i> Makanan</a>
-        </li>
-        <li>
-            <a href="{{ url('/product/obat') }}"><i class="bx bxl-drupal mr-3"></i> Obat</a>
-        </li>
-        <li>
-            <a href="{{ url('/product/ulos') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Ulos</a>
+            <a href="{{ route('paket') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Paket Wisata</a>
         </li>
     </ul>
 </nav>
@@ -336,7 +339,7 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown ml-30">
-                    <a class="nav-link dropdown text-white" href="{{ url('/product/pakaian') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown text-white" href="{{ route('paket') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <span data-toggle="tooltip" data-placement="right" title="Paket wisata, komunitas paket wisata">Paket Wisata</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">

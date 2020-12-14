@@ -30,7 +30,7 @@
         </div>
     </div>
     <br><br><br><br>
-    <div class="container">
+    <div class="container" style="margin-left: 80px">
         <div class="row ">
             @foreach($events as $event)
                 <a href="/Kab/Information/Event/{{$event->id}}" class="mb-100">

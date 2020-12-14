@@ -19,10 +19,10 @@
                     <slide class="mt-3" v-for="paket in pakets" :key="paket.id">
                         <div class="col-auto">
                             <div class="card products"  style="border-radius: 10px;">
-                                <a href="">
+                                <a :href="'/paket/details/'+paket.id_paket">
 
                                     <img class="card-img-top"
-                                         :src="'/images/'+paket.gambar" alt="Card image cap" style="height: 200px;">
+                                         :src="'/storage/img/paket/'+paket.gambar" alt="Card image cap" style="height: 200px;">
 
                                     <div class="card-body">
                                         <h7 class="card-title" style="font-weight: bold">{{paket.nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{paket.durasi}} )</h7>
