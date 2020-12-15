@@ -42,8 +42,8 @@
                            <img class="card-img-top" src="Kab/information/Akomodasi/{{$akomodasi->foto}}" style="width: 15rem;height: 13rem;border-top-right-radius: 15px;border-top-left-radius: 15px;" alt="Card image cap">
                            <div class="card-body">
                                <h5><span class="badge badge-warning">Akomodasi</span></h5>
-                               <h5 class="card-title">{{$akomodasi->nama_akomodasi}}</h5>
-                               <p class="card-text"><i class="fa fa-map-marker"></i> {{$akomodasi->lokasi}}</p>
+                               <h5 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{$akomodasi->nama_akomodasi}}</h5>
+                               <p class="card-text"  style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><i class="fa fa-map-marker"></i> {{$akomodasi->lokasi}}</p>
                            </div>
                        </div>
                    </div>
