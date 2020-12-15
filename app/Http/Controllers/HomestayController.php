@@ -112,6 +112,7 @@ class HomestayController extends Controller
             abort(404, "Page not found.");
         }
 
+
         return view('users.homestay.detail_homestay_page')->with('homestays', $detail);
     }
 
