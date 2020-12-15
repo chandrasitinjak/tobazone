@@ -18,19 +18,12 @@
                     <input type="text" class="form-control form-control-sm" value="{{ $profiles->phone }}"
                            name="profile_phone" required>
                 </div>
-
                 <div class="form-group">
                     <label class="label">Jenis Kelamin</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gender" id="gender1"
-                               value="Male" {{($profiles->gender=="Male")||($profiles->gender=="male")? "checked":""}}>
-                        <label class="form-check-label" for="gender1">Laki-laki</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gender" id="gender2"
-                               value="Female" {{($profiles->gender=="female")||($profiles->gender=="Female")? "checked":""}}>
-                        <label class="form-check-label" for="gender2">Perempuan</label>
-                    </div>
+                        <select class="form-control" name="gender" >
+                        <option name="profile_gender" value="Male" {{($profiles->gender=="Male")||($profiles->gender=="male")? "selected":""}} >Laki-laki (Male)</option>
+                        <option name="profile_gender" value="Female" {{($profiles->gender=="Female")||($profiles->gender=="female")? "selected":""}}>Perempuan (Female)</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label class="label">Tanggal Lahir</label>

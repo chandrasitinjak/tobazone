@@ -183,6 +183,8 @@ class ProfileController extends Controller
         if ($image == NULL) {
             $profile->name = $request->profile_name;
             $profile->phone = $request->profile_phone;
+            $profile->gender = $request->profile_gender;
+            $profile->birthday = $request->profile_birthday;
         } else {
             $imageName = time() . $image->getClientOriginalName();
             $destinationPath = public_path('/images/user_profiles');
@@ -190,6 +192,8 @@ class ProfileController extends Controller
 
             $profile->name = $request->profile_name;
             $profile->phone = $request->profile_phone;
+            $profile->gender = $request->profile_gender;
+            $profile->birthday = $request->profile_birthday;
             $profile->photo = $imageName;
         }
 
