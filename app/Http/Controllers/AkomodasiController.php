@@ -82,6 +82,11 @@ class AkomodasiController extends Controller
         }
     }
 
+    public function show($id){
+        $akomodasi = Akomodasi::findOrFail($id);
+        return view('cbt.informasi.akomodasi.view',compact('akomodasi'));
+    }
+
     public function destroy($id){
         $akomodasi = Akomodasi::findOrFail($id);
         $akomodasi->delete();

@@ -3,8 +3,8 @@
 @endsection
 
 @section('content')
-
-<div class="container">
+<div id="app-2">
+<div class="container" >
     <div class="row">
         <div class="col-12">
             <div class="card globalcard store">
@@ -181,13 +181,16 @@
 
     </div>
 </div>
-
-
+</div>
 @endsection
-<script>
-    import CreateHomestay from "../../../../js/components/homestay/merchant/CreateHomestay";
 
-    export default {
-        components: {CreateHomestay}
-    }
-</script>
+@section('script')
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>-->
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script>
+
+    </script>
+@endsection
+
+

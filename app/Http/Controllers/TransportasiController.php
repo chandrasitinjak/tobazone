@@ -76,6 +76,11 @@ class TransportasiController extends Controller
         }
     }
 
+    public function show($id){
+        $transportasi = Transportasi::findOrFail($id);
+        return view('cbt.informasi.transportasi.view',compact('transportasi'));
+    }
+
     public function destroy($id){
         $transportasi = Transportasi::findOrFail($id);
         $transportasi->delete();

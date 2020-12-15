@@ -7,6 +7,7 @@ use App\IncludedNotIncluded;
 use App\Mail\jadwalPaket;
 use App\PaketWisata;
 use App\Pemesanan;
+use App\RatingPaket;
 use App\Sesi;
 use Illuminate\Http\Request;
 use DB;
@@ -47,8 +48,14 @@ class PaketWisataCustomerController extends Controller
         $counts = 0;
         $paket_lain = PaketWisata::where([['status', 1],['kabupaten_id',4],['id_paket','!=',$id_paket]])->orderBy('created_at', 'DESC')->first();
 //        dd($paket_lain);
-        return view('paket-wisata.detail_paket', compact('counts','paket_lain','paket', 'hotel', 'sesi', 'includeds', 'not_includeds'));
-
+        $rating = 0;
+        if(Auth::check()) {
+            $ratings = $this->getPersonalRating(Auth::id(), $id_paket);
+            if($ratings!=null){
+                $rating = $ratings->rating;
+            }
+        }
+        return view('paket-wisata.detail_paket', compact('counts','paket_lain','paket', 'hotel', 'sesi', 'includeds', 'not_includeds','rating'));
     }
     public function bookingPaket(Request $request, $id_paket){
         $pemesanan = Pemesanan::where([['sesi_id', $request->sesi], ['user_id', Auth::id()]])->get();
@@ -87,5 +94,11 @@ class PaketWisataCustomerController extends Controller
         }
 
         return redirect(route('pemesanan'));
+    }
+
+    private function getPersonalRating($userID, $productID) {
+        return RatingPaket::where('user_id', $userID)
+            ->where('paket_id', $productID)
+            ->first();
     }
 }

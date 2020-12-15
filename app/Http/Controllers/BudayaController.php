@@ -88,6 +88,11 @@ class BudayaController extends Controller
         }
     }
 
+    public function show($id){
+        $budaya = Budaya::findOrFail($id);
+        return view('cbt.informasi.budaya.view',compact('budaya'));
+    }
+
     public function destroy($id)
     {
         $budaya = Budaya::findOrFail($id);

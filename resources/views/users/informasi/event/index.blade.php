@@ -39,8 +39,8 @@
                             <img class="card-img-top" src="Kab/information/Event/{{$event->foto}}" style="width: 15rem;height: 13rem;" alt="Card image cap">
                             <div class="card-body">
                                 <h5><span class="badge badge-warning">Akomodasi</span></h5>
-                                <h5 class="card-title">{{$event->nama_event}}</h5>
-                                <p class="card-text"><i class="fa fa-map-marker"></i> {{$event->lokasi}}</p>
+                                <h5 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{$event->nama_event}}</h5>
+                                <p class="card-text" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><i class="fa fa-map-marker"></i> {{$event->lokasi}}</p>
                             </div>
                         </div>
                     </div>

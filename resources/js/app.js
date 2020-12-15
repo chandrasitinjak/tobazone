@@ -4,9 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require("./bootstrap");
 
-window.Vue = require('vue');
+window.Vue = require("vue");
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 
@@ -76,6 +76,7 @@ const KomunitasPaketWisata = require('./components/homes/KomunitasPaketWisata').
 const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay').default
 const NewOrder = require('./components/homestay/merchant/NewOrder').default
 const ProdukTerlaris2 = require('./components/homes/ProdukTerlaris2').default
+const PaketRating = require('./components/paket/Rating').default
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -140,11 +141,26 @@ const app = new Vue({
         FormPesanHomestay,
         NewOrder,
         ProdukTerlaris2,
+        PaketRating
     },
     data() {
         return {
-            message: ''
+            message: '',
+            rows: [
+                {nama_produk: '', kategori: ''}
+            ],
         }
-    }
+    },
+    methods: {
+        addRow() {
+            this.rows.push({nama_produk: '', kategori: ''});
+        },
+        deleteRow() {
+            this.rows.pop();
+        },
+
+
+    },
 
 });
+

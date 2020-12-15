@@ -194,7 +194,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
         Route::get('/admin/new-order/order-detail', 'OrderController@detailOrder');
         Route::get('/admin/list-merchant', 'MerchantController@listMerchant');
-        Route::get('/admin/list-user', 'MerchantController@listUser');        
+        Route::get('/admin/list-user', 'MerchantController@listUser');
         Route::get('/admin/list-merchant/merchant-detail/{id}', 'MerchantController@detailMerchant');
         Route::get('/admin/new-order-detail/{id}', 'TransactionController@getTransactionDetail');
         Route::get('/admin/unpaid-order-detail/{id}', 'TransactionController@getUnpaidTransactionDetail');
@@ -213,6 +213,10 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/homestay/rejected-order', 'HomestayController@findAllRejectedOrder');
         Route::get('/admin/homestay/new-order/{id}', 'HomestayController@findDetailNewOrder');
         Route::get('/admin/homestay/room-categories', 'HomestayRoomsCategoriesController@findAllCategories');
+        Route::get('/admin/delete-kategori/{id}', 'HomestayRoomsCategoriesController@deleteKategori');
+        Route::post('/admin/tambah-kategori-homestay', 'HomestayRoomsCategoriesController@createCategories');
+        Route::post('/admin/edit-kategori-homestay/{id}', 'HomestayRoomsCategoriesController@editKategori');
+        Route::get('/admin/homestay/room-facilities', 'HomestayRoomsFacilitiesController@findAllFacilities');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
@@ -345,6 +349,7 @@ Route::post('/homestay/create', 'HomestayController@store');
 
 Route::get('/homestays', 'HomestayController@findAll');
 Route::get('/user/homestays', 'HomestayController@findAllCustomer');
+Route::get('/user/homestays/more', 'HomestayController@morePage');
 Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::post('/homestays/save', 'HomestayController@store');
@@ -377,6 +382,10 @@ Route::get('/merchant/homestay/get-success-order', 'HomestayController@allSucces
 Route::get('/merchant/homestay/get-paid-order', 'HomestayController@allPaidOrder');
 Route::get('/homestays/save', 'HomestayController@store');
 Route::get('/homestays/findAllMyHomestay', 'HomestayController@findAllMerchantHomestay');
+Route::get('/homestay/room-facilities/findAll', 'HomestayRoomsFacilitiesController@findAll');
+//Homestay Rooms
+Route::post('homestay/room/store','HomestayController@saveRooms');
+
 
 // Display all homestay orders of a customer.
 Route::get('/user/homestay/order/findAll', 'HomestayController@findAllCustomerOrder');
