@@ -60,16 +60,19 @@ Route::get('/product/makanan', 'ProductController@searchProductByMakanan');
 Route::get('/product/aksesoris', 'ProductController@searchProductByAksesoris');
 Route::get('/product/obat', 'ProductController@searchProductByObat');
 
-Route::get('/cbt/dashboard','DashboardCBTController@index');
-//Layanan Wisata
-Route::get('anggotacbt/layananwisata', 'LayananWisataController@index')->name('anggotacbt.layanan');
-Route::post('anggotacbt/layananwisata/create', 'LayananWisataController@create')->name('anggotacbt.layanan.tambah');
-Route::get('anggotacbt/layananwisata/{id}/edit', 'LayananWisataController@edit')->name('anggotacbt.layanan.edit');
-Route::put('anggotacbt/layanan_wisata/{id}/update', 'LayananWisataController@update')->name('anggotacbt.layanan.update');
-Route::get('anggotacbt/layanan_wisata/{id}/delete', 'LayananWisataController@delete')->name('anggotacbt.layanan.delete');
-Route::get('anggotacbt/komunitas/','KomunitasCBTController@index')->name('anggotacbt.komunitas');
-Route::get('anggotacbt/komunitas/pendaftar','PendaftarController@index')->name('view_anggota');
-Route::post('anggotacbt/komunitas/pendaftar/create','PendaftarController@daftar')->name('gabung_daftar');
+Route::middleware('role:member_cbt')->group(function(){
+        Route::get('/cbt/dashboard','DashboardCBTController@index');
+        //Layanan Wisata
+        Route::get('anggotacbt/layananwisata', 'LayananWisataController@index')->name('anggotacbt.layanan');
+        Route::post('anggotacbt/layananwisata/create', 'LayananWisataController@create')->name('anggotacbt.layanan.tambah');
+        Route::get('anggotacbt/layananwisata/{id}/edit', 'LayananWisataController@edit')->name('anggotacbt.layanan.edit');
+        Route::put('anggotacbt/layanan_wisata/{id}/update', 'LayananWisataController@update')->name('anggotacbt.layanan.update');
+        Route::get('anggotacbt/layanan_wisata/{id}/delete', 'LayananWisataController@delete')->name('anggotacbt.layanan.delete');
+        Route::get('anggotacbt/komunitas/','KomunitasCBTController@index')->name('anggotacbt.komunitas');
+        Route::get('anggotacbt/komunitas/pendaftar','PendaftarController@index')->name('view_anggota');
+        Route::post('anggotacbt/komunitas/pendaftar/create','PendaftarController@daftar')->name('gabung_daftar');
+});
+
 
 
 Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
@@ -156,7 +159,23 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::post('/admin/member/store','MemberController@store')->name('member.store');
 //        Route::get('/admin/member/add','Auth\RegisterController@create')->name('member.tambah');
 //akhir pengelolaan member
+        Route::post('/register-cbtAdmin', 'Auth\RegisterController@registerCbtAdmin')->name('registerCbtAdmin');
+        Route::get('/admin/new-member', 'MemberController@index')->name('member');
+        Route::get('/admin/new-member/request', 'MemberController@index')->name('member.request');
+        Route::post('/admin/new-member/request','MemberController@indexFilterR')->name('member.request.filter');
+        Route::get('/admin/member/request/tolak/{id_member}','MemberController@tolak')->name('member.request.tolak');
+        Route::get('/admin/member/request/terima/{id_member}','MemberController@terima')->name('member.request.terima');
+        Route::get('/admin/member/request/detail/{id_member}','MemberController@showRequest')->name('member.request.detail');
+        Route::get('/admin/member/request/hapus/{id_member}','MemberController@hapus')->name('member.request.hapus');
+        Route::post('/admin/new-member', 'MemberController@indexFilterM')->name('member.filter');
+        Route::get('/admin/member/detail', 'MemberController@show');
+        Route::get('/admin/member/non-aktif/{id_member}', 'MemberController@nonAktif')->name('member.nonaktifkan');
+        Route::get('/admin/member/aktif/{id_member}', 'MemberController@aktifkanStatus')->name('member.aktifkan');
+        Route::get('/admin/member/detail/{id_member}', 'MemberController@detailMember')->name('member.detail');
+        Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}', 'MemberController@keluarkan')->name('member.keluarkan');
 //akhir visit toba
+
+
         Route::get('/admin', 'AdminController@index');
         Route::post('/merchantconfirmed/{id}', 'MerchantController@updateConfirm');
         Route::get('/admin/new-merchant', 'MerchantController@newMerchant');
@@ -175,7 +194,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
         Route::get('/admin/new-order/order-detail', 'OrderController@detailOrder');
         Route::get('/admin/list-merchant', 'MerchantController@listMerchant');
-        Route::get('/admin/list-user', 'MerchantController@listUser');        
+        Route::get('/admin/list-user', 'MerchantController@listUser');
         Route::get('/admin/list-merchant/merchant-detail/{id}', 'MerchantController@detailMerchant');
         Route::get('/admin/new-order-detail/{id}', 'TransactionController@getTransactionDetail');
         Route::get('/admin/unpaid-order-detail/{id}', 'TransactionController@getUnpaidTransactionDetail');
@@ -194,6 +213,10 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/admin/homestay/rejected-order', 'HomestayController@findAllRejectedOrder');
         Route::get('/admin/homestay/new-order/{id}', 'HomestayController@findDetailNewOrder');
         Route::get('/admin/homestay/room-categories', 'HomestayRoomsCategoriesController@findAllCategories');
+        Route::get('/admin/delete-kategori/{id}', 'HomestayRoomsCategoriesController@deleteKategori');
+        Route::post('/admin/tambah-kategori-homestay', 'HomestayRoomsCategoriesController@createCategories');
+        Route::post('/admin/edit-kategori-homestay/{id}', 'HomestayRoomsCategoriesController@editKategori');
+        Route::get('/admin/homestay/room-facilities', 'HomestayRoomsFacilitiesController@findAllFacilities');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
@@ -250,7 +273,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
     });
 
     Route::middleware('role:customer')->group(function () {
-         Route::post('/carts/delete/{id}', 'CartController@destroy');
+        Route::post('/carts/delete/{id}', 'CartController@destroy');
         Route::get('/shipping', 'ShippingController@index');
         Route::get('/customer/transactions/{id}', 'TransactionController@show');
         Route::get('/customer/{id}/orders', 'TransactionController@getTransactionByUser');
@@ -262,6 +285,13 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::post('/wishlist/delete', 'CartController@deleteWishlist');
         //Start visit Tba
         //pemesanan
+        Route::post('/pesan/paket/{id_paket}','PaketWisataCustomerController@bookingPaket');
+        Route::get('/pemesanan','PemesananController@indexC')->name('pemesanan');
+        Route::get('/pemesanan/detail/{id}','PemesananController@show_c')->name('pemesanan.detail');
+        Route::put('/pemesanan/detail/{id_pemesanan}/upload','PemesananController@kirimTransaksi')->name('transaksi.kirim');
+        Route::put('/pemesanan/detail/{id_transaksi}/update', 'PemesananController@updateTransaksi')->name('transaksi.update');
+        Route::get('/pemesanan/detail/pembayaran/{id}','PemesananController@pembayaran')->name('pembayaran');
+
         Route::delete('/pemesanan/cancel/{id_pemesanan}', 'PemesananController@cancel')->name('pemesanan.batal');
         //end pemesanan
         //end visit toba
@@ -319,6 +349,7 @@ Route::post('/homestay/create', 'HomestayController@store');
 
 Route::get('/homestays', 'HomestayController@findAll');
 Route::get('/user/homestays', 'HomestayController@findAllCustomer');
+Route::get('/user/homestays/more', 'HomestayController@morePage');
 Route::get('/homestays/find/{id}', 'HomestayController@findById');
 Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::post('/homestays/save', 'HomestayController@store');
@@ -351,6 +382,10 @@ Route::get('/merchant/homestay/get-success-order', 'HomestayController@allSucces
 Route::get('/merchant/homestay/get-paid-order', 'HomestayController@allPaidOrder');
 Route::get('/homestays/save', 'HomestayController@store');
 Route::get('/homestays/findAllMyHomestay', 'HomestayController@findAllMerchantHomestay');
+Route::get('/homestay/room-facilities/findAll', 'HomestayRoomsFacilitiesController@findAll');
+//Homestay Rooms
+Route::post('homestay/room/store','HomestayController@saveRooms');
+
 
 // Display all homestay orders of a customer.
 Route::get('/user/homestay/order/findAll', 'HomestayController@findAllCustomerOrder');
@@ -401,20 +436,7 @@ Route::get('/customer/transactions/paket/{id}', 'TransactionPaketController@show
 // Route::get('/tessi123/{id}', function($id){
 //     echo $id;
 //
-Route::post('/register-cbtAdmin', 'Auth\RegisterController@registerCbtAdmin')->name('registerCbtAdmin');
-Route::get('/admin/new-member', 'MemberController@index')->name('member');
-Route::get('/admin/new-member/request', 'MemberController@index')->name('member.request');
-Route::post('/admin/new-member/request','MemberController@indexFilterR')->name('member.request.filter');
-Route::get('/admin/member/request/tolak/{id_member}','MemberController@tolak')->name('member.request.tolak');
-Route::get('/admin/member/request/terima/{id_member}','MemberController@terima')->name('member.request.terima');
-Route::get('/admin/member/request/detail/{id_member}','MemberController@showRequest')->name('member.request.detail');
-Route::get('/admin/member/request/hapus/{id_member}','MemberController@hapus')->name('member.request.hapus');
-Route::post('/admin/new-member', 'MemberController@indexFilterM')->name('member.filter');
-Route::get('/admin/member/detail', 'MemberController@show');
-Route::get('/admin/member/non-aktif/{id_member}', 'MemberController@nonAktif')->name('member.nonaktifkan');
-Route::get('/admin/member/aktif/{id_member}', 'MemberController@aktifkanStatus')->name('member.aktifkan');
-Route::get('/admin/member/detail/{id_member}', 'MemberController@detailMember')->name('member.detail');
-Route::put('/admin/member/keluarkan/{id_komunitas}/{id_member}', 'MemberController@keluarkan')->name('member.keluarkan');
+
 
 //menampilkan paket wisata di sisi customer
 
@@ -431,13 +453,7 @@ Route::get('/paket/details/{id_paket}', 'PaketWisataCustomerController@show')->n
 Route::get('/komunitas', 'KomunitasController@komunitas')->name('komunitas');
 Route::get('/komunitas/{id_kabupaten}','KomunitasController@showC')->name('komunitas.show');
 
-Route::post('/pesan/paket/{id_paket}','PaketWisataCustomerController@bookingPaket');
-Route::get('/pemesanan','PemesananController@indexC')->name('pemesanan');
-Route::get('/pemesanan/detail/{id}','PemesananController@show_c')->name('pemesanan.detail');
-Route::put('/pemesanan/detail/{id_pemesanan}/upload','PemesananController@kirimTransaksi')->name('transaksi.kirim');
-Route::put('/pemesanan/detail/{id_transaksi}/update', 'PemesananController@updateTransaksi')->name('transaksi.update');
 
-Route::get('/pemesanan/detail/pembayaran/{id}','PemesananController@pembayaran')->name('pembayaran');
 
 
 //CBT informasi pariwisata

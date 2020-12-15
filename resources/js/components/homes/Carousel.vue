@@ -15,7 +15,7 @@
 
 
     >
-      <slide class="px-0" v-for="carousel in carousels">
+      <slide class="px-0" v-for="carousel in carousels" :key="carousel.id">
         <a :href="carousel.link">
           <img :src="'/images/carousels/' + carousel.image" style="" class="empty-slide">
         </a>

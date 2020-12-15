@@ -2,15 +2,15 @@
   <div class="cart-area" style="width:61px">
     <a href="/carts">
       <transition name="cart">
-        <img src="/user-assets/img/core-img/bag.svg" style="width: 30px;heigh:30px" v-if="show">
+          <i class="fa fa-shopping-cart fa-3x fa-flip-horizontal text-white" aria-hidden="true"></i>
       </transition>
-      <span  class="badge badge-light" style="background-color :black;; display:inline-block;font-size: 0.8rem; color: #4b1815; 
+      <span  class="badge badge-light border" style="background-color :#640000; display:inline-block;font-size: 0.8rem; color: #4b1815;
       -webkit-border-radius: 9px;
-      margin-top : 14px;
+      margin-top : 16px;
     -moz-border-radius: 20px;
-    border-radius: 20px;  
+    border-radius: 20px;
     vertical-align: top;
-    margin-left: -15px; color :  #FFFAF3">{{total}}</span>
+    margin-left: -10px; color :  #FFFAF3">{{total}}</span>
     </a>
   </div>
 </template>
@@ -37,9 +37,9 @@ export default {
 
         const carts = res.data.carts
         // console.log(carts);
-        
+
         let total = 0
-        
+
         carts.forEach(cart => {
           total += parseInt(cart.total)
         });

@@ -13,18 +13,20 @@ class CreateProductReviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_reviews', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('product_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->integer('transaction_id')->unsigned();
-            $table->text('body');
-            $table->timestamps();
+        if (!Schema::hasTable('product_reviews')) {
+            Schema::create('product_reviews', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('product_id')->unsigned();
+                $table->integer('user_id')->unsigned();
+                $table->integer('transaction_id')->unsigned();
+                $table->text('body');
+                $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('transaction_id')->references('id')->on('transactions');
-        });
+                $table->foreign('user_id')->references('id')->on('users');
+                $table->foreign('product_id')->references('id')->on('products');
+                $table->foreign('transaction_id')->references('id')->on('transactions');
+            });
+        }
     }
 
     /**
