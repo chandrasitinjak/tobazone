@@ -17238,7 +17238,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Three column layout */\n.side {\n    float: left;\n    width: 15%;\n    margin-top: 10px;\n}\n.middle {\n    float: left;\n    width: 70%;\n    margin-top: 10px;\n}\n\n/* Place text to the right */\n.right {\n    text-align: right;\n}\n\n/* Clear floats after the columns */\n.row:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n/* The bar container */\n.bar-container {\n    width: 100%;\n    background-color: #f1f1f1;\n    text-align: center;\n    color: white;\n}\n\n/* Individual bars */\n.bar-5 {height: 18px; background-color: #4CAF50;}\n.bar-4 {height: 18px; background-color: #2196F3;}\n.bar-3 {height: 18px; background-color: #00bcd4;}\n.bar-2 {height: 18px; background-color: #ff9800;}\n.bar-1 {height: 18px; background-color: #f44336;}\n\n/* Responsive layout - make the columns stack on top of each other instead of next to each other */\n@media (max-width: 400px) {\n.side, .middle {\n        width: 100%;\n}\n    /* Hide the right column on small screens */\n.right {\n        display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* Three column layout */\n.side {\r\n    float: left;\r\n    width: 15%;\r\n    margin-top: 10px;\n}\n.middle {\r\n    float: left;\r\n    width: 70%;\r\n    margin-top: 10px;\n}\r\n\r\n/* Place text to the right */\n.right {\r\n    text-align: right;\n}\r\n\r\n/* Clear floats after the columns */\n.row:after {\r\n    content: \"\";\r\n    display: table;\r\n    clear: both;\n}\r\n\r\n/* The bar container */\n.bar-container {\r\n    width: 100%;\r\n    background-color: #f1f1f1;\r\n    text-align: center;\r\n    color: white;\n}\r\n\r\n/* Individual bars */\n.bar-5 {height: 18px; background-color: #4CAF50;}\n.bar-4 {height: 18px; background-color: #2196F3;}\n.bar-3 {height: 18px; background-color: #00bcd4;}\n.bar-2 {height: 18px; background-color: #ff9800;}\n.bar-1 {height: 18px; background-color: #f44336;}\r\n\r\n/* Responsive layout - make the columns stack on top of each other instead of next to each other */\n@media (max-width: 400px) {\n.side, .middle {\r\n        width: 100%;\n}\r\n    /* Hide the right column on small screens */\n.right {\r\n        display: none;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -111410,8 +111410,8 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\tobazone\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\tobazone\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\tobazone-v3\tobazone\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\tobazone-v3\tobazone\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

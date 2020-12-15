@@ -85,6 +85,11 @@ class ObjekWisataController extends Controller
         }
     }
 
+    public function show($id){
+        $objekWisata = ObjekWisata::findOrFail($id);
+        return view('cbt.informasi.objekwisata.view',compact('objekWisata'));
+    }
+
     public function destroy($id){
         $objekWisata = ObjekWisata::findOrFail($id);
         $objekWisata->delete();

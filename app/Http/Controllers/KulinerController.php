@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Kuliner;
 use App\Kabupaten;
 use App\Member;
+use App\Kuliner;
 use Illuminate\Support\Facades\Auth;
 
 class KulinerController extends Controller
@@ -82,6 +82,10 @@ class KulinerController extends Controller
         }
     }
 
+    public function show($id){
+        $kuliner = Kuliner::findOrFail($id);
+        return view('cbt.informasi.kuliner.view',compact('kuliner'));
+    }
     public function destroy($id){
         $kuliner = Kuliner::findOrFail($id);
         $kuliner->delete();
