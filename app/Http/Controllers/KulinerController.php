@@ -70,12 +70,26 @@ class KulinerController extends Controller
             $kuliner->lokasi = $request->lokasi;
             $kuliner->deskripsi = $request->deskripsi;
 
-            $kuliner->save();
+            if($request->inpFile != NULL){
+                $file = $request->file('inpFile');
 
-            //redirect ke route kategori.index
-            //Alert::success('Success', $request->nama_kuliner. ' berhasil diedit');
+                $length = 10;
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 0; $i < $length; $i++) {
+                    $randomString .= $characters[rand(0, $charactersLength - 1)];
+                }
 
-            return redirect(route('kuliner.index'))->with(['success' => 'Kuliner: ' . $kuliner->nama_kuliner . ' Diedit']);
+                $gambar =$randomString.".jpg";
+                $kuliner->foto = $gambar;
+                $file->move(\base_path() ."/public/Kab/information/Kuliner", $gambar);
+            }
+            if($kuliner->save()){
+                return redirect(route('kuliner.index'))->with(['success' => 'Kuliner: ' . $kuliner->nama_kuliner . ' Diedit']);
+            }
+
+
         } catch (\Exception $e) {
             //jika gagal, redirect ke form yang sama lalu membuat flash message error
             return redirect()->back();

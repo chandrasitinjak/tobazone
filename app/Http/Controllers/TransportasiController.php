@@ -65,11 +65,27 @@ class TransportasiController extends Controller
             $transportasi->jenis_transportasi = $request->jenis_transportasi;
             $transportasi->deskripsi = $request->deskripsi;
 
-            $transportasi->save();
+            if($request->inpFile != NULL){
+                $file = $request->file('inpFile');
 
-            //redirect ke route kategori.index
+                $length = 10;
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 0; $i < $length; $i++) {
+                    $randomString .= $characters[rand(0, $charactersLength - 1)];
+                }
 
-            return redirect(route('transportasi.index'))->with(['success' => 'Objek Wisata: ' . $transportasi->nama_objek_wisata . ' Diedit']);
+                $gambar =$randomString.".jpg";
+                $transportasi->foto = $gambar;
+                $file->move(\base_path() ."/public/Kab/information/Transportasi", $gambar);
+            }
+
+            if($transportasi->save()){
+                return redirect(route('transportasi.index'))->with(['success' => 'Transportasi: ' . $transportasi->nama_transportasi . ' Diedit']);
+            }
+
+
         } catch (\Exception $e) {
             //jika gagal, redirect ke form yang sama lalu membuat flash message error
             return redirect()->back();
