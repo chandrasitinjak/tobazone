@@ -141,6 +141,9 @@ class HomestayController extends Controller
             abort(404, "Page not found.");
         }
 
+//        dd(json_decode($detail->rooms[0]->facilities));
+//        echo count(json_decode($detail->rooms[0]->facilities));
+
         return view('users.homestay.detail_homestay_page')->with('homestays', $detail);
     }
 
