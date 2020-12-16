@@ -112,6 +112,28 @@ class ProfileController extends Controller
         return view('users.merchants.profiles.index')->with('profiles', $profile)->with('data', $data_real);
     }
 
+    public function updateAlamat(Request $request, $id)
+    {
+        $profile = Profile::whereUserId($id)->first();
+        $address = [];
+
+        array_push($address, json_encode([
+            'name' => $request->name,
+            'province_id' => $request->provinceId,
+            'city_id' => $request->cityId,
+            'subdistrict_id' => $request->subdistrictId,
+            'province_name' => $request->provinceName,
+            'city_name' => $request->cityName,
+            'subdistrict_name' => $request->subdistrictName,
+            'postal_code' => $request->postalCode,
+            'detail' => $request->addressDetail
+        ]));
+
+        $profile->address = json_encode($address);
+        $profile->save();
+        return response()->json('success');
+    }
+
     public function merchantEditProfile($id)
     {
         $profile = Profile::all()->where('user_id', $id)->first();
@@ -124,6 +146,16 @@ class ProfileController extends Controller
         return view('users.merchants.profiles.edit')->with('profiles', $profile)->with('data', $data_real);
     }
 
+    public function merchantEditAlamat()
+    {
+        return view('users.merchants.profiles.edit-alamat');
+    }
+
+    public function merchantAlamat()
+    {
+        return view('users.merchants.profiles.edit-alamat-merchant');
+    }
+
     public function editProfile($id)
     {
         $profile = Profile::all()->where('user_id', $id)->first();
@@ -134,6 +166,16 @@ class ProfileController extends Controller
 
         // echo "hello world";
         return view('users.profiles.edit')->with('profiles', $profile)->with('data', $data_real);
+    }
+
+    public function getalamat($id)
+    {
+        $profile = Profile::all()->where('user_id', $id)->first();
+
+        $data = json_decode($profile->address);
+        $data_real = json_decode($data[0]);
+        // echo "hello world";
+        return response()->json($data_real);
     }
 
     public function getMerchantProfile($id)

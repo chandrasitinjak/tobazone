@@ -2950,6 +2950,456 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auths/EditAlamat.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/auths/EditAlamat.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      provicies: [],
+      cities: [],
+      subdistricts: [],
+      address: {
+        prov: null,
+        kab: null,
+        kec: null,
+        addressName: null,
+        addressDetail: null
+      },
+      show: {
+        prov: false,
+        city: false,
+        kec: false
+      }
+    };
+  },
+  methods: {
+    save: function save() {
+      var _this = this;
+
+      if (this.address.prov === null || this.address.kab === null || this.address.kec === undefined) {
+        this.$swal.fire('Error!', 'Silahkan lengkapi alamat anda', 'error');
+        return;
+      }
+
+      var loader = this.$loading.show();
+      var payload = {
+        name: this.address.addressName,
+        addressDetail: this.address.addressDetail,
+        provinceId: this.address.prov,
+        cityId: this.address.kab,
+        subdistrictId: this.address.kec
+      };
+
+      for (var i = 0; i < this.cities.length; i++) {
+        if (this.cities[i].id === payload.cityId) {
+          payload.cityName = this.cities[i].name;
+          payload.postalCode = this.cities[i].postal_code;
+        }
+      }
+
+      for (var _i = 0; _i < this.provicies.length; _i++) {
+        if (this.provicies[_i].id === payload.provinceId) {
+          payload.provinceName = this.provicies[_i].name;
+        }
+      }
+
+      for (var _i2 = 0; _i2 < this.subdistricts.length; _i2++) {
+        if (this.subdistricts[_i2].subdistrict_id === payload.subdistrictId) {
+          payload.subdistrictName = this.subdistricts[_i2].subdistrict_name;
+        }
+      }
+
+      var url = window.location.pathname;
+      var id = url.substring(url.lastIndexOf('/') + 1);
+      axios.post("/api/updatealamatcustomer/".concat(id), payload).then(function (e) {
+        window.location.href = "/customer/".concat(id, "/myProfil");
+        loader.hide();
+      })["catch"](function (e) {
+        _this.$swal.fire('Error!', 'Terjadi kesalahan Silahkan coba beberapa saat lagi', 'error');
+
+        loader.hide();
+      });
+    },
+    getUpdateCities: function getUpdateCities() {
+      var _this2 = this;
+
+      var loader = this.$loading.show();
+      axios.get("/api/cities?pro_id=" + this.address.prov).then(function (res) {
+        _this2.cities = res.data;
+        _this2.address.kab = null;
+        _this2.address.kec = '';
+        _this2.subdistricts = [];
+        loader.hide();
+      })["catch"](function (err) {
+        console.log(err);
+        loader.hide();
+      });
+    },
+    getUpdateSubdistricts: function getUpdateSubdistricts() {
+      var _this3 = this;
+
+      var loader = this.$loading.show();
+      axios.get("/api/subdistricts?city_id=" + this.address.kab).then(function (res) {
+        _this3.subdistricts = res.data.rajaongkir.results;
+        _this3.address.kec = '';
+        loader.hide();
+      })["catch"](function (err) {
+        console.log(err);
+        loader.hide();
+      });
+    },
+    getUserAddress: function getUserAddress() {
+      var _this4 = this;
+
+      var url = window.location.pathname;
+      var id = url.substring(url.lastIndexOf('/') + 1);
+      axios.get("/api/getuseraddress/".concat(id)).then(function (e) {
+        var data = e.data;
+        _this4.address.addressDetail = data.detail;
+        _this4.address.addressName = data.name;
+        {
+          _this4.getProvincies();
+
+          _this4.address.prov = data.province_id;
+          _this4.show.prov = true;
+        }
+        {
+          _this4.getCities();
+
+          _this4.address.kab = data.city_id;
+          _this4.show.city = true;
+        }
+        {
+          _this4.getSubdistricts();
+
+          _this4.address.kec = data.subdistrict_id;
+          _this4.show.kec = true;
+        }
+      });
+    },
+    getProvincies: function getProvincies() {
+      var _this5 = this;
+
+      var loader = this.$loading.show();
+      axios.get("/api/provincies").then(function (res) {
+        _this5.provicies = res.data;
+        loader.hide();
+      })["catch"](function (err) {
+        console.log(err);
+        loader.hide();
+      });
+    },
+    getCities: function getCities() {
+      var _this6 = this;
+
+      var loader = this.$loading.show();
+      axios.get("/api/cities?pro_id=" + this.address.prov).then(function (res) {
+        _this6.cities = res.data;
+        loader.hide();
+      })["catch"](function (err) {
+        console.log(err);
+        loader.hide();
+      });
+    },
+    getSubdistricts: function getSubdistricts() {
+      var _this7 = this;
+
+      var loader = this.$loading.show();
+      axios.get("/api/subdistricts?city_id=" + this.address.kab).then(function (res) {
+        _this7.subdistricts = res.data.rajaongkir.results;
+        loader.hide();
+      })["catch"](function (err) {
+        console.log(err);
+        loader.hide();
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getUserAddress();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auths/EditAlamatMerchant.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/auths/EditAlamatMerchant.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      provicies: [],
+      cities: [],
+      subdistricts: [],
+      address: {
+        prov: null,
+        kab: null,
+        kec: null,
+        addressName: null,
+        addressDetail: null
+      },
+      show: {
+        prov: false,
+        city: false,
+        kec: false
+      }
+    };
+  },
+  methods: {
+    save: function save() {
+      var _this = this;
+
+      if (this.address.prov === null || this.address.kab === null || this.address.kec === undefined) {
+        this.$swal.fire('Error!', 'Silahkan lengkapi alamat anda', 'error');
+        return;
+      }
+
+      var loader = this.$loading.show();
+      var payload = {
+        name: this.address.addressName,
+        addressDetail: this.address.addressDetail,
+        provinceId: this.address.prov,
+        cityId: this.address.kab,
+        subdistrictId: this.address.kec
+      };
+
+      for (var i = 0; i < this.cities.length; i++) {
+        if (this.cities[i].id === payload.cityId) {
+          payload.cityName = this.cities[i].name;
+          payload.postalCode = this.cities[i].postal_code;
+        }
+      }
+
+      for (var _i = 0; _i < this.provicies.length; _i++) {
+        if (this.provicies[_i].id === payload.provinceId) {
+          payload.provinceName = this.provicies[_i].name;
+        }
+      }
+
+      for (var _i2 = 0; _i2 < this.subdistricts.length; _i2++) {
+        if (this.subdistricts[_i2].subdistrict_id === payload.subdistrictId) {
+          payload.subdistrictName = this.subdistricts[_i2].subdistrict_name;
+        }
+      }
+
+      var url = window.location.pathname;
+      var id = url.substring(url.lastIndexOf('/') + 1);
+      axios.post("/api/updatealamatcustomer/".concat(id), payload).then(function (e) {
+        window.location.href = "/merchant/".concat(id, "/myProfile");
+        loader.hide();
+      })["catch"](function (e) {
+        _this.$swal.fire('Error!', 'Terjadi kesalahan Silahkan coba beberapa saat lagi', 'error');
+
+        loader.hide();
+      });
+    },
+    getUpdateCities: function getUpdateCities() {
+      var _this2 = this;
+
+      var loader = this.$loading.show();
+      axios.get("/api/cities?pro_id=" + this.address.prov).then(function (res) {
+        _this2.cities = res.data;
+        _this2.address.kab = null;
+        _this2.address.kec = '';
+        _this2.subdistricts = [];
+        loader.hide();
+      })["catch"](function (err) {
+        console.log(err);
+        loader.hide();
+      });
+    },
+    getUpdateSubdistricts: function getUpdateSubdistricts() {
+      var _this3 = this;
+
+      var loader = this.$loading.show();
+      axios.get("/api/subdistricts?city_id=" + this.address.kab).then(function (res) {
+        _this3.subdistricts = res.data.rajaongkir.results;
+        _this3.address.kec = '';
+        loader.hide();
+      })["catch"](function (err) {
+        console.log(err);
+        loader.hide();
+      });
+    },
+    getUserAddress: function getUserAddress() {
+      var _this4 = this;
+
+      var url = window.location.pathname;
+      var id = url.substring(url.lastIndexOf('/') + 1);
+      axios.get("/api/getuseraddress/".concat(id)).then(function (e) {
+        var data = e.data;
+        _this4.address.addressDetail = data.detail;
+        _this4.address.addressName = data.name;
+        {
+          _this4.getProvincies();
+
+          _this4.address.prov = data.province_id;
+          _this4.show.prov = true;
+        }
+        {
+          _this4.getCities();
+
+          _this4.address.kab = data.city_id;
+          _this4.show.city = true;
+        }
+        {
+          _this4.getSubdistricts();
+
+          _this4.address.kec = data.subdistrict_id;
+          _this4.show.kec = true;
+        }
+      });
+    },
+    getProvincies: function getProvincies() {
+      var _this5 = this;
+
+      var loader = this.$loading.show();
+      axios.get("/api/provincies").then(function (res) {
+        _this5.provicies = res.data;
+        loader.hide();
+      })["catch"](function (err) {
+        console.log(err);
+        loader.hide();
+      });
+    },
+    getCities: function getCities() {
+      var _this6 = this;
+
+      var loader = this.$loading.show();
+      axios.get("/api/cities?pro_id=" + this.address.prov).then(function (res) {
+        _this6.cities = res.data;
+        loader.hide();
+      })["catch"](function (err) {
+        console.log(err);
+        loader.hide();
+      });
+    },
+    getSubdistricts: function getSubdistricts() {
+      var _this7 = this;
+
+      var loader = this.$loading.show();
+      axios.get("/api/subdistricts?city_id=" + this.address.kab).then(function (res) {
+        _this7.subdistricts = res.data.rajaongkir.results;
+        loader.hide();
+      })["catch"](function (err) {
+        console.log(err);
+        loader.hide();
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getUserAddress();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auths/LoginModal.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/auths/LoginModal.vue?vue&type=script&lang=js& ***!
@@ -75045,6 +75495,540 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auths/EditAlamat.vue?vue&type=template&id=70ce51e3&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/auths/EditAlamat.vue?vue&type=template&id=70ce51e3&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "form",
+      {
+        staticStyle: { "margin-top": "2rem" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.save($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "label" }, [_vm._v("Alamat")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.address.addressName,
+                expression: "address.addressName"
+              }
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", placeholder: "Contoh: Rumah, Kantor" },
+            domProps: { value: _vm.address.addressName },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.address, "addressName", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "label" }, [_vm._v("Provinsi")]),
+          _vm._v(" "),
+          _vm.show.prov
+            ? _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.address.prov,
+                      expression: "address.prov"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  on: {
+                    change: [
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.address,
+                          "prov",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                      _vm.getUpdateCities
+                    ]
+                  }
+                },
+                _vm._l(_vm.provicies, function(province) {
+                  return _c(
+                    "option",
+                    { key: province.id, domProps: { value: province.id } },
+                    [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(province.name) +
+                          "\n                "
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "label" }, [_vm._v("Kota/Kabupaten")]),
+          _vm._v(" "),
+          _vm.show.city
+            ? _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.address.kab,
+                      expression: "address.kab"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  on: {
+                    change: [
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.address,
+                          "kab",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                      _vm.getUpdateSubdistricts
+                    ]
+                  }
+                },
+                _vm._l(_vm.cities, function(city) {
+                  return _c(
+                    "option",
+                    { key: city.name, domProps: { value: city.id } },
+                    [_vm._v(_vm._s(city.name) + "\n                ")]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "label" }, [_vm._v("Kecamatan")]),
+          _vm._v(" "),
+          _vm.show.kec
+            ? _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.address.kec,
+                      expression: "address.kec"
+                    }
+                  ],
+                  staticClass: "form-control ",
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.address,
+                        "kec",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                _vm._l(_vm.subdistricts, function(subdistrict) {
+                  return _c(
+                    "option",
+                    {
+                      key: subdistrict.subdistrict_name,
+                      domProps: { value: subdistrict.subdistrict_id }
+                    },
+                    [
+                      _vm._v(
+                        _vm._s(subdistrict.subdistrict_name) +
+                          "\n                "
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "label" }, [_vm._v("Alamat Rinci")]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.address.addressDetail,
+                expression: "address.addressDetail"
+              }
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { rows: "3", placeholder: "Contoh: Jalan Melati Nomor 23" },
+            domProps: { value: _vm.address.addressDetail },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.address, "addressDetail", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("center", [
+          _c(
+            "button",
+            {
+              staticClass: "btn essence-btn col-md-4",
+              staticStyle: { "margin-top": "0.5rem", "margin-bottom": "2rem" },
+              attrs: { type: "submit" }
+            },
+            [_vm._v("\n                Ubah\n            ")]
+          )
+        ])
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auths/EditAlamatMerchant.vue?vue&type=template&id=2d225e6a&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/auths/EditAlamatMerchant.vue?vue&type=template&id=2d225e6a&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "form",
+      {
+        staticStyle: { "margin-top": "2rem" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.save($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "label" }, [_vm._v("Alamat")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.address.addressName,
+                expression: "address.addressName"
+              }
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", placeholder: "Contoh: Rumah, Kantor" },
+            domProps: { value: _vm.address.addressName },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.address, "addressName", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "label" }, [_vm._v("Provinsi")]),
+          _vm._v(" "),
+          _vm.show.prov
+            ? _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.address.prov,
+                      expression: "address.prov"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  on: {
+                    change: [
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.address,
+                          "prov",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                      _vm.getUpdateCities
+                    ]
+                  }
+                },
+                _vm._l(_vm.provicies, function(province) {
+                  return _c(
+                    "option",
+                    { key: province.id, domProps: { value: province.id } },
+                    [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(province.name) +
+                          "\n                "
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "label" }, [_vm._v("Kota/Kabupaten")]),
+          _vm._v(" "),
+          _vm.show.city
+            ? _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.address.kab,
+                      expression: "address.kab"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  on: {
+                    change: [
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.address,
+                          "kab",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                      _vm.getUpdateSubdistricts
+                    ]
+                  }
+                },
+                _vm._l(_vm.cities, function(city) {
+                  return _c(
+                    "option",
+                    { key: city.name, domProps: { value: city.id } },
+                    [_vm._v(_vm._s(city.name) + "\n                ")]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "label" }, [_vm._v("Kecamatan")]),
+          _vm._v(" "),
+          _vm.show.kec
+            ? _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.address.kec,
+                      expression: "address.kec"
+                    }
+                  ],
+                  staticClass: "form-control ",
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.address,
+                        "kec",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                _vm._l(_vm.subdistricts, function(subdistrict) {
+                  return _c(
+                    "option",
+                    {
+                      key: subdistrict.subdistrict_name,
+                      domProps: { value: subdistrict.subdistrict_id }
+                    },
+                    [
+                      _vm._v(
+                        _vm._s(subdistrict.subdistrict_name) +
+                          "\n                "
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "label" }, [_vm._v("Alamat Rinci")]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.address.addressDetail,
+                expression: "address.addressDetail"
+              }
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { rows: "3", placeholder: "Contoh: Jalan Melati Nomor 23" },
+            domProps: { value: _vm.address.addressDetail },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.address, "addressDetail", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("center", [
+          _c(
+            "button",
+            {
+              staticClass: "btn essence-btn col-md-4",
+              staticStyle: { "margin-top": "0.5rem", "margin-bottom": "2rem" },
+              attrs: { type: "submit" }
+            },
+            [_vm._v("\n                Ubah\n            ")]
+          )
+        ])
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auths/ListLogin.vue?vue&type=template&id=6b84b5e8&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/auths/ListLogin.vue?vue&type=template&id=6b84b5e8& ***!
@@ -107378,6 +108362,10 @@ var UpdateHomestay = __webpack_require__(/*! ./components/homestay/merchant/Upda
 
 var ListLogin = __webpack_require__(/*! ./components/auths/ListLogin */ "./resources/js/components/auths/ListLogin.vue")["default"];
 
+var EditAlamat = __webpack_require__(/*! ./components/auths/EditAlamat */ "./resources/js/components/auths/EditAlamat.vue")["default"];
+
+var EditAlamatMerchant = __webpack_require__(/*! ./components/auths/EditAlamatMerchant */ "./resources/js/components/auths/EditAlamatMerchant.vue")["default"];
+
 var StatusKoperasi = __webpack_require__(/*! ./components/koperasi/StatusKoperasi */ "./resources/js/components/koperasi/StatusKoperasi.vue")["default"];
 
 var LayananMaintenence = __webpack_require__(/*! ./components/koperasi/LayananMaintenence */ "./resources/js/components/koperasi/LayananMaintenence.vue")["default"];
@@ -107415,6 +108403,8 @@ Vue.mixin({
 var app = new Vue({
   el: '#app',
   components: {
+    EditAlamat: EditAlamat,
+    EditAlamatMerchant: EditAlamatMerchant,
     LayananMaintenence: LayananMaintenence,
     KoperasiTidakAktif: KoperasiTidakAktif,
     StatusKoperasi: StatusKoperasi,
@@ -108009,6 +108999,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Spinner_vue_vue_type_template_id_7ae326fe___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Spinner_vue_vue_type_template_id_7ae326fe___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/auths/EditAlamat.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/auths/EditAlamat.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EditAlamat_vue_vue_type_template_id_70ce51e3_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditAlamat.vue?vue&type=template&id=70ce51e3&scoped=true& */ "./resources/js/components/auths/EditAlamat.vue?vue&type=template&id=70ce51e3&scoped=true&");
+/* harmony import */ var _EditAlamat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditAlamat.vue?vue&type=script&lang=js& */ "./resources/js/components/auths/EditAlamat.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditAlamat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditAlamat_vue_vue_type_template_id_70ce51e3_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditAlamat_vue_vue_type_template_id_70ce51e3_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "70ce51e3",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/auths/EditAlamat.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/auths/EditAlamat.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/auths/EditAlamat.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAlamat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./EditAlamat.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auths/EditAlamat.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAlamat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/auths/EditAlamat.vue?vue&type=template&id=70ce51e3&scoped=true&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/auths/EditAlamat.vue?vue&type=template&id=70ce51e3&scoped=true& ***!
+  \*************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAlamat_vue_vue_type_template_id_70ce51e3_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./EditAlamat.vue?vue&type=template&id=70ce51e3&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auths/EditAlamat.vue?vue&type=template&id=70ce51e3&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAlamat_vue_vue_type_template_id_70ce51e3_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAlamat_vue_vue_type_template_id_70ce51e3_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/auths/EditAlamatMerchant.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/auths/EditAlamatMerchant.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EditAlamatMerchant_vue_vue_type_template_id_2d225e6a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditAlamatMerchant.vue?vue&type=template&id=2d225e6a&scoped=true& */ "./resources/js/components/auths/EditAlamatMerchant.vue?vue&type=template&id=2d225e6a&scoped=true&");
+/* harmony import */ var _EditAlamatMerchant_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditAlamatMerchant.vue?vue&type=script&lang=js& */ "./resources/js/components/auths/EditAlamatMerchant.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditAlamatMerchant_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditAlamatMerchant_vue_vue_type_template_id_2d225e6a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditAlamatMerchant_vue_vue_type_template_id_2d225e6a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "2d225e6a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/auths/EditAlamatMerchant.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/auths/EditAlamatMerchant.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/auths/EditAlamatMerchant.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAlamatMerchant_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./EditAlamatMerchant.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auths/EditAlamatMerchant.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAlamatMerchant_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/auths/EditAlamatMerchant.vue?vue&type=template&id=2d225e6a&scoped=true&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/auths/EditAlamatMerchant.vue?vue&type=template&id=2d225e6a&scoped=true& ***!
+  \*********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAlamatMerchant_vue_vue_type_template_id_2d225e6a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./EditAlamatMerchant.vue?vue&type=template&id=2d225e6a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auths/EditAlamatMerchant.vue?vue&type=template&id=2d225e6a&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAlamatMerchant_vue_vue_type_template_id_2d225e6a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAlamatMerchant_vue_vue_type_template_id_2d225e6a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -111410,8 +112538,8 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Project\uloszone-github\tobazone\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Project\uloszone-github\tobazone\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\IT DEL\Semester 7\Keteknowiraan\Proyek\tobazone\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\IT DEL\Semester 7\Keteknowiraan\Proyek\tobazone\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
