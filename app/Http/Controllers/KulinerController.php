@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Kuliner;
 use App\Kabupaten;
 use App\Member;
+use App\Kuliner;
 use Illuminate\Support\Facades\Auth;
 
 class KulinerController extends Controller
@@ -70,18 +70,36 @@ class KulinerController extends Controller
             $kuliner->lokasi = $request->lokasi;
             $kuliner->deskripsi = $request->deskripsi;
 
-            $kuliner->save();
+            if($request->inpFile != NULL){
+                $file = $request->file('inpFile');
 
-            //redirect ke route kategori.index
-            //Alert::success('Success', $request->nama_kuliner. ' berhasil diedit');
+                $length = 10;
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 0; $i < $length; $i++) {
+                    $randomString .= $characters[rand(0, $charactersLength - 1)];
+                }
 
-            return redirect(route('kuliner.index'))->with(['success' => 'Kuliner: ' . $kuliner->nama_kuliner . ' Diedit']);
+                $gambar =$randomString.".jpg";
+                $kuliner->foto = $gambar;
+                $file->move(\base_path() ."/public/Kab/information/Kuliner", $gambar);
+            }
+            if($kuliner->save()){
+                return redirect(route('kuliner.index'))->with(['success' => 'Kuliner: ' . $kuliner->nama_kuliner . ' Diedit']);
+            }
+
+
         } catch (\Exception $e) {
             //jika gagal, redirect ke form yang sama lalu membuat flash message error
             return redirect()->back();
         }
     }
 
+    public function show($id){
+        $kuliner = Kuliner::findOrFail($id);
+        return view('cbt.informasi.kuliner.view',compact('kuliner'));
+    }
     public function destroy($id){
         $kuliner = Kuliner::findOrFail($id);
         $kuliner->delete();

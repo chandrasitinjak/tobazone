@@ -77,7 +77,11 @@
                             </div>
                         </form>
                     </div>
+                    {{--                <div class="col-md-6" align="right">--}}
+                    {{--                    <h4 style="color: #FF8311">Rp. {{$homestays->price}}</h4>--}}
+                    {{--                </div>--}}
                 </div>
+                <br>
             </div>
 {{--            <br>--}}
 {{--            <form-pesan-homestay :homestays="{{ $homestays }}"></form-pesan-homestay>--}}

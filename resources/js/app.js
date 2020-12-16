@@ -4,9 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require("./bootstrap");
 
-window.Vue = require('vue');
+window.Vue = require("vue");
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 
@@ -66,6 +66,8 @@ const CarouselHomestay = require('./components/homestay/CarouselHomestay').defau
 const CreateHomestay = require('./components/homestay/merchant/CreateHomestay').default
 const UpdateHomestay = require('./components/homestay/merchant/UpdateHomestay').default
 const ListLogin = require('./components/auths/ListLogin').default
+const EditAlamat = require('./components/auths/EditAlamat').default
+const EditAlamatMerchant = require('./components/auths/EditAlamatMerchant').default
 const StatusKoperasi = require('./components/koperasi/StatusKoperasi').default
 const LayananMaintenence = require('./components/koperasi/LayananMaintenence').default
 const AllHomestay = require('./components/homestay/merchant/AllHomestay').default
@@ -76,6 +78,7 @@ const KomunitasPaketWisata = require('./components/homes/KomunitasPaketWisata').
 const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay').default
 const NewOrder = require('./components/homestay/merchant/NewOrder').default
 const ProdukTerlaris2 = require('./components/homes/ProdukTerlaris2').default
+const PaketRating = require('./components/paket/Rating').default
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -93,6 +96,8 @@ Vue.mixin({
 const app = new Vue({
     el: '#app',
     components: {
+        EditAlamat,
+        EditAlamatMerchant,
         LayananMaintenence,
         KoperasiTidakAktif,
         StatusKoperasi,
@@ -140,6 +145,7 @@ const app = new Vue({
         FormPesanHomestay,
         NewOrder,
         ProdukTerlaris2,
+        PaketRating
     },
     data() {
         return {

@@ -39,7 +39,7 @@
                             <img class="card-img-top-a" src="Kab/information/Transportasi/{{$transportasi->foto}}" style="width: 15rem;height: 13rem;border-top-right-radius: 15px ;border-top-left-radius: 15px;" alt="Card image cap">
                             <div class="card-body">
                                 <h5><span class="badge badge-warning">Transportasi</span></h5>
-                                <h5 class="card-title">{{$transportasi->nama_transportasi}}</h5>
+                                <h5 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{$transportasi->nama_transportasi}}</h5>
                             </div>
                         </div>
                     </div>

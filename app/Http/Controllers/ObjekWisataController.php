@@ -73,16 +73,35 @@ class ObjekWisataController extends Controller
             $objekWisata->category_id = $request->category_id;
             $objekWisata->deskripsi = $request->deskripsi;
 
-            $objekWisata->save();
+            if($request->inpFile != NULL){
+                $file = $request->file('inpFile');
 
-            //redirect ke route kategori.index
-            //Alert::success('Success', $request->nama_objek_wisata. ' berhasil diedit');
+                $length = 10;
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 0; $i < $length; $i++) {
+                    $randomString .= $characters[rand(0, $charactersLength - 1)];
+                }
 
-            return redirect(route('objekwisata.index'))->with(['success' => 'Objek Wisata: ' . $objekWisata->nama_objek_wisata . ' Diedit']);
+                $gambar =$randomString.".jpg";
+                $objekWisata->foto = $gambar;
+                $file->move(\base_path() ."/public/Kab/information/ObjekWisata", $gambar);
+            }
+
+            if($objekWisata->save()){
+                return redirect(route('objekwisata.index'))->with(['success' => 'Objek Wisata: ' . $objekWisata->nama_objek_wisata . ' Diedit']);
+            }
+
         } catch (\Exception $e) {
             //jika gagal, redirect ke form yang sama lalu membuat flash message error
             return redirect()->back();
         }
+    }
+
+    public function show($id){
+        $objekWisata = ObjekWisata::findOrFail($id);
+        return view('cbt.informasi.objekwisata.view',compact('objekWisata'));
     }
 
     public function destroy($id){

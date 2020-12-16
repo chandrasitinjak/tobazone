@@ -49,6 +49,8 @@ Route::get('/product/aksesoris', 'API\ProductController@searchAksesoris');
 Route::post('/product/{id}/review', 'API\ProductController@addReview');
 Route::post('/rating', 'API\RatingController@setRating')->name('setRating');
 Route::get('/rating/{id}', 'API\RatingController@getRating')->name('getRating');
+Route::get('/getuseraddress/{id}', 'ProfileController@getalamat');
+Route::post('/updatealamatcustomer/{id}', 'ProfileController@updateAlamat');
 Route::get('/rating/{userid}/{productid}', 'API\RatingController@showRating')->name('showRating');
 
 
@@ -88,3 +90,6 @@ Route::post('pemesanan/{id_pemesanan}/update-status','PemesananController@update
 
 //Paket Wisata
 Route::get('/paket/get-paket-terbaru','API\PaketWisataController@getNewPackage');
+Route::post('/paket/rating', 'API\RatingController@setRatingPaket')->name('setRatingPaket');
+Route::get('/paket/rating/{id}', 'API\RatingController@getRatingPaket')->name('getRatingPaket');
+Route::get('/paket/rating/{userid}/{paketid}', 'API\RatingController@showRatingPaket')->name('showRatingPaket');

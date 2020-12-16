@@ -280,6 +280,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/customer/{userId}/transactions/{transactionId}/tracking', 'TransactionController@getTrackingInfo');
         Route::get('/customer/{id}/myProfil', 'ProfileController@myProfile');
         Route::get('/customer/{id}/editProfil', 'ProfileController@editProfile');
+        Route::get('/customer/editalamat/{id}', 'ProfileController@merchantEditAlamat');
         Route::post('/customer/{id}/store', 'ProfileController@storeUpdate');
         Route::get('/customer/{id}/wishlist', 'CartController@myWishlist');
         Route::post('/wishlist/delete', 'CartController@deleteWishlist');
@@ -317,6 +318,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
         Route::get('/merchant/{id}/editProfile', 'ProfileController@merchantEditProfile');
         Route::get('/merchant/{id}/myProfile', 'ProfileController@merchantProfile');
+        Route::get('/merchant/ubahalamat/{id}', 'ProfileController@merchantAlamat');
         Route::post('/merchant/{id}/store', 'ProfileController@storeUpdateMerchant');
 
 

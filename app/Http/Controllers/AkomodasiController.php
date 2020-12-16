@@ -20,7 +20,7 @@ class AkomodasiController extends Controller
     }
 
     public function store(Request $request){
-        $member = Member::where('user_id', Auth::id())->first();
+        $member = Member::where('user_id', Auth::id())->get();
 
         $akomodasi = new Akomodasi;
         $akomodasi->nama_akomodasi = $request->nama_akomodasi;
@@ -30,7 +30,7 @@ class AkomodasiController extends Controller
         $akomodasi->category_akomodasi_id = $request->category_akomodasi_id;
         $akomodasi->lokasi = $request->lokasi;
         $akomodasi->deskripsi = $request->deskripsi;
-        $akomodasi->member_id = $member->id;
+        $akomodasi->member_id = $member[0]->id;
         $akomodasi->status = "ready";
         $file = $request->file('foto');
 
@@ -44,7 +44,6 @@ class AkomodasiController extends Controller
 
         $gambar =$randomString.".jpg";
         $akomodasi->foto = $gambar;
-
         if($akomodasi->save()){
 
             $file->move(\base_path() ."/public/Kab/information/Akomodasi", $gambar);
@@ -70,16 +69,43 @@ class AkomodasiController extends Controller
             $akomodasi->longitude = $request->longitude;
             $akomodasi->latitude = $request->latitude;
             $akomodasi->deskripsi = $request->deskripsi;
-            $akomodasi->save();
+
+
+            if($request->inpFile != NULL){
+                $file = $request->file('inpFile');
+
+                $length = 10;
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 0; $i < $length; $i++) {
+                    $randomString .= $characters[rand(0, $charactersLength - 1)];
+                }
+
+                $gambar =$randomString.".jpg";
+                $akomodasi->foto = $gambar;
+                $file->move(\base_path() ."/public/Kab/information/Akomodasi", $gambar);
+            }
+            if($akomodasi->save()){
+
+
+                return redirect(route('akomodasi.index'))->with(['success' => 'Akomodasi: ' . $request->nama_akomodasi . ' Diedit']);
+            }
 
             //redirect ke route Akomodasi.index
             //Alert::success('Success', $request->nama_akomodasi. ' berhasil diedit');
 
-            return redirect(route('akomodasi.index'))->with(['success' => 'Akomodasi: ' . $request->nama_akomodasi . ' Diedit']);
         } catch (\Exception $e) {
             //jika gagal, redirect ke form yang sama lalu membuat flash message error
+            var_dump($e->getMessage());
+            die();
             return redirect()->back();
         }
+    }
+
+    public function show($id){
+        $akomodasi = Akomodasi::findOrFail($id);
+        return view('cbt.informasi.akomodasi.view',compact('akomodasi'));
     }
 
     public function destroy($id){

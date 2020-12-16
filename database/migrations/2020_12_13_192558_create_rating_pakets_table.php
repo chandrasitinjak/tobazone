@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHomestayRoomFacilities extends Migration
+class CreateRatingPaketsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateHomestayRoomFacilities extends Migration
      */
     public function up()
     {
-        Schema::create('homestay_room_facilities', function (Blueprint $table) {
+        Schema::create('rating_pakets', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('facilities_name');
-            $table->string('facilities_deskripsi');
-            $table->string('status');
+            $table->unsignedBigInteger('paket_id');
+            $table->integer('user_id');
+            $table->double('rating');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateHomestayRoomFacilities extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('homestay_room_facilities');
+        Schema::dropIfExists('rating_pakets');
     }
 }

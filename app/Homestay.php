@@ -23,4 +23,9 @@ class Homestay extends Model
         'merchant_id'
     ];
     protected $dates = ['deleted_at'];
+
+    public function rooms(){
+        return $this->hasMany('App\HomestayRoom', 'id_homestay');
+    }
+
 }
