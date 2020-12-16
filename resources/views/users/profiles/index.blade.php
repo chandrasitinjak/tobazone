@@ -34,6 +34,11 @@
               <b>Jenis Kelamin &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</b> &nbsp&nbsp&nbsp&nbsp {{$profiles->gender }}
             </p>
         </div>
+        <div class="row">
+            <p style="width: 350px">
+                <b>Tanggal lahir &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</b> &nbsp&nbsp&nbsp&nbsp {{date('d-m-Y', strtotime($profiles->birthday))}}
+            </p>
+        </div>
 
         <div class="row">
             <p>Alamat</p>
