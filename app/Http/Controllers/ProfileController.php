@@ -30,18 +30,18 @@ class ProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-       //
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Profile  $profile
+     * @param \App\Profile $profile
      * @return \Illuminate\Http\Response
      */
     public function show(Profile $profile)
@@ -52,7 +52,7 @@ class ProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Profile  $profile
+     * @param \App\Profile $profile
      * @return \Illuminate\Http\Response
      */
     public function edit(Profile $profile)
@@ -63,8 +63,8 @@ class ProfileController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Profile  $profile
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Profile $profile
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Profile $profile)
@@ -75,7 +75,7 @@ class ProfileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Profile  $profile
+     * @param \App\Profile $profile
      * @return \Illuminate\Http\Response
      */
     public function destroy(Profile $profile)
@@ -83,13 +83,15 @@ class ProfileController extends Controller
         //
     }
 
-    public function getProfile($id) {
+    public function getProfile($id)
+    {
         return response(Profile::where('user_id', $id)->first());
     }
 
-    public function myProfile($id) {
-        $profile = Profile::all()->where('user_id', $id)->first();        
-        
+    public function myProfile($id)
+    {
+        $profile = Profile::all()->where('user_id', $id)->first();
+
         $data = json_decode($profile->address);
 
         $data_real = json_decode($data[0]);
@@ -98,9 +100,10 @@ class ProfileController extends Controller
         return view('users.profiles.index')->with('profiles', $profile)->with('data', $data_real);
     }
 
-    public function merchantProfile($id) {
-        $profile = Profile::all()->where('user_id', $id)->first();        
-        
+    public function merchantProfile($id)
+    {
+        $profile = Profile::all()->where('user_id', $id)->first();
+
         $data = json_decode($profile->address);
 
         $data_real = json_decode($data[0]);
@@ -109,9 +112,32 @@ class ProfileController extends Controller
         return view('users.merchants.profiles.index')->with('profiles', $profile)->with('data', $data_real);
     }
 
-    public function merchantEditProfile($id) {
-        $profile = Profile::all()->where('user_id', $id)->first();        
-        
+    public function updateAlamat(Request $request, $id)
+    {
+        $profile = Profile::whereUserId($id)->first();
+        $address = [];
+
+        array_push($address, json_encode([
+            'name' => $request->name,
+            'province_id' => $request->provinceId,
+            'city_id' => $request->cityId,
+            'subdistrict_id' => $request->subdistrictId,
+            'province_name' => $request->provinceName,
+            'city_name' => $request->cityName,
+            'subdistrict_name' => $request->subdistrictName,
+            'postal_code' => $request->postalCode,
+            'detail' => $request->addressDetail
+        ]));
+
+        $profile->address = json_encode($address);
+        $profile->save();
+        return response()->json('success');
+    }
+
+    public function merchantEditProfile($id)
+    {
+        $profile = Profile::all()->where('user_id', $id)->first();
+
         $data = json_decode($profile->address);
 
         $data_real = json_decode($data[0]);
@@ -120,9 +146,20 @@ class ProfileController extends Controller
         return view('users.merchants.profiles.edit')->with('profiles', $profile)->with('data', $data_real);
     }
 
-    public function editProfile($id) {
-        $profile = Profile::all()->where('user_id', $id)->first();        
-        
+    public function merchantEditAlamat()
+    {
+        return view('users.merchants.profiles.edit-alamat');
+    }
+
+    public function merchantAlamat()
+    {
+        return view('users.merchants.profiles.edit-alamat-merchant');
+    }
+
+    public function editProfile($id)
+    {
+        $profile = Profile::all()->where('user_id', $id)->first();
+
         $data = json_decode($profile->address);
 
         $data_real = json_decode($data[0]);
@@ -131,68 +168,89 @@ class ProfileController extends Controller
         return view('users.profiles.edit')->with('profiles', $profile)->with('data', $data_real);
     }
 
-    public function getMerchantProfile($id) {
+    public function getalamat($id)
+    {
+        $profile = Profile::all()->where('user_id', $id)->first();
+
+        $data = json_decode($profile->address);
+        $data_real = json_decode($data[0]);
+        // echo "hello world";
+        return response()->json($data_real);
+    }
+
+    public function getMerchantProfile($id)
+    {
 
         $data = Profile::all()->where('user_id', $id)->first();
-        // var_dump($data);        
+        // var_dump($data);
         return view('users.merchants.profiles.index');
     }
-    
-    public function storeUpdate(Request $request, $id) {
+
+    public function storeUpdate(Request $request, $id)
+    {
 
 
         $profile = Profile::all()->where('user_id', $id)->first();
-        
+
         $image = $request->file('profile_picture');
-        if($image == NULL) {            
+        if ($image == NULL) {
             $profile->name = $request->profile_name;
             $profile->phone = $request->profile_phone;
-        } else {                            
-            $imageName = time(). $image->getClientOriginalName();
+            $profile->gender = $request->gender;
+            $profile->birthday = $request->birthday;
+        } else {
+            $imageName = time() . $image->getClientOriginalName();
             $destinationPath = public_path('/images/user_profiles');
             $image->move($destinationPath, $imageName);
 
             $profile->name = $request->profile_name;
             $profile->phone = $request->profile_phone;
             $profile->photo = $imageName;
+            $profile->gender = $request->gender;
+            $profile->birthday = $request->birthday;
         }
-        
+
         $profile->update();
 
-        return redirect('/customer/'.$id.'/myProfil');
+        return redirect('/customer/' . $id . '/myProfil');
     }
 
-    public function storeUpdateMerchant(Request $request, $id) {
+    public function storeUpdateMerchant(Request $request, $id)
+    {
 
 
         $profile = Profile::all()->where('user_id', $id)->first();
-        
+
         $image = $request->file('profile_picture');
-        if($image == NULL) {            
+        if ($image == NULL) {
             $profile->name = $request->profile_name;
             $profile->phone = $request->profile_phone;
-        } else {                            
-            $imageName = time(). $image->getClientOriginalName();
+            $profile->gender = $request->profile_gender;
+            $profile->birthday = $request->profile_birthday;
+        } else {
+            $imageName = time() . $image->getClientOriginalName();
             $destinationPath = public_path('/images/user_profiles');
             $image->move($destinationPath, $imageName);
 
             $profile->name = $request->profile_name;
             $profile->phone = $request->profile_phone;
+            $profile->gender = $request->profile_gender;
+            $profile->birthday = $request->profile_birthday;
             $profile->photo = $imageName;
         }
-        
+
         $profile->update();
 
-        return redirect('/merchant/'.$id.'/myProfile');
+        return redirect('/merchant/' . $id . '/myProfile');
     }
 
 
-
-    public function updateAddress(Request $request, $id) {
+    public function updateAddress(Request $request, $id)
+    {
         $profile = Profile::where('user_id', $id)->first();
 
         $address = json_decode($profile->address);
-   
+
         array_push($address, json_encode([
             'name' => $request->addressName,
             'province_id' => $request->provinceId,
