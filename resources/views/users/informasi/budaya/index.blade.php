@@ -39,7 +39,7 @@
                             <img class="card-img-top" src="Kab/information/Budaya/{{$budaya->foto}}" style="width: 15rem;height: 13rem;border-top-right-radius: 15px ;border-top-left-radius: 15px;" alt="Card image cap">
                             <div class="card-body">
                                 <h5><span class="badge badge-warning">Budaya</span></h5>
-                                <h5 class="card-title">{{$budaya->nama_budaya}}</h5>
+                                <h5 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{$budaya->nama_budaya}}</h5>
                             </div>
                         </div>
                     </div>
