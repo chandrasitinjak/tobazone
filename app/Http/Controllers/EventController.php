@@ -71,12 +71,28 @@ class EventController extends Controller
             $event->tgl_akhir = $request->tgl_akhir;
             $event->lokasi = $request->lokasi;
             $event->deskripsi = $request->deskripsi;
-            $event->save();
 
-            //redirect ke route Event.index
-            //Alert::success('Success', $request->nama_event. ' berhasil diedit');
+            if($request->inpFile != NULL){
+                $file = $request->file('inpFile');
 
-            return redirect(route('event.index'))->with(['success' => 'Budaya: ' . $request->nama_event . ' Diedit']);
+                $length = 10;
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 0; $i < $length; $i++) {
+                    $randomString .= $characters[rand(0, $charactersLength - 1)];
+                }
+
+                $gambar =$randomString.".jpg";
+                $event->foto = $gambar;
+                $file->move(\base_path() ."/public/Kab/information/Event", $gambar);
+            }
+
+            if($event->save()){
+                return redirect(route('event.index'))->with(['success' => 'Budaya: ' . $request->nama_event . ' Diedit']);
+            }
+
+
         } catch (\Exception $e) {
             //jika gagal, redirect ke form yang sama lalu membuat flash message error
             return $e->getMessage();

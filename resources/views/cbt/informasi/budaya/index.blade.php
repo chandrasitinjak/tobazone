@@ -116,10 +116,10 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <a href="{{ route('budaya.show', $budaya->id) }}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                                    <a href="{{ route('budaya.show', $budaya->id) }}" class="btn btn-success btn-sm">Lihat</a>
                                                     <a href="{{ route('budaya.edit', $budaya->id) }}"
-                                                       class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
+                                                       class="btn btn-warning btn-sm">Edit</a>
+                                                    <button class="btn btn-danger btn-sm">Hapus</i>
                                                     </button>
                                                 </form>
                                             </td>

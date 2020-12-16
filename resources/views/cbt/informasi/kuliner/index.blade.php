@@ -155,9 +155,9 @@
                                             <td><form action="{{ route('kuliner.destroy', $kuliner->id) }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <a href="{{ route('kuliner.show', $kuliner->id) }}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                                    <a href="{{ route('kuliner.edit', $kuliner->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                                    <a href="{{ route('kuliner.show', $kuliner->id) }}" class="btn btn-success btn-sm">Lihat</a>
+                                                    <a href="{{ route('kuliner.edit', $kuliner->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                                    <button class="btn btn-danger btn-sm">Hapus</button>
                                                 </form></td>
                                         </tr>
                                     @endforeach
