@@ -6505,11 +6505,10 @@ __webpack_require__.r(__webpack_exports__);
             'price': _this5.workExperiences[i].harga,
             'total_bed': _this5.workExperiences[i].totalBed,
             'total_extra_bed': _this5.workExperiences[i].isExtraBed
-          }).then(function (res) {
-            alert("Tambah Homestay Berhasil");
-          });
+          }).then(function (res) {});
         }
 
+        alert("Tambah Homestay Berhasil");
         window.location.href = "/merchant/homestay/findAll";
       })["catch"](function (err) {
         console.log(err);
