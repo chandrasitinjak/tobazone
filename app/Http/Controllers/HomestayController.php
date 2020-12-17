@@ -137,14 +137,16 @@ class HomestayController extends Controller
     public function findById($id)
     {
         $detail = Homestay::find($id);
+        $rooms = HomestayRooms::where('id_homestay',$id)->get();
         if (!$detail) {
             abort(404, "Page not found.");
         }
+        $data = [
+                "homestays"=>$detail,
+                "kamar"=>$rooms
+            ];
 
-//        dd(json_decode($detail->rooms[0]->facilities));
-//        echo count(json_decode($detail->rooms[0]->facilities));
-
-        return view('users.homestay.detail_homestay_page')->with('homestays', $detail);
+        return view('users.homestay.detail_homestay_page')->with('homestays', $data);
     }
 
     public function stores(Request $request)
