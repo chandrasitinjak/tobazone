@@ -74,6 +74,8 @@
                 <li><a href="{{ url('/admin/akun-koperasi-pending')}}"> <i class="menu-icon"></i>Akun Pending</a></li>
                 <li><a href="{{ url('/admin/layanan-maintenence')}}"> <i class="menu-icon"></i>Layanan Maintenence</a>
                 </li>
+                <h3 class="menu-title">Product</h3>
+                <li><a href="{{ url('/admin/ulos-colors')}}"> <i class="menu-icon"></i>Warna Ulos</a></li>
             </ul>
         </div>
     </nav>

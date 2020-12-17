@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\UlosColors;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
@@ -83,5 +84,30 @@ class AdminController extends Controller
     }
 
   }
+
+  public function findAllUlosColors(){
+      $ulosColors = UlosColors::all();
+      return view('admin.products.UlosColors')->with('ulos',$ulosColors);
+  }
+
+  public function addUlosColors(Request $request){
+      $ulosColors = new UlosColors();
+      $ulosColors->color =$request->warna;
+      $ulosColors->save();
+      return redirect("/admin/ulos-colors")->with("success", "Add new ulos color success");
+  }
+
+    public function editUlosColors(Request $request, $id){
+        $ulosColors = UlosColors::find($id);
+        $ulosColors->color =$request->warna;
+        $ulosColors->save();
+        return redirect("/admin/ulos-colors")->with("success", "Update new ulos color success");
+    }
+
+    public function deleteUlosColors($id){
+        $ulosColors = UlosColors::find($id);
+        $ulosColors->delete();
+        return redirect("/admin/ulos-colors")->with("success", "Delete new ulos color success");
+    }
 
 }
