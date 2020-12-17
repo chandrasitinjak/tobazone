@@ -26,6 +26,12 @@
             <br>
         </div>
         <br><br>
+
+        @if(count($homestays['kamar'])==0)
+        <img src="/images/assets/search_result_empty.png" style="height: 120px; border: none; opacity: 0.5"/>
+        <br>
+        <p>Kamar tidak ditemukan</p>
+        @endif
         @foreach ($homestays['kamar'] as $kamar)
         <div class="container card bayangan-luar mt-5" style="background-color: #f2eded">
             <h3 class="mt-3">One Bedroom - {{$kamar->kategori}}</h3>
