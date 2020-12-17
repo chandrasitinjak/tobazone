@@ -188,6 +188,7 @@ class HomestayController extends Controller
 
     public function saveRooms(Request $request)
     {
+        $length = 10;
         $homestay = Homestay::where('merchant_id', Auth::user()->id)->latest('created_at')->first();
         $rooms = new HomestayRooms();
         $rooms->id_homestay = $homestay->id;
@@ -195,6 +196,10 @@ class HomestayController extends Controller
         $rooms->facilities = json_encode($request->fasilitas);
         $rooms->price = $request->price;
         $rooms->total_bed = $request->total_bed;
+        $rooms->image =  substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length) . ".png";
+        $rooms->name =  "0";
+        $rooms->status =  "available";
+        $rooms->description =  "";
         $rooms->total_extra_bed = $request->total_extra_bed;
         $rooms->save();
     }
