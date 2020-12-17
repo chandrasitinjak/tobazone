@@ -145,7 +145,6 @@ class HomestayController extends Controller
                 "homestays"=>$detail,
                 "kamar"=>$rooms
             ];
-
         return view('users.homestay.detail_homestay_page')->with('homestays', $data);
     }
 
