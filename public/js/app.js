@@ -6505,7 +6505,9 @@ __webpack_require__.r(__webpack_exports__);
             'price': _this5.workExperiences[i].harga,
             'total_bed': _this5.workExperiences[i].totalBed,
             'total_extra_bed': _this5.workExperiences[i].isExtraBed
-          }).then(function (res) {});
+          }).then(function (res) {
+            alert("Tambah Homestay Berhasil");
+          });
         }
 
         window.location.href = "/merchant/homestay/findAll";
@@ -112538,8 +112540,8 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Project\uloszone-github\tobazone\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Project\uloszone-github\tobazone\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Project\Tobazone\Finish\tobazone\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Project\Tobazone\Finish\tobazone\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
