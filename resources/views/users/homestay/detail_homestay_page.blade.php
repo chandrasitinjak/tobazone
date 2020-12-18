@@ -28,9 +28,11 @@
         <br><br>
 
         @if(count($homestays['kamar'])==0)
-        <img src="/images/assets/search_result_empty.png" style="height: 120px; border: none; opacity: 0.5"/>
-        <br>
-        <p>Kamar tidak ditemukan</p>
+        <center>
+            <img src="/images/assets/search_result_empty.png" style="height: 120px; border: none; opacity: 0.5"/>
+            <br>
+            <p>Kamar tidak ditemukan</p>
+        </center>
         @endif
         <?php $count=0; ?>
         @foreach ($homestays['kamar'] as $kamar)
@@ -53,14 +55,15 @@
                         </div>
                     </div>
                     <div class="row">
-                        <form class="row pl-3 pr-3">
+                        <form class="row pl-3 pr-3" method="POST" action="{{ url('/homestay/pesan', $kamar->id)}}">
+                            {{ csrf_field() }}
                             <div class="col-lg-6">
                                 <p style="margin-bottom: -5px; font-weight: bolder">Check in</p>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></div>
                                     </div>
-                                    <input type="date" class="form-control" id="inlineFormInputGroup">
+                                    <input type="date" name="checkIn" class="form-control" id="inlineFormInputGroup">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -69,16 +72,16 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-moon-o" aria-hidden="true"></i></div>
                                     </div>
-                                    <input type="number" class="form-control" id="inlineFormInputGroup">
+                                    <input type="number" min="1" class="form-control" name="durasi" id="inlineFormInputGroup">
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <p style="margin-bottom: -5px; font-weight: bolder">Tamu dan Kamar</p>
+                                <p style="margin-bottom: -5px; font-weight: bolder">Tamu</p>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-users" aria-hidden="true"></i></div>
                                     </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup">
+                                    <input type="number" min="1" name="totalRoom" class="form-control" id="inlineFormInputGroup">
                                 </div>
                             </div>
                             <div class="col-lg-12 mt-4 mb-3">
@@ -86,17 +89,9 @@
                             </div>
                         </form>
                     </div>
-                    {{--                <div class="col-md-6" align="right">--}}
-                        {{--                    <h4 style="color: #FF8311">Rp. {{$homestays->price}}</h4>--}}
-                        {{--                </div>--}}
                 </div>
                 <br>
             </div>
-            {{--            <br>--}}
-            {{--            <form-pesan-homestay :homestays="{{ $homestays }}"></form-pesan-homestay>--}}
-            {{--            <br><br>--}}
-            {{--            <p class="container">{{$homestays->description}}</p>--}}
-            {{--            <br><br><br><br>--}}
         </div>
         @endforeach
 
