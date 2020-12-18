@@ -1,6 +1,6 @@
-<footer class="footer_area clearfix">
+<footer class="footer_area clearfix" >
     <div class="container">
-        <div class="row">
+        <div class="row width_section">
             <div class="col-md-3">
                 <h6 class="">Tobazone</h6>
                 <ul>
