@@ -52,6 +52,12 @@
   <!-- </div> -->
   </div>
   @include('users.layouts.script')
+
+  <script>
+      function search() {
+          
+      }
+  </script>
   <script>
 $(document).ready(function() {
   //untuk customer

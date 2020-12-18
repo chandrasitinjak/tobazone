@@ -6508,7 +6508,8 @@ __webpack_require__.r(__webpack_exports__);
           }).then(function (res) {});
         }
 
-        alert("Tambah Homestay Berhasil"); // window.location.href="/merchant/homestay/findAll";
+        alert("Tambah Homestay Berhasil");
+        window.location.href = "/merchant/homestay/findAll";
       })["catch"](function (err) {
         console.log(err);
       });

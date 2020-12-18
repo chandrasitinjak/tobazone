@@ -462,7 +462,7 @@
                             })
                         }
                         alert("Tambah Homestay Berhasil");
-                        // window.location.href="/merchant/homestay/findAll";
+                        window.location.href="/merchant/homestay/findAll";
                     })
                     .catch(err => {
                         console.log(err);

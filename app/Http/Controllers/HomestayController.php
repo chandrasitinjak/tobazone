@@ -137,13 +137,13 @@ class HomestayController extends Controller
     public function findById($id)
     {
         $detail = Homestay::find($id);
-        $rooms = HomestayRooms::where('id_homestay',$id)->get();
+        $rooms = HomestayRooms::where('id_homestay', $id)->get();
         if (!$detail) {
             abort(404, "Page not found.");
         }
         $data = [
-            "homestays"=>$detail,
-            "kamar"=>$rooms
+            "homestays" => $detail,
+            "kamar" => $rooms
         ];
 
         return view('users.homestay.detail_homestay_page')->with('homestays', $data);
@@ -196,28 +196,33 @@ class HomestayController extends Controller
         $rooms->facilities = json_encode($request->fasilitas);
         $rooms->price = $request->price;
         $rooms->total_bed = $request->total_bed;
-        $rooms->image =  substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length) . ".png";
-        $rooms->name =  "0";
-        $rooms->status =  "available";
-        $rooms->description =  "";
+        $rooms->image = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length) . ".png";
+        $rooms->name = "0";
+        $rooms->status = "available";
+        $rooms->description = "";
         $rooms->total_extra_bed = $request->total_extra_bed;
         $rooms->save();
     }
 
 
-    public function bookHomestay(Request $request)
+    public function bookHomestay(Request $request, $id)
     {
-        $homestay = Homestay::find($request->id);
-
+        $user = Auth::user();
+        if (!$user) {
+            // Redirect to login page if user is not logged in.
+            return redirect('/');
+        }
+        $rooms = HomestayRooms::find($id);
         $total = $request->get('totalRoom');
         $orderHomestay = new HomestayOrders();
-        $orderHomestay->total_price = $total * $homestay->price;
-        $orderHomestay->id_homestay = $request->id;
+        $orderHomestay->total_price = $total * $rooms->price;
+        $orderHomestay->id_homestay = $rooms->id_homestay;
+        $orderHomestay->id_kamar = $id;
         $orderHomestay->id_customer = Auth::user()->id;
         $orderHomestay->check_in = $request->get('checkIn');
         $orderHomestay->duration = $request->get('durasi');
         $orderHomestay->jumlah_kamar = $request->get('totalRoom');
-        $orderHomestay->payment_method = "test";
+        $orderHomestay->payment_method = "";
         $orderHomestay->is_paid = false;
         $orderHomestay->resi = "";
         $orderHomestay->status = "Pending";
