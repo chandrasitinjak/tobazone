@@ -217,6 +217,14 @@
             </div>
         </div>
 
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div class="card" style="background-color: #F5F5F5">
+                    <a href="/homestays/search" class="btn btn-primary" style="background-color:#000000; color:#ffffff;">Muat Lebih Banyak</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
