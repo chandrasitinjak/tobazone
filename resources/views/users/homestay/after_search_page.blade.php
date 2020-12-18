@@ -27,6 +27,13 @@
                     <br>
                     @else
                     <div class="container">
+                        <div class="row justify-content-center mb-4">
+                            <div class="col-md-9">
+                                <div class="card" style="background-color: #F5F5F5">
+                                    <h3 class="p-2 ml-3 mt-1">Semua Homestay</h3>
+                                </div>
+                            </div>
+                        </div>
                         @foreach ($homestays as $product)
                         <div class="row justify-content-center">
                             <div class="col-md-9">
