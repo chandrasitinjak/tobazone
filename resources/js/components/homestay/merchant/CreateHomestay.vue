@@ -459,9 +459,9 @@
                                     'total_bed':this.workExperiences[i].totalBed,
                                     'total_extra_bed':this.workExperiences[i].isExtraBed,
                                 }).then(res=>{
-
                             })
                         }
+                        alert("Tambah Homestay Berhasil");
                         window.location.href="/merchant/homestay/findAll";
                     })
                     .catch(err => {

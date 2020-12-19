@@ -66,6 +66,8 @@ const CarouselHomestay = require('./components/homestay/CarouselHomestay').defau
 const CreateHomestay = require('./components/homestay/merchant/CreateHomestay').default
 const UpdateHomestay = require('./components/homestay/merchant/UpdateHomestay').default
 const ListLogin = require('./components/auths/ListLogin').default
+const EditAlamat = require('./components/auths/EditAlamat').default
+const EditAlamatMerchant = require('./components/auths/EditAlamatMerchant').default
 const StatusKoperasi = require('./components/koperasi/StatusKoperasi').default
 const LayananMaintenence = require('./components/koperasi/LayananMaintenence').default
 const AllHomestay = require('./components/homestay/merchant/AllHomestay').default
@@ -94,6 +96,8 @@ Vue.mixin({
 const app = new Vue({
     el: '#app',
     components: {
+        EditAlamat,
+        EditAlamatMerchant,
         LayananMaintenence,
         KoperasiTidakAktif,
         StatusKoperasi,

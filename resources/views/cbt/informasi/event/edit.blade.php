@@ -34,7 +34,7 @@
                                 @endalert
                             @endif
                             ​
-                            <form role="form" action="{{ route('event.update', $event->id) }}" method="POST">
+                            <form role="form" action="{{ route('event.update', $event->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="_method" value="PUT">
                                 <div class="form-group">
@@ -55,7 +55,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <textarea name="deskripsi" id="ckedtor" cols="5" rows="5" class="form-control {{ $errors->has('deskripsi') ? 'is-invalid':'' }}" required=""> {{$event->deskripsi}} </textarea>
+                                    <textarea name="deskripsi" id="ckedtor" class="ckeditor" cols="5" rows="5" class="form-control {{ $errors->has('deskripsi') ? 'is-invalid':'' }}" required=""> {{$event->deskripsi}} </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gambar">Gambar</label><br>
+                                    <img src="{{asset('Kab/information/Event/'.$event->foto)}}" id="img1" style="max-width: 400px" alt=""><br><br>
+                                    <input type="file" id="inpFile" name="inpFile" onchange="ubahGambar()">
                                 </div>
                                 @endslot
                                 @slot('footer')
@@ -69,4 +74,23 @@
             </div>
         </div>
     </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        function ubahGambar() {
+            readURL();
+        }
+
+        function readURL() {
+            if (inpFile.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $("#img1").attr("src", e.target.result);
+
+                }
+                reader.readAsDataURL(inpFile.files[0]);
+            }
+        }
+    </script>
 @endsection

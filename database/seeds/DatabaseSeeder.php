@@ -16,6 +16,5 @@ class DatabaseSeeder extends Seeder
         $this->call(ProvinceAndCitySeeder::class);
         $this->call(KabupatenTableSeeder::class);
         $this->call(HomestayRoomCategorySeeder::class);
-        $this->call(HomestayRoomFacilitiesSeeder::class);
     }
 }
