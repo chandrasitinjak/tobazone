@@ -62,7 +62,7 @@
                     </div>
                 </div>
             @else
-                <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="single_travel text-center">
                         <div class="icon">
                             <!-- <img src="images/tour.png" alt=""> -->
@@ -175,10 +175,11 @@
                             <div class="col-lg-4 col-sm-12 col-md-6">
                                 <div class="card products" style="border-radius: 10px;">
                                     <a href="{{route('paket.detail',$row->id_paket)}}">
-
-                                        <img class="card-img"
-                                             src="{{ asset("/storage/img/paket/".$row->gambar )}}"
-                                             alt="Card image cap">
+                                        <div class="imgwrapper">
+                                            <img class="card-img"
+                                                 src="{{ asset("/storage/img/paket/".$row->gambar )}}"
+                                                 alt="Card image cap" style="height: 100%; width: 100%; object-fit: cover">
+                                        </div>
 
                                         <div class="card-body">
                                             <h7 class="card-title"

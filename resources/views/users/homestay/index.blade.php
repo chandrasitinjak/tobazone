@@ -12,15 +12,15 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(45).jpg"
+                        <img class="d-block w-100"  src="{{ '../homestay_image/carousel1.jpg'}}"
                              alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(46).jpg"
+                        <img class="d-block w-100" src="{{ '../homestay_image/carousel2.jpg'}}"
                              alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(47).jpg"
+                        <img class="d-block w-100" src="{{ '../homestay_image/carousel3.jpg'}}"
                              alt="Third slide">
                     </div>
                 </div>
@@ -128,30 +128,30 @@
 
             </div>
             <div class="col-md-10">
-                <div class="container card products mt-5" style="background-color: #F5F5F5">
-                    <div class="row" id="check">
-                        <div class="col-lg-6 mt-2 mb-2">
-                            <div class="input-group">
-                                <div class="text-black-50">
-                                    <h3>Menampilkan hasil homestay di </h3>
-                                </div>
-                                <input type="form-control" placeholder="Laguboti"
-                                       style="margin-left: 10px; width: 50px;font-weight: bold;" readonly
-                                       class="form-control" id="inlineFormInputGroup">
-                            </div>
-                        </div>
-                        <div class="col-lg- mt-2 mb-2">
-                            <div class="input-group">
-                                <div class="text-black-50">
-                                    <h3>Pada tanggal </h3>
-                                </div>
-                                <input type="form-control" placeholder="25 Desember 2020"
-                                       style="margin-left: 10px; font-weight: bold;" readonly class="form-control"
-                                       id="inlineFormInputGroup">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="container card products mt-5" style="background-color: #F5F5F5">-->
+<!--                    <div class="row" id="check">-->
+<!--                        <div class="col-lg-6 mt-2 mb-2">-->
+<!--                            <div class="input-group">-->
+<!--                                <div class="text-black-50">-->
+<!--                                    <h3>Menampilkan hasil homestay di </h3>-->
+<!--                                </div>-->
+<!--                                <input type="form-control" placeholder="Laguboti"-->
+<!--                                       style="margin-left: 10px; width: 50px;font-weight: bold;" readonly-->
+<!--                                       class="form-control" id="inlineFormInputGroup">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg- mt-2 mb-2">-->
+<!--                            <div class="input-group">-->
+<!--                                <div class="text-black-50">-->
+<!--                                    <h3>Pada tanggal </h3>-->
+<!--                                </div>-->
+<!--                                <input type="form-control" placeholder="25 Desember 2020"-->
+<!--                                       style="margin-left: 10px; font-weight: bold;" readonly class="form-control"-->
+<!--                                       id="inlineFormInputGroup">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
             <div class="col-md-1">
 
@@ -214,6 +214,14 @@
             </div>
             <div class=" col-md-1">
 
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div class="card" style="background-color: #F5F5F5">
+                    <a href="/homestays/search" class="btn btn-primary" style="background-color:#000000; color:#ffffff;">Muat Lebih Banyak</a>
+                </div>
             </div>
         </div>
 
