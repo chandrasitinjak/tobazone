@@ -444,7 +444,8 @@ Route::get('/customer/transactions/paket/{id}', 'TransactionPaketController@show
 
 
 Route::get('/paket-wisata/more','PaketWisataController@more_paket')->name('paket');
-Route::post('/paket-wisata/more','PaketWisataController@indexFilter')->name('paket.filter');
+Route::get('/paket-wisata/list','PaketWisataController@list_paket')->name('paket.list');
+Route::post('/paket-wisata/list','PaketWisataController@indexFilter')->name('paket.filter');
 
 Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiemail')->name('konfirmasiemail');
 
