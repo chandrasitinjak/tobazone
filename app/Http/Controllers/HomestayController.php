@@ -48,7 +48,8 @@ class HomestayController extends Controller
         ];
         return view('users.homestay.index')->with('homestays', $result);
     }
-    public function morePage(){
+    public function morePage()
+    {
         $homestays = Homestay::All();
         $result = DB::table('homestays')
             ->join('users', 'users.id', '=', 'homestays.merchant_id')
@@ -168,8 +169,9 @@ class HomestayController extends Controller
         return redirect('/merchant')->with('success', 'Product created successfully.');
     }
 
-    public function saveRooms(Request $request){
-        $homestay= Homestay::where('merchant_id',Auth::user()->id)->latest('created_at')->first();
+    public function saveRooms(Request $request)
+    {
+        $homestay = Homestay::where('merchant_id', Auth::user()->id)->latest('created_at')->first();
         $rooms = new HomestayRooms();
         $rooms->id_homestay = $homestay->id;
         $rooms->kategori = $request->kategori;
@@ -232,7 +234,8 @@ class HomestayController extends Controller
         return view('users.merchants.homestays.ListPesananPenginapan')->with('data', $data);
     }
 
-    public function listSuccessOrder(){
+    public function listSuccessOrder()
+    {
 
         $merchant = $this->getAuthincatedMerchant();
         return view('users.merchants.orders.success-order')->with('merchant', $merchant);
@@ -298,17 +301,30 @@ class HomestayController extends Controller
         return redirect('merchant/homestay/findAll');
     }
 
+    /**
+     * Show the form for editing homestay and homestay room(s).
+     *
+     * @param int $id
+     * @return void
+     */
     public function updateHomestay($id)
     {
-        $merchant = $this->getAuthincatedMerchant();
-        $homestay = Homestay::find($id);
         $result = [
-            "merchant" => $merchant,
-            "homestay" => $homestay
+            "merchant" => $this->getAuthincatedMerchant(),
+            "homestay" => Homestay::find($id),
+            "rooms" => HomestayRooms::where('id_homestay', $id)->get(),
         ];
+
         return view('users.merchants.homestays.update_homestay')->with('result', $result);
     }
 
+    /**
+     * Update the homestay in the storage.
+     *
+     * @param Request $request
+     * @param int $id
+     * @return void
+     */
     public function update(Request $request, $id)
     {
         $homestay = Homestay::find($id);
@@ -317,14 +333,12 @@ class HomestayController extends Controller
             $destinationPath = public_path('/images');
             $image->move($destinationPath, $homestay->image);
         }
-
         $homestay->name = $request->name;
         $homestay->total_room = $request->stock;
         $homestay->room_available = $request->stock_available;
         $homestay->price = $request->price;
         $homestay->description = $request->description;
         $homestay->address = $request->address;
-
         $homestay->image = $homestay->image;
         $homestay->update();
 
@@ -354,7 +368,7 @@ class HomestayController extends Controller
             ->where('homestays.merchant_id', '=', Auth::user()->id)
             ->whereIn('homestay_orders.status', ['paid', 'pending'])
             ->get();
-        $query = DB::Select('SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE h.merchant_id ='. Auth::user()->id);
+        $query = DB::Select('SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE h.merchant_id =' . Auth::user()->id);
         //        $result = DB::table('homestay_orders')
         //            ->select('*')
         //            ->join('homestays', 'homestays.id', '=', 'homestay_orders.country_id')
@@ -410,7 +424,7 @@ class HomestayController extends Controller
 
     public function findAllSuccessOrder()
     {
-       $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.status = 'accepted'");
+        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.status = 'accepted'");
         return view('admin.orders.homestay-new-order')->with('transactions', $query);
     }
 
@@ -422,10 +436,10 @@ class HomestayController extends Controller
 
     public function allSuccessOrder()
     {
-        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.status = 'accepted' AND h.merchant_id=".Auth::id());
-        $result =[
-            "code"=> 200,
-            "status"=> "OK",
+        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.status = 'accepted' AND h.merchant_id=" . Auth::id());
+        $result = [
+            "code" => 200,
+            "status" => "OK",
             "data" => $query
         ];
         return $result;
@@ -433,10 +447,10 @@ class HomestayController extends Controller
 
     public function allPaidOrder()
     {
-        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.status = 'In Progress' AND h.merchant_id=".Auth::id());
-        $result =[
-            "code"=> 200,
-            "status"=> "OK",
+        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.status = 'In Progress' AND h.merchant_id=" . Auth::id());
+        $result = [
+            "code" => 200,
+            "status" => "OK",
             "data" => $query
         ];
         return $result;
@@ -448,12 +462,13 @@ class HomestayController extends Controller
             ->join('homestays', 'id_homestay', '=', 'homestays.id')
             ->select('homestay_orders.*', 'homestays.name', 'users.username', 'homestays.address')
             ->where('homestay_orders.id', $id)->get();
-        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.id = ".$id);
+        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.id = " . $id);
 
         return view('admin.homestay.detail-homestay')->with('order', $query);
     }
 
-    public function deleteOrder($id){
+    public function deleteOrder($id)
+    {
         $order = HomestayOrders::find($id);
         $order->delete();
         return redirect('/user/homestay/order/findAll');

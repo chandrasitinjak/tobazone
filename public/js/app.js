@@ -6559,6 +6559,72 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/homestay/room/Card.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/homestay/room/Card.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['room'],
+  methods: {
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed(2).replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/koperasi/LayananMaintenence.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/koperasi/LayananMaintenence.vue?vue&type=script&lang=js& ***!
@@ -16915,7 +16981,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbutton[data-v-600e081a]{\r\n    font-size: 13px;\n}\n@media (min-width:219px) and (max-width: 449px){\n}\n@media (min-width:450px) and (max-width: 767px){\n}\n@media (min-width:768px) and (max-width: 990px){\nbutton[data-v-600e081a]{\r\n        font-size: 10px;\n}\n}\n@media (min-width:991px) and (max-width: 1230px){\nbutton[data-v-600e081a]{\r\n        font-size: 10px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\nbutton[data-v-600e081a]{\n    font-size: 13px;\n}\n@media (min-width:219px) and (max-width: 449px){\n}\n@media (min-width:450px) and (max-width: 767px){\n}\n@media (min-width:768px) and (max-width: 990px){\nbutton[data-v-600e081a]{\n        font-size: 10px;\n}\n}\n@media (min-width:991px) and (max-width: 1230px){\nbutton[data-v-600e081a]{\n        font-size: 10px;\n}\n}\n", ""]);
 
 // exports
 
@@ -16953,7 +17019,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.spinner {\r\n  display: block;\r\n  position: fixed;\r\n  z-index: 1000;\r\n  top: 0;\r\n  left: 0;\r\n  height: 100%;\r\n  width: 100%;\r\n  background: rgba(255, 255, 255, 0.8) url(\"/images/assets/spinner.gif\") 50% 50%\r\n    no-repeat;\n}\r\n", ""]);
+exports.push([module.i, "\n.spinner {\n  display: block;\n  position: fixed;\n  z-index: 1000;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 100%;\n  background: rgba(255, 255, 255, 0.8) url(\"/images/assets/spinner.gif\") 50% 50%\n    no-repeat;\n}\n", ""]);
 
 // exports
 
@@ -16991,7 +17057,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\r\n    /*.ysearch-button{*/\r\n    /*    font-size: 13px;*/\r\n    /*    margin-left: -20px;*/\r\n    /*}*/\n.yjudul[data-v-5e4e7507]{\r\n        margin-left: -20px;\r\n        margin-right: -20px;\r\n        font-size: 25px;\n}\n.ygambar-produk[data-v-5e4e7507]{\r\n        margin-bottom: 20px;\n}\n}\n@media (min-width:450px) and (max-width: 767px) {\n}\n@media (min-width:768px) and (max-width: 990px){\n}\n@media (min-width:991px) and (max-width: 1199px){\n}\n@media (min-width:1200px){\n}\r\n", ""]);
+exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\n    /*.ysearch-button{*/\n    /*    font-size: 13px;*/\n    /*    margin-left: -20px;*/\n    /*}*/\n.yjudul[data-v-5e4e7507]{\n        margin-left: -20px;\n        margin-right: -20px;\n        font-size: 25px;\n}\n.ygambar-produk[data-v-5e4e7507]{\n        margin-bottom: 20px;\n}\n}\n@media (min-width:450px) and (max-width: 767px) {\n}\n@media (min-width:768px) and (max-width: 990px){\n}\n@media (min-width:991px) and (max-width: 1199px){\n}\n@media (min-width:1200px){\n}\n", ""]);
 
 // exports
 
@@ -17010,7 +17076,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.cart-enter-active[data-v-131f3cc0] {\r\n  -webkit-animation: bounce-in-data-v-131f3cc0 0.5s;\r\n          animation: bounce-in-data-v-131f3cc0 0.5s;\n}\n@-webkit-keyframes bounce-in-data-v-131f3cc0 {\n0% {\r\n    transform: scale(0);\n}\n50% {\r\n    transform: scale(1.3);\n}\n100% {\r\n    transform: scale(1);\n}\n}\n@keyframes bounce-in-data-v-131f3cc0 {\n0% {\r\n    transform: scale(0);\n}\n50% {\r\n    transform: scale(1.3);\n}\n100% {\r\n    transform: scale(1);\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.cart-enter-active[data-v-131f3cc0] {\n  -webkit-animation: bounce-in-data-v-131f3cc0 0.5s;\n          animation: bounce-in-data-v-131f3cc0 0.5s;\n}\n@-webkit-keyframes bounce-in-data-v-131f3cc0 {\n0% {\n    transform: scale(0);\n}\n50% {\n    transform: scale(1.3);\n}\n100% {\n    transform: scale(1);\n}\n}\n@keyframes bounce-in-data-v-131f3cc0 {\n0% {\n    transform: scale(0);\n}\n50% {\n    transform: scale(1.3);\n}\n100% {\n    transform: scale(1);\n}\n}\n", ""]);
 
 // exports
 
@@ -17067,7 +17133,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.card-informasi {\r\n    border-radius: 15px;\n}\n.card-img-top {\r\n    border-top-right-radius: 15px;\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 15px;\r\n    border-bottom-right-radius: 15px;\n}\r\n", ""]);
+exports.push([module.i, "\n.card-informasi {\n    border-radius: 15px;\n}\n.card-img-top {\n    border-top-right-radius: 15px;\n    border-top-left-radius: 15px;\n    border-bottom-left-radius: 15px;\n    border-bottom-right-radius: 15px;\n}\n", ""]);
 
 // exports
 
@@ -17105,7 +17171,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.card-paket {\r\n    border-radius: 15px;\n}\n#card-img {\r\n    border-top-right-radius: 15px;\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 15px;\r\n    border-bottom-right-radius: 15px;\n}\r\n", ""]);
+exports.push([module.i, "\n.card-paket {\n    border-radius: 15px;\n}\n#card-img {\n    border-top-right-radius: 15px;\n    border-top-left-radius: 15px;\n    border-bottom-left-radius: 15px;\n    border-bottom-right-radius: 15px;\n}\n", ""]);
 
 // exports
 
@@ -17200,7 +17266,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* Three column layout */\n.side {\r\n  float: left;\r\n  width: 15%;\r\n  margin-top: 10px;\n}\n.middle {\r\n  float: left;\r\n  width: 70%;\r\n  margin-top: 10px;\n}\r\n\r\n/* Place text to the right */\n.right {\r\n  text-align: right;\n}\r\n\r\n/* Clear floats after the columns */\n.row:after {\r\n  content: \"\";\r\n  display: table;\r\n  clear: both;\n}\r\n\r\n/* The bar container */\n.bar-container {\r\n  width: 100%;\r\n  background-color: #f1f1f1;\r\n  text-align: center;\r\n  color: white;\n}\r\n\r\n/* Individual bars */\n.bar-5 {height: 18px; background-color: #4CAF50;}\n.bar-4 {height: 18px; background-color: #2196F3;}\n.bar-3 {height: 18px; background-color: #00bcd4;}\n.bar-2 {height: 18px; background-color: #ff9800;}\n.bar-1 {height: 18px; background-color: #f44336;}\r\n\r\n/* Responsive layout - make the columns stack on top of each other instead of next to each other */\n@media (max-width: 400px) {\n.side, .middle {\r\n    width: 100%;\n}\r\n  /* Hide the right column on small screens */\n.right {\r\n    display: none;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Three column layout */\n.side {\n  float: left;\n  width: 15%;\n  margin-top: 10px;\n}\n.middle {\n  float: left;\n  width: 70%;\n  margin-top: 10px;\n}\n\n/* Place text to the right */\n.right {\n  text-align: right;\n}\n\n/* Clear floats after the columns */\n.row:after {\n  content: \"\";\n  display: table;\n  clear: both;\n}\n\n/* The bar container */\n.bar-container {\n  width: 100%;\n  background-color: #f1f1f1;\n  text-align: center;\n  color: white;\n}\n\n/* Individual bars */\n.bar-5 {height: 18px; background-color: #4CAF50;}\n.bar-4 {height: 18px; background-color: #2196F3;}\n.bar-3 {height: 18px; background-color: #00bcd4;}\n.bar-2 {height: 18px; background-color: #ff9800;}\n.bar-1 {height: 18px; background-color: #f44336;}\n\n/* Responsive layout - make the columns stack on top of each other instead of next to each other */\n@media (max-width: 400px) {\n.side, .middle {\n    width: 100%;\n}\n  /* Hide the right column on small screens */\n.right {\n    display: none;\n}\n}\n", ""]);
 
 // exports
 
@@ -17219,7 +17285,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* Three column layout */\n.side {\r\n  float: left;\r\n  width: 15%;\r\n  margin-top: 10px;\n}\n.middle {\r\n  float: left;\r\n  width: 70%;\r\n  margin-top: 10px;\n}\r\n\r\n/* Place text to the right */\n.right {\r\n  text-align: right;\n}\r\n\r\n/* Clear floats after the columns */\n.row:after {\r\n  content: \"\";\r\n  display: table;\r\n  clear: both;\n}\r\n\r\n/* The bar container */\n.bar-container {\r\n  width: 100%;\r\n  background-color: #f1f1f1;\r\n  text-align: center;\r\n  color: white;\n}\r\n\r\n/* Individual bars */\n.bar-5 {height: 18px; background-color: #4CAF50;}\n.bar-4 {height: 18px; background-color: #2196F3;}\n.bar-3 {height: 18px; background-color: #00bcd4;}\n.bar-2 {height: 18px; background-color: #ff9800;}\n.bar-1 {height: 18px; background-color: #f44336;}\r\n\r\n/* Responsive layout - make the columns stack on top of each other instead of next to each other */\n@media (max-width: 400px) {\n.side, .middle {\r\n    width: 100%;\n}\r\n  /* Hide the right column on small screens */\n.right {\r\n    display: none;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Three column layout */\n.side {\n  float: left;\n  width: 15%;\n  margin-top: 10px;\n}\n.middle {\n  float: left;\n  width: 70%;\n  margin-top: 10px;\n}\n\n/* Place text to the right */\n.right {\n  text-align: right;\n}\n\n/* Clear floats after the columns */\n.row:after {\n  content: \"\";\n  display: table;\n  clear: both;\n}\n\n/* The bar container */\n.bar-container {\n  width: 100%;\n  background-color: #f1f1f1;\n  text-align: center;\n  color: white;\n}\n\n/* Individual bars */\n.bar-5 {height: 18px; background-color: #4CAF50;}\n.bar-4 {height: 18px; background-color: #2196F3;}\n.bar-3 {height: 18px; background-color: #00bcd4;}\n.bar-2 {height: 18px; background-color: #ff9800;}\n.bar-1 {height: 18px; background-color: #f44336;}\n\n/* Responsive layout - make the columns stack on top of each other instead of next to each other */\n@media (max-width: 400px) {\n.side, .middle {\n    width: 100%;\n}\n  /* Hide the right column on small screens */\n.right {\n    display: none;\n}\n}\n", ""]);
 
 // exports
 
@@ -81554,6 +81620,142 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/homestay/room/Card.vue?vue&type=template&id=42ed5d50&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/homestay/room/Card.vue?vue&type=template&id=42ed5d50& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-body bg-light" }, [
+      _c("div", { staticClass: "row" }, [
+        _vm.room.image === ""
+          ? _c(
+              "div",
+              {
+                staticClass: "col-md-3",
+                staticStyle: { "padding-right": "0%" }
+              },
+              [
+                _c("img", {
+                  staticClass: "card-img",
+                  attrs: { src: "/images/assets/no-image.jpg", alt: "" }
+                })
+              ]
+            )
+          : _c(
+              "div",
+              {
+                staticClass: "col-md-3",
+                staticStyle: { "padding-right": "0%" }
+              },
+              [
+                _c("img", {
+                  staticClass: "card-img",
+                  attrs: {
+                    src: "/images/homestay/room/" + _vm.room.image,
+                    alt: ""
+                  }
+                })
+              ]
+            ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-9" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col" },
+                  [
+                    _c("h7", [_vm._v(_vm._s(_vm.room.name))]),
+                    _vm._v(" "),
+                    _c("h6", { staticClass: "text-dark" }, [
+                      _vm._v(_vm._s(_vm.room.kategori))
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col text-right" },
+                  [
+                    _c("h7", { staticClass: "text-dark" }, [
+                      _vm._v("Status: "),
+                      _c("b", [_vm._v(_vm._s(_vm.room.status))])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col" }, [
+                  _c("div", { staticClass: "text-success" }, [
+                    _vm._v(_vm._s(_vm.room.facilities))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-dark" }, [
+                    _vm._v(_vm._s(_vm.room.description))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col text-right" }, [
+                  _c("h4", { staticClass: "text-warning" }, [
+                    _vm._v("Rp " + _vm._s(_vm.formatPrice(_vm.room.price)))
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(0)
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "clearfix" }, [
+      _c(
+        "div",
+        {
+          staticClass: "btn-group btn-group-sm float-right",
+          attrs: { role: "group", "aria-label": "Edit Room Button" }
+        },
+        [
+          _c(
+            "button",
+            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+            [_vm._v("Edit")]
+          )
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/koperasi/LayananMaintenence.vue?vue&type=template&id=31ad1427&":
 /*!******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/koperasi/LayananMaintenence.vue?vue&type=template&id=31ad1427& ***!
@@ -107398,8 +107600,9 @@ var NewOrder = __webpack_require__(/*! ./components/homestay/merchant/NewOrder *
 
 var ProdukTerlaris2 = __webpack_require__(/*! ./components/homes/ProdukTerlaris2 */ "./resources/js/components/homes/ProdukTerlaris2.vue")["default"];
 
-var PaketRating = __webpack_require__(/*! ./components/paket/Rating */ "./resources/js/components/paket/Rating.vue")["default"]; // const Test = require('./components/test/test');
+var PaketRating = __webpack_require__(/*! ./components/paket/Rating */ "./resources/js/components/paket/Rating.vue")["default"];
 
+var HomestayRoomCard = __webpack_require__(/*! ./components/homestay/room/Card */ "./resources/js/components/homestay/room/Card.vue")["default"];
 
 Vue.component('star-rating', vue_star_rating__WEBPACK_IMPORTED_MODULE_4___default.a);
 Vue.mixin({
@@ -107421,7 +107624,6 @@ var app = new Vue({
     AkunPending: AkunPending,
     UserRating: UserRating,
     UserRatingSecond: UserRatingSecond,
-    // Test,
     AddToWishlistButton: AddToWishlistButton,
     Carousel: Carousel,
     NewProducts: NewProducts,
@@ -107462,7 +107664,8 @@ var app = new Vue({
     FormPesanHomestay: FormPesanHomestay,
     NewOrder: NewOrder,
     ProdukTerlaris2: ProdukTerlaris2,
-    PaketRating: PaketRating
+    PaketRating: PaketRating,
+    HomestayRoomCard: HomestayRoomCard
   },
   data: function data() {
     return {
@@ -109611,6 +109814,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/homestay/room/Card.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/homestay/room/Card.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Card_vue_vue_type_template_id_42ed5d50___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Card.vue?vue&type=template&id=42ed5d50& */ "./resources/js/components/homestay/room/Card.vue?vue&type=template&id=42ed5d50&");
+/* harmony import */ var _Card_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Card.vue?vue&type=script&lang=js& */ "./resources/js/components/homestay/room/Card.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Card_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Card_vue_vue_type_template_id_42ed5d50___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Card_vue_vue_type_template_id_42ed5d50___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/homestay/room/Card.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/homestay/room/Card.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/homestay/room/Card.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Card_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Card.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/homestay/room/Card.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Card_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/homestay/room/Card.vue?vue&type=template&id=42ed5d50&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/homestay/room/Card.vue?vue&type=template&id=42ed5d50& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Card_vue_vue_type_template_id_42ed5d50___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Card.vue?vue&type=template&id=42ed5d50& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/homestay/room/Card.vue?vue&type=template&id=42ed5d50&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Card_vue_vue_type_template_id_42ed5d50___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Card_vue_vue_type_template_id_42ed5d50___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/koperasi/LayananMaintenence.vue":
 /*!*****************************************************************!*\
   !*** ./resources/js/components/koperasi/LayananMaintenence.vue ***!
@@ -111410,8 +111682,8 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\tobazone\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\tobazone\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/arief/Desktop/private/project/tobazone/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/arief/Desktop/private/project/tobazone/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
