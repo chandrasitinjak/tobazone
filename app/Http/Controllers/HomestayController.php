@@ -237,7 +237,7 @@ class HomestayController extends Controller
     public function listSuccessOrder()
     {
 
-        $merchant = $this->getAuthincatedMerchant();
+        $merchant = $this->getAuthenticatedMerchant();
         return view('users.merchants.orders.success-order')->with('merchant', $merchant);
     }
 
@@ -245,11 +245,11 @@ class HomestayController extends Controller
     //Merchant
     public function createHomestayPage()
     {
-        $merchant = $this->getAuthincatedMerchant();
+        $merchant = $this->getAuthenticatedMerchant();
         return view('users.merchants.homestays.create_homestay')->with('result', $merchant);
     }
 
-    private function getAuthincatedMerchant()
+    private function getAuthenticatedMerchant()
     {
         $merchant = User::with('profile')->find(Auth::user()->id);
         $address = json_decode(json_decode($merchant->profile->address)[0]);
@@ -260,7 +260,7 @@ class HomestayController extends Controller
 
     public function getAllMerchantHomestay()
     {
-        $merchant = $this->getAuthincatedMerchant();
+        $merchant = $this->getAuthenticatedMerchant();
         $homestays = Homestay::where('merchant_id', Auth::user()->id)->get();;
         $result = [
             "merchant" => $merchant,
@@ -292,7 +292,7 @@ class HomestayController extends Controller
     public function deleteById($id)
     {
         Homestay::find($id)->delete();
-        $merchant = $this->getAuthincatedMerchant();
+        $merchant = $this->getAuthenticatedMerchant();
         $homestays = Homestay::All();
         $result = [
             "merchant" => $merchant,
@@ -310,7 +310,7 @@ class HomestayController extends Controller
     public function updateHomestay($id)
     {
         $result = [
-            "merchant" => $this->getAuthincatedMerchant(),
+            "merchant" => $this->getAuthenticatedMerchant(),
             "homestay" => Homestay::find($id),
             "rooms" => HomestayRooms::where('id_homestay', $id)->get(),
         ];
@@ -376,7 +376,7 @@ class HomestayController extends Controller
         //            ->get();
         //        dd($orders);
         //        $homestay = Homestay::find($orders->id_homestay);
-        $merchant = $this->getAuthincatedMerchant();
+        $merchant = $this->getAuthenticatedMerchant();
         $result = [
             "merchant" => $merchant,
             "orders" => $query
