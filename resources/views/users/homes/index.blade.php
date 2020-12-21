@@ -173,14 +173,6 @@
         <div class="container-fluid mt-7" id="komunitas-paket-wisata">
             <komunitas-paket-wisata />
         </div>
-
-        <div class="container-fluid mt-7">
-            <div class="col-md-12">
-                <a href="https://tobazone-koperasi.herokuapp.com/#/register">
-                    <img src="{{ asset('koperasi.jpg') }}" class="w-100">
-                </a>
-            </div>
-        </div>
         <!-- <div id="banner">
             <banner/>
         </div> -->
