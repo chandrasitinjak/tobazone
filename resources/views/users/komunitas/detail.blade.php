@@ -42,20 +42,22 @@
                                 <tbody>
                                 @if(isset($row->getKomunitasMember)&&$row->getKomunitasMember->count()>0)
                                     @foreach($row->getKomunitasMember as $index => $member)
-                                <tr>
-                                    <th scope="row">{{$index+1}}</th>
-                                    <td><img
-                                            src="{{asset('/storage/img/member/'.$member->photo)}}"
-                                            style="width: 20%"></td>
-                                    <td>{{$member->getUser->name}}</td>
-                                    <td>{{$member->getLayanan->count()}}</td>
-                                </tr>
+                                        <tr>
+                                            <th scope="row">{{$index+1}}</th>
+                                            <td><img
+                                                    src="{{asset('/storage/img/member/'.$member->photo)}}"
+                                                    style="width: 20%"></td>
+                                            <td>{{$member->getUser->name}}</td>
+                                            <td>{{$member->getLayanan->count()}}</td>
+                                        </tr>
                                     @endforeach
                                 @else
-                                    <th scope="row"></th>
-                                    <td></td>
-                                    <td>Belum Memiliki Anggota</td>
-                                    <td></td>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td>Belum Memiliki Anggota</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                                 @endif
                                 </tbody>
                             </table>
@@ -81,34 +83,40 @@
                                     @foreach($row->getKomunitasMember as $member)
                                         @if(isset($member->getLayanan))
                                             @foreach($member->getLayanan as $layanan)
-                                <tr>
-                                    <th scope="row">{{$indexx}}<?php $indexx += 1 ?></th>
-                                    <td>{{$layanan->nama_layanan}}</td>
-                                    <td>{{$member->getUser->name}}</td>
-                                    <td>{{$layanan->getJenisLayanan->nama_jenis_layanan}}</td>
-                                    <td>{{$layanan->deskripsi_layanan}}</td>
-                                </tr>
+                                                <tr>
+                                                    <th scope="row">{{$indexx}}<?php $indexx += 1 ?></th>
+                                                    <td>{{$layanan->nama_layanan}}</td>
+                                                    <td>{{$member->getUser->name}}</td>
+                                                    <td>{{$layanan->getJenisLayanan->nama_jenis_layanan}}</td>
+                                                    <td>{{$layanan->deskripsi_layanan}}</td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
                                     @endforeach
-                                    @endif
-                                    @endforeach
-                                </tbody> 
-                                    @else                                              
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>Belum Memiliki Layanan Wisata</td>
-                                            <td></td>
-                                    @endif                                                                                                           
-                                </table>
-                                    
-                            </div>
-                        </div>                        
+                                @else
+                                    <tr >
+                                        <th scope="row" ></th>
+                                        <td rowspan="3" >Belum Memiliki Layanan Wisata</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                @endif
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         @empty
             <div class="row">
-                <div class="col-lg-12">
-                    <h3>Belum Ada Komunitas Di Daerah Ini !</h3>
+                <div class="col-lg-12 center center-block align-center text-center">
+                    <img src="/images/assets/search_result_empty.png" style="height: 120px; border: none; opacity: 0.5"/>
+                    <p class="text font-bold">
+                        <br>
+                        Belum Ada Komunitas yang Terdaftar Di Daerah Ini !
+                    </p>
                 </div>
             </div>
         @endforelse

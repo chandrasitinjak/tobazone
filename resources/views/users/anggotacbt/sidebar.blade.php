@@ -132,6 +132,14 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item has-treeview ">
+                <a href="https://tobazone-koperasi.herokuapp.com/#/register" class="nav-link ">
+                        <i class="nav-icon fas fa-user-plus"></i>
+                        <p>
+                            Daftar/Login Koperasi
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

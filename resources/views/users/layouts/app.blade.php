@@ -109,6 +109,12 @@ $(document).ready(function() {
 });
 
 </script>
+<script>
+  function search_kabupaten() {
+    var kabupaten = document.getElementById("kabupaten").value;
+    window.location.href = `/user/homestays?kabupaten=${kabupaten}`
+  }
+</script>
   @yield('js')
 </body>
 </html>
