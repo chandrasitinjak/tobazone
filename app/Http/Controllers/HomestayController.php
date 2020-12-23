@@ -34,7 +34,7 @@ class HomestayController extends Controller
 
     public function findAllCustomer(Request $request)
     {
-        if (!$request->exists('kabupaten')) {
+        if ($request->exists('kabupaten')) {
             $query = $request->query('kabupaten');
             $result = DB::table('homestays')
                 ->join('users', 'users.id', '=', 'homestays.merchant_id')
@@ -56,26 +56,27 @@ class HomestayController extends Controller
                     'kabupaten' => $kabupaten
                 ]
             );
+        } else {
+            $result = DB::table('homestays')
+                ->join('users', 'users.id', '=', 'homestays.merchant_id')
+                ->select('homestays.*', 'users.username')
+                ->get();
+            $data = [
+                'code' => 200,
+                'status' => 'OK',
+                'data' => [
+                    $result
+                ]
+            ];
+            $kabupaten = DB::select("SELECT kabupaten FROM homestays GROUP BY kabupaten");
+            return view(
+                'users.homestay.index',
+                [
+                    'homestays' => $result,
+                    'kabupaten' => $kabupaten
+                ]
+            );
         }
-        $result = DB::table('homestays')
-            ->join('users', 'users.id', '=', 'homestays.merchant_id')
-            ->select('homestays.*', 'users.username')
-            ->get();
-        $data = [
-            'code' => 200,
-            'status' => 'OK',
-            'data' => [
-                $result
-            ]
-        ];
-        $kabupaten = DB::select("SELECT kabupaten FROM homestays GROUP BY kabupaten");
-        return view(
-            'users.homestay.index',
-            [
-                'homestays' => $result,
-                'kabupaten' => $kabupaten
-            ]
-        );
     }
 
     public function morePage()

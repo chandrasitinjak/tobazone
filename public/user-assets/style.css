@@ -1,4 +1,3 @@
-
 /* ####################################################
 :: Template Name: Essence - Fashion Ecommerce Template
 :: Author: Colorlib
@@ -12,17 +11,18 @@
 /* ---------------------------------------
 ##### - PLACE YOUR CUSTOM CSS HERE - #####
 --------------------------------------- */
+
 body {
     font-size: 13px;
     /*background-color: #f5f5f5;*/
     background-color: white;
     /* min-height: calc(100vh - 90px - 178px); */
-    position: relative;
-    padding-bottom: 178px;
-    min-height: 100vh   ;
+    /* position: relative; */
+    /* padding-bottom: 178px; */
+    /* min-height: 100vh; */
 }
 
-.VueCarousel-slide img{
+.VueCarousel-slide img {
     width: 100%;
 }
 
@@ -31,16 +31,21 @@ body {
     display: block;
 }
 
-.imagesliderholder img{
+.imagesliderholder img {
     cursor: zoom-in;
 }
+
 /*================BLOG==============*/
-.blog .blogcard .blogpict{
-     background-repeat: no-repeat;
-    background-size: cover; height:230px; cursor: pointer;
+
+.blog .blogcard .blogpict {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 230px;
+    cursor: pointer;
 }
 
 /*=================OwlNav===============*/
+
 .npnav button, .npnavb button {
     width: 30px;
     background-color: #ffffff;
@@ -61,7 +66,8 @@ body {
 }
 
 /*==============HEADER================*/
-.main{
+
+.main {
     box-shadow: 0px 2px 9px #88888824;
 }
 
@@ -77,21 +83,22 @@ body {
     width: inherit;
 }
 
-.navbar ul li a{
+.navbar ul li a {
     color: black;
     font-weight: 500;
 }
 
-
-
-.header_area .classynav ul li a{
+.header_area .classynav ul li a {
     color: black;
     font-weight: 500;
 }
-.classy-nav-container a:hover{
+
+.classy-nav-container a:hover {
     color: black;
 }
+
 /* Style the search field */
+
 form.example input[type=text] {
     padding: 10px;
     font-size: small;
@@ -103,6 +110,7 @@ form.example input[type=text] {
 }
 
 /* Style the submit button */
+
 form.example button {
     background-color: #fff;
     float: left;
@@ -111,48 +119,54 @@ form.example button {
     color: #000000;
     font-size: small;
     border: 1px solid grey;
-    border-left: none; /* Prevent double borders */
+    border-left: none;
+    /* Prevent double borders */
     cursor: pointer;
     height: 41px;
 }
 
 /*form.example button:hover {*/
-    /*background: #0b7dda;*/
+
+/*background: #0b7dda;*/
+
 /*}*/
 
 /* Clear floats */
+
 form.example::after {
     content: "";
     clear: both;
     display: table;
 }
 
-.search-area input:focus{
+.search-area input:focus {
     outline: none !important;
 }
 
-
-.dropdown-menu{
+.dropdown-menu {
     margin: 0;
     padding: 0;
     border: none;
 }
 
-.dropdown-menu .dropdown-item{
-
+.dropdown-menu .dropdown-item {
     padding-left: 1rem
 }
 
-.classynav .dropdown li .btn:focus{
+.classynav .dropdown li .btn:focus {
     outline: none !important;
     box-shadow: none;
 }
-/*.header_area .cart-area a{*/
-    /*line-height: 85px;*/
-/*}*/
-    /*================FOOTER==============*/
 
-.width_section{
+/*.header_area .cart-area a{*/
+
+/*line-height: 85px;*/
+
+/*}*/
+
+/*================FOOTER==============*/
+
+.width_section {
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
@@ -164,14 +178,14 @@ form.example::after {
     padding: 30px 0 10px;
     width: 100%;
     bottom: 0;
-    position: absolute;
+    /* position: absolute; */
 }
 
-.footer_area p{
+.footer_area p {
     color: #ffffffb3;
 }
 
-.footer_area h6{
+.footer_area h6 {
     color: white;
 }
 
@@ -183,12 +197,14 @@ form.example::after {
 }
 
 /* ========= form ========= */
+
 .formbadge {
     background-color: transparent;
     border: 1px #6c757d solid;
 }
 
 /*=============BANNER================*/
+
 .banner {
     display: flex;
 }
@@ -208,6 +224,7 @@ form.example::after {
 }
 
 /* ===== button upload image ======*/
+
 .upload-btn-wrapper {
     position: relative;
     overflow: hidden;
@@ -216,7 +233,6 @@ form.example::after {
     border-radius: 6px;
     border: 2px dashed gray;
     cursor: pointer;
-
 }
 
 .btn-upcus {
@@ -263,7 +279,7 @@ form.example::after {
 }
 
 .product:hover {
-    box-shadow: 0 0 4px 1px rgba(204,204,204,.48);
+    box-shadow: 0 0 4px 1px rgba(204, 204, 204, .48);
     cursor: pointer;
     transform: translateY(-2px);
     transition-duration: 0.3s;
@@ -272,7 +288,6 @@ form.example::after {
 
 .globalcard .card-header {
     background-color: #fff;
-
 }
 
 .imgwrapper {
@@ -301,7 +316,6 @@ form.example::after {
     max-height: 100%;
     display: inline-block;
     object-fit: scale-down;
-
 }
 
 .imgwrapper-a {
@@ -336,7 +350,6 @@ form.example::after {
 
 .cto img {
     object-fit: cover;
-
     /*height: 300px;*/
 }
 
@@ -364,7 +377,6 @@ form.example::after {
     opacity: 0;
     height: 0;
     padding: 0;
-
 }
 
 .product:hover .hover-content {
@@ -387,10 +399,10 @@ form.example::after {
     letter-spacing: 1.5px;
     font-weight: 600;
     background-color: #721c24;
-
 }
 
 /*-------------PRODUCTS---------------*/
+
 .products .card-text {
     font-size: small;
     margin-bottom: 0;
@@ -438,10 +450,10 @@ form.example::after {
     opacity: 0;
     height: 0;
     padding: 0;
-
 }
 
 /*---------------CTO------------*/
+
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
@@ -450,7 +462,7 @@ form.example::after {
     padding: 10px;
 }
 
-.grid-container > div {
+.grid-container>div {
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     padding: 20px 0;
@@ -463,11 +475,12 @@ form.example::after {
 }
 
 /*============SINGLE PRODUCT===========*/
+
 .detailproduct .carousel {
     /*margin-top: 1em;*/
 }
 
-.detailproduct .imagesliderholder{
+.detailproduct .imagesliderholder {
     border: 1px solid #e0e0e0;
     border-radius: 3px;
     padding: 3px;
@@ -506,9 +519,7 @@ form.example::after {
     cursor: pointer;
 }
 
-.detailproduct .price {
-
-}
+.detailproduct .price {}
 
 .detailreview {
     width: 100%;
@@ -525,20 +536,19 @@ form.example::after {
     font-size: inherit;
 }
 
-.detailreview .nav-tabs .nav-link:hover {
+.detailreview .nav-tabs .nav-link:hover {}
 
-}
-
-.detailreview .nav-item i{
+.detailreview .nav-item i {
     font-size: x-large;
 }
-.detailreview .nav-item span{
+
+.detailreview .nav-item span {
     vertical-align: super;
 }
-.detailreview .nav-tabs .nav-link.active{
+
+.detailreview .nav-tabs .nav-link.active {
     color: saddlebrown;
 }
-
 
 .detailreview .ulasan .imgwrapper {
     height: 50px;
@@ -551,9 +561,7 @@ form.example::after {
     height: 50px;
     width: 50px;
     object-fit: cover;
-
 }
-
 
 .vimagewrapper {
     height: auto;
@@ -577,6 +585,7 @@ form.example::after {
 }
 
 /*------------Keranjang---------------*/
+
 .keranjang {
     margin-top: 100px;
 }
@@ -614,6 +623,7 @@ form.example::after {
 }
 
 /*======= Checkout==========*/
+
 .checkout img {
     max-height: 100%;
     height: 130px;
@@ -628,6 +638,7 @@ form.example::after {
 }
 
 /*---------------Merchant--------------*/
+
 #result img {
     height: 100px;
     object-fit: scale-down;
@@ -635,7 +646,6 @@ form.example::after {
     padding: 2px;
     border-radius: 4px;
 }
-
 
 .store {
     padding: 0.3rem;
@@ -654,10 +664,9 @@ form.example::after {
     float: right;
     width: 35px;
     margin-left: 8px;
-
 }
 
-.merchant-sidebar .mercant-sidebar-menu .sub-menu li > a {
+.merchant-sidebar .mercant-sidebar-menu .sub-menu li>a {
     text-transform: capitalize;
     font-size: 14px;
     margin-bottom: 5px;
@@ -667,7 +676,7 @@ form.example::after {
     cursor: pointer;
 }
 
-.merchant-sidebar .mercant-sidebar-menu li > a {
+.merchant-sidebar .mercant-sidebar-menu li>a {
     text-transform: uppercase;
     font-size: 12px;
     margin-bottom: 15px;
@@ -680,11 +689,12 @@ form.example::after {
     margin-bottom: 15px;
 }
 
-.mproduct .collapse ul li a{
+.mproduct .collapse ul li a {
     cursor: pointer;
 }
 
-    /*============PAYMENT===========*/
+/*============PAYMENT===========*/
+
 .payment {
     margin-top: 100px;
 }
@@ -700,27 +710,27 @@ form.example::after {
     padding: 10px;
 }
 
-.payment h4{
+.payment h4 {
     vertical-align: bottom;
 }
 
 /*============ HORIZONTAL CARD ==============*/
+
 .hcard .card-body {
     padding: 0.3rem;
 }
 
 /*// Extra small devices (portrait phones, less than 576px)*/
+
 @media (max-width: 575.98px) {
-    .horizontalcard .shrink {
-
-    }
-
+    .horizontalcard .shrink {}
     .slide {
         padding: 1px;
     }
 }
 
 /*=========merchantDashboard============*/
+
 .widget .card {
     background-color: #2196F3;
     border: none;
@@ -738,7 +748,6 @@ form.example::after {
     line-height: 50px;
     position: absolute;
     left: 30px;
-
 }
 
 .stat-widget-five .stat-content {
@@ -756,6 +765,7 @@ form.example::after {
 }
 
 /*===============Costumer Pesanan==============*/
+
 .detailorder .small {
     font-size: 80%;
     font-weight: 400;
@@ -784,6 +794,7 @@ form.example::after {
 }
 
 /*============button============*/
+
 .smallbtn {
     background-color: orange;
     border-radius: 3px;
@@ -799,51 +810,51 @@ form.example::after {
     color: white;
     font-weight: lighter;
     height: auto;
-
 }
 
-.essence-btn{
+.essence-btn {
     background-color: black;
 }
 
-.essence-btn:hover, .essence-btn:focus{
-    background-color: #4b1815 ;
+.essence-btn:hover, .essence-btn:focus {
+    background-color: #4b1815;
     border-color: #813E39;
 }
 
-.essence-btn-sm{
+.essence-btn-sm {
     background-color: black;
     color: #ffffff;
     font-size: 10px;
 }
 
-.essence-btn-sm:hover, .essence-btn-sm:focus{
-    background-color: #4b1815 ;
+.essence-btn-sm:hover, .essence-btn-sm:focus {
+    background-color: #4b1815;
     border-color: #813E39;
 }
 
-
 /*===========VUE CAROUSEL=============*/
+
 /**/
+
 /*============Modal login==============*/
 
-
-.loginmodal a{
+.loginmodal a {
     color: #007bff;
     font-size: 14px;
     line-height: 2;
     font-weight: 400;
 }
 
-.loginmodal p{
+.loginmodal p {
     color: black;
     margin-bottom: 0px;
 }
-.loginmodal input{
+
+.loginmodal input {
     border-left: none;
 }
 
-.loginmodal .input-group-text{
+.loginmodal .input-group-text {
     background-color: transparent;
     width: 40px;
     text-align: center;
@@ -855,268 +866,240 @@ form.example::after {
     -webkit-box-shadow: inset 0 0 0px 9999px white;
 }
 
-.loginmodal input:focus,
-input:-webkit-autofill:focus {
+.loginmodal input:focus, input:-webkit-autofill:focus {
     border-color: #66afe9;
-    -webkit-box-shadow: inset 0 0 0px 9999px white, 0 0 8px
-    rgba(102, 175, 233, 0.6);
+    -webkit-box-shadow: inset 0 0 0px 9999px white, 0 0 8px rgba(102, 175, 233, 0.6);
 }
 
-.loginmodal .modal-header{
+.loginmodal .modal-header {
     border-top: 4px solid #4b1815;
 }
 
-.loginmodal .lupas p:hover{
+.loginmodal .lupas p:hover {
     color: #4b1815;
 }
 
 /*===============REGISTRATION=================*/
-.registration .card{
-    border: none;
 
+.registration .card {
+    border: none;
 }
 
-.registration label{
+.registration label {
     font-size: small;
 }
 
-.registration .nav-tabs .nav-link{
+.registration .nav-tabs .nav-link {
     border: none;
 }
-.registration .nav-tabs .nav-link:hover{
+
+.registration .nav-tabs .nav-link:hover {
     border-bottom: 2px solid black;
 }
 
-.registration  .nav-tabs .nav-link.active, .registration  .nav-tabs .nav-link.active:hover{
+.registration .nav-tabs .nav-link.active, .registration .nav-tabs .nav-link.active:hover {
     border: none;
     border-bottom: 2px solid black;
     color: black;
     font-weight: 900;
 }
 
-.registration  .nav-tabs .nav-link:hover{
+.registration .nav-tabs .nav-link:hover {
     border: none;
     transition: none;
 }
 
-.registration .nav-tabs .nav-link h6{
+.registration .nav-tabs .nav-link h6 {
     font-size: large;
     font-weight: 800;
     color: black;
 }
 
-.registration  .nav-tabs .nav-link.active h6, .registration  .nav-tabs .nav-link.active h6:hover{
+.registration .nav-tabs .nav-link.active h6, .registration .nav-tabs .nav-link.active h6:hover {
     font-size: large;
     font-weight: 800;
     color: #4b1815;
 }
 
-.registration .custom-radio input{
+.registration .custom-radio input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
 }
+
 /*.registration  .nav .nav-item .show{*/
-    /*background-color: #2196F3;*/
+
+/*background-color: #2196F3;*/
+
 /*}*/
 
-
-#load{
-    width:100%;
-    height:100%;
-    position:fixed;
-    z-index:9999;
-    background:url("https://www.creditmutuel.fr/cmne/fr/banques/webservices/nswr/images/loading.gif") no-repeat center center rgba(0,0,0,0.25)
+#load {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9999;
+    background: url("https://www.creditmutuel.fr/cmne/fr/banques/webservices/nswr/images/loading.gif") no-repeat center center rgba(0, 0, 0, 0.25)
 }
 
 /*// Extra small devices (portrait phones, less than 576px)*/
+
 @media (max-width: 576px) {
-    .navbar .navbar-collapse .search{
+    .navbar .navbar-collapse .search {
         visibility: hidden;
     }
-
-    .navbar .custom-container{
+    .navbar .custom-container {
         justify-content: space-between;
     }
-
-    .store .widget span{
+    .store .widget span {
         font-size: medium;
         font-weight: 800;
     }
-
-    .loginmodal .modal-body{
+    .loginmodal .modal-body {
         padding-left: 1rem!important;
         padding-right: 1rem!important;
     }
-
-    .loginmodal .modal-footer{
+    .loginmodal .modal-footer {
         padding-left: 1rem!important;
         padding-right: 1rem!important;
     }
-
 }
+
 /*// Small devices (landscape phones, 576px and up)*/
+
 @media (min-width: 576px) {
     .quantity {
         margin-top: 1em;
     }
-
     .header_area .search-area form input {
         width: 100%;
     }
-
     .loginmodal p, .loginmodal a {
         font-size: small;
     }
-
     .smallimageholder ul {
         flex-direction: row;
     }
-
     .search-area form {
         width: auto;
     }
-
     .smallimageholder ul {
         flex-direction: row;
     }
-
-    .header_area .cart-area a{
+    .header_area .cart-area a {
         height: 40px;
     }
-
-    .globalcard .product{
-        border: 1px solid rgba(0,0,0,.125);
+    .globalcard .product {
+        border: 1px solid rgba(0, 0, 0, .125);
     }
-
-   .navbar .navbar-collapse .search{
+    .navbar .navbar-collapse .search {
         visibility: hidden;
     }
-
-    .navbar .custom-container{
+    .navbar .custom-container {
         justify-content: space-between;
     }
-
-    .navbar .navbar-expand-lg{
+    .navbar .navbar-expand-lg {
         border-bottom: none;
     }
-
-    .store .widget span{
+    .store .widget span {
         font-size: medium;
         font-weight: 800;
     }
-    .loginmodal .modal-body{
+    .loginmodal .modal-body {
         padding-left: 1rem!important;
         padding-right: 1rem!important;
     }
-
-    .loginmodal .modal-footer{
+    .loginmodal .modal-footer {
         padding-left: 1rem!important;
         padding-right: 1rem!important;
     }
 }
 
 /*// Medium devices (tablets, 768px and up)*/
+
 @media (min-width: 768px) {
-    .header_area .cart-area a{
+    .header_area .cart-area a {
         height: 40px;
     }
-
-    .navbar .navbar-expand-lg{
-        border-bottom:none;
+    .navbar .navbar-expand-lg {
+        border-bottom: none;
     }
-
-    .store .widget span{
+    .store .widget span {
         font-size: medium;
         font-weight: 800;
     }
-
-    .loginmodal .modal-body{
+    .loginmodal .modal-body {
         padding-left: 3rem!important;
         padding-right: 3rem!important;
     }
-
-    .loginmodal .modal-footer{
+    .loginmodal .modal-footer {
         padding-left: 3rem!important;
         padding-right: 3rem!important;
     }
-
 }
 
 /*// Large devices (desktops, 992px and up)*/
+
 @media (min-width: 992px) {
-    .search-area form{
+    .search-area form {
         width: 400px;
     }
-
     .smallimageholder ul {
         flex-direction: column;
     }
-
     .navbar2 {
         border-bottom: 1px solid #ebebeb;
     }
-
-    .store .widget span{
+    .store .widget span {
         font-size: large;
         font-weight: 800;
     }
-
-    .loginmodal .modal-body{
+    .loginmodal .modal-body {
         padding-left: 3rem!important;
         padding-right: 3rem!important;
     }
-
-    .loginmodal .modal-footer{
+    .loginmodal .modal-footer {
         padding-left: 3rem!important;
         padding-right: 3rem!important;
     }
 }
 
 /*// Extra large devices (large desktops, 1200px and up)*/
+
 @media (min-width: 1200px) {
-    .search-area form{
+    .search-area form {
         width: 400px;
     }
-
     .smallimageholder ul {
         flex-direction: column;
     }
-    .header_area .cart-area a{
+    .header_area .cart-area a {
         height: 85px;
     }
-
-    .product{
+    .product {
         border: none;
     }
-
-    .navbar .navbar-expand-lg{
+    .navbar .navbar-expand-lg {
         border-bottom: 1px solid #ebebeb;
     }
-
-    .navbar{
+    .navbar {
         background-color: #FFFAF3;
-        padding: 1rem 0 1rem ;
+        padding: 1rem 0 1rem;
     }
-
-    .navbar2{
+    .navbar2 {
         background-color: #F7F1E7;
         padding: 0 0 0 0;
     }
-
-    .store .widget span{
+    .store .widget span {
         font-size: large;
         font-weight: 800;
     }
-
-    .loginmodal .modal-body{
+    .loginmodal .modal-body {
         padding-left: 3rem!important;
         padding-right: 3rem!important;
     }
-
-    .loginmodal .modal-footer{
+    .loginmodal .modal-footer {
         padding-left: 3rem!important;
         padding-right: 3rem!important;
     }
