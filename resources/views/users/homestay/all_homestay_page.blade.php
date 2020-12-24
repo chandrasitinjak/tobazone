@@ -3,50 +3,13 @@
 @endsection
 
 @section('content')
-<br><br><br>
-<div class="container">
-    <div class="row justify-content-md-center">
-        <div class=" col-md-1">
-        </div>
-        <div class="col-md-10">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100"  src="{{ '../homestay_image/carousel1.jpg'}}"
-                             alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ '../homestay_image/carousel2.jpg'}}"
-                             alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ '../homestay_image/carousel3.jpg'}}"
-                             alt="Third slide">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-        <div class=" col-md-1">
-
-        </div>
-    </div>
-
-</div>
 <section class="shop_grid_area section-padding-80">
     <div class="row">
         <div class="col-md-12">
             <div>
                 <div class="card" style="background-color: #FFFAF4" style="outline: none">
                     <div>
-                        <form action="/homestays/search" method="POST">
+                        <form action="/homestays/searchInAllPage" method="POST">
                             {{ csrf_field() }}
                             <div class="container">
 
@@ -122,43 +85,6 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="col-md-1">
-
-            </div>
-            <div class="col-md-10">
-<!--                <div class="container card products mt-5" style="background-color: #F5F5F5">-->
-<!--                    <div class="row" id="check">-->
-<!--                        <div class="col-lg-6 mt-2 mb-2">-->
-<!--                            <div class="input-group">-->
-<!--                                <div class="text-black-50">-->
-<!--                                    <h3>Menampilkan hasil homestay di </h3>-->
-<!--                                </div>-->
-<!--                                <input type="form-control" placeholder="Laguboti"-->
-<!--                                       style="margin-left: 10px; width: 50px;font-weight: bold;" readonly-->
-<!--                                       class="form-control" id="inlineFormInputGroup">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-lg- mt-2 mb-2">-->
-<!--                            <div class="input-group">-->
-<!--                                <div class="text-black-50">-->
-<!--                                    <h3>Pada tanggal </h3>-->
-<!--                                </div>-->
-<!--                                <input type="form-control" placeholder="25 Desember 2020"-->
-<!--                                       style="margin-left: 10px; font-weight: bold;" readonly class="form-control"-->
-<!--                                       id="inlineFormInputGroup">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-            </div>
-            <div class="col-md-1">
-
-            </div>
-        </div>
-    </div>
-
 
     <div class="container">
         <div class="row justify-content-md-center">
@@ -166,8 +92,6 @@
 
             </div>
             <div class="col-md-10">
-                <br>
-                <a href="{{ url('/user/homestayall')}}"><button class="btn btn-primary"> Muat Lebih Banyak </button></a>
                 @foreach ($homestays as $product)
                 <a href="{{ url('/homestays/find', $product->id)}}">
                     <div class="container card products mt-5" style="background-color: #F5F5F5">
@@ -221,9 +145,7 @@
 
         <div class="row justify-content-center">
             <div class="col-auto">
-                <div class="card" style="background-color: #F5F5F5">
-                    <a href="/homestays/search" class="btn btn-primary" style="background-color:#000000; color:#ffffff;">Muat Lebih Banyak</a>
-                </div>
+
             </div>
         </div>
 
