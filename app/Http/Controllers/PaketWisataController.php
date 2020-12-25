@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\IncludedNotIncluded;
 use App\Kabupaten;
+use App\Komunitas;
 use App\LayananWisata;
 use App\PaketWisata;
 use App\Sesi;
@@ -380,5 +381,9 @@ class PaketWisataController extends Controller
         return redirect(route('admin.paket'));
 //        }
 //        return redirect(route('admin.paket'));
+    }
+    public function showC($id_kabupaten){
+        $paket = paketWisata::where('kabupaten_id',$id_kabupaten)->get();
+        return view('paket-wisata.detail_kabupaten',compact('paket'));
     }
 }
