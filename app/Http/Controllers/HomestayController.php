@@ -32,21 +32,51 @@ class HomestayController extends Controller
         return view('users.homestay.after_search_page')->with('homestays', $homestays);
     }
 
-    public function findAllCustomer()
+    public function findAllCustomer(Request $request)
     {
-        $homestays = Homestay::All();
-        $result = DB::table('homestays')
-            ->join('users', 'users.id', '=', 'homestays.merchant_id')
-            ->select('homestays.*', 'users.username')
-            ->get();
-        $data = [
-            'code' => 200,
-            'status' => 'OK',
-            'data' => [
-                $result
-            ]
-        ];
-        return view('users.homestay.index')->with('homestays', $result);
+        if ($request->exists('kabupaten')) {
+            $query = $request->query('kabupaten');
+            $result = DB::table('homestays')
+                ->join('users', 'users.id', '=', 'homestays.merchant_id')
+                ->select('homestays.*', 'users.username')
+                ->where('homestays.kabupaten', '=', $query)
+                ->get();
+            $data = [
+                'code' => 200,
+                'status' => 'OK',
+                'data' => [
+                    $result
+                ]
+            ];
+            $kabupaten = DB::select("SELECT kabupaten FROM homestays GROUP BY kabupaten");
+            return view(
+                'users.homestay.index',
+                [
+                    'homestays' => $result,
+                    'kabupaten' => $kabupaten
+                ]
+            );
+        } else {
+            $result = DB::table('homestays')
+                ->join('users', 'users.id', '=', 'homestays.merchant_id')
+                ->select('homestays.*', 'users.username')
+                ->get();
+            $data = [
+                'code' => 200,
+                'status' => 'OK',
+                'data' => [
+                    $result
+                ]
+            ];
+            $kabupaten = DB::select("SELECT kabupaten FROM homestays GROUP BY kabupaten");
+            return view(
+                'users.homestay.index',
+                [
+                    'homestays' => $result,
+                    'kabupaten' => $kabupaten
+                ]
+            );
+        }
     }
 
     public function morePage()
