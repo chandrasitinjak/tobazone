@@ -6512,6 +6512,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -6551,7 +6553,7 @@ __webpack_require__.r(__webpack_exports__);
         harga: '',
         totalBed: '',
         isExtraBed: '',
-        checked: [false, false, false]
+        checked: [false, false, false, false]
       }]
     };
   },
@@ -6563,7 +6565,7 @@ __webpack_require__.r(__webpack_exports__);
         harga: '',
         totalBed: '',
         isExtraBed: '',
-        checked: [false, false, false]
+        checked: [false, false, false, false]
       });
     },
     removeKamar: function removeKamar() {
@@ -6650,7 +6652,7 @@ __webpack_require__.r(__webpack_exports__);
         'image': this.image
       }).then(function (res) {
         for (var i = 0; i < _this5.workExperiences.length; i++) {
-          var facy = ['Ac', 'Kamar mandi', 'Pemanas'];
+          var facy = ['Ac', 'Kamar mandi', 'Pemanas', 'Wifi'];
           var fa_res = [];
 
           for (var j = 0; j < _this5.workExperiences[i].checked.length; j++) {
@@ -81335,6 +81337,70 @@ var render = function() {
                           _vm._v(" "),
                           _c("label", { attrs: { for: "Pemanas" } }, [
                             _vm._v("Pemanas")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.workExperiences[index].checked[3],
+                                expression: "workExperiences[index].checked[3]"
+                              }
+                            ],
+                            attrs: {
+                              type: "checkbox",
+                              id: "Wifi",
+                              value: "Wifi"
+                            },
+                            domProps: {
+                              checked: Array.isArray(
+                                _vm.workExperiences[index].checked[3]
+                              )
+                                ? _vm._i(
+                                    _vm.workExperiences[index].checked[3],
+                                    "Wifi"
+                                  ) > -1
+                                : _vm.workExperiences[index].checked[3]
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = _vm.workExperiences[index].checked[3],
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = "Wifi",
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        _vm.workExperiences[index].checked,
+                                        3,
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        _vm.workExperiences[index].checked,
+                                        3,
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(
+                                    _vm.workExperiences[index].checked,
+                                    3,
+                                    $$c
+                                  )
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "Pemanas" } }, [
+                            _vm._v("Wifi")
                           ])
                         ])
                       ]),

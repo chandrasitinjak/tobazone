@@ -70,6 +70,8 @@
                                     <label for="Kamar mandi">Kamar mandi</label>
                                     <input type="checkbox" id="Pemanas" value="Pemanas" v-model="workExperiences[index].checked[2]">
                                     <label for="Pemanas">Pemanas</label>
+                                    <input type="checkbox" id="Wifi" value="Wifi" v-model="workExperiences[index].checked[3]">
+                                    <label for="Pemanas">Wifi</label>
                                 </div>
 <!--                                <input v-model="experience.fasilitas" :name="`workExperiences[${index}][title]`" type="text" class="form-control">-->
                             </div>
@@ -340,7 +342,7 @@
                         harga: '',
                         totalBed: '',
                         isExtraBed: '',
-                        checked:[false,false,false]
+                        checked:[false,false,false,false]
                     },
 
                 ]
@@ -354,7 +356,7 @@
                     harga: '',
                     totalBed: '',
                     isExtraBed: '',
-                    checked:[false,false,false]
+                    checked:[false,false,false,false]
                 })
             },
             removeKamar() {
@@ -444,7 +446,7 @@
                     })
                     .then(res => {
                         for(let i=0 ; i<this.workExperiences.length ; i++){
-                            var facy =['Ac','Kamar mandi', 'Pemanas'];
+                            var facy =['Ac','Kamar mandi', 'Pemanas','Wifi'];
                             var fa_res =[];
                             for(let j=0 ; j< this.workExperiences[i].checked.length ; j++){
                                 if(this.workExperiences[i].checked[j]){
