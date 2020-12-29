@@ -79,6 +79,7 @@ const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay').def
 const NewOrder = require('./components/homestay/merchant/NewOrder').default
 const ProdukTerlaris2 = require('./components/homes/ProdukTerlaris2').default
 const PaketRating = require('./components/paket/Rating').default
+const HomestayTerlaris = require('./components/homestay/HomestayTerlaris').default
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -145,7 +146,8 @@ const app = new Vue({
         FormPesanHomestay,
         NewOrder,
         ProdukTerlaris2,
-        PaketRating
+        PaketRating,
+        HomestayTerlaris
     },
     data() {
         return {
