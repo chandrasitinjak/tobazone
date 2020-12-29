@@ -217,6 +217,11 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::post('/admin/tambah-kategori-homestay', 'HomestayRoomsCategoriesController@createCategories');
         Route::post('/admin/edit-kategori-homestay/{id}', 'HomestayRoomsCategoriesController@editKategori');
         Route::get('/admin/homestay/room-facilities', 'HomestayRoomsFacilitiesController@findAllFacilities');
+        //products
+        Route::get('/admin/ulos-colors', 'AdminController@findAllUlosColors');
+        Route::post('/admin/ulos-colors', 'AdminController@addUlosColors');
+        Route::post('/admin/ulos-colors/edit/{id}', 'AdminController@editUlosColors');
+        Route::get('/admin/ulos-colors/delete/{id}', 'AdminController@deleteUlosColors');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');

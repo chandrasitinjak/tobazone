@@ -5138,6 +5138,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 
@@ -5386,6 +5387,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 
@@ -5491,6 +5493,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -79743,7 +79746,7 @@ var render = function() {
                                     staticStyle: {
                                       height: "100%",
                                       width: "100%",
-                                      "object-fit": "cover"
+                                      "object-fit": "fill"
                                     },
                                     attrs: {
                                       src:
@@ -79770,7 +79773,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                    " +
+                                    "\n                                        " +
                                       _vm._s(product.name)
                                   )
                                 ]
@@ -79877,7 +79880,7 @@ var render = function() {
                     staticStyle: { "text-decoration-line": "unset" },
                     attrs: { type: "button" }
                   },
-                  [_vm._v(" Muat Lebih Banyak\n                    ")]
+                  [_vm._v(" Muat Lebih Banyak\n                        ")]
                 )
               ])
             ]),
@@ -79967,7 +79970,7 @@ var render = function() {
                         staticStyle: {
                           height: "100%",
                           width: "100%",
-                          "object-fit": "cover"
+                          "object-fit": "fill"
                         },
                         attrs: {
                           src: "/images/" + JSON.parse(product.images)[0],
@@ -80074,7 +80077,7 @@ var render = function() {
                         staticStyle: {
                           height: "100%",
                           width: "100%",
-                          "object-fit": "cover"
+                          "object-fit": "fill"
                         },
                         attrs: {
                           src: "/images/" + JSON.parse(product.images)[0],
@@ -80097,7 +80100,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                " +
+                            "\n                                    " +
                               _vm._s(product.name)
                           )
                         ]
@@ -90936,7 +90939,7 @@ var render = function() {
                                   staticStyle: {
                                     height: "100%",
                                     width: "100%",
-                                    "object-fit": "cover"
+                                    "object-fit": "fill"
                                   },
                                   attrs: {
                                     src:

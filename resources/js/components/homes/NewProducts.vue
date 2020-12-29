@@ -13,8 +13,9 @@
                             <div class="card products">
                                 <a :href="'/products/' + product.id">
                                     <div class="imgwrapper">
-                                        <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap"
-                                             style='height: 100%; width: 100%; object-fit: cover'>
+<!--                                        <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap"-->
+<!--                                             style='height: 100%; width: 100%; object-fit: cover'>-->
+                                        <img :src="'/images/' + JSON.parse(product.images)[0]" style='height: 100%; width: 100%; object-fit: fill' alt="Card image cap">
                                     </div>
                                 </a>
                                 <div class="card-body">
