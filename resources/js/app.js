@@ -12,9 +12,9 @@ import 'vue-loading-overlay/dist/vue-loading.css';
 
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-import StarRating from 'vue-star-rating'
+import StarRating from 'vue-star-rating';
 
-import Vuelidate from 'vuelidate'
+import Vuelidate from 'vuelidate';
 Vue.use(Loading, {
     color: '#073763'
 });
@@ -79,6 +79,7 @@ const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay').def
 const NewOrder = require('./components/homestay/merchant/NewOrder').default
 const ProdukTerlaris2 = require('./components/homes/ProdukTerlaris2').default
 const PaketRating = require('./components/paket/Rating').default
+const HomestayTerlaris = require('./components/homestay/HomestayTerlaris').default
 // const Test = require('./components/test/test');
 
 Vue.component('star-rating', StarRating)
@@ -145,7 +146,8 @@ const app = new Vue({
         FormPesanHomestay,
         NewOrder,
         ProdukTerlaris2,
-        PaketRating
+        PaketRating,
+        HomestayTerlaris
     },
     data() {
         return {

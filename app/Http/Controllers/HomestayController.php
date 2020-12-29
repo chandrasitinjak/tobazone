@@ -546,4 +546,33 @@ class HomestayController extends Controller
         $order->delete();
         return redirect('/user/homestay/order/findAll');
     }
+
+    public function findHomestayTerlaris(){
+        $query = DB::Select("SELECT COUNT(ho.id) AS ORD, h.id, h.merchant_id,
+h.name,
+h.price,
+h.total_room,
+h.room_available,
+h.description,
+h.address,
+h.image,
+h.status,
+h.kabupaten,
+h.kecamatan,
+h.desa FROM homestays AS h LEFT OUTER JOIN homestay_orders AS ho ON h.id = ho.id_homestay GROUP BY h.id,
+h.merchant_id,
+h.name,
+h.price,
+h.total_room,
+h.room_available,
+h.description,
+h.address,
+h.image,
+h.status,
+h.kabupaten,
+h.kecamatan,
+h.desa ORDER BY ORD DESC LIMIT 10" );
+
+        return response()->json($query);
+    }
 }
