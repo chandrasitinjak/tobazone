@@ -452,6 +452,7 @@ Route::get('/customer/transactions/paket/{id}', 'TransactionPaketController@show
 
 Route::get('/paket-wisata/more','PaketWisataController@more_paket')->name('paket');
 Route::post('/paket-wisata/more','PaketWisataController@indexFilter')->name('paket.filter');
+Route::get('/paket-wisata/{id_kabupaten}','PaketWisataController@showC')->name('paket.show');
 
 Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiemail')->name('konfirmasiemail');
 
