@@ -50,8 +50,6 @@
             </div>
         </div>
     </div>
-
-    <!--menu-store-->
     <div class="row">
         <!--sidebar-->
         @include('users.merchants.sidebar')
@@ -163,23 +161,14 @@
                                 </div>
                             </div>
                         </form>
-
-                        @foreach ($result['rooms'] as $room)
-                        <br>
-                        <homestay-room-card :room="{{ $room }}"></homestay-room-card>
-                        @endforeach
                     </div>
+                </div>
+
+                <div style="margin-top: 16px; margin-bottom: 16px;">
+                    <ubah-homestay-room-cards :rooms="{{ $result['rooms'] }}"></ubah-homestay-room-cards>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
-
-<script>
-    import UpdateHomestay from "../../../../js/components/homestay/merchant/UpdateHomestay";
-
-    export default {
-        components: {UpdateHomestay}
-    }
-</script>
