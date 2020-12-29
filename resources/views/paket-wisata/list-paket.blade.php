@@ -60,7 +60,7 @@
                             <a href="{{route('paket.detail',$row->id_paket)}}">
                                 <div class="imgwrapper">
                                     <img class="card-img"
-                                         src="https://media.suara.com/pictures/480x260/2019/12/26/49091-gambar.jpg"
+                                         src="{{asset('/storage/img/paket/'.$row->gambar)}}"
                                          alt="Card image cap" style="height: 100%; width: 100%; object-fit: cover">
                                 </div>
 
