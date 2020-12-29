@@ -354,6 +354,7 @@ Route::get('/homestay/get-carousels', 'HomestayCarouselController@getCarousels')
 Route::post('/homestay/create', 'HomestayController@store');
 
 
+Route::get('/user/homestayall', 'HomestayController@getAllHomestay');
 Route::get('/homestays', 'HomestayController@findAll');
 Route::get('/user/homestays', 'HomestayController@findAllCustomer');
 Route::get('/user/homestays/more', 'HomestayController@morePage');
@@ -362,6 +363,7 @@ Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::post('/homestays/save', 'HomestayController@store');
 
 Route::post('/homestays/search', 'HomestayController@search');
+Route::post('/homestays/searchInAllPage', 'HomestayController@searchInAllPage');
 Route::get('/homestays/searchPage', 'HomestayController@searchTest');
 Route::post('/homestays/order/upload-resi/{id}', 'HomestayController@uploadResi');
 

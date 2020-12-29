@@ -115,6 +115,33 @@ class HomestayController extends Controller
         return view('users.homestay.after_search_page')->with('homestays', $homestays);
     }
 
+
+    public function searchInAllPage(Request $request)
+    {
+        $where = '';
+        if ($request->kecamatan) {
+            $where .= "WHERE LOWER(kecamatan) like LOWER('%" . $request->kecamatan . "%')";
+        }
+        if ($request->tamu) {
+            if (strlen($where) > 0) {
+                $where .= " AND (total_room <= " . $request->tamu . " OR room_available <= " . $request->tamu . ")";
+            } else {
+                $where .= " WHERE (total_room <= " . $request->tamu . " OR room_available <= " . $request->tamu . ")";
+            }
+        }
+        $homestays = DB::select("SELECT * FROM homestays join users on users.id = homestays.merchant_id " . $where);
+
+        return view('users.homestay.all_homestay_page')->with('homestays', $homestays);
+    }
+
+    public function getAllHomestay(){
+        $result = DB::table('homestays')
+            ->join('users', 'users.id', '=', 'homestays.merchant_id')
+            ->select('homestays.*', 'users.username')
+            ->get();
+        return view('users.homestay.all_homestay_page')->with('homestays', $result);
+    }
+
     public function searchTest()
     {
         $homestays = Homestay::All();
