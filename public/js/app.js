@@ -5138,6 +5138,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 
@@ -5386,6 +5387,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 
@@ -5491,6 +5493,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -5864,6 +5867,163 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getCarousels();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/homestay/HomestayTerlaris.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/homestay/HomestayTerlaris.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_owl_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-owl-carousel */ "./node_modules/vue-owl-carousel/dist/vue-owl-carousel.js");
+/* harmony import */ var vue_owl_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_owl_carousel__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _eventBus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../eventBus */ "./resources/js/eventBus.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    carousel2: vue_owl_carousel__WEBPACK_IMPORTED_MODULE_1___default.a,
+    Carousel: vue_carousel__WEBPACK_IMPORTED_MODULE_2__["Carousel"],
+    Slide: vue_carousel__WEBPACK_IMPORTED_MODULE_2__["Slide"]
+  },
+  props: ["userId", "title"],
+  data: function data() {
+    return {
+      products: []
+    };
+  },
+  methods: {
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed().replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
+    getAllProducts: function getAllProducts() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return window.axios.get("/api/homestay/terlaris").then(function (res) {
+                  _this.products = res.data;
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    addToCart: function addToCart(id) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var payload;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                payload = {
+                  productId: id,
+                  total: 1,
+                  userId: _this2.userId
+                };
+                _context2.next = 3;
+                return window.axios.post("/api/carts", payload).then(function (res) {
+                  _this2.emitEvent(res.data);
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    emitEvent: function emitEvent(data) {
+      _eventBus__WEBPACK_IMPORTED_MODULE_3__["default"].$emit("CART_UPDATED", data);
+    }
+  },
+  mounted: function mounted() {
+    this.getAllProducts();
   }
 });
 
@@ -6352,6 +6512,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -6391,7 +6553,7 @@ __webpack_require__.r(__webpack_exports__);
         harga: '',
         totalBed: '',
         isExtraBed: '',
-        checked: [false, false, false]
+        checked: [false, false, false, false]
       }]
     };
   },
@@ -6403,7 +6565,7 @@ __webpack_require__.r(__webpack_exports__);
         harga: '',
         totalBed: '',
         isExtraBed: '',
-        checked: [false, false, false]
+        checked: [false, false, false, false]
       });
     },
     removeKamar: function removeKamar() {
@@ -6490,7 +6652,7 @@ __webpack_require__.r(__webpack_exports__);
         'image': this.image
       }).then(function (res) {
         for (var i = 0; i < _this5.workExperiences.length; i++) {
-          var facy = ['Ac', 'Kamar mandi', 'Pemanas'];
+          var facy = ['Ac', 'Kamar mandi', 'Pemanas', 'Wifi'];
           var fa_res = [];
 
           for (var j = 0; j < _this5.workExperiences[i].checked.length; j++) {
@@ -79743,7 +79905,7 @@ var render = function() {
                                     staticStyle: {
                                       height: "100%",
                                       width: "100%",
-                                      "object-fit": "cover"
+                                      "object-fit": "fill"
                                     },
                                     attrs: {
                                       src:
@@ -79770,7 +79932,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                    " +
+                                    "\n                                        " +
                                       _vm._s(product.name)
                                   )
                                 ]
@@ -79877,7 +80039,7 @@ var render = function() {
                     staticStyle: { "text-decoration-line": "unset" },
                     attrs: { type: "button" }
                   },
-                  [_vm._v(" Muat Lebih Banyak\n                    ")]
+                  [_vm._v(" Muat Lebih Banyak\n                        ")]
                 )
               ])
             ]),
@@ -79967,7 +80129,7 @@ var render = function() {
                         staticStyle: {
                           height: "100%",
                           width: "100%",
-                          "object-fit": "cover"
+                          "object-fit": "fill"
                         },
                         attrs: {
                           src: "/images/" + JSON.parse(product.images)[0],
@@ -80074,7 +80236,7 @@ var render = function() {
                         staticStyle: {
                           height: "100%",
                           width: "100%",
-                          "object-fit": "cover"
+                          "object-fit": "fill"
                         },
                         attrs: {
                           src: "/images/" + JSON.parse(product.images)[0],
@@ -80097,7 +80259,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                " +
+                            "\n                                    " +
                               _vm._s(product.name)
                           )
                         ]
@@ -80384,6 +80546,134 @@ var render = function() {
       )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/homestay/HomestayTerlaris.vue?vue&type=template&id=1158bf3a&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/homestay/HomestayTerlaris.vue?vue&type=template&id=1158bf3a& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-md-12" }, [
+    _c("br"),
+    _c("br"),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "card globalcard" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "card-body globalcardbody" },
+        [
+          _c(
+            "carousel",
+            {
+              attrs: {
+                "mouse-drag": true,
+                scrollPerPage: true,
+                spacePadding: 20,
+                speed: 800,
+                paginationEnabled: false,
+                perPageCustom: [
+                  [0, 1],
+                  [991.88, 6]
+                ],
+                navigationEnabled: true,
+                navigationNextLabel: "<i class='fa fa-angle-right fa-3x'></i>",
+                navigationPrevLabel: "<i class='fa fa-angle-left fa-3x'></i>"
+              }
+            },
+            _vm._l(_vm.products, function(product) {
+              return _c("slide", { key: product.id, staticClass: "px-1" }, [
+                _c("a", { attrs: { href: "/homestays/find/" + product.id } }, [
+                  _c("div", { staticClass: "card product " }, [
+                    _c("div", { staticClass: "imgwrapper" }, [
+                      _c("img", {
+                        staticStyle: {
+                          height: "100%",
+                          width: "100%",
+                          "object-fit": "fill"
+                        },
+                        attrs: {
+                          src: "/images/" + product.image,
+                          alt: "Card image cap"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c(
+                        "p",
+                        {
+                          staticClass: "card-title productname",
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            overflow: "hidden",
+                            "text-overflow": "ellipsis",
+                            "max-width": "20ex"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    " +
+                              _vm._s(product.name)
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("h6", { staticStyle: { color: "#ff5205" } }, [
+                        _vm._v("Rp " + _vm._s(_vm.formatPrice(product.price)))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text float-right" }, [
+                        _c("small", { staticClass: "text-muted" }, [
+                          _vm._v(_vm._s(product.merchant_name))
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            }),
+            1
+          )
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c(
+        "nav",
+        {
+          staticClass: "navbar navbar-expand-lg mproduct p-1",
+          staticStyle: { "background-color": "transparent", border: "none" }
+        },
+        [_c("h3", { staticClass: "m-auto" }, [_vm._v("Homestay Terlaris")])]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -81047,6 +81337,70 @@ var render = function() {
                           _vm._v(" "),
                           _c("label", { attrs: { for: "Pemanas" } }, [
                             _vm._v("Pemanas")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.workExperiences[index].checked[3],
+                                expression: "workExperiences[index].checked[3]"
+                              }
+                            ],
+                            attrs: {
+                              type: "checkbox",
+                              id: "Wifi",
+                              value: "Wifi"
+                            },
+                            domProps: {
+                              checked: Array.isArray(
+                                _vm.workExperiences[index].checked[3]
+                              )
+                                ? _vm._i(
+                                    _vm.workExperiences[index].checked[3],
+                                    "Wifi"
+                                  ) > -1
+                                : _vm.workExperiences[index].checked[3]
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = _vm.workExperiences[index].checked[3],
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = "Wifi",
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        _vm.workExperiences[index].checked,
+                                        3,
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        _vm.workExperiences[index].checked,
+                                        3,
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(
+                                    _vm.workExperiences[index].checked,
+                                    3,
+                                    $$c
+                                  )
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "Pemanas" } }, [
+                            _vm._v("Wifi")
                           ])
                         ])
                       ]),
@@ -90936,7 +91290,7 @@ var render = function() {
                                   staticStyle: {
                                     height: "100%",
                                     width: "100%",
-                                    "object-fit": "cover"
+                                    "object-fit": "fill"
                                   },
                                   attrs: {
                                     src:
@@ -106279,9 +106633,7 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -106416,7 +106768,7 @@ var validationGetters = {
     var vals = this.validations;
     return _objectSpread({}, buildFromKeys(this.nestedKeys, function (key) {
       return vals[key] && vals[key].$params || null;
-    }), {}, buildFromKeys(this.ruleKeys, function (key) {
+    }), buildFromKeys(this.ruleKeys, function (key) {
       return _this6.getRef(key).$params;
     }));
   }
@@ -106684,7 +107036,7 @@ var getComponent = function getComponent(Vue) {
             value: Object.defineProperties({}, _objectSpread({}, keyDefs))
           }
         } : {};
-        return Object.defineProperties({}, _objectSpread({}, keyDefs, {}, iterDefs, {
+        return Object.defineProperties({}, _objectSpread({}, keyDefs, iterDefs, {
           $model: {
             enumerable: true,
             get: function get() {
@@ -106706,14 +107058,14 @@ var getComponent = function getComponent(Vue) {
               }
             }
           }
-        }, getterDefs, {}, methodDefs));
+        }, getterDefs, methodDefs));
       },
       children: function children() {
         var _this10 = this;
 
-        return [].concat(_toConsumableArray(this.nestedKeys.map(function (key) {
+        return _toConsumableArray(this.nestedKeys.map(function (key) {
           return renderNested(_this10, key);
-        })), _toConsumableArray(this.ruleKeys.map(function (key) {
+        })).concat(_toConsumableArray(this.ruleKeys.map(function (key) {
           return renderRule(_this10, key);
         }))).filter(Boolean);
       }
@@ -106956,9 +107308,7 @@ exports.popParams = popParams;
 exports.withParams = withParams;
 exports._setTarget = exports.target = void 0;
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -106999,7 +107349,7 @@ function popParams() {
 
 function addParams(params) {
   if (_typeof(params) === 'object' && !Array.isArray(params)) {
-    exports.target = target = _objectSpread({}, target, {}, params);
+    exports.target = target = _objectSpread({}, target, params);
   } else {
     throw new Error('params must be an object');
   }
@@ -107289,7 +107639,7 @@ exports.default = void 0;
 
 var _common = __webpack_require__(/*! ./common */ "./node_modules/vuelidate/lib/validators/common.js");
 
-var emailRegex = /(^$|^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$)/;
+var emailRegex = /^(?:[A-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9]{2,}(?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
 
 var _default = (0, _common.regex)('email', emailRegex);
 
@@ -107306,8 +107656,6 @@ exports.default = _default;
 
 "use strict";
 
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -107486,9 +107834,7 @@ var helpers = _interopRequireWildcard(__webpack_require__(/*! ./common */ "./nod
 
 exports.helpers = helpers;
 
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -108395,7 +108741,9 @@ var NewOrder = __webpack_require__(/*! ./components/homestay/merchant/NewOrder *
 
 var ProdukTerlaris2 = __webpack_require__(/*! ./components/homes/ProdukTerlaris2 */ "./resources/js/components/homes/ProdukTerlaris2.vue")["default"];
 
-var PaketRating = __webpack_require__(/*! ./components/paket/Rating */ "./resources/js/components/paket/Rating.vue")["default"]; // const Test = require('./components/test/test');
+var PaketRating = __webpack_require__(/*! ./components/paket/Rating */ "./resources/js/components/paket/Rating.vue")["default"];
+
+var HomestayTerlaris = __webpack_require__(/*! ./components/homestay/HomestayTerlaris */ "./resources/js/components/homestay/HomestayTerlaris.vue")["default"]; // const Test = require('./components/test/test');
 
 
 Vue.component('star-rating', vue_star_rating__WEBPACK_IMPORTED_MODULE_4___default.a);
@@ -108461,7 +108809,8 @@ var app = new Vue({
     FormPesanHomestay: FormPesanHomestay,
     NewOrder: NewOrder,
     ProdukTerlaris2: ProdukTerlaris2,
-    PaketRating: PaketRating
+    PaketRating: PaketRating,
+    HomestayTerlaris: HomestayTerlaris
   },
   data: function data() {
     return {
@@ -110380,6 +110729,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselHomestay_vue_vue_type_template_id_690ed394_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CarouselHomestay_vue_vue_type_template_id_690ed394_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/homestay/HomestayTerlaris.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/homestay/HomestayTerlaris.vue ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _HomestayTerlaris_vue_vue_type_template_id_1158bf3a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HomestayTerlaris.vue?vue&type=template&id=1158bf3a& */ "./resources/js/components/homestay/HomestayTerlaris.vue?vue&type=template&id=1158bf3a&");
+/* harmony import */ var _HomestayTerlaris_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HomestayTerlaris.vue?vue&type=script&lang=js& */ "./resources/js/components/homestay/HomestayTerlaris.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _HomestayTerlaris_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _HomestayTerlaris_vue_vue_type_template_id_1158bf3a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _HomestayTerlaris_vue_vue_type_template_id_1158bf3a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/homestay/HomestayTerlaris.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/homestay/HomestayTerlaris.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/homestay/HomestayTerlaris.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HomestayTerlaris_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./HomestayTerlaris.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/homestay/HomestayTerlaris.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HomestayTerlaris_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/homestay/HomestayTerlaris.vue?vue&type=template&id=1158bf3a&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/homestay/HomestayTerlaris.vue?vue&type=template&id=1158bf3a& ***!
+  \**********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomestayTerlaris_vue_vue_type_template_id_1158bf3a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./HomestayTerlaris.vue?vue&type=template&id=1158bf3a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/homestay/HomestayTerlaris.vue?vue&type=template&id=1158bf3a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomestayTerlaris_vue_vue_type_template_id_1158bf3a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomestayTerlaris_vue_vue_type_template_id_1158bf3a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -112547,8 +112965,8 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\tobazone-v2\tobazone\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\tobazone-v2\tobazone\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Backup Data Kristopel\Kuliah ITdel\Semester 7\1144102 - Project Management\tobazone 2\tobazone\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Backup Data Kristopel\Kuliah ITdel\Semester 7\1144102 - Project Management\tobazone 2\tobazone\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

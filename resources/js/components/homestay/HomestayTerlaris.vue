@@ -4,36 +4,36 @@
         <div class="card globalcard">
             <div class="card-header">
                 <nav class="navbar navbar-expand-lg mproduct p-1" style="background-color: transparent; border:none">
-                    <h3 class="m-auto">Produk Terlaris</h3>
+                    <h3 class="m-auto">Homestay Terlaris</h3>
                 </nav>
             </div>
             <div class="card-body globalcardbody">
                 <carousel
-                        :mouse-drag="true"
-                        :scrollPerPage="true"
-                        :spacePadding="20"
-                        :speed="800"
-                        :paginationEnabled="false"
-                        :perPageCustom="[[0, 1], [991.88, 6]]"
-                        :navigationEnabled="true"
-                        navigationNextLabel="<i class='fa fa-angle-right fa-3x'></i>"
-                        navigationPrevLabel="<i class='fa fa-angle-left fa-3x'></i>"
+                    :mouse-drag="true"
+                    :scrollPerPage="true"
+                    :spacePadding="20"
+                    :speed="800"
+                    :paginationEnabled="false"
+                    :perPageCustom="[[0, 1], [991.88, 6]]"
+                    :navigationEnabled="true"
+                    navigationNextLabel="<i class='fa fa-angle-right fa-3x'></i>"
+                    navigationPrevLabel="<i class='fa fa-angle-left fa-3x'></i>"
                 >
-                    <slide class="px-2" v-for="product in products" :key="product.id">
-                        <a :href="'/products/' + product.id">
+                    <slide class="px-1" v-for="product in products" :key="product.id">
+                        <a :href="'/homestays/find/' + product.id">
                             <div class="card product ">
 
                                 <div class="imgwrapper">
-<!--                                    <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap"-->
-<!--                                    style='height: 100%; width: 100%; object-fit: cover'>-->
-                                    <img :src="'/images/' + JSON.parse(product.images)[0]"  style='height: 100%; width: 100%; object-fit: fill' alt="Card image cap">
+                                    <!--                                    <img :src="'/images/' + JSON.parse(product.images)[0]" alt="Card image cap"-->
+                                    <!--                                    style='height: 100%; width: 100%; object-fit: cover'>-->
+                                    <img :src="'/images/' + product.image"  style='height: 100%; width: 100%; object-fit: fill' alt="Card image cap">
                                 </div>
 
 
                                 <div class="card-body">
                                     <p class="card-title productname"
-                                    style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20ex;">
-                                    {{product.name}}</p>
+                                       style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20ex;">
+                                        {{product.name}}</p>
                                     <h6 style="color: #ff5205">Rp {{formatPrice (product.price)}}</h6>
                                     <p class="card-text float-right">
                                         <small class="text-muted">{{ product.merchant_name }}</small>
@@ -70,7 +70,7 @@
             },
             async getAllProducts() {
                 await window.axios
-                    .get("/api/product/get-product-terlaris")
+                    .get("/api/homestay/terlaris")
                     .then(res => {
                         this.products = res.data;
                     })

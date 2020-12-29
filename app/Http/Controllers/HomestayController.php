@@ -32,21 +32,51 @@ class HomestayController extends Controller
         return view('users.homestay.after_search_page')->with('homestays', $homestays);
     }
 
-    public function findAllCustomer()
+    public function findAllCustomer(Request $request)
     {
-        $homestays = Homestay::All();
-        $result = DB::table('homestays')
-            ->join('users', 'users.id', '=', 'homestays.merchant_id')
-            ->select('homestays.*', 'users.username')
-            ->get();
-        $data = [
-            'code' => 200,
-            'status' => 'OK',
-            'data' => [
-                $result
-            ]
-        ];
-        return view('users.homestay.index')->with('homestays', $result);
+        if ($request->exists('kabupaten')) {
+            $query = $request->query('kabupaten');
+            $result = DB::table('homestays')
+                ->join('users', 'users.id', '=', 'homestays.merchant_id')
+                ->select('homestays.*', 'users.username')
+                ->where('homestays.kabupaten', '=', $query)
+                ->get();
+            $data = [
+                'code' => 200,
+                'status' => 'OK',
+                'data' => [
+                    $result
+                ]
+            ];
+            $kabupaten = DB::select("SELECT kabupaten FROM homestays GROUP BY kabupaten");
+            return view(
+                'users.homestay.index',
+                [
+                    'homestays' => $result,
+                    'kabupaten' => $kabupaten
+                ]
+            );
+        } else {
+            $result = DB::table('homestays')
+                ->join('users', 'users.id', '=', 'homestays.merchant_id')
+                ->select('homestays.*', 'users.username')
+                ->get();
+            $data = [
+                'code' => 200,
+                'status' => 'OK',
+                'data' => [
+                    $result
+                ]
+            ];
+            $kabupaten = DB::select("SELECT kabupaten FROM homestays GROUP BY kabupaten");
+            return view(
+                'users.homestay.index',
+                [
+                    'homestays' => $result,
+                    'kabupaten' => $kabupaten
+                ]
+            );
+        }
     }
 
     public function morePage()
@@ -83,6 +113,33 @@ class HomestayController extends Controller
         $homestays = DB::select("SELECT * FROM homestays " . $where);
 
         return view('users.homestay.after_search_page')->with('homestays', $homestays);
+    }
+
+
+    public function searchInAllPage(Request $request)
+    {
+        $where = '';
+        if ($request->kecamatan) {
+            $where .= "WHERE LOWER(kecamatan) like LOWER('%" . $request->kecamatan . "%')";
+        }
+        if ($request->tamu) {
+            if (strlen($where) > 0) {
+                $where .= " AND (total_room <= " . $request->tamu . " OR room_available <= " . $request->tamu . ")";
+            } else {
+                $where .= " WHERE (total_room <= " . $request->tamu . " OR room_available <= " . $request->tamu . ")";
+            }
+        }
+        $homestays = DB::select("SELECT * FROM homestays join users on users.id = homestays.merchant_id " . $where);
+
+        return view('users.homestay.all_homestay_page')->with('homestays', $homestays);
+    }
+
+    public function getAllHomestay(){
+        $result = DB::table('homestays')
+            ->join('users', 'users.id', '=', 'homestays.merchant_id')
+            ->select('homestays.*', 'users.username')
+            ->get();
+        return view('users.homestay.all_homestay_page')->with('homestays', $result);
     }
 
     public function searchTest()
@@ -488,5 +545,34 @@ class HomestayController extends Controller
         $order = HomestayOrders::find($id);
         $order->delete();
         return redirect('/user/homestay/order/findAll');
+    }
+
+    public function findHomestayTerlaris(){
+        $query = DB::Select("SELECT COUNT(ho.id) AS ORD, h.id, h.merchant_id,
+h.name,
+h.price,
+h.total_room,
+h.room_available,
+h.description,
+h.address,
+h.image,
+h.status,
+h.kabupaten,
+h.kecamatan,
+h.desa FROM homestays AS h LEFT OUTER JOIN homestay_orders AS ho ON h.id = ho.id_homestay GROUP BY h.id,
+h.merchant_id,
+h.name,
+h.price,
+h.total_room,
+h.room_available,
+h.description,
+h.address,
+h.image,
+h.status,
+h.kabupaten,
+h.kecamatan,
+h.desa ORDER BY ORD DESC LIMIT 10" );
+
+        return response()->json($query);
     }
 }
