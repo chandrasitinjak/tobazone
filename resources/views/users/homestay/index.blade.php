@@ -155,8 +155,7 @@
 
     <div class="container">
         <div class="row justify-content-md-center mt-5">
-            <div class="col-md-1"></div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="form-group">
                     <select class="form-control" onchange="search_kabupaten()" id="kabupaten">
                         <option selected="selected">Cari berdasarkan Kabupaten</option>
@@ -168,65 +167,14 @@
             </div>
             <div class="col-md-8"></div>
         </div>
-        <div class="row justify-content-md-center">
-            <div class=" col-md-1">
-
-            </div>
-            <div class="col-md-10">
-                <br>
-                <a href="{{ url('/user/homestayall')}}"><button class="btn btn-primary"> Muat Lebih Banyak </button></a>
-                @foreach ($homestays as $product)
-                <a href="{{ url('/homestays/find', $product->id)}}">
-                    <div class="container card products mt-5" style="background-color: #F5F5F5">
-
-                        <h3 class="mt-3">{{$product->name }}</h3>
-                        <hr>
-                        <div class="row">
-
-                            <div class="col-lg-4">
-                                <div class="col-12 mb-3">
-                                    <img class="img-thumbnail bayangan" src="{{ '../images/'. $product->image}}" width="1000">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 pt-5 pl-3 mb-2 img-thumbnail bayangan" style="background-color:#F5F5F5;">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <h4 class="product-price" style="color: black">{{$product->name }}</h4>
-                                        <h6 style="color: black; margin-top: -10px"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
-                                            {{$product->address }}</h6>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <form class="row pl-3 pr-3">
-                                        <div class="col-lg-12">
-                                            <h4 class="product-price" style="color: darkorange">Rp {{
-                                                number_format($product->price) }} </h4>
-                                            <p style="color: darkorange; margin-top: -10px">{{
-                                                $product->username }}</p>
-
-                                        </div>
-
-                                    </form>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                    @endforeach
-                </a>
-            </div>
-            <div class=" col-md-1">
-
-            </div>
+        <div>
+            <homestay-terlaris/>
         </div>
 
         <div class="row justify-content-center">
             <div class="col-auto">
                 <div class="card" style="background-color: #F5F5F5">
-                    <a href="/homestays/search" class="btn btn-primary" style="background-color:#000000; color:#ffffff;">Muat Lebih Banyak</a>
+                    <a href="{{ url('/user/homestayall')}}" class="btn btn-primary" style="background-color:#000000; color:#ffffff;">Muat Lebih Banyak</a>
                 </div>
             </div>
         </div>
@@ -290,3 +238,9 @@
         text-align: center;
     }
 </style>
+<script>
+    import HomestayTerlaris from "../../../js/components/homestay/HomestayTerlaris";
+    export default {
+        components: {HomestayTerlaris}
+    }
+</script>
