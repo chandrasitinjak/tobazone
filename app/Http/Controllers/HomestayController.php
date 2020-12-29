@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\HomestayOrders;
-
+use Illuminate\Http\Response;
 
 class HomestayController extends Controller
 {
@@ -88,8 +88,8 @@ class HomestayController extends Controller
     {
         $user = Auth::user();
         if (!$user) {
-            // Redirect to login page if user is not logged in.
-            return redirect('/listlogin');
+            // Redirect to 401 page if user is not logged in.
+            return abort(Response::HTTP_UNAUTHORIZED, 'Not authorized user');
         }
 
         $homestayOrders = HomestayOrders::where('id_customer', $user->id)->get();
@@ -106,8 +106,8 @@ class HomestayController extends Controller
     {
         $user = Auth::user();
         if (!$user) {
-            // Redirect to login page if user is not logged in.
-            return redirect('/listlogin');
+            // Redirect to 401 page if user is not logged in.
+            return abort(Response::HTTP_UNAUTHORIZED, 'Not authorized user');
         }
 
         $orderDetail = HomestayOrders::where('id', $idOrder)
@@ -309,8 +309,17 @@ class HomestayController extends Controller
      */
     public function updateHomestay($id)
     {
+        if (!Auth::user()) {
+            return abort(Response::HTTP_UNAUTHORIZED, 'Not authorized user');
+        }
+
+        $merchant = $this->getAuthenticatedMerchant();
+        if ($merchant === null) {
+            return abort(Response::HTTP_UNAUTHORIZED, 'Not authorized user');
+        }
+
         $result = [
-            "merchant" => $this->getAuthenticatedMerchant(),
+            "merchant" => $merchant,
             "homestay" => Homestay::find($id),
             "rooms" => HomestayRooms::where('id_homestay', $id)->get(),
         ];

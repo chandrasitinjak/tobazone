@@ -1,0 +1,417 @@
+<template>
+    <div class="card">
+        <div class="card-body bg-light">
+            <div class="row" v-show="isShowUbahRoomForm">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3" style="padding-right: 0%;" v-if="isShowUbahRoomForm && roomDetail.image === ''">
+                                    <picture-input
+                                        ref="roomPicture"
+                                        id="roomPicture"
+                                        width=300
+                                        height=200
+                                        accept="image/jpeg,image/png"
+                                        size="10"
+                                        radius=2
+                                        buttonClass="btn btn-primary"
+                                        :removable="true"
+                                        removeButtonClass="btn btn-danger"
+                                        :zIndex="1"
+                                        :customStrings="{
+                                            upload: '<h1>Upload room picture</h1>',
+                                            drag: 'Piliah gambar (.jpeg atau .png), max. 10 MB',
+                                            change: 'Ubah',
+                                            remove: 'Hapus'
+                                        }"
+                                        :alertOnError=false
+                                        @change="onChange"></picture-input>
+                                </div>
+                                <div class="col-md-3" style="padding-right: 0%;" v-if="isShowUbahRoomForm && roomDetail.image !== ''">
+                                    <picture-input
+                                        ref="roomPicture"
+                                        id="roomPicture"
+                                        width=300
+                                        height=200
+                                        accept="image/jpeg,image/png"
+                                        size="10"
+                                        radius=2
+                                        buttonClass="btn btn-primary"
+                                        :removable="true"
+                                        removeButtonClass="btn btn-danger"
+                                        :zIndex="1"
+                                        :prefill="'/images/homestay/room/' + roomDetail.image"
+                                        :customStrings="{
+                                            upload: '<h1>Upload room picture</h1>',
+                                            drag: 'Piliah gambar (.jpeg atau .png), max. 10 MB',
+                                            change: 'Ubah',
+                                            remove: 'Hapus'
+                                        }"
+                                        :alertOnError=false
+                                        @change="onChange"></picture-input>
+                                </div>
+                                <div class="col-md-9">
+                                    <form @keypress.enter="$event.preventDefault()">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="roomName">Nama</label>
+                                                <input type="text" class="form-control" style="height: 35px; font-size: 14px;" id="roomName" v-model="roomName" placeholder="Nama kamar">
+                                            </div>
+                                            <div class="form-group col-md-6" >
+                                                <label for="roomCategory">Kategori</label>
+                                                <select id="roomCategory" class="form-control" style="height: 35px; font-size: 14px;" v-model="roomCategory">
+                                                    <option disabled value="">Pilih salah satu</option>
+                                                    <option v-for="roomCategoryOption in roomCategoryOptionList" :key="roomCategoryOption">{{ roomCategoryOption }}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="roomFacilities">Fasilitas</label>
+                                            <vue-tags-input
+                                                style="max-width: none; width: 100%; font-size: 16px;"
+                                                id="roomFacilities"
+                                                v-model="roomFacility"
+                                                :tags="roomFacilities"
+                                                placeholder="Fasilitas kamar"
+                                                @tags-changed="newRoomFacilities => roomFacilities = newRoomFacilities"></vue-tags-input>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="roomPrice">Harga</label>
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="height: 35px; font-size: 14px;">Rp</div>
+                                                    </div>
+                                                    <input type="text" class="form-control" style="height: 35px; font-size: 14px;" id="roomPrice" v-model="roomPrice" @keypress="keypressNumber($event)" placeholder="Harga kamar">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="roomTotalBed">Total Bed</label>
+                                                <div class="form-row align-items-center">
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" style="height: 35px; font-size: 14px;" id="roomTotalBed" v-model="roomTotalBed" @keypress="keypressNumber($event)" placeholder="Total bed">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="roomExtraBed" v-model="roomExtraBed">
+                                                            <label class="form-check-label" for="roomExtraBed">Extra Bed</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="roomDesc">Deskripsi</label>
+                                            <textarea-autosize class="form-control" style="font-size: 14px;" id="roomDesc" v-model="roomDescription" :min-height="65" placeholder="Deskripsi kamar" />
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="float-left">
+                                                <button class="btn btn-primary" style="padding: 4px 0px 4px 0px; width: 100px;" type="button" @click="updateRoomDetail">Ubah</button>
+                                            </div>
+                                            <div class="float-right">
+                                                <button class="btn btn-danger" style="padding: 4px 0px 4px 0px; width: 100px;" type="button" @click="showRoomDetail()">Batal</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" v-show="!isShowUbahRoomForm">
+                <div v-if="roomDetail.image === ''" class="col-md-3"  style="padding-right: 0%;">
+                    <img :src="'/images/assets/no-image.jpg'" class="card-img" style="margin-bottom: 8px;" alt="">
+                </div>
+                <div v-else class="col-md-3" style="padding-right: 0%;">
+                    <img :src="'/images/homestay/room/' + roomDetail.image" class="card-img" style="margin-bottom: 8px;" alt="">
+                </div>
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col text-left">
+                                    <p class="h6 text-dark font-weight-bold">{{ roomDetail.name }}</p>
+                                </div>
+                                <div class="col text-right">
+                                    <p class="h5"><span class="badge badge-primary">{{ roomDetail.kategori }}</span></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-left">
+                                    <div class="text-dark" v-if="roomDetail.total_extra_bed">
+                                        <i class="fa fa-bed" style="margin-right: 8px;" aria-hidden="true"></i> {{ roomDetail.total_bed }} Bed With Extra Bed
+                                    </div>
+                                    <div class="text-dark" v-else>
+                                        <i class="fa fa-bed" style="margin-right: 8px;" aria-hidden="true"></i> {{ roomDetail.total_bed }} Bed With No Extra Bed
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col col-md-8 text-left">
+                                    <div
+                                        class="badge badge-pill badge-success"
+                                        style="margin-right: 8px; margin-bottom: 8px; padding: 8px 8px; font-size: 12px;"
+                                        v-for="roomFacility in getFacilityList(roomDetail.facilities)"
+                                        :key="roomFacility">{{ roomFacility.trim() }}</div>
+                                </div>
+                                <div class="col col-md-4 text-right">
+                                    <p class="h5 text-warning font-weight-bold" style="margin-bottom: 0px;">Rp {{ formatPrice(roomDetail.price) }}</p>
+                                    <small class="font-weight-bold text-secondary">/ malam</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="text-dark">
+                                        <i class="fa fa-info-circle" style="margin-right: 8px;" aria-hidden="true"></i>{{ roomDetail.description }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="float-left">
+                                        <div class="btn-group-sm" role="group" aria-label="Ubah Room Button">
+                                            <button type="button" class="btn btn-outline-primary" @click="showUbahRoomForm()">Ubah</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="float-right">
+                                        <label for="roomStatus" class="text-secondary align-middle" style="margin-right: 8px;" >Status</label>
+                                        <toggle-button
+                                        id="roomStatus"
+                                        :value="getRoomAvailability(roomDetail.status)"
+                                        :labels="{checked: 'Available', unchecked: 'Booked'}"
+                                        :color="{unchecked: 'red'}"
+                                        :height=18
+                                        :width=74
+                                        @change="changeRoomStatus" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import { ToggleButton } from 'vue-js-toggle-button';
+import TextareaAutozie from 'vue-textarea-autosize';
+import VueTagsInput from '@johmun/vue-tags-input';
+import PictureInput from 'vue-picture-input';
+
+export default {
+    data() {
+        return {
+            roomDetail: this.room,
+
+            roomCategoryOptionList: ['Deluxe', 'Standard'],
+            roomStatusList: ["Available", "Booked"],
+
+            isShowUbahRoomForm: false,
+
+            /**
+             * List of v-model
+             */
+            roomName: '',
+            roomCategory: '',
+            roomFacility: '',
+            roomFacilities: [],
+            roomPrice: 0,
+            roomTotalBed: 0,
+            roomExtraBed: false,
+            roomDescription: ''
+        }
+    },
+    props: ['room'],
+    methods: {
+        formatPrice(value) {
+            let val = (value/1).toFixed(2).replace('.', ',')
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+        },
+        keypressNumber(event) {
+            /**
+             * Block non-numeric character in input field.
+             * event {keypress event}
+             */
+            event = (event) ? event : window.event;
+            var charCode = (event.which) ? event.which : event.keyCode;
+            if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+                return event.preventDefault();
+            }
+
+            return true;
+        },
+        onChange(image) {
+            //
+        },
+        showUbahRoomForm() {
+            /**
+             * Change status view to swap room detail to ubah-room form.
+             */
+            this.isShowUbahRoomForm = true;
+
+            if (this.roomDetail !== null) {
+                this.roomName = this.roomDetail.name;
+                this.roomCategory = this.roomDetail.kategori;
+
+                this.roomFacilities = [];
+                let facilities = this.getFacilityList(this.roomDetail.facilities);
+                for (let i = 0; i < facilities.length; i++) {
+                    this.roomFacilities.push({"text": facilities[i]})
+                }
+
+                this.roomPrice = this.roomDetail.price;
+                this.roomTotalBed = this.roomDetail.total_bed;
+                this.roomExtraBed = this.roomDetail.total_extra_bed;
+                this.roomDescription = this.roomDetail.description;
+            }
+        },
+        showRoomDetail() {
+            /**
+             * Change status view to swap ubah-room form to room detail.
+             */
+            this.isShowUbahRoomForm = false;
+
+            this.roomName = '';
+            this.roomCategory = '';
+            this.roomFacility = '';
+            this.roomFacilities = [];
+            this.roomPrice = 0;
+            this.roomTotalBed = 0;
+            this.roomExtraBed = false;
+            this.roomDescription = '';
+        },
+        getFacilityList(roomFacilities) {
+            /**
+             * Separate room facilities by comma.
+             * roomFacilities {[]string}
+             */
+            roomFacilities = roomFacilities + '';
+            return roomFacilities.split(',');
+        },
+        getRoomAvailability(roomStatus) {
+            /**
+             * Get room availability status.
+             * roomStatus {string}
+             */
+            if (roomStatus.toLowerCase().trim() === 'available') {
+                return true;
+            }
+
+            return false;
+        },
+        async changeRoomStatus(event) {
+            /**
+             * Update room status.
+             * event {Object}
+             */
+            let roomStatus = event.value;
+            let loader = this.$loading.show()
+            await window.axios
+                .put(`/homestay/${this.roomDetail.id_homestay}/room/${this.roomDetail.id}/status`, { roomStatus })
+                .then((res) => {
+                    this.$swal.fire(
+                        'Status kamar berhasil diubah!',
+                        '',
+                        'success'
+                    );
+                    this.roomDetail = res.data;
+                })
+                .catch((err) => {
+                    console.log(err);
+
+                    if (err.response) {
+                        if (err.response.status === 401) {
+                            this.$swal.fire({
+                                icon: 'warning',
+                                title: 'Unauthorized',
+                                text: 'Anda tidak diizinkan melakukan aktivitas ini!'
+                            });
+                        } else {
+                            this.$swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Terjadi kesalahan!'
+                            });
+                        }
+                    }
+                })
+                .finally(() => {
+                    loader.hide();
+                });
+        },
+        async updateRoomDetail() {
+            /**
+             * Update room detail.
+             */
+            let roomDetail = this.roomDetail;
+            roomDetail.name = this.roomName;
+            roomDetail.kategori = this.roomCategory;
+            roomDetail.price = this.roomPrice;
+            roomDetail.description = this.roomDescription;
+            roomDetail.total_bed = this.roomTotalBed;
+            roomDetail.total_extra_bed = this.roomExtraBed;
+
+            let facilities = [];
+            for (let i = 0; i < this.roomFacilities.length; i++) {
+                let facility = this.roomFacilities[i].text
+                facilities.push(facility.trim());
+            }
+            roomDetail.facilities = facilities;
+
+            roomDetail.image = null;
+            if (this.$refs.roomPicture.image) {
+                roomDetail.image = this.$refs.roomPicture.image;
+            }
+
+            let loader = this.$loading.show()
+            await window.axios
+                .put(`/homestay/${this.roomDetail.id_homestay}/room/${this.roomDetail.id}`, { roomDetail })
+                .then((res) => {
+                    this.$swal.fire(
+                        'Kamar berhasil diubah!',
+                        '',
+                        'success'
+                    );
+                    this.roomDetail = res.data;
+                    this.showRoomDetail();
+                })
+                .catch((err) => {
+                    console.log(err);
+
+                    if (err.response) {
+                        if (err.response.status === 401) {
+                            this.$swal.fire({
+                                icon: 'warning',
+                                title: 'Unauthorized',
+                                text: 'Anda tidak diizinkan melakukan aktivitas ini!'
+                            });
+                        } else {
+                            this.$swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Terjadi kesalahan!'
+                            });
+                        }
+                    }
+                })
+                .finally(() => {
+                    loader.hide();
+                })
+        }
+    },
+    components: {
+        ToggleButton,
+        TextareaAutozie,
+        VueTagsInput,
+        PictureInput
+    }
+}
+</script>
