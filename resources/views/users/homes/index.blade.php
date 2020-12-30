@@ -152,17 +152,17 @@
         </div>
     </div>
 
-    {{-- <div class="row" id="product-terlaris">--}}
-    {{-- <produk-terlaris/>--}}
-    {{-- </div>--}}
+    <div class="row" id="product-terlaris">
+        <produk-terlaris />
+    </div>
 
-    <div id="new-product">
+    {{--<div id="new-product">
         @if(Auth::check())
         <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Terbaru'" />
-        @else
-        <new-products :title="'Produk Terbaru'" />
-        @endif
-    </div>
+    @else
+    <new-products :title="'Produk Terbaru'" />
+    @endif
+    </div>--}}
 
     <div class="container-fluid mt-7" id="komunitas-paket-wisata">
         <komunitas-paket-wisata />
