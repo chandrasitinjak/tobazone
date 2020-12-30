@@ -78,104 +78,104 @@
                         <div class="col-md-12" style="padding-left:0.5rem">
                             <a href="/search">
                                 <img class="img-besidecar" src="{{ url("/images/carousels/carouselsamping1.png" )}}" alt="Card image cap test" style="height: 100%; width : 100%">
-                            </a>
-                        </div>
-                    </div>
+                </a>
+            </div>
+        </div>
 
-                    <div class="row pt-2 pr-0">
-                        <div class="col-md-12" style="padding-left:0.5rem">
-                            <a href="/product/ulos">
-                                <img class="img-besidecar" src="{{ url("/images/carousels/carouselsamping2.png" )}}" alt="Card image cap test" style="height:100%; width : 100%; background-color:
+        <div class="row pt-2 pr-0">
+            <div class="col-md-12" style="padding-left:0.5rem">
+                <a href="/product/ulos">
+                    <img class="img-besidecar" src="{{ url("/images/carousels/carouselsamping2.png" )}}" alt="Card image cap test" style="height:100%; width : 100%; background-color:
                                     black!important">
-                            </a>
-                        </div>
-                    </div>
-                </div>--}}
+                </a>
             </div>
+        </div>
+    </div>--}}
+    </div>
 
-            <div class="row justify-content-center mb-5 mt-5">
-                <div class="col-lg-auto col-auto mt-2">
-                    <a href="{{ url('/product/pakaian') }}">
-                        <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
-                            <img class="card-img-top m-auto" src="{{ asset('images/kategori-produk/fashion.png') }}" alt="Card image cap">
-                            <p class="card-text text-center">Fashion</p>
-                        </div>
-                    </a>
+    <div class="row justify-content-center mb-5 mt-5">
+        <div class="col-lg-auto col-auto mt-2">
+            <a href="{{ url('/product/pakaian') }}">
+                <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
+                    <img class="card-img-top m-auto" src="{{ asset('images/kategori-produk/fashion.png') }}" alt="Card image cap">
+                    <p class="card-text text-center">Fashion</p>
                 </div>
-                <div class="col-lg-auto ml-1 col-auto mt-2">
-                    <a href="{{ url('/product/ulos') }}">
-                        <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
-                            <img class="card-img-top m-auto" src="{{ asset('images/kategori-produk/tenun.png') }}" style="width:60px; height:90px" alt="Card image cap">
-                            <p class="card-text text-center">Tenun</p>
-                        </div>
-                    </a>
+            </a>
+        </div>
+        <div class="col-lg-auto ml-1 col-auto mt-2">
+            <a href="{{ url('/product/ulos') }}">
+                <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
+                    <img class="card-img-top m-auto" src="{{ asset('images/kategori-produk/tenun.png') }}" style="width:60px; height:90px" alt="Card image cap">
+                    <p class="card-text text-center">Tenun</p>
                 </div>
-                <div class="col-lg-auto ml-1 col-auto mt-2">
-                    <a href="{{ url('/product/obat') }}">
-                        <div class="card shadow rounded-5 " style="width:6rem; height:8.5rem">
-                            <img class="card-img-top m-auto pt-1" src="{{ asset('images/kategori-produk/kesehatan.png') }}" style="width:60px; height:75px" alt="Card image cap">
-                            <p class="card-text text-center mb-2" style="line-height: 100%">Kesehatan & Kecantikan</p>
-                        </div>
-                    </a>
+            </a>
+        </div>
+        <div class="col-lg-auto ml-1 col-auto mt-2">
+            <a href="{{ url('/product/obat') }}">
+                <div class="card shadow rounded-5 " style="width:6rem; height:8.5rem">
+                    <img class="card-img-top m-auto pt-1" src="{{ asset('images/kategori-produk/kesehatan.png') }}" style="width:60px; height:75px" alt="Card image cap">
+                    <p class="card-text text-center mb-2" style="line-height: 100%">Kesehatan & Kecantikan</p>
                 </div>
-                <div class="col-lg-auto ml-1 col-auto mt-2">
-                    <a href="{{ url('/product/makanan') }}">
-                        <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
-                            <img class="card-img-top mt-4 mb-3 ml-2" src="{{ asset('images/kategori-produk/kuliner.png') }}" style="width:75px; height:75px" alt="Card image cap">
-                            <p class="card-text text-center">Kuliner</p>
-                        </div>
-                    </a>
+            </a>
+        </div>
+        <div class="col-lg-auto ml-1 col-auto mt-2">
+            <a href="{{ url('/product/makanan') }}">
+                <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
+                    <img class="card-img-top mt-4 mb-3 ml-2" src="{{ asset('images/kategori-produk/kuliner.png') }}" style="width:75px; height:75px" alt="Card image cap">
+                    <p class="card-text text-center">Kuliner</p>
                 </div>
-                <div class="col-lg-auto ml-1 col-auto mt-2">
-                    <a href="{{ url('/product/aksesoris') }}">
-                        <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
-                            <img class="card-img-top mt-4 mb-2 ml-1" src="{{ asset('images/kategori-produk/aksesoris.png') }}" style="width:80px; height:75px" alt="Card image cap">
-                            <p class="card-text text-center">Aksesoris</p>
-                        </div>
-                    </a>
+            </a>
+        </div>
+        <div class="col-lg-auto ml-1 col-auto mt-2">
+            <a href="{{ url('/product/aksesoris') }}">
+                <div class="card shadow rounded-5" style="width:6rem; height:8.5rem">
+                    <img class="card-img-top mt-4 mb-2 ml-1" src="{{ asset('images/kategori-produk/aksesoris.png') }}" style="width:80px; height:75px" alt="Card image cap">
+                    <p class="card-text text-center">Aksesoris</p>
                 </div>
-                <div class="col-lg-auto ml-1 col-auto mt-2">
-                    <a href="{{ url('/user/homestays') }}">
-                        <div class="card shadow rounded-5 " style="width:6rem; height:8.5rem">
-                            <img class="card-img-top mt-4 ml-3 mb-2" src="{{ asset('images/kategori-produk/penginapan.png') }}" style="width:65px; height:70px" alt="Card image cap">
-                            <p class="card-text text-center">Penginapan</p>
-                        </div>
-                    </a>
+            </a>
+        </div>
+        <div class="col-lg-auto ml-1 col-auto mt-2">
+            <a href="{{ url('/user/homestays') }}">
+                <div class="card shadow rounded-5 " style="width:6rem; height:8.5rem">
+                    <img class="card-img-top mt-4 ml-3 mb-2" src="{{ asset('images/kategori-produk/penginapan.png') }}" style="width:65px; height:70px" alt="Card image cap">
+                    <p class="card-text text-center">Penginapan</p>
                 </div>
-                <div class="col-lg-auto ml-1 col-auto mt-2">
-                    <a href="{{ route('paket') }}">
-                        <div class="card shadow rounded-5 " style="width:6rem; height:8.5rem">
-                            <img class="card-img-top mt-3 ml-1 mb-1" src="{{ asset('images/kategori-produk/paket_wisata.jpg') }}" style="width:85px; height:85px" alt="Card image cap">
-                            <p class="card-text text-center">Paket Wisata</p>
-                        </div>
-                    </a>
+            </a>
+        </div>
+        <div class="col-lg-auto ml-1 col-auto mt-2">
+            <a href="{{ route('paket') }}">
+                <div class="card shadow rounded-5 " style="width:6rem; height:8.5rem">
+                    <img class="card-img-top mt-3 ml-1 mb-1" src="{{ asset('images/kategori-produk/paket_wisata.jpg') }}" style="width:85px; height:85px" alt="Card image cap">
+                    <p class="card-text text-center">Paket Wisata</p>
                 </div>
-            </div>
+            </a>
+        </div>
+    </div>
 
-            {{-- <div class="row" id="product-terlaris">--}}
-            {{-- <produk-terlaris/>--}}
-            {{-- </div>--}}
+    {{-- <div class="row" id="product-terlaris">--}}
+    {{-- <produk-terlaris/>--}}
+    {{-- </div>--}}
 
-            <div id="new-product">
-                @if(Auth::check())
-                <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Terbaru'" />
-                @else
-                <new-products :title="'Produk Terbaru'" />
-                @endif
-            </div>
+    <div id="new-product">
+        @if(Auth::check())
+        <new-products :user-id="{{Auth::user()->id}}" :title="'Produk Terbaru'" />
+        @else
+        <new-products :title="'Produk Terbaru'" />
+        @endif
+    </div>
 
-            <div class="container-fluid mt-5" id="informasi-pariwisata">
-                <informasi-dicari />
-            </div>
+    <div class="container-fluid mt-7" id="komunitas-paket-wisata">
+        <komunitas-paket-wisata />
+    </div>
+    <div class="container-fluid mt-5" id="informasi-pariwisata">
+        <informasi-dicari />
+    </div>
 
-            <div class="container-fluid mt-7" id="komunitas-paket-wisata">
-                <komunitas-paket-wisata />
-            </div>
-            <!-- <div id="banner">
+    <!-- <div id="banner">
             <banner/>
         </div> -->
-        </div>
-        @include('users.layouts.footer')
+    </div>
+    @include('users.layouts.footer')
     </div>
     @include('users.layouts.script')
     <script>

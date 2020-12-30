@@ -164,9 +164,6 @@ const app = new Vue({
         deleteRow() {
             this.rows.pop();
         },
-
-
     },
 
 });
-
