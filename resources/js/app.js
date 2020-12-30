@@ -12,9 +12,9 @@ import 'vue-loading-overlay/dist/vue-loading.css';
 
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-import StarRating from 'vue-star-rating'
+import StarRating from 'vue-star-rating';
 
-import Vuelidate from 'vuelidate'
+import Vuelidate from 'vuelidate';
 Vue.use(Loading, {
     color: '#073763'
 });

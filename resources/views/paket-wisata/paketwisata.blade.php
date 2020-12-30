@@ -63,7 +63,7 @@
                 <div class="single_travel text-center">
                     <div class="icon">
                         <!-- <img src="images/tour.png" alt=""> -->
-                        <a href=""><img src="{{ asset("/images/tour.png" )}}" alt="..."
+                        <a href="{{route('paket.list')}}"><img src="{{ asset("/images/tour.png" )}}" alt="..."
                             ></a>
                     </div>
                     <h3>Paket Wisata</h3>
@@ -232,7 +232,7 @@
         @foreach($kabupaten as $row)
             @if($row->nama_kabupaten=='Toba')
                 <div class="col-3 mt-1 mb-1">
-                    <a href="{{route('paket.show',$row->id_kabupaten)}}">
+                    <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
                         <img src="{{asset('/images/filter-paket/toba.png')}}" alt="Foto Danau Toba">
                         <h6>Toba</h6>
 
@@ -240,7 +240,7 @@
                 </div>
             @elseif($row->nama_kabupaten == 'Samosir')
                 <div class="col-3 mt-1 mb-1">
-                    <a href="{{route('paket.show',$row->id_kabupaten)}}">
+                    <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
                         <img src="{{asset('/images/filter-paket/samosir.png')}}" alt="Foto Danau Toba">
                         <h6>Tapanuli Utara</h6>
 
@@ -248,7 +248,7 @@
                 </div>
             @elseif($row->nama_kabupaten == 'Tapanuli Utara')
                 <div class="col-3 mt-1 mb-1">
-                    <a href="{{route('paket.show',$row->id_kabupaten)}}">
+                    <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
                         <img src="{{asset('/images/filter-paket/taput.png')}}" alt="Foto Danau Toba">
                         <h6>Karo</h6>
 
@@ -256,7 +256,7 @@
                 </div>
             @elseif($row->nama_kabupaten == 'Karo')
                 <div class="col-3 mt-1 mb-1">
-                    <a href="{{route('paket.show',$row->id_kabupaten)}}">
+                    <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
                         <img src="{{asset('/images/filter-paket/karo.png')}}" alt="Foto Danau Toba">
                         <h6>Samosir</h6>
 
@@ -264,7 +264,7 @@
                 </div>
             @elseif($row->nama_kabupaten == 'Simalungun')
                 <div class="col-3 mt-1 mb-1">
-                    <a href="{{route('paket.show',$row->id_kabupaten)}}">
+                    <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
                         <img src="{{asset('/images/filter-paket/simalungun.png')}}" alt="Foto Danau Toba">
 
                         <h6>Simalungun</h6>
@@ -273,7 +273,7 @@
                 </div>
             @elseif($row->nama_kabupaten == 'Humbang Hasundutan')
                 <div class="col-3 mt-1 mb-1">
-                    <a href="{{route('paket.show',$row->id_kabupaten)}}">
+                    <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
                         <img src="{{asset('/images/filter-paket/humbahas.png')}}" alt="Foto Danau Toba">
                         <h6>Humbang Hasundutan</h6>
 
@@ -281,7 +281,7 @@
                 </div>
             @elseif($row->nama_kabupaten == 'Dairi')
                 <div class="col-3 mt-1 mb-1">
-                    <a href="{{route('paket.show',$row->id_kabupaten)}}">
+                    <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
                         <img src="{{asset('/images/filter-paket/dairi.png')}}" alt="Foto Danau Toba">
                         <h6>Dairi</h6>
 
