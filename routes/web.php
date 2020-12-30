@@ -454,6 +454,8 @@ Route::get('/paket-wisata/more','PaketWisataController@more_paket')->name('paket
 Route::get('/paket-wisata/list','PaketWisataController@list_paket')->name('paket.list');
 Route::post('/paket-wisata/list','PaketWisataController@indexFilter')->name('paket.filter');
 Route::get('/paket-wisata/{id_kabupaten}','PaketWisataController@showC')->name('paket.show');
+Route::get('/paket-wisata/kabupaten/{id_kabupaten}','PaketWisataCustomerController@indexFilterKabupaten')->name('paket.filter.kabupaten');
+
 
 Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiemail')->name('konfirmasiemail');
 
