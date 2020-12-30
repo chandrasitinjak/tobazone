@@ -12,8 +12,7 @@
       :navigationEnabled="true"
       :navigationNextLabel="kanan"
       :navigationPrevLabel="kiri"
-
-
+      class="df"
     >
       <slide class="px-0" v-for="carousel in carousels" :key="carousel.id">
         <a :href="carousel.link">
@@ -88,8 +87,7 @@ export default {
       window.axios.get("/get-carousels").then(res => {
         this.carousels = res.data;
       });
-    },
-
+    }
   },
   mounted() {
     this.getCarousels();
