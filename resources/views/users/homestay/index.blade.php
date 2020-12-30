@@ -11,15 +11,11 @@
         <div class="col-md-10">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{ '../homestay_image/carousel1.jpg'}}" alt="First slide">
+                    @foreach($carousel as $index => $carousel)
+                    <div class="carousel-item {{($index==0)?'active':null}}">
+                        <img class="d-block w-100" src="{{ '../images/'. $carousel->image}}" alt="First slide">
                     </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ '../homestay_image/carousel2.jpg'}}" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ '../homestay_image/carousel3.jpg'}}" alt="Third slide">
-                    </div>
+                    @endforeach
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -41,6 +41,7 @@ class HomestayController extends Controller
                 ->select('homestays.*', 'users.username')
                 ->where('homestays.kabupaten', '=', $query)
                 ->get();
+            $carousel = Homestay::orderBy('created_at','desc')->take(3)->get();
             $data = [
                 'code' => 200,
                 'status' => 'OK',
@@ -53,7 +54,8 @@ class HomestayController extends Controller
                 'users.homestay.index',
                 [
                     'homestays' => $result,
-                    'kabupaten' => $kabupaten
+                    'kabupaten' => $kabupaten,
+                    'carousel' => $carousel
                 ]
             );
         } else {
@@ -68,12 +70,14 @@ class HomestayController extends Controller
                     $result
                 ]
             ];
+            $carousel = Homestay::orderBy('created_at','desc')->take(3)->get();
             $kabupaten = DB::select("SELECT kabupaten FROM homestays GROUP BY kabupaten");
             return view(
                 'users.homestay.index',
                 [
                     'homestays' => $result,
-                    'kabupaten' => $kabupaten
+                    'kabupaten' => $kabupaten,
+                    'carousel' => $carousel
                 ]
             );
         }
