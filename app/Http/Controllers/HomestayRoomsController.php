@@ -69,7 +69,8 @@ class HomestayRoomsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $homestayId
+     * @param  int  $roomId
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $homestayId, $roomId)
@@ -85,55 +86,47 @@ class HomestayRoomsController extends Controller
 
         $roomImageBasePath = public_path('/images/homestay/room/');
 
-        // Store updated image to room image folder.
+        // Store updated image to room image folder. Attribute image contains
+        // string of base64 encoded image.
         $updatedImage = '';
-        if ($request->roomDetail['image'] !== null) {
-            $encImage = $request->roomDetail['image'];
+        if ($request->roomToUpdate['image'] !== null) {
+            $imageExt = explode('/', mime_content_type($request->roomToUpdate['image']))[1];
+            $imageEnc = preg_replace('#^data:image/\w+;base64,#i', '', $request->roomToUpdate['image']);
 
-            $imageExt = explode('/', mime_content_type($request->roomDetail['image']))[1];
-            if ($imageExt === 'jpeg') {
-                $encImage = str_replace('data:image/jpeg;base64,', '', $encImage);
-                $encImage = str_replace(' ', '+', $encImage);
-            }
-            if ($imageExt === 'png') {
-                $encImage = str_replace('data:image/png;base64,', '', $encImage);
-                $encImage = str_replace(' ', '+', $encImage);
-            }
-
-            $image = base64_decode($encImage);
-            $imageName = $request->roomDetail['id']
+            $image = base64_decode($imageEnc);
+            $imageName = $roomId
                 . "_"
                 . Carbon::now()->timestamp
                 . '_'
-                . $request->roomDetail['name']
+                . $request->roomToUpdate['name']
                 . '.'
                 . $imageExt;
             File::put($roomImageBasePath . $imageName, $image);
             $updatedImage = $imageName;
         }
 
-        $current_room = HomestayRooms::where('id', $roomId)
+        $room = HomestayRooms::where('id', $roomId)
             ->where('id_homestay', $homestayId)
             ->first();
 
         // Remove current image from room image folder.
-        $image_to_delete = $roomImageBasePath . $current_room->image;
+        $image_to_delete = $roomImageBasePath . $room->image;
         if (File::exists($image_to_delete)) {
             File::delete($image_to_delete);
         }
 
-        $current_room->name = $request->roomDetail['name'];
-        $current_room->kategori = $request->roomDetail['kategori'];
-        $current_room->facilities = implode(',', $request->roomDetail['facilities']);
-        $current_room->price = $request->roomDetail['price'];
-        $current_room->description = $request->roomDetail['description'];
-        $current_room->total_bed = $request->roomDetail['total_bed'];
-        $current_room->total_extra_bed = $request->roomDetail['total_extra_bed'];
-        $current_room->image = $updatedImage;
-        $current_room->updated_at = date('Y-m-d H:i:s');
-        $current_room->save();
+        $room->name = $request->roomToUpdate['name'];
+        $room->kategori = $request->roomToUpdate['kategori'];
+        $room->facilities = implode(',', $request->roomToUpdate['facilities']);
+        $room->price = $request->roomToUpdate['price'];
+        $room->description = $request->roomToUpdate['description'];
+        $room->total_bed = $request->roomToUpdate['total_bed'];
+        $room->total_extra_bed = $request->roomToUpdate['total_extra_bed'];
+        $room->image = $updatedImage;
+        $room->updated_at = date('Y-m-d H:i:s');
+        $room->save();
 
-        return response($current_room, Response::HTTP_OK);
+        return response($room, Response::HTTP_OK);
     }
 
     /**

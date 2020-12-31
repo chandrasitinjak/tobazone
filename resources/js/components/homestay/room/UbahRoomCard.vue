@@ -6,7 +6,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-3" style="padding-right: 0%;" v-if="isShowUbahRoomForm && roomDetail.image === ''">
+                                <div class="col-md-3" style="padding-right: 0%;" v-if="isShowUbahRoomForm">
                                     <picture-input
                                         ref="roomPicture"
                                         id="roomPicture"
@@ -25,29 +25,7 @@
                                             change: 'Ubah',
                                             remove: 'Hapus'
                                         }"
-                                        :alertOnError=false
-                                        @change="onChange"></picture-input>
-                                </div>
-                                <div class="col-md-3" style="padding-right: 0%;" v-if="isShowUbahRoomForm && roomDetail.image !== ''">
-                                    <picture-input
-                                        ref="roomPicture"
-                                        id="roomPicture"
-                                        width=300
-                                        height=200
-                                        accept="image/jpeg,image/png"
-                                        size="10"
-                                        radius=2
-                                        buttonClass="btn btn-primary"
-                                        :removable="true"
-                                        removeButtonClass="btn btn-danger"
-                                        :zIndex="1"
-                                        :prefill="'/images/homestay/room/' + roomDetail.image"
-                                        :customStrings="{
-                                            upload: '<h1>Upload room picture</h1>',
-                                            drag: 'Piliah gambar (.jpeg atau .png), max. 10 MB',
-                                            change: 'Ubah',
-                                            remove: 'Hapus'
-                                        }"
+                                        :prefill="roomImage"
                                         :alertOnError=false
                                         @change="onChange"></picture-input>
                                 </div>
@@ -56,11 +34,11 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="roomName">Nama</label>
-                                                <input type="text" class="form-control" style="height: 35px; font-size: 14px;" id="roomName" v-model="roomName" placeholder="Nama kamar">
+                                                <input type="text" class="form-control input-text" id="roomName" v-model="roomName" placeholder="Nama kamar">
                                             </div>
                                             <div class="form-group col-md-6" >
                                                 <label for="roomCategory">Kategori</label>
-                                                <select id="roomCategory" class="form-control" style="height: 35px; font-size: 14px;" v-model="roomCategory">
+                                                <select class="form-control input-text" style="height: 35px;" id="roomCategory" v-model="roomCategory">
                                                     <option disabled value="">Pilih salah satu</option>
                                                     <option v-for="roomCategoryOption in roomCategoryOptionList" :key="roomCategoryOption">{{ roomCategoryOption }}</option>
                                                 </select>
@@ -83,14 +61,14 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text" style="height: 35px; font-size: 14px;">Rp</div>
                                                     </div>
-                                                    <input type="text" class="form-control" style="height: 35px; font-size: 14px;" id="roomPrice" v-model="roomPrice" @keypress="keypressNumber($event)" placeholder="Harga kamar">
+                                                    <input type="text" class="form-control input-text" id="roomPrice" v-model="roomPrice" @keypress="keypressNumber($event)" placeholder="Harga kamar">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="roomTotalBed">Total Bed</label>
                                                 <div class="form-row align-items-center">
                                                     <div class="col-md-9">
-                                                        <input type="text" class="form-control" style="height: 35px; font-size: 14px;" id="roomTotalBed" v-model="roomTotalBed" @keypress="keypressNumber($event)" placeholder="Total bed">
+                                                        <input type="text" class="form-control input-text" id="roomTotalBed" v-model="roomTotalBed" @keypress="keypressNumber($event)" placeholder="Total bed">
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-check">
@@ -103,7 +81,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="roomDesc">Deskripsi</label>
-                                            <textarea-autosize class="form-control" style="font-size: 14px;" id="roomDesc" v-model="roomDescription" :min-height="65" placeholder="Deskripsi kamar" />
+                                            <textarea-autosize class="form-control" style="font-size: 14px; padding-left: 8px; padding-right: 8px;" id="roomDesc" v-model="roomDescription" :min-height="65" placeholder="Deskripsi kamar" />
                                         </div>
                                         <div class="clearfix">
                                             <div class="float-left">
@@ -123,10 +101,10 @@
 
             <div class="row" v-show="!isShowUbahRoomForm">
                 <div v-if="roomDetail.image === ''" class="col-md-3"  style="padding-right: 0%;">
-                    <img :src="'/images/assets/no-image.jpg'" class="card-img" style="margin-bottom: 8px;" alt="">
+                    <img :src="'/images/assets/no-image.jpg'" class="card-img small-card-image" alt="">
                 </div>
                 <div v-else class="col-md-3" style="padding-right: 0%;">
-                    <img :src="'/images/homestay/room/' + roomDetail.image" class="card-img" style="margin-bottom: 8px;" alt="">
+                    <img :src="'/images/homestay/room/' + roomDetail.image" class="card-img small-card-image" alt="">
                 </div>
                 <div class="col-md-9">
                     <div class="card">
@@ -153,8 +131,8 @@
                             <div class="row">
                                 <div class="col col-md-8 text-left">
                                     <div
-                                        class="badge badge-pill badge-success"
-                                        style="margin-right: 8px; margin-bottom: 8px; padding: 8px 8px; font-size: 12px;"
+                                        class="badge badge-pill text-success"
+                                        style="margin-right: 8px; margin-bottom: 8px; padding: 8px 8px; font-size: 12px; background-color: #f0f5f1;"
                                         v-for="roomFacility in getFacilityList(roomDetail.facilities)"
                                         :key="roomFacility">{{ roomFacility.trim() }}</div>
                                 </div>
@@ -226,7 +204,10 @@ export default {
             roomPrice: 0,
             roomTotalBed: 0,
             roomExtraBed: false,
-            roomDescription: ''
+            roomDescription: '',
+
+            // roomImage will be set as prefill value in vue-picture-input.
+            roomImage: '',
         }
     },
     props: ['room'],
@@ -238,7 +219,7 @@ export default {
         keypressNumber(event) {
             /**
              * Block non-numeric character in input field.
-             * event {keypress event}
+             * @param event {keypress event}
              */
             event = (event) ? event : window.event;
             var charCode = (event.which) ? event.which : event.keyCode;
@@ -249,7 +230,7 @@ export default {
             return true;
         },
         onChange(image) {
-            //
+            this.image = image;
         },
         showUbahRoomForm() {
             /**
@@ -271,6 +252,10 @@ export default {
                 this.roomTotalBed = this.roomDetail.total_bed;
                 this.roomExtraBed = this.roomDetail.total_extra_bed;
                 this.roomDescription = this.roomDetail.description;
+
+                if (this.roomDetail.image !== '') {
+                    this.roomImage = '/images/homestay/room/' + this.roomDetail.image;
+                }
             }
         },
         showRoomDetail() {
@@ -278,7 +263,12 @@ export default {
              * Change status view to swap ubah-room form to room detail.
              */
             this.isShowUbahRoomForm = false;
-
+            this.clearForm();
+        },
+        clearForm() {
+            /**
+             * Clear ubah room form.
+             */
             this.roomName = '';
             this.roomCategory = '';
             this.roomFacility = '';
@@ -287,11 +277,12 @@ export default {
             this.roomTotalBed = 0;
             this.roomExtraBed = false;
             this.roomDescription = '';
+            this.roomImage = '';
         },
         getFacilityList(roomFacilities) {
             /**
              * Separate room facilities by comma.
-             * roomFacilities {[]string}
+             * @param roomFacilities {[]string}
              */
             roomFacilities = roomFacilities + '';
             return roomFacilities.split(',');
@@ -299,7 +290,7 @@ export default {
         getRoomAvailability(roomStatus) {
             /**
              * Get room availability status.
-             * roomStatus {string}
+             * @param roomStatus {string}
              */
             if (roomStatus.toLowerCase().trim() === 'available') {
                 return true;
@@ -310,7 +301,7 @@ export default {
         async changeRoomStatus(event) {
             /**
              * Update room status.
-             * event {Object}
+             * @param event {Object}
              */
             let roomStatus = event.value;
             let loader = this.$loading.show()
@@ -325,8 +316,6 @@ export default {
                     this.roomDetail = res.data;
                 })
                 .catch((err) => {
-                    console.log(err);
-
                     if (err.response) {
                         if (err.response.status === 401) {
                             this.$swal.fire({
@@ -340,6 +329,7 @@ export default {
                                 title: 'Oops...',
                                 text: 'Terjadi kesalahan!'
                             });
+                            console.log(err);
                         }
                     }
                 })
@@ -351,29 +341,30 @@ export default {
             /**
              * Update room detail.
              */
-            let roomDetail = this.roomDetail;
-            roomDetail.name = this.roomName;
-            roomDetail.kategori = this.roomCategory;
-            roomDetail.price = this.roomPrice;
-            roomDetail.description = this.roomDescription;
-            roomDetail.total_bed = this.roomTotalBed;
-            roomDetail.total_extra_bed = this.roomExtraBed;
+            let roomToUpdate = {};
+            roomToUpdate.name = this.roomName;
+            roomToUpdate.kategori = this.roomCategory;
+            roomToUpdate.price = this.roomPrice;
+            roomToUpdate.description = this.roomDescription;
+            roomToUpdate.total_bed = this.roomTotalBed;
+            roomToUpdate.total_extra_bed = this.roomExtraBed;
 
             let facilities = [];
             for (let i = 0; i < this.roomFacilities.length; i++) {
                 let facility = this.roomFacilities[i].text
                 facilities.push(facility.trim());
             }
-            roomDetail.facilities = facilities;
+            roomToUpdate.facilities = facilities;
 
-            roomDetail.image = null;
+            roomToUpdate.image = null;
             if (this.$refs.roomPicture.image) {
-                roomDetail.image = this.$refs.roomPicture.image;
+                // this.$refs.roomPicture.image contains string of base64 encoded image.
+                roomToUpdate.image = this.$refs.roomPicture.image;
             }
 
             let loader = this.$loading.show()
             await window.axios
-                .put(`/homestay/${this.roomDetail.id_homestay}/room/${this.roomDetail.id}`, { roomDetail })
+                .put(`/homestay/${this.roomDetail.id_homestay}/room/${this.roomDetail.id}`, { roomToUpdate })
                 .then((res) => {
                     this.$swal.fire(
                         'Kamar berhasil diubah!',
@@ -384,8 +375,6 @@ export default {
                     this.showRoomDetail();
                 })
                 .catch((err) => {
-                    console.log(err);
-
                     if (err.response) {
                         if (err.response.status === 401) {
                             this.$swal.fire({
@@ -399,6 +388,7 @@ export default {
                                 title: 'Oops...',
                                 text: 'Terjadi kesalahan!'
                             });
+                            console.log(err);
                         }
                     }
                 })
@@ -415,3 +405,18 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.input-text {
+    height: 35px;
+    font-size: 14px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.small-card-image {
+    margin-bottom: 8px;
+    width: 300px;
+    height: 170px;
+}
+</style>
