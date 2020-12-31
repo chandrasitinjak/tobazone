@@ -41,7 +41,19 @@ class ProductController extends Controller
      */
     public function createUlos()
     {
-        return view('users.merchants.products.create_ulos');
+        $colors =[
+            'Merah',
+            'Biru',
+            'Putih',
+            'Ungu',
+            'Hijau',
+            'Cokelat',
+            'Kuning',
+            'Silver',
+            'Pink',
+            'Maroon',
+    ];
+        return view('users.merchants.products.create_ulos')->with('colors',$colors);
     }
 
     public function createFood()

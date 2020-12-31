@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\IncludedNotIncluded;
+use App\Kabupaten;
 use App\Mail\jadwalPaket;
 use App\PaketWisata;
 use App\Pemesanan;
@@ -100,5 +101,19 @@ class PaketWisataCustomerController extends Controller
         return RatingPaket::where('user_id', $userID)
             ->where('paket_id', $productID)
             ->first();
+    }
+
+    public function indexFilterKabupaten($id_kabupaten)
+    {
+        $kabupaten = Kabupaten::all();
+        $id_kab = $id_kabupaten;
+        $jeniss = 'Tipe/Jenis Perjalanan';
+        $jenis = DB::table('paket_wisata')->select('jenis_paket')->groupBy('jenis_paket')->get();
+
+        $paket = paketWisata::where([['kabupaten_id', $id_kab], ['status', 1]])->orderBy('created_at', 'DESC')->paginate(10);
+        $pakets = paketWisata::where('status', 1)->orderBy('created_at', 'DESC')->get();
+
+        $paket_lainnya = $pakets->take(3);
+        return view('paket-wisata.list-paket', compact('paket', 'jenis', 'kabupaten', 'jeniss', 'paket_lainnya','id_kab'));
     }
 }

@@ -70,22 +70,43 @@ class BudayaController extends Controller
             $budaya->lokasi = $request->lokasi;
             $budaya->deskripsi = $request->deskripsi;
             $budaya->kabupaten_id = $request->kabupaten_id;
-            if ($request->hasFile('foto')) {
-                !empty($budaya->foto) ? File::delete(public_path('Kab/information/Budaya/' . $budaya->foto)) : null;
-                $file = $request->file('foto');
-                $gambar = $file->getClientOriginalName();
-                $file->move(\base_path() . "/public/Kab/information/Budaya", $gambar);
+
+            if($request->inpFile != NULL){
+                $file = $request->file('inpFile');
+
+                $length = 10;
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 0; $i < $length; $i++) {
+                    $randomString .= $characters[rand(0, $charactersLength - 1)];
+                }
+
+                $gambar =$randomString.".jpg";
+                $budaya->foto = $gambar;
+                $file->move(\base_path() ."/public/Kab/information/Budaya", $gambar);
             }
-            $budaya->save();
 
-            //redirect ke route Budaya.index
-//            Alert::success('Success', $request->nama_budaya. ' berhasil diedit');
+            if($budaya->save()){
+                return redirect(route('budaya.index'))->with(['success' => 'Budaya: ' . $request->nama_budaya . ' Diedit']);
+            }
 
-            return redirect(route('budaya.index'))->with(['success' => 'Budaya: ' . $request->nama_budaya . ' Diedit']);
+//            if ($request->hasFile('foto')) {
+//                !empty($budaya->foto) ? File::delete(public_path('Kab/information/Budaya/' . $budaya->foto)) : null;
+//                $file = $request->file('foto');
+//                $gambar = $file->getClientOriginalName();
+//                $file->move(\base_path() . "/public/Kab/information/Budaya", $gambar);
+//            }
+
         } catch (\Exception $e) {
             //jika gagal, redirect ke form yang sama lalu membuat flash message error
             return redirect()->back();
         }
+    }
+
+    public function show($id){
+        $budaya = Budaya::findOrFail($id);
+        return view('cbt.informasi.budaya.view',compact('budaya'));
     }
 
     public function destroy($id)

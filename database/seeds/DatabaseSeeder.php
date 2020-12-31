@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(KabupatenTableSeeder::class);
         $this->call(HomestayRoomCategorySeeder::class);
         $this->call(HomestayRoomFacilitiesSeeder::class);
+        $this->call(UlosColorsSeeder::class);
     }
 }

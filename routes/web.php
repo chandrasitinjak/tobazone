@@ -217,6 +217,11 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::post('/admin/tambah-kategori-homestay', 'HomestayRoomsCategoriesController@createCategories');
         Route::post('/admin/edit-kategori-homestay/{id}', 'HomestayRoomsCategoriesController@editKategori');
         Route::get('/admin/homestay/room-facilities', 'HomestayRoomsFacilitiesController@findAllFacilities');
+        //products
+        Route::get('/admin/ulos-colors', 'AdminController@findAllUlosColors');
+        Route::post('/admin/ulos-colors', 'AdminController@addUlosColors');
+        Route::post('/admin/ulos-colors/edit/{id}', 'AdminController@editUlosColors');
+        Route::get('/admin/ulos-colors/delete/{id}', 'AdminController@deleteUlosColors');
 
         Route::get('/roles', 'RoleController@index');
         Route::post('/roles/store', 'RoleController@store');
@@ -280,6 +285,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
         Route::get('/customer/{userId}/transactions/{transactionId}/tracking', 'TransactionController@getTrackingInfo');
         Route::get('/customer/{id}/myProfil', 'ProfileController@myProfile');
         Route::get('/customer/{id}/editProfil', 'ProfileController@editProfile');
+        Route::get('/customer/editalamat/{id}', 'ProfileController@merchantEditAlamat');
         Route::post('/customer/{id}/store', 'ProfileController@storeUpdate');
         Route::get('/customer/{id}/wishlist', 'CartController@myWishlist');
         Route::post('/wishlist/delete', 'CartController@deleteWishlist');
@@ -316,6 +322,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
         Route::get('/merchant/{id}/editProfile', 'ProfileController@merchantEditProfile');
         Route::get('/merchant/{id}/myProfile', 'ProfileController@merchantProfile');
+        Route::get('/merchant/ubahalamat/{id}', 'ProfileController@merchantAlamat');
         Route::post('/merchant/{id}/store', 'ProfileController@storeUpdateMerchant');
 
 
@@ -345,6 +352,7 @@ Route::get('/homestay/get-carousels', 'HomestayCarouselController@getCarousels')
 Route::post('/homestay/create', 'HomestayController@store');
 
 
+Route::get('/user/homestayall', 'HomestayController@getAllHomestay');
 Route::get('/homestays', 'HomestayController@findAll');
 Route::get('/user/homestays', 'HomestayController@findAllCustomer');
 Route::get('/user/homestays/more', 'HomestayController@morePage');
@@ -353,11 +361,12 @@ Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::post('/homestays/save', 'HomestayController@store');
 
 Route::post('/homestays/search', 'HomestayController@search');
+Route::post('/homestays/searchInAllPage', 'HomestayController@searchInAllPage');
 Route::get('/homestays/searchPage', 'HomestayController@searchTest');
 Route::post('/homestays/order/upload-resi/{id}', 'HomestayController@uploadResi');
 
 //orderHomestay
-Route::post('/homestay/pesan', 'HomestayController@bookHomestay');
+Route::post('/homestay/pesan/{id}', 'HomestayController@bookHomestay');
 
 //Approval Penginapan Backend
 Route::get('/homestay/approvePenginapan/{id}', 'HomestayController@approvePenginapan');
@@ -442,7 +451,11 @@ Route::get('/customer/transactions/paket/{id}', 'TransactionPaketController@show
 
 
 Route::get('/paket-wisata/more', 'PaketWisataController@more_paket')->name('paket');
-Route::post('/paket-wisata/more', 'PaketWisataController@indexFilter')->name('paket.filter');
+Route::get('/paket-wisata/list', 'PaketWisataController@list_paket')->name('paket.list');
+Route::post('/paket-wisata/list', 'PaketWisataController@indexFilter')->name('paket.filter');
+Route::get('/paket-wisata/{id_kabupaten}', 'PaketWisataController@showC')->name('paket.show');
+Route::get('/paket-wisata/kabupaten/{id_kabupaten}', 'PaketWisataCustomerController@indexFilterKabupaten')->name('paket.filter.kabupaten');
+
 
 Route::get('/konfirmasiemail/{email}/{token}', 'RegisterController@konfirmasiemail')->name('konfirmasiemail');
 

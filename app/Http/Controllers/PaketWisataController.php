@@ -42,6 +42,14 @@ class PaketWisataController extends Controller
         return view('paket-wisata.paketwisata',compact('paket', 'jenis', 'kabupaten','paket_lainnya'));
     }
 
+    public function list_paket(){
+        $paket = paketWisata::where('status', 1)->orderBy('created_at', 'DESC')->paginate(20);
+        $jenis = DB::table('paket_wisata')->select('jenis_paket')->groupBy('jenis_paket')->get();
+        $kabupaten = Kabupaten::all();
+
+        return view('paket-wisata.list-paket',compact('paket', 'jenis', 'kabupaten'));
+    }
+
     public function indexFilter(Request $request)
     {
         $kabupaten = Kabupaten::all();
@@ -53,19 +61,19 @@ class PaketWisataController extends Controller
 
         if ($request->jenis == 'Tipe/Jenis Perjalanan') {
             if ($request->kabupaten == 'Kabupaten') {
-                $paket = paketWisata::where('status', 1)->orderBy('created_at', 'DESC')->paginate(10);
+                $paket = paketWisata::where('status', 1)->orderBy('created_at', 'DESC')->paginate(20);
             } else {
-                $paket = paketWisata::where([['kabupaten_id', $id_kab], ['status', 1]])->orderBy('created_at', 'DESC')->paginate(10);
+                $paket = paketWisata::where([['kabupaten_id', $id_kab], ['status', 1]])->orderBy('created_at', 'DESC')->paginate(20);
             }
         } else {
             if ($request->kabupaten == 'Kabupaten') {
-                $paket = paketWisata::where([['jenis_paket', 'LIKE', '%' . $request->jenis . '%'], ['status', 1]])->orderBy('created_at', 'DESC')->paginate(10);
+                $paket = paketWisata::where([['jenis_paket', 'LIKE', '%' . $request->jenis . '%'], ['status', 1]])->orderBy('created_at', 'DESC')->paginate(20);
             } else {
-                $paket = paketWisata::where([['status', 1], ['kabupaten_id', $id_kab], ['jenis_paket', 'LIKE', '%' . $request->jenis . '%']])->orderBy('created_at', 'DESC')->paginate(10);
+                $paket = paketWisata::where([['status', 1], ['kabupaten_id', $id_kab], ['jenis_paket', 'LIKE', '%' . $request->jenis . '%']])->orderBy('created_at', 'DESC')->paginate(20);
             }
         }
 
-        return view('paket-wisata.paketwisata',compact('paket', 'jenis', 'kabupaten','paket_lainnya', 'jeniss', 'id_kab'));
+        return view('paket-wisata.list-paket',compact('paket', 'jenis', 'kabupaten','paket_lainnya', 'jeniss', 'id_kab'));
     }
 
     public function show($id_paket)
@@ -380,5 +388,9 @@ class PaketWisataController extends Controller
         return redirect(route('admin.paket'));
 //        }
 //        return redirect(route('admin.paket'));
+    }
+    public function showC($id_kabupaten){
+        $paket = paketWisata::where('kabupaten_id',$id_kabupaten)->get();
+        return view('paket-wisata.detail_kabupaten',compact('paket'));
     }
 }

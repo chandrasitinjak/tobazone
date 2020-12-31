@@ -58,7 +58,7 @@
                 <li> <a href="{{ url('/admin/homestay/rejected-order')}}"> <i class="menu-icon fa fa-exclamation-triangle"></i>Rejected Order </a> </li>
                 <li> <a href="{{ url('/admin/list-merchant')}}"> <i class="menu-icon fa fa-users"></i>List Homestay </a> </li>
                 <li> <a href="{{ url('/admin/homestay/room-categories')}}"> <i class="menu-icon fa fa-bed"></i>Rooms Categories </a> </li>
-                <li> <a href="{{ url('/admin/homestay/room-facilities')}}"> <i class="menu-icon fa fa-cutlery"></i>Rooms Facilities </a> </li>
+<!--                <li> <a href="{{ url('/admin/homestay/room-facilities')}}"> <i class="menu-icon fa fa-cutlery"></i>Rooms Facilities </a> </li>-->
 
                 <h3 class="menu-title">View</h3>
                 <li><a href="{{ url('/carousels')}}"> <i class="menu-icon fa fa-star"></i> Carousel </a></li>
@@ -74,6 +74,8 @@
                 <li><a href="{{ url('/admin/akun-koperasi-pending')}}"> <i class="menu-icon"></i>Akun Pending</a></li>
                 <li><a href="{{ url('/admin/layanan-maintenence')}}"> <i class="menu-icon"></i>Layanan Maintenence</a>
                 </li>
+                <h3 class="menu-title">Product</h3>
+                <li><a href="{{ url('/admin/ulos-colors')}}"> <i class="menu-icon"></i>Warna Ulos</a></li>
             </ul>
         </div>
     </nav>

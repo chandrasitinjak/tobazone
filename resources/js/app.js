@@ -12,8 +12,8 @@ import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-import StarRating from 'vue-star-rating'
-import Vuelidate from 'vuelidate'
+import StarRating from 'vue-star-rating';
+import Vuelidate from 'vuelidate';
 
 Vue.use(Loading, {
     color: '#073763'
@@ -63,6 +63,8 @@ const CarouselHomestay = require('./components/homestay/CarouselHomestay').defau
 const CreateHomestay = require('./components/homestay/merchant/CreateHomestay').default
 const UpdateHomestay = require('./components/homestay/merchant/UpdateHomestay').default
 const ListLogin = require('./components/auths/ListLogin').default
+const EditAlamat = require('./components/auths/EditAlamat').default
+const EditAlamatMerchant = require('./components/auths/EditAlamatMerchant').default
 const StatusKoperasi = require('./components/koperasi/StatusKoperasi').default
 const LayananMaintenence = require('./components/koperasi/LayananMaintenence').default
 const AllHomestay = require('./components/homestay/merchant/AllHomestay').default
@@ -75,6 +77,7 @@ const NewOrder = require('./components/homestay/merchant/NewOrder').default
 const ProdukTerlaris2 = require('./components/homes/ProdukTerlaris2').default
 const PaketRating = require('./components/paket/Rating').default
 const UbahHomestayRoomCards = require('./components/homestay/room/UbahRoomCards').default
+const HomestayTerlaris = require('./components/homestay/HomestayTerlaris').default
 
 Vue.component('star-rating', StarRating)
 
@@ -91,6 +94,8 @@ Vue.mixin({
 const app = new Vue({
     el: '#app',
     components: {
+        EditAlamat,
+        EditAlamatMerchant,
         LayananMaintenence,
         KoperasiTidakAktif,
         StatusKoperasi,
@@ -139,6 +144,7 @@ const app = new Vue({
         ProdukTerlaris2,
         PaketRating,
         UbahHomestayRoomCards,
+        HomestayTerlaris
     },
     data() {
         return {

@@ -112,8 +112,9 @@
                                             <td><form action="{{ route('transportasi.destroy', $transportasi->id) }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <a href="{{ route('transportasi.edit', $transportasi->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                                    <a href="{{ route('transportasi.show', $transportasi->id) }}" class="btn btn-success btn-sm">Lihat</a>
+                                                    <a href="{{ route('transportasi.edit', $transportasi->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                                    <button class="btn btn-danger btn-sm">Hapus</button>
                                                 </form></td>
                                         </tr>
                                     @endforeach
