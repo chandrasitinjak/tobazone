@@ -34,14 +34,16 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="roomName">Nama</label>
-                                                <input type="text" class="form-control input-text" id="roomName" v-model="roomName" placeholder="Nama kamar">
+                                                <input type="text" class="form-control input-text" :class="{'is-invalid':$v.roomName.$error, 'is-valid':!$v.roomName.$invalid }" id="roomName" v-model="roomName" placeholder="Nama kamar">
+                                                <div class="text-danger" v-if="!$v.roomName.required"><small>Nama kamar tidak boleh kosong.</small></div>
                                             </div>
-                                            <div class="form-group col-md-6" >
+                                            <div class="form-group col-md-6">
                                                 <label for="roomCategory">Kategori</label>
-                                                <select class="form-control input-text" style="height: 35px;" id="roomCategory" v-model="roomCategory">
+                                                <select class="form-control input-text" :class="{'is-invalid':$v.roomCategory.$error, 'is-valid':!$v.roomCategory.$invalid }" style="height: 35px;" id="roomCategory" v-model="roomCategory">
                                                     <option disabled value="">Pilih salah satu</option>
                                                     <option v-for="roomCategoryOption in roomCategoryOptionList" :key="roomCategoryOption">{{ roomCategoryOption }}</option>
                                                 </select>
+                                                <div class="text-danger" v-if="!$v.roomCategory.required"><small>Kategori kamar tidak boleh kosong.</small></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -53,22 +55,27 @@
                                                 :tags="roomFacilities"
                                                 placeholder="Fasilitas kamar"
                                                 @tags-changed="newRoomFacilities => roomFacilities = newRoomFacilities"></vue-tags-input>
+                                            <div class="text-danger" v-if="!$v.roomFacilities.required"><small>Fasilitas kamar tidak boleh kosong.</small></div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="roomPrice">Harga</label>
-                                                <div class="input-group mb-2">
+                                                <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text" style="height: 35px; font-size: 14px;">Rp</div>
+                                                        <span class="input-group-text" id="inputGroupPrepend" style="height: 35px; font-size: 14px;">Rp</span>
                                                     </div>
-                                                    <input type="text" class="form-control input-text" id="roomPrice" v-model="roomPrice" @keypress="keypressNumber($event)" placeholder="Harga kamar">
+                                                    <input type="text" aria-describedby="inputGroupPrepend" class="form-control input-text" :class="{'is-invalid':$v.roomPrice.$error, 'is-valid':!$v.roomPrice.$invalid }" id="roomPrice" v-model="roomPrice" @keypress="keypressNumber($event)" placeholder="Harga kamar">
                                                 </div>
+                                                <div class="text-danger" v-if="!$v.roomPrice.required"><small>Harga kamar tidak boleh kosong.</small></div>
+                                                <div class="text-danger" v-if="!$v.roomPrice.minValue"><small>Harga kamar tidak boleh 0.</small></div>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="roomTotalBed">Total Bed</label>
                                                 <div class="form-row align-items-center">
                                                     <div class="col-md-9">
-                                                        <input type="text" class="form-control input-text" id="roomTotalBed" v-model="roomTotalBed" @keypress="keypressNumber($event)" placeholder="Total bed">
+                                                        <input type="text" class="form-control input-text" :class="{'is-invalid':$v.roomTotalBed.$error, 'is-valid':!$v.roomTotalBed.$invalid }" id="roomTotalBed" v-model="roomTotalBed" @keypress="keypressNumber($event)" placeholder="Total bed">
+                                                        <div class="text-danger" v-if="!$v.roomTotalBed.required"><small>Total bed tidak boleh kosong.</small></div>
+                                                        <div class="text-danger" v-if="!$v.roomTotalBed.minValue"><small>Total bed tidak boleh 0.</small></div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-check">
@@ -183,6 +190,7 @@ import { ToggleButton } from 'vue-js-toggle-button';
 import TextareaAutozie from 'vue-textarea-autosize';
 import VueTagsInput from '@johmun/vue-tags-input';
 import PictureInput from 'vue-picture-input';
+import { required, minValue } from 'vuelidate/lib/validators';
 
 export default {
     data() {
@@ -230,7 +238,7 @@ export default {
             return true;
         },
         onChange(image) {
-            this.image = image;
+            //
         },
         showUbahRoomForm() {
             /**
@@ -341,6 +349,11 @@ export default {
             /**
              * Update room detail.
              */
+            this.$v.$touch();
+            if (this.$v.$invalid) {
+                return;
+            }
+
             let roomToUpdate = {};
             roomToUpdate.name = this.roomName;
             roomToUpdate.kategori = this.roomCategory;
@@ -395,6 +408,25 @@ export default {
                 .finally(() => {
                     loader.hide();
                 })
+        }
+    },
+    validations: {
+        roomName: {
+            required
+        },
+        roomCategory: {
+            required
+        },
+        roomPrice: {
+            required,
+            minValue: minValue(1)
+        },
+        roomTotalBed: {
+            required,
+            minValue: minValue(1)
+        },
+        roomFacilities: {
+            required
         }
     },
     components: {
