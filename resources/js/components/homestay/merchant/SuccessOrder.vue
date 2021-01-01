@@ -1,3 +1,8 @@
+
+<!--
+    Created by Sogumontar Hendra Simangunsong on .
+ -->
+
 <template>
     <div class="card globalcard">
         <div class="card-body">
@@ -17,7 +22,7 @@
                         </p>
                     </div>
 
-                    <div class="row" v-else>
+                    <div class="row"  v-else>
                         <div class="col-md-12">
                             <table class="table">
                                 <thead>
@@ -43,9 +48,9 @@
                                     <td>{{ transaction.updated_at }}</td>
                                     <td>
                                         <a href="'/images/' + transaction.resi">
-                                        <img :src="'/images/' + transaction.resi" alt="Card image cap"
-                                                        style='object-fit: cover'>
-                                    </a>
+                                            <img :src="'/images/' + transaction.resi" alt="Card image cap"
+                                                 style='object-fit: cover'>
+                                        </a>
                                     </td>
                                     <!-- <td> <button class="btn btn-info" v-on:click="getDetailSuccesOrder(transaction.id)"> detail </button></td> -->
                                     <!--                    <td> <a :href="'/merchant/detail-transaction/'+transaction.id" class="btn btn-info">detail</a></td>-->
@@ -76,7 +81,7 @@
         methods: {
             getSuccessOrders() {
                 window.axios
-                    .get("/merchant/homestay/get-paid-order")
+                    .get("/merchant/homestay/get-success-order")
                     .then(res => {
                         this.transactions = res.data.data;
                         console.log(this.transactions);
