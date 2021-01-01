@@ -4893,6 +4893,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 // import carousel from "vue-owl-carousel";
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17661,7 +17669,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n@media (min-width:219px) and (max-width: 449px){\n.empty-slide[data-v-85180974]{\n        width: 0%;\n        height: 0px;\n}\n}\n@media (min-width:450px) and (max-width: 767px){\n.empty-slide[data-v-85180974]{\n        width: 0%;\n        height: 0px;\n}\n}\n@media (min-width:768px) and (max-width: 990px){\n.empty-slide[data-v-85180974]{\n        height: 180px;\n        width: 100%!important;\n}\n}\n@media (min-width:991px) and (max-width: 1199px){\n}\n@media (min-width:1200px){\n.empty-slide[data-v-85180974]{\n        height: 100%;\n        width: 100%;\n}\n}\n", ""]);
+exports.push([module.i, "\n@media (min-width: 219px) and (max-width: 449px) {\n.empty-slide[data-v-85180974] {\r\n    width: 0%;\r\n    height: 0px;\n}\n}\n@media (min-width: 450px) and (max-width: 767px) {\n.empty-slide[data-v-85180974] {\r\n    width: 0%;\r\n    height: 0px;\n}\n}\n@media (min-width: 768px) and (max-width: 990px) {\n.empty-slide[data-v-85180974] {\r\n    height: 180px;\r\n    width: 100% !important;\n}\n}\n@media (min-width: 991px) and (max-width: 1199px) {\n}\n@media (min-width: 1200px) {\n.empty-slide[data-v-85180974] {\r\n    height: 100%;\r\n    width: 100%;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -17680,7 +17688,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.card-informasi {\r\n    border-radius: 15px;\n}\n.card-img-top {\r\n    border-top-right-radius: 15px;\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 15px;\r\n    border-bottom-right-radius: 15px;\n}\r\n", ""]);
+exports.push([module.i, "\n.card-informasi {\r\n  border-radius: 15px;\n}\n.card-img-top {\r\n  border-top-right-radius: 15px;\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  border-bottom-right-radius: 15px;\n}\r\n", ""]);
 
 // exports
 
@@ -79376,6 +79384,7 @@ var render = function() {
           _c(
             "Carousel",
             {
+              staticClass: "df",
               attrs: {
                 autoplay: true,
                 autoplayTimeout: 3000,
@@ -79478,15 +79487,15 @@ var staticRenderFns = [
         _c("h3", [_vm._v("Informasi yang dicari")])
       ]),
       _vm._v(" "),
-      _c("div", {}, [
+      _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row justify-content-center" }, [
-          _c("a", { attrs: { href: "/informasi-kuliner" } }, [
-            _c("div", { staticClass: "col-lg-auto col-auto" }, [
+          _c("div", { staticClass: "col-md-2 col-auto" }, [
+            _c("a", { attrs: { href: "/informasi-kuliner" } }, [
               _c(
                 "div",
                 {
-                  staticClass: "card-informasi card shadow mt-3 ",
-                  staticStyle: { width: "15rem", height: "18rem" }
+                  staticClass: "card-informasi card shadow mt-3",
+                  staticStyle: { width: "10rem", height: "13rem" }
                 },
                 [
                   _c("img", {
@@ -79500,7 +79509,7 @@ var staticRenderFns = [
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-img-overlay" }, [
-                    _c("h5", { staticClass: "card-title text-white" }, [
+                    _c("h6", { staticClass: "card-title text-white" }, [
                       _vm._v("Kuliner")
                     ])
                   ])
@@ -79509,13 +79518,13 @@ var staticRenderFns = [
             ])
           ]),
           _vm._v(" "),
-          _c("a", { attrs: { href: "/informasi-akomodasi" } }, [
-            _c("div", { staticClass: "col-lg-auto col-auto" }, [
+          _c("div", { staticClass: "col-md-2 col-auto" }, [
+            _c("a", { attrs: { href: "/informasi-akomodasi" } }, [
               _c(
                 "div",
                 {
                   staticClass: "card-informasi card shadow mt-3",
-                  staticStyle: { width: "15rem", height: "18rem" }
+                  staticStyle: { width: "10rem", height: "13rem" }
                 },
                 [
                   _c("img", {
@@ -79528,7 +79537,7 @@ var staticRenderFns = [
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-img-overlay" }, [
-                    _c("h5", { staticClass: "card-title text-white" }, [
+                    _c("h6", { staticClass: "card-title text-white" }, [
                       _vm._v("Akomodasi")
                     ])
                   ])
@@ -79537,13 +79546,13 @@ var staticRenderFns = [
             ])
           ]),
           _vm._v(" "),
-          _c("a", { attrs: { href: "/informasi-objek-wisata" } }, [
-            _c("div", { staticClass: "col-lg-auto col-auto" }, [
+          _c("div", { staticClass: "col-md-2 col-auto" }, [
+            _c("a", { attrs: { href: "/informasi-objek-wisata" } }, [
               _c(
                 "div",
                 {
                   staticClass: "card-informasi card shadow mt-3",
-                  staticStyle: { width: "15rem", height: "18rem" }
+                  staticStyle: { width: "10rem", height: "13rem" }
                 },
                 [
                   _c("img", {
@@ -79557,7 +79566,7 @@ var staticRenderFns = [
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-img-overlay" }, [
-                    _c("h5", { staticClass: "card-title text-white" }, [
+                    _c("h6", { staticClass: "card-title text-white" }, [
                       _vm._v("Objek Wisata")
                     ])
                   ])
@@ -79566,13 +79575,13 @@ var staticRenderFns = [
             ])
           ]),
           _vm._v(" "),
-          _c("a", { attrs: { href: "/informasi-budaya" } }, [
-            _c("div", { staticClass: "col-lg-auto col-auto" }, [
+          _c("div", { staticClass: "col-md-2 col-auto" }, [
+            _c("a", { attrs: { href: "/informasi-budaya" } }, [
               _c(
                 "div",
                 {
                   staticClass: "card-informasi card shadow mt-3",
-                  staticStyle: { width: "15rem", height: "18rem" }
+                  staticStyle: { width: "10rem", height: "13rem" }
                 },
                 [
                   _c("img", {
@@ -79586,7 +79595,7 @@ var staticRenderFns = [
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-img-overlay" }, [
-                    _c("h5", { staticClass: "card-title text-white" }, [
+                    _c("h6", { staticClass: "card-title text-white" }, [
                       _vm._v("Budaya")
                     ])
                   ])
@@ -79595,13 +79604,13 @@ var staticRenderFns = [
             ])
           ]),
           _vm._v(" "),
-          _c("a", { attrs: { href: "informasi-event" } }, [
-            _c("div", { staticClass: "col-lg-auto col-auto" }, [
+          _c("div", { staticClass: "col-md-2 col-auto" }, [
+            _c("a", { attrs: { href: "informasi-event" } }, [
               _c(
                 "div",
                 {
                   staticClass: "card-informasi card shadow mt-3",
-                  staticStyle: { width: "15rem", height: "18rem" }
+                  staticStyle: { width: "10rem", height: "13rem" }
                 },
                 [
                   _c("img", {
@@ -79615,7 +79624,7 @@ var staticRenderFns = [
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-img-overlay" }, [
-                    _c("h5", { staticClass: "card-title text-white" }, [
+                    _c("h6", { staticClass: "card-title text-white" }, [
                       _vm._v("Event")
                     ])
                   ])
@@ -79624,13 +79633,13 @@ var staticRenderFns = [
             ])
           ]),
           _vm._v(" "),
-          _c("a", { attrs: { href: "informasi-transportasi" } }, [
-            _c("div", { staticClass: "col-lg-auto col-auto" }, [
+          _c("div", { staticClass: "col-md-2 col-auto" }, [
+            _c("a", { attrs: { href: "informasi-transportasi" } }, [
               _c(
                 "div",
                 {
                   staticClass: "card-informasi card shadow mt-3",
-                  staticStyle: { width: "15rem", height: "18rem" }
+                  staticStyle: { width: "10rem", height: "13rem" }
                 },
                 [
                   _c("img", {
@@ -79644,7 +79653,7 @@ var staticRenderFns = [
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-img-overlay" }, [
-                    _c("h5", { staticClass: "card-title text-white" }, [
+                    _c("h6", { staticClass: "card-title text-white" }, [
                       _vm._v("Transportasi")
                     ])
                   ])
