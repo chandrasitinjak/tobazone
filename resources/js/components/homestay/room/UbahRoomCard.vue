@@ -21,7 +21,7 @@
                                         :zIndex="1"
                                         :customStrings="{
                                             upload: '<h1>Upload room picture</h1>',
-                                            drag: 'Piliah gambar (.jpeg atau .png), max. 10 MB',
+                                            drag: 'Pilih gambar (.jpeg atau .png), max. 10 MB',
                                             change: 'Ubah',
                                             remove: 'Hapus'
                                         }"
