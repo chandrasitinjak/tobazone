@@ -164,9 +164,26 @@
     @endif
     </div>--}}
 
-    <div class="container-fluid mt-7" id="komunitas-paket-wisata">
+    <div class="container mt-7 ml-20" id="komunitas-paket-wisata">
         <komunitas-paket-wisata />
+    </div><br><br>
+    <div class="container-fluid mt-7">
+        <div class="row">
+            <div class="col-md-8 bg-light">
+                <h2>Penginapan Terfavorit</h2>
+                <h6>Penginapan terfavorit di 7 Kabupaten
+                    kawasan Danau Toba
+                    Kami bekerja sama dengan berbagai jaringan </h6>
+                <h6>penginapan di sekitar Danau Toba untuk memastikan kenyamanan Anda saat menginap di belahan dunia manapun!</h6>
+                <br><br><br>
+                <a href="/user/homestays"><h5>Lihat Selengkapnya</h5></a>
+            </div>
+            <div class="col-md-4">
+                <p><img src="https://www.tiket.com/home-ms/assets/c85b03c5.svg" style="width:500px" alt=""></p>
+            </div>
+        </div>
     </div>
+
     <div class="container-fluid mt-5" id="informasi-pariwisata">
         <informasi-dicari />
     </div>
