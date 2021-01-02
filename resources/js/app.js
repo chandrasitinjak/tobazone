@@ -78,6 +78,7 @@ const ProdukTerlaris2 = require('./components/homes/ProdukTerlaris2').default
 const PaketRating = require('./components/paket/Rating').default
 const UbahHomestayRoomCards = require('./components/homestay/room/UbahRoomCards').default
 const HomestayTerlaris = require('./components/homestay/HomestayTerlaris').default
+const SuccessOrder = require('./components/homestay/merchant/SuccessOrder').default
 
 Vue.component('star-rating', StarRating)
 
@@ -144,7 +145,8 @@ const app = new Vue({
         ProdukTerlaris2,
         PaketRating,
         UbahHomestayRoomCards,
-        HomestayTerlaris
+        HomestayTerlaris,
+        SuccessOrder
     },
     data() {
         return {
@@ -161,9 +163,6 @@ const app = new Vue({
         deleteRow() {
             this.rows.pop();
         },
-
-
     },
 
 });
-

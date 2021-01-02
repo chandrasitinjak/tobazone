@@ -33,6 +33,80 @@
             <br>
         </div>
         <br><br>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-lg-8 bg-white pt-3 pl-3 mb-3 img-thumbnail bayangan">
+                <div class="row">
+                    <div class="col-md-12 row">
+                        <form class="row pl-3 pr-3" method="POST"
+                              action="">
+                            {{ csrf_field() }}
+                            <div class="col-lg-6">
+                                <p style="margin-bottom: -5px; font-weight: bolder">Check in</p>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-calendar"
+                                                                         aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <input type="date" name="checkIn" class="form-control"
+                                           id="inlineFormInputGroup">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <p style="margin-bottom: -5px; font-weight: bolder">Durasi</p>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-moon-o"
+                                                                         aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <input type="number" min="1" class="form-control"
+                                           name="durasi" id="inlineFormInputGroup">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <p style="margin-bottom: -5px; font-weight: bolder">Tamu</p>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-users"
+                                                                         aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <input type="number" min="1" name="totalRoom"
+                                           class="form-control" id="inlineFormInputGroup">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-lg-12 mt-4 mb-3" align="end">
+                            <div class="row">
+                                <?php $counts=0 ?>
+                                @foreach ($homestays['kamar'] as $kamar)
+                                <?php $counts++;?>
+                                <p class="mt-3">Kamar {{$counts}}</p>
+                                <input type="checkbox" value="{{$kamar->id}}" name="checkbox[]">
+                                <p>{{$kamar}}</p>
+                                @endforeach
+                            </div>
+                            <button type="submit" class="btn essence-btn-sm">Pesan
+                                Homestay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+            <br>
+        </div>
 
         @if(count($homestays['kamar'])==0)
         <center>
