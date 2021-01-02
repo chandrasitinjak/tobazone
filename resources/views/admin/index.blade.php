@@ -9,8 +9,6 @@
 
 
 <body>
-
-
             <div class="col-xl-4 col-lg-6">
                 <div class="card">
                     <div class="card-body">
@@ -48,6 +46,20 @@
                             <div class="stat-content dib">
                                 <div class="stat-text">Total Customer</div>
                                 <div class="stat-digit">{{ $countCustomer }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-icon dib"><i class="ti-home text-warning border-warning"></i></div>
+                            <div class="stat-content dib">
+                                <div class="stat-text">Total Homestay</div>
+                                <div class="stat-digit">{{ $countHomestay }}</div>
                             </div>
                         </div>
                     </div>

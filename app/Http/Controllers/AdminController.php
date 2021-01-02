@@ -22,10 +22,13 @@ class AdminController extends Controller
 
     $countCustomer = DB::table('model_has_roles')->where('role_id', 3)->count();
 
+    $countHomestay = DB::table('homestays')->count();
+
     return view('admin.index')
     ->with('countOrder', $countOrder)
     ->with('countMerchant', $countMerchant)
-    ->with('countCustomer', $countCustomer);
+    ->with('countCustomer', $countCustomer)
+    ->with('countHomestay', $countHomestay);
   }
 
   private function getAuthincatedUser() {

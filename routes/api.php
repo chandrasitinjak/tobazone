@@ -49,6 +49,8 @@ Route::get('/product/aksesoris', 'API\ProductController@searchAksesoris');
 Route::post('/product/{id}/review', 'API\ProductController@addReview');
 Route::post('/rating', 'API\RatingController@setRating')->name('setRating');
 Route::get('/rating/{id}', 'API\RatingController@getRating')->name('getRating');
+Route::get('/getuseraddress/{id}', 'ProfileController@getalamat');
+Route::post('/updatealamatcustomer/{id}', 'ProfileController@updateAlamat');
 Route::get('/rating/{userid}/{productid}', 'API\RatingController@showRating')->name('showRating');
 
 
@@ -79,4 +81,20 @@ Route::middleware('role:merchant')->group(function () {
     Route::get('/merchant/detail-transaction/{id}', 'OrderController@getDetailSuccesOrdersByMerchant');
 });
 Route::get('/homestay/all', 'HomestayController@findAll');
+Route::get('/homestay/room-categories', 'HomestayRoomsCategoriesController@findAll');
+Route::get('/homestay/terlaris', 'HomestayController@findHomestayTerlaris');
+
+
+
+
 Route::get('/product/get-product-terlaris', 'API\ProductController@getProductTerlaris');
+Route::get('/get-cbt', 'CbtController@getCbt');
+
+Route::get('pemesanan/detail/{id_pemesanan}','PemesananController@getDataPemesanan')->name('data.transaksi');
+Route::post('pemesanan/{id_pemesanan}/update-status','PemesananController@updateStatus');
+
+//Paket Wisata
+Route::get('/paket/get-paket-terbaru','API\PaketWisataController@getNewPackage');
+Route::post('/paket/rating', 'API\RatingController@setRatingPaket')->name('setRatingPaket');
+Route::get('/paket/rating/{id}', 'API\RatingController@getRatingPaket')->name('getRatingPaket');
+Route::get('/paket/rating/{userid}/{paketid}', 'API\RatingController@showRatingPaket')->name('showRatingPaket');

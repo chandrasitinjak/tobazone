@@ -18,7 +18,8 @@
                             <div class="typo-articles">
                                 <blockquote class="blockquote mt-3 text-left">
                                     <p> {{ $transaction->created_at }} </p>
-                                    <footer class="blockquote-footer"><b> {{ $transaction->customer->profile->name}}</b></footer>
+                                    <p>Nama Customer:</p><footer class="blockquote-footer"><b> {{ $transaction->customer->profile->name}}</b></footer>
+                                    <p>Nama Pengirim:</p><footer class="blockquote-footer"><b> {{ json_decode($transaction->payment->proof)->senderName }}</b></footer>
                                 </blockquote>
                             </div>
 

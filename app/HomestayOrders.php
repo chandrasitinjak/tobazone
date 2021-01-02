@@ -1,15 +1,12 @@
 <?php
-/**
- * Created by Sogumontar Hendra Simangunsong on 10-10-2020.
- */
 
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class HomestayOrders extends Model{
-    use SoftDeletes;
+class HomestayOrders extends Model
+{
     protected $fillable = [
         'id_customer',
         'id_homestay',
@@ -29,3 +26,4 @@ class HomestayOrders extends Model{
         return $this->belongsTo('App\Homestay', 'id_homestay');
     }
 }
+

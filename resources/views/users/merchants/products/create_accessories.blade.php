@@ -1,7 +1,7 @@
-@extends('users.layouts.app') 
+@extends('users.layouts.app')
 @section('title') {{ "Products" }}
 @endsection
- 
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -27,7 +27,7 @@
                                             <button class="btn-upcus">
                                                     <img src="{{ '/images/assets/addimage.png'}}">
                                                 </button>
-                                            <input id="files" name="images[]" multiple type="file" />
+                                            <input id="files" name="images[]" multiple type="file" required/>
                                         </div>
                                         <div id="result" class="row mt-4">
                                         </div>
@@ -39,7 +39,7 @@
                                         <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                                     </label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" aria-describedby="namaprodukhelp" name="name">
+                                    <input type="text" class="form-control" aria-describedby="namaprodukhelp" name="name" required>
                                     <small id="namaprodukhelp" class="form-text text-muted">
                                         Tulis nama produk sesuai jenis, merek, dan rincian produk.
                                     </small>
@@ -66,7 +66,7 @@
                                     <span class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                                 </label>
                                 <div class="col-sm-9">
-                                    <textarea type="text" rows="5" class="form-control" aria-describedby="namaprodukhelp" name="description"></textarea>
+                                    <textarea type="text" rows="5" class="form-control" aria-describedby="namaprodukhelp" name="description" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -81,24 +81,24 @@
                                 <label class="label"> Spesifikasi </label>
                                 <div class="row">
                                     <div class="col-12 col-md-4 col-lg-4">
-                                        <label class="label"> Ukuran </label>                                                                                
-                                        <select class="form-control" name="dimention" aria-describedby="warnadasar">
+                                        <label class="label"> Ukuran </label>
+                                        <select class="form-control" name="dimention" aria-describedby="warnadasar" required>
                                                 <option value="Kecil"> Kecil</option>
                                                 <option value="Sedang"> Sedang</option>
-                                                <option value="Besar"> Besar</option>                                                
+                                                <option value="Besar"> Besar</option>
                                             </select>
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Berat </label>
-                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/g"/>
+                                        <input class="form-control" type="number" min="1" name="weight" aria-describedby="warnadasar" placeholder="/g" required/>
                                         <small id="warnadasar" class="form-text text-muted">
                                             Berat dalam satuan gram
                                         </small>
                                     </div>
-                                    
+
                                     <div class="col-12 col-md-4 col-lg-4">
                                         <label class="label"> Warna</label>
-                                        <select class="form-control" name="color" aria-describedby="warnadasar">
+                                        <select class="form-control" name="color" aria-describedby="warnadasar" required>
                                                 <option value="Hitam"> Hitam</option>
                                                 <option value="Merah"> Merah</option>
                                                 <option value="Biru"> Biru</option>
@@ -113,9 +113,9 @@
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4 mt-4">
                                         <label class="label"> Jenis </label>
-                                        <select class="form-control" name="category">                                                
+                                        <select class="form-control" name="category" required>
                                                 <option value="Buatan Tangan"> Buatan Tangan</option>
-                                                <option value="Buatan Mesin"> Buatan Mesin </option>                                                
+                                                <option value="Buatan Mesin"> Buatan Mesin </option>
                                             </select>
                                     </div>
                                 </div>
