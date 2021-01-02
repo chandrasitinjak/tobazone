@@ -24,6 +24,10 @@ class PaketWisata extends Model
     public function comments(){
         return $this->hasMany(Comment::class,'paket_id','id_paket');
     }
+    public function reviews() {
+        return $this->hasMany('App\PaketReview','paket_id','id_paket');
+    }
+
     public static function boot() {
         parent::boot();
 
