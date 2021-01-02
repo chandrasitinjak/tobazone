@@ -19,7 +19,8 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    private function getAuthincatedMerchant() {
+    private function getAuthenticatedMerchant()
+    {
         $merchant = User::with('profile')->find(Auth::user()->id);
         $address = json_decode(json_decode($merchant->profile->address)[0]);
         $merchant->profile->address = $address;
@@ -85,8 +86,7 @@ class ProductController extends Controller
         $uploadedImages = $request->file('images');
         $imageNames = [];
 
-        if($uploadedImages == null)
-        {
+        if ($uploadedImages == null) {
             return back()->with('fail', 'Foto produk tidak boleh kosong, silahkan pilih foto');
         }
 
@@ -109,21 +109,21 @@ class ProductController extends Controller
         $product->user_id = Auth::user()->id;
         $product->color = $request->color;
 
-        if($id == 1) {
+        if ($id == 1) {
             $product->cat_product = "ulos";
             $product->specification = json_encode([
                 'dimention' => $request->dimention,
                 'weight' => $request->weight
             ]);
             $product->category = $request->category;
-        } else if($id == 2) {
+        } else if ($id == 2) {
             $product->cat_product = "pakaian";
             $product->specification = json_encode([
                 'size' => $request->dimention,
                 'weight' => $request->weight
             ]);
             $product->category = $request->category;
-        } else if($id == 3) {
+        } else if ($id == 3) {
             $product->cat_product = "makanan";
             $product->specification = json_encode([
                 'size_pack' => $request->dimention,
@@ -132,29 +132,27 @@ class ProductController extends Controller
             ]);
             $product->color = "-";
             $product->category = $request->category;
-
-        } else if($id == 4) {
+        } else if ($id == 4) {
             $product->cat_product = "aksesoris";
             $product->specification = json_encode([
                 'size' => $request->dimention,
                 'weight' => $request->weight
             ]);
             $product->category = $request->category;
-        } else if($id == 5) {
+        } else if ($id == 5) {
             $product->cat_product = "obat";
             $product->specification = json_encode([
                 'jenis' => $request->dimention,
                 'weight' => $request->weight
             ]);
 
-            if($request->dimention == "Padat")
+            if ($request->dimention == "Padat")
                 $product->color = $request->color_1;
 
-            else if($request->dimention == "Cair")
+            else if ($request->dimention == "Cair")
                 $product->color = $request->color;
 
             $product->category = "-";
-
         }
 
         $product->name = $request->name;
@@ -180,7 +178,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::with(['reviews.customer.profile'])->where('id',$id)->first();
+        $product = Product::with(['reviews.customer.profile'])->where('id', $id)->first();
         $product->rating = 0;
         if (Auth::check()) {
             $rating = $this->getPersonalRating(Auth::user()->id, $id);
@@ -193,7 +191,8 @@ class ProductController extends Controller
     }
 
 
-    private function getPersonalRating($userID, $productID) {
+    private function getPersonalRating($userID, $productID)
+    {
         return Rating::where('user_id', $userID)
             ->where('product_id', $productID)
             ->first();
@@ -208,7 +207,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        $merchant = $this->getAuthincatedMerchant();
+        $merchant = $this->getAuthenticatedMerchant();
         return view('users.merchants.products.edit', compact(['product', 'merchant']));
     }
 
@@ -244,14 +243,14 @@ class ProductController extends Controller
 
         // echo $request->dimention. " " . $request->color;
 
-        if($product->cat_product == "ulos") {
+        if ($product->cat_product == "ulos") {
             $product->specification = json_encode([
                 'dimention' => $request->dimention,
                 'weight' => $request->weight
             ]);
             $product->color = $request->color;
             $product->category = $request->category;
-        } else if($product->cat_product == "pakaian") {
+        } else if ($product->cat_product == "pakaian") {
             $product->specification = json_encode([
                 'size' => $request->dimention,
                 'weight' => $request->weight
@@ -259,30 +258,29 @@ class ProductController extends Controller
 
             $product->color = $request->color;
             $product->category = $request->category;
-        } else if($product->cat_product == "makanan") {
+        } else if ($product->cat_product == "makanan") {
             $product->specification = json_encode([
                 'size_pack' => $request->dimention,
                 'weight' => $request->weight,
                 'umur_simpan' => $request->color
             ]);
             $product->category = $request->category;
-        } else if($product->cat_product == "aksesoris") {
+        } else if ($product->cat_product == "aksesoris") {
             $product->specification = json_encode([
                 'size' => $request->dimention,
                 'weight' => $request->weight
             ]);
             $product->color = $request->color;
             $product->category = $request->category;
-        } else if($product->cat_product == "obat") {
+        } else if ($product->cat_product == "obat") {
             $product->specification = json_encode([
                 'jenis' => $request->dimention,
                 'weight' => $request->weight
             ]);
 
-            if($request->dimention == "Padat") {
+            if ($request->dimention == "Padat") {
                 $product->color = $request->color;
-            }
-            else if($request->dimention == "Cair") {
+            } else if ($request->dimention == "Cair") {
                 $product->color = $request->color;
             }
 
@@ -321,27 +319,33 @@ class ProductController extends Controller
         // return redirect('/products');
     }
 
-    public function searchProduct(Request $request) {
+    public function searchProduct(Request $request)
+    {
         return view('users.homes.search');
     }
 
-    public function searchProductByUlos() {
+    public function searchProductByUlos()
+    {
         return view('users.category.ulos');
     }
 
-    public function searchProductByPakaian() {
+    public function searchProductByPakaian()
+    {
         return view('users.category.pakaian');
     }
 
-    public function searchProductByMakanan() {
+    public function searchProductByMakanan()
+    {
         return view('users.category.makanan');
     }
 
-    public function searchProductByAksesoris() {
+    public function searchProductByAksesoris()
+    {
         return view('users.category.aksesoris');
     }
 
-    public function searchProductByObat() {
+    public function searchProductByObat()
+    {
         return view('users.category.obat');
     }
 }

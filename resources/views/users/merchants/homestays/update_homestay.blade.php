@@ -3,7 +3,6 @@
 @endsection
 
 @section('content')
-
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -30,8 +29,7 @@
 
                                 <div class="col-2 ">
                                     <a href="{{ url('/merchant/'.$result['merchant']->id.'/editProfile') }}">
-                                        <button type="submit"
-                                                class="button essence-btn btn-sm float-right">
+                                        <button type="submit" class="button essence-btn btn-sm float-right">
                                             <i class="fa fa-gear"></i> &nbsp; UBAH
                                         </button>
                                     </a>
@@ -52,25 +50,22 @@
             </div>
         </div>
     </div>
-
-    <!--menu-store-->
     <div class="row">
         <!--sidebar-->
         @include('users.merchants.sidebar')
         <!--//sidebar-->
 
         <!--content-->
-
         <div class="col-md-9 crudproduk mt-3" style="display: grid">
             <div class="pull-right">
                 <div class="card globalcard mt-0">
                     <div class="card-header">
-                        <h6>Ubah Product</h6>
+                        <h6>Ubah Homestay</h6>
                     </div>
                     <div class="card-body">
                         <form class="form-group" method="POST"
-                              action="{{ url('/merchant/homestay/updateHomestay', $result['homestay']->id) }}"
-                              enctype="multipart/form-data">
+                            action="{{ url('/merchant/homestay/updateHomestay', $result['homestay']->id) }}"
+                            enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group row">
                                 <div class="input-group mb-3">
@@ -84,7 +79,7 @@
                                             <button class="btn-upcus">
                                                 <img src="{{ '/images/assets/addimage.png'}}">
                                             </button>
-                                            <input id="files" name="images" type="file"/>
+                                            <input id="files" name="images" type="file" />
                                         </div>
                                         <img src="{{ '/images/'. $result['homestay']->image}}">
                                         <small id="passwordHelpBlock" class="form-text text-muted">
@@ -103,7 +98,7 @@
                                 </label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" value="{{ $result['homestay']->name }}"
-                                           aria-describedby="namaprodukhelp" name="name">
+                                        aria-describedby="namaprodukhelp" name="name">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -112,8 +107,9 @@
                                         class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                                 </label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" value="{{ $result['homestay']->total_room }}"
-                                           aria-describedby="namaprodukhelp" min="1" name="stock" required>
+                                    <input type="number" class="form-control"
+                                        value="{{ $result['homestay']->total_room }}" aria-describedby="namaprodukhelp"
+                                        min="1" name="stock" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -122,8 +118,9 @@
                                         class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                                 </label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" value="{{ $result['homestay']->room_available }}"
-                                           aria-describedby="namaprodukhelp" min="0" name="stock_available" required>
+                                    <input type="number" class="form-control"
+                                        value="{{ $result['homestay']->room_available }}"
+                                        aria-describedby="namaprodukhelp" min="0" name="stock_available" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -133,7 +130,7 @@
                                 </label>
                                 <div class="col-sm-9">
                                     <input type="number" class="form-control" value="{{ $result['homestay']->price }}"
-                                           aria-describedby="namaprodukhelp" min="1" name="price" required>
+                                        aria-describedby="namaprodukhelp" min="1" name="price" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -142,9 +139,8 @@
                                         class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
                                 </label>
                                 <div class="col-sm-9">
-                            <textarea rows="10" class="form-control"
-                                      aria-describedby="namaprodukhelp"
-                                      name="description">{{ $result['homestay']->description }}</textarea>
+                                    <textarea rows="10" class="form-control" aria-describedby="namaprodukhelp"
+                                        name="description">{{ $result['homestay']->description }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -154,13 +150,9 @@
                                 </label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" value="{{ $result['homestay']->address }}"
-                                           aria-describedby="namaprodukhelp" min="1" name="address"
-                                           required>
+                                        aria-describedby="namaprodukhelp" min="1" name="address" required>
                                 </div>
                             </div>
-
-
-
                             <div class="form-group row">
                                 <div class="col-md-12 mt-4">
                                     <button type="submit" class="btn btn-primary float-right">
@@ -171,19 +163,12 @@
                         </form>
                     </div>
                 </div>
+
+                <div style="margin-top: 16px; margin-bottom: 16px;">
+                    <ubah-homestay-room-cards :rooms="{{ $result['rooms'] }}"></ubah-homestay-room-cards>
+                </div>
             </div>
         </div>
-
-
     </div>
 </div>
-
-
 @endsection
-<script>
-    import UpdateHomestay from "../../../../js/components/homestay/merchant/UpdateHomestay";
-
-    export default {
-        components: {UpdateHomestay}
-    }
-</script>

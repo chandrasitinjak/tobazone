@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\HomestayOrders;
-
+use Illuminate\Http\Response;
 
 class HomestayController extends Controller
 {
@@ -41,7 +41,7 @@ class HomestayController extends Controller
                 ->select('homestays.*', 'users.username')
                 ->where('homestays.kabupaten', '=', $query)
                 ->get();
-            $carousel = Homestay::orderBy('created_at','desc')->take(3)->get();
+            $carousel = Homestay::orderBy('created_at', 'desc')->take(3)->get();
             $data = [
                 'code' => 200,
                 'status' => 'OK',
@@ -70,7 +70,7 @@ class HomestayController extends Controller
                     $result
                 ]
             ];
-            $carousel = Homestay::orderBy('created_at','desc')->take(3)->get();
+            $carousel = Homestay::orderBy('created_at', 'desc')->take(3)->get();
             $kabupaten = DB::select("SELECT kabupaten FROM homestays GROUP BY kabupaten");
             return view(
                 'users.homestay.index',
@@ -138,7 +138,8 @@ class HomestayController extends Controller
         return view('users.homestay.all_homestay_page')->with('homestays', $homestays);
     }
 
-    public function getAllHomestay(){
+    public function getAllHomestay()
+    {
         $result = DB::table('homestays')
             ->join('users', 'users.id', '=', 'homestays.merchant_id')
             ->select('homestays.*', 'users.username')
@@ -161,8 +162,8 @@ class HomestayController extends Controller
     {
         $user = Auth::user();
         if (!$user) {
-            // Redirect to login page if user is not logged in.
-            return redirect('/listlogin');
+            // Redirect to 401 page if user is not logged in.
+            return abort(Response::HTTP_UNAUTHORIZED, 'Not authorized user');
         }
 
         $homestayOrders = HomestayOrders::where('id_customer', $user->id)->get();
@@ -179,8 +180,8 @@ class HomestayController extends Controller
     {
         $user = Auth::user();
         if (!$user) {
-            // Redirect to login page if user is not logged in.
-            return redirect('/listlogin');
+            // Redirect to 401 page if user is not logged in.
+            return abort(Response::HTTP_UNAUTHORIZED, 'Not authorized user');
         }
 
         $orderDetail = HomestayOrders::where('id', $idOrder)
@@ -325,7 +326,7 @@ class HomestayController extends Controller
     public function listSuccessOrder()
     {
 
-        $merchant = $this->getAuthincatedMerchant();
+        $merchant = $this->getAuthenticatedMerchant();
         return view('users.merchants.orders.success-order')->with('merchant', $merchant);
     }
 
@@ -333,11 +334,11 @@ class HomestayController extends Controller
     //Merchant
     public function createHomestayPage()
     {
-        $merchant = $this->getAuthincatedMerchant();
+        $merchant = $this->getAuthenticatedMerchant();
         return view('users.merchants.homestays.create_homestay')->with('result', $merchant);
     }
 
-    private function getAuthincatedMerchant()
+    private function getAuthenticatedMerchant()
     {
         $merchant = User::with('profile')->find(Auth::user()->id);
         $address = json_decode(json_decode($merchant->profile->address)[0]);
@@ -348,7 +349,7 @@ class HomestayController extends Controller
 
     public function getAllMerchantHomestay()
     {
-        $merchant = $this->getAuthincatedMerchant();
+        $merchant = $this->getAuthenticatedMerchant();
         $homestays = Homestay::where('merchant_id', Auth::user()->id)->get();;
         $result = [
             "merchant" => $merchant,
@@ -380,7 +381,7 @@ class HomestayController extends Controller
     public function deleteById($id)
     {
         Homestay::find($id)->delete();
-        $merchant = $this->getAuthincatedMerchant();
+        $merchant = $this->getAuthenticatedMerchant();
         $homestays = Homestay::All();
         $result = [
             "merchant" => $merchant,
@@ -389,17 +390,39 @@ class HomestayController extends Controller
         return redirect('merchant/homestay/findAll');
     }
 
+    /**
+     * Show the form for editing homestay and homestay room(s).
+     *
+     * @param int $id
+     * @return void
+     */
     public function updateHomestay($id)
     {
-        $merchant = $this->getAuthincatedMerchant();
-        $homestay = Homestay::find($id);
+        if (!Auth::user()) {
+            return abort(Response::HTTP_UNAUTHORIZED, 'Not authorized user');
+        }
+
+        $merchant = $this->getAuthenticatedMerchant();
+        if ($merchant === null) {
+            return abort(Response::HTTP_UNAUTHORIZED, 'Not authorized user');
+        }
+
         $result = [
             "merchant" => $merchant,
-            "homestay" => $homestay
+            "homestay" => Homestay::find($id),
+            "rooms" => HomestayRooms::where('id_homestay', $id)->get(),
         ];
+
         return view('users.merchants.homestays.update_homestay')->with('result', $result);
     }
 
+    /**
+     * Update the homestay in the storage.
+     *
+     * @param Request $request
+     * @param int $id
+     * @return void
+     */
     public function update(Request $request, $id)
     {
         $homestay = Homestay::find($id);
@@ -408,14 +431,12 @@ class HomestayController extends Controller
             $destinationPath = public_path('/images');
             $image->move($destinationPath, $homestay->image);
         }
-
         $homestay->name = $request->name;
         $homestay->total_room = $request->stock;
         $homestay->room_available = $request->stock_available;
         $homestay->price = $request->price;
         $homestay->description = $request->description;
         $homestay->address = $request->address;
-
         $homestay->image = $homestay->image;
         $homestay->update();
 
@@ -453,7 +474,7 @@ class HomestayController extends Controller
         //            ->get();
         //        dd($orders);
         //        $homestay = Homestay::find($orders->id_homestay);
-        $merchant = $this->getAuthincatedMerchant();
+        $merchant = $this->getAuthenticatedMerchant();
         $result = [
             "merchant" => $merchant,
             "orders" => $query
@@ -551,7 +572,8 @@ class HomestayController extends Controller
         return redirect('/user/homestay/order/findAll');
     }
 
-    public function findHomestayTerlaris(){
+    public function findHomestayTerlaris()
+    {
         $query = DB::Select("SELECT COUNT(ho.id) AS ORD, h.id, h.merchant_id,
 h.name,
 h.price,
@@ -575,7 +597,7 @@ h.image,
 h.status,
 h.kabupaten,
 h.kecamatan,
-h.desa ORDER BY ORD DESC LIMIT 10" );
+h.desa ORDER BY ORD DESC LIMIT 10");
 
         return response()->json($query);
     }
