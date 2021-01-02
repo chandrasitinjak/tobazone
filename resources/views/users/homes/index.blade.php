@@ -68,7 +68,7 @@
                     <produk-terlaris2 />
                 </div>
             </div>--}}
-            <div class="row mt-3" style="background-color : white ">
+            <div class="container mt-3" style="background-color : white ">
                 <div class="col-md-12">
                     <carousel></carousel>
                 </div>
@@ -152,7 +152,7 @@
         </div>
     </div>
 
-    <div class="row" id="product-terlaris">
+    <div class="container" id="product-terlaris">
         <produk-terlaris />
     </div>
 
