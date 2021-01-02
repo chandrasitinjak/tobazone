@@ -300,6 +300,7 @@ Route::middleware(['auth', 'verified', 'verifiedByAdmin'])->group(function () {
 
         Route::delete('/pemesanan/cancel/{id_pemesanan}', 'PemesananController@cancel')->name('pemesanan.batal');
         //end pemesanan
+        Route::put('/paket/{p_id}/{pe_id}/review', 'PaketWisataCustomerController@addReview')->name('paket.addReview');
         //end visit toba
     });
 

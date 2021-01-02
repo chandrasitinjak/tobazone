@@ -6,6 +6,7 @@ use App\Comment;
 use App\IncludedNotIncluded;
 use App\Kabupaten;
 use App\Mail\jadwalPaket;
+use App\PaketReview;
 use App\PaketWisata;
 use App\Pemesanan;
 use App\RatingPaket;
@@ -115,5 +116,16 @@ class PaketWisataCustomerController extends Controller
 
         $paket_lainnya = $pakets->take(3);
         return view('paket-wisata.list-paket', compact('paket', 'jenis', 'kabupaten', 'jeniss', 'paket_lainnya','id_kab'));
+    }
+
+    public function addReview(Request $request, $p_id, $pe_id){
+        PaketReview::create([
+            'user_id' => Auth::id(),
+            'pemesanan_id' => $pe_id,
+            'paket_id' => $p_id,
+            'body' => $request->feedback
+        ]);
+
+        return redirect(route('paket.detail',$p_id));
     }
 }

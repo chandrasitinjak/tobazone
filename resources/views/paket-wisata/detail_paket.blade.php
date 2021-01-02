@@ -266,6 +266,25 @@
                                                 </div>
                                             </div>
                                         @endif
+                                        @if($paket->reviews === null)
+                                            <div class="text-sm-center">
+                                                <img src="" alt="">
+                                                <b>Belum ada ulasan untuk produk ini</b>
+                                                <p>Jadilah yang pertama membeli produk ini dan memberikan ulasan</p>
+                                            </div>
+                                        @else @foreach ($paket->reviews as $review)
+                                            <div class="card mt-3">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            Oleh <b> {{ $review->customer->profile->name }}</b> <br>
+                                                            <small>{{ date_format($review->created_at,"l, d F Y, h:i:s") }}</small>
+                                                            <br> {{ $review->body }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach @endif
                                     </div>
                                 </div>
                             </div>

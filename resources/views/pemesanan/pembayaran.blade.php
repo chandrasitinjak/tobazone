@@ -1,6 +1,5 @@
 @extends('users.layouts.app')
 @section('content')
-    <div class="container-fluid">
         <div class="row mb-4">
             <div class="col">
                 <center><h3 class="mt-5">Terima Kasih Customer</h3></center>
@@ -197,7 +196,6 @@
                 </div>
             </div>
         </div>
-    </div>
         <script src="{{url('https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js')}}"></script>
         <script src="{{url('https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js')}}"></script>
         <script src="{{url('https://unpkg.com/axios/dist/axios.min.js')}}"></script>
