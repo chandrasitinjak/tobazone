@@ -122,29 +122,29 @@
                         </div>
                     </div>
                     <br>
-                    <div class="row">
-                        <div class=" col-md-3 col-3 ">
-                            <ul>
-                                <li style="color: white;">
-                                    <h6>Becak</h6>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class=" col-md-3 col-3">
-                            <ul>
-                                <li style="color: white;">
-                                    <h6>Angkot</h6>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class=" col-md-2 col-2">
-                            <ul>
-                                <li style="color: white;">
-                                    <h6>KBT</h6>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+{{--                    <div class="row">--}}
+{{--                        <div class=" col-md-3 col-3 ">--}}
+{{--                            <ul>--}}
+{{--                                <li style="color: white;">--}}
+{{--                                    <h6>Becak</h6>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                        <div class=" col-md-3 col-3">--}}
+{{--                            <ul>--}}
+{{--                                <li style="color: white;">--}}
+{{--                                    <h6>Angkot</h6>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                        <div class=" col-md-2 col-2">--}}
+{{--                            <ul>--}}
+{{--                                <li style="color: white;">--}}
+{{--                                    <h6>KBT</h6>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h6 class="">Layanan Pengguna</h6>
