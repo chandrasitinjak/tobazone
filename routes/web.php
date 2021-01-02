@@ -367,6 +367,7 @@ Route::post('/homestays/order/upload-resi/{id}', 'HomestayController@uploadResi'
 
 //orderHomestay
 Route::post('/homestay/pesan/{id}', 'HomestayController@bookHomestay');
+Route::post('/homestay/pesanBulk/', 'HomestayTransactionController@bulkBookedHomestay');
 
 //Approval Penginapan Backend
 Route::get('/homestay/approvePenginapan/{id}', 'HomestayController@approvePenginapan');
