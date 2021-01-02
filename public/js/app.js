@@ -79484,7 +79484,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("div", { staticClass: "d-flex justify-content-center" }, [
-        _c("h3", [_vm._v("Informasi yang dicari")])
+        _c("h3", [_vm._v("Informasi yang ingin dicari")])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
@@ -79696,7 +79696,9 @@ var render = function() {
     _c("br"),
     _vm._v(" "),
     _c("div", { staticClass: "card globalcard" }, [
-      _c("h3", { staticClass: "text-center" }, [_vm._v("Paket Wisata")]),
+      _c("h3", { staticClass: "text-center" }, [
+        _vm._v("Paket Wisata Terlaris")
+      ]),
       _vm._v(" "),
       _c(
         "div",
