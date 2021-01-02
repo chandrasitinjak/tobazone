@@ -7,11 +7,11 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100"  src="{{ '/images/banners/banner.png'}}"
+                        <img class="d-block w-100" src="{{ '/images/banners/banner.png'}}"
                              alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100"  src="{{ '/images/banners/banner2.png'}}"
+                        <img class="d-block w-100" src="{{ '/images/banners/banner2.png'}}"
                              alt="Second slide">
                     </div>
                     <div class="carousel-item">
@@ -183,7 +183,7 @@
 
         <center>
             <br>
-            <h2>Paket Wisata Terbaru</h2>
+            <h2>Paket Wisata Terbaru</h2><br>
         </center>
         <div class="row justify-content-center align-content-center">
             {{--            <div class="col-auto" style="margin-top: 190px">--}}
@@ -194,29 +194,30 @@
                 <div class="carousel-inner" role="listbox" style="position: center;">
 
                     <!--First slide-->
-                    <div class="carousel-item active" style="">
+                    <div class="carousel-item active" >
                         @foreach($paket as $row)
                             <div class="col-md-3" style="float:left">
                                 <div class="card mb-2" style="border-radius: 10px;">
-                                    <div class="imgwrapper">
-                                        <img class="card-img-top"
-                                             src="{{asset('/storage/img/paket/'.$row->gambar)}}"
-                                             alt="Card image cap" style="height: 100%; width: 100%; object-fit: cover">
-                                    </div>
-                                    <div class="card-body">
-                                        <h7  class="card-title" style="font-weight: bold;">{{$row->nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )</h7>
-                                        <h5 style="color: #ff8311;"> Rp.{{number_format($row->harga_paket)}}</h5>
-                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
-                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
-                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
-                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
-                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
-
-                                        <p class="card-text">
-                                            <medium class="text-muted  float-right"> &nbsp;&nbsp;{{$row->getKabupaten->nama_kabupaten}}</medium>
-                                            <medium class="text-muted  float-left"></medium>
-                                        </p>
-                                    </div>
+                                    <a href="{{route('paket.detail',$row->id_paket)}}">
+                                        <div class="imgwrapper">
+                                            <img class="card-img-top"
+                                                 src="{{asset('/storage/img/paket/'.$row->gambar)}}"
+                                                 alt="Card image cap"
+                                                 style="height: 100%; width: 100%; object-fit: cover">
+                                        </div>
+                                        <div class="card-body">
+                                            <h7 class="card-title"
+                                                style="font-weight: bold;">{{strlen($row->nama_paket)>20?substr(strip_tags(str_replace(PHP_EOL, '<br>', $row->nama_paket), '<br>'), 0, 20).' . . .':$row->nama_paket}}
+                                                <br>( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )
+                                            </h7>
+                                            <h5 style="color: #ff8311;"> Rp.{{number_format($row->harga_paket)}}</h5>
+                                            <p class="card-text">
+                                                <medium class="text-muted  float-right">
+                                                    &nbsp;&nbsp;{{$row->getKabupaten->nama_kabupaten}}</medium>
+                                                <medium class="text-muted  float-left"></medium>
+                                            </p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         @endforeach
@@ -237,12 +238,12 @@
     <br>
     <!--/.Carousel Wrapper-->
 
-    <div class="row justify-content-center text-center">
+    <div class="row mt-5 mb-5 justify-content-center text-center">
         @foreach($kabupaten as $row)
             @if($row->nama_kabupaten=='Toba')
                 <div class="col-3 mt-1 mb-1">
                     <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
-                        <img src="{{asset('/images/filter-paket/toba.png')}}" alt="Foto Danau Toba">
+                        <img src="{{asset('/images/filter-paket/toba.png')}}" class="mb-3" alt="Foto Danau Toba">
                         <h6>Toba</h6>
 
                     </a>
@@ -250,7 +251,7 @@
             @elseif($row->nama_kabupaten == 'Samosir')
                 <div class="col-3 mt-1 mb-1">
                     <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
-                        <img src="{{asset('/images/filter-paket/samosir.png')}}" alt="Foto Danau Toba">
+                        <img src="{{asset('/images/filter-paket/samosir.png')}}" class="mb-3" alt="Foto Danau Toba">
                         <h6>Tapanuli Utara</h6>
 
                     </a>
@@ -258,7 +259,7 @@
             @elseif($row->nama_kabupaten == 'Tapanuli Utara')
                 <div class="col-3 mt-1 mb-1">
                     <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
-                        <img src="{{asset('/images/filter-paket/taput.png')}}" alt="Foto Danau Toba">
+                        <img src="{{asset('/images/filter-paket/taput.png')}}" class="mb-3" alt="Foto Danau Toba">
                         <h6>Karo</h6>
 
                     </a>
@@ -266,7 +267,8 @@
             @elseif($row->nama_kabupaten == 'Karo')
                 <div class="col-3 mt-1 mb-1">
                     <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
-                        <img src="{{asset('/images/filter-paket/karo.png')}}" alt="Foto Danau Toba">
+                        <img src="{{asset('/images/filter-paket/karo.png')}}" class="mb-3" alt="Foto Danau Toba">
+
                         <h6>Samosir</h6>
 
                     </a>
@@ -274,8 +276,7 @@
             @elseif($row->nama_kabupaten == 'Simalungun')
                 <div class="col-3 mt-1 mb-1">
                     <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
-                        <img src="{{asset('/images/filter-paket/simalungun.png')}}" alt="Foto Danau Toba">
-
+                        <img src="{{asset('/images/filter-paket/simalungun.png')}}" class="mb-3" alt="Foto Danau Toba">
                         <h6>Simalungun</h6>
 
                     </a>
@@ -283,7 +284,7 @@
             @elseif($row->nama_kabupaten == 'Humbang Hasundutan')
                 <div class="col-3 mt-1 mb-1">
                     <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
-                        <img src="{{asset('/images/filter-paket/humbahas.png')}}" alt="Foto Danau Toba">
+                        <img src="{{asset('/images/filter-paket/humbahas.png')}}" class="mb-3" alt="Foto Danau Toba">
                         <h6>Humbang Hasundutan</h6>
 
                     </a>
@@ -291,7 +292,7 @@
             @elseif($row->nama_kabupaten == 'Dairi')
                 <div class="col-3 mt-1 mb-1">
                     <a href="{{route('paket.filter.kabupaten',$row->id_kabupaten)}}">
-                        <img src="{{asset('/images/filter-paket/dairi.png')}}" alt="Foto Danau Toba">
+                        <img src="{{asset('/images/filter-paket/dairi.png')}}" class="mb-3" alt="Foto Danau Toba">
                         <h6>Dairi</h6>
 
                     </a>
