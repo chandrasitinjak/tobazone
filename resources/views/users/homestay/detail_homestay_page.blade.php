@@ -131,7 +131,7 @@
                                 <p class="mt-3">Rp.{{$kamar->price}},00</p>
                             </div>
                             <div class="col-md-2">
-                                @if(!$kamar->status == 'booked')
+                                @if($kamar->status == 'available')
                                 <input class="mt-3" type="checkbox" value="{{$kamar->id}}"
                                        name="checkbox[]">
                                 @else
@@ -262,7 +262,7 @@
                                             Harga/Kamar/Malam</p>
                                     </div>
                                 </div>
-                                @if($kamar->status == 'booked')
+                                @if(!$kamar->status == 'available')
                                 <button disabled type="submit" class="btn essence-btn-sm">Pesan
                                     Homestay
                                 </button>
