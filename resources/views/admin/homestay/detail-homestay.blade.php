@@ -28,7 +28,7 @@
                                 <td><span class="address"> {{ $order[0]->address }}</span></td>
                                 <td>{{ $order[0]->check_in}}</td>
                                 <td>{{ $order[0]->duration }} hari</td>
-                                <td>{{ $order[0]->jumlah_kamar}}</td>
+                                <td>{{ $order[0]->rooms}}</td>
                                 <td>{{ $order[0]->status}}</td>
                             </tr>
                             </thead>
@@ -56,7 +56,7 @@
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">Total Pembayaran</th>
-                                                        <td>IDR {{$order[0]->total_price}}</td>
+                                                        <td>IDR {{$order[0]->price}}</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>

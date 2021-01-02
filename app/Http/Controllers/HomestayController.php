@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Homestay;
 use App\HomestayRooms;
+use App\HomestayTransactions;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -166,7 +167,7 @@ class HomestayController extends Controller
             return abort(Response::HTTP_UNAUTHORIZED, 'Not authorized user');
         }
 
-        $homestayOrders = HomestayOrders::where('id_customer', $user->id)->get();
+        $homestayOrders = HomestayTransactions::where('user_id', $user->id)->get();
 
         return view('users.customers.homestays.index')->with('homestayOrders', $homestayOrders);
     }
@@ -184,10 +185,10 @@ class HomestayController extends Controller
             return abort(Response::HTTP_UNAUTHORIZED, 'Not authorized user');
         }
 
-        $orderDetail = HomestayOrders::where('id', $idOrder)
+        $orderDetail = HomestayOrders::where('id_transaction', $idOrder)
             ->where('id_customer', $user->id)
-            ->first();
-
+            ->get();
+//        dd($orderDetail[0]->homestay->name);
         // Handle if request is not found.
         if (!$orderDetail) {
             abort(404, 'Page not found.');
@@ -488,7 +489,7 @@ class HomestayController extends Controller
     {
         $length = 10;
         $rand = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
-        $homestayOrders = HomestayOrders::find($id);
+        $homestayOrders = HomestayTransactions::find($id);
         if ($request->file('images')) {
             $image = $request->file('images');
             $destinationPath = public_path('/images');
@@ -498,6 +499,7 @@ class HomestayController extends Controller
         $homestayOrders->payment_method = $request->utkbank;
         $homestayOrders->is_paid = 1;
         $homestayOrders->resi = 'resi_' . $rand . '.png';
+        $homestayOrders->nama_pengirim = $request->namapengirim;
         $homestayOrders->update();
         return redirect('/user/homestay/order/findAll');
     }
@@ -516,25 +518,25 @@ class HomestayController extends Controller
 
     public function findAllPaidOrder()
     {
-        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.status = 'In Progress'");
+        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_transaction AS ho JOIN homestays AS h ON ho.homestay_id = h.id JOIN users AS u ON ho.user_id = u.id WHERE ho.status = 'In Progress'");
         return view('admin.orders.homestay-new-order')->with('transactions', $query);
     }
 
     public function findAllSuccessOrder()
     {
-        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.status = 'accepted'");
+        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_transaction AS ho JOIN homestays AS h ON ho.homestay_id = h.id JOIN users AS u ON ho.user_id = u.id WHERE ho.status = 'accepted'");
         return view('admin.orders.homestay-new-order')->with('transactions', $query);
     }
 
     public function findAllRejectedOrder()
     {
-        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.status = 'rejected'");
+        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_transaction AS ho JOIN homestays AS h ON ho.homestay_id = h.id JOIN users AS u ON ho.user_id = u.id WHERE ho.status = 'rejected'");
         return view('admin.orders.homestay-new-order')->with('transactions', $query);
     }
 
     public function allSuccessOrder()
     {
-        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.status = 'accepted' AND h.merchant_id=" . Auth::id());
+        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_transaction AS ho JOIN homestays AS h ON ho.homestay_id = h.id JOIN users AS u ON ho.user_id = u.id WHERE ho.status = 'accepted' AND h.merchant_id=" . Auth::id());
         $result = [
             "code" => 200,
             "status" => "OK",
@@ -545,7 +547,7 @@ class HomestayController extends Controller
 
     public function allPaidOrder()
     {
-        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.status = 'In Progress' AND h.merchant_id=" . Auth::id());
+        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_transaction AS ho JOIN homestays AS h ON ho.homestay_id = h.id JOIN users AS u ON ho.user_id = u.id WHERE ho.status = 'In Progress' AND h.merchant_id=" . Auth::id());
         $result = [
             "code" => 200,
             "status" => "OK",
@@ -560,7 +562,7 @@ class HomestayController extends Controller
             ->join('homestays', 'id_homestay', '=', 'homestays.id')
             ->select('homestay_orders.*', 'homestays.name', 'users.username', 'homestays.address')
             ->where('homestay_orders.id', $id)->get();
-        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.id = " . $id);
+        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_transaction AS ho JOIN homestays AS h ON ho.homestay_id = h.id JOIN users AS u ON ho.user_id = u.id WHERE ho.id = " . $id);
 
         return view('admin.homestay.detail-homestay')->with('order', $query);
     }
@@ -571,6 +573,7 @@ class HomestayController extends Controller
         $order->delete();
         return redirect('/user/homestay/order/findAll');
     }
+
 
     public function findHomestayTerlaris()
     {

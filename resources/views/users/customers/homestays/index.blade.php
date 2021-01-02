@@ -30,7 +30,7 @@
                     <th scope="row">{{ $index + 1 }}</th>
                     <td>{{ $homestayOrder->homestay->name }}</td>
                     <td>{{ $homestayOrder->duration }} Hari</td>
-                    <td>Rp {{ number_format($homestayOrder->total_price, 2, ',', '.') }}</td>
+                    <td>Rp {{ number_format($homestayOrder->price, 2, ',', '.') }}</td>
                     <td> <p  style="color: #FF8311; ">{{ ucfirst(strtolower($homestayOrder->status)) }}</p></td>
                     <td><a class="btn" style="background-color: black; color: white" href="{{url('/user/homestay/order/findById/'.$homestayOrder->id)}}">Detail</a>
                     <a class="btn" style="background-color: #6D0000; color: white" onclick="deletes()" >Delete</a></td>

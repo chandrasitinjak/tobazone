@@ -18,6 +18,7 @@ class CreateHomestayOrdersTable extends Migration
             $table->integer('id_customer');
             $table->integer('id_homestay');
             $table->integer('id_kamar');
+            $table->integer('id_transaction');
             $table->integer('total_price');
             $table->string('check_in');
             $table->integer('duration');
@@ -25,6 +26,7 @@ class CreateHomestayOrdersTable extends Migration
             $table->string('payment_method');
             $table->boolean('is_paid');
             $table->string('resi');
+            $table->string('nama_pengirim');
             $table->string('status');
 
             $table->softDeletes();

@@ -38,11 +38,10 @@
 
             </div>
             <div class="col-lg-8 bg-white pt-3 pl-3 mb-3 img-thumbnail bayangan">
-                <div class="row">
-                    <div class="col-md-12 row">
-                        <form class="row pl-3 pr-3" method="POST"
-                              action="">
-                            {{ csrf_field() }}
+                <form action="{{ url('/homestay/pesanBulk/') }}" method="POST">
+                    {{ csrf_field() }}
+                    <div class="row">
+                        <div class="col-md-12 row">
                             <div class="col-lg-6">
                                 <p style="margin-bottom: -5px; font-weight: bolder">Check in</p>
                                 <div class="input-group">
@@ -79,28 +78,78 @@
                                            class="form-control" id="inlineFormInputGroup">
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="col-lg-12 mt-4 mb-3" align="end">
-                            <div class="row">
-                                <?php $counts=0 ?>
-                                @foreach ($homestays['kamar'] as $kamar)
-                                <?php $counts++;?>
-                                <p class="mt-3">Kamar {{$counts}}</p>
-                                <input type="checkbox" value="{{$kamar->id}}" name="checkbox[]">
-                                <p>{{$kamar}}</p>
-                                @endforeach
+                    <br>
+                    <div class="col-lg-12 mt-4 mb-3">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <b> Nama Kamar</b>
                             </div>
+                            <div class="col-md-2">
+                                <b> Kategori</b>
+                            </div>
+                            <div class="col-md-4">
+                                <b> Fasilitas</b>
+                            </div>
+                            <div class="col-md-2">
+                                <b> Harga</b>
+                            </div>
+                            <div class="col-md-2">
+                                <b> Aksi</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <?php $counts = 0 ?>
+                            @foreach ($homestays['kamar'] as $kamar)
+                            <?php $counts++; ?>
+                            <div class="col-md-2">
+                                <b><p class="mt-3">Kamar {{$counts}}</p></b>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="mt-3">{{$kamar->kategori}}</p>
+                            </div>
+                            <div class="col-md-4 mt-3">
+                                @if(str_contains($kamar->facilities,'Wifi'))
+                                <p><i class="fa fa-wifi" aria-hidden="true"></i>&nbsp;&nbsp;Wifi</p>
+                                @endif
+                                @if(str_contains($kamar->facilities,'Pemanas'))
+                                <p><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;Pemanas
+                                </p>
+                                @endif
+                                @if(str_contains($kamar->facilities,'Kamar mandi'))
+                                <p><i class="fa fa-bath" aria-hidden="true"></i>&nbsp;&nbsp;Kamar
+                                    Mandi
+                                </p>
+                                @endif
+                                @if(str_contains($kamar->facilities,'Ac'))
+                                <p><i class="fa fa-retweet" aria-hidden="true"></i>&nbsp;&nbsp;Air
+                                    Conditioner</p>
+                                @endif
+                            </div>
+                            <div class="col-md-2">
+                                <p class="mt-3">Rp.{{$kamar->price}},00</p>
+                            </div>
+                            <div class="col-md-2">
+                                @if(!$kamar->status == 'booked')
+                                <input class="mt-3" type="checkbox" value="{{$kamar->id}}"
+                                       name="checkbox[]">
+                                @else
+                                <p class="mt-3">Booked</p>
+                                @endif
+                            </div>
+                            <hr>
+                            @endforeach
+                        </div>
+                        <div align="end">
                             <button type="submit" class="btn essence-btn-sm">Pesan
                                 Homestay
                             </button>
                         </div>
+
+                        <br>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="col-md-2">
 
@@ -213,9 +262,15 @@
                                             Harga/Kamar/Malam</p>
                                     </div>
                                 </div>
+                                @if($kamar->status == 'booked')
+                                <button disabled type="submit" class="btn essence-btn-sm">Pesan
+                                    Homestay
+                                </button>
+                                @else
                                 <button type="submit" class="btn essence-btn-sm">Pesan
                                     Homestay
                                 </button>
+                                @endif
                             </div>
                         </div>
                     </div>
