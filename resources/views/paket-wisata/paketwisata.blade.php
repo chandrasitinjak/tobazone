@@ -34,7 +34,18 @@
 
     <div class="row mb-5">
         @if(Auth::check())
-            <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="single_travel text-center">
+                    <div class="icon">
+                        <!-- <img src="images/tour.png" alt=""> -->
+                        <a href="{{route('paket.list')}}"><img src="{{ asset("/images/tour.png" )}}" alt="..."
+                            ></a>
+                    </div>
+                    <h3>Paket Wisata</h3>
+                    <p>Perjalanan wisata yang dirancang agar perjalanan lebih menyenangkan.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="single_travel text-center">
                     <div class="icon">
                         <!-- <img src="images/tour.png" alt=""> -->
@@ -46,7 +57,7 @@
                     <p>Komunitas yang dibangun untuk meningkatkan produktivitas penyaji wisata.</p>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="single_travel text-center">
                     <div class="icon">
                         <!-- <img src="images/komunitas.png" alt=""> -->
