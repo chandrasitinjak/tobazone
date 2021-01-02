@@ -151,7 +151,6 @@
             </a>
         </div>
     </div>
-
     <div class="container" id="product-terlaris">
         <produk-terlaris />
     </div>
@@ -163,7 +162,9 @@
     <new-products :title="'Produk Terbaru'" />
     @endif
     </div>--}}
-
+            <div class="container">
+                <homestay-terlaris/>
+            </div>
     <div class="container mt-7 ml-20" id="komunitas-paket-wisata">
         <komunitas-paket-wisata />
     </div><br><br>
