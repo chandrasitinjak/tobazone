@@ -162,7 +162,7 @@
             </div>
         </li>
         <li>
-            <a href="{{ url('/user/homestays') }}"><i class="bx bxs-star-half mr-3"></i> Akomodasi</a>
+            <a href="{{ url('/user/homestays') }}"><i class="bx bxs-star-half mr-3"></i> Penginapan</a>
         </li>
         <li>
             <a href="{{ route('paket') }}"><i class="bx bxs-bar-chart-square mr-3"></i> Paket Wisata</a>

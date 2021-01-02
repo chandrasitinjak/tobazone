@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <br><br><br>
         <div class="card globalcard">
-            <h3 class="text-center">Paket Wisata</h3>
+            <h3 class="text-center">Paket Wisata Terlaris</h3>
             <div class="card-body globalcardbody mb-5" >
                 <carousel
                         :mouse-drag="true"
