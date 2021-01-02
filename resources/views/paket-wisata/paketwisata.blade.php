@@ -34,7 +34,18 @@
 
     <div class="row mb-5">
         @if(Auth::check())
-            <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="single_travel text-center">
+                    <div class="icon">
+                        <!-- <img src="images/tour.png" alt=""> -->
+                        <a href="{{route('paket.list')}}"><img src="{{ asset("/images/tour.png" )}}" alt="..."
+                            ></a>
+                    </div>
+                    <h3>Paket Wisata</h3>
+                    <p>Perjalanan wisata yang dirancang agar perjalanan lebih menyenangkan.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="single_travel text-center">
                     <div class="icon">
                         <!-- <img src="images/tour.png" alt=""> -->
@@ -46,7 +57,7 @@
                     <p>Komunitas yang dibangun untuk meningkatkan produktivitas penyaji wisata.</p>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="single_travel text-center">
                     <div class="icon">
                         <!-- <img src="images/komunitas.png" alt=""> -->
@@ -175,25 +186,26 @@
             <h2>Paket Wisata Terbaru</h2>
         </center>
         <div class="row justify-content-center align-content-center">
-            <div class="col-auto" style="margin-top: 190px">
-                <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
-            </div>
+            {{--            <div class="col-auto" style="margin-top: 190px">--}}
+            {{--                <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>--}}
+            {{--            </div>--}}
             <div class="col-10">
                 <!--Slides-->
                 <div class="carousel-inner" role="listbox" style="position: center;">
 
                     <!--First slide-->
                     <div class="carousel-item active" style="">
-
                         @foreach($paket as $row)
                             <div class="col-md-3" style="float:left">
                                 <div class="card mb-2" style="border-radius: 10px;">
-                                    <img class="card-img"
-                                         src="{{ asset("/storage/img/paket/".$row->gambar )}}"
-                                         alt="Card image cap" style="height: 100%; width: 100%; object-fit: cover">
+                                    <div class="imgwrapper">
+                                        <img class="card-img-top"
+                                             src="{{asset('/storage/img/paket/'.$row->gambar)}}"
+                                             alt="Card image cap" style="height: 100%; width: 100%; object-fit: cover">
+                                    </div>
                                     <div class="card-body">
                                         <h7  class="card-title" style="font-weight: bold;">{{$row->nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )</h7>
-                                        <h5 style="color: #FF8311;"> Rp.{{number_format($row->harga_paket)}}</h5>
+                                        <h5 style="color: #ff8311;"> Rp.{{number_format($row->harga_paket)}}</h5>
                                         <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
                                         <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
                                         <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
@@ -210,16 +222,13 @@
                         @endforeach
 
                     </div>
-                    {{--                   s--}}
-
-
                 </div>
                 <!--/.Slides-->
             </div>
 
-            <div class="col-auto" style="margin-top: 190px">
-                <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a>
-            </div>
+            {{--            <div class="col-auto" style="margin-top: 190px">--}}
+            {{--                <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a>--}}
+            {{--            </div>--}}
 
         </div>
 
@@ -290,6 +299,5 @@
             @endif
         @endforeach
     </div>
-
 
 @endsection

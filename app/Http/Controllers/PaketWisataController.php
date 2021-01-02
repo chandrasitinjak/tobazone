@@ -24,7 +24,7 @@ class PaketWisataController extends Controller
         return view('admin.paket.index', compact('kabupaten', 'pakets','paketss'));
     }
     public function index_customer(){
-        $paket = paketWisata::where('status', 1)->orderBy('created_at', 'DESC')->paginate(10);
+        $paket = paketWisata::where('status', 1)->orderBy('created_at', 'DESC')->limit(8);
         $pakets = paketWisata::where('status', 1)->orderBy('created_at', 'DESC')->limit(3);
         $jenis = DB::table('paket_wisata')->select('jenis_paket')->groupBy('jenis_paket')->get();
         $kabupaten = Kabupaten::all();
