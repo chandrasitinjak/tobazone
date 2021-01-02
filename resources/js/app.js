@@ -7,22 +7,19 @@
 require("./bootstrap");
 
 window.Vue = require("vue");
+
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
-
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import StarRating from 'vue-star-rating';
-
 import Vuelidate from 'vuelidate';
+
 Vue.use(Loading, {
     color: '#073763'
 });
-
 Vue.use(VueSweetalert2);
-
-
-Vue.use(Vuelidate)
+Vue.use(Vuelidate);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -79,8 +76,9 @@ const FormPesanHomestay = require('./components/Homestay/FormPesanHomestay').def
 const NewOrder = require('./components/homestay/merchant/NewOrder').default
 const ProdukTerlaris2 = require('./components/homes/ProdukTerlaris2').default
 const PaketRating = require('./components/paket/Rating').default
+const UbahHomestayRoomCards = require('./components/homestay/room/UbahRoomCards').default
 const HomestayTerlaris = require('./components/homestay/HomestayTerlaris').default
-// const Test = require('./components/test/test');
+const SuccessOrder = require('./components/homestay/merchant/SuccessOrder').default
 
 Vue.component('star-rating', StarRating)
 
@@ -105,7 +103,6 @@ const app = new Vue({
         AkunPending,
         UserRating,
         UserRatingSecond,
-        // Test,
         AddToWishlistButton,
         Carousel,
         NewProducts,
@@ -147,7 +144,9 @@ const app = new Vue({
         NewOrder,
         ProdukTerlaris2,
         PaketRating,
-        HomestayTerlaris
+        UbahHomestayRoomCards,
+        HomestayTerlaris,
+        SuccessOrder
     },
     data() {
         return {
@@ -164,9 +163,6 @@ const app = new Vue({
         deleteRow() {
             this.rows.pop();
         },
-
-
     },
 
 });
-

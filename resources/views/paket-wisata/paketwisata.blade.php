@@ -175,25 +175,26 @@
             <h2>Paket Wisata Terbaru</h2>
         </center>
         <div class="row justify-content-center align-content-center">
-            <div class="col-auto" style="margin-top: 190px">
-                <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
-            </div>
+{{--            <div class="col-auto" style="margin-top: 190px">--}}
+{{--                <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>--}}
+{{--            </div>--}}
             <div class="col-10">
                 <!--Slides-->
                 <div class="carousel-inner" role="listbox" style="position: center;">
 
                     <!--First slide-->
                     <div class="carousel-item active" style="">
-
                         @foreach($paket as $row)
                             <div class="col-md-3" style="float:left">
                                 <div class="card mb-2" style="border-radius: 10px;">
-                                    <img class="card-img"
-                                         src="{{ asset("/storage/img/paket/".$row->gambar )}}"
-                                         alt="Card image cap" style="height: 100%; width: 100%; object-fit: cover">
+                                    <div class="imgwrapper">
+                                        <img class="card-img-top"
+                                             src="{{asset('/storage/img/paket/'.$row->gambar)}}"
+                                             alt="Card image cap" style="height: 100%; width: 100%; object-fit: cover">
+                                    </div>
                                     <div class="card-body">
                                         <h7  class="card-title" style="font-weight: bold;">{{$row->nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )</h7>
-                                        <h5 style="color: #FF8311;"> Rp.{{number_format($row->harga_paket)}}</h5>
+                                        <h5 style="color: #ff8311;"> Rp.{{number_format($row->harga_paket)}}</h5>
                                         <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
                                         <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
                                         <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
@@ -210,16 +211,13 @@
                         @endforeach
 
                     </div>
-                    {{--                   s--}}
-
-
                 </div>
                 <!--/.Slides-->
             </div>
 
-            <div class="col-auto" style="margin-top: 190px">
-                <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a>
-            </div>
+{{--            <div class="col-auto" style="margin-top: 190px">--}}
+{{--                <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a>--}}
+{{--            </div>--}}
 
         </div>
 
@@ -291,5 +289,81 @@
         @endforeach
     </div>
 
+<style>
+    .carousel-multi-item.v-2.product-carousel .carousel-inner .carousel-item.active,
+    .carousel-multi-item.v-2.product-carousel .carousel-item-next,
+    .carousel-multi-item.v-2.product-carousel .carousel-item-prev {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex; }
+    .carousel-multi-item.v-2.product-carousel .carousel-item-right.active,
+    .carousel-multi-item.v-2.product-carousel .carousel-item-next {
+        -webkit-transform: translateX(20%);
+        -ms-transform: translateX(20%);
+        transform: translateX(20%); }
+    .carousel-multi-item.v-2.product-carousel .carousel-item-left.active,
+    .carousel-multi-item.v-2.product-carousel .carousel-item-prev {
+        -webkit-transform: translateX(-20%);
+        -ms-transform: translateX(-20%);
+        transform: translateX(-20%); }
+    .carousel-multi-item.v-2.product-carousel .carousel-item-right,
+    .carousel-multi-item.v-2.product-carousel .carousel-item-left {
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0); }
+    .carousel-multi-item.v-2.product-carousel *, .carousel-multi-item.v-2.product-carousel ::after, .carousel-multi-item.v-2.product-carousel ::before {
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box; }
+    .fuchsia-rose-text {
+        color: #db0075;
+    }
+    .aqua-sky-text {
+        color: #5cc6c3;
+    }
+    .mimosa-text {
+        color: #F0C05A;
+    }
+    .list-inline-item .fas, .list-inline-item .far {
+        font-size: .8rem;
+    }
+    .chili-pepper-text {
+        color: #9B1B30;
+    }
+    .carousel-multi-item .controls-top .btn-floating {
+        background: #F8CDCD;
+    }
+    .carousel-multi-item .carousel-indicators li {
+        height: .75rem;
+        width: .75rem;
+        max-width: .75rem;
+        background-color: #5cc6c3;
+    }
+    .carousel-multi-item .carousel-indicators .active {
+        height: 1rem;
+        width: 1rem;
+        max-width: 1rem;
+        background-color: #5cc6c3;
+    }
+    .carousel-multi-item .carousel-indicators {
+        margin-bottom: -1rem;
+    }
+</style>
+    <script>
+        $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function(){
+            var next = $(this).next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
 
+            for (var i=0;i<3;i++) {
+                next=next.next();
+                if (!next.length) {
+                    next = $(this).siblings(':first');
+                }
+                next.children(':first-child').clone().appendTo($(this));
+            }
+        });
+    </script>
 @endsection

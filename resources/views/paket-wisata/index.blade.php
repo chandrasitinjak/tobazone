@@ -51,7 +51,7 @@
                         <div class="col-md-4" style="float:left">
                             <div class="card mb-2" style="border-radius: 10px;">
                                 <img class="card-img-top"
-                                     src="{{asset('storage/img/paket/'.$row->gambar)}}" alt="Card image cap" style="height: 300px">
+                                     src="{{asset('storage/img/paket/'.$row->gambar)}}" alt="Card image cap" style="height: 100%; width: 100%; object-fit: cover">
                                 <div class="card-body">
                                     <h7  class="card-title" style="font-weight: bold;">{{$row->nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{$row->durasi}} )</h7>
                                     <h5 style="color: #FF8311;">Rp.5000000</h5>

@@ -108743,8 +108743,11 @@ var ProdukTerlaris2 = __webpack_require__(/*! ./components/homes/ProdukTerlaris2
 
 var PaketRating = __webpack_require__(/*! ./components/paket/Rating */ "./resources/js/components/paket/Rating.vue")["default"];
 
-var HomestayTerlaris = __webpack_require__(/*! ./components/homestay/HomestayTerlaris */ "./resources/js/components/homestay/HomestayTerlaris.vue")["default"]; // const Test = require('./components/test/test');
+var UbahHomestayRoomCards = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './components/homestay/room/UbahRoomCards'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))["default"];
 
+var HomestayTerlaris = __webpack_require__(/*! ./components/homestay/HomestayTerlaris */ "./resources/js/components/homestay/HomestayTerlaris.vue")["default"];
+
+var SuccessOrder = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './components/homestay/merchant/SuccessOrder'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))["default"];
 
 Vue.component('star-rating', vue_star_rating__WEBPACK_IMPORTED_MODULE_4___default.a);
 Vue.mixin({
@@ -108768,7 +108771,6 @@ var app = new Vue({
     AkunPending: AkunPending,
     UserRating: UserRating,
     UserRatingSecond: UserRatingSecond,
-    // Test,
     AddToWishlistButton: AddToWishlistButton,
     Carousel: Carousel,
     NewProducts: NewProducts,
@@ -108810,7 +108812,9 @@ var app = new Vue({
     NewOrder: NewOrder,
     ProdukTerlaris2: ProdukTerlaris2,
     PaketRating: PaketRating,
-    HomestayTerlaris: HomestayTerlaris
+    UbahHomestayRoomCards: UbahHomestayRoomCards,
+    HomestayTerlaris: HomestayTerlaris,
+    SuccessOrder: SuccessOrder
   },
   data: function data() {
     return {
@@ -112965,8 +112969,8 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\tobazone-v3\tobazone\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\tobazone-v3\tobazone\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Backup Data Kristopel\Kuliah ITdel\Semester 7\1144102 - Project Management\tobazone 2\tobazone\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Backup Data Kristopel\Kuliah ITdel\Semester 7\1144102 - Project Management\tobazone 2\tobazone\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

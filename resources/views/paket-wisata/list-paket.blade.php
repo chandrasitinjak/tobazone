@@ -59,7 +59,7 @@
                         <div class="card products" style="border-radius: 10px;">
                             <a href="{{route('paket.detail',$row->id_paket)}}">
                                 <div class="imgwrapper">
-                                    <img class="card-img"
+                                    <img class="card-img-top"
                                          src="{{asset('/storage/img/paket/'.$row->gambar)}}"
                                          alt="Card image cap" style="height: 100%; width: 100%; object-fit: cover">
                                 </div>
