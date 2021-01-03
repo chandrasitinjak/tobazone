@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="d-flex justify-content-center">
-      <h3>Informasi yang ingin dicari</h3>
+      <h3>Informasi Yang Ingin Dicari</h3>
     </div>
     <div class="container">
       <div class="row justify-content-center">
