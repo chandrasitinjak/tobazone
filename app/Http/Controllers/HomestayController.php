@@ -185,6 +185,7 @@ class HomestayController extends Controller
             return abort(Response::HTTP_UNAUTHORIZED, 'Not authorized user');
         }
 
+        $orderss= HomestayTransactions::find($idOrder);
         $orderDetail = HomestayOrders::where('id_transaction', $idOrder)
             ->where('id_customer', $user->id)
             ->get();
@@ -194,7 +195,8 @@ class HomestayController extends Controller
             abort(404, 'Page not found.');
         }
 
-        return view('users.customers.homestays.order_detail')->with('orderDetail', $orderDetail);
+
+        return view('users.customers.homestays.order_detail',compact('orderDetail','orderss'));
     }
 
     public function findById($id)
@@ -296,9 +298,9 @@ class HomestayController extends Controller
     public function approvePenginapan(Request $request, $id)
     {
 
-        $homestay_id = HomestayOrders::find($id);
+        $homestay_id = HomestayTransactions::find($id);
+        $affected = DB::table('homestay_orders')->where('id_transaction', '=', $id)->update(array('status' => 'accepted'));
         $homestay_id->status = "accepted";
-
         $homestay_id->update();
         //redirect
 
@@ -308,9 +310,9 @@ class HomestayController extends Controller
     public function rejectedPenginapan(Request $request, $id)
     {
 
-        $homestay_id = HomestayOrders::find($id);
+        $affected = DB::table('homestay_orders')->where('id_transaction', '=', $id)->update(array('status' => 'accepted'));
+        $homestay_id = HomestayTransactions::find($id);
         $homestay_id->status = "rejected";
-
         $homestay_id->update();
 
         return redirect('/admin/homestay/new-order')->with('success', 'Pesanan Ditolak');
@@ -319,7 +321,7 @@ class HomestayController extends Controller
     public function listPesananPenginapan()
     {
 
-        $data = HomestayOrders::all();
+        $data = HomestayTransactions::all();
 
         return view('users.merchants.homestays.ListPesananPenginapan')->with('data', $data);
     }
@@ -512,7 +514,7 @@ class HomestayController extends Controller
             ->join('homestays', 'id_homestay', '=', 'homestays.id')
             ->select('homestay_orders.*', 'homestays.name', 'users.username', 'homestays.address')
             ->whereIn('homestay_orders.status', ['In Progress', 'Pending'])->get();
-        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_orders AS ho JOIN homestays AS h ON ho.id_homestay = h.id JOIN users AS u ON ho.id_customer = u.id WHERE ho.status = 'Pending'");
+        $query = DB::Select("SELECT ho.* , h.name, h.address , u.username FROM homestay_transaction AS ho JOIN homestays AS h ON ho.homestay_id = h.id JOIN users AS u ON ho.user_id = u.id WHERE ho.status = 'Pending'");
         return view('admin.orders.homestay-new-order')->with('transactions', $query);
     }
 

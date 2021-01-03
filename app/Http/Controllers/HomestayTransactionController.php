@@ -11,6 +11,7 @@ use App\HomestayOrders;
 use App\HomestayRooms;
 use App\HomestayTransactions;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\Types\Integer;
 
@@ -18,6 +19,17 @@ class HomestayTransactionController extends Controller
 {
 
     public function bulkBookedHomestay(Request $request){
+        $user = Auth::user();
+        if (!$user) {
+            // Redirect to 401 page if user is not logged in.
+            return abort(Response::HTTP_UNAUTHORIZED, 'Not authorized user');
+        }
+        if(!$request->checkbox){
+            echo "<script>";
+            echo "alert('hello');";
+            echo "</script>";
+            return redirect()->back()->with('alert','hello');
+        }
         $price =0;
         $id_homestay=0;
         echo $request->durasi;
