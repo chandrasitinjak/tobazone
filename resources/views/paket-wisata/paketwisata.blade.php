@@ -7,15 +7,15 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{ '/images/banners/banner.png'}}"
+                        <img class="d-block w-100" src="{{ asset('/images/banners/banner.png')}}"
                              alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ '/images/banners/banner2.png'}}"
+                        <img class="d-block w-100" src="{{ asset('/images/banners/banner2.png')}}"
                              alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ '/images/banners/banner3.png'}}"
+                        <img class="d-block w-100" src="{{ asset('/images/banners/banner3.png')}}"
                              alt="Third slide">
                     </div>
                 </div>
