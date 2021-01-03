@@ -75,7 +75,7 @@
 
                         <td>
                             <center>
-                                @if($orderDetail[0]->status == 'Pending')
+                                @if($orderss->status == 'Pending')
                                 <button
                                     type="button"
                                     class="btn essence-btn"
@@ -83,17 +83,18 @@
                                     data-target="#exampleModal"
                                 >Bayar
                                 </button>
-                                @elseif($orderDetail[0]->status == 'In Progress')
-                                <a href="{{ '/./images/'. $orderDetail->resi}}">
-                                    <img src="{{ '/./images/'. $orderDetail->resi}}"
+                                @elseif($orderss->status == 'In Progress')
+                                <a href="{{ '/./images/'. $orderss->resi}}">
+                                    <img src="{{ '/./images/'. $orderss->resi}}"
                                          style='width: 50%; object-fit: cover' alt="">
                                 </a>
                                 <br><br>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h3 style="color: #FF8311; ">
-                                            {{$orderDetail[0]->status}}</h3>
+                                            {{$orderss->status}}</h3>
                                     </div>
+                                    <br>
                                     <div class="col-md-3">
                                         <button
                                             type="button"
@@ -105,7 +106,7 @@
                                     </div>
                                 </div>
                                 @else
-                                <h3 style="color: #FF8311; ">{{$orderDetail[0]->status}}</h3>
+                                <h3 style="color: #28ff5f; ">{{$orderss->status}}</h3>
                                 @endif
                             </center>
                         </td>
