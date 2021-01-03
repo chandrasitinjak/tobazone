@@ -50,7 +50,7 @@
                                                                          aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                    <input type="date" name="checkIn" class="form-control"
+                                    <input type="date" name="checkIn" required class="form-control"
                                            id="inlineFormInputGroup">
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                                                          aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                    <input type="number" min="1" class="form-control"
+                                    <input type="number" min="1" required class="form-control"
                                            name="durasi" id="inlineFormInputGroup">
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                                                          aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                    <input type="number" min="1" name="totalRoom"
+                                    <input type="number" min="1" required name="totalRoom"
                                            class="form-control" id="inlineFormInputGroup">
                                 </div>
                             </div>
