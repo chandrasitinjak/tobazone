@@ -2,6 +2,7 @@
 
 use App\Member;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class AddUserTableData extends Seeder
