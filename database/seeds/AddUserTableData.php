@@ -1,5 +1,7 @@
 <?php
 
+use App\Member;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class AddUserTableData extends Seeder
