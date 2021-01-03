@@ -333,7 +333,7 @@
                 </li>
                 <li class="nav-item dropdown ml-30">
                     <a class="nav-link dropdown text-white" href="{{ url('/user/homestays') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <span data-toggle="tooltip" data-placement="right" title="Homestay, guesthouse, losmen, hotel, villa">Akomodasi</span>
+                        <span data-toggle="tooltip" data-placement="right" title="Homestay, guesthouse, losmen, hotel, villa">Penginapan</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     </div>

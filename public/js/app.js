@@ -79484,7 +79484,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("div", { staticClass: "d-flex justify-content-center" }, [
-        _c("h3", [_vm._v("Informasi yang ingin dicari")])
+        _c("h3", [_vm._v("Informasi Yang Ingin Dicari")])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
