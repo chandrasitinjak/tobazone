@@ -6,6 +6,7 @@ use App\Transaction;
 use App\User;
 use App\Order;
 use App\Product;
+Use App\Profile;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -72,7 +73,7 @@ class TransactionController extends Controller
     }
 
     public function getRejectedOrderDetail($id) {
-        $transaction = Transaction::with(['orders', 'customer', 'payment', 'customer.profile'])->where('id', $id)->first();        
+        $transaction = Transaction::with(['orders', 'customer', 'payment', 'customer.profile'])->where('id', $id)->first();
         return view('admin.orders.rejected-order-detail')->with('transaction', $transaction);
     }
 
@@ -96,13 +97,42 @@ class TransactionController extends Controller
         $transaction->status = $request->status;
         $transaction->update();
 
-        $order = Order::all()->where('transaction_id', $id);    
+        //get merchant_id from transaction
+        $data = Transaction::all()->where('id',$id);
+        foreach ($data as $datas){
+            $merchant_id = $datas['merchant_id'];
+        }
+
+        //get merchant_id from transaction
+        $data = Transaction::all()->where('id',$id);
+        foreach ($data as $datas){
+            $merchant_id = $datas['merchant_id'];
+        }
+
+        //Get Phone Number of Merchant
+        $mData = Profile::all()->where('user_id',$merchant_id);
+        foreach ($mData as $mDatas){
+            $phone = $mDatas['phone'];
+        }
+        $contact = str_replace("0","62",$phone);
+        echo $contact;
+
+        $basic  = new \Nexmo\Client\Credentials\Basic('c5fd2012', '6K5Lqw8gLaMEUEQR');
+        $client = new \Nexmo\Client($basic);
+
+        $message = $client->message()->send([
+            'to' => $contact,
+            'from' => 'Toba Zone Official',
+            'text' => 'Seseorang telah melakukan pemesanan di toko Anda. Silahkan lakukan konfirmasi pemesanan'
+        ]);
+
+        $order = Order::all()->where('transaction_id', $id);
 
         $data_order;
 
         // $i = 0;
         foreach($order as $ordr) {
-            // $data_order[$i]['id_produk'] = $ordr['product_id'];  
+            // $data_order[$i]['id_produk'] = $ordr['product_id'];
             // $data_order[$i]['quantity'] = $ordr['quantity'];
 
             $data_produk = Product::find($ordr['product_id']);
@@ -110,7 +140,7 @@ class TransactionController extends Controller
             $data_produk->sold =  $ordr['quantity'];
             $data_produk->update();
             // $i++;
-        }        
+        }
         return redirect('/admin/new-order');
     }
 
