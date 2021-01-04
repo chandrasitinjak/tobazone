@@ -213,16 +213,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Harga Kamar/malam
-                            <span
-                                class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>
-                        </label>
-                        <div class="col-sm-9">
-                            <input type="number" class="form-control" v-model="price"
-                                   aria-describedby="namaprodukhelp" min="1" name="price">
-                        </div>
-                    </div>
+<!--                    <div class="form-group row">-->
+<!--                        <label class="col-sm-3 col-form-label">Harga Kamar/malam-->
+<!--                            <span-->
+<!--                                class="formbadge text-muted badge badge-secondary font-weight-light">Wajib</span>-->
+<!--                        </label>-->
+<!--                        <div class="col-sm-9">-->
+<!--                            <input type="number" class="form-control" v-model="price"-->
+<!--                                   aria-describedby="namaprodukhelp" min="1" name="price">-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Deskripsi Homestay
                             <span
@@ -316,7 +316,7 @@
                 subdistricts: [],
                 image:'',
                 name: '',
-                price:'',
+                price:0,
                 totalRoom:'',
                 roomAvailable:'',
                 description:'',
