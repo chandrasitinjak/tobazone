@@ -120,7 +120,16 @@ class HomestayController extends Controller
         return view('users.homestay.after_search_page')->with('homestays', $homestays);
     }
 
-
+    public function search_get(Request $request)
+    {
+        $query = $request->query('kabupaten');
+        $result = DB::table('homestays')
+            ->join('users', 'users.id', '=', 'homestays.merchant_id')
+            ->select('homestays.*', 'users.username')
+            ->where('homestays.kabupaten', '=', $query)
+            ->get();
+        return view('users.homestay.after_search_page')->with('homestays', $result);
+    }
     public function searchInAllPage(Request $request)
     {
         $where = '';

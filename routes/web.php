@@ -362,6 +362,7 @@ Route::get('/homestays/create', 'HomestayController@createDataPage');
 Route::post('/homestays/save', 'HomestayController@store');
 
 Route::post('/homestays/search', 'HomestayController@search');
+Route::get('/homestays/search', 'HomestayController@search_get');
 Route::post('/homestays/searchInAllPage', 'HomestayController@searchInAllPage');
 Route::get('/homestays/searchPage', 'HomestayController@searchTest');
 Route::post('/homestays/order/upload-resi/{id}', 'HomestayController@uploadResi');
