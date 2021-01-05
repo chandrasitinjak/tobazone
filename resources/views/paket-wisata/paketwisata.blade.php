@@ -179,6 +179,7 @@
     {{--                </div>--}}
     {{--            </div>--}}
     <!--Carousel Wrapper-->
+    @if($paket->count()!=0)
     <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
         <center>
@@ -235,6 +236,7 @@
 
 
     </div>
+    @endif
     <br>
     <!--/.Carousel Wrapper-->
 

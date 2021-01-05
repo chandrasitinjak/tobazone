@@ -27,13 +27,6 @@
                                     <div class="card-body">
                                         <h7 class="card-title" style="font-weight: bold">{{paket.nama_paket}} ( <i class="fa fa-clock-o"></i> &nbsp;{{paket.durasi}} )</h7>
                                         <h5 style="color: #FF8311;">Rp.{{formatPrice(paket.harga_paket)}}</h5>
-                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
-                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
-                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
-                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
-                                        <li class="list-inline-item" style="color: #ffc000;"><i class="fa fa-star"></i></li>
-
-                                        <h5 style="color: #FF8311;"></h5>
                                         <p></p>
                                         <p class="card-text">
                                             <medium class="text-muted  float-right"> &nbsp;{{paket.get_kabupaten.nama_kabupaten}}</medium>

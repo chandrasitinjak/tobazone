@@ -257,9 +257,10 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function showRequest($id_member)
     {
-        return view('admin.member-cbt.detail-member');
+        $member = Member::where('user_id',$id_member)->first();
+        return view('admin.member-cbt.detail-member', compact('member'));
     }
 
     public function detailMember($id_member)
