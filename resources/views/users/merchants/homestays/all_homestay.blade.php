@@ -76,7 +76,7 @@
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card">
                     <div class=" single-product-wrapper" style="margin: 10px;">
-                        <a href="{{ '../images/assets/no-image.jpg'}}">
+                        <a href="{{ url('/homestays/find', $product->id)}}">
                             <div class="product-img">
 
                                 <img src="{{ '../../images/'.$product->image}}" style=' object-fit: cover' alt="">
