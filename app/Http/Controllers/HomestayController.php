@@ -580,7 +580,9 @@ class HomestayController extends Controller
 
     public function deleteOrder($id)
     {
-        $order = HomestayOrders::find($id);
+        $order = HomestayTransactions::find($id);
+        $order_all = HomestayOrders::where('id_transaction', '=', $id);
+        $order_all ->delete();
         $order->delete();
         return redirect('/user/homestay/order/findAll');
     }

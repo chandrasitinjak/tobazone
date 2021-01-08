@@ -32,7 +32,6 @@ class HomestayTransactionController extends Controller
         }
         $price =0;
         $id_homestay=0;
-        echo $request->durasi;
         for( $i=0 ; $i<sizeof($request->checkbox) ; $i++){
             $rooms = HomestayRooms::find($request->checkbox[$i]);
             $id_homestay= $rooms->id_homestay;
