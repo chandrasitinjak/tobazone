@@ -20,7 +20,7 @@
     "vue": "^2.5.7"
   },
   "dependencies": {
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "npm": "^6.4.1",
     "sweetalert2": "^9.15.2",
     "vue-carousel": "^0.16.0-rc2",
